@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
 <title>MGE — Macroeconomics in the Global Economy</title>
 <script>
   MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']] }, svg: { fontCache: 'local' } };
@@ -1072,33 +1073,167 @@ The rule <em>wants</em> \(-6\%\), but cash pays 0% so the nominal rate is floore
 <p><strong>Policy rule for supply shocks:</strong> central banks should <em>not</em> react if inflation expectations are anchored — but post-COVID showed anchoring can't be assumed.</p>
 
 <h3>The Yield Curve</h3>
+<p>One of the most heavily-examined topics. Almost every yield-curve question is the same task in disguise: <strong>something changes → say whether the curve shifts up/down, steepens, flattens, or inverts, and why.</strong> Get the one identity below, then drill the scenario library.</p>
+
+<div class="intuition"><span class="tag">🎙 Intuition</span> A long bond's yield is just the <strong>average interest rate you expect to earn over its whole life</strong>, plus a small premium for locking your money up. So the long end is a forecast of where short rates are going. That single idea generates every answer: ask "what does this news do to the <em>expected path of future short rates</em> (and to inflation)?" and the curve follows.</div>
+
 <div class="twocol">
 <div>
 <figure>
-<svg viewBox="0 0 300 230" aria-label="Yield curve finance">
-  <line class="axis" x1="50" y1="20" x2="50" y2="195"/><line class="axis" x1="50" y1="195" x2="285" y2="195"/>
-  <text class="sm" x="14" y="30">Yield</text><text class="sm" x="225" y="217">Maturity</text>
-  <path class="LM" d="M65,160 Q150,90 275,70" fill="none"/>
-  <line class="grid dash" x1="50" y1="160" x2="275" y2="160"/>
-  <text class="sm" x="150" y="115">term premium →</text>
+<svg viewBox="0 0 300 215" aria-label="Yield curve finance">
+  <line class="axis" x1="50" y1="20" x2="50" y2="185"/><line class="axis" x1="50" y1="185" x2="285" y2="185"/>
+  <text class="sm" x="14" y="30">Yield</text><text class="sm" x="222" y="205">Maturity →</text>
+  <text class="sm" x="58" y="200">short</text><text class="sm" x="248" y="200">long (10y)</text>
+  <path class="LM" d="M65,150 Q150,85 275,68" fill="none"/>
+  <line class="grid dash" x1="50" y1="150" x2="275" y2="150"/>
+  <line class="grid dash" x1="275" y1="150" x2="275" y2="68"/>
+  <text class="sm" x="150" y="108">term premium ↑</text>
 </svg>
-<figcaption>Finance view: normally upward-sloping (a term premium for holding longer).</figcaption>
+<figcaption>Finance view: normally upward-sloping — a <em>term premium</em> compensates you for holding longer.</figcaption>
 </figure>
 </div>
 <div>
-<div class="key" style="margin-top:30px;">
-<strong>Macro view — long rates have two parts:</strong>
-<ol style="margin-bottom:0;">
-<li>The equilibrium <strong>long-run real rate</strong> (set by global S &amp; I — L2: growth, demographics, technology).</li>
-<li><strong>Expected inflation</strong> over the long run (central-bank credibility).</li>
+<div class="key" style="margin-top:18px;">
+<strong>Macro view — the long rate has three parts:</strong>
+<ol style="margin-bottom:6px;">
+<li>The equilibrium <strong>long-run real rate</strong> (global S &amp; I — L2: growth, demographics, technology).</li>
+<li><strong>Expected inflation</strong> over the bond's life (central-bank credibility).</li>
+<li>A <strong>term premium</strong> (extra yield for duration/supply risk).</li>
 </ol>
-<div class="wex" style="margin:8px 0 6px;"><span class="h">Worked decomposition</span> A 4% 10-year yield = ~1.5% long-run real rate + ~2.5% expected inflation. If the central bank credibly promises to cut inflation, the expected-inflation piece falls (say to 1.5%) → the long yield drops to ~3% — even if short rates haven't moved.</div>
-Short rates are set by the CB via the Taylor Rule (high in booms, low in recessions). An <strong>inversion</strong> (short &gt; long) can signal a coming recession — <em>or</em> simply that the market expects the CB to succeed at cutting inflation (so long rates fall, as in the box above). Don't read inversion as automatic recession.
+Short rates are set by the CB via the Taylor Rule (high in booms, low in slumps). The two views are the same thing: the expected future short rates <em>are</em> expected real rate + expected inflation.
 </div>
 </div>
 </div>
-<div class="key"><strong>The bond-supply / term-premium channel (how QE moves the long end).</strong> Long-term rates are also a price set by the supply of and demand for long bonds. <strong>QE</strong> = the CB <em>buying</em> long bonds ⟹ higher demand ⟹ higher price ⟹ <em>lower</em> long yield ⟹ flatter curve. Symmetrically, if the <strong>government issues more long-dated debt</strong> (lengthens its maturity), that extra supply ⟹ lower bond prices ⟹ <em>higher</em> long yields ⟹ it partly <em>undoes</em> QE. So QE and debt-management policy push on the same lever in opposite directions.</div>
-<div class="exam"><b>Exam lens.</b> Yield-curve questions ask you to <em>shift the curve</em>: news of higher inflation before the CB acts ⟹ long rates rise first ⟹ <em>steeper</em>; credible disinflation ⟹ long rates fall ⟹ <em>flatter/inverted</em>. If a question pits QE against the government lengthening its debt maturity, use the bond-supply channel above. "Disinflation always causes unemployment" is a listed <strong>myth</strong> — 2021-24 is your counterexample.</div>
+
+<div class="eq">
+<div class="lbl">The one identity behind every question</div>
+$$ i_t^{(n)} \;\approx\; \underbrace{\tfrac{1}{n}\big(\,\mathbb{E}[i_t]+\mathbb{E}[i_{t+1}]+\dots+\mathbb{E}[i_{t+n-1}]\,\big)}_{\text{average expected future short rate}} \;+\; \underbrace{\phi^{(n)}}_{\text{term premium}} $$
+<ol style="margin-bottom:0;">
+<li>The <strong>n-year yield</strong> = the average short rate you expect to roll over for n years, plus a term premium.</li>
+<li>Each expected short rate splits (Fisher) into <strong>expected real rate + expected inflation</strong>. So: <em>long yield ≈ avg expected real rate + avg expected inflation + term premium</em> — the macro view above.</li>
+<li><strong>Slope = forecast.</strong> Long &gt; short ⟹ market expects rates to <em>rise</em> (or a fat term premium). Long &lt; short (<strong>inverted</strong>) ⟹ market expects rates to <em>fall</em> — because a recession is coming <em>or</em> because credible disinflation will let the CB cut.</li>
+</ol>
+</div>
+
+<div class="wex"><span class="h">Worked decomposition</span> A 4% 10-year yield ≈ 1.5% long-run real rate + 2.5% expected inflation (+ ~0 term premium). If the CB <em>credibly</em> promises to cut inflation, the expected-inflation piece falls to ~1.5% → the 10y yield drops to ~3% <strong>even if today's short rate hasn't moved</strong>. That single move is the engine behind half the scenarios below.</div>
+
+<h4>Reading the slope</h4>
+<div class="twocol" style="gap:14px;">
+<div class="key" style="border-left-color:var(--green-light);"><strong style="color:var(--green-light)">Upward (normal).</strong> Market expects short rates roughly stable-to-rising; positive term premium. Read: economy fine, no cuts priced.</div>
+<div class="key" style="border-left-color:#a8740a;"><strong style="color:#a8740a">Flat.</strong> Market unsure / late-cycle turning point. Expected future short rates ≈ today's. Often the step <em>before</em> an inversion.</div>
+<div class="pitfall"><b>Inverted (short &gt; long).</b> Market expects future short rates <em>below</em> today's. Two stories: (a) recession coming → CB will cut; (b) credible disinflation → real + inflation expectations fall. <strong>Inversion ≠ guaranteed recession</strong> (2023 → soft landing).</div>
+</div>
+
+<h4>Scenario library — shift the curve</h4>
+<p class="sm" style="margin:-2px 0 12px;">Each panel: grey dashed = starting curve, solid coloured = after the shock. Trace it short-end-first, then long-end. The verdict word (steepen / flatten / invert) is what the marker wants.</p>
+<div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(285px,1fr)); gap:16px;">
+
+<!-- S1 inflation surprise -->
+<div style="background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:12px;">
+<div style="font-weight:700;margin-bottom:2px;">1 · Inflation surprise, <em>before</em> the CB acts</div>
+<span style="display:inline-block;background:#2e7d32;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;margin-bottom:6px;">Bear steepener (long ↑)</span>
+<svg viewBox="0 0 220 150" style="width:100%;background:#fff;">
+  <line x1="34" y1="120" x2="208" y2="120" stroke="#999" stroke-width="1"/><line x1="34" y1="120" x2="34" y2="16" stroke="#999" stroke-width="1"/>
+  <text x="6" y="24" font-size="10" fill="#555">Yield</text><text x="150" y="135" font-size="10" fill="#555">Maturity</text>
+  <path d="M46,92 Q120,62 198,50" fill="none" stroke="#bbb" stroke-width="2.2" stroke-dasharray="5 3"/>
+  <path d="M46,92 Q120,50 198,28" fill="none" stroke="#2e7d32" stroke-width="2.8"/>
+  <text x="198" y="22" font-size="14" fill="#2e7d32" text-anchor="middle" font-weight="700">↑</text>
+  <circle cx="46" cy="92" r="3" fill="#333"/><text x="40" y="108" font-size="9" fill="#555">short anchored</text>
+</svg>
+<div style="font-size:13.5px;margin-top:4px;">↑ expected inflation ⟹ long yields rise; CB hasn't moved short rates yet ⟹ <strong>curve steepens</strong>.</div>
+<div class="sm" style="margin-top:5px;"><b>Why:</b> the long end prices in higher average inflation immediately; the short end is pinned to today's policy rate. <em>e.g.</em> 2021 inflation scare before the Fed lifted off.</div>
+</div>
+
+<!-- S2 credible disinflation -->
+<div style="background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:12px;">
+<div style="font-weight:700;margin-bottom:2px;">2 · Credible disinflation (hawk hikes <em>now</em>)</div>
+<span style="display:inline-block;background:#b03030;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;margin-bottom:6px;">Inverts</span>
+<svg viewBox="0 0 220 150" style="width:100%;background:#fff;">
+  <line x1="34" y1="120" x2="208" y2="120" stroke="#999" stroke-width="1"/><line x1="34" y1="120" x2="34" y2="16" stroke="#999" stroke-width="1"/>
+  <text x="6" y="24" font-size="10" fill="#555">Yield</text><text x="150" y="135" font-size="10" fill="#555">Maturity</text>
+  <path d="M46,92 Q120,62 198,50" fill="none" stroke="#bbb" stroke-width="2.2" stroke-dasharray="5 3"/>
+  <path d="M46,52 Q120,62 198,74" fill="none" stroke="#b03030" stroke-width="2.8"/>
+  <text x="46" y="44" font-size="14" fill="#b03030" text-anchor="middle" font-weight="700">↑</text>
+  <text x="200" y="92" font-size="14" fill="#b03030" text-anchor="middle" font-weight="700">↓</text>
+</svg>
+<div style="font-size:13.5px;margin-top:4px;">CB hikes short rate to prove resolve ⟹ short ↑; market believes inflation will fall ⟹ long ↓ ⟹ <strong>inversion</strong>.</div>
+<div class="sm" style="margin-top:5px;"><b>Why:</b> tight policy today + lower expected inflation tomorrow = high short, low long. <em>e.g.</em> Volcker 1980-81; the 2022-23 hiking cycle.</div>
+</div>
+
+<!-- S3 tightening, long anchored -->
+<div style="background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:12px;">
+<div style="font-weight:700;margin-bottom:2px;">3 · Hike expectations, long end anchored</div>
+<span style="display:inline-block;background:#b03030;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;margin-bottom:6px;">Bear flattener (short ↑)</span>
+<svg viewBox="0 0 220 150" style="width:100%;background:#fff;">
+  <line x1="34" y1="120" x2="208" y2="120" stroke="#999" stroke-width="1"/><line x1="34" y1="120" x2="34" y2="16" stroke="#999" stroke-width="1"/>
+  <text x="6" y="24" font-size="10" fill="#555">Yield</text><text x="150" y="135" font-size="10" fill="#555">Maturity</text>
+  <path d="M46,92 Q120,62 198,50" fill="none" stroke="#bbb" stroke-width="2.2" stroke-dasharray="5 3"/>
+  <path d="M46,60 Q120,54 198,49" fill="none" stroke="#b03030" stroke-width="2.8"/>
+  <text x="46" y="52" font-size="14" fill="#b03030" text-anchor="middle" font-weight="700">↑</text>
+  <circle cx="198" cy="50" r="3" fill="#333"/><text x="150" y="44" font-size="9" fill="#555">long anchored</text>
+</svg>
+<div style="font-size:13.5px;margin-top:4px;">Market prices near-term hikes but expects the rate to <em>return to neutral</em> ⟹ short ↑, long ≈ same ⟹ <strong>flattens</strong>.</div>
+<div class="sm" style="margin-top:5px;"><b>Why:</b> the long rate is anchored to the long-run neutral rate + inflation target; a temporary hiking cycle barely moves it. Contrast with #2 (there, long <em>falls</em> because expected inflation drops).</div>
+</div>
+
+<!-- S4 easing / recession priced -->
+<div style="background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:12px;">
+<div style="font-weight:700;margin-bottom:2px;">4 · Cuts priced ahead (recession fear)</div>
+<span style="display:inline-block;background:#1f5fa8;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;margin-bottom:6px;">Long ↓ → inverts, then bull-steepens</span>
+<svg viewBox="0 0 220 150" style="width:100%;background:#fff;">
+  <line x1="34" y1="120" x2="208" y2="120" stroke="#999" stroke-width="1"/><line x1="34" y1="120" x2="34" y2="16" stroke="#999" stroke-width="1"/>
+  <text x="6" y="24" font-size="10" fill="#555">Yield</text><text x="150" y="135" font-size="10" fill="#555">Maturity</text>
+  <path d="M46,92 Q120,62 198,50" fill="none" stroke="#bbb" stroke-width="2.2" stroke-dasharray="5 3"/>
+  <path d="M46,84 Q120,86 198,90" fill="none" stroke="#1f5fa8" stroke-width="2.8"/>
+  <text x="200" y="74" font-size="14" fill="#1f5fa8" text-anchor="middle" font-weight="700">↓</text>
+</svg>
+<div style="font-size:13.5px;margin-top:4px;">Market expects the CB to <em>cut</em> soon ⟹ average future short rate falls ⟹ long ↓ below short ⟹ <strong>inverts</strong>. When cuts actually arrive, the short end drops and it <strong>bull-steepens</strong>.</div>
+<div class="sm" style="margin-top:5px;"><b>Why:</b> the long yield is an average of the (now-lower) expected path. The classic recession-signal inversion. <em>But</em> it can also be the soft-landing version of #2.</div>
+</div>
+
+<!-- S5 QE -->
+<div style="background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:12px;">
+<div style="font-weight:700;margin-bottom:2px;">5 · QE — CB buys long bonds</div>
+<span style="display:inline-block;background:#1f5fa8;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;margin-bottom:6px;">Flattener (term premium ↓)</span>
+<svg viewBox="0 0 220 150" style="width:100%;background:#fff;">
+  <line x1="34" y1="120" x2="208" y2="120" stroke="#999" stroke-width="1"/><line x1="34" y1="120" x2="34" y2="16" stroke="#999" stroke-width="1"/>
+  <text x="6" y="24" font-size="10" fill="#555">Yield</text><text x="150" y="135" font-size="10" fill="#555">Maturity</text>
+  <path d="M46,98 Q120,66 198,52" fill="none" stroke="#bbb" stroke-width="2.2" stroke-dasharray="5 3"/>
+  <path d="M46,98 Q120,82 198,74" fill="none" stroke="#1f5fa8" stroke-width="2.8"/>
+  <text x="200" y="62" font-size="14" fill="#1f5fa8" text-anchor="middle" font-weight="700">↓</text>
+  <circle cx="46" cy="98" r="3" fill="#333"/><text x="38" y="114" font-size="9" fill="#555">short ≈ ZLB</text>
+</svg>
+<div style="font-size:13.5px;margin-top:4px;">CB <em>buys</em> long bonds ⟹ higher demand ⟹ higher price ⟹ <strong>lower long yield</strong>, compressing the term premium ⟹ flattens. The tool for when short rates are stuck at zero.</div>
+<div class="sm" style="margin-top:5px;"><b>Why:</b> the bond-supply channel (below). With the short end pinned at the ZLB, the only way to ease is to pull the long end down directly. <em>e.g.</em> BoJ yield-curve control; Fed/ECB post-2008.</div>
+</div>
+
+<!-- S6 issuance / term premium shock -->
+<div style="background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:12px;">
+<div style="font-weight:700;margin-bottom:2px;">6 · Heavy long-dated issuance / fiscal-risk shock</div>
+<span style="display:inline-block;background:#a8740a;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;margin-bottom:6px;">Bear steepener (term premium ↑)</span>
+<svg viewBox="0 0 220 150" style="width:100%;background:#fff;">
+  <line x1="34" y1="120" x2="208" y2="120" stroke="#999" stroke-width="1"/><line x1="34" y1="120" x2="34" y2="16" stroke="#999" stroke-width="1"/>
+  <text x="6" y="24" font-size="10" fill="#555">Yield</text><text x="150" y="135" font-size="10" fill="#555">Maturity</text>
+  <path d="M46,92 Q120,62 198,50" fill="none" stroke="#bbb" stroke-width="2.2" stroke-dasharray="5 3"/>
+  <path d="M46,92 Q120,52 198,32" fill="none" stroke="#a8740a" stroke-width="2.8"/>
+  <text x="198" y="26" font-size="14" fill="#a8740a" text-anchor="middle" font-weight="700">↑</text>
+</svg>
+<div style="font-size:13.5px;margin-top:4px;">Government floods the market with long bonds (or investors demand more for debt risk) ⟹ higher supply / risk premium ⟹ <strong>long yields rise</strong> ⟹ steepens. Partly <em>undoes</em> QE.</div>
+<div class="sm" style="margin-top:5px;"><b>Why:</b> same long-end move as #1 but via <em>supply / term premium</em>, not expected inflation — the distinction examiners test. <em>e.g.</em> 2025 rising-yield, high-debt environment (L11).</div>
+</div>
+
+</div>
+
+<div class="key" style="margin-top:16px;"><strong>The bond-supply / term-premium channel (powers #5 and #6).</strong> Long-term rates are also a price set by the supply of and demand for long bonds. <strong>QE</strong> = the CB <em>buying</em> long bonds ⟹ higher demand ⟹ higher price ⟹ <em>lower</em> long yield ⟹ flatter curve. Symmetrically, if the <strong>government issues more long-dated debt</strong> (lengthens its maturity), that extra supply ⟹ lower bond prices ⟹ <em>higher</em> long yields ⟹ it partly <em>undoes</em> QE. So QE and debt-management policy push on the same lever in opposite directions.</div>
+
+<div class="exam"><b>Exam lens.</b> Every yield-curve question reduces to: <em>what happens to the expected path of future short rates, to expected inflation, and to the term premium?</em> Then read the slope off the identity. The four moves and their triggers:
+<ul style="margin:6px 0 6px;">
+<li><strong>Steepen</strong> — long end up: inflation surprise pre-CB (#1), heavy issuance / fiscal risk (#6).</li>
+<li><strong>Flatten</strong> — short up & long anchored (#3), or QE pulling the long end down (#5).</li>
+<li><strong>Invert</strong> — credible disinflation (#2) or cuts/recession priced ahead (#4); <em>both</em> say "future short rates &lt; today's".</li>
+<li><strong>Shift up/down</strong> — a parallel change in the whole expected-rate path.</li>
+</ul>
+Two traps the marker plants: (i) reading <strong>inversion as automatic recession</strong> — it can be a credible-disinflation soft landing (2023); (ii) confusing the <strong>two ways the long end can rise</strong> — expected inflation (#1) vs supply/term premium (#6). If a question pits QE against the government lengthening its debt maturity, that's the bond-supply channel. "Disinflation always causes unemployment" is a listed <strong>myth</strong> — 2021-24 is your counterexample.</div>
 
 <!-- ---------- L11 ---------- -->
 <h2 id="l11">11 · Fiscal Policy &amp; Debt Sustainability</h2>

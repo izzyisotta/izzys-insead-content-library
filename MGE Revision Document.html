@@ -928,6 +928,13 @@ $$\text{GDP} = C(\underset{+\ -\ -\ +}{\text{GDP},r,T,W}) + I(\underset{-}{r}) +
 
 <h3>The ZLB trap</h3>
 <p>In a deep recession all three Taylor inputs point down: low natural real rate \(r^*\) (excess saving over investment — the L2 market), low/negative inflation, big negative output gap. Desired nominal rate &lt; 0. But cash pays 0%, so <strong>nominal rates can't go negative</strong>. Rates are stuck <em>too high</em>, demand stays weak, more deflation ⟹ an even more negative desired rate. A trap.</p>
+
+<div class="wex"><span class="h">The maths — how the rule goes negative</span> Take a deep crisis with all three inputs down: the natural rate has fallen to \(r^{*}=0\) (excess saving over investment), deflation \(\pi=-1\%\), target \(\pi^{*}=2\%\), output gap \(=-7\%\). Plug into Taylor with \(\phi_\pi=\phi_y=0.5\):
+$$i = \underbrace{0+(-1)}_{r^{*}+\pi} + 0.5\,(-1-2) + 0.5\,(-7) = -1 - 1.5 - 3.5 = \mathbf{-6\%}.$$
+The rule <em>wants</em> \(-6\%\), but cash pays 0% so the nominal rate is floored: \(i = \max(0,\,-6\%) = 0\). Policy is stuck a full <strong>6 points too tight</strong>.</div>
+
+<div class="pitfall"><b>Why it's a trap (self-reinforcing).</b> Stuck at 0 while the rule needs \(-6\%\) ⟹ demand stays weak ⟹ the output gap widens and deflation deepens (the inputs get <em>worse</em>) ⟹ feed the new numbers back in and the rule now wants, say, \(-8\%\) ⟹ still floored at 0. Every year the prescribed rate sinks further below a floor you cannot cross. (Fatás: <em>"next year the rule says go to −6, I can't, I'm still stuck at zero."</em>)</div>
+
 <div class="intuition"><span class="tag">🎙 In class — the ZLB, drilled</span>
 <ul style="margin:4px 0 0;">
 <li><b>The four ways the Taylor rule turns negative</b> (he ran this as a Q&amp;A — be able to list them): low/negative inflation; inflation below target; a deeply negative output gap; a low natural rate \(r^*\). Pile them up in a deep crisis and the prescribed rate is below zero.</li>
@@ -948,9 +955,7 @@ $$\text{GDP} = C(\underset{+\ -\ -\ +}{\text{GDP},r,T,W}) + I(\underset{-}{r}) +
   <line class="grid dash" x1="205" y1="120" x2="205" y2="148" stroke="#b03030"/>
   <text class="sm" x="92" y="143" fill="#b03030">required r* &lt; 0 (intersection below the zero line)</text>
 </svg>
-<figcaption>When desired saving far exceeds investment, the market-clearing real rate is <em>negative</em>. With deflation, the required nominal rate is below zero — unreachable.</figcaption>
-<div class="eyeball"><span class="star">★</span><b>Isabella — eyeball this diagram:</b> the S and I lines should now cross <em>below</em> the "0" axis (the red dashed drop confirms the equilibrium r is negative). Check the intersection really sits under the zero line, not on it.</div>
-</figure>
+<figcaption>When desired saving far exceeds investment, the market-clearing real rate is <em>negative</em>. With deflation, the required nominal rate is below zero — unreachable.</figcaption></figure>
 <p><strong>Why deflation makes it worse:</strong> deflation raises the <em>real</em> value of debt ⟹ redistributes from borrowers to savers ⟹ deters consumption and can cause <strong>default</strong>, which spreads through banks. And in a panic everyone wants liquidity → <strong>bank runs</strong> (banks borrow short, lend long; a healthy bank can become illiquid; only the central bank can supply the liquidity).</p>
 <div style="overflow-x:auto;">
 <table class="tacct" style="min-width:430px;">

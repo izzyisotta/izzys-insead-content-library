@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MGE — Macroeconomics in the Global Economy</title>
+<script>
+  MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']] }, svg: { fontCache: 'local' } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+<style>
+  :root{
+    --green:#00643C; --green-light:#2e7d32; --blue:#1f5fa8; --red:#b03030;
+    --ink:#1a1a1a; --soft:#555; --line:#d8d8d8; --bg:#fbfbf9; --card:#ffffff;
+    --amber:#a8740a; --amber-bg:#fdf6e9;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:16.5px; line-height:1.62;
+  }
+  .wrap{display:flex; max-width:1500px; margin:0 auto;}
+  /* ---- sidebar nav ---- */
+  nav.toc{
+    width:268px; flex:0 0 268px; position:sticky; top:0; height:100vh; overflow-y:auto;
+    background:#0e2a20; color:#dfeee7; padding:22px 16px 60px; font-size:13.5px;
+  }
+  nav.toc h2{color:#fff; font-size:14px; letter-spacing:.06em; text-transform:uppercase; margin:18px 0 8px; opacity:.65;}
+  nav.toc a{display:block; color:#cfe3da; text-decoration:none; padding:3px 8px; border-radius:5px; margin:1px 0;}
+  nav.toc a:hover{background:#1c4636; color:#fff;}
+  nav.toc a.part{font-weight:700; color:#8fd6b4; margin-top:6px;}
+  nav.toc .brand{font-weight:800; color:#fff; font-size:16px; line-height:1.3; margin-bottom:4px;}
+  nav.toc .brand span{font-weight:400; font-size:12.5px; color:#8fd6b4; display:block;}
+  main{flex:1 1 auto; padding:46px 56px 140px; max-width:1000px;}
+  /* ---- typography ---- */
+  h1{font-size:30px; color:var(--green); margin:0 0 6px; line-height:1.18;}
+  h2.part{font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--amber); margin:54px 0 2px; font-weight:700;}
+  h2{font-size:25px; color:var(--green); border-bottom:2px solid var(--green); padding-bottom:6px; margin:42px 0 14px; scroll-margin-top:14px;}
+  h3{font-size:19px; color:#13392b; margin:26px 0 8px;}
+  h4{font-size:16px; color:var(--blue); margin:18px 0 4px; text-transform:uppercase; letter-spacing:.04em;}
+  p{margin:8px 0;}
+  ul,ol{margin:8px 0 8px; padding-left:22px;}
+  li{margin:4px 0;}
+  strong{color:#08251a;}
+  code{background:#eef2ef; padding:1px 5px; border-radius:4px; font-size:13.5px;}
+  a.up{color:var(--blue); text-decoration:none;}
+  /* ---- cards / callouts ---- */
+  .eq{background:#f0f6f2; border:1px solid #cfe2d6; border-left:4px solid var(--green); border-radius:8px; padding:12px 18px; margin:14px 0; overflow-x:auto;}
+  .eq .lbl{font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--green); font-weight:700; margin-bottom:2px;}
+  .key{background:#fff; border:1px solid var(--line); border-radius:10px; padding:14px 20px; margin:16px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  .exam{background:var(--amber-bg); border:1px solid #ecd9ad; border-left:4px solid var(--amber); border-radius:8px; padding:10px 18px; margin:16px 0;}
+  .exam b{color:var(--amber);}
+  .chain{background:#eaf1f8; border:1px solid #c2d6ea; border-left:4px solid var(--blue); border-radius:8px; padding:10px 18px; margin:14px 0; font-size:15px;}
+  .chain .arrow{color:var(--blue); font-weight:700;}
+  .pitfall{background:#fbeeee; border:1px solid #ecc9c9; border-left:4px solid var(--red); border-radius:8px; padding:10px 18px; margin:14px 0;}
+  .pitfall b{color:var(--red);}
+  .twocol{display:flex; gap:22px; flex-wrap:wrap;}
+  .twocol > div{flex:1 1 300px;}
+  figure{margin:20px 0; text-align:center;}
+  figure > svg{max-width:100%; height:auto; background:#fff; border:1px solid var(--line); border-radius:10px; padding:8px;}
+  /* never let MathJax inline equations be stretched by container SVG rules */
+  mjx-container svg, figcaption mjx-container svg, .eq mjx-container svg{max-width:none !important; height:auto !important; border:none !important; padding:0 !important; background:none !important; border-radius:0 !important;}
+  figcaption{font-size:13.5px; color:var(--soft); margin-top:7px; font-style:italic;}
+  table.dt{border-collapse:collapse; width:100%; margin:16px 0; font-size:14.5px;}
+  table.dt th{background:var(--green); color:#fff; text-align:left; padding:8px 11px; font-weight:600;}
+  table.dt td{border:1px solid var(--line); padding:7px 11px; vertical-align:top;}
+  table.dt tr:nth-child(even) td{background:#f6f8f6;}
+  .tacct{border-collapse:collapse; margin:10px auto; font-size:14px; min-width:330px;}
+  .tacct caption{font-weight:700; color:#13392b; padding-bottom:5px;}
+  .tacct th{background:#13392b; color:#fff; padding:5px 14px; font-weight:600;}
+  .tacct td{border:1px solid #b9b9b9; padding:5px 14px;}
+  .tacct td.a{background:#eef6f1;} .tacct td.l{background:#eef2f8;}
+  /* SVG shared */
+  svg text{font-family:-apple-system,Helvetica,Arial,sans-serif;}
+  .axis{stroke:#333; stroke-width:1.6; fill:none;}
+  .grid{stroke:#e3e3e3; stroke-width:1;}
+  .IS{stroke:var(--green-light); stroke-width:3; fill:none;}
+  .LM{stroke:var(--blue); stroke-width:3; fill:none;}
+  .SAV{stroke:var(--blue); stroke-width:3; fill:none;}
+  .INV{stroke:var(--green-light); stroke-width:3; fill:none;}
+  .LRAS{stroke:var(--red); stroke-width:3; fill:none;}
+  .dash{stroke-dasharray:5 4;}
+  .rf{stroke:#a8740a; stroke-width:2.4; fill:none;}
+  .lbl{font-size:13px; font-weight:600;}
+  .sm{font-size:11.5px; fill:#555;}
+  .dot{fill:#13392b;}
+  .footer{margin-top:60px; padding-top:18px; border-top:1px solid var(--line); font-size:13px; color:var(--soft);}
+  .pill{display:inline-block; background:var(--green); color:#fff; font-size:11px; padding:2px 9px; border-radius:20px; letter-spacing:.04em; vertical-align:middle;}
+  .eyeball{background:#fdeaf4; border:2px dashed #c0398a; border-radius:8px; padding:8px 14px; margin:12px 0; font-size:14px; color:#8a1f5f;}
+  .eyeball .star{font-size:17px; margin-right:4px;}
+  .eyeball b{color:#8a1f5f;}
+  .intuition{background:#edf6f7; border:1px solid #b6d7dc; border-left:4px solid #1f7e8c; border-radius:8px; padding:10px 16px; margin:14px 0; font-size:15px;}
+  .intuition .tag{display:inline-block; font-size:11px; font-weight:700; letter-spacing:.04em; color:#1f7e8c; text-transform:uppercase; margin-right:6px;}
+  .intuition b{color:#0d4d57;}
+  .izzy{background:#f5f0fb; border:1px solid #d3c1ec; border-left:4px solid #7b4bbd; border-radius:8px; padding:12px 18px; margin:16px 0; font-size:15px;}
+  .izzy .tag{display:inline-block; font-size:11px; font-weight:700; letter-spacing:.04em; color:#7b4bbd; text-transform:uppercase; margin-bottom:6px;}
+  .izzy b{color:#5a2d96;}
+  .izzy table.dt{margin:8px 0;}
+  .modetoggle{display:flex; gap:6px; margin:12px 0 18px;}
+  .modetoggle .mode{flex:1; text-align:center; padding:8px 6px; border-radius:7px; font-size:13px; font-weight:700; text-decoration:none; border:1px solid #2f5e4c; color:#cfe3da; background:transparent;}
+  .modetoggle .mode:hover{background:#1c4636; color:#fff;}
+  .modetoggle .mode.active{background:#00643C; color:#fff; border-color:#00643C;}
+  .read{margin:10px 0; padding:9px 15px; border-left:3px solid var(--green); background:#f8f8f5; border-radius:6px; font-size:14.5px;}
+  .read .meta{font-size:12px; color:var(--soft); margin-left:6px;}
+  .rtag{display:inline-block; font-size:10.5px; font-weight:700; letter-spacing:.03em; text-transform:uppercase; padding:1px 7px; border-radius:20px; vertical-align:middle; margin-left:4px;}
+  .rtag.man{background:#fbe4e4; color:#a32020;}
+  .rtag.prof{background:#e3eefb; color:#1a4e8a;}
+  .rtag.core{background:#e7f3ec; color:#13643c;}
+  /* stepped derivations: each step = the algebra + a small note saying what we did */
+  ol.deriv{counter-reset:dstep; list-style:none; padding:0; margin:14px 0; background:#f8f8f5; border:1px solid var(--line); border-radius:10px; overflow:hidden;}
+  ol.deriv > li{position:relative; margin:0; padding:11px 16px 11px 52px; border-bottom:1px solid #ededed;}
+  ol.deriv > li:last-child{border-bottom:none;}
+  ol.deriv > li::before{counter-increment:dstep; content:counter(dstep); position:absolute; left:14px; top:11px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--green); color:#fff; border-radius:50%; font-size:13px; font-weight:700;}
+  ol.deriv .note{display:block; font-size:12.5px; color:#777; margin-top:3px; font-style:italic;}
+  ol.deriv > li.result{background:#eef6f1;}
+  .wex{background:#fff; border:1px dashed #9cc; border-radius:8px; padding:9px 15px; margin:12px 0; font-size:14.5px;}
+  .wex .h{font-weight:700; color:var(--blue); font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; display:block; margin-bottom:3px;}
+  @media print{ nav.toc{display:none;} main{padding:0; max-width:100%;} body{font-size:11pt;} h2{page-break-after:avoid;} figure,.eq,.key,.exam,ol.deriv,.wex{page-break-inside:avoid;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="toc">
+  <div class="brand">MGE <span>Macroeconomics in the Global Economy · Prof. Antonio Fatás</span></div>
+  <a href="#how">How to use this</a>
+  <a href="#exam">The exam &amp; how to pass it</a>
+  <a href="#eqsheet">★ Master equation sheet</a>
+  <div class="modetoggle"><span class="mode active">Course Content</span><a class="mode" href="MGE%20%E2%80%94%20Exam%20Drills.html">Exam Questions</a></div>
+  <h2>Part I — The Long Run</h2>
+  <a href="#l01" class="part">1 · GDP &amp; National Accounting</a>
+  <a href="#l02" class="part">2 · Saving, Investment &amp; the Real Rate</a>
+  <a href="#l03" class="part">3 · Growth</a>
+  <a href="#l04" class="part">4 · Growth &amp; the 4Is</a>
+  <a href="#l05" class="part">5 · Money &amp; Central Banks</a>
+  <a href="#l06" class="part">6 · Business Cycles</a>
+  <h2>Part II — The Short Run</h2>
+  <a href="#l07" class="part">7 · IS-LM-FX Model</a>
+  <a href="#l08" class="part">8 · Inflation &amp; the Taylor Rule</a>
+  <a href="#l09" class="part">9 · Zero Lower Bound &amp; QE</a>
+  <a href="#l10" class="part">10 · Managing High Inflation</a>
+  <a href="#l11" class="part">11 · Fiscal Policy &amp; Debt</a>
+  <a href="#l12" class="part">12 · Exchange Rates</a>
+  <a href="#l13" class="part">13 · State of the Global Economy</a>
+  <a href="#l14" class="part">14 · Review Synthesis</a>
+  <h2>Reference</h2>
+  <a href="#gallery">Model gallery</a>
+  <a href="#chains">Mechanism-chain drills</a>
+  <a href="#glossary">Glossary &amp; myths</a>
+  <a href="#readings">Key readings</a>
+</nav>
+<main>
+
+<h1>Macroeconomics in the Global Economy</h1>
+<p style="font-size:18px;color:var(--soft);margin-top:0;">Course knowledge page · built entirely from the Session 1–14 lecture slides + transcripts · <span class="pill">tutor edition</span></p>
+
+<div class="key" id="how">
+<h3 style="margin-top:4px;">How to use this</h3>
+<p>This document rebuilds the whole course from scratch, assuming you haven't seen the material. Each lecture has four things: <strong>the intuition</strong> (what's going on and why anyone cares), <strong>every equation</strong> from the slides, <strong>every model</strong> redrawn as a clean diagram, and an <strong style="color:var(--amber);">Exam lens</strong> box telling you how Fatás tests it.</p>
+<ul>
+<li><strong>Read Part I first, in order.</strong> Lectures 1, 2, 5 build the vocabulary (GDP identity, the saving = investment market, money). Everything in Part II stands on them.</li>
+<li><strong>The whole of Part II is one machine: the IS-LM-FX model.</strong> Learn to <em>draw and shift</em> it (Lecture 7) and 80% of the short-run exam falls out of it.</li>
+<li><strong>The <a class="up" href="#eqsheet">Master equation sheet</a> and <a class="up" href="#gallery">Model gallery</a> are your cheat-sheet skeleton.</strong> You're allowed one two-sided A4 page in the exam — build it from those two sections.</li>
+<li><strong>Then drill the <a class="up" href="#chains">mechanism chains</a>.</strong> The exam is reasoning, not arithmetic — it rewards getting the causal chain right.</li>
+</ul>
+<div class="eyeball"><span class="star">★</span><b>Isabella — eyeball this:</b> wherever you see this pink flag, it marks something I'm not 100% sure about and want you to sanity-check as you go (mostly hand-drawn diagrams I positioned by calculation rather than by eye, plus one convention the slides themselves were inconsistent on). Search the page for "★" to jump between them.</div>
+</div>
+
+<h2 id="exam">The exam, and how to pass it</h2>
+<p>From the course structure slide (Session 1), the whole course is deliberately split into two halves, and the review session (Session 14) tests them as two halves. Hold this map in your head — it's the backbone of everything below.</p>
+<table class="dt">
+<tr><th>The Long Run — "Fundamentals"</th><th>The Short Run — "Business Cycles"</th></tr>
+<tr><td>What determines the <em>level</em> and <em>trend</em>: living standards, growth, saving/investment, the long-run real interest rate, and the nominal anchor (inflation).</td><td>What determines <em>fluctuations around</em> the trend: recessions/booms, how shocks transmit, and how monetary &amp; fiscal policy and exchange rates stabilise them.</td></tr>
+<tr><td>Lectures 1–5 (and the supply side that reappears in 8).</td><td>Lectures 6–14, all powered by one model (IS-LM-FX).</td></tr>
+</table>
+
+<div class="exam">
+<p><b>What the exam actually is.</b> A reasoning exam, not a calculation exam. Fatás writes on every paper: <em>"The logic you use in your answers is what matters (you do not need to get the facts right). Please use arguments and frameworks that we discussed in class."</em> Structure is stable year to year:</p>
+<ul>
+<li><b>Q1 — True / False / Uncertain</b> (~20–25 of 70 marks). State a verdict, then justify with a mechanism. The justification is the entire grade.</li>
+<li><b>Q2–Q6 — short application questions</b> (10 marks each), each hung on a real-world snippet. Two-to-four sentences of <em>causal logic</em> each.</li>
+<li>Closed book except <b>one two-sided A4 page of notes</b>. Two hours.</li>
+</ul>
+<p>Only <b>one formula</b> is ever actually computed: the debt-sustainability condition (Lecture 11). Everything else is verbal mechanism. So your edge is (1) being able to draw IS-LM-FX fast and correctly, and (2) having the causal chains automatic.</p>
+</div>
+<div class="intuition"><span class="tag">🎙 In class (L10 — he laid out the whole format)</span>
+<ul style="margin:4px 0 0;">
+<li><em>"It's a closed-book exam, you can write <b>one page of notes both-sided</b>. We don't have a lot of formulas in this course… <b>It's a question of understanding concepts.</b>"</em> → build your A4 sheet from <b>concepts and intuitions, not formulas</b>.</li>
+<li><em>"<b>Short questions with very limited space… maybe three short sentences. There's no essays. There's no calculations — at most you have to do 5 − 3</b>, that's the most complicated calculation."</em> → practise compressing each idea to ~3 sentences.</li>
+<li><em>"<b>I'm always looking for a particular insight, a particular answer. If you're very confused and don't know what I'm asking, you're not reading the question right.</b>"</em> → each question has <b>one precise intended point</b> — find it, don't brain-dump.</li>
+<li><em>"<b>The exam will look like any of these [past] exams… they will look the same.</b>"</em> → past papers are an exact guide; practising them is the highest-yield prep.</li>
+<li>The <b>final session (day before the exam) is a pure review where he gives actual exam hints</b> — get a classmate's notes from it. (The Monday/L13 session is current-events perspective, <em>not</em> new examinable material.)</li>
+</ul>
+</div>
+
+<!-- ===================== MASTER EQUATION SHEET ===================== -->
+<h2 id="eqsheet">★ Master equation sheet</h2>
+<p>Every equation that appears in the slides, in one place. This is the spine of your A4 cheat-sheet. Each links to the lecture where it's explained.</p>
+<div class="key">
+<h4 style="margin-top:2px;">Notation key — every symbol used below</h4>
+<table class="dt" style="margin:6px 0 0;">
+<tr><th>Symbol</th><th>Meaning</th><th>Symbol</th><th>Meaning</th></tr>
+<tr><td>\(C,\ I,\ G\)</td><td>consumption, investment, government spending</td><td>\(r\)</td><td>real interest rate</td></tr>
+<tr><td>\(NX\)</td><td>net exports (exports − imports)</td><td>\(i\)</td><td>nominal interest rate</td></tr>
+<tr><td>\(NFP\)</td><td>net factor payments (income from abroad − paid abroad)</td><td>\(r_F\)</td><td>foreign (world) real interest rate</td></tr>
+<tr><td>\(CA\)</td><td>current account \(=NX+NFP\)</td><td>\(r^{*}\)</td><td>natural / equilibrium real rate ("r-star")</td></tr>
+<tr><td>\(S\)</td><td>national saving (\(S_{priv}+S_{gov}\))</td><td>\(\pi,\ \pi^{*}\)</td><td>inflation, inflation target</td></tr>
+<tr><td>\(T\)</td><td>taxes</td><td>\(g\)</td><td>growth rate of GDP</td></tr>
+<tr><td>\(W\)</td><td>wealth</td><td>\(M,\ P\)</td><td>money supply, price level</td></tr>
+<tr><td>\(C,R,D\)</td><td>currency, bank reserves, deposits</td><td>\(L(\cdot)\)</td><td>money-demand function</td></tr>
+<tr><td>\(e_N\)</td><td>nominal exchange rate (foreign currency per unit of domestic) — a <em>rise</em> = appreciation</td><td>\(e_R\)</td><td>real exchange rate (foreign goods per domestic good)</td></tr>
+<tr><td>\(P_F\)</td><td>foreign price level</td><td>\(E,\ RP,\ R\)</td><td>earnings, risk premium, required stock return</td></tr>
+<tr><td>output gap</td><td>how far actual GDP sits above/below potential, as a %: \((\text{actual}-\text{potential})/\text{potential}\); + = boom, − = recession</td><td>\(V\)</td><td>velocity of money: how many times a unit of money is spent per year \(=\) nominal GDP \(\div\) money stock \((PY/M)\)</td></tr>
+<tr><td>\(M1\)</td><td>the narrow money supply (currency + checkable deposits) — i.e. the \(C+D\) measure</td><td>UIP</td><td>Uncovered Interest Parity: \(r-r_F=\) expected depreciation (the FX no-arbitrage condition)</td></tr>
+<tr><td>\(C/D,\ R/D\)</td><td>behavioural ratios: cash held vs deposits, and reserves held vs deposits</td><td>output potential</td><td>the level of GDP at full employment (long-run trend the economy gravitates to)</td></tr>
+</table>
+<div class="sm" style="margin-top:6px;color:#a8740a">⚠ <b>Symbol collisions — read from context.</b> \(C\) = consumption (GDP identity) <em>and</em> currency (money multiplier). \(R\) = bank reserves (multiplier), required stock return (\(R=r+RP\)) <em>and</em> FX reserves. Same letter, different meaning depending on the equation.</div>
+</div>
+
+<h4>Output &amp; income identities <span style="font-weight:400;text-transform:none;color:var(--soft)">(L1–L2)</span></h4>
+<div class="eq"><div class="lbl">GDP — production / value</div>$$\text{GDP} = P_A Q_A + P_B Q_B + \dots \quad(\text{final goods only})$$</div>
+<div class="eq"><div class="lbl">GDP — expenditure approach</div>$$\text{GDP} = C + I + G + NX$$</div>
+<div class="eq"><div class="lbl">National income</div>$$\text{GNI} = \text{GDP} + \text{NFP}\quad(\text{NFP = net factor payments})$$</div>
+<div class="eq"><div class="lbl">Saving builds up to the central identity</div>
+$$S_{priv} = (\text{GDP}+\text{NFP}) - T - C \qquad S_{gov} = T - G$$
+$$S = S_{priv}+S_{gov} = (\text{GDP}+\text{NFP}) - C - G$$
+$$\boxed{\,S = I + CA\,}\qquad CA = NX + \text{NFP}\qquad\text{(closed economy: } S=I)$$</div>
+<div class="eq"><div class="lbl">Balance of payments</div>$$\text{Current Account} = \text{Capital and Financial Account}$$
+$$(S_{priv}-I_{priv}) + (S_{gov}-I_{gov}) = CA$$
+<div class="sm" style="margin-top:4px;color:#555">The <strong>Capital and Financial Account</strong> is the flip side of the current account: net purchases/sales of assets across borders (net lending or borrowing abroad). The two must offset — a current-account surplus <em>is</em> net lending to the rest of the world.</div></div>
+
+<h4>Real vs nominal <span style="font-weight:400;text-transform:none;color:var(--soft)">(L1)</span></h4>
+<div class="eq"><div class="lbl">Growth decomposition</div>$$\text{Nominal GDP growth} = \text{Real GDP growth} + \text{Inflation}$$</div>
+<div class="eq"><div class="lbl">Real interest rate (Fisher, approx.)</div>$$r = i - \pi \qquad(\text{real} = \text{nominal} - \text{inflation})$$</div>
+<div class="eq"><div class="lbl">Real exchange rate</div>$$e_R = \frac{e_N \cdot P}{P_F}\quad\text{(foreign goods per domestic good); Law of One Price} \Rightarrow e_R=1$$
+<div class="sm" style="margin-top:4px;color:#555">Convention: \(e_N\) = foreign currency per unit of domestic currency. So a <em>rise</em> in \(e_N\) or \(e_R\) = an <strong>appreciation</strong> of the domestic currency.</div></div>
+
+<h4>Money <span style="font-weight:400;text-transform:none;color:var(--soft)">(L5–L6, L9)</span></h4>
+<div class="eq"><div class="lbl">The two money aggregates</div>$$\text{Monetary Base} = C + R \qquad \text{Money Supply} = C + D$$</div>
+<div class="eq"><div class="lbl">Money multiplier</div>$$m = \frac{\text{Money Supply}}{\text{Monetary Base}} = \frac{C+D}{C+R} = \frac{C/D + 1}{C/D + R/D}$$</div>
+<div class="eq"><div class="lbl">Money growth rule (velocity constant)</div>$$\%\Delta M \approx \text{Nominal GDP growth} = \text{Inflation} + \text{Real GDP growth}$$</div>
+<div class="eq"><div class="lbl">Money demand (real)</div>$$\frac{M}{P} = L(\text{GDP},\, i)\quad \text{transactions } (+),\ \text{nominal rate } (-)$$</div>
+
+<h4>The short-run model: IS-LM-FX <span style="font-weight:400;text-transform:none;color:var(--soft)">(L7–L8)</span></h4>
+<div class="eq"><div class="lbl">IS — goods market (aggregate demand)</div>$$\text{GDP} = C(\text{GDP},r,T,W) + I(r) + G + NX(e_R,\text{GDP},\text{GDP}_F)$$</div>
+<div class="eq"><div class="lbl">LM — money market</div>$$\frac{M}{P} = L(\text{GDP},\, r)$$</div>
+<div class="eq"><div class="lbl">FX — capital-flow arbitrage</div>$$r = r_F$$</div>
+
+<h4>Inflation &amp; monetary policy <span style="font-weight:400;text-transform:none;color:var(--soft)">(L8, L10)</span></h4>
+<div class="eq"><div class="lbl">Baseline nominal rate</div>$$i = \pi + \text{"reasonable" real return}$$</div>
+<div class="eq"><div class="lbl">The Taylor Rule (Taylor 1993)</div>$$i = \underbrace{r^* + \pi}_{\text{baseline}} + 0.5(\pi - \pi^{*}) + 0.5\,(\text{output gap})$$
+<div class="sm" style="margin-top:6px;color:#555">Taylor's numbers: \(r^*=2\%\), \(\pi^*=2\%\) ⟹ baseline \(=4\%\). If \(\pi=3\%\), gap \(=0\): \(i = 2+3+0.5(1) = 5.5\%\) — note the <em>real</em> rate rises. ⚠️ \(\pi\) appears <b>twice</b> (standalone <em>and</em> in \(0.5(\pi-\pi^*)\)) ⟹ a 1pt inflation rise lifts \(i\) by <b>1.5pt, not 0.5</b>.</div></div>
+
+<h4>Asset prices &amp; the risk premium <span style="font-weight:400;text-transform:none;color:var(--soft)">(L6)</span></h4>
+<div class="eq"><div class="lbl">Required stock return &amp; ex-ante risk premium</div>$$R = r + RP \qquad R \approx \frac{E}{P}\quad\Rightarrow\quad RP = \frac{E}{P} - r$$</div>
+
+<h4>Fiscal sustainability <span style="font-weight:400;text-transform:none;color:var(--soft)">(L11) — the one you actually compute</span></h4>
+<div class="eq"><div class="lbl">Government balances</div>$$\text{Primary balance} = T - G - \text{Transfers}$$
+$$\text{Overall balance} = \text{Primary balance} - \text{Interest payments}$$
+$$\text{Interest payments} = r_{nominal}\times \text{Debt}$$</div>
+<div class="eq"><div class="lbl">★ Debt-stabilising primary surplus</div>$$\boxed{\ \frac{\text{Required primary surplus}}{\text{GDP}} = (r - g)\times\frac{\text{Debt}}{\text{GDP}}\ }$$
+<div class="sm" style="margin-top:6px;color:#555">\(r\), \(g\) both nominal (or both real). Example: \(r=4\%,\ g=2\%,\ \tfrac{Debt}{GDP}=120\% \Rightarrow (0.02)(1.2)=2.4\%\). If \(g>r\) the required surplus is <em>negative</em> — you can run deficits forever and debt/GDP still falls.</div></div>
+
+<h4>Exchange rates <span style="font-weight:400;text-transform:none;color:var(--soft)">(L12)</span></h4>
+<div class="eq"><div class="lbl">Law of one price (long-run anchor)</div>$$e_N = \frac{P_F}{P}\quad(\text{from } e_R = 1)$$</div>
+<div class="eq"><div class="lbl">Similar productivity ⟹ real <em>exchange</em> rate constant</div>$$\%\Delta e_N = \pi_F - \pi_{domestic}\quad(\text{foreign inflation} - \text{domestic inflation})$$</div>
+<div class="eq"><div class="lbl">Short run — currencies as assets (Uncovered Interest Parity, UIP / arbitrage)</div>$$r - r_F = \text{expected depreciation of the domestic currency}$$
+<div class="sm" style="margin-top:4px;color:#555"><em>News</em> of a rate rise ⟹ immediate <strong>appreciation</strong>; a high <em>level</em> of rates ⟹ expected <strong>depreciation</strong>. Don't conflate the two.</div></div>
+
+<!-- ============================================================ -->
+<!-- PART I — THE LONG RUN -->
+<!-- ============================================================ -->
+<h2 class="part">Part I — The Long Run (Fundamentals)</h2>
+
+<!-- ---------- L01 ---------- -->
+<h2 id="l01">1 · Macroeconomic Variables &amp; National Accounting</h2>
+<p>This lecture gives you the measuring stick for the whole course: what GDP is, what it misses, and how to strip out price effects so numbers are comparable across countries and years.</p>
+
+<h3>What GDP is</h3>
+<p><strong>Gross Domestic Product</strong> = the market value of <em>final</em> goods and services produced within a country's borders over a period (it's a <em>flow</em>, like income, not a stock like wealth).</p>
+<div class="eq">$$\text{GDP} = P_A Q_A + P_B Q_B + \dots$$</div>
+<p>Only <strong>final</strong> goods count (or equivalently, sum the <em>value added</em> = revenues − intermediate inputs) to avoid double-counting. Three ways to measure it all give (roughly) the same number: <strong>Production = Expenditure ≈ Income</strong>.</p>
+<div class="key">
+<strong>GDP vs GNI.</strong> GDP is activity <em>inside the borders</em>. Gross National Income adds what residents earn abroad minus what foreigners earn here:
+<div class="eq" style="margin:8px 0 0;">$$\text{GNI} = \text{GDP} + \text{NFP}$$</div>
+NFP (net factor payments) = remittances, repatriated profits, government transfers. Big for Ireland (profits flow <em>out</em> → GNI &lt; GDP) and the Philippines (remittances flow <em>in</em>).
+</div>
+
+<h3>Is GDP the right measure of progress?</h3>
+<div class="twocol">
+<div><h4>Perspective 1 — Business</h4><p>GDP = market size, demand, income. You want it as <em>comprehensive and accurate</em> as possible.</p></div>
+<div><h4>Perspective 2 — Society</h4><p>GDP measures <em>materialistic</em> wellbeing. Related to welfare, but not equal to it.</p></div>
+</div>
+<p>What GDP misses: non-market activity, environmental depreciation (it's a flow, ignores <em>wealth</em>), and the gap between "dollars of activity" and "things we actually value." Hence "beyond GDP" measures: Bhutan's Gross National Happiness, the Human Development Index.</p>
+
+<h3>Comparing GDP: quantities, not prices</h3>
+<p>GDP mixes prices and quantities. To compare, you must <strong>fix prices</strong>. Two cases:</p>
+<table class="dt">
+<tr><th>Comparison</th><th>No adjustment</th><th>Adjusted for prices</th></tr>
+<tr><td><strong>Two countries</strong></td><td>GDP converted to USD at market exchange rates → <em>market size / power</em></td><td><strong>PPP-adjusted</strong> GDP (international prices) → <em>real activity / living standards</em></td></tr>
+<tr><td><strong>Two years</strong></td><td>Nominal GDP</td><td><strong>Real</strong> GDP (base-year prices)</td></tr>
+</table>
+
+<h4>What "PPP" actually means, and how it's calculated</h4>
+<p><strong>The problem.</strong> To compare living standards you must convert every country's GDP into one currency. If you use the <em>market</em> exchange rate, you understate poor countries — because a haircut, a bus ride or a meal is far cheaper there, so the same dollar buys <em>more</em> real stuff. <strong>Purchasing-Power-Parity (PPP)</strong> fixes this by valuing everyone's output at a common set of <em>international prices</em> instead of at market rates.</p>
+<p><strong>How it's calculated:</strong> price an identical basket of goods in each country, then</p>
+<div class="eq"><div class="lbl">PPP exchange rate</div>$$e_{PPP} = \frac{\text{price of the basket in local currency}}{\text{price of the same basket in USD}}\quad\Rightarrow\quad \text{GDP}_{PPP} = \frac{\text{nominal GDP (local)}}{e_{PPP}}$$</div>
+<div class="wex"><span class="h">Worked example — the Big Mac as a one-good basket</span>
+A Big Mac costs <strong>22,900 pesos</strong> in Colombia and <strong>$6.01</strong> in the US. The PPP rate is \(e_{PPP} = 22{,}900 / 6.01 \approx 3{,}810\) pesos per dollar. But the <em>market</em> rate is ~4,018 pesos per dollar. Because the market rate (4,018) is <em>weaker</em> than PPP (3,810), converting Colombian GDP at the market rate makes Colombia look poorer than it really is. Converting at PPP corrects that — so <strong>China's GDP is bigger at PPP than at market rates</strong>, which is why PPP is the right lens for living standards and market rates for "market size / power."</div>
+
+<div class="eq"><div class="lbl">The relationship you'll use constantly</div>$$\text{Nominal GDP growth} = \text{Real GDP growth} + \text{Inflation}$$</div>
+<p>Inflation is just the growth rate of the price index. Any nominal variable can be "realised" by stripping inflation out:</p>
+<div class="eq"><div class="lbl">Real interest rate</div>$$r = i - \pi$$</div>
+<p>The <strong>nominal</strong> rate is your return in money; the <strong>real</strong> rate is your return in <em>goods</em>. If real is positive you can buy more stuff at the end. (Japan 2005: nominal 0.0%, inflation −1.4%, so real = +1.4%.)</p>
+<div class="eq"><div class="lbl">Real exchange rate</div>$$e_R = \frac{e_N\, P}{P_F}$$</div>
+<p>The real exchange rate = how many <em>foreign goods</em> one domestic good buys. Big Mac example: a Colombian Big Mac costs $5.70 at market rates vs $6.01 in the US, so \(e_R = 5.70/6.01 = 0.95\) — Colombia is slightly "cheaper" in real terms.</p>
+<div class="eyeball"><span class="star">★</span><b>Isabella — eyeball this:</b> the exchange-rate <em>convention</em>. The slides themselves are inconsistent — slide S01 p28 says \(e_R\) is "domestic goods per unit of foreign good", but S12 p2 says "foreign goods per domestic good." I committed the whole doc to the <strong>S12</strong> convention (\(e_N\) = foreign currency per domestic unit; a rise in \(e\) = appreciation), because it's the one the FX lecture uses and it makes the Big Mac number work. Check which convention Fatás used in <em>class / the exam rubric</em> — if it's the S01 one, the appreciation/depreciation directions flip and I'll need to invert the FX definitions throughout.</div>
+<div class="exam"><b>Exam lens.</b> L1 ideas surface as T/F traps: "imports reduce GDP" (false — see L2 identity), "a country with a higher GDP is richer" (no — that's <em>size</em>, not <em>GDP per capita</em>), and the constant real-vs-nominal distinction (initial price level vs inflation; nominal vs real rates). Memorise <code>nominal = real + inflation</code> in all its forms (GDP, interest rates, exchange rates).</p></div>
+
+<!-- ---------- L02 ---------- -->
+<h2 id="l02">2 · Saving, Investment, the Current Account &amp; the Real Interest Rate</h2>
+<p>The most important lecture in Part I. It builds the identity <strong>S = I + CA</strong> and then turns saving and investment into a supply-and-demand market whose price is the <strong>real interest rate</strong>. This market reappears in the ZLB (L9), fiscal debt (L11) and the yield curve (L10).</p>
+
+<h3>Building the identity</h3>
+<p>The whole thing comes from two facts: (a) income that isn't consumed or taxed is <em>saved</em>, and (b) the same output can be written as expenditure, \(\text{GDP}=C+I+G+NX\). Watch what cancels at each step.</p>
+<ol class="deriv">
+<li><span class="mathline">\(S_{priv} = (\text{GDP}+\text{NFP}) - T - C\)</span><span class="note">Private saving = national income (GNI = GDP + NFP) minus what the private sector pays in tax \(T\) and spends on consumption \(C\).</span></li>
+<li><span class="mathline">\(S_{gov} = T - G\)</span><span class="note">Government saving = its revenue \(T\) minus its spending \(G\).</span></li>
+<li><span class="mathline">\(S = S_{priv}+S_{gov} = (\text{GDP}+\text{NFP}) - C - G\)</span><span class="note">Add the two. The \(+T\) and \(-T\) <strong>cancel</strong> — taxes are just a transfer inside the country, so national saving doesn't depend on them.</span></li>
+<li><span class="mathline">\(= (C+I+G+NX+\text{NFP}) - C - G\)</span><span class="note">Substitute the expenditure identity \(\text{GDP}=C+I+G+NX\) for GDP.</span></li>
+<li><span class="mathline">\(= I + (NX+\text{NFP})\)</span><span class="note">Now \(C\) and \(G\) <strong>cancel</strong> too, leaving investment plus the two external flows.</span></li>
+<li class="result"><span class="mathline">\(\boxed{\,S = I + CA\,}\qquad CA \equiv NX+\text{NFP}\)</span><span class="note">Name the external part the <strong>current account</strong>. Saving is funnelled into either domestic investment or lending abroad (the CA).</span></li>
+</ol>
+<p>For the <strong>whole world</strong> there is no "abroad", so CA = 0 and <strong>S = I</strong>. For one country, the gap between its saving and investment <em>is</em> its current account.</p>
+<div class="intuition"><span class="tag">🎙 In class — intuition behind the identity</span>
+<p style="margin:2px 0;"><b>Why this is the most important line in the early course.</b> <em>"Keep this identity in mind — Saving = Investment + Current Account — because I will use it constantly when we talk about policy, currencies, and financial crises. This is an <b>accounting identity</b> — it must always be true. No assumptions, no model."</em> Because it's an identity (not a behavioural model), it holds in <em>every</em> scenario — so any exam question about trade balances or capital flows can be cracked by rearranging it: \(CA = S - I\).</p>
+<p style="margin:6px 0;"><b>Why "− imports" is NOT "imports hurt GDP" (he says this trips people up).</b> You survey households, they report buying a German BMW — you've wrongly logged it in \(C\). The "\(-M\)" simply strips it back out so you don't count German production as domestic. It's a double-counting correction, not a claim that trade is bad.</p>
+<p style="margin:6px 0 0;"><b>Why a surplus/deficit is not virtue/weakness.</b> Germany runs a surplus because it's <em>ageing</em> — old people save, and there's little point building factories with no young workers (S &gt; I) → it lends abroad. The US runs a deficit because it <em>has</em> productive opportunities that foreign savers want to fund (I &gt; S). A deficit is a country borrowing to invest, not being robbed — whether it's a problem depends only on whether the borrowing funds productive returns and keeps Debt/GDP stable.</p>
+</div>
+
+<div class="key">
+<strong>Balance of payments — a "balanced imbalance".</strong> Every transaction is double-recorded (you pay for foreign goods by handing over an asset), so the two halves of the balance of payments are mirror images:
+<div class="eq" style="margin:8px 0;">$$\underbrace{\text{Current Account}}_{=\,S-I}\; =\; \underbrace{\text{Capital and Financial Account}}_{\text{net lending abroad}}$$</div>
+A current-account <em>surplus</em> (S &gt; I) <em>must</em> equal a <em>capital outflow</em>: if you earn more than you spend, the difference is parked abroad. The sign convention trips people up, so here it is as a table:
+</div>
+<table class="dt">
+<tr><th>Transaction</th><th>Direction</th><th>Sign</th><th>Worked example</th></tr>
+<tr><td>Foreigners buy your assets, or you sell foreign assets</td><td><strong>Capital inflow</strong></td><td>−</td><td>A US fund buys €1bn of German bonds → inflow for Germany (−)</td></tr>
+<tr><td>You buy foreign assets, or foreigners sell yours</td><td><strong>Capital outflow</strong></td><td>+</td><td>Germany buys €1bn of US Treasuries → outflow (+)</td></tr>
+<tr><td><strong>Central bank accumulates FX reserves</strong></td><td>Capital <strong>outflow</strong></td><td>+</td><td>China buys $472bn of US assets to hold as reserves → outflow (+)</td></tr>
+</table>
+<div class="wex"><span class="h">Worked example — China 2013</span> Trade surplus \(NX=+\$238\text{bn}\) <em>and</em> a private capital <em>inflow</em> of \(+\$287\text{bn}\) (≈ $500bn arriving). To balance, the central bank had to send even more out: it accumulated \(+\$472\text{bn}\) of <em>reserves</em> (a public outflow). So China was a net lender to the world even while its private sector pulled capital <em>in</em> — the central bank more than offset it. <em>(This is the "true if" case: combine a CA surplus with a private inflow and you must be piling up reserves.)</em></div>
+<div class="key" style="margin-top:0;">Splitting the same identity by sector shows <em>who</em> is saving or borrowing:
+<div class="eq" style="margin:8px 0 0;">$$(S_{priv}-I_{priv}) + (S_{gov}-I_{gov}) = CA$$
+<div class="sm" style="color:#555;margin-top:4px">e.g. a government deficit (\(S_{gov}<I_{gov}\)) need <em>not</em> cause a capital outflow — it depends on whether the private sector's surplus covers it.</div></div>
+</div>
+
+<h3>The real interest rate as the price of funds</h3>
+<ul>
+<li><strong>Saving</strong> = the <em>supply</em> of current funds. The reward for converting today's consumption into tomorrow's is the real rate ⟹ saving <strong>rises</strong> with \(r\) (upward-sloping).</li>
+<li><strong>Investment</strong> = the <em>demand</em> for current funds. Projects are funded if their return beats the rate ⟹ investment <strong>falls</strong> with \(r\) (downward-sloping).</li>
+</ul>
+<p>Put them together: the real interest rate is the price that clears the market.</p>
+
+<figure>
+<svg viewBox="0 0 460 320" role="img" aria-label="Saving Investment global equilibrium">
+  <line class="axis" x1="60" y1="30" x2="60" y2="280"/>
+  <line class="axis" x1="60" y1="280" x2="430" y2="280"/>
+  <text class="lbl" x="34" y="30">r</text>
+  <text class="sm" x="300" y="305">Saving, Investment</text>
+  <!-- Saving upward (blue) -->
+  <line class="SAV" x1="90" y1="265" x2="400" y2="70"/>
+  <text class="lbl" x="405" y="70" fill="#1f5fa8">Saving</text>
+  <!-- Investment downward (green) -->
+  <line class="INV" x1="90" y1="80" x2="400" y2="270"/>
+  <text class="lbl" x="405" y="272" fill="#2e7d32">Investment</text>
+  <!-- equilibrium -->
+  <circle class="dot" cx="245" cy="175" r="4.5"/>
+  <line class="grid dash" x1="60" y1="175" x2="245" y2="175"/>
+  <line class="grid dash" x1="245" y1="175" x2="245" y2="280"/>
+  <text class="sm" x="2" y="160">World eq.</text>
+  <text class="sm" x="2" y="174">real rate</text>
+  <text class="sm" x="200" y="120" fill="#1f5fa8">↑ with r</text>
+  <text class="sm" x="300" y="230" fill="#2e7d32">↓ with r</text>
+</svg>
+<figcaption>The global equilibrium real interest rate. ↓Saving or ↑Investment drives the rate <em>up</em>; ↑Saving or ↓Investment drives it <em>down</em>.</figcaption>
+</figure>
+
+<h3>Adding the current account: world = savers + borrowers</h3>
+<p>World equilibrium requires <strong>Σ surpluses = Σ deficits</strong>. The single world real rate is what makes that hold. Countries whose Saving curve sits to the right of Investment at that rate run a <strong>surplus</strong> (lend abroad); the reverse run a <strong>deficit</strong> (borrow).</p>
+
+<figure>
+<svg viewBox="0 0 760 300" role="img" aria-label="Current account three panel">
+  <!-- panel template -->
+  <g>
+   <text class="lbl" x="70" y="20">WORLD</text>
+   <line class="axis" x1="40" y1="35" x2="40" y2="250"/><line class="axis" x1="40" y1="250" x2="230" y2="250"/>
+   <line class="SAV" x1="60" y1="240" x2="215" y2="70"/><line class="INV" x1="60" y1="80" x2="215" y2="245"/>
+   <line class="rf dash" x1="40" y1="160" x2="230" y2="160"/>
+   <circle class="dot" cx="138" cy="160" r="4"/>
+   <text class="sm" x="44" y="150">world r</text>
+  </g>
+  <g transform="translate(260,0)">
+   <text class="lbl" x="60" y="20" fill="#1f5fa8">SAVERS (surplus)</text>
+   <line class="axis" x1="40" y1="35" x2="40" y2="250"/><line class="axis" x1="40" y1="250" x2="230" y2="250"/>
+   <line class="SAV" x1="75" y1="238" x2="210" y2="117"/><line class="INV" x1="75" y1="121" x2="210" y2="243"/>
+   <line class="rf dash" x1="40" y1="160" x2="230" y2="160"/>
+   <circle class="dot" cx="118" cy="160" r="3.5"/><circle class="dot" cx="162" cy="160" r="3.5"/>
+   <line x1="118" y1="160" x2="162" y2="160" stroke="#1f5fa8" stroke-width="4"/>
+   <text class="sm" x="120" y="151" fill="#1f5fa8">S &gt; I</text>
+   <text class="sm" x="95" y="178">CA surplus</text>
+   <text class="sm" x="44" y="150">world r</text>
+  </g>
+  <g transform="translate(520,0)">
+   <text class="lbl" x="55" y="20" fill="#2e7d32">BORROWERS (deficit)</text>
+   <line class="axis" x1="40" y1="35" x2="40" y2="250"/><line class="axis" x1="40" y1="250" x2="230" y2="250"/>
+   <line class="SAV" x1="75" y1="198" x2="210" y2="77"/><line class="INV" x1="75" y1="81" x2="210" y2="203"/>
+   <line class="rf dash" x1="40" y1="160" x2="230" y2="160"/>
+   <circle class="dot" cx="118" cy="160" r="3.5"/><circle class="dot" cx="162" cy="160" r="3.5"/>
+   <line x1="118" y1="160" x2="162" y2="160" stroke="#2e7d32" stroke-width="4"/>
+   <text class="sm" x="125" y="151" fill="#2e7d32">I &gt; S</text>
+   <text class="sm" x="100" y="178">CA deficit</text>
+   <text class="sm" x="44" y="150">world r</text>
+  </g>
+</svg>
+<figcaption>At the single world real rate (dashed), savers run surpluses and borrowers run deficits; they sum to zero.</figcaption>
+</figure>
+
+<h3>The Saving Glut</h3>
+<p>Bernanke's (2005) explanation for falling global real rates since the mid-1990s: a rise in desired saving in some countries (China, oil exporters, ageing surplus economies) shifts the world Saving curve right ⟹ the world real rate <strong>falls</strong> <em>and</em> global imbalances <strong>widen</strong> (bigger surpluses there, bigger deficits — chiefly the US — elsewhere).</p>
+<div class="exam"><b>Exam lens.</b> This is the single richest exam topic in Part I. Recurring T/F items: "an increase in government debt always leads to a capital outflow" (false — depends on private saving), "private capital inflows always equal the current-account deficit" (false — reserves can move), "the only way to combine a CA surplus with a private capital inflow is reserve accumulation" (true). Drill the chain: <em>more saving → lower world r → bigger imbalances</em>; and remember <strong>long-run real rates are set by global S &amp; I, not by the central bank</strong> (a listed "myth").</div>
+<div class="pitfall"><b>Don't confuse</b> a fixed exchange rate with trade balance — there is <em>no</em> mechanical link. Trade balances are about S vs I, full stop.</div>
+
+<!-- ---------- L03 ---------- -->
+<h2 id="l03">3 · Growth — why some countries are rich</h2>
+<p>Long-run living standards = <strong>GDP per capita</strong>. The trick is to write it as a chain of four ratios where each denominator cancels the next numerator — so it's an <em>identity</em> (always true), but each factor is something you can reason about separately. Everything here is a <strong>headcount or a total</strong>, not an age:</p>
+<div class="key" style="margin-top:0;font-size:14.5px;">
+<strong>Pop</strong> = total population (everyone) · <strong>Working-age Pop</strong> = <em>number of people</em> aged 15–64 · <strong>Workers</strong> = number of people actually employed · <strong>Hours</strong> = total hours they work in a year.
+</div>
+<ol class="deriv">
+<li><span class="mathline">\(\dfrac{\text{GDP}}{\text{Pop}} = \dfrac{\text{GDP}}{\text{Hours}} \times \dfrac{\text{Hours}}{\text{Workers}} \times \dfrac{\text{Workers}}{\text{Working-age Pop}} \times \dfrac{\text{Working-age Pop}}{\text{Pop}}\)</span><span class="note">Multiply four fractions. "Hours", "Workers" and "Working-age Pop" each appear once on top and once on the bottom, so they <strong>cancel</strong> — the right side collapses back to GDP/Pop. The identity holds by construction.</span></li>
+<li class="result"><span class="mathline">\(\underbrace{\tfrac{\text{GDP}}{\text{Pop}}}_{\text{living standard}} = \underbrace{\tfrac{\text{GDP}}{\text{Hours}}}_{\substack{\text{productivity}\\ \text{(output per hour)}}} \times \underbrace{\tfrac{\text{Hours}}{\text{Workers}}}_{\substack{\text{effort}\\ \text{(hours per worker)}}} \times \underbrace{\tfrac{\text{Workers}}{\text{Working-age Pop}}}_{\substack{\text{labour market}\\ \text{(\% employed)}}} \times \underbrace{\tfrac{\text{Working-age Pop}}{\text{Pop}}}_{\substack{\text{demographics}\\ \text{(\% aged 15-64)}}}\)</span><span class="note">Read each factor as a lever. The last two are both <em>shares of people</em>: what fraction of working-age people have jobs, and what fraction of everyone is of working age.</span></li>
+</ol>
+<ul>
+<li><strong>Productivity (GDP/hour)</strong> — the big driver near the frontier; depends on <em>innovation</em>.</li>
+<li><strong>Effort (hours)</strong> — historically falls as countries get richer (people buy leisure), levelling at different points.</li>
+<li><strong>Labour market</strong> — participation &amp; employment; large gaps by <em>gender</em> and <em>age</em> (e.g. Japan "defying gravity": employment rising even as the working-age population shrinks).</li>
+<li><strong>Demographics</strong> — the age structure; ageing is a headwind to GDP per capita.</li>
+</ul>
+
+<h3>Innovation &amp; the frontier</h3>
+<p>US real GDP per hour has grown ~<strong>1.99%/yr on average since 1889</strong> — remarkably stable, but with a clear slowdown after 1975 (bar the internet years). Take-away: trend growth is <em>not</em> guaranteed; it's the product of continuous effort to innovate. General-purpose technologies (electricity, internet, maybe AI) are what deliver step-changes.</p>
+
+<h3>Convergence &amp; the Solow logic</h3>
+<div class="key">
+<strong>The convergence dynamic (Solow, 1956).</strong> As a country approaches the frontier (US productivity), its growth rate <em>declines</em> — it nears its <strong>steady state</strong>. Steady states differ across countries, so convergence "levels off" at different points.
+<ul style="margin-bottom:0;">
+<li><strong>Advanced economies</strong>: strong convergence in early post-war decades, then flattening.</li>
+<li><strong>Emerging Asia</strong>: very fast convergence (Korea, Singapore, China, Vietnam).</li>
+<li><strong>Latin America</strong>: slow / no convergence — the contrast with Asia is the puzzle L4 answers.</li>
+</ul>
+</div>
+<div class="intuition"><span class="tag">🎙 In class — making the decomposition click</span>
+<ul style="margin:4px 0 0;">
+<li><b>"France isn't poor — it just works less."</b> Per capita: Singapore ~$157k, US ~$90k, France ~$66k. But per <em>hour worked</em> they're almost identical: ~$99 / $103 / $105. So the per-capita gap is almost entirely <b>hours + employment share</b>, not productivity. Kills the instinct that lower GDP/capita = less productive.</li>
+<li><b>Convergence = imitation.</b> A catch-up country <em>"looks up, imitates, buys the technology, invites the factories, then shadows the frontier"</em> — and growth slows as it nears the frontier (Korea 6–7% tapering; China <em>"5, then 4, then 3, then 2"</em>). The puzzle: Brazil/Mexico had Korea-level income in the 1960s and <em>didn't</em> converge → that's what institutions/human capital (L4) explain. Convergence is a possibility, not a guarantee.</li>
+<li><b>Japan = the demographics worked example.</b> Working-age population fell ~12m, yet the labour force <em>grew</em> ~4m — via later retirement and a big rise in female participation. Proof that policy levers can offset demographic decline (but with limits: <em>"you can't keep asking people to work until 85"</em>).</li>
+<li><b>Method signal:</b> <em>"Don't memorize numbers — see patterns."</em> The exam rewards reading the mechanism, not recalling country figures.</li>
+</ul>
+</div>
+<div class="exam"><b>Exam lens.</b> Pure qualitative. Be ready to reason about ageing ("can higher employment of older workers offset ageing's drag on GDP per capita?" — yes), and to use the decomposition to locate <em>which</em> term is moving. No Solow algebra is ever asked — only the <em>logic</em> of convergence.</div>
+
+<!-- ---------- L04 ---------- -->
+<h2 id="l04">4 · Growth &amp; Country Analysis — the 4Is</h2>
+<p>The framework for diagnosing any country's growth (and the backbone of your group assignment). Potential exists for many countries; only some realise it. Why? The <strong>4 Is</strong>.</p>
+<table class="dt">
+<tr><th>The 4 Is</th><th>What it does</th><th>Marker</th></tr>
+<tr><td><strong>Innovation</strong></td><td>Incentives to innovate (IP rights) shift the technology <em>frontier</em>. Main growth force in <em>developed</em> countries.</td><td>US, Japan, Germany</td></tr>
+<tr><td><strong>Initial conditions</strong></td><td>Distance from the frontier = <em>potential</em> to catch up. Poorer ⟹ can grow faster (if it converges).</td><td>Europe post-WWII, China</td></tr>
+<tr><td><strong>Investment</strong></td><td>Convergence requires <em>building capital</em> — physical, human, knowledge, managerial. "Miracles" invest &gt;25% of GDP.</td><td>Korea ~35%; steady-state US/Germany ~18%</td></tr>
+<tr><td><strong>Institutions</strong></td><td>What makes investment happen: rule of law, property rights, stable policy, independent central bank, low corruption.</td><td>"No country has become rich with poor institutions"</td></tr>
+</table>
+<p>Empirics from the slides: investment-rate vs growth is strongly positive; the World Bank's six Worldwide Governance Indicators correlate tightly with GDP per capita. Institutional reform looks <em>different at different development stages</em> ("the Wall" — institutions must rise as income rises; China 1980→2021, Poland 1990→2021 climb the diagonal).</p>
+<div class="intuition"><span class="tag">🎙 In class — the 4Is, made intuitive</span>
+<ul style="margin:4px 0 0;">
+<li><b>Growth ≈ a simple sum.</b> <em>"GDP growth = productivity growth + population growth. If Nigeria grows its workforce at 2.6% and productivity at ~1%, expect ~3.5–4% growth. You don't need anything fancy — it's the sum of the two numbers."</em> This is the exact forecasting method he wants in country analysis.</li>
+<li><b>Investment is accounting, not a miracle — but with diminishing returns.</b> China invests ~40% of GDP → ~8% growth: build factories, workers get more capital, productivity rises. <em>But</em> the marginal return on capital falls once you already have a lot, so frontier economies (US/Germany ~18%) <em>shouldn't</em> copy China's 40% — there's less left to gain.</li>
+<li><b>Institutions, quotably:</b> <em>"There is no rich country with weak institutions. There is no poor country with great institutions."</em> Sequencing matters: Norway built institutions <em>then</em> found oil (rich); Venezuela found oil <em>then</em> destroyed institutions (poor). Institutions cause income, not just correlate.</li>
+<li><b>The four questions for any country:</b> what are its <em>initial conditions</em>? how is it <em>investing</em>? what are its <em>institutions</em>? is it generating or absorbing <em>innovation</em>? <em>"Those four questions will get you far."</em></li>
+</ul>
+</div>
+<div class="exam"><b>Exam lens.</b> If a country-analysis question appears, structure the answer explicitly around the 4Is — that <em>is</em> the framework Fatás wants. Investment is "the main component that matters" for long-run GDP per capita (a past T/F: "the two components that matter most are consumption and net exports" → <em>false</em>, it's investment).</div>
+
+<div class="izzy"><span class="tag">★ My own framework — from my Industrial Revolution essay</span>
+<p style="margin:2px 0 8px;">His 4 Is sit side by side as four levers for a <em>country's</em> growth. My IR essay isn't a parallel list — it's the <b>anatomy of one of those levers</b>: what it actually takes for a new technology to appear <em>and</em> spread. So my conditions don't map one-to-one; they read as a <b>chain</b>:</p>
+<table class="dt">
+<tr><th>My condition (for a technology to take hold)</th><th>Theory</th><th>Where it lands in his framework</th></tr>
+<tr><td><b>1. The idea must exist</b></td><td>Mokyr — the Enlightenment and idea-fostering institutions supply the ideas</td><td>His <b>Innovation</b> lever (generating at the frontier). A laggard country can <em>import</em> the idea instead of inventing it — that's his <b>Initial conditions</b> / catch-up.</td></tr>
+<tr><td><b>2. It must be the cheapest way to produce</b>, given local factor prices</td><td>Allen — capital-intensive tech is only adopted where labour is dear relative to capital and energy</td><td>This is what makes <b>Investment</b> happen: factor prices decide whether building that capital is worth it. The incentive here is a <em>price</em> incentive.</td></tr>
+<tr><td><b>3. Adopters must be able to keep the profit</b></td><td>Smith / North &amp; Thomas — property rights and the profit motive</td><td>His <b>Institutions</b> lever. A <em>different</em> incentive from #2: an <em>institutional</em> one.</td></tr>
+</table>
+<p style="margin:8px 0 4px;">Read down the table and it's a sequence, not a checklist: an idea has to <em>exist</em> → it has to be the <em>cheapest way to produce</em> (or no one invests in it) → and institutions have to let adopters <em>keep the profit</em>. His <b>Innovation → Investment → Institutions</b> are three links in that one chain, which is precisely why they feel cross-overy as separate boxes.</p>
+<p style="margin:8px 0 4px;"><b>What my framework adds over the checklist</b> (and why it's the better exam structure):</p>
+<ul style="margin:4px 0 0;">
+<li><b>The conditions must hold simultaneously.</b> Any one missing stalls innovation — that's why combinations of these factors existed for centuries across civilisations but ignited growth only when all three lined up at once.</li>
+<li><b>The binding constraint shifts over time.</b> Britain industrialised first not because it alone had ideas or institutions (much of Europe did) but because it uniquely satisfied <b>#2</b>: its high wage-to-energy/capital ratio made the early, inefficient machines worth adopting. Today <b>#1</b> (ideas — internet access + adoption from the frontier) and <b>#2</b> (capital and energy are cheap vs labour almost everywhere) are largely satisfied globally, so for stagnant countries the binding constraint is <b>#3 — institutions</b>.</li>
+<li><b>This <em>derives</em> Fatás's quote rather than asserting it.</b> "No rich country with weak institutions" is, in my framework, the conclusion that institutions are the binding condition <em>now</em> — not just a correlation.</li>
+</ul>
+<div class="exam" style="margin-top:10px;"><b>Exam move.</b> On a country-analysis question, don't just list the 4 Is — diagnose <em>which condition binds</em> (today: almost always institutions/incentives), then justify it with the coexistence logic above. That turns a descriptive list into a causal argument, which is the higher-scoring answer.</div>
+</div>
+
+<!-- ---------- L05 ---------- -->
+<h2 id="l05">5 · Money &amp; Central Banks</h2>
+<p>What money is, how it's created, and the central-bank balance sheet you'll use again in L6, L7 and L9.</p>
+<div class="key"><strong>Money does three jobs:</strong> medium of exchange (a liquid asset), unit of account (prices are quoted in it), store of value (moves value to the future).</div>
+
+<h3>From gold to fiat to digital</h3>
+<p>Under the <strong>gold standard</strong>, banknotes were backed 1-for-1 by gold; money supply = size of the central bank balance sheet. <strong>Fiat money</strong> swaps gold for financial assets and adds something new: a central-bank <strong>commitment to a stable value of the unit of account — a nominal anchor</strong> (an inflation target). Today money is a mix of paper and electronic, with commercial banks as intermediaries.</p>
+
+<h3>The two aggregates</h3>
+<div class="eq">$$\text{Monetary Base} = \text{Currency} + \text{Reserves} \qquad \text{Money Supply} = \text{Currency} + \text{Deposits}$$</div>
+<p>The <strong>base</strong> is what the central bank controls (≈ its balance sheet). The <strong>money supply</strong> is liquidity as the private sector sees it. They're linked by the <strong>money multiplier</strong> \(m\): \(\text{Money Supply} = m \times \text{Base}\). Here \(C\) = currency, \(D\) = bank deposits, \(R\) = reserves; the behavioural ratios are \(C/D\) (how much cash people hold vs deposits) and \(R/D\) (how much banks keep in reserve vs deposits).</p>
+<ol class="deriv">
+<li><span class="mathline">\(m = \dfrac{\text{Money Supply}}{\text{Base}} = \dfrac{C+D}{C+R}\)</span><span class="note">Multiplier = supply ÷ base, by definition.</span></li>
+<li class="result"><span class="mathline">\(= \dfrac{C/D + 1}{C/D + R/D}\)</span><span class="note">Divide top and bottom by \(D\). Since banks hold only a fraction in reserve (\(R<D\), so \(R/D<1\)), this is \(>1\) — banks "multiply" the base by lending deposits out.</span></li>
+</ol>
+<div class="wex"><span class="h">Worked example</span> If people hold \(C/D=0.1\) and banks keep \(R/D=0.1\): \(m = \dfrac{0.1+1}{0.1+0.1} = \dfrac{1.1}{0.2} = 5.5\). So €1 of base supports €5.50 of money supply. In a panic both ratios jump (people grab cash, banks hoard reserves) → \(m\) collapses toward 1 → the money supply shrinks even with the base unchanged (this is the L9 Depression story).</div>
+
+<div style="display:flex; flex-wrap:wrap; gap:18px; justify-content:center; overflow-x:auto;">
+<table class="tacct">
+<caption>Central Bank balance sheet (today)</caption>
+<tr><th>Assets</th><th>Liabilities</th></tr>
+<tr><td class="a">Securities</td><td class="l">Currency (banknotes)</td></tr>
+<tr><td class="a">Loans to commercial banks</td><td class="l">Reserves (deposits of banks)</td></tr>
+<tr><td class="a">Other (gold, FX reserves)</td><td class="l">Capital</td></tr>
+</table>
+<table class="tacct">
+<caption>Commercial bank balance sheet</caption>
+<tr><th>Assets</th><th>Liabilities</th></tr>
+<tr><td class="a">Reserves (deposits at central bank)</td><td class="l">Deposits (of customers)</td></tr>
+<tr><td class="a">Loans (to customers)</td><td class="l">Loans from central bank</td></tr>
+<tr><td class="a">Securities · other assets</td><td class="l">Other funding (bonds) · Capital</td></tr>
+</table>
+</div>
+<p class="sm" style="text-align:center;margin:2px 0 0;color:#555">Note the hinge: the central bank's <em>liability</em> "Reserves" is the commercial bank's <em>asset</em> "Reserves at central bank". The two balance sheets lock together at that line — which is exactly what QE and FX intervention move.</p>
+<p>This balance sheet does two jobs, and a third set of players is now trying to disrupt both.</p>
+
+<p><strong>1. Settlements — the central bank is the "bank of banks."</strong> Every commercial bank holds a reserve account at the central bank, and they pay <em>each other</em> by moving reserves on the central bank's books. Worked example: you bank with Bank 1 and pay £100 to a friend at Bank 2.</p>
+<ul style="margin:4px 0 10px;">
+<li>Bank 1's reserve account at the central bank falls by £100; Bank 2's rises by £100.</li>
+<li>The central bank's <em>total</em> liabilities don't change — the £100 just moves from one bank's row to another's. Across millions of daily payments, banks only settle the <strong>net</strong> amount they owe each other.</li>
+<li>Why it matters: this is what reserves are <em>for</em>, and why the central bank sits at the centre of the payment system. It never has to "find" the money — it just debits one account and credits another.</li>
+</ul>
+
+<p><strong>2. Liquidity creation — the "unlimited power."</strong> The central bank can create reserves from nothing by <em>buying an asset</em>. It buys £100 of securities and pays by simply crediting the seller's reserve account:</p>
+<ul style="margin:4px 0 10px;">
+<li>Its balance sheet grows on both sides: assets (securities) <strong>+100</strong>, liabilities (reserves) <strong>+100</strong>. It didn't need the money first — it conjured the reserves on its own books.</li>
+<li>Done in size during a crisis this <em>is</em> <strong>QE</strong>; done routinely it's ordinary open-market operations. Either way the mechanism is identical.</li>
+<li>The catch: this power is "unlimited" only in the bank's <em>own</em> currency (it can always credit more reserves). It is <em>not</em> a free lunch — overused, the extra liquidity just shows up as inflation (long-run neutrality). Contrast defending a <em>weak</em> currency, which needs <strong>FX</strong> reserves, and those genuinely can run out.</li>
+</ul>
+
+<p><strong>3. Fintech &amp; crypto — three different challenges to this system.</strong> They are often lumped together but attack different layers:</p>
+<ul style="margin:4px 0 0;">
+<li><b>New payment rails (M-Pesa, UPI, Pix)</b> — strip out the slow, expensive intermediaries between banks. But they still ultimately <em>settle in central-bank money</em>, so they challenge the <em>banks</em>, not the currency itself.</li>
+<li><b>A rival unit of account (Bitcoin)</b> — tries to be a new money with a hard-capped supply. But a <em>fixed supply is not a stable value</em>: price = supply ∩ <em>demand</em>, and demand swings violently, so Bitcoin is volatile. A real nominal anchor is a <em>commitment</em> to keep value stable (an inflation target), not a quantity cap — which is exactly why Bitcoin fails as a unit of account.</li>
+<li><b>Stablecoins = "narrow banks"</b> — they hold <strong>100% safe, liquid assets</strong> (e.g. Treasuries) against every token they issue. Because they're fully backed, they take no credit risk and <em>don't lend</em>, so they create no money multiplier. Economically they're "boring" (like a currency board); the real novelty is regulatory: dollar access plus zero-cost reserves.</li>
+</ul>
+
+<h3>How much money is needed? Velocity &amp; the long-run anchor</h3>
+<p>US nominal GDP (~$30tn) is far larger than the money supply (<strong>M1</strong> ≈ $18tn — M1 is "narrow money": currency in circulation + checkable deposits, i.e. the \(C+D\) measure from above). How does $18tn of money fund $30tn of transactions? Each dollar gets <em>spent more than once</em> a year — that's <strong>velocity \(V\)</strong> (how many times the money stock turns over). This gives the <strong>quantity equation</strong>, and money growth follows from it:</p>
+<p class="sm" style="color:#555;margin-top:-4px;">(You don't need the full M0/M1/M2 ladder for this course — Fatás uses only two levels: the <em>monetary base</em> the central bank controls, and the <em>money supply = M1</em> the multiplier links it to.)</p>
+<ol class="deriv">
+<li><span class="mathline">\(M \times V = P \times Y\)</span><span class="note">Quantity equation: money × turnover = price level × real output = nominal GDP. (\(V = PY/M = 30/18 \approx 1.67\) for the US.)</span></li>
+<li><span class="mathline">\(\%\Delta M + \%\Delta V = \%\Delta P + \%\Delta Y\)</span><span class="note">Take growth rates of both sides (the growth of a product is the sum of the growths).</span></li>
+<li class="result"><span class="mathline">\(\%\Delta M \approx \underbrace{\%\Delta P}_{\text{inflation}} + \underbrace{\%\Delta Y}_{\text{real growth}}\)</span><span class="note">Assume velocity is roughly stable (\(\%\Delta V\approx 0\)). So money growth = inflation + real GDP growth.</span></li>
+</ol>
+<p>So the central bank forecasts real growth (demographics + capital + technology) and <strong>chooses inflation</strong>. This is the punchline of Part I's money story:</p>
+<div class="key"><strong>Long-run neutrality.</strong> In the long run money is <em>neutral</em> — it doesn't move real variables. It only anchors <em>nominal</em> ones through inflation. Inflation is ultimately a monetary phenomenon (cross-country: money growth ↔ inflation; hyperinflations are fiat-money events).</div>
+<div class="intuition"><span class="tag">🎙 In class — why these formulae hold</span>
+<ul style="margin:4px 0 0;">
+<li><b>"Add a zero" — why money is neutral.</b> <em>"Overnight I take every number with a Euro attached and add a zero (×10). Your salary, the price of coffee — all change by 10, and we're back where we started. These numbers are 100% arbitrary."</em> That's why excess liquidity can't make you richer; it can only show up as inflation.</li>
+<li><b>The coffee analogy — what \(\%\Delta M = \text{real growth} + \text{inflation}\) means.</b> <em>"How many more coffees will you have next year? I forecast that (real growth). Inflation? I don't forecast it — I <b>decide</b> it. I choose 2%."</em> So the central bank forecasts the real part and <em>chooses</em> the inflation part.</li>
+<li><b>Balance sheets: "transforming assets, not creating value out of thin air."</b> Assets always equal liabilities. The central bank hands over a claim in exchange for an asset — money isn't conjured, it's a transformation. So QE is not "printing free money."</li>
+<li><b>Fixed supply ≠ stable value.</b> Bitcoin caps supply, yet US inflation <em>measured in Bitcoin</em> swung ~+300% then −80% — because price = supply ∩ <em>demand</em>, and demand is volatile. A nominal anchor is a <em>commitment</em>, not a quantity cap.</li>
+<li><b>Stablecoin = narrow bank = currency board.</b> Economically a stablecoin is "boring" — safe assets backing tokens, exactly like the Hong Kong dollar's currency board. The excitement is regulatory arbitrage (dollar access + zero-cost reserves), not new economics.</li>
+<li><b>Judge central banks by outcomes.</b> <em>"We don't judge them on how much liquidity they created — did they deliver 2%? That's it."</em></li>
+</ul>
+</div>
+<p style="margin-top:18px;"><strong>The most-tested example, on the balance sheet.</strong> "When China's central bank buys US dollars, does it <em>add</em> or <em>remove</em> domestic liquidity?" Put it on the T-account and the answer is unambiguous:</p>
+<div style="overflow-x:auto;">
+<table class="tacct" style="min-width:380px;">
+<caption>China's central bank buys US$ (e.g. to resist yuan appreciation)</caption>
+<tr><th>Assets</th><th>Liabilities</th></tr>
+<tr><td class="a">US dollar reserves (Treasuries) <strong>↑</strong></td><td class="l">Yuan reserves of banks <strong>↑</strong></td></tr>
+<tr><td class="a"></td><td class="l"><em>monetary base grows → liquidity ADDED</em></td></tr>
+</table>
+</div>
+<p class="sm" style="text-align:center;margin:2px 0 0;color:#555">It <em>pays</em> for the dollars by creating yuan and crediting banks' reserve accounts — both sides swell, the base grows, so it <strong>adds</strong> liquidity (the opposite of the trap answer). To stop that liquidity feeding inflation it would have to <strong>sterilise</strong> (sell a domestic bond to soak the yuan back up) — see the fuller FX-intervention T-accounts in L7.</p>
+<div class="exam"><b>Exam lens.</b> Balance-sheet reasoning is heavily tested: "when the central bank of China buys US dollars it <em>removes</em> liquidity" → <em>false</em> (it pays in local currency, <em>adding</em> liquidity). Know which entries move and in which direction, and that the <em>initial price level is arbitrary</em> — only the path of monetary policy (inflation) afterwards matters.</div>
+
+<!-- ---------- L06 ---------- -->
+<h2 id="l06">6 · Business Cycles</h2>
+<p>The bridge from Part I to Part II: fluctuations of actual GDP <em>around</em> potential GDP (the long-run trend from L3–L4).</p>
+
+<figure>
+<svg viewBox="0 0 460 270" role="img" aria-label="Business cycle around potential">
+  <line class="axis" x1="55" y1="20" x2="55" y2="230"/>
+  <line class="axis" x1="55" y1="230" x2="440" y2="230"/>
+  <text class="sm" x="380" y="252">time</text><text class="sm" x="14" y="30">GDP</text>
+  <!-- potential trend -->
+  <line class="LRAS" x1="60" y1="200" x2="430" y2="70" stroke-dasharray="0"/>
+  <text class="sm" x="350" y="92" fill="#b03030">Potential GDP (trend)</text>
+  <!-- actual wavy around trend -->
+  <path class="IS" d="M60,205 Q105,150 140,180 T220,150 Q260,95 300,130 T390,72 Q415,55 430,68" fill="none" stroke="#2e7d32"/>
+  <text class="sm" x="120" y="205" fill="#2e7d32">actual GDP</text>
+  <text class="sm" x="150" y="135">↑ output gap (boom)</text>
+  <text class="sm" x="250" y="200">↓ gap (recession)</text>
+</svg>
+<figcaption>The business cycle: actual GDP oscillating around potential. The gap between them is the <em>output gap</em>.</figcaption>
+</figure>
+
+<h3>Measuring slack</h3>
+<div class="eq"><div class="lbl">Output gap</div>$$\text{Output gap} = 100\times\frac{\text{Actual} - \text{Potential}}{\text{Potential}}$$</div>
+<p>The output gap is tightly (negatively) correlated with the <strong>unemployment rate</strong> — both measure slack. To define slack you need a benchmark for "normal": the <strong>natural rate of unemployment</strong> (structural unemployment — frictional job-to-job churn; zero unemployment is impossible). Deviations from the natural rate are <em>cyclical</em>. Get potential output or the natural rate wrong and your policy is wrong.</p>
+<div class="intuition"><span class="tag">🎙 In class — how to read a cycle</span>
+<ul style="margin:4px 0 0;">
+<li><b>The indicators disagree — don't expect them to line up.</b> <em>"When people tell you there's a recession, don't expect every indicator to send the same message."</em> Europe in COVID: GDP collapsed but <em>unemployment barely moved</em>, because governments paid wages directly. So always say <em>which</em> measure of slack you're using.</li>
+<li><b>His mental model of the cycle:</b> recessions are <b>V-shaped</b> (sudden, sharp, short); expansions are a slow <b>inverted-U</b>. <em>"All the uncertainty is at the turning point — between recessions, nothing much happens."</em> The exam-relevant question is always "are we about to hit a wall?"</li>
+</ul>
+</div>
+
+<h3>Phases &amp; why recessions happen</h3>
+<p>Cycle = expansion → peak → recession → trough. "Technical" recession = two consecutive quarters of negative growth (a crude measure). Historically recessions have become <strong>shorter and milder</strong>, expansions <strong>longer</strong> ("The Great Moderation"), with 2008 and 2020 as reminders that bad luck happens. Two causes of downturns:</p>
+<ol>
+<li><strong>Exogenous shocks</strong> transmitted by propagation mechanisms (a pandemic is the perfect example).</li>
+<li><strong>Accumulated imbalances</strong> that eventually need correction — often visible in <em>financial markets</em>.</li>
+</ol>
+
+<h3>Financial markets, bubbles &amp; the risk premium</h3>
+<p>Greenspan's "irrational exuberance": imbalances can persist far longer than you'd think. The lecture gives a precise way to judge whether stocks are "expensive":</p>
+<div class="eq"><div class="lbl">Required return &amp; ex-ante risk premium</div>$$R = r + RP, \qquad R \approx \tfrac{E}{P} \;\Rightarrow\; RP = \tfrac{E}{P} - r$$</div>
+<p>Logic: required stock return = riskless real rate \(r\) + risk premium \(RP\); ex-ante real stock return ≈ inverse of the P/E ratio (E/P). So a high P/E means low expected returns — but that's only a "bubble" if the <em>risk premium</em> is unusually low relative to the (real) interest rate.</p>
+<div class="key"><strong>The key dynamic:</strong> hold RP constant. An <em>unexpected fall</em> in real interest rates <em>re-prices stocks up</em> (a capital gain now) <em>and</em> lowers expected future returns. A run of surprise rate cuts therefore delivers high <em>realised</em> returns even as <em>expected</em> returns decline — exactly the post-2009 P/E expansion.</div>
+<div class="exam"><b>Exam lens.</b> Recurring 10-mark question: "is the stock market a bubble?" Right answer uses RP = E/P − r, and stresses it's the <em>real</em> rate that drives the discount rate — <em>inflation per se</em> doesn't, and "there's nothing special about 4% inflation." Myths to refute: "high P/E = bubble", "past returns predict future returns."</div>
+
+<!-- ============================================================ -->
+<!-- PART II — THE SHORT RUN -->
+<!-- ============================================================ -->
+<h2 class="part">Part II — The Short Run (Business Cycles)</h2>
+
+<!-- ---------- L07 ---------- -->
+<h2 id="l07">7 · A Model of Business Cycles — IS-LM-FX</h2>
+<p>This is <em>the</em> model. Master drawing and shifting it and most of Part II is automatic. It has three blocks; in this lecture we assume <strong>no inflation</strong>, so \(r = i\) and we just call the real exchange rate \(e\).</p>
+
+<h3>The three blocks</h3>
+<div class="eq"><div class="lbl">Block 1 — Aggregate Demand (becomes the IS curve)</div>
+$$\text{GDP} = C(\underset{+\ -\ -\ +}{\text{GDP},r,T,W}) + I(\underset{-}{r}) + G + NX(\underset{-\ -\ +}{e,\text{GDP},\text{GDP}_F})$$
+<div class="sm" style="color:#555;margin-top:4px">C rises with income/wealth, falls with taxes &amp; r. I falls with r. NX falls with a stronger e &amp; higher domestic income, rises with foreign income.</div></div>
+<div class="eq"><div class="lbl">Block 2 — Money market (becomes the LM curve)</div>$$\frac{M}{P} = L(\underset{+}{\text{GDP}},\underset{-}{\,i\,})$$
+<div class="sm" style="color:#555;margin-top:4px">Money demand rises with transactions (GDP), falls with the nominal rate (opportunity cost).</div></div>
+<div class="eq"><div class="lbl">Block 3 — Exchange rate / capital flows</div>$$r = r_F$$
+<div class="sm" style="color:#555;margin-top:4px">Capital chases returns; arbitrage equalises real rates across countries.</div></div>
+
+<h3>Why IS slopes down and LM slopes up</h3>
+<div class="twocol">
+<div>
+<figure>
+<svg viewBox="0 0 300 260" aria-label="IS curve">
+  <line class="axis" x1="50" y1="20" x2="50" y2="220"/><line class="axis" x1="50" y1="220" x2="285" y2="220"/>
+  <text class="lbl" x="26" y="22">r</text><text class="sm" x="250" y="242">GDP</text>
+  <line class="IS" x1="70" y1="55" x2="270" y2="205"/>
+  <text class="lbl" x="240" y="200" fill="#2e7d32">IS</text>
+  <text class="sm" x="120" y="70">lower r ⟹</text><text class="sm" x="120" y="84">more I, C ⟹ ↑GDP</text>
+</svg>
+<figcaption><strong>IS (goods):</strong> lower r raises interest-sensitive demand ⟹ downward-sloping.</figcaption>
+</figure>
+</div>
+<div>
+<figure>
+<svg viewBox="0 0 300 260" aria-label="LM curve">
+  <line class="axis" x1="50" y1="20" x2="50" y2="220"/><line class="axis" x1="50" y1="220" x2="285" y2="220"/>
+  <text class="lbl" x="26" y="22">r</text><text class="sm" x="250" y="242">GDP</text>
+  <line class="LM" x1="70" y1="205" x2="270" y2="55"/>
+  <text class="lbl" x="240" y="65" fill="#1f5fa8">LM</text>
+  <text class="sm" x="95" y="120">↑GDP ⟹ more money</text><text class="sm" x="95" y="134">demand ⟹ ↑r (M fixed)</text>
+</svg>
+<figcaption><strong>LM (money):</strong> with M fixed, higher GDP needs a higher r to clear money demand ⟹ upward-sloping.</figcaption>
+</figure>
+</div>
+</div>
+
+<div class="intuition"><span class="tag">Intuition — the IS curve (the goods market)</span>
+<ul style="margin:4px 0 0;">
+<li><b>What it is:</b> the combinations of interest rate \(r\) and output GDP at which total demand equals output — the goods market clears.</li>
+<li><b>Why lower \(r\) means higher GDP:</b> a lower rate makes borrowing cheaper, so firms invest more (\(I\)) and households consume more (\(C\)); in an open economy a lower rate also weakens the currency, so net exports rise. More demand ⟹ higher GDP.</li>
+<li><b>So IS slopes down:</b> lower \(r\) ⟹ higher GDP.</li>
+<li><b>It shifts right</b> when anything raises demand at a given rate: ↑G, tax cuts, higher confidence/wealth, stronger foreign demand, or a weaker currency.</li>
+</ul></div>
+
+<div class="intuition"><span class="tag">Intuition — the LM equation \(M/P = L(\text{GDP}, i)\)</span>
+<ul style="margin:4px 0 0;">
+<li><b>Left side \(M/P\) = the real money supply.</b> \(M\) is how much money the central bank has put out; divide by the price level \(P\) because what matters isn't the number of notes, it's their <em>purchasing power</em>. £100 means something very different if a coffee costs £2 vs £20. So \(M/P\) is "real money".</li>
+<li><b>Right side \(L(\text{GDP}, i)\) = money demand.</b> \(L\) is for <em>liquidity</em> — how much people want to hold as cash / instant-access rather than tied up in bonds and stocks.</li>
+<li><b>\(+\) GDP:</b> a busier economy means more transactions, so people need more cash on hand to grease them. More income and spending ⟹ more money demanded.</li>
+<li><b>\(-\) i (the one people miss):</b> holding cash earns nothing, so the interest you give up by not holding a bond is the <em>opportunity cost</em> of cash. High rates (say 8%) make idle cash painful ⟹ people economise and hold less; near 0% there's no penalty ⟹ they hold loads. Money demand falls as \(i\) rises.</li>
+<li><b>Why LM slopes up:</b> if GDP rises, money demand rises (the \(+\)) — but the supply \(M/P\) is <em>fixed</em>. Something must choke demand back to match: the rate \(i\) rises until holding cash is painful enough to bring demand back down to the fixed supply. Higher GDP ⟹ higher \(i\) ⟹ upward-sloping LM.</li>
+</ul>
+<p style="margin:8px 0 0;font-size:14px;"><b>In one line:</b> the money market clears when the cash people <em>want</em> (more when busy, less when rates are high) equals the real cash that <em>exists</em> — so as the economy grows, rates must climb to keep that balance.</p></div>
+
+<p>The money-market block can be drawn on its own (real money M/P on the x-axis, nominal rate i on y): money supply is <em>vertical</em> (set by the central bank), money demand slopes down. An increase in M shifts supply right ⟹ lower i. Equivalently the central bank just <em>sets</em> the short-term rate.</p>
+
+<h3>The full diagram</h3>
+<figure>
+<svg viewBox="0 0 420 300" aria-label="Full IS-LM-FX">
+  <line class="axis" x1="60" y1="20" x2="60" y2="250"/><line class="axis" x1="60" y1="250" x2="400" y2="250"/>
+  <text class="lbl" x="34" y="22">r</text><text class="sm" x="360" y="272">GDP</text>
+  <line class="IS" x1="80" y1="70" x2="330" y2="240"/><text class="lbl" x="300" y="235" fill="#2e7d32">IS</text>
+  <line class="LM" x1="80" y1="240" x2="330" y2="70"/><text class="lbl" x="300" y="78" fill="#1f5fa8">LM</text>
+  <line class="rf dash" x1="60" y1="155" x2="400" y2="155"/><text class="lbl" x="360" y="150" fill="#a8740a">r<tspan baseline-shift="sub" font-size="9">F</tspan></text>
+  <circle class="dot" cx="205" cy="155" r="4.5"/>
+  <text class="sm" x="150" y="120">above r<tspan baseline-shift="sub">F</tspan> → capital inflow → appreciation</text>
+  <text class="sm" x="150" y="205">below r<tspan baseline-shift="sub">F</tspan> → capital outflow → depreciation</text>
+</svg>
+<figcaption>All three blocks. Short-run equilibrium = IS ∩ LM. The \(r_F\) line tells you capital-flow / exchange-rate pressure.</figcaption>
+</figure>
+
+<div class="intuition"><span class="tag">Intuition — the third line: the open economy (Mundell-Fleming)</span>
+<ul style="margin:4px 0 0;">
+<li><b>The dashed line is the world interest rate \(r_F\), and it's flat</b> because a small open economy is a <em>price-taker</em> on global capital: you face the world return, you can't set it.</li>
+<li><b>Capital chases yield.</b> If domestic \(r > r_F\), your assets pay more ⟹ foreign money floods in (buys your bonds ⟹ buys your currency ⟹ it <strong>appreciates</strong>). If \(r < r_F\), money flees ⟹ currency <strong>depreciates</strong>.</li>
+<li><b>So the IS∩LM dot can't durably sit off the line.</b> Land above \(r_F\): inflow → appreciation → exports dearer → NX falls → IS drifts left → back to \(r_F\). Land below: the reverse. <em>The exchange rate is the adjustment valve that ties you to the world rate.</em></li>
+<li><b>Punchline — the policy trilemma:</b> with free capital flows you cannot <em>also</em> have BOTH a fixed exchange rate AND an independent interest rate. Pick two. This diagram is that squeeze drawn out.</li>
+</ul></div>
+
+<div class="key">
+<strong>The 4-step routine (use it every single time):</strong>
+<ol style="margin-bottom:0;">
+<li><strong>Shift</strong> the curve that the shock hits (see triggers below).</li>
+<li><strong>Compare r to \(r_F\)</strong> → capital inflow (r&gt;\(r_F\)) or outflow (r&lt;\(r_F\)) → appreciation or depreciation.</li>
+<li><strong>Adjust NX</strong> if the exchange rate moved (appreciation ⟹ NX falls ⟹ IS shifts back).</li>
+<li><strong>Repeat</strong> until r returns to \(r_F\).</li>
+</ol>
+</div>
+<div class="intuition"><span class="tag">🎙 In class — how he wants you to run the model</span>
+<p style="margin:2px 0;"><em>"Today is a very dense session… this is the model. We're done with the boring stuff — now we apply it over and over."</em> Everything in L8–L14 (and the exam) is repeated application of this one engine. His four questions, in order, for any shock:</p>
+<ol style="margin:4px 0 0;"><li><b>What is changing?</b></li><li><b>In which direction?</b></li><li><b>Where is it on this graph?</b> (which curve)</li><li><b>In which direction does that line move?</b></li></ol>
+<p style="margin:6px 0 0;"><b>Stuck on which way a curve shifts?</b> Don't reach for memorised arrows — reason from the economics: <em>"Tightening the money supply <b>must</b> mean higher interest rates. Must mean."</em> And note the one result <em>everyone</em> agrees on with no caveats (a clean exam answer): a monetary contraction causes a recession — Volcker 1979, rates 10%→16%, GDP from +3.2% to −0.2%.</p>
+</div>
+<table class="dt">
+<tr><th>IS shifts right when…</th><th>LM shifts right when…</th><th>\(r_F\) line shifts up when…</th></tr>
+<tr><td>↑G; ↓Taxes; ↑investment/consumer confidence; ↑wealth</td><td>↑Money supply; ↓Prices; financial innovation cuts money demand</td><td>Foreign interest rate rises</td></tr>
+</table>
+
+<h3>Worked trace — one full pass of the routine</h3>
+<p>Before the table of end-states, see the routine <em>actually run</em> on one shock — <strong>a fiscal expansion (↑G) under a floating exchange rate</strong>. This is the case that shows <em>why</em> the IS∩LM rate can temporarily sit off the \(r_F\) line, and how it gets dragged back:</p>
+<ol class="deriv">
+<li><span class="mathline">↑G ⟹ IS shifts <strong>right</strong>.</span><span class="note">The shock hits the goods market: more demand at every interest rate.</span></li>
+<li><span class="mathline">New IS∩LM sits <em>above</em> \(r_F\): \(r>r_F\).</span><span class="note">This is the key read — for a moment the domestic rate is higher than the world rate. The equilibrium is OFF the \(r_F\) line.</span></li>
+<li><span class="mathline">\(r>r_F\) ⟹ capital <strong>inflow</strong> ⟹ currency <strong>appreciates</strong>.</span><span class="note">Foreign money chases the higher return, bidding up the currency.</span></li>
+<li><span class="mathline">Appreciation ⟹ \(NX\) <strong>falls</strong> ⟹ IS shifts back <strong>left</strong>.</span><span class="note">A stronger currency makes exports dearer; demand leaks out.</span></li>
+<li class="result"><span class="mathline">Repeat until \(r=r_F\) again. Net effect on GDP: <strong>≈ zero</strong>.</span><span class="note">The IS ends back where it started — fiscal policy is fully "crowded out" through the exchange rate (unless money accommodates). That's why row 5 below says "no effect."</span></li>
+</ol>
+<p>Every other case is the same routine with a different opening shift. The \(r_F\) line is the anchor: <em>any</em> shock that moves the rate off it triggers capital flows that push it back.</p>
+
+<h3>The policy experiments — the Mundell-Fleming matrix</h3>
+<p>This is the exam, and every cell is just the 4-step routine above with a different opening shift. Read <em>across</em> each row and watch the potency verdict flip with the FX regime: that reversal is the single most examined idea in the course. (<strong>Powerful</strong> = the policy actually moves real GDP; <strong>powerless</strong> = its GDP effect nets to ≈0 because the capital-flow and exchange-rate response, or the peg defence, cancels it.) Two conventions keep the grid compact: (i) only <strong>expansion</strong> is shown, since a contraction is the identical chain with every sign flipped; (ii) the <strong>closed-economy</strong> column is the no-capital-mobility baseline, before the \(r_F\) line binds.</p>
+<table class="dt">
+<tr><th>Policy <span class="sm" style="font-weight:normal">(expansion shown; contraction = same chain, signs flipped)</span></th><th>Closed economy <span class="sm" style="font-weight:normal">(no capital mobility, baseline)</span></th><th>Flexible FX</th><th>Fixed FX</th></tr>
+<tr style="background:#eef6f1;font-size:13.5px;"><td><em>Impossible Trinity:<br>which 2 you keep</em></td><td><span style="color:#2e7d32;font-weight:700">✓</span> fixed rate<br><span style="color:#2e7d32;font-weight:700">✓</span> independent monetary<br><span style="color:#b03030">✗ capital mobility</span></td><td><span style="color:#2e7d32;font-weight:700">✓</span> capital mobility<br><span style="color:#2e7d32;font-weight:700">✓</span> independent monetary<br><span style="color:#b03030">✗ fixed rate</span></td><td><span style="color:#2e7d32;font-weight:700">✓</span> capital mobility<br><span style="color:#2e7d32;font-weight:700">✓</span> fixed rate<br><span style="color:#b03030">✗ independent monetary</span></td></tr>
+<tr>
+<td><strong>Monetary expansion</strong> (↑M/P)</td>
+<td><svg viewBox="0 0 210 150" style="width:100%;max-width:210px;background:#fff;border:1px solid #d8d8d8;border-radius:8px;padding:3px;margin:0 0 5px;"><line x1="34" y1="118" x2="200" y2="118" stroke="#999" stroke-width="1"/><line x1="34" y1="118" x2="34" y2="14" stroke="#999" stroke-width="1"/><text x="24" y="20" font-size="11" fill="#555">r</text><text x="168" y="132" font-size="10" fill="#555">GDP</text><line x1="48" y1="34" x2="182" y2="108" stroke="#2e7d32" stroke-width="2.6"/><text x="170" y="106" font-size="11" fill="#2e7d32">IS</text><line x1="48" y1="108" x2="182" y2="34" stroke="#1f5fa8" stroke-width="2.6"/><text x="170" y="40" font-size="11" fill="#1f5fa8">LM</text><line x1="76" y1="108" x2="194" y2="43" stroke="#1f5fa8" stroke-width="2.4" stroke-dasharray="5 3"/><circle cx="152" cy="58" r="8" fill="#1f5fa8"/><text x="152" y="61.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">1</text><circle cx="115" cy="71" r="3.5" fill="#13392b"/></svg><div style="font-size:11.5px;color:#555;margin:0 0 7px;">① LM right → r↓, GDP↑</div>↑M/P ⟹ LM right ⟹ r↓ ⟹ ↑I, ↑C ⟹ <strong>GDP↑</strong>.<br><strong style="color:#2e7d32">Powerful.</strong><br><span class="sm">Why: more money lowers its price (the rate); cheap borrowing lifts investment and consumption. <em>Mirror (contraction):</em> Volcker 1979, M/P −8%, rates 10%→16%, growth +3.2%→−0.2%.</span></td>
+<td><svg viewBox="0 0 210 150" style="width:100%;max-width:210px;background:#fff;border:1px solid #d8d8d8;border-radius:8px;padding:3px;margin:0 0 5px;"><line x1="34" y1="118" x2="200" y2="118" stroke="#999" stroke-width="1"/><line x1="34" y1="118" x2="34" y2="14" stroke="#999" stroke-width="1"/><text x="24" y="20" font-size="11" fill="#555">r</text><text x="168" y="132" font-size="10" fill="#555">GDP</text><line x1="34" y1="71" x2="200" y2="71" stroke="#a8740a" stroke-width="1.6" stroke-dasharray="4 3"/><text x="186" y="67" font-size="10" fill="#a8740a">r_F</text><line x1="48" y1="34" x2="182" y2="108" stroke="#2e7d32" stroke-width="2.6"/><text x="170" y="106" font-size="11" fill="#2e7d32">IS</text><line x1="48" y1="108" x2="182" y2="34" stroke="#1f5fa8" stroke-width="2.6"/><text x="170" y="40" font-size="11" fill="#1f5fa8">LM</text><line x1="76" y1="108" x2="194" y2="43" stroke="#1f5fa8" stroke-width="2.4" stroke-dasharray="5 3"/><circle cx="152" cy="58" r="8" fill="#1f5fa8"/><text x="152" y="61.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">1</text><line x1="76" y1="34" x2="194" y2="99" stroke="#2e7d32" stroke-width="2.4" stroke-dasharray="5 3"/><circle cx="150" cy="52" r="8" fill="#2e7d32"/><text x="150" y="55.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">2</text><circle cx="115" cy="71" r="3.5" fill="#13392b"/></svg><div style="font-size:11.5px;color:#555;margin:0 0 7px;">① LM right ② IS right (via depreciation) → GDP↑</div>↑M/P ⟹ LM right ⟹ r↓ ⟹ r&lt;r_F ⟹ outflow ⟹ depreciation ⟹ NX↑ ⟹ <strong>GDP↑</strong>.<br><strong style="color:#2e7d32">Powerful.</strong><br><span class="sm">Why: you can't lower the world rate, so the easing escapes through the currency; a weaker exchange rate makes exports cheap. The exchange rate is the transmission engine.</span></td>
+<td><svg viewBox="0 0 210 150" style="width:100%;max-width:210px;background:#fff;border:1px solid #d8d8d8;border-radius:8px;padding:3px;margin:0 0 5px;"><line x1="34" y1="118" x2="200" y2="118" stroke="#999" stroke-width="1"/><line x1="34" y1="118" x2="34" y2="14" stroke="#999" stroke-width="1"/><text x="24" y="20" font-size="11" fill="#555">r</text><text x="168" y="132" font-size="10" fill="#555">GDP</text><line x1="34" y1="71" x2="200" y2="71" stroke="#a8740a" stroke-width="1.6" stroke-dasharray="4 3"/><text x="186" y="67" font-size="10" fill="#a8740a">r_F</text><line x1="48" y1="34" x2="182" y2="108" stroke="#2e7d32" stroke-width="2.6"/><text x="170" y="106" font-size="11" fill="#2e7d32">IS</text><line x1="48" y1="108" x2="182" y2="34" stroke="#1f5fa8" stroke-width="2.6"/><text x="170" y="40" font-size="11" fill="#1f5fa8">LM</text><line x1="76" y1="108" x2="194" y2="43" stroke="#1f5fa8" stroke-width="2.4" stroke-dasharray="5 3"/><circle cx="152" cy="58" r="8" fill="#1f5fa8"/><text x="152" y="61.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">1</text><circle cx="92" cy="86" r="8" fill="#1f5fa8"/><text x="92" y="89.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">2</text><circle cx="115" cy="71" r="3.5" fill="#13392b"/></svg><div style="font-size:11.5px;color:#555;margin:0 0 7px;">① LM right ② LM back (peg defence) → GDP≈0</div>↑M/P ⟹ LM right ⟹ r↓ ⟹ r&lt;r_F ⟹ outflow ⟹ CB buys back its currency, reversing M ⟹ <strong>GDP≈0</strong>.<br><strong style="color:#b03030">Powerless.</strong><br><span class="sm">Why: defending the peg forces the bank to undo its own easing. A peg and an independent monetary policy can't coexist (the trilemma).</span></td>
+</tr>
+<tr>
+<td><strong>Fiscal expansion</strong> (↑G)</td>
+<td><svg viewBox="0 0 210 150" style="width:100%;max-width:210px;background:#fff;border:1px solid #d8d8d8;border-radius:8px;padding:3px;margin:0 0 5px;"><line x1="34" y1="118" x2="200" y2="118" stroke="#999" stroke-width="1"/><line x1="34" y1="118" x2="34" y2="14" stroke="#999" stroke-width="1"/><text x="24" y="20" font-size="11" fill="#555">r</text><text x="168" y="132" font-size="10" fill="#555">GDP</text><line x1="48" y1="34" x2="182" y2="108" stroke="#2e7d32" stroke-width="2.6"/><text x="170" y="106" font-size="11" fill="#2e7d32">IS</text><line x1="48" y1="108" x2="182" y2="34" stroke="#1f5fa8" stroke-width="2.6"/><text x="170" y="40" font-size="11" fill="#1f5fa8">LM</text><line x1="76" y1="34" x2="194" y2="99" stroke="#2e7d32" stroke-width="2.4" stroke-dasharray="5 3"/><circle cx="150" cy="52" r="8" fill="#2e7d32"/><text x="150" y="55.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">1</text><circle cx="115" cy="71" r="3.5" fill="#13392b"/></svg><div style="font-size:11.5px;color:#555;margin:0 0 7px;">① IS right → r↑, GDP↑</div>↑G ⟹ IS right ⟹ r↑ ⟹ <strong>GDP↑</strong>.<br><strong style="color:#2e7d32">Powerful.</strong><br><span class="sm">Why: the government adds demand directly, but funding it competes for the same pool of saving, so rates rise alongside output.</span></td>
+<td><svg viewBox="0 0 210 150" style="width:100%;max-width:210px;background:#fff;border:1px solid #d8d8d8;border-radius:8px;padding:3px;margin:0 0 5px;"><line x1="34" y1="118" x2="200" y2="118" stroke="#999" stroke-width="1"/><line x1="34" y1="118" x2="34" y2="14" stroke="#999" stroke-width="1"/><text x="24" y="20" font-size="11" fill="#555">r</text><text x="168" y="132" font-size="10" fill="#555">GDP</text><line x1="34" y1="71" x2="200" y2="71" stroke="#a8740a" stroke-width="1.6" stroke-dasharray="4 3"/><text x="186" y="67" font-size="10" fill="#a8740a">r_F</text><line x1="48" y1="34" x2="182" y2="108" stroke="#2e7d32" stroke-width="2.6"/><text x="170" y="106" font-size="11" fill="#2e7d32">IS</text><line x1="48" y1="108" x2="182" y2="34" stroke="#1f5fa8" stroke-width="2.6"/><text x="170" y="40" font-size="11" fill="#1f5fa8">LM</text><line x1="76" y1="34" x2="194" y2="99" stroke="#2e7d32" stroke-width="2.4" stroke-dasharray="5 3"/><circle cx="150" cy="52" r="8" fill="#2e7d32"/><text x="150" y="55.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">1</text><circle cx="92" cy="60" r="8" fill="#2e7d32"/><text x="92" y="63.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">2</text><circle cx="115" cy="71" r="3.5" fill="#13392b"/></svg><div style="font-size:11.5px;color:#555;margin:0 0 7px;">① IS right ② IS back (via appreciation) → GDP≈0</div>↑G ⟹ IS right ⟹ r&gt;r_F ⟹ inflow ⟹ appreciation ⟹ NX↓ ⟹ IS back left ⟹ <strong>GDP≈0</strong>.<br><strong style="color:#b03030">Powerless.</strong><br><span class="sm">Why: higher demand lifts the rate above r_F, capital floods in, the currency strengthens, and dearer exports cancel the stimulus; it leaks back out abroad.</span></td>
+<td><svg viewBox="0 0 210 150" style="width:100%;max-width:210px;background:#fff;border:1px solid #d8d8d8;border-radius:8px;padding:3px;margin:0 0 5px;"><line x1="34" y1="118" x2="200" y2="118" stroke="#999" stroke-width="1"/><line x1="34" y1="118" x2="34" y2="14" stroke="#999" stroke-width="1"/><text x="24" y="20" font-size="11" fill="#555">r</text><text x="168" y="132" font-size="10" fill="#555">GDP</text><line x1="34" y1="71" x2="200" y2="71" stroke="#a8740a" stroke-width="1.6" stroke-dasharray="4 3"/><text x="186" y="67" font-size="10" fill="#a8740a">r_F</text><line x1="48" y1="34" x2="182" y2="108" stroke="#2e7d32" stroke-width="2.6"/><text x="170" y="106" font-size="11" fill="#2e7d32">IS</text><line x1="48" y1="108" x2="182" y2="34" stroke="#1f5fa8" stroke-width="2.6"/><text x="170" y="40" font-size="11" fill="#1f5fa8">LM</text><line x1="76" y1="34" x2="194" y2="99" stroke="#2e7d32" stroke-width="2.4" stroke-dasharray="5 3"/><circle cx="150" cy="52" r="8" fill="#2e7d32"/><text x="150" y="55.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">1</text><line x1="76" y1="108" x2="194" y2="43" stroke="#1f5fa8" stroke-width="2.4" stroke-dasharray="5 3"/><circle cx="152" cy="58" r="8" fill="#1f5fa8"/><text x="152" y="61.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">2</text><circle cx="115" cy="71" r="3.5" fill="#13392b"/></svg><div style="font-size:11.5px;color:#555;margin:0 0 7px;">① IS right ② LM right (peg defence) → GDP↑ amplified</div>↑G ⟹ IS right ⟹ r&gt;r_F ⟹ inflow ⟹ CB prints to hold the peg ⟹ LM right too ⟹ <strong>GDP↑ (amplified)</strong>.<br><strong style="color:#2e7d32">Powerful.</strong><br><span class="sm">Why: to stop the currency rising the bank must ease; that monetary accommodation piles on top of the fiscal boost instead of offsetting it.</span></td>
+</tr>
+</table>
+<div class="key"><strong>The reversal in one line:</strong> monetary policy is potent under floating but powerless under a peg; fiscal policy is the exact mirror (powerless under floating, potent under a peg). Under a peg the central bank loses monetary control to defend the currency, which is exactly why fiscal regains its bite.</div>
+<p><strong>How the Impossible Trinity maps onto the matrix.</strong> Each regime is just a choice of <em>which two</em> of the trinity's three corners to keep (the tick row shows them). The corner you drop sets potency, and the two open regimes differ only in whether they keep <strong>independent monetary policy</strong>. <strong>Flexible FX</strong> keeps it (and lets the currency float), so monetary policy stays potent; <strong>fixed FX</strong> trades it away to hold the peg, so monetary policy goes powerless while fiscal, which works precisely <em>because</em> the central bank must accommodate the peg, becomes potent. The <strong>closed economy</strong> sidesteps the trilemma altogether by giving up capital mobility, which is why it keeps both a stable rate and monetary independence (both policies powerful).</p>
+<p><strong>Worked case — the 2008-09 crisis</strong> (the lecture's running example): (1) house-price collapse ⟹ private spending falls ⟹ IS <em>left</em> ⟹ recession + lower rates. (2) Expansionary monetary (cut rates / QE) and (3) fiscal stimulus shift things back, avoiding a depression. But after 2010 <strong>austerity</strong> pushed IS left again, and with rates near zero central banks couldn't offset it (esp. Europe → second recession).</p>
+
+<h3>The Impossible Trinity</h3>
+<figure>
+<svg viewBox="0 0 380 240" aria-label="Impossible Trinity">
+  <polygon points="190,40 60,200 320,200" fill="#f0f6f2" stroke="#00643C" stroke-width="2.5"/>
+  <text class="lbl" x="150" y="32" fill="#13392b">Capital mobility</text>
+  <text class="lbl" x="6" y="216" fill="#13392b">Fixed exchange rate</text>
+  <text class="lbl" x="235" y="216" fill="#13392b">Independent monetary policy</text>
+  <text class="sm" x="120" y="150" font-style="italic">pick any two —</text>
+  <text class="sm" x="120" y="166" font-style="italic">you cannot have all three</text>
+</svg>
+<figcaption>With high capital mobility you cannot simultaneously fix the exchange rate <em>and</em> run an independent monetary policy.</figcaption>
+</figure>
+<div class="exam"><b>Exam lens.</b> Half the short-run paper is "policy X under flexible/fixed FX — what happens to the currency, NX, rates, GDP?" Write the chain explicitly (IS/LM shift → r vs \(r_F\) → capital flow → appreciation/depreciation → NX). The Trinity is a frequent T/F. The fixed-vs-flexible reversal (rows 3-6) is the most examined single idea in the course.</div>
+
+<h3>FX intervention &amp; the central-bank balance sheet</h3>
+<p>Defending a peg (or managing a currency) is done <em>through the balance sheet</em> from L5 — and this mechanism is tested almost every year. Three cases:</p>
+<table class="dt">
+<tr><th>Situation</th><th>What the CB does</th><th>Effect on its balance sheet</th></tr>
+<tr><td><strong>Defend a <u>weak</u> currency</strong> (stop depreciation)</td><td>Sell foreign reserves, buy back its own currency</td><td>Assets (FX reserves) ↓ and the <strong>monetary base shrinks</strong> (it's withdrawing domestic liquidity → upward pressure on rates). Reserves are finite, so this defence can run out.</td></tr>
+<tr><td><strong>Defend a <u>strong</u> currency</strong> (stop appreciation)</td><td>Buy foreign assets, issue its own currency</td><td>Balance sheet <strong>swells</strong> and becomes FX-heavy (exposed to valuation losses). Can be done indefinitely — you can always print your own currency.</td></tr>
+<tr><td><strong>Sterilised intervention / asset swap</strong></td><td>Sell one asset to buy another (e.g. sell US-Treasury reserves to buy back home government bonds)</td><td><strong>Size unchanged.</strong> One asset replaces another, so liquidity, the exchange rate, growth and inflation are all left untouched — it just neutralises a portfolio shift.</td></tr>
+</table>
+<div style="display:flex; flex-wrap:wrap; gap:18px; justify-content:center; overflow-x:auto;">
+<table class="tacct">
+<caption>Buy foreign currency (resist appreciation)</caption>
+<tr><th>Assets</th><th>Liabilities</th></tr>
+<tr><td class="a">FX reserves ↑</td><td class="l">Domestic reserves ↑</td></tr>
+<tr><td class="a"></td><td class="l"><em>(base grows)</em></td></tr>
+</table>
+<table class="tacct">
+<caption>Sterilised version</caption>
+<tr><th>Assets</th><th>Liabilities</th></tr>
+<tr><td class="a">FX reserves ↑</td><td class="l">Reserves <em>unchanged</em></td></tr>
+<tr><td class="a">Domestic bonds ↓</td><td class="l"><em>(size unchanged)</em></td></tr>
+</table>
+</div>
+<p class="sm" style="text-align:center;margin:2px 0 6px;color:#a8740a">★ Constructed from the L5 mechanism — Fatás shows FX intervention as IS-LM-FX curve shifts, not as a T-account, so check the wording he uses. The logic: buying FX swells <em>both</em> sides (base grows); <em>sterilising</em> sells a domestic asset to soak the reserves back up, so only the <em>composition</em> changes.</p>
+<div class="key"><strong>The asymmetry to remember:</strong> a country can defend a <em>strong</em> currency forever (print money) but can only defend a <em>weak</em> one until reserves run out. This is why pegs break on the <em>weak</em> side (the 1992 EMS crisis, L14). And a <em>sterilised</em> swap changes the <em>composition</em> of the balance sheet, not its <em>size</em> — so it has no macro effect.</div>
+<div class="exam"><b>Exam lens.</b> Recurs ~yearly. "When China's CB buys US dollars it removes liquidity" → <em>false</em> (it issues yuan → <em>adds</em> liquidity → base grows). "A sterilised intervention changes the size of the balance sheet" → <em>false</em>. Tie any reserve question back to: which asset moved, did the base change, can the defence be sustained?</div>
+
+<!-- ---------- L08 ---------- -->
+<h2 id="l08">8 · Inflation &amp; Central Banks — the supply side &amp; the Taylor Rule</h2>
+<p>L7 assumed no inflation. Now we add the <strong>supply side</strong> and let prices adjust, which is how the model reaches its long-run equilibrium — and gives us the Taylor Rule.</p>
+
+<h3>The nominal anchor (long run)</h3>
+<p>A central bank picks one nominal anchor, and that choice <em>implicitly fixes all other nominal variables</em> (nominal rates, the nominal exchange rate):</p>
+<ol>
+<li><strong>Inflation targeting</strong> (commit to a target, be accountable). Most common; targets cluster near 2% with a buffer above zero to avoid deflation.</li>
+<li><strong>Exchange-rate targeting</strong> (fix the currency — implicitly imports the anchor currency's inflation).</li>
+<li><strong>Money targeting</strong> (announce a money-supply path; rare today; Bitcoin is a crude version).</li>
+<li><strong>Commodity</strong> (gold standard).</li>
+</ol>
+<p>Evidence: higher money growth ⟹ higher inflation ⟹ a depreciating nominal exchange rate (Italy vs Germany, 1960-98: Italy's higher money growth → higher inflation → 4.9%/yr lira depreciation). <strong>Central-bank independence</strong> keeps inflation low and stable.</p>
+
+<h3>Potential output &amp; the vertical long-run supply curve</h3>
+<p>In the long run GDP is pinned by factors of production (labour, capital, productivity) — a <strong>vertical</strong> Long-Run Aggregate Supply at potential GDP. Add it to IS-LM:</p>
+<figure>
+<svg viewBox="0 0 420 290" aria-label="IS-LM with potential output">
+  <line class="axis" x1="60" y1="20" x2="60" y2="245"/><line class="axis" x1="60" y1="245" x2="400" y2="245"/>
+  <text class="lbl" x="34" y="22">r</text><text class="sm" x="360" y="267">GDP</text>
+  <line class="IS" x1="80" y1="70" x2="340" y2="240"/><text class="lbl" x="312" y="235" fill="#2e7d32">IS</text>
+  <line class="LM" x1="80" y1="240" x2="340" y2="70"/><text class="lbl" x="312" y="78" fill="#1f5fa8">LM</text>
+  <line class="LRAS" x1="230" y1="25" x2="230" y2="245"/><text class="sm" x="186" y="20" fill="#b03030">Potential GDP (LRAS)</text>
+  <circle class="dot" cx="210" cy="155" r="4"/>
+  <text class="sm" x="95" y="210">left of LRAS:</text><text class="sm" x="95" y="224">recession, ↓prices</text>
+  <text class="sm" x="270" y="120">right of LRAS:</text><text class="sm" x="270" y="134">overheating, ↑prices</text>
+</svg>
+<figcaption>Short run: demand (IS∩LM) sets GDP. If that's left of potential ⟹ recession &amp; downward price pressure; right ⟹ overheating &amp; inflation. Prices then adjust the LM curve until it meets potential.</figcaption>
+</figure>
+<p><strong>Adjustment mechanism:</strong> below potential ⟹ prices fall ⟹ real money M/P rises ⟹ LM shifts right ⟹ economy returns to potential (and vice versa above). This is how the long-run equilibrium is reached.</p>
+<div class="intuition"><span class="tag">🎙 In class — two anchors for the money side</span>
+<ul style="margin:4px 0 0;">
+<li><b>Why money demand \(L(\text{GDP},i)\) falls with the interest rate (the ATM/wallet picture):</b> at 0% you withdraw €200 and carry it; at 10% cash has a real opportunity cost, so you withdraw €10 at a time and keep your money earning. High rates ⟹ you hold less cash ⟹ money demand falls.</li>
+<li><b>The CB's single objective:</b> in every case its goal is to <em>sit on the vertical potential-output line</em>. Balanced growth ⟹ shift LM right and hold the rate constant; an overheating boom ⟹ hold LM and let the rate rise; a recession ⟹ push LM right / cut the rate. The rate change is the <em>by-product</em> of aiming at potential.</li>
+</ul>
+</div>
+
+<h3>The Phillips Curve</h3>
+<p>Same logic, drawn in inflation–unemployment space. Slack (high unemployment) ⟹ low inflation; tight (low unemployment) ⟹ high inflation:</p>
+<figure>
+<svg viewBox="0 0 340 250" aria-label="Phillips curve">
+  <line class="axis" x1="55" y1="20" x2="55" y2="215"/><line class="axis" x1="55" y1="215" x2="320" y2="215"/>
+  <text class="sm" x="10" y="30">Inflation</text><text class="sm" x="235" y="237">Unemployment</text>
+  <path class="IS" d="M75,40 Q150,150 305,200" fill="none"/>
+  <text class="lbl" x="230" y="180" fill="#2e7d32">PC (short run)</text>
+  <line class="LRAS dash" x1="185" y1="20" x2="185" y2="215"/>
+  <text class="sm" x="120" y="120">overheating →</text><text class="sm" x="120" y="134">↑inflation</text>
+  <text class="sm" x="150" y="35">Natural rate = full employment</text>
+</svg>
+<figcaption>Short-run Phillips curve. The vertical dashed line is the natural rate of unemployment (consistent with potential output).</figcaption>
+<div class="pitfall"><b>Don't confuse (his explicit warning):</b> when you redraw this with <em>unemployment</em> on the x-axis (instead of output), the overheating and recession halves <b>flip</b> — overheating is now on the <em>low</em>-unemployment side. Easy to mis-shade under exam pressure.</div>
+</figure>
+
+<h3>Setting the right rate — the Taylor Rule</h3>
+<p>Baseline: <code>Nominal rate = Inflation + a reasonable real return</code>. Then adjust for the cycle (raise if inflation above target, lower if output below potential). Taylor (1993) formalised it:</p>
+<div class="eq"><div class="lbl">The Taylor Rule</div>$$i = \underbrace{r^{*} + \pi}_{\text{baseline}} + 0.5\,(\pi - \pi^{*}) + 0.5\,(\text{output gap})$$</div>
+<p>The two inputs: <strong>inflation</strong> \(\pi\), and the <strong>output gap</strong> = (actual − potential)/potential (positive = overheating, negative = recession). With Taylor's \(r^*=2\%\), \(\pi^*=2\%\) the baseline rate is 4%. Two worked cases show both directions:</p>
+<div class="twocol">
+<div><div class="wex"><span class="h">Overheating — inflation above target</span> \(\pi=3\%\), gap \(=0\): \(i = \underbrace{2+3}_{\text{baseline}} + 0.5(3-2) + 0.5(0) = \mathbf{5.5\%}\). Note the real rate rose from 2% to 2.5% — you must <em>out-pace</em> inflation to cool things.</div></div>
+<div><div class="wex"><span class="h">Recession — output below potential</span> \(\pi=1\%\), gap \(=-4\%\): \(i = \underbrace{2+1}_{\text{baseline}} + 0.5(1-2) + 0.5(-4) = 3 - 0.5 - 2 = \mathbf{0.5\%}\). Pile on a deeper gap or deflation and the rule wants a <em>negative</em> rate — the zero lower bound (L9).</div></div>
+</div>
+<p>The rule fits central-bank behaviour well 1982–2008 ("The Great Moderation": low, stable inflation and output), but post-2008 desired rates went <em>negative</em>.</p>
+<div class="intuition"><span class="tag">🎙 In class — the intuition behind the formula</span>
+<p style="margin:2px 0;"><b>Why inflation appears twice (the Taylor principle, and the #1 exam trap).</b> A 1-point rise in inflation lifts the rate by <b>1.5 points, not 0.5</b>: once through the standalone \(\pi\) in the baseline, and again through the \(0.5(\pi-\pi^*)\) term. Fatás flagged this as the classic mistake (a student audibly swore when he pointed it out). The reason it <em>must</em> exceed one: to actually cool the economy the <b>real</b> rate has to rise, so the nominal response must over-react to inflation. As he put it, <em>"central banks need to be tough and fast… you have to claim to be crazy so that the world is very safe."</em></p>
+<p style="margin:6px 0 0;"><b>The whole rule in two numbers.</b> <em>"Give me your inflation rate. Give me a measure of the [output] gap. And I can tell you what the central bank should do."</em> That's it — two inputs, and it fits the Bank of England and Italy data even though Taylor wrote it for the US.</p>
+</div>
+<div class="exam"><b>Exam lens.</b> You won't usually plug numbers into Taylor — you'll <em>reason</em> with it: "inflation above target but the BoJ didn't hike — why?" (negative output gap / un-anchoring expectations downward). Know that the Phillips curve <em>shifts</em> when an anchor (natural rate or inflation target) changes — the setup for L10's disinflation.</div>
+
+<!-- ---------- L09 ---------- -->
+<h2 id="l09">9 · Monetary Policy &amp; the Zero Lower Bound</h2>
+<p>What happens when the Taylor Rule says the rate should be <em>negative</em> but cash sets a floor at zero.</p>
+
+<h3>The ZLB trap</h3>
+<p>In a deep recession all three Taylor inputs point down: low natural real rate \(r^*\) (excess saving over investment — the L2 market), low/negative inflation, big negative output gap. Desired nominal rate &lt; 0. But cash pays 0%, so <strong>nominal rates can't go negative</strong>. Rates are stuck <em>too high</em>, demand stays weak, more deflation ⟹ an even more negative desired rate. A trap.</p>
+<div class="intuition"><span class="tag">🎙 In class — the ZLB, drilled</span>
+<ul style="margin:4px 0 0;">
+<li><b>The four ways the Taylor rule turns negative</b> (he ran this as a Q&amp;A — be able to list them): low/negative inflation; inflation below target; a deeply negative output gap; a low natural rate \(r^*\). Pile them up in a deep crisis and the prescribed rate is below zero.</li>
+<li><b>Why zero is a hard floor (cash under the mattress):</b> physical cash is a costless store that always pays exactly 0% nominal. Push deposit rates meaningfully below zero and money just leaves the banks for cash — so the central bank can't.</li>
+<li><b>The trap is self-reinforcing:</b> <em>"stuck at zero → GDP falls → inflation falls → next year the rule says go to −6, I can't, I'm still stuck at zero. Every year you're in a worse place."</em></li>
+<li><b>Maps onto Assignment 2.</b> Of the six countries, three avoided the ZLB: <b>India &amp; Brazil</b> (high inflation targets keep the Taylor rate positive) and <b>China</b> (no big 2009 crisis); <b>US, Euro, Japan</b> hit it. Expect to classify a country by whether its rule went negative and <em>why</em>.</li>
+</ul>
+</div>
+<figure>
+<svg viewBox="0 0 380 250" aria-label="ZLB saving investment negative rate">
+  <line class="axis" x1="60" y1="20" x2="60" y2="210"/><line class="axis" x1="60" y1="120" x2="360" y2="120"/>
+  <text class="lbl" x="34" y="22">r</text><text class="sm" x="280" y="142">S, I</text>
+  <text class="sm" x="64" y="116">0</text>
+  <line class="SAV" x1="85" y1="196" x2="345" y2="92"/><text class="lbl" x="322" y="92" fill="#1f5fa8">S</text>
+  <line class="INV" x1="85" y1="98" x2="345" y2="207"/><text class="lbl" x="322" y="202" fill="#2e7d32">I</text>
+  <circle class="dot" cx="205" cy="148" r="4.5"/>
+  <line class="grid dash" x1="60" y1="148" x2="205" y2="148"/>
+  <line class="grid dash" x1="205" y1="120" x2="205" y2="148" stroke="#b03030"/>
+  <text class="sm" x="92" y="143" fill="#b03030">required r* &lt; 0 (intersection below the zero line)</text>
+</svg>
+<figcaption>When desired saving far exceeds investment, the market-clearing real rate is <em>negative</em>. With deflation, the required nominal rate is below zero — unreachable.</figcaption>
+<div class="eyeball"><span class="star">★</span><b>Isabella — eyeball this diagram:</b> the S and I lines should now cross <em>below</em> the "0" axis (the red dashed drop confirms the equilibrium r is negative). Check the intersection really sits under the zero line, not on it.</div>
+</figure>
+<p><strong>Why deflation makes it worse:</strong> deflation raises the <em>real</em> value of debt ⟹ redistributes from borrowers to savers ⟹ deters consumption and can cause <strong>default</strong>, which spreads through banks. And in a panic everyone wants liquidity → <strong>bank runs</strong> (banks borrow short, lend long; a healthy bank can become illiquid; only the central bank can supply the liquidity).</p>
+<div style="overflow-x:auto;">
+<table class="tacct" style="min-width:430px;">
+<caption>Lehman Brothers, 29 Feb 2008 ($bn) — liquidity vs solvency</caption>
+<tr><th style="text-align:left;">Assets</th><th></th><th style="text-align:left;">Liabilities</th><th></th></tr>
+<tr><td class="a">Cash</td><td style="text-align:right;">24</td><td class="l">Accounts payable</td><td style="text-align:right;">96</td></tr>
+<tr><td class="a">Receivables</td><td style="text-align:right;">52</td><td class="l">Short-term debt</td><td style="text-align:right;">429</td></tr>
+<tr><td class="a">Long-term investments</td><td style="text-align:right;">695</td><td class="l">Other current liabilities</td><td style="text-align:right;">29</td></tr>
+<tr><td class="a">Other long-term assets</td><td style="text-align:right;">10</td><td class="l">Long-term debt</td><td style="text-align:right;">208</td></tr>
+<tr><td class="a"><strong>Total</strong></td><td style="text-align:right;"><strong>782</strong></td><td class="l"><strong>Equity</strong></td><td style="text-align:right;"><strong>21</strong></td></tr>
+</table>
+</div>
+<p class="sm" style="text-align:center;margin:2px 0 0;color:#555">The visual punchline: a sliver of <strong>equity ($21bn)</strong> under a mountain of <strong>short-term debt ($429bn)</strong>, funding <strong>$695bn of illiquid long-term investments</strong>. When the short-term funding refused to roll over, no amount of "fundamentally sound" assets could be sold fast enough — <em>illiquidity</em>, not (yet) insolvency, is what kills a bank in a run. This is why the lender of last resort exists.</p>
+<div class="intuition"><span class="tag">🎙 In class — making deflation concrete</span>
+<p style="margin:2px 0;"><b>Deflation sent the <em>real</em> rate sky-high.</b> In 1931 the nominal rate was ~2.6% but inflation was about −10.1%, so the real rate was \(2.6 - (-10.1) = +12.7\%\). That punishing real rate — not the nominal one — is what deepened the Depression. It's the cleanest illustration of \(r = i - \pi\) with \(\pi<0\).</p>
+</div>
+
+<h3>Great Depression vs Great Recession</h3>
+<table class="dt">
+<tr><th></th><th>Great Depression (1929-33)</th><th>Great Recession (2008-09)</th></tr>
+<tr><td>What collapsed</td><td>Money supply, via a collapse in the <strong>money multiplier</strong> (bank runs: C/D and R/D shot up). Base stayed flat.</td><td>Multiplier also collapsed (banks hoarded liquidity)…</td></tr>
+<tr><td>Central bank</td><td><strong>Passive</strong> — no deposit insurance, not a lender of last resort.</td><td>…but the CB <strong>expanded the base</strong> aggressively (QE), so M1 and prices didn't collapse.</td></tr>
+</table>
+<div class="eq"><div class="lbl">Why the money supply fell — the multiplier</div>$$m = \frac{C+D}{C+R} = \frac{C/D+1}{C/D+R/D}\;\;\xrightarrow{\text{runs: }C/D\uparrow,\,R/D\uparrow}\;\; m\downarrow$$</div>
+<div class="intuition"><span class="tag">🎙 In class — "same circumstance, different action"</span>
+<p style="margin:2px 0;">The two crises had the <em>same</em> trigger (a collapsing money multiplier) but the central bank did the <em>opposite</em> thing. The sharpest diagnostic: in <b>1929 both ratios rose</b> — households ran on banks (C/D↑) <em>and</em> banks hoarded (R/D↑); in <b>2008 the C/D line stayed flat</b> and only R/D rose. The difference is <b>deposit insurance</b> (introduced after 1929): it stopped the household run, so only the banks hoarded. Then Bernanke blew up the monetary base (QE) to offset even that — keeping M1 and the price level from collapsing. Memory hook: <em>which line is held flat, and which is forced to jump.</em></p>
+</div>
+
+<h3>Quantitative Easing</h3>
+<p><strong>The mechanism:</strong> at the ZLB the central bank buys securities (govt bonds, MBS) <em>from</em> commercial banks and pays by crediting their <strong>reserve</strong> accounts. Its balance sheet swells on both sides (assets: securities↑; liabilities: reserves↑), and the monetary base jumps — keeping the money supply and price level from collapsing even when the multiplier is dead.</p>
+<div style="overflow-x:auto;">
+<table class="tacct" style="min-width:440px;">
+<caption>QE on the Fed's balance sheet, actual figures ($bn)</caption>
+<tr><th style="text-align:left;">Assets</th><th>2007</th><th>2009</th><th>2010</th></tr>
+<tr><td class="a">Securities — total</td><td style="text-align:right;">755</td><td style="text-align:right;">1,846</td><td style="text-align:right;">2,159</td></tr>
+<tr><td class="a" style="padding-left:24px;">· of which govt bonds</td><td style="text-align:right;">755</td><td style="text-align:right;">777</td><td style="text-align:right;">1,010</td></tr>
+<tr><td class="a" style="padding-left:24px;">· of which agency + MBS</td><td style="text-align:right;">0</td><td style="text-align:right;">1,069</td><td style="text-align:right;">1,149</td></tr>
+<tr><th style="text-align:left;">Liabilities</th><th>2007</th><th>2009</th><th>2010</th></tr>
+<tr><td class="l">Currency</td><td style="text-align:right;">760</td><td style="text-align:right;">861</td><td style="text-align:right;">915</td></tr>
+<tr><td class="l">Reserves</td><td style="text-align:right;">43</td><td style="text-align:right;">1,139</td><td style="text-align:right;">1,078</td></tr>
+</table>
+</div>
+<p class="sm" style="text-align:center;margin:2px 0 0;color:#555">The punchline in one line: <strong>reserves explode 43 → 1,139</strong> while securities triple — both sides of the balance sheet swell together, so the base jumps but nothing is "given away." The new assets are mostly <em>agency + MBS</em> (0 → ~1,150): the Fed took the toxic mortgage paper onto its book.</p>
+<table class="dt">
+<tr><th>Why QE worked</th><th>Caveats</th><th>Exit (QT) — two routes</th></tr>
+<tr><td><strong>1. Signalling:</strong> a credible promise to stay aggressive until inflation returns (forward guidance).<br><strong>2. Liquidity:</strong> supplied the cash the private sector was hoarding, de-risking bank balance sheets.<br><strong>3. Long rates:</strong> buying long bonds lowered long yields / flattened the yield curve (an explicit BoJ target).</td><td>QE ≠ automatic inflation (2008–19 inflation stayed low). Effects depend on expectations and weaken as long rates near zero. The <strong>ECB acted late</strong> (even hiked in 2011) → fell into a second recession.</td><td><strong>(a)</strong> Sell the securities back (raises rates), or <strong>(b)</strong> keep them and simply <em>raise the interest paid on reserves</em> to control inflation. There's no "optimal" balance-sheet size.</td></tr>
+</table>
+<div class="key"><strong>Liquidity provision ≠ bailout — keep them separate.</strong> <em>Central banks</em> provide <em>liquidity</em> (lending against assets, QE) — and have often <em>made a profit</em> doing so (the Fed remits to the Treasury). <em>Governments</em> do the <em>bailouts</em> — injecting capital or taking ownership of insolvent banks — and these usually cost <em>taxpayers</em> (e.g. Ireland 2008-09 guarantees ~25% of GDP). A liquidity crisis (a solvent bank that can't meet a sudden demand for cash) is the central bank's job; a solvency crisis (the bank is actually bust) is the government's. They're hard to tell apart in real time, which is the whole difficulty.</div>
+<div class="exam"><b>Exam lens.</b> Classic T/F: "printed cash prevents the <em>real</em> rate going below zero" → <em>false</em> (it's the <em>nominal</em> rate that's floored; real = nominal − inflation can be very negative). "Raising the inflation target from 2% to 4% reduces the need for QE" → <em>true</em> (more room before hitting zero). Refute the myths: "QE is printing money / financing the government / always causes inflation."</div>
+
+<!-- ---------- L10 ---------- -->
+<h2 id="l10">10 · Managing High Inflation</h2>
+<p>The mirror image of L9: how central banks bring inflation <em>down</em>, the role of expectations, and supply shocks.</p>
+
+<h3>Disinflation &amp; the shifting Phillips curve</h3>
+<p>Each short-run Phillips curve corresponds to one <em>credible</em> inflation target. Lowering inflation (Volcker, 1979: target &lt;4%) means tight money ⟹ moving <em>down along</em> the short-run curve: high unemployment for several years. Once the new low-inflation policy is <strong>credible</strong>, expectations and contracts adjust, the short-run curve shifts <em>down</em>, and unemployment returns to the natural rate — but inflation is permanently lower.</p>
+<figure>
+<svg viewBox="0 0 380 270" aria-label="Disinflation Phillips curve shift">
+  <line class="axis" x1="55" y1="20" x2="55" y2="225"/><line class="axis" x1="55" y1="225" x2="360" y2="225"/>
+  <text class="sm" x="10" y="30">Inflation</text><text class="sm" x="255" y="247">Unemployment</text>
+  <line class="LRAS" x1="150" y1="20" x2="150" y2="225"/><text class="sm" x="118" y="16" fill="#b03030">Natural rate (PC long run)</text>
+  <path class="IS" d="M70,55 Q120,110 300,150" fill="none"/><text class="sm" x="250" y="135" fill="#2e7d32">PC₁ (high target)</text>
+  <path class="IS" d="M70,120 Q120,175 300,210" fill="none" opacity="0.55"/><text class="sm" x="250" y="200" fill="#2e7d32" opacity="0.7">PC₂ (low target)</text>
+  <circle class="dot" cx="150" cy="92" r="4"/><circle class="dot" cx="270" cy="148" r="4"/><circle class="dot" cx="150" cy="158" r="4"/>
+  <path d="M150,92 L262,146" stroke="#333" stroke-width="1.3" fill="none" marker-end="url(#ar)"/>
+  <path d="M270,150 L156,158" stroke="#333" stroke-width="1.3" fill="none" marker-end="url(#ar)" opacity="0.6"/>
+  <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#333"/></marker></defs>
+  <text class="sm" x="175" y="115">①tighten:</text><text class="sm" x="175" y="128">unemployment↑</text>
+  <text class="sm" x="175" y="185">②credible:</text><text class="sm" x="175" y="198">curve shifts down</text>
+</svg>
+<figcaption>Disinflation: move down PC₁ (costly unemployment), then once credible the curve drops to PC₂ and unemployment returns to natural — at permanently lower inflation.</figcaption>
+</figure>
+<p><strong>Why it's costly:</strong> contracts (esp. wages) are nominal and sticky; expectations adjust slowly, at a speed set by policy <em>credibility</em>. Nominal rates spike, then fall as inflation falls, bringing the real rate back to normal. <strong>2021-24 was the exception</strong> — a near-costless disinflation (inflation fell with little unemployment cost), which the slides flag as a puzzle (well-anchored expectations + a largely supply-driven spike unwinding).</p>
+<div class="intuition"><span class="tag">🎙 In class — the shape of disinflation, and a trap</span>
+<ul style="margin:4px 0 0;">
+<li><b>Disinflation is a "drift then jump", not a smooth slide.</b> You drift <em>down</em> the short-run Phillips curve through painful high-unemployment years, then — the moment credibility flips and wage/price-setters accept the new target — you <b>jump vertically</b> to the new anchor. The jump is expectations re-anchoring in one negotiation round.</li>
+<li><b>The "two very different statements" trap:</b> a low-inflation country has <em>low</em> interest rates (a <b>level</b> fact); but to <em>cut</em> inflation you <em>raise</em> rates (an <b>action</b>). Students conflate these — keep them apart.</li>
+<li><b>Oil-shock passthrough ∝ (lack of) credibility.</b> The same oil shock barely lifts inflation where the central bank is credible, but spirals where it isn't — which is why anchored economies (and now even much of Latin America) ride out energy shocks far better than in the 1970s.</li>
+<li><b>Inversion ≠ guaranteed recession.</b> 2023's inverted yield curve produced a <em>soft landing</em>, not a crash — credible hikes killed inflation without a recession. Everyone who read "inversion = certain crisis" got it wrong that time.</li>
+</ul>
+</div>
+
+<h3>Supply shocks &amp; stagflation</h3>
+<p>An oil/energy shock for an <em>importer</em> = a leftward shift of LRAS (real income falls). Result: <strong>stagflation</strong> — falling GDP <em>and</em> rising inflation simultaneously. The 1970s lesson: countries that let inflation run (UK) then needed <em>deeper</em> recessions to wring it out; those that contained it (Germany) fared better — with little difference in GDP cost on average.</p>
+<figure>
+<svg viewBox="0 0 400 270" aria-label="Supply shock stagflation">
+  <line class="axis" x1="60" y1="20" x2="60" y2="235"/><line class="axis" x1="60" y1="235" x2="385" y2="235"/>
+  <text class="lbl" x="34" y="22">r</text><text class="sm" x="345" y="257">GDP</text>
+  <line class="IS" x1="80" y1="70" x2="330" y2="225"/><text class="lbl" x="305" y="222" fill="#2e7d32">IS</text>
+  <line class="LM" x1="80" y1="225" x2="330" y2="70"/><text class="lbl" x="305" y="78" fill="#1f5fa8">LM</text>
+  <line class="LM dash" x1="55" y1="210" x2="305" y2="55" opacity="0.65"/><text class="sm" x="58" y="50" fill="#1f5fa8">LM′ (P↑⟹M/P↓)</text>
+  <line class="LRAS" x1="240" y1="25" x2="240" y2="235"/>
+  <line class="LRAS dash" x1="180" y1="25" x2="180" y2="235"/>
+  <path d="M232,42 L188,42" stroke="#b03030" stroke-width="1.6" marker-end="url(#ar)"/>
+  <text class="sm" x="150" y="20" fill="#b03030">LRAS shifts left</text>
+  <circle class="dot" cx="205" cy="147" r="3.8" opacity="0.45"/>
+  <circle class="dot" cx="180" cy="132" r="4.2"/>
+  <path d="M201,147 L184,134" stroke="#333" stroke-width="1.2" marker-end="url(#ar)"/>
+  <text class="sm" x="248" y="120">new potential ↓</text>
+  <text class="sm" x="86" y="120" font-style="italic" fill="#b03030">recession + inflation</text>
+</svg>
+<figcaption>Supply shock for an energy importer: potential output falls (LRAS left). As prices rise, real money M/P falls and LM shifts left (LM′) — the new equilibrium has higher r and lower GDP, contracting onto the lower potential = stagflation.</figcaption>
+<div class="eyeball"><span class="star">★</span><b>Isabella — eyeball this diagram:</b> I added the leftward LM′ shift so the new equilibrium (solid dot) lands on the lower potential and "recession" reads correctly. Check the dot sits roughly where LM′ meets IS, near the dashed new-potential line.</div>
+</figure>
+<p><strong>Policy rule for supply shocks:</strong> central banks should <em>not</em> react if inflation expectations are anchored — but post-COVID showed anchoring can't be assumed.</p>
+
+<h3>The Yield Curve</h3>
+<div class="twocol">
+<div>
+<figure>
+<svg viewBox="0 0 300 230" aria-label="Yield curve finance">
+  <line class="axis" x1="50" y1="20" x2="50" y2="195"/><line class="axis" x1="50" y1="195" x2="285" y2="195"/>
+  <text class="sm" x="14" y="30">Yield</text><text class="sm" x="225" y="217">Maturity</text>
+  <path class="LM" d="M65,160 Q150,90 275,70" fill="none"/>
+  <line class="grid dash" x1="50" y1="160" x2="275" y2="160"/>
+  <text class="sm" x="150" y="115">term premium →</text>
+</svg>
+<figcaption>Finance view: normally upward-sloping (a term premium for holding longer).</figcaption>
+</figure>
+</div>
+<div>
+<div class="key" style="margin-top:30px;">
+<strong>Macro view — long rates have two parts:</strong>
+<ol style="margin-bottom:0;">
+<li>The equilibrium <strong>long-run real rate</strong> (set by global S &amp; I — L2: growth, demographics, technology).</li>
+<li><strong>Expected inflation</strong> over the long run (central-bank credibility).</li>
+</ol>
+<div class="wex" style="margin:8px 0 6px;"><span class="h">Worked decomposition</span> A 4% 10-year yield = ~1.5% long-run real rate + ~2.5% expected inflation. If the central bank credibly promises to cut inflation, the expected-inflation piece falls (say to 1.5%) → the long yield drops to ~3% — even if short rates haven't moved.</div>
+Short rates are set by the CB via the Taylor Rule (high in booms, low in recessions). An <strong>inversion</strong> (short &gt; long) can signal a coming recession — <em>or</em> simply that the market expects the CB to succeed at cutting inflation (so long rates fall, as in the box above). Don't read inversion as automatic recession.
+</div>
+</div>
+</div>
+<div class="key"><strong>The bond-supply / term-premium channel (how QE moves the long end).</strong> Long-term rates are also a price set by the supply of and demand for long bonds. <strong>QE</strong> = the CB <em>buying</em> long bonds ⟹ higher demand ⟹ higher price ⟹ <em>lower</em> long yield ⟹ flatter curve. Symmetrically, if the <strong>government issues more long-dated debt</strong> (lengthens its maturity), that extra supply ⟹ lower bond prices ⟹ <em>higher</em> long yields ⟹ it partly <em>undoes</em> QE. So QE and debt-management policy push on the same lever in opposite directions.</div>
+<div class="exam"><b>Exam lens.</b> Yield-curve questions ask you to <em>shift the curve</em>: news of higher inflation before the CB acts ⟹ long rates rise first ⟹ <em>steeper</em>; credible disinflation ⟹ long rates fall ⟹ <em>flatter/inverted</em>. If a question pits QE against the government lengthening its debt maturity, use the bond-supply channel above. "Disinflation always causes unemployment" is a listed <strong>myth</strong> — 2021-24 is your counterexample.</div>
+
+<!-- ---------- L11 ---------- -->
+<h2 id="l11">11 · Fiscal Policy &amp; Debt Sustainability</h2>
+<p>The home of the one formula you actually compute. Two roles for fiscal policy: long-run (political — size of government, who's taxed) and short-run (a <strong>stabiliser</strong>, like monetary policy — deficits in recessions).</p>
+
+<h3>The balances</h3>
+<div class="eq">
+$$\text{Primary balance} = T - G - \text{Transfers}$$
+$$\text{Overall (financial) balance} = \text{Primary balance} - \text{Interest payments}$$
+$$\text{Interest payments} = r_{nominal}\times \text{Debt}$$</div>
+<p>Budgets move with the cycle via <strong>automatic stabilisers</strong> (taxes fall, unemployment benefits rise in downturns). To see <em>discretionary</em> policy, strip these out → the <strong>structural balance</strong>. (Europe 2010-14: structural balances show real <em>austerity</em> on top of the recession.)</p>
+
+<h3>Sustainability — the key formula</h3>
+<p>Governments <strong>do not need to repay debt</strong> — they need to keep it on a non-explosive path. The test: <em>how big a primary surplus keeps the Debt/GDP ratio constant?</em> Here's where the formula comes from (the "shut the government down for a year" thought experiment):</p>
+<ol class="deriv">
+<li><span class="mathline">Imagine zero spending and zero taxes (primary balance = 0).</span><span class="note">Isolate what debt dynamics do on their own.</span></li>
+<li><span class="mathline">Numerator: \(\text{Debt}\) grows at the interest rate \(r\).</span><span class="note">You can't pay the interest, so you roll it into new debt → debt compounds at \(r\).</span></li>
+<li><span class="mathline">Denominator: \(\text{GDP}\) grows at \(g\).</span><span class="note">The economy grows at its nominal growth rate \(g\).</span></li>
+<li><span class="mathline">So \(\tfrac{\text{Debt}}{\text{GDP}}\) drifts at rate \((r-g)\).</span><span class="note">Ratio rises if \(r>g\), falls if \(g>r\), flat if \(r=g\) — with no government action at all.</span></li>
+<li class="result"><span class="mathline">\(\dfrac{\text{Required primary surplus}}{\text{GDP}} = (r-g)\times\dfrac{\text{Debt}}{\text{GDP}}\)</span><span class="note">The surplus you must run is exactly enough to offset that \((r-g)\) drift, scaled by how much debt you carry.</span></li>
+</ol>
+<div class="twocol">
+<div><div class="wex"><span class="h">Case A — r &gt; g (must run a surplus)</span> \(r=4\%,\ g=2\%,\ \tfrac{Debt}{GDP}=120\%\): required surplus \(=(0.04-0.02)\times1.2 = \mathbf{+2.4\%}\) of GDP just to hold the ratio flat.</div></div>
+<div><div class="wex" style="border-color:#7bbf9a;"><span class="h" style="color:var(--green)">Case B — g &gt; r (deficits forever!)</span> \(r=2\%,\ g=4\%,\ \tfrac{Debt}{GDP}=120\%\): required surplus \(=(0.02-0.04)\times1.2 = \mathbf{-2.4\%}\) — i.e. you can run a 2.4% <em>deficit</em> every year and Debt/GDP still falls.</div></div>
+</div>
+<p><strong>The decisive insight:</strong> sustainability depends on <strong>(r − g)</strong>. If growth exceeds the interest rate (<strong>g &gt; r</strong>), the required surplus is <em>negative</em> — a government can run <em>primary deficits forever</em> and Debt/GDP still falls (e.g. China, Japan, US in the 2025 slide table, where nominal g &gt; nominal r). High debt is manageable as long as rates stay low relative to growth.</p>
+<div class="intuition"><span class="tag">🎙 In class — where the formula comes from</span>
+<p style="margin:2px 0;"><b>"Shut the government down for a year."</b> Imagine zero spending and zero taxes. The <em>numerator</em> (debt) still grows at the interest rate \(r\) — you roll the unpaid interest into new debt. The <em>denominator</em> (GDP) grows at \(g\). So Debt/GDP rises if \(r>g\), is flat if \(r=g\), and falls if \(g>r\) — entirely on its own. That's the whole formula: the primary surplus you need is just enough to offset the \((r-g)\) drift, scaled by how much debt you carry.</p>
+<p style="margin:6px 0 0;"><b>Why "debt burdens the next generation" is only half-true:</b> (a) the next generation inherits the <em>capital and institutions</em> the debt funded; (b) thanks to growth (\(g\)) their incomes are higher, so the same €100 is easier to repay; (c) for <em>domestically-held</em> debt they inherit the <em>asset and the liability together</em> — it nets to zero. <em>"World debt is at a record level — but so are world assets."</em></p>
+<p style="margin:6px 0 0;"><b>What a rich government's budget actually is:</b> mostly pensions + healthcare + income support, with a comparatively small army — <em>"an insurance company with an army."</em></p>
+</div>
+<div class="key"><strong>But \(r\) is not exogenous — it carries a sovereign risk premium.</strong> The rate a government pays = a safe rate + a <em>country risk premium</em> that reflects default/political risk. A downgrade, political instability, or loss of credibility raises that premium ⟹ raises \(r\) ⟹ raises the required primary surplus (and can be self-fulfilling: fear of default raises rates, which makes default more likely). This is the bridge between "default is just redistribution" and why markets still punish risky borrowers — and why two countries with the same Debt/GDP can face very different sustainability (compare Italy's ~2.8% rate with Japan's ~0.2% in the slide table).</div>
+<div class="key"><strong>Government ≠ business.</strong> A company default means its business model failed — a real loss of wealth. A government default is a <em>redistribution</em> (who pays for spending already done) — resources aren't destroyed (though the ensuing crisis can destroy some). This is why "high debt = high default risk" is a <strong>myth</strong>.</div>
+<div class="exam"><b>Exam lens.</b> This <em>is</em> the computational question (2019, 2021, 2022). Memorise <code>(r−g)·Debt/GDP</code> and be able to compute the extra effort when r rises faster than g. Watch real vs nominal: inflation raises both the nominal rate and nominal growth, so it's roughly neutral for sustainability unless rates rise faster than inflation. Myths to refute: "we must pay back government debt", "debt is always a burden on the next generation."</div>
+
+<!-- ---------- L12 ---------- -->
+<h2 id="l12">12 · Exchange Rates</h2>
+<p>Three theories, layered: long-run arbitrage (PPP), the productivity correction, and the short-run asset-price view. This is the most-tested topic in the whole course.</p>
+
+<h3>Theory 1 — Law of One Price / PPP (long run)</h3>
+<div class="key" style="margin-top:0;"><strong>First, the two definitions you must hold separate:</strong>
+<ul style="margin:6px 0 0;">
+<li><strong>Nominal exchange rate \(e_N\)</strong> = how much foreign currency one unit of domestic currency buys. <em>(Convention used throughout: a <strong>rise</strong> in \(e_N\) = the domestic currency <strong>appreciates</strong>.)</em></li>
+<li><strong>Real exchange rate \(e_R\)</strong> = how many <em>foreign goods</em> one <em>domestic good</em> buys: \(e_R = \dfrac{e_N\,P}{P_F}\), with \(P\) the domestic price level and \(P_F\) the foreign one. \(e_R<1\) means your goods are <em>cheaper</em> than abroad.</li>
+</ul></div>
+<p>The Law of One Price says perfect arbitrage equalises prices everywhere, so a domestic good and a foreign good are worth the same — i.e. \(e_R=1\). Set \(e_R=1\) and solve for the nominal rate:</p>
+<ol class="deriv">
+<li><span class="mathline">\(e_R = \dfrac{e_N\,P}{P_F}\)</span><span class="note">Definition of the real exchange rate.</span></li>
+<li><span class="mathline">\(e_R = 1\)</span><span class="note">Law of One Price: arbitrage makes domestic and foreign goods worth the same.</span></li>
+<li class="result"><span class="mathline">\(\dfrac{e_N\,P}{P_F}=1 \;\Rightarrow\; e_N = \dfrac{P_F}{P}\)</span><span class="note">Rearrange. The nominal rate is just the ratio of the two price levels.</span></li>
+</ol>
+<div class="wex"><span class="h">Worked example</span> If a basket costs \(P=100\) at home and \(P_F=120\) abroad, then \(e_N = 120/100 = 1.2\) — one unit of home currency buys 1.2 units of foreign. If home inflation now runs hotter and \(P\) rises to 110 (foreign unchanged), \(e_N\) falls to \(120/110 = 1.09\): <strong>higher domestic inflation ⟹ the currency depreciates.</strong></div>
+<p>Reality: PPP <em>doesn't</em> hold exactly — taxes, trade barriers, transport costs, and arbitrage only works for easily-traded goods (an iPhone, not a haircut). Hence "modified PPP." But over the long run nominal rates <em>do</em> track PPP estimates (with big short-run volatility).</p>
+
+<h3>Theory 2 — Productivity &amp; the real exchange rate</h3>
+<p>The clever bit. Tradables' prices are equalised by arbitrage. <em>Within</em> a country, traded and non-traded goods prices are linked through relative productivity. So:</p>
+<ul>
+<li>Rich/high-productivity countries have <strong>higher price levels</strong> (a higher real exchange rate) — confirmed in the data (price level vs GDP per capita slopes up).</li>
+<li>If a country's tradables productivity <strong>rises</strong> (convergence), wages and non-tradables prices rise ⟹ the real exchange rate <strong>appreciates</strong>.</li>
+<li>That real appreciation happens either via <strong>higher inflation</strong> (if currency is fixed, e.g. Spain in the euro — "good" inflation) or via <strong>nominal appreciation</strong> (if floating) — the central bank chooses which (Japan 1960-96: appreciated nominally from 360 to ~110 yen/$).</li>
+</ul>
+<p>If two countries have <em>similar</em> productivity growth, the <em>real</em> exchange rate stays put, and the nominal rate just absorbs the inflation gap. The derivation is one line:</p>
+<ol class="deriv">
+<li><span class="mathline">\(e_N = \dfrac{P_F}{P}\)</span><span class="note">Start from PPP (real rate constant ⟹ \(e_R\) fixed).</span></li>
+<li class="result"><span class="mathline">\(\%\Delta e_N = \%\Delta P_F - \%\Delta P = \pi_F - \pi_{domestic}\)</span><span class="note">Take growth rates of a ratio: the growth of \(P_F/P\) is foreign inflation minus domestic inflation.</span></li>
+</ol>
+<div class="wex"><span class="h">Worked example</span> Domestic inflation \(\pi=10\%\), foreign \(\pi_F=2\%\) ⟹ \(\%\Delta e_N = 2-10 = -8\%\): the home currency <strong>depreciates ~8% per year</strong>. (This is the Italy-vs-Germany story: Italy's higher inflation → the lira fell ~4.9%/yr vs the mark.)</div>
+
+<h3>Theory 3 — Currencies as assets (short run)</h3>
+<p>Two facts: exchange rates are <em>extremely volatile</em>, and FX volume is <em>huge</em> (capital flows dominate). So treat currencies as assets:</p>
+<div class="pitfall"><b>The single most important — and counter-intuitive — point.</b> A <em>sudden, unexpected increase</em> in interest rates ⟹ capital inflow ⟹ <strong>immediate appreciation</strong>. BUT this does <em>not</em> mean high-interest-rate countries have strong currencies. The opposite: arbitrage (r = r_F) means high-rate countries (usually high-inflation) have <em>depreciating</em> currencies. Distinguish <strong>"news of an increase in rates"</strong> (⟹ appreciation now) from <strong>"a high level of rates"</strong> (⟹ expected depreciation).</div>
+<div class="intuition"><span class="tag">🎙 In class — three sharp exchange-rate points</span>
+<ul style="margin:4px 0 0;">
+<li><b>Why FX is so volatile (the scale):</b> ~$10 trillion is traded <em>per day</em> vs world GDP of ~$120 trillion <em>per year</em> — a single day moves ~5% of annual world GDP. Capital flows, not trade, set the price, and they react instantly to news.</li>
+<li><b>High rates under a peg = a risk premium, "works until it doesn't."</b> Under a fixed peg (Lebanon, Hong Kong) domestic rates <em>should</em> equal the anchor's. Persistently higher rates aren't free money — they're compensation for the risk the peg breaks. Chase the high rate and you're fine… until the peg snaps and you lose your capital.</li>
+<li><b>Singapore: the exchange rate IS the policy tool.</b> The MAS doesn't set an interest rate — it commits to a <em>path (slope) of currency appreciation</em>. Steepening the slope (faster appreciation) is <em>"exactly equivalent to the ECB raising interest rates"</em> — same tightening, different lever; it flattens the slope as growth slows.</li>
+</ul>
+</div>
+
+<h3>Overshooting — adjustment to a monetary expansion</h3>
+<figure>
+<svg viewBox="0 0 720 200" aria-label="Exchange rate overshooting four panels">
+  <!-- Money -->
+  <g><text class="lbl" x="20" y="15">Money supply</text>
+   <line class="axis" x1="20" y1="30" x2="20" y2="150"/><line class="axis" x1="20" y1="150" x2="160" y2="150"/>
+   <path class="LM" d="M25,110 L80,110 L80,75 L155,75" fill="none"/></g>
+  <!-- Interest rate -->
+  <g transform="translate(185,0)"><text class="lbl" x="10" y="15">Interest rate</text>
+   <line class="axis" x1="20" y1="30" x2="20" y2="150"/><line class="axis" x1="20" y1="150" x2="160" y2="150"/>
+   <path class="rf" d="M25,70 L80,70 L80,110 L155,110" fill="none"/><text class="sm" x="85" y="100">lower while expanding</text></g>
+  <!-- Prices -->
+  <g transform="translate(370,0)"><text class="lbl" x="22" y="15">Prices</text>
+   <line class="axis" x1="20" y1="30" x2="20" y2="150"/><line class="axis" x1="20" y1="150" x2="160" y2="150"/>
+   <path class="IS" d="M25,110 Q90,110 120,75 L155,70" fill="none"/></g>
+  <!-- Nominal exchange rate -->
+  <g transform="translate(555,0)"><text class="lbl" x="0" y="15">Nominal exch. rate</text>
+   <line class="axis" x1="20" y1="30" x2="20" y2="150"/><line class="axis" x1="20" y1="150" x2="160" y2="150"/>
+   <path d="M25,70 L80,70 L80,130 Q120,100 155,95" fill="none" stroke="#b03030" stroke-width="3"/>
+   <text class="sm" x="70" y="145">overshoot</text></g>
+</svg>
+<figcaption>Monetary expansion: ① long-run depreciation = the rise in P (PPP). ③ On impact the rate <em>overshoots</em> (depreciates past the new long-run value) because ② while rates are low the currency must <em>appreciate back</em> at a rate equal to the interest differential (no-arbitrage). One unique value today satisfies both.</figcaption>
+<div class="eyeball"><span class="star">★</span><b>Isabella — eyeball this diagram:</b> the 4-panel overshooting figure is the most schematic one — it shows the right <em>shapes</em> (rate drops, price rises, FX overshoots then partly recovers) but the panels aren't to scale. One known imperfection: the interest-rate panel stays low rather than drifting back to its original level. Treat it as illustrative; cross-check against the actual S12 slide if you want the precise paths.</div>
+</figure>
+<div class="key"><strong>Can the theory explain the data?</strong> <em>Works:</em> long-run depreciation of the high-inflation currency (USD trend); episodes of fast US growth/high rates → USD appreciation (early 80s). <em>Fails:</em> FX is <em>far</em> too volatile; the rate–differential link is weak (today's spot rate predicts better than the interest differential); long one-way trends shouldn't exist under the theory. Honest conclusion: exchange-rate "theories" are mostly <em>ex-post</em> rationalisation.</div>
+<div class="exam"><b>Exam lens.</b> The richest exam topic — appears almost every year. The "priced-in" trick: an expected rate hike that's already priced ⟹ <em>no</em> currency move (the Russia/rouble and Indonesia cases). The productivity→RER→nominal chain (a fast-growing economy can still <em>depreciate</em> if its inflation is high enough — a past T/F: <em>true</em>). And "a country fixing its rate implicitly follows the other's policies" (true) but bilateral trade need <em>not</em> balance (false).</div>
+
+<!-- ---------- L13 ---------- -->
+<h2 id="l13">13 · The State of the Global Economy</h2>
+<p>Not a new model — a synthesis applying the whole course to current events. Useful because Q2–Q6 are always hung on real headlines.</p>
+<ul>
+<li><strong>The arc:</strong> QE era → global pandemic → inflation spike → disinflation → trade war → two military conflicts. Policy lesson learned from 2008's austerity mistake: in 2020, go <em>big and smart</em> (rates to zero, QE, large deficits, subsidies to keep workers attached). Result: fastest-ever labour-market healing, inflation controlled without recession.</li>
+<li><strong>Tariffs &amp; trade.</strong> Anchor everything on the identity: <strong>Trade balance = Saving − Investment = (minus) Capital balance.</strong> Tariffs don't fix a trade deficit driven by S &lt; I. "Welfare comes from <em>imports</em>, not exports — exports are how you pay for imports." Retaliation → autarky → inefficiency. (Data: high-tariff Egypt still runs a deficit; zero-tariff Singapore a huge surplus — because it's about S−I.)</li>
+<li><strong>USD dominance &amp; a multipolar world.</strong> The dollar still dominates reserves and global bond markets; the renminbi is rising slowly. US policy shifts + China's rise → a multipolar world without a "benevolent" superpower → coercion as economic policy, strategic independence, industrial policy → higher costs and uncertainty.</li>
+<li><strong>Energy shocks (recap of L10):</strong> importers poorer, exporters richer, inflation up everywhere; central banks shouldn't react to supply shocks <em>if</em> expectations are anchored.</li>
+<li><strong>Optimism vs risk:</strong> recovery, record employment, controlled inflation, AI contributing to US growth — against expensive stock markets (low equity risk premium) and fiscal fragility.</li>
+</ul>
+<div class="exam"><b>Exam lens.</b> Expect a tariff/trade-war prompt. Always reduce it to S−I=CA. Don't claim imports "reduce GDP" (accounting illusion — a listed myth) or that a trade deficit is "always bad."</div>
+
+<!-- ---------- L14 ---------- -->
+<h2 id="l14">14 · Review — the whole course in one diagram</h2>
+<p>The review session re-states the two-halves map and gives the single combined business-cycle diagram you should be able to reproduce from memory.</p>
+
+<figure>
+<svg viewBox="0 0 440 300" aria-label="Combined business cycle model">
+  <line class="axis" x1="60" y1="20" x2="60" y2="250"/><line class="axis" x1="60" y1="250" x2="420" y2="250"/>
+  <text class="lbl" x="28" y="22">Interest</text><text class="lbl" x="30" y="36">rate</text><text class="sm" x="380" y="272">GDP</text>
+  <line class="IS" x1="80" y1="75" x2="350" y2="245"/><text class="lbl" x="322" y="240" fill="#2e7d32">IS</text>
+  <line class="LM" x1="80" y1="245" x2="350" y2="75"/><text class="lbl" x="322" y="83" fill="#1f5fa8">LM</text>
+  <line class="LRAS" x1="232" y1="25" x2="232" y2="250"/><text class="sm" x="196" y="20" fill="#b03030">Potential GDP</text>
+  <line class="rf dash" x1="60" y1="160" x2="420" y2="160"/><text class="lbl" x="384" y="155" fill="#a8740a">world r</text>
+  <circle class="dot" cx="215" cy="160" r="4.5"/>
+  <text class="sm" x="80" y="135">above world r → inflow → appreciation</text>
+  <text class="sm" x="80" y="195">below world r → outflow → depreciation</text>
+  <text class="sm" x="244" y="120" fill="#b03030">right: overheating, ↑inflation</text>
+  <text class="sm" x="86" y="232" fill="#b03030">left: recession, ↓inflation</text>
+</svg>
+<figcaption>The master short-run diagram. IS, LM, the vertical potential-output line, and the world-rate line together tell you GDP, the interest rate, capital flows, the currency, and inflation pressure.</figcaption>
+</figure>
+
+<div class="key">
+<strong>The 6-step reading of any shock (Session 14):</strong>
+<ol style="margin-bottom:0;">
+<li>The shock shifts IS or LM ⟹ new r and GDP.</li>
+<li>New r vs world r ⟹ capital <em>inflow</em> (r above) or <em>outflow</em> (r below).</li>
+<li>Inflow ⟹ appreciation; outflow ⟹ depreciation.</li>
+<li><strong>Floating:</strong> appreciation ⟹ ↓NX ⟹ lower demand (depreciation the opposite).</li>
+<li><strong>Fixed:</strong> no appreciation/depreciation allowed ⟹ monetary policy <em>must intervene</em>.</li>
+<li>Position vs potential output ⟹ higher or lower inflation.</li>
+</ol>
+</div>
+
+<h3>EMS Crisis 1992/93 — the two-country set-piece</h3>
+<p>A fixed-rate system (currencies in a narrow band). German reunification ⟹ German fiscal expansion ⟹ German CB fears inflation ⟹ contractionary German monetary policy ⟹ high German rates. To hold the peg, the Bank of Italy is <em>forced</em> to raise rates too (importing German policy — the Impossible Trinity in action), deepening Italy's recession until the system broke (Italy floats/devalues; bands widen to 15%).</p>
+<figure>
+<svg viewBox="0 0 560 250" aria-label="EMS crisis two country">
+  <g><text class="lbl" x="80" y="16" fill="#13392b">Germany</text>
+   <line class="axis" x1="50" y1="30" x2="50" y2="210"/><line class="axis" x1="50" y1="210" x2="250" y2="210"/>
+   <text class="lbl" x="28" y="32">r</text><text class="sm" x="210" y="230">GDP</text>
+   <line class="IS" x1="65" y1="70" x2="220" y2="200"/><line class="IS dash" x1="95" y1="55" x2="245" y2="185" opacity="0.6"/>
+   <line class="LM" x1="65" y1="200" x2="220" y2="70"/><line class="LM dash" x1="45" y1="200" x2="200" y2="70" opacity="0.65"/>
+   <path d="M120,150 L100,150" stroke="#1f5fa8" stroke-width="1.4" marker-end="url(#ar)"/>
+   <text class="sm" x="108" y="48">①fiscal exp (IS→) ②tighten (LM←)</text>
+   <text class="lbl" x="210" y="195" fill="#2e7d32">IS</text><text class="lbl" x="210" y="80" fill="#1f5fa8">LM</text></g>
+  <g transform="translate(300,0)"><text class="lbl" x="95" y="16" fill="#13392b">Italy</text>
+   <line class="axis" x1="50" y1="30" x2="50" y2="210"/><line class="axis" x1="50" y1="210" x2="250" y2="210"/>
+   <text class="lbl" x="28" y="32">r</text><text class="sm" x="210" y="230">GDP</text>
+   <line class="IS" x1="65" y1="80" x2="220" y2="200"/>
+   <line class="LM" x1="65" y1="200" x2="220" y2="80"/><line class="LM dash" x1="45" y1="200" x2="200" y2="80" opacity="0.65"/>
+   <path d="M118,150 L98,150" stroke="#1f5fa8" stroke-width="1.4" marker-end="url(#ar)"/>
+   <text class="sm" x="80" y="50">forced to tighten (LM←) → recession</text>
+   <text class="lbl" x="210" y="195" fill="#2e7d32">IS</text><text class="lbl" x="210" y="90" fill="#1f5fa8">LM</text></g>
+</svg>
+<figcaption>EMS crisis: German fiscal expansion + monetary tightening raises German rates; to defend the fixed parity Italy must tighten too, forcing it into recession.</figcaption>
+<div class="eyeball"><span class="star">★</span><b>Isabella — eyeball this diagram (highest priority):</b> this was drawn backwards before. Both dashed LM curves should now sit to the <em>left</em> of the solid LM (tightening = LM left = higher rates), with the small blue arrows pointing left. Confirm both panels show the dashed LM to the left, not the right.</div>
+</figure>
+
+<h3>The four nominal-anchor / FX truths to carry in</h3>
+<ol>
+<li>The nominal anchor determines <em>all</em> nominal variables (inflation, nominal rates, nominal exchange rate).</li>
+<li>Long-run real rates are set by global S &amp; I, <em>not</em> the central bank.</li>
+<li>Long-run nominal exchange-rate moves ≈ inflation differentials (adjusted for productivity).</li>
+<li>Short-run exchange rates are asset prices driven by <em>news</em> about interest rates.</li>
+</ol>
+
+<!-- ============================================================ -->
+<!-- REFERENCE -->
+<!-- ============================================================ -->
+<h2 class="part">Reference</h2>
+
+<h2 id="gallery">Model gallery — every diagram, at a glance</h2>
+<p>The complete set of models in the course. If you can draw all of these from memory and explain what shifts each curve, you can answer almost any short-run question. (Full versions are in the lectures above.)</p>
+<table class="dt">
+<tr><th>Model</th><th>Axes</th><th>What it shows / what shifts it</th><th>L</th></tr>
+<tr><td><strong>Saving-Investment cross</strong></td><td>r vs S,I</td><td>World real rate. ↓S or ↑I ⟹ r↑. Saving glut = S right ⟹ r↓ + imbalances.</td><td>2</td></tr>
+<tr><td><strong>Money market</strong></td><td>i vs M/P</td><td>Vertical money supply (CB-set) + downward money demand. ↑M ⟹ i↓.</td><td>5,7</td></tr>
+<tr><td><strong>Central-bank T-account</strong></td><td>Assets / Liabilities</td><td>Base = Currency + Reserves. Buying securities ⟹ reserves↑ (=QE).</td><td>5,9</td></tr>
+<tr><td><strong>IS curve</strong></td><td>r vs GDP</td><td>Goods market; down-sloping. Right: ↑G, ↓T, ↑confidence/wealth.</td><td>7</td></tr>
+<tr><td><strong>LM curve</strong></td><td>r vs GDP</td><td>Money market; up-sloping. Right: ↑M, ↓P, financial innovation.</td><td>7</td></tr>
+<tr><td><strong>IS-LM-FX</strong></td><td>r vs GDP (+ r_F line)</td><td>The master engine. 4-step routine; 6 policy cases; Impossible Trinity.</td><td>7</td></tr>
+<tr><td><strong>+ Potential output (LRAS)</strong></td><td>r vs GDP (vertical line)</td><td>Recession (left) vs overheating (right); price adjustment shifts LM to potential.</td><td>8</td></tr>
+<tr><td><strong>Phillips curve</strong></td><td>π vs unemployment</td><td>Short-run trade-off; shifts when natural rate or inflation target changes.</td><td>8,10</td></tr>
+<tr><td><strong>Disinflation (PC shift)</strong></td><td>π vs unemployment</td><td>Move down PC₁ (costly), then credibility shifts curve to PC₂.</td><td>10</td></tr>
+<tr><td><strong>ZLB trap</strong></td><td>r vs S,I</td><td>Required r* &lt; 0; nominal floored at 0 by cash ⟹ trap.</td><td>9</td></tr>
+<tr><td><strong>Supply shock / stagflation</strong></td><td>r vs GDP</td><td>LRAS shifts left ⟹ ↓GDP + ↑inflation.</td><td>10</td></tr>
+<tr><td><strong>Yield curve</strong></td><td>yield vs maturity</td><td>Term premium; long rate = real rate + expected inflation; inversion ≠ certain recession.</td><td>10</td></tr>
+<tr><td><strong>Inflation vs nominal FX</strong></td><td>%Δe_N vs inflation differential</td><td>Higher relative inflation ⟹ depreciation (45° line).</td><td>8,12</td></tr>
+<tr><td><strong>Overshooting (4-panel)</strong></td><td>M, i, P, e_N vs time</td><td>Monetary expansion: rate overshoots then appreciates back to new PPP.</td><td>12</td></tr>
+<tr><td><strong>Two-country IS-LM (EMS)</strong></td><td>r vs GDP ×2</td><td>Fixed FX forces one country to import the other's monetary stance.</td><td>14</td></tr>
+</table>
+
+<h2 id="chains">Mechanism-chain drills</h2>
+<p>The exam rewards causal chains. Cover the right-hand side and reproduce each. (All flow from the IS-LM-FX engine.)</p>
+<div class="chain"><strong>Fiscal expansion, floating FX:</strong> ↑G <span class="arrow">→</span> IS right <span class="arrow">→</span> r↑ <span class="arrow">→</span> capital inflow <span class="arrow">→</span> currency appreciates <span class="arrow">→</span> NX↓ <span class="arrow">→</span> output effect offset (crowding out via the exchange rate).</div>
+<div class="chain"><strong>Monetary expansion, floating FX:</strong> ↑M <span class="arrow">→</span> r↓ <span class="arrow">→</span> capital outflow <span class="arrow">→</span> depreciation <span class="arrow">→</span> NX↑ <span class="arrow">→</span> GDP↑ (powerful).</div>
+<div class="chain"><strong>Monetary expansion, fixed FX:</strong> ↑M <span class="arrow">→</span> r↓ <span class="arrow">→</span> outflow / depreciation pressure <span class="arrow">→</span> CB must sell reserves &amp; cut M back <span class="arrow">→</span> no effect (policy powerless).</div>
+<div class="chain"><strong>Saving glut:</strong> ↑desired saving abroad <span class="arrow">→</span> world S right <span class="arrow">→</span> world real rate↓ <span class="arrow">→</span> bigger surpluses there + bigger deficits (US) <span class="arrow">→</span> wider global imbalances.</div>
+<div class="chain"><strong>Disinflation:</strong> tighten money <span class="arrow">→</span> real rate↑ <span class="arrow">→</span> unemployment↑ (move down PC₁) <span class="arrow">→</span> policy becomes credible <span class="arrow">→</span> expectations &amp; contracts adjust <span class="arrow">→</span> PC shifts down <span class="arrow">→</span> unemployment returns to natural, inflation permanently lower.</div>
+<div class="chain"><strong>Energy shock (importer):</strong> oil↑ <span class="arrow">→</span> real income↓ <span class="arrow">→</span> LRAS left <span class="arrow">→</span> GDP↓ &amp; inflation↑ (stagflation) <span class="arrow">→</span> CB holds <em>if</em> expectations anchored.</div>
+<div class="chain"><strong>Unexpected rate hike (FX):</strong> surprise i↑ <span class="arrow">→</span> capital inflow <span class="arrow">→</span> immediate appreciation <span class="arrow">→</span> thereafter higher rates predict <em>depreciation</em> (arbitrage). If the hike was <em>priced in</em> <span class="arrow">→</span> no move.</div>
+<div class="chain"><strong>Debt dynamics:</strong> inflation↑ <span class="arrow">→</span> nominal rate↑ <em>and</em> nominal growth↑ <span class="arrow">→</span> roughly neutral for sustainability unless r rises faster than g <span class="arrow">→</span> required surplus = (r−g)·Debt/GDP.</div>
+
+<h2 id="glossary">Glossary &amp; the examiner's "myths" list</h2>
+<div class="twocol">
+<div>
+<h4>Core terms</h4>
+<ul style="font-size:14.5px;">
+<li><strong>NFP</strong> — net factor payments (income from abroad − paid abroad).</li>
+<li><strong>Current account</strong> — NX + NFP = S − I.</li>
+<li><strong>Capital outflow</strong> — buying foreign assets / ↑reserves (sign +).</li>
+<li><strong>Real interest rate</strong> — nominal − inflation; return in goods.</li>
+<li><strong>PPP</strong> — purchasing-power-parity; prices equalised by arbitrage.</li>
+<li><strong>Monetary base</strong> — C + R (CB-controlled). <strong>Money supply</strong> — C + D.</li>
+<li><strong>Money multiplier</strong> — supply/base; collapses in bank runs.</li>
+<li><strong>Nominal anchor</strong> — what fixes long-run inflation (target / peg).</li>
+<li><strong>Output gap</strong> — (actual − potential)/potential; ↔ unemployment.</li>
+<li><strong>Natural rate</strong> — structural unemployment at full employment.</li>
+<li><strong>Primary balance</strong> — budget balance excluding interest.</li>
+<li><strong>Structural balance</strong> — balance stripped of automatic stabilisers.</li>
+<li><strong>ZLB</strong> — zero lower bound on nominal rates (cash pays 0%).</li>
+<li><strong>QE / QT</strong> — buying / selling securities to expand / shrink the base.</li>
+</ul>
+</div>
+<div>
+<h4>Myths Fatás flags (be ready to refute)</h4>
+<ul style="font-size:14.5px;">
+<li>Current-account deficits are always bad. <em>(No.)</em></li>
+<li>Imports reduce GDP. <em>(Accounting illusion.)</em></li>
+<li>Long-run real rates are controlled by the central bank. <em>(No — global S &amp; I.)</em></li>
+<li>Everyone should save like Singapore/Norway. <em>(Can't all surplus.)</em></li>
+<li>Living standards come from "resources". <em>(Productivity + institutions.)</em></li>
+<li>Export-led growth is required. <em>(No.)</em></li>
+<li>High stock prices / high P/E = bubble. <em>(Depends on RP vs r.)</em></li>
+<li>Past returns ⟹ high future returns. <em>(Often the opposite.)</em></li>
+<li>We must pay back government debt. <em>(Only keep it sustainable.)</em></li>
+<li>High debt = high default chance. <em>(Default is redistribution.)</em></li>
+<li>QE is printing money / financing the deficit / always inflationary.</li>
+<li>Disinflation always causes unemployment. <em>(2021-24 didn't.)</em></li>
+<li>A weak (or strong) currency is always good. <em>(Neither.)</em></li>
+</ul>
+</div>
+</div>
+
+<h2 id="readings">Key readings</h2>
+<p>The highest-value readings from the course — deliberately selective (the mandatory ones plus the piece that is the spine of each lecture), not the full reading list. <span class="rtag man">Mandatory</span> = formally required · <span class="rtag prof">Prof's own</span> = written by Fatás (high exam signal) · <span class="rtag core">Core</span> = the load-bearing concept for that lecture. Each title opens a one-page <em>synthesis</em> (written for revision, not the original text), which in turn links out to the original article.</p>
+
+<h4>National accounting &amp; GDP (L1)</h4>
+<div class="read"><b><a href="Sources/L01/summary%20of%20all%20the%20initiatives%20to%20go%20beyond%20GDP.html">Beyond GDP: how we measure progress</a></b><span class="rtag core">Core</span><span class="meta">L1 · National accounting</span><br>The canonical "what's wrong with GDP" case: GDP is a deliberately narrow wartime-planning construct (Kuznets/Keynes), not a welfare measure, and needs complementing with inclusive-wealth and wellbeing measures. Sets up the whole national-accounting half of L1 and the SNA-2025 revision debate.</div>
+
+<h4>Saving, investment &amp; the real rate (L2)</h4>
+<div class="read"><b><a href="Sources/L02/question%20from%20the%20Federal%20Reserve%20Bank%20of%20Dallas..html">Are trade deficits bad, and can tariffs cut them? (Dallas Fed)</a></b><span class="rtag core">Core</span><span class="meta">L2 · spine of the lecture</span><br>Derives the trade balance from the saving–investment identity (S − I = CA), shows deficits are financed by foreign capital inflows (twin deficits), and that tariffs don't reduce them empirically. The exact S/I global-funds framework the lecture teaches.</div>
+<div class="read"><b><a href="Sources/L02/global%20saving%20and%20investment%20determine%20real%20(inflation-adjusted)%20interest%20rates.html">Saving glut or investment dearth? (Fatás)</a></b><span class="rtag prof">Prof's own</span><span class="meta">L2 · real interest rates</span><br>Fatás argues Bernanke's "global savings glut" is incomplete: it predicts an investment boom that never came, so low rates also need an inward shift of the investment curve in advanced economies. The lecture's S/I diagrams come from here.</div>
+
+<h4>Growth &amp; convergence (L3–L4)</h4>
+<div class="read"><b><a href="Sources/L03/challenges%20for%20emerging%20and%20developing%20countries%20to%20converge.html">The End of an Era of Global Income Convergence (World Bank)</a></b><span class="rtag man">Mandatory</span><span class="meta">L3 · convergence</span><br>COVID produced the largest single-year rise in global inequality in 30 years, almost entirely <em>between</em> countries; three decades of automatic catch-up may be over. The empirical pivot for the course's rich/poor-divergence claim.</div>
+<div class="read"><b><a href="Sources/L03/prospects%20for%20US%20growth.html">Is Slow Still the New Normal? (Fernald &amp; Li, FRBSF)</a></b><span class="rtag core">Core</span><span class="meta">L3 · growth accounting</span><br>The decomposition the lecture uses: sustainable growth = hours growth (demographics, ~0.5%) + productivity growth (the swing factor). Even the US frontier is pinned near 1.6%, so convergence must come from closing productivity gaps.</div>
+<div class="read"><b><a href="Sources/L04/Mandatory%20Readings%20Notes.html">Aghion + Acemoglu-Johnson-Robinson + the middle-income trap</a></b><span class="rtag man">Mandatory</span><span class="meta">L4 · the 4 Is, institutions, innovation</span><br>Aghion = creative destruction (innovation is policy-responsive); AJR = inclusive vs extractive institutions as the deep cause of prosperity; middle-income trap = Investment → Infusion → Innovation. Synthesis: "growth = innovation under inclusive institutions" — the scaffolding for the scenario exercise. (Ties straight to your IR-essay framework above.)</div>
+
+<h4>Money &amp; central banks (L5)</h4>
+<div class="read"><b><a href="Sources/L05/CBDC%20Antonio%20Fatas.pdf">Can a CBDC transform digital payments? (Fatás)</a></b><span class="rtag prof">Prof's own</span><span class="meta">L5 · spine of the lecture</span><br>Fatás's sceptical take: a retail CBDC easily solves the disappearing-cash problem, but the harder goals (competitive, inclusive, resilient payments) depend on the rails, not on issuing the asset. "The rails matter more than the asset."</div>
+<div class="read"><b><a href="Sources/L05/Stablecoins,%20Tokens,%20and%20Global%20Dominance.html">Stablecoins, Tokens, and Global Dominance (Rey, IMF F&amp;D)</a></b><span class="rtag core">Core</span><span class="meta">L5 · the one stablecoin piece that matters</span><br>The geopolitical lens: dollar stablecoins reinforce US "exorbitant privilege" (Tether + USDC hold more Treasuries than Saudi Arabia), privatise seigniorage, and add cyber fragility. Monetary architecture as power, not convenience.</div>
+
+<h4>Business cycles (L6)</h4>
+<div class="read"><b><a href="Sources/L06/what%20constitutes%20recessions.html">Recession: When Bad Times Prevail (IMF Back to Basics)</a></b><span class="rtag core">Core</span><span class="meta">L6 · what a recession is</span><br>The "two negative quarters" rule is wrong (NBER uses a broad activity panel), plus the causal taxonomy (price shocks, policy tightening, financial-cycle, external-demand) and stylised facts (~1 year, ~2% output decline). The financial-cycle case is the lens for today's AI/equity-bubble debate.</div>
+
+<h4>Open-economy policy &amp; exchange rates (L7)</h4>
+<div class="read"><b><a href="Sources/L07/exchange%20rate%20regimes.html">Choosing an Exchange Rate Regime (Ghosh &amp; Ostry, IMF F&amp;D)</a></b><span class="rtag core">Core</span><span class="meta">L7 · the load-bearing concept</span><br>The peg-vs-float trade-off and the <strong>impossible trinity</strong> (fixed FX + open capital + independent monetary policy can't coexist). Determines which policy lever a country actually wields; intermediate regimes grow fastest if overvaluation is avoided.</div>
+<div class="read"><b><a href="Sources/L07/Monetary%20policy..html">Monetary &amp; Fiscal Policy primers (IMF Back to Basics)</a></b><span class="rtag core">Core</span><span class="meta">L7 · stabilisation toolkit · <a href="Sources/L07/Fiscal%20policy.html">fiscal primer</a></span><br>Monetary: the four transmission channels, independence/time-inconsistency, ZLB tools. Fiscal: automatic stabilisers vs discretionary stimulus, fiscal space, the multiplier, the "three Ts" (timely, targeted, temporary).</div>
+
+<h4>Inflation &amp; the Taylor Rule (L8)</h4>
+<div class="read"><b><a href="Sources/L08/explains%20the%20Taylor%20Rule..html">The Fed's Inflation Target &amp; Policy Rules (John Taylor)</a></b><span class="rtag core">Core</span><span class="meta">L8 · methodological core</span><br>The originator's defence of the 2% target and rules-based policy. Gives the Taylor Rule equation and argues the ZLB is solvable inside the rules framework. The common axis for comparing the Fed/ECB/BoJ/RBI frameworks.</div>
+
+<h4>Zero lower bound &amp; QE (L9)</h4>
+<div class="read"><b><a href="Sources/L09/The%20new%20tools%20of%20monetary%20policy..html">The New Tools of Monetary Policy</a></b><span class="rtag core">Core</span><span class="meta">L9 · unconventional toolkit</span><br>Survey of the post-2008 toolkit: large-scale asset purchases (QE), forward guidance, yield-curve control, negative rates — with effectiveness evidence and risks (asset-price distortion, the fiscal-monetary boundary) for each.</div>
+
+<h4>Managing high inflation (L10)</h4>
+<div class="read"><b><a href="Sources/L10/Understanding%20the%202021-22%20inflationary%20episode%20and%20the%20response%20of%20central%20banks.html">Understanding the 2021–22 inflation episode (Lane, ECB)</a></b><span class="rtag core">Core</span><span class="meta">L10 · the post-COVID case study</span><br>Lane's retrospective: models didn't fail, their energy-price assumptions did; with hindsight rates should have risen earlier but at real output cost. Covers the lecture's non-linear Phillips curve and inflation-expectations material.</div>
+
+<h4>Fiscal sustainability &amp; debt (L11)</h4>
+<div class="read"><b><a href="Sources/L11/Rising%20Global%20Debt%20Requires%20Countries%20to%20Put%20their%20Fiscal%20House%20in%20Order.html">Rising Global Debt (IMF Fiscal Monitor, 2025)</a></b><span class="rtag core">Core</span><span class="meta">L11 · debt-dynamics scene-setter</span><br>Global public debt heading past 95% toward ~100% of GDP (a WWII-era high), driven by tariffs, defence spending and rising yields; the fix is gradual-but-credible consolidation plus growth reform. The core reading behind the debt-sustainability formula.</div>
+
+<p class="sm" style="color:#555;margin-top:12px;">Selection notes: formally <span class="rtag man">Mandatory</span> per Canvas are the convergence and Aghion/AJR pieces; the two <span class="rtag prof">Prof's own</span> are high exam signal. L12–L14 had slide PDFs only (no separate readings). Many L5/L6/L8–L11 folders were paywalled FT/Economist stubs the vault couldn't extract — these were skipped in favour of the substantive long-form pieces (IMF primers, central-bank speeches, Fatás's own work).</p>
+
+<div class="footer">
+<p><strong>Macroeconomics in the Global Economy · course knowledge page.</strong> Built entirely from the Session 1–14 lecture slides + transcripts (Prof. Antonio Fatás, INSEAD). Equations rendered with MathJax; all diagrams redrawn as SVG. Exam-technique framing reflects the structure of past final papers (T/F/U + applied questions; closed book except one two-sided A4 page). Open in a browser; print to PDF via ⌘P.</p>
+</div>
+
+</main>
+</div>
+</body>
+</html>

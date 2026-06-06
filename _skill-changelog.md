@@ -24,6 +24,8 @@ Running log of manual edits to the MGE exemplar (`index.html`, `MGE Revision Doc
 
 ## Edit log (chronological)
 
+- 2026-06-06 — **Scoped skill test (3 MGE lectures: L07 frameworky / L08 mathsy / L03 qual).** Ran the real pipeline (extract_equations → generate-section → re-derive gate → render → check.py) building ONLY from slides+transcript (forbidden from reading the hand-built page). Result: a comparison judge rated all three **materially equivalent to the hand-built MGE, and BETTER on 2 of 3** (L03 and L08's long-run half); every equation + every matrix verdict correct; all structural choices hit (L07 decision matrix verdict-first + decode-key, L08 intuition-first with formula demoted, L03 takeaways-vs-case, no prose dumps). The re-derive gate ran end-to-end (10/10 CHECKS PASS). **Two findings fed back into the skill:** (1) all three generators reproduced the bare `class="dash"` invisible-curve bug (the one that sank P&M) — the `svgstroke` gate caught it but the generation prompt didn't forbid it, so added an explicit SVG-stroke rule to `generate-section.md` + `taxonomy.md`. (2) The one real quality gap is **cross-lecture consolidation**: the hand-built L07 hoisted the FX-intervention/balance-sheet block in from L5 and flagged it; the skill, given only L07 sources, didn't. Budget a light human consolidation pass per course (or a future skill step). Verdict: **trustworthy for the other ~20 courses.** ✅
+
 - 2026-06-06 — `index.html`: added `padding-right:54px` to `.card .name` (pill overlap fix). ✅
 - 2026-06-06 — `MGE Revision Document.html`: `← All courses` back-link in sidebar. ✅
 - 2026-06-06 — `MGE — Exam Drills.html`: `← All courses` back-link in sidebar. ✅

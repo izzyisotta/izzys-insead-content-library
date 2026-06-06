@@ -1,0 +1,6 @@
+{
+  // Static-assets-only Worker: serves the HTML files in this folder, no server code.
+  "name": "izzys-insead-content-library",
+  "compatibility_date": "2026-06-06",
+  "assets": { "directory": "./" }
+}

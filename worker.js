@@ -1,7 +1,7 @@
 // Password gate for Izzy's INSEAD Content Library.
 // Runs before the static assets (run_worker_first) and asks for a password.
 // Any username works; only the password is checked. To change it, edit PASSWORD and push.
-const PASSWORD = "taylor-swift-rule";
+const PASSWORD = "yolo-mode";
 
 export default {
   async fetch(request, env) {

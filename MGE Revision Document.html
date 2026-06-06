@@ -1252,6 +1252,15 @@ $$\text{Interest payments} = r_{nominal}\times \text{Debt}$$</div>
 <p>Budgets move with the cycle via <strong>automatic stabilisers</strong> (taxes fall, unemployment benefits rise in downturns). To see <em>discretionary</em> policy, strip these out → the <strong>structural balance</strong>. (Europe 2010-14: structural balances show real <em>austerity</em> on top of the recession.)</p>
 
 <h3>Sustainability — the key formula</h3>
+<div class="intuition"><span class="tag">🎙 Intuition: what this formula actually says</span>
+A <strong>primary surplus</strong> is your budget <em>before</em> interest: tax revenue minus all spending except debt interest. The whole question is how big it must be to stop your debt-to-GDP ratio drifting up.
+<p style="margin:8px 0 0;">Picture a <strong>tug-of-war</strong> on the ratio each year. <strong>Interest (r)</strong> makes the debt grow and pulls the ratio <strong>up</strong>; <strong>growth (g)</strong> makes the GDP underneath it grow and pulls the ratio <strong>down</strong>. The net pull is the gap <strong>(r − g)</strong>:</p>
+<ul style="margin:6px 0 0;">
+<li><strong>r &gt; g</strong>: interest wins, so debt/GDP snowballs on its own and you must run a surplus to fight it.</li>
+<li><strong>r &lt; g</strong>: growth wins, so the ratio falls by itself and you can even run deficits.</li>
+</ul>
+<p style="margin:8px 0 0;">It is a <strong>treadmill</strong>: <strong>(r − g)</strong> is how fast the belt drags you back, <strong>Debt/GDP</strong> is how heavy your backpack is, and the <strong>primary surplus</strong> is how hard you must run to stay in place. So the surplus you need = the drift (r − g) applied to the whole debt pile you carry. That one sentence <em>is</em> the boxed formula below.</p>
+</div>
 <p>Governments <strong>do not need to repay debt</strong> — they need to keep it on a non-explosive path. The test: <em>how big a primary surplus keeps the Debt/GDP ratio constant?</em> Here's where the formula comes from (the "shut the government down for a year" thought experiment):</p>
 <ol class="deriv">
 <li><span class="mathline">Imagine zero spending and zero taxes (primary balance = 0).</span><span class="note">Isolate what debt dynamics do on their own.</span></li>
@@ -1265,9 +1274,8 @@ $$\text{Interest payments} = r_{nominal}\times \text{Debt}$$</div>
 <div><div class="wex" style="border-color:#7bbf9a;"><span class="h" style="color:var(--green)">Case B — g &gt; r (deficits forever!)</span> \(r=2\%,\ g=4\%,\ \tfrac{Debt}{GDP}=120\%\): required surplus \(=(0.02-0.04)\times1.2 = \mathbf{-2.4\%}\) — i.e. you can run a 2.4% <em>deficit</em> every year and Debt/GDP still falls.</div></div>
 </div>
 <p><strong>The decisive insight:</strong> sustainability depends on <strong>(r − g)</strong>. If growth exceeds the interest rate (<strong>g &gt; r</strong>), the required surplus is <em>negative</em> — a government can run <em>primary deficits forever</em> and Debt/GDP still falls (e.g. China, Japan, US in the 2025 slide table, where nominal g &gt; nominal r). High debt is manageable as long as rates stay low relative to growth.</p>
-<div class="intuition"><span class="tag">🎙 In class — where the formula comes from</span>
-<p style="margin:2px 0;"><b>"Shut the government down for a year."</b> Imagine zero spending and zero taxes. The <em>numerator</em> (debt) still grows at the interest rate \(r\) — you roll the unpaid interest into new debt. The <em>denominator</em> (GDP) grows at \(g\). So Debt/GDP rises if \(r>g\), is flat if \(r=g\), and falls if \(g>r\) — entirely on its own. That's the whole formula: the primary surplus you need is just enough to offset the \((r-g)\) drift, scaled by how much debt you carry.</p>
-<p style="margin:6px 0 0;"><b>Why "debt burdens the next generation" is only half-true:</b> (a) the next generation inherits the <em>capital and institutions</em> the debt funded; (b) thanks to growth (\(g\)) their incomes are higher, so the same €100 is easier to repay; (c) for <em>domestically-held</em> debt they inherit the <em>asset and the liability together</em> — it nets to zero. <em>"World debt is at a record level — but so are world assets."</em></p>
+<div class="intuition"><span class="tag">🎙 In class — debt myths &amp; colour</span>
+<p style="margin:2px 0;"><b>Why "debt burdens the next generation" is only half-true:</b> (a) the next generation inherits the <em>capital and institutions</em> the debt funded; (b) thanks to growth (\(g\)) their incomes are higher, so the same €100 is easier to repay; (c) for <em>domestically-held</em> debt they inherit the <em>asset and the liability together</em> — it nets to zero. <em>"World debt is at a record level — but so are world assets."</em></p>
 <p style="margin:6px 0 0;"><b>What a rich government's budget actually is:</b> mostly pensions + healthcare + income support, with a comparatively small army — <em>"an insurance company with an army."</em></p>
 </div>
 <div class="key"><strong>But \(r\) is not exogenous — it carries a sovereign risk premium.</strong> The rate a government pays = a safe rate + a <em>country risk premium</em> that reflects default/political risk. A downgrade, political instability, or loss of credibility raises that premium ⟹ raises \(r\) ⟹ raises the required primary surplus (and can be self-fulfilling: fear of default raises rates, which makes default more likely). This is the bridge between "default is just redistribution" and why markets still punish risky borrowers — and why two countries with the same Debt/GDP can face very different sustainability (compare Italy's ~2.8% rate with Japan's ~0.2% in the slide table).</div>
@@ -1276,7 +1284,7 @@ $$\text{Interest payments} = r_{nominal}\times \text{Debt}$$</div>
 
 <!-- ---------- L12 ---------- -->
 <h2 id="l12">12 · Exchange Rates</h2>
-<p>Three theories, layered: long-run arbitrage (PPP), the productivity correction, and the short-run asset-price view. This is the most-tested topic in the whole course.</p>
+<p>Three theories, layered: long-run arbitrage (PPP), the productivity correction, and the short-run asset-price view. Pool its three question types (PPP / real-vs-nominal at 18, UIP at 12, defending a peg at 14) and exchange rates is the most-tested <em>area</em> of the course. The single most-tested <em>archetype</em>, though, is IS-LM-FX (26 past questions, in <a class="up" href="#l9">L9</a>).</p>
 
 <h3>Theory 1 — Law of One Price / PPP (long run)</h3>
 <div class="key" style="margin-top:0;"><strong>First, the two definitions you must hold separate:</strong>

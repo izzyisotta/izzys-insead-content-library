@@ -1,0 +1,1964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>NEG — Negotiations</title>
+<script>
+  MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']] }, svg: { fontCache: 'local' } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+<style>
+  :root{
+    --green:#00643C; --green-light:#2e7d32; --blue:#1f5fa8; --red:#b03030;
+    --ink:#1a1a1a; --soft:#555; --line:#d8d8d8; --bg:#fbfbf9; --card:#ffffff;
+    --amber:#a8740a; --amber-bg:#fdf6e9;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:16.5px; line-height:1.62;
+  }
+  .wrap{display:flex; max-width:1500px; margin:0 auto;}
+  /* ---- sidebar nav ---- */
+  nav.toc{
+    width:268px; flex:0 0 268px; position:sticky; top:0; height:100vh; overflow-y:auto;
+    background:#0e2a20; color:#dfeee7; padding:22px 16px 60px; font-size:13.5px;
+  }
+  nav.toc h2{color:#fff; font-size:14px; letter-spacing:.06em; text-transform:uppercase; margin:18px 0 8px; opacity:.65;}
+  nav.toc a{display:block; color:#cfe3da; text-decoration:none; padding:3px 8px; border-radius:5px; margin:1px 0;}
+  nav.toc a:hover{background:#1c4636; color:#fff;}
+  nav.toc a.part{font-weight:700; color:#8fd6b4; margin-top:6px;}
+  nav.toc .brand{font-weight:800; color:#fff; font-size:16px; line-height:1.3; margin-bottom:4px;}
+  nav.toc .brand span{font-weight:400; font-size:12.5px; color:#8fd6b4; display:block;}
+  main{flex:1 1 auto; padding:46px 56px 140px; max-width:1000px;}
+  /* ---- typography ---- */
+  h1{font-size:30px; color:var(--green); margin:0 0 6px; line-height:1.18;}
+  h2.part{font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--amber); margin:54px 0 2px; font-weight:700;}
+  h2{font-size:25px; color:var(--green); border-bottom:2px solid var(--green); padding-bottom:6px; margin:42px 0 14px; scroll-margin-top:14px;}
+  h3{font-size:19px; color:#13392b; margin:26px 0 8px;}
+  h4{font-size:16px; color:var(--blue); margin:18px 0 4px; text-transform:uppercase; letter-spacing:.04em;}
+  p{margin:8px 0;}
+  ul,ol{margin:8px 0 8px; padding-left:22px;}
+  li{margin:4px 0;}
+  strong{color:#08251a;}
+  code{background:#eef2ef; padding:1px 5px; border-radius:4px; font-size:13.5px;}
+  a.up{color:var(--blue); text-decoration:none;}
+  /* ---- cards / callouts ---- */
+  .eq{background:#f0f6f2; border:1px solid #cfe2d6; border-left:4px solid var(--green); border-radius:8px; padding:12px 18px; margin:14px 0; overflow-x:auto;}
+  .eq .lbl{font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--green); font-weight:700; margin-bottom:2px;}
+  .key{background:#fff; border:1px solid var(--line); border-radius:10px; padding:14px 20px; margin:16px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  .exam{background:var(--amber-bg); border:1px solid #ecd9ad; border-left:4px solid var(--amber); border-radius:8px; padding:10px 18px; margin:16px 0;}
+  .exam b{color:var(--amber);}
+  .chain{background:#eaf1f8; border:1px solid #c2d6ea; border-left:4px solid var(--blue); border-radius:8px; padding:10px 18px; margin:14px 0; font-size:15px;}
+  .chain .arrow{color:var(--blue); font-weight:700;}
+  .pitfall{background:#fbeeee; border:1px solid #ecc9c9; border-left:4px solid var(--red); border-radius:8px; padding:10px 18px; margin:14px 0;}
+  .pitfall b{color:var(--red);}
+  .twocol{display:flex; gap:22px; flex-wrap:wrap;}
+  .twocol > div{flex:1 1 300px;}
+  figure{margin:20px 0; text-align:center;}
+  figure > svg{max-width:100%; height:auto; background:#fff; border:1px solid var(--line); border-radius:10px; padding:8px;}
+  /* never let MathJax inline equations be stretched by container SVG rules */
+  mjx-container svg, figcaption mjx-container svg, .eq mjx-container svg{max-width:none !important; height:auto !important; border:none !important; padding:0 !important; background:none !important; border-radius:0 !important;}
+  figcaption{font-size:13.5px; color:var(--soft); margin-top:7px; font-style:italic;}
+  table.dt{border-collapse:collapse; width:100%; margin:16px 0; font-size:14.5px;}
+  table.dt th{background:var(--green); color:#fff; text-align:left; padding:8px 11px; font-weight:600;}
+  table.dt td{border:1px solid var(--line); padding:7px 11px; vertical-align:top;}
+  table.dt tr:nth-child(even) td{background:#f6f8f6;}
+  .tacct{border-collapse:collapse; margin:10px auto; font-size:14px; min-width:330px;}
+  .tacct caption{font-weight:700; color:#13392b; padding-bottom:5px;}
+  .tacct th{background:#13392b; color:#fff; padding:5px 14px; font-weight:600;}
+  .tacct td{border:1px solid #b9b9b9; padding:5px 14px;}
+  .tacct td.a{background:#eef6f1;} .tacct td.l{background:#eef2f8;}
+  /* SVG shared */
+  svg text{font-family:-apple-system,Helvetica,Arial,sans-serif;}
+  .axis{stroke:#333; stroke-width:1.6; fill:none;}
+  .grid{stroke:#e3e3e3; stroke-width:1;}
+  .IS{stroke:var(--green-light); stroke-width:3; fill:none;}
+  .LM{stroke:var(--blue); stroke-width:3; fill:none;}
+  .SAV{stroke:var(--blue); stroke-width:3; fill:none;}
+  .INV{stroke:var(--green-light); stroke-width:3; fill:none;}
+  .LRAS{stroke:var(--red); stroke-width:3; fill:none;}
+  .dash{stroke-dasharray:5 4;}
+  .rf{stroke:#a8740a; stroke-width:2.4; fill:none;}
+  .lbl{font-size:13px; font-weight:600;}
+  .sm{font-size:11.5px; fill:#555;}
+  .dot{fill:#13392b;}
+  .footer{margin-top:60px; padding-top:18px; border-top:1px solid var(--line); font-size:13px; color:var(--soft);}
+  .pill{display:inline-block; background:var(--green); color:#fff; font-size:11px; padding:2px 9px; border-radius:20px; letter-spacing:.04em; vertical-align:middle;}
+  .eyeball{background:#fdeaf4; border:2px dashed #c0398a; border-radius:8px; padding:8px 14px; margin:12px 0; font-size:14px; color:#8a1f5f;}
+  .eyeball .star{font-size:17px; margin-right:4px;}
+  .eyeball b{color:#8a1f5f;}
+  .intuition{background:#edf6f7; border:1px solid #b6d7dc; border-left:4px solid #1f7e8c; border-radius:8px; padding:10px 16px; margin:14px 0; font-size:15px;}
+  .intuition .tag{display:inline-block; font-size:11px; font-weight:700; letter-spacing:.04em; color:#1f7e8c; text-transform:uppercase; margin-right:6px;}
+  .intuition b{color:#0d4d57;}
+  .izzy{background:#f5f0fb; border:1px solid #d3c1ec; border-left:4px solid #7b4bbd; border-radius:8px; padding:12px 18px; margin:16px 0; font-size:15px;}
+  .izzy .tag{display:inline-block; font-size:11px; font-weight:700; letter-spacing:.04em; color:#7b4bbd; text-transform:uppercase; margin-bottom:6px;}
+  .izzy b{color:#5a2d96;}
+  .izzy table.dt{margin:8px 0;}
+  .modetoggle{display:flex; gap:6px; margin:12px 0 18px;}
+  .modetoggle .mode{flex:1; text-align:center; padding:8px 6px; border-radius:7px; font-size:13px; font-weight:700; text-decoration:none; border:1px solid #2f5e4c; color:#cfe3da; background:transparent;}
+  .modetoggle .mode:hover{background:#1c4636; color:#fff;}
+  .modetoggle .mode.active{background:#00643C; color:#fff; border-color:#00643C;}
+  .read{margin:10px 0; padding:9px 15px; border-left:3px solid var(--green); background:#f8f8f5; border-radius:6px; font-size:14.5px;}
+  .read .meta{font-size:12px; color:var(--soft); margin-left:6px;}
+  .rtag{display:inline-block; font-size:10.5px; font-weight:700; letter-spacing:.03em; text-transform:uppercase; padding:1px 7px; border-radius:20px; vertical-align:middle; margin-left:4px;}
+  .rtag.man{background:#fbe4e4; color:#a32020;}
+  .rtag.prof{background:#e3eefb; color:#1a4e8a;}
+  .rtag.core{background:#e7f3ec; color:#13643c;}
+  /* stepped derivations: each step = the algebra + a small note saying what we did */
+  ol.deriv{counter-reset:dstep; list-style:none; padding:0; margin:14px 0; background:#f8f8f5; border:1px solid var(--line); border-radius:10px; overflow:hidden;}
+  ol.deriv > li{position:relative; margin:0; padding:11px 16px 11px 52px; border-bottom:1px solid #ededed;}
+  ol.deriv > li:last-child{border-bottom:none;}
+  ol.deriv > li::before{counter-increment:dstep; content:counter(dstep); position:absolute; left:14px; top:11px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--green); color:#fff; border-radius:50%; font-size:13px; font-weight:700;}
+  ol.deriv .note{display:block; font-size:12.5px; color:#777; margin-top:3px; font-style:italic;}
+  ol.deriv > li.result{background:#eef6f1;}
+  .wex{background:#fff; border:1px dashed #9cc; border-radius:8px; padding:9px 15px; margin:12px 0; font-size:14.5px;}
+  .wex .h{font-weight:700; color:var(--blue); font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; display:block; margin-bottom:3px;}
+  @media print{ nav.toc{display:none;} main{padding:0; max-width:100%;} body{font-size:11pt;} h2{page-break-after:avoid;} figure,.eq,.key,.exam,ol.deriv,.wex{page-break-inside:avoid;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="toc">
+  <a href="index.html" style="color:#9fd3ba; font-size:12px; letter-spacing:.04em; margin-bottom:12px;">&larr; All courses</a>
+  <div class="brand">NEG <span>Negotiations &middot; Prof. Emre Soyer</span></div>
+  <a href="#how">How to use this</a>
+  <a href="#assess">How you're assessed</a>
+  <a href="#frameworks">&starf; Master frameworks sheet</a>
+  <h2>Sessions</h2>
+  <a href="#l01" class="part">1&ndash;2 &middot; Introduction &amp; Fundamentals</a>
+  <a href="#l03" class="part">3&ndash;4 &middot; Success &amp; the 7 Elements</a>
+  <a href="#l05" class="part">5&ndash;6 &middot; Value Discovery &amp; Claiming</a>
+  <a href="#l07" class="part">7&ndash;8 &middot; Communication &amp; Process</a>
+  <a href="#l09" class="part">9&ndash;10 &middot; Fairness &amp; Teams</a>
+  <a href="#l11" class="part">11&ndash;12 &middot; Relationship &amp; Trust</a>
+  <a href="#l13" class="part">13&ndash;14 &middot; Commitment &amp; Conclusions</a>
+  <h2>Reference</h2>
+  <a href="#cases">Case-type playbooks</a>
+  <a href="#glossary">Glossary &amp; myths</a>
+  <a href="#readings">Key readings</a>
+</nav>
+<main>
+
+<h1>Negotiations</h1>
+<p style="font-size:18px;color:var(--soft);margin-top:0;">Course knowledge page &middot; built from the Session 1&ndash;14 lecture slides + in-class transcripts (Prof. Emre Soyer, INSEAD) &middot; <span class="pill">study edition</span></p>
+
+<div class="key" id="how">
+<h3 style="margin-top:4px;">How to use this</h3>
+<p>This rebuilds the whole of Negotiations from scratch. Each session block has four things: <strong>the intuition</strong> (the plain-language hook), <strong>every framework</strong> Soyer put on the slides or worked through in class, <strong>the models redrawn</strong> as clean diagrams, and a <strong style="color:var(--amber);">What Soyer rewards</strong> box (this course has no written exam, so that box tells you what earns marks in participation, the role-plays and the journal).</p>
+<ul>
+<li><strong>The spine of the entire course is the <a class="up" href="#l03">7 Elements</a></strong> (Interests, Alternatives/BATNA, Options, Legitimacy, Communication, Relationship, Commitment). Learn them first: every prep sheet, every reflection and every case debrief runs on them.</li>
+<li><strong>One idea sits under everything: create value, then claim it.</strong> Soyer&rsquo;s core move is to drag every &ldquo;position&rdquo; back to the underlying <em>interest</em>, expand the pie, then divide it. Win-win vs win-lose is framed as a <em>choice with risks and rewards</em>, not a label.</li>
+<li><strong>The <a class="up" href="#frameworks">Master frameworks sheet</a> is your one-page revision spine</strong>, and the <a class="up" href="#cases">Case-type playbooks</a> turn the theory into a checklist per situation (contract, job, partnership, cooperation, internal, sales).</li>
+<li><strong>Assessment is continuous, not an exam</strong>, so the highest-yield use is to run the 7 Elements as a <em>before-and-after</em> tool on every real negotiation you do, and to mine the <a class="up" href="#l13">closing session</a> for the journal.</li>
+</ul>
+<div class="eyeball"><span class="star">&starf;</span><b>Isabella, eyeball this:</b> the pink flags scattered through the page mark things I am not 100% sure about and want you to sanity-check, mostly hand-positioned diagrams, the Sessions 9&ndash;10 block (the class recording was missing, so its &ldquo;what Soyer said in class&rdquo; layer is thin), and the Sessions 7&ndash;8 block (its transcript was corrupted by a recording bug, so it is built from the summary deck). Search the page for &ldquo;&starf;&rdquo; to jump between them.</div>
+</div>
+
+<h2 id="assess">How you're assessed</h2>
+<p>There is <strong>no written exam</strong>. The grade is built from continuous participation and reflection, which changes how you should revise: you are not memorising for a paper, you are building habits you can show in the room and write up afterwards.</p>
+<table class="dt">
+<tr><th>Component</th><th>Weight</th><th>What it actually rewards</th></tr>
+<tr><td><b>Class engagement</b></td><td>30%</td><td>Active participation in discussions, exercises and cases, plus how you handle the live negotiation results. Quality of contribution, not airtime.</td></tr>
+<tr><td><b>Preparation documents</b></td><td>20%</td><td>Submitted before class from Session 3 on. Mostly the <a class="up" href="#l03">7 Elements</a> prep sheet applied to each case.</td></tr>
+<tr><td><b>Reflection &amp; peer feedback</b></td><td>20%</td><td>Informal reflections and peer feedback after each negotiation. Evidence you can diagnose your own process, not just the outcome.</td></tr>
+<tr><td><b>Negotiation Journal</b></td><td>30%</td><td>One of: (a) a difficult negotiation you want to learn from, (b) the &ldquo;No&rdquo; exercise (collect 10 genuine &ldquo;no&rdquo;s to 10 real requests), or (c) &ldquo;surprise me&rdquo;. The biggest single component.</td></tr>
+</table>
+<div class="exam">
+<p><b>What this means for revision.</b> Soyer is a judgement-and-decision-making scholar, so he rewards <b>process literacy over results</b>: naming what you did, why, what the risk-reward was, and what you would change. The frameworks below are the vocabulary he wants you to reflect <em>in</em>. The single highest-yield habit is to run the 7 Elements as a pre-mortem before a negotiation and a post-mortem after it, which is exactly what the prep sheet and the reflection assignment ask for.</p>
+</div>
+
+<h2 id="frameworks">&starf; Master frameworks sheet</h2>
+<p>Every load-bearing framework in one place, the spine of your one-page revision sheet. Each links to the session where it is explained.</p>
+
+<h4>The vocabulary (Basics) <span style="font-weight:400;text-transform:none;color:var(--soft)">(S1&ndash;2)</span></h4>
+<table class="dt">
+<tr><th>Term</th><th>What it means</th></tr>
+<tr><td><b>BATNA</b></td><td>Best Alternative To a Negotiated Agreement: what you do if you walk. Your <b>main source of power</b>: the better your BATNA, the more you can ask.</td></tr>
+<tr><td><b>Reservation price</b></td><td>Your walk-away point: the worst deal you would still accept (set by your BATNA). Never reveal it.</td></tr>
+<tr><td><b>Aspiration price</b></td><td>Your ambitious-but-justifiable target: the best realistic outcome. Anchors high.</td></tr>
+<tr><td><b>ZOPA</b></td><td>Zone Of Possible Agreement: the overlap between the two reservation prices. In real deals it is rarely a single number line, it is a multi-issue space of <em>equivalent</em> packages.</td></tr>
+<tr><td><b>Distributive vs integrative</b></td><td>Zero-sum (one issue, fixed pie) vs non-zero-sum (multiple issues, expandable pie). Most deals are more integrative than they first look.</td></tr>
+<tr><td><b>Position vs interest</b></td><td>A position is <em>what</em> they demand; an interest is <em>why</em>. Soyer&rsquo;s core move: drag positions back to interests.</td></tr>
+<tr><td><b>Wants vs needs</b></td><td>What they ask for vs what they actually require. Not always the same thing.</td></tr>
+</table>
+
+<h4>The 7 Elements <span style="font-weight:400;text-transform:none;color:var(--soft)">(S3&ndash;4, the course spine)</span></h4>
+<table class="dt">
+<tr><th>Element</th><th>The question it makes you ask</th></tr>
+<tr><td><b>Interests</b></td><td>What does each side actually want underneath their positions? Start here.</td></tr>
+<tr><td><b>Alternatives (BATNA)</b></td><td>What is my walk-away, and can I improve it? Don&rsquo;t ignore it, invest time in it.</td></tr>
+<tr><td><b>Options</b></td><td>What are the possible deals on the table? Design <em>multiple</em>, don&rsquo;t fixate on one position.</td></tr>
+<tr><td><b>Legitimacy</b></td><td>What external standards or fairness norms make a deal feel justified, so no one feels &ldquo;taken&rdquo;?</td></tr>
+<tr><td><b>Communication</b></td><td>Are we actually understanding each other? Question, paraphrase, repeat.</td></tr>
+<tr><td><b>Relationship</b></td><td>How does this interaction affect the working relationship, now and later?</td></tr>
+<tr><td><b>Commitment</b></td><td>Are the agreements well-planned, durable and implementable, not just a verbal &ldquo;yes&rdquo;?</td></tr>
+</table>
+
+<h4>Win-Lose vs Win-Win, as a choice <span style="font-weight:400;text-transform:none;color:var(--soft)">(S1&ndash;2)</span></h4>
+<table class="dt">
+<tr><th>Win-Lose (pie-dividing)</th><th>Win-Win (pie-expanding)</th></tr>
+<tr><td>Adversarial; quick, easier, the default. But it carries costs: uncertainty over who is more powerful, loss aversion, poor sustainability (they may retaliate), and the anxiety of combat.</td><td>Cooperative problem-solving that grows the pie. More value on the table and a durable relationship, but it is complicated and can be read as weakness.</td></tr>
+<tr><td colspan="2" style="background:#f6f8f6;"><b>Both are choices with risks and rewards.</b> Soyer&rsquo;s point: don&rsquo;t <em>label</em> a negotiation, <em>choose</em> an approach for this counterpart, this time, and mitigate its specific risks.</td></tr>
+</table>
+
+<h4>Success in Win-Win <span style="font-weight:400;text-transform:none;color:var(--soft)">(S3&ndash;4)</span></h4>
+<div class="key"><p>A deal is a win-win when it: satisfies <b>interests</b> (ours well, theirs acceptably, others tolerably); beats your <b>alternatives</b> (BATNA); wastes nothing (best of several <b>options</b>); is <b>legitimate</b> (no one feels taken); has a well-planned <b>commitment</b>; improves the working <b>relationship</b>; and runs on fair, efficient <b>communication</b>. Note that the seven success tests <em>are</em> the 7 Elements.</p></div>
+
+
+<h2 id="l01">1–2 · Introduction &amp; Fundamentals</h2>
+
+<p>These two opening sessions do two jobs. First, they sell you the course: Soyer runs the competitive <i>Oxipouco</i> exercise (SuperPharma vs PharmaCaring), debriefs it, and lays out how you will be graded (there is no exam). Second, they install the shared <b>vocabulary</b> and the one big <b>philosophical choice</b> the whole course turns on: Win-Lose vs Win-Win. Everything later (the 7 Elements, value discovery, communication, trust) is built on the definitions and the mindset set here. Soyer teaches through a behavioural-science lens, so the recurring move is: notice the intuitive default, then ask whether it actually serves you.</p>
+
+<h3>What negotiation is</h3>
+
+<div class="intuition">
+<span class="tag">🎙 In class</span>
+Soyer opens by saying yes to every definition the room offers (combat, debate, persuasion, joint solution, discovery) and then reframes the whole thing: <i>"Negotiation is a tool for you to make better decisions in life. You create the opportunity to make a better decision."</i> It is not just about winning a fixed prize; it is an experimentation tool that also tells you the value of your other options.
+</div>
+
+<div class="key">
+<b>Negotiation (working definition).</b> Parties with <b>different interests</b> allocate resources: one person is trying to persuade another to reach the best possible option for a decision. Two features matter. (1) There is a <b>pie</b> to be eaten together, and part of the skill is working out whether it can be made bigger before you divide it. (2) There is <b>persuasion</b>: you change their mind, and you must allow them to change yours, otherwise it is a debate, not a negotiation.
+</div>
+
+<div class="key">
+<b>Negotiator vs decision-maker.</b> Always ask who actually makes the decision. You may be negotiating hard with someone who has no authority to agree. <span class="tag">🎙 In class</span> Soyer flags the classic move (a student raised it from experience): you agree everything, then the other side says <i>"now I need to go back and check if that works"</i> and the real boss kills it. Knowing the other party is partly knowing whether they can actually say yes.
+</div>
+
+<h3>Great vs bad negotiator (the class-generated lists)</h3>
+
+<p>Soyer had the room build both lists. The point of the exercise is the punchline he delivers at the end: this "superhero" is too many things to be all the time, and almost every "good" trait can backfire. You pick and choose; preparation and learning from past negotiations raise your odds of behaving like the left column when it counts.</p>
+
+<table class="dt">
+<thead><tr><th>Traits of a great negotiator</th><th>Traits of a bad negotiator</th></tr></thead>
+<tbody>
+<tr><td>Cultivates <b>alternatives</b> outside the table (the trait nobody names first, yet the most powerful)</td><td>No power / no alternatives; negotiates from weakness</td></tr>
+<tr><td>Separates the person from the problem; doesn't take it personally</td><td>Emotional, takes things personally, plots revenge</td></tr>
+<tr><td>Clear on own interests; also probes the other side's interests</td><td>Unprepared; hasn't thought through what they actually want</td></tr>
+<tr><td>Perceptive, curious, asks questions, good listener (hears the underlying interest)</td><td>Talks too much; nit-picks; drifts off the main subject</td></tr>
+<tr><td>Hides data selectively (omission), without lying</td><td>Lies / exaggerates constraints until trust erodes</td></tr>
+<tr><td>Calm and patient; comfortable with awkward silence</td><td>Aggressive, shouts, shows pressure, caves at the first push</td></tr>
+<tr><td>Adaptable yet consistent; stands for something but stays flexible</td><td>Inflexible (then it isn't a negotiation) or flip-floppy (then seen as irrational)</td></tr>
+<tr><td>Challenges own assumptions after new information; high EQ</td><td>Refuses to believe they are even in a negotiation</td></tr>
+</tbody>
+</table>
+
+<div class="pitfall">
+<b>Soyer's nuance: "anything <i>too</i> or <i>over</i> tends to be bad."</b> Calm can read as weakness; empathy can be exploited if it isn't reciprocated; confidence can tip into arrogance. Don't treat the left column as virtues to maximise. They are dials to set for the situation, which is exactly why there is no universal "best" negotiator.
+</div>
+
+<h3>The Basics: vocabulary, each defined</h3>
+
+<div class="intuition">
+<span class="tag">Intuition: BATNA</span>
+Your strength in the room comes mostly from your willingness to walk away, and that depends on what you have <i>outside</i> the room. <span class="tag">🎙 In class</span> <i>"As long as you have a great alternative outside, you become a much better negotiator inside. People obsess about what's going to happen at the table and forget what's out there."</i> Improve your outside option (e.g. a second job offer) and you have just improved this negotiation without saying a word in it.
+</div>
+
+<div class="key">
+<b>BATNA</b>: <b>B</b>est <b>A</b>lternative <b>T</b>o a <b>N</b>egotiated <b>A</b>greement. What you will do if this deal falls through. It is the <b>main source of power</b> in a negotiation. Soyer's tell: <i>"Every book says this, so I have to say it, then I'm not going to use the term again."</i> The label matters less than the habit of cultivating and improving your alternatives before you sit down.
+</div>
+
+<div class="key">
+<b>Reservation price</b>: your <b>walk-away point</b>: the least-good deal you would still accept rather than take your BATNA. <b>Aspiration price</b>: your <b>maximum achievable outcome</b>: the best you could realistically hope for. <span class="tag">🎙 In class</span> Soyer: <i>"Nobody really reveals their reservation price. Even at your deathbed you will hide it."</i> In class he reveals the hidden numbers afterwards so you can see what was actually on the table.
+</div>
+
+<figure>
+<svg viewBox="0 0 520 120" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="12">
+  <line x1="40" y1="60" x2="480" y2="60" stroke="#333" stroke-width="2"/>
+  <line x1="120" y1="50" x2="120" y2="70" stroke="#1f5fa8" stroke-width="2"/>
+  <line x1="400" y1="50" x2="400" y2="70" stroke="#13643c" stroke-width="2"/>
+  <text x="120" y="42" text-anchor="middle" fill="#1f5fa8">Reservation price</text>
+  <text x="120" y="92" text-anchor="middle" fill="#1f5fa8">walk-away point</text>
+  <text x="400" y="42" text-anchor="middle" fill="#13643c">Aspiration price</text>
+  <text x="400" y="92" text-anchor="middle" fill="#13643c">best realistic outcome</text>
+  <text x="260" y="110" text-anchor="middle" fill="#555">your negotiable range (kept hidden)</text>
+  <text x="40" y="56" fill="#555">worse</text>
+  <text x="450" y="56" fill="#555">better</text>
+</svg>
+<figcaption>The two private numbers you set before negotiating: never volunteer either to the other side.</figcaption>
+</figure>
+
+<div class="key">
+<b>Distributive vs integrative.</b> <b>Distributive</b> = a single issue, essentially <b>zero-sum</b>: what one side gains the other loses (dividing a fixed pie). <b>Integrative</b> = <b>non-zero-sum</b>, usually because there are <b>multiple issues</b> the two sides value differently, so trades can make both better off (expanding the pie). Most real negotiations have integrative potential hiding behind a distributive surface.
+</div>
+
+<div class="key">
+<b>Position vs interest.</b> A <b>position</b> is <i>what</i> someone says they want ("I need the whole orange"). An <b>interest</b> is <i>why</i> they want it (the juice, or the peel). One of the two is more critical: interests. Positions clash; interests can often be reconciled. <b>Wants vs needs</b> sits alongside this: what someone demands and what they actually require may not be the same thing.
+</div>
+
+<div class="wex">
+<span class="h">Pulp / seed (the orange)</span>
+Soyer's shorthand for getting under positions to interests: two people fight over one orange (positions), but one wants the <b>pulp</b> (juice) and the other the <b>seed/peel</b> (for baking). Split by interest and both get everything. <span class="tag">🎙 In class</span> His push in the Oxipouco debrief: most people stop once they find a workable split. <i>"I wouldn't have stopped. I'd create a joint venture, ask how we can solve each other's problems."</i> The strategic-summary slide makes it a rule: <b>"make identifying pulp/seed a priority."</b>
+</div>
+
+<h3>The main philosophy: Win-Lose vs Win-Win</h3>
+
+<div class="intuition">
+<span class="tag">Intuition: the choice</span>
+Win-Lose and Win-Win are not personality types you are stuck with; they are <b>choices</b> you make per negotiation, each with risks and rewards. <span class="tag">🎙 In class</span> <i>"Combat is very intuitive. Everybody goes to combat first, but then going into the other ones becomes really difficult."</i> Soyer calls the escalation a <b>tunnel of fights</b>: once both sides are colouring the picture "combat", it is hard to switch to any other colour.
+</div>
+
+<div class="key">
+<b>Win-Win</b>: cooperative, "pie-expanding" <b>problem-solving</b>. The reward is a higher-value outcome; the cost is that it is complicated and can be misread as weakness. <b>Win-Lose</b>: adversarial, "pie-dividing". It is <b>quick, easier, and the default</b>, which is exactly why people reach for it. Soyer's framing: the question is not "which am I?" but "given this situation, which serves my goals?"
+</div>
+
+<div class="pitfall">
+<b>Myth: Win-Win means being soft, nice, or splitting the difference.</b> It doesn't. <span class="tag">🎙 In class</span> Soyer: <i>"The real win-win is understanding what the problem is, to create a long-term collaboration."</i> It is hard, analytical problem-solving, not generosity. (The assigned INSEAD Knowledge article is literally titled <i>"Stop Labelling Negotiations as Win-Win or Win-Lose."</i>) Equally, don't assume Win-Lose is "tougher and therefore smarter": it carries real costs, below.</div>
+
+<div class="chain">
+<b>Why the default (Win-Lose) is expensive.</b><br>
+<span class="arrow">→</span> <b>Uncertainty over power.</b> You rarely know who is actually more powerful, so a power play can backfire.<br>
+<span class="arrow">→</span> <b>Loss aversion.</b> The side being pushed to lose resists hardest: <i>"the person who is resisting has more to lose, so they fight harder, maybe even dirtier."</i><br>
+<span class="arrow">→</span> <b>Sustainability.</b> If you beat them today they are unlikely to collaborate tomorrow, and may retaliate, so power can shift against you over time.<br>
+<span class="arrow">→</span> <b>Risk mitigation.</b> Win-Win partly acts as insurance against that retaliation.<br>
+<span class="arrow">→</span> <b>Peace of mind.</b> Combat induces anxiety. <span class="tag">🎙 In class</span> Soyer's example: Harvey Specter in <i>Suits</i> is win-lose every day, charismatic, and permanently stressed about who is coming for him next.
+</div>
+
+<p>Soyer maps the two philosophies across the full decision chain. Note that the assumption at the start (is the pie fixed?) propagates all the way to the result:</p>
+
+<table class="dt">
+<thead><tr><th></th><th>Win-Lose</th><th>Win-Win</th></tr></thead>
+<tbody>
+<tr><td><b>Assumption</b></td><td>The pie is fixed</td><td>The pie can be expanded</td></tr>
+<tr><td><b>Goal</b></td><td>Beat them</td><td>Maximise total available benefit</td></tr>
+<tr><td><b>Strategy</b></td><td>Compete; claim value</td><td>Collaborate to create value; claim fairly</td></tr>
+<tr><td><b>Action</b></td><td>Hard on people; use power</td><td>Hard on the problem; look for joint gains</td></tr>
+<tr><td><b>Likely result</b></td><td>Low-value outcome</td><td>High-value outcome</td></tr>
+</tbody>
+</table>
+
+<p>Underneath the strategy sits a mindset. Soyer contrasts the two as a battle vs a puzzle:</p>
+
+<div class="twocol">
+<div>
+<h4>Battle mindset (Win-Lose)</h4>
+<ul>
+<li>This is a battle.</li>
+<li>They are my opponent.</li>
+<li>Resources are scarce.</li>
+<li>The goal is to beat them.</li>
+<li>This is about positions.</li>
+<li>This is one-time.</li>
+<li>The rules of the game are fixed.</li>
+<li>They are stupid, crazy, or evil.</li>
+</ul>
+</div>
+<div>
+<h4>Puzzle mindset (Win-Win)</h4>
+<ul>
+<li>This is a puzzle.</li>
+<li>They can be a teammate.</li>
+<li>We can "create" resources.</li>
+<li>The goal is to maximise value.</li>
+<li>This is about interests.</li>
+<li>This has future impact.</li>
+<li>I can change the game.</li>
+<li>People do what they believe is in their best interest.</li>
+</ul>
+</div>
+</div>
+
+<h3>Why this is hard: the course framing</h3>
+
+<div class="key">
+<b>The course's three assumptions.</b> (1) <b>Negotiation is everywhere</b> (and you can defer or decline one: you do not have to negotiate every time a negotiation comes to you). (2) Negotiation is an <b>improvable skill</b>, not a fixed talent. (3) There is <b>no universal "best" way</b>: every strategy is a bundle of risks and rewards, and surprises are guaranteed under asymmetric information.
+</div>
+
+<div class="intuition">
+<span class="tag">Intuition: wicked learning environment</span>
+This is Soyer's behavioural-science lens (his own research on kind vs wicked environments). You would expect to get better at negotiating just by doing it a lot. You often don't, because real-life feedback is poor. <span class="tag">🎙 In class</span> <i>"This is a very wicked game. Your life is terrible, literally, because you don't get feedback, and the rules keep changing."</i> Sports improve fast because feedback is immediate and the game is stable next year; negotiation is the opposite.
+</div>
+
+<table class="dt">
+<thead><tr><th>Kind learning environment</th><th>Wicked learning environment</th></tr></thead>
+<tbody>
+<tr><td>Accurate, abundant, immediate feedback</td><td>Biased, incomplete, irrelevant or delayed feedback</td></tr>
+<tr><td>Situation and rules are stable</td><td>Rules are complex, uncertain and unstable</td></tr>
+<tr><td>You learn naturally from experience (e.g. sport)</td><td>Experience alone can teach the wrong lesson (negotiation)</td></tr>
+</tbody>
+</table>
+
+<div class="chain">
+<b>Why the exercises exist.</b>
+<span class="arrow">→</span> Negotiation is a wicked environment, so raw experience doesn't reliably improve you.
+<span class="arrow">→</span> You need a <b>"safe" environment</b> where the hidden information is revealed afterwards and the feedback is honest.
+<span class="arrow">→</span> Hence the in-class simulations + AI feedback tools + the reflection documents: deliberate practice manufactures the clean feedback that real life withholds. <span class="tag">🎙 In class</span> Soyer's role: <i>"coach"</i>: share pragmatic tools and scientific insight, offer a common vocabulary, and force reflection on process (results are not graded).
+</div>
+
+<h3>How the course is graded (it replaces the exam)</h3>
+
+<table class="dt">
+<thead><tr><th>Component</th><th>Weight</th><th>What it is</th></tr></thead>
+<tbody>
+<tr><td>Class engagement</td><td>30%</td><td>Active participation in discussions, exercises and cases. <b>Negotiation results are not graded</b>; the lessons drawn from them are what count.</td></tr>
+<tr><td>Preparation documents</td><td>20%</td><td>Submitted before class (from session 3), using the template trained in session 2. Five prep docs total. Graded on <b>how thoroughly you thought your strategy out in advance</b>, not the outcome.</td></tr>
+<tr><td>Reflection &amp; peer feedback</td><td>20%</td><td>Informal reflection after each negotiation, plus two <b>formal feedback documents</b> (after classes 3 and 6) sent to your counterparty and submitted.</td></tr>
+<tr><td>Negotiation Journal</td><td>30%</td><td>One project, max 4 pages, due 12 June 2026. Pick one of three options (below).</td></tr>
+</tbody>
+</table>
+
+<div class="key">
+<b>The Journal, three options.</b> (a) <b>A difficult negotiation</b>: analyse a real tough one: how you prepared, what happened and why, what you learnt, what you'd do differently, what you'd keep doing. (b) <b>The "No" exercise</b>: go out and collect 10 genuine "NO!" answers to 10 realistic, serious requests (record the "YES" answers too), then analyse each. (c) <b>"Surprise me"</b>: something different and challenging (self-advice, games, role-plays); bigger projects can be done in small teams of 2–3. If unsure, do (a) or (b). INSEAD itself is off-bounds as a subject, and confidentiality rules apply.
+</div>
+
+<div class="exam">
+<b>How Soyer assesses you / what he rewards.</b> There is no written exam, so the grade tracks process, not wins. <br>
+He <b>rewards</b>: <b>preparation</b> done in advance (the prep docs are scored on the quality of your thinking, not the result); <b>cultivating alternatives</b> before you sit down (your BATNA is your power); moving the conversation <b>from positions to interests</b> (find the pulp/seed); treating each case as a chance to <b>experiment</b> with a strategy you wouldn't risk in real life; and <b>honest reflection</b> on what went wrong. <br>
+He <b>flags as mistakes</b>: defaulting to combat without choosing it; <b>lying or exaggerating constraints</b> (it erodes trust the moment it surfaces); anything done "<b>too</b>" much (too aggressive, too demanding, too patient); reading too much into body language; and confusing <b>activity with progress</b> (stopping at the first workable split instead of expanding the pie). <br>
+Carry into the role-plays: ask <b>who actually decides</b>, set your reservation and aspiration prices in advance, keep them hidden, and remember anger or aggressiveness should never be unplanned.
+</div>
+
+<h2 id="l03">3&ndash;4 &middot; Success &amp; the 7 Elements</h2>
+
+<p>This cluster hands you the spine of the whole course: a single preparation tool Soyer
+calls the <b>7 Elements</b>, plus a definition of what a <b>successful</b> negotiation
+actually looks like. Sessions 1&ndash;2 set up the two philosophies (win-lose vs win-win);
+here Soyer commits the course to win-win and gives you the checklist that turns that bias
+into a repeatable process. He frames the 7 Elements as the document that &ldquo;will be your
+companion for all this course and then hopefully beyond&rdquo;: you use it to <i>prepare</i>
+before, to <i>pause and check assumptions</i> during, and to <i>learn from</i> success and
+failure after. The live case running underneath the theory is a two-versus-two contract
+negotiation (a talent agency, Mint Talent Group, joining forces with a studio, Just Movie
+Studios), which is why the cluster ends on contract-specific advice.</p>
+
+<div class="intuition">
+<span class="tag">Intuition &mdash; the pre-flight + debrief checklist</span>
+Before any negotiation, run down seven boxes; after it, run down the same seven to see what
+you missed. That is the entire idea. Soyer&rsquo;s pitch is that the cost of skipping a box
+is a regret you only notice driving home (&ldquo;I should have asked that&rdquo;), when the
+window has already closed. The list is the <b>minimum</b> thinking, not the maximum:
+&ldquo;sometimes you will care about this more, sometimes this more; it&rsquo;s up to you.
+But each negotiation can use this thought process.&rdquo;
+</div>
+
+<div class="intuition">
+<span class="tag">&#127897; In class</span>
+&ldquo;I&rsquo;m going to argue that this is the minimum you can get to think about a
+negotiation. You need to think about all these seven to some degree.&rdquo; He also warns the
+boring part is the point: &ldquo;usually useful things are boring &hellip; broccoli is good
+for you. I hate it. But this is going to be useful.&rdquo;
+</div>
+
+<h3>The 7 Elements, defined</h3>
+
+<p>Soyer walks them in a deliberate order. He insists you <b>start with interests</b> and
+treat alternatives as the close second, because the rest of the toolkit only pays off once
+you know what you actually want and where you can walk to.</p>
+
+<table class="dt">
+<thead><tr><th>Element</th><th>What it is</th><th>The question it makes you ask</th></tr></thead>
+<tbody>
+<tr><td><b>1. Interests</b></td><td>What each side actually cares about (wants and needs), as opposed to the positions they state. List yours generously, then list your <i>assumptions</i> about theirs before you ever speak to them.</td><td>What do I really want here, and what might they really want beneath what they say?</td></tr>
+<tr><td><b>2. Alternatives (BATNA)</b></td><td>Your <b>Best Alternative To a Negotiated Agreement</b>: the exit door you take if no deal happens. Crucially these sit <i>outside</i> the negotiation, not on the table. Your main source of power.</td><td>If we don&rsquo;t agree, where do I go instead, and how do I make that option better?</td></tr>
+<tr><td><b>3. Options</b></td><td>The things you could agree on <i>inside</i> the negotiation: the possible terms, packages and trades. Design several, not one.</td><td>What could we agree on? What are all the ways to slice this?</td></tr>
+<tr><td><b>4. Legitimacy</b></td><td>The objective, external, neutral reasons that justify an ask (laws, market precedents, fairness norms). You give the reason <i>first</i>, then the ask, so people follow your logic and no one feels conned.</td><td>Why am I entitled to this? Why do <i>they</i> need what they are asking for?</td></tr>
+<tr><td><b>5. Commitment</b></td><td>The &ldquo;boring facts&rdquo; of closing: what we sign or shake on, who actually has authority to commit, the purpose and agenda of the meeting.</td><td>Are we agreeing to the same thing, and is this person able to commit to it?</td></tr>
+<tr><td><b>6. Relationship</b></td><td>The ability to keep working together, and the discipline of attacking the problem, not the person. Map the current state, the state you want, and what gets you there (it can be contingent on their behaviour).</td><td>Where is the relationship now, where do I want to leave it, and am I about to burn a bridge I want to keep?</td></tr>
+<tr><td><b>7. Communication</b></td><td>What you will actually say: a written opening statement, the questions you must ask, and the messages you must send. Soyer writes his out so he doesn&rsquo;t forget them in the heat of the moment.</td><td>What do I open with, what must I ask, and what must I make sure they hear?</td></tr>
+</tbody>
+</table>
+
+<figure>
+<svg viewBox="0 0 620 430" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+  <circle cx="310" cy="210" r="150" fill="none" stroke="#13643c" stroke-width="1.5" stroke-dasharray="5 5"/>
+  <circle cx="310" cy="210" r="58" fill="#f2f7f4" stroke="#13643c" stroke-width="1.5"/>
+  <text x="310" y="200" text-anchor="middle" font-size="12" font-weight="bold" fill="#13643c">7 ELEMENTS</text>
+  <text x="310" y="216" text-anchor="middle" font-size="9" fill="#444">prepare before</text>
+  <text x="310" y="228" text-anchor="middle" font-size="9" fill="#444">debrief after</text>
+
+  <!-- node circles -->
+  <circle cx="310" cy="70"  r="22" fill="#13643c"/>
+  <circle cx="429" cy="120" r="22" fill="#1f5fa8"/>
+  <circle cx="456" cy="240" r="22" fill="#1f5fa8"/>
+  <circle cx="381" cy="336" r="22" fill="#1f5fa8"/>
+  <circle cx="239" cy="336" r="22" fill="#1f5fa8"/>
+  <circle cx="164" cy="240" r="22" fill="#1f5fa8"/>
+  <circle cx="191" cy="120" r="22" fill="#1f5fa8"/>
+
+  <!-- numbers -->
+  <text x="310" y="75"  text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">1</text>
+  <text x="429" y="125" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">2</text>
+  <text x="456" y="245" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">3</text>
+  <text x="381" y="341" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">4</text>
+  <text x="239" y="341" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">5</text>
+  <text x="164" y="245" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">6</text>
+  <text x="191" y="125" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">7</text>
+
+  <!-- labels -->
+  <text x="310" y="40"  text-anchor="middle" font-size="12" fill="#13643c" font-weight="bold">Interests</text>
+  <text x="460" y="108" text-anchor="start"  font-size="12" fill="#1f5fa8">Alternatives</text>
+  <text x="487" y="244" text-anchor="start"  font-size="12" fill="#1f5fa8">Options</text>
+  <text x="381" y="372" text-anchor="middle" font-size="12" fill="#1f5fa8">Legitimacy</text>
+  <text x="239" y="372" text-anchor="middle" font-size="12" fill="#1f5fa8">Commitment</text>
+  <text x="133" y="244" text-anchor="end"   font-size="12" fill="#1f5fa8">Relationship</text>
+  <text x="160" y="108" text-anchor="end"   font-size="12" fill="#1f5fa8">Communication</text>
+</svg>
+<figcaption>The 7 Elements wheel. Interests (green) lead; the other six are the boxes you must
+not skip. The hub is the use-case: the same wheel is your preparation sheet going in and your
+debrief tool coming out. Numbering follows the order Soyer walked in class and on the prep
+sheet (Interests, Alternatives, Options, Legitimacy across page one; Commitment,
+Relationship, Communication on page two).</figcaption>
+</figure>
+
+<div class="eyeball"><span class="star">&#9733;</span><b>Isabella &mdash; eyeball this:</b>
+the wheel positions and the 1&ndash;7 numbering are mine, built from Soyer&rsquo;s spoken
+walk-through plus the prep-sheet column order. Soyer stresses the order is a default
+(interests first, alternatives second), not a rigid sequence, so treat the numbers as
+&ldquo;where to start&rdquo; rather than a fixed pipeline.</div>
+
+<h4>WHY THIS ORDER</h4>
+<div class="chain">
+Start at <b>Interests</b> <span class="arrow">&rarr;</span> because everything else is
+defined relative to what you want; skip it and you negotiate over positions you can&rsquo;t
+even justify. <span class="arrow">&rarr;</span> Then <b>Alternatives</b>, because your walk-away
+power is set <i>outside</i> the room, and if you haven&rsquo;t cultivated an exit you are stuck
+with whatever they hand you. <span class="arrow">&rarr;</span> Only now design <b>Options</b>,
+because good options are the ones that beat your alternative and serve the interests.
+<span class="arrow">&rarr;</span> <b>Legitimacy</b> arms each option with a neutral reason, so
+the other side can say yes without feeling beaten. <span class="arrow">&rarr;</span>
+<b>Commitment, Relationship, Communication</b> govern how you close, with whom, and in what
+words, so the deal actually holds and the next one is still possible.
+</div>
+
+<div class="intuition">
+<span class="tag">&#127897; In class &mdash; alternatives are second, and you don&rsquo;t brandish them</span>
+&ldquo;Alternatives come number two. After what you care about, you should actually have exit
+doors. These are not options in the negotiation; these are alternatives to the
+negotiation.&rdquo; And on using them: &ldquo;talking about alternatives is essentially
+getting your gun and putting it on the table. It&rsquo;s not necessarily good faith.&rdquo;
+You should <i>know</i> your BATNA cold but rarely flag it as a threat. His worked example: you
+don&rsquo;t walk into a job offer and announce &ldquo;by the way, I have other offers, what
+are you going to do about that?&rdquo;
+</div>
+
+<div class="pitfall">
+<b>Don&rsquo;t confuse options with alternatives.</b> Options live <i>inside</i> the
+negotiation (the terms you could agree on); alternatives live <i>outside</i> it (what you do
+if there is no deal). Soyer is emphatic that these are different boxes. He also warns against
+inventing alternatives that breach your own interests or legitimacy: in his Oxypoco prep he
+wrote in &ldquo;bribe the government&rdquo; and &ldquo;sabotage research&rdquo; to show
+breadth, then struck them out when a student pointed out they were corruption and crossed the
+case&rsquo;s own constraints. Be creative, but &ldquo;don&rsquo;t make things up too
+much&rdquo; beyond what the case supports.</div>
+
+<h3>What &ldquo;success&rdquo; means: Success in Win-Win</h3>
+
+<p>Before handing out the elements, Soyer made the class define success out loud. The
+recurring student answers (get something I value; the other side also gains; no one gets
+screwed; I learned about them; the relationship survives; the process felt right) are not a
+grab-bag. They map almost one-to-one onto the 7 Elements. Soyer&rsquo;s own framing: there is
+an <b>order</b> to success, and multiple things must be true at once. His summary slide lists
+the criteria below.</p>
+
+<div class="key">
+<b>Success in Win-Win (the SUMMARY-deck scorecard).</b> A successful win-win outcome:
+<ul>
+<li><b>Satisfies interests</b>: ours <i>well</i>, theirs <i>acceptably</i> (at least), others <i>tolerably</i> (at least).</li>
+<li>Is <b>better than your alternatives (BATNA)</b>.</li>
+<li>Has <b>no waste</b>: it is the best of several options.</li>
+<li>Is <b>legitimate</b>: no one feels &ldquo;taken&rdquo;.</li>
+<li>Rests on a <b>well-planned commitment</b>.</li>
+<li>Has a process that <b>improves the working relationship</b>.</li>
+<li>Has a process that is <b>fair and efficient</b>, with good communication.</li>
+</ul>
+</div>
+
+<p>The point Soyer is making is structural: <b>the success criteria are the 7 Elements used
+as a yardstick.</b> The same seven boxes you fill in to <i>prepare</i> are the seven you
+score yourself against to know whether you <i>succeeded</i>.</p>
+
+<table class="dt">
+<thead><tr><th>Success criterion</th><th>Maps onto element</th></tr></thead>
+<tbody>
+<tr><td>Satisfies interests (ours well, theirs acceptably, others tolerably)</td><td>1. Interests</td></tr>
+<tr><td>Better than your BATNA</td><td>2. Alternatives</td></tr>
+<tr><td>No waste: best of several options</td><td>3. Options</td></tr>
+<tr><td>Legitimate: no one feels &ldquo;taken&rdquo;</td><td>4. Legitimacy</td></tr>
+<tr><td>Well-planned commitment</td><td>5. Commitment</td></tr>
+<tr><td>Process improves the working relationship</td><td>6. Relationship</td></tr>
+<tr><td>Fair, efficient process with good communication</td><td>7. Communication</td></tr>
+</tbody>
+</table>
+
+<div class="intuition">
+<span class="tag">Intuition &mdash; &ldquo;others, tolerably&rdquo; and &ldquo;no one feels taken&rdquo;</span>
+Two of the criteria are easy to overlook. <b>Third parties</b> who hate your deal can derail
+it later, so a fourth box (people not even at the table) has to be at least tolerably served.
+And the test for <b>legitimacy</b> is emotional: if either side later feels conned, it failed,
+even if they signed. Soyer&rsquo;s gauge is the scam feeling. &ldquo;People should understand
+why you shook hands&rdquo;; the after-the-fact sense that &ldquo;they took me&rdquo; should not
+exist for either party.
+</div>
+
+<div class="intuition">
+<span class="tag">&#127897; In class &mdash; getting a deal is not the same as success</span>
+A student offered &ldquo;success = always getting a deal.&rdquo; Soyer pushed back: &ldquo;if
+you always get a deal, you may be getting bad deals. You may be lowering your bar too much.&rdquo;
+He recalled a firm whose motto was &ldquo;we always get deals&rdquo; and concluded it was a
+warning sign, not a boast, because they compromised heavily to keep the streak alive. Success
+is the deal beating your BATNA, not the existence of a deal.
+</div>
+
+<h3>The myths Soyer debunks</h3>
+
+<div class="pitfall">
+<b>Myth: win-win requires common goals.</b> It does not. The SUMMARY deck&rsquo;s own reading
+is titled &ldquo;Common Goals Are <i>Not</i> Necessary for Win-Win Negotiations.&rdquo;
+Win-win does not need shared objectives, friendship, or splitting the difference evenly; it
+needs each side&rsquo;s <i>interests</i> satisfied better than their alternatives. Soyer&rsquo;s
+guiding assumption is &ldquo;people do what they believe is in their best interest,&rdquo; so
+the job is to find overlapping or tradeable interests, not matching goals. His bank anecdote
+makes the point: a client asked him to give a 1,500-person speech for free. Rather than
+conclude the man was crazy, Soyer assumed an objective function (&ldquo;no money&rdquo;) and
+started hunting for a different, non-cash deal that could still serve both sides.</div>
+
+<div class="pitfall">
+<b>Myth: win-win is the soft, weak option.</b> Soyer flags this explicitly: &ldquo;win-win is
+not necessarily great. People think you&rsquo;re weak,&rdquo; so once you start asking
+questions some counterparts think &ldquo;I&rsquo;ve got this person.&rdquo; His answer is not
+to abandon win-win but to lead with it knowingly: &ldquo;try the green first &hellip; let me
+find out what we can do together. And then we can combat if needed.&rdquo; Win-lose is the
+quick, adversarial default, but it carries costs (retaliation, an unknown power balance, no
+tomorrow), so it is a deliberate choice, not a fallback.</div>
+
+<div class="eyeball"><span class="star">&#9733;</span><b>Isabella &mdash; eyeball this:</b>
+the SUMMARY deck cites an INSEAD Knowledge article, &ldquo;The Seven Myths of Win-Win
+Negotiations,&rdquo; as background reading, but the enumerated list of all seven myths is not
+in any of my given sources (deck pages, prep sheet, transcripts). I have only captured the
+two myths Soyer actually argued in class. If you want the full canonical seven, that comes
+from the article itself.</div>
+
+<h3>Soyer&rsquo;s strategic points for this cluster</h3>
+
+<div class="key">
+<b>Strategic summary (SUMMARY deck).</b> Use the 7 Elements both to question and design a good
+process and to learn from success and failure.
+<ul>
+<li><b>Start with interests and potential mutual gains</b>, not positions.</li>
+<li><b>Don&rsquo;t ignore alternatives</b>; invest time improving yours rather than just sharpening your table game.</li>
+<li><b>Design multiple options, not specific positions.</b></li>
+<li><b>Question their positions</b> to bring them back to interests (keep asking &ldquo;why do you need this?&rdquo;).</li>
+<li>For <b>contract negotiations</b>: emphasise &ldquo;drafts&rdquo; over &ldquo;standards.&rdquo;</li>
+<li>For <b>contract negotiations</b>: use the negotiation itself to test and estimate the post-contract collaboration.</li>
+</ul>
+</div>
+
+<div class="chain">
+<b>Why improve alternatives rather than just out-negotiate at the table?</b>
+You obsess over the table and get very good at it <span class="arrow">&rarr;</span> but the
+table is fixed; your only real leverage is the door you can walk to
+<span class="arrow">&rarr;</span> so cultivating a better alternative outside the room raises
+your floor in <i>every</i> round inside it. Soyer&rsquo;s M&amp;A example: never sign
+exclusivity when selling, because it kills your ability to shop around while the buyer slowly
+chips your billion-dollar price down.
+</div>
+
+<h3>Contract negotiations: drafts over standards</h3>
+
+<p>The live case was a contract, so Soyer closed on contract craft (SUMMARY deck page on
+Contract Negotiations, plus the debrief). The recurring issues: both sides can take things
+personally, and there is usually a power imbalance.</p>
+
+<div class="key">
+<b>Contract tactics.</b>
+<ul>
+<li><b>All contracts are negotiable</b> (a former-lawyer student confirmed: no one has an offer rescinded for negotiating). Standard does not mean fixed.</li>
+<li><b>Send your own draft first.</b> Whoever drafts anchors the rules. Soyer sends a simple two-page protocol before the counterparty&rsquo;s legal template arrives, and they usually accept it to avoid the legal overhead.</li>
+<li><b>Use the contract to test the future collaboration.</b> How they behave during drafting predicts how they will behave as a partner.</li>
+<li><b>Think about what could go wrong</b>, not just the rosy path: assume your contact person can change, and put in contingencies (&ldquo;if X, then Y&rdquo;) for the risks.</li>
+<li><b>Ask for legitimacy behind deadlines.</b> If they cite a deadline, ask why; the number is often an anchor you can push back on.</li>
+</ul>
+</div>
+
+<div class="pitfall">
+<b>The &ldquo;standard contract&rdquo; trap.</b> &ldquo;Usually a standard contract means
+&lsquo;I don&rsquo;t want you to read this.&rsquo;&rdquo; Soyer once caught a clause buried on
+page three assigning his IP to the other firm; they admitted he was &ldquo;the only person
+who noticed this for years.&rdquo; Read it, and prefer adding protective clauses over striking
+theirs out (additions cost the other side&rsquo;s lawyer less and provoke fewer red-line
+wars). Also note the cultural split: in the US, if it is not in the contract it is not valid,
+so a refusal to write a promise down is a refusal to keep it.</div>
+
+<div class="wex">
+<span class="h">Worked mini-scenario &mdash; the Mint Talent / Just Movie Studios debrief</span>
+The case asked two students (agent side) to negotiate Zander, an ageing action star, plus his
+daughters, into a studio film (studio budget: 12 million). The debrief is a clinic in the
+7 Elements:
+<ul>
+<li><b>Interests over money.</b> Zander &ldquo;doesn&rsquo;t care about money&rdquo;; he wants the lead role and to look like a hot shot again. One group paid him 250k and kept him happy; another paid 8 million. Same star, huge variance, all driven by reading the underlying interest.</li>
+<li><b>Anchoring.</b> Because the studio held the 12 million budget, the studio speaking first hurt it: open at six and the agent thinks &ldquo;holy moly.&rdquo; Whoever names the number first can anchor against themselves.</li>
+<li><b>Options as contingencies.</b> &ldquo;If-then&rdquo; structures (a base fee plus a bonus above 500&ndash;600 million box office) are, in Soyer&rsquo;s words, &ldquo;very win-win&rdquo;: they bridge disagreement about value and motivate better effort. Casting the daughters was the hidden win-win door; groups that never asked &ldquo;what about the daughters?&rdquo; left value on the table.</li>
+<li><b>Legitimacy to move money.</b> Strong groups justified a lower fee with a neutral reason (Zander is old, so insurance and stunt doubles cost more), rather than just haggling.</li>
+<li><b>Alternatives and bluffing.</b> The rival actor &ldquo;Jet&rdquo; is secretly dead/out. Don&rsquo;t reveal that too early, and when the other side exaggerates something you know, use the gap to gauge how much they are bluffing. One group was so open and kind that the counterparty assumed it was &ldquo;too good to be true.&rdquo;</li>
+</ul>
+</div>
+
+<div class="exam">
+<b>What Soyer rewards (carry this into the role-plays and the Negotiation Journal).</b>
+There is no written exam; the 7 Elements sheet <i>is</i> the assessment, because every prep
+and every reflection runs through it. He <b>rewards</b>: <b>preparing</b> all seven boxes
+before you walk in (interests and assumptions about theirs written out generously);
+<b>starting</b> from interests and mutual gains rather than positions; <b>pausing</b>
+mid-negotiation to <b>check your assumptions</b> against what you have learned and revising
+them; <b>cultivating</b> a real alternative outside the room without <b>brandishing</b> it as
+a threat; <b>designing</b> several options, especially contingent &ldquo;if-then&rdquo; deals;
+<b>justifying</b> asks with legitimacy before stating them; and <b>debriefing</b> with the
+same seven elements to name what you would do differently.
+He <b>flags as mistakes</b>: <b>anchoring</b> against yourself by naming a number first when
+you hold the bigger budget; <b>treating</b> &ldquo;we always got a deal&rdquo; as success;
+<b>missing</b> win-win doors by never asking the open question (&ldquo;what daughters?&rdquo;);
+<b>leaving</b> a counterpart feeling &ldquo;taken&rdquo;; and <b>signing</b> a
+&ldquo;standard&rdquo; contract unread instead of sending your own draft. Above all, he
+rewards using the sheet so you stop obsessing in the wrong way and start
+&ldquo;obsessing in the correct way.&rdquo;
+</div>
+
+<h2 id="l05">5–6 · Value Discovery &amp; Claiming</h2>
+
+<p>This cluster is where the framework meets numbers. Sessions 1–4 built the philosophy (win-lose vs win-win) and the diagnostic kit (the 7 Elements). Here Soyer turns to the two jobs you do in <em>every</em> deal at once: growing the pie (value creation / discovery) and dividing it (value claiming). The vehicle was the <b>WABTY job-offer role-play</b> (a candidate, "Larry", negotiating an offer with a hiring manager, "May"), debriefed in class. The throughline: start with interests, discover where your interests differ, and only then put numbers on the table.</p>
+
+<div class="intuition">
+<span class="tag">Intuition: create then claim</span>
+Expand the pie before you divide it. If you reach for the knife first (whose slice is bigger?), you trigger the adversarial, scarcity mindset and you never find out the pie could have been larger. Discovery comes first: list what you both want, find the issues you value <em>differently</em>, and trade across them. Claiming a share of a bigger pie beats winning a bigger share of a small one.
+</div>
+
+<div class="intuition">
+<span class="tag">🎙 In class</span>
+"People start with numbers too quickly. You should always talk numbers, and today there will be some numbers. But you should start with interests." Soyer's whole sequencing argument in one line: numbers are unavoidable, but they are the <em>last</em> move, not the first.
+</div>
+
+<h3>The two tasks: value creation vs value claiming</h3>
+
+<p>Every negotiation runs both tasks simultaneously, and they pull in opposite directions. Creating value is cooperative and information-hungry; claiming value is competitive and information-guarding. The skill is doing both without letting the claiming reflex shut down discovery before it starts.</p>
+
+<div class="twocol">
+<div>
+<h4>Value creation (discovery)</h4>
+<ul>
+<li>Ask questions, share some interests, look for trades.</li>
+<li>Treats the other side as a potential teammate solving a puzzle.</li>
+<li>Output: a bigger, better-designed deal (more issues, more options).</li>
+<li>Risk: can be read as weakness or naivety if you only create and never claim.</li>
+</ul>
+</div>
+<div>
+<h4>Value claiming</h4>
+<ul>
+<li>Anchoring, holding firm, deciding who gets which slice.</li>
+<li>Treats the deal as a fixed quantity to be split.</li>
+<li>Output: your share of whatever value exists.</li>
+<li>Risk: claim too early and you collapse into win-lose, killing the discovery that would have made the pie bigger.</li>
+</ul>
+</div>
+</div>
+
+<h3>Discover and list: common, different, and conflicting interests</h3>
+
+<p>Discovery means sorting interests into three buckets. The crucial insight Soyer hammered in the WABTY debrief: it is the <b>different (non-competing)</b> interests, not the common ones, that are the raw material for trades. If I value an issue cheaply and you value it highly, that issue should move to whoever wants it most, in exchange for something I care about more.</p>
+
+<table class="dt">
+<thead><tr><th>Interest type</th><th>What it is</th><th>What you do with it</th><th>WABTY example (generic)</th></tr></thead>
+<tbody>
+<tr><td><b>Common</b></td><td>Both sides want the same thing.</td><td>Anchor on it to build trust and a cooperative frame.</td><td>Both want the hire to succeed and the working relationship to last.</td></tr>
+<tr><td><b>Different<br>(non-competing)</b></td><td>You each value different issues, or value the same issue unequally.</td><td><b>The engine of trades.</b> Give the other side what is cheap for you but valuable to them, and vice versa.</td><td>The candidate wants cash in pocket and is indifferent to perks; the firm has perks (food, classes, flexible bonus timing) it can give cheaply. Translate the firm's cheap perks into value the candidate actually wants.</td></tr>
+<tr><td><b>Conflicting</b></td><td>Genuinely zero-sum on a single dimension.</td><td>Claim here, but only after exhausting trades elsewhere; don't let it dominate the whole deal.</td><td>The headline base-salary number within a fixed cap.</td></tr>
+</tbody>
+</table>
+
+<div class="chain">
+<b>Why differing interests create value</b><br>
+We value issues unequally <span class="arrow">→</span> so moving an issue to whoever wants it most costs the giver little but gains the receiver a lot <span class="arrow">→</span> the total value of the deal rises <span class="arrow">→</span> there is now more to divide, and a trade exists that leaves <em>both</em> better off than splitting a single number. This is exactly why Soyer pushed students to find what Larry didn't care about (perks) and convert it: "you could translate those benefits into money that can be added to his pocket."
+</div>
+
+<h3>ZOPA: Zone of Possible Agreement</h3>
+
+<div class="intuition">
+<span class="tag">Intuition: ZOPA</span>
+Before defining it: a deal is only possible if there is room between the worst price you'd accept and the worst price they'd accept. The ZOPA is that overlap. No overlap, no deal (on price alone).
+</div>
+
+<div class="key">
+<b>ZOPA (Zone of Possible Agreement)</b>: the range of outcomes that both sides would prefer to their walk-away alternatives. It is bounded by each party's <b>reservation price</b> (the walk-away point: the least-good deal you'd still accept rather than take your BATNA, your best alternative to a negotiated agreement). If the buyer's ceiling sits above the seller's floor, the gap between them is the ZOPA; any agreed price inside it beats no deal for both.
+</div>
+
+<figure>
+<svg viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="12">
+  <line x1="50" y1="95" x2="550" y2="95" stroke="#444" stroke-width="1.5"/>
+  <polygon points="550,95 540,90 540,100" fill="#444"/>
+  <text x="556" y="99" font-size="11">price</text>
+  <!-- ZOPA band -->
+  <rect x="210" y="80" width="190" height="30" fill="#13643c" fill-opacity="0.15" stroke="#13643c" stroke-dasharray="4 3"/>
+  <text x="305" y="73" text-anchor="middle" fill="#13643c" font-weight="bold">ZOPA</text>
+  <!-- candidate floor -->
+  <line x1="210" y1="70" x2="210" y2="120" stroke="#1f5fa8" stroke-width="2"/>
+  <text x="210" y="135" text-anchor="middle" fill="#1f5fa8">your reservation</text>
+  <text x="210" y="149" text-anchor="middle" fill="#1f5fa8" font-size="10">(lowest you'd accept)</text>
+  <!-- firm ceiling -->
+  <line x1="400" y1="70" x2="400" y2="120" stroke="#13643c" stroke-width="2"/>
+  <text x="400" y="135" text-anchor="middle" fill="#13643c">their reservation</text>
+  <text x="400" y="149" text-anchor="middle" fill="#13643c" font-size="10">(most they'd pay)</text>
+</svg>
+<figcaption>The textbook ZOPA: a single price line. Any number inside the overlap beats no deal for both sides. But this picture is a trap if you stop here.</figcaption>
+</figure>
+
+<div class="key">
+<b>Soyer's nuance, the ZOPA is usually multi-dimensional, not a number line.</b> Real ZOPAs are complex: instead of one price point, identify <b>multiple equivalent options for you</b> built from the various interests and variables in play (salary, bonus, timing, perks, promotion review, relocation). Because you and the other side value those variables differently, there are many packages that clear your reservation point. Drawing the deal as a single number forces premature claiming; drawing it as a space of equivalent bundles keeps discovery alive. In the WABTY debrief the deals that worked split the discussion: relationship and structure first, then perks and variable pay, with the fixed number negotiated last, precisely because the action was in the other variables, not the one line.</div>
+
+<h3>First offers: structured options before numbers</h3>
+
+<div class="intuition">
+<span class="tag">🎙 In class</span>
+On whether to anchor first: "Saying the number early is argued to be better for the anchoring effect... I'm going to argue maybe not. I would first test the waters a little bit before I utter the numbers." Soyer's worked example: the studio role had real money to spend while the counterpart didn't care about cash, "so you may say the wrong number very easily."
+</div>
+
+<p>The conventional advice is to anchor first to pull the outcome your way. Soyer's qualification: a first offer expressed as a single number, before you understand the other side's interests, risks anchoring in the wrong place entirely (too low, or on the wrong dimension). His alternative sequencing:</p>
+
+<div class="chain">
+<b>The first-offer move</b><br>
+Open with <b>structured options</b>, not a number <span class="arrow">→</span> options reveal which variables the other side cares about, without committing you to a price <span class="arrow">→</span> you learn their constraints and flexibilities <span class="arrow">→</span> <em>then</em> put numbers on the table, anchored where the information says they belong. The anchoring effect is real, but a well-placed late number beats a confident early one in the dark.
+</div>
+
+<div class="wex">
+<span class="h">The information leak (Soyer's shop story)</span>
+A skilled seller used small talk as reconnaissance: "Are you enjoying our city? Where did you go to eat? How many days are you here?" Each answer leaks your budget and your time pressure. Soyer's rule: "Never ever answer that question" about your favourite restaurant if it's high-end, because now they have a read on your budget. The lesson cuts both ways: ask questions to discover their constraints, and notice when their questions are mining yours.
+</div>
+
+<h3>Avoid early positions: keep questioning back to interests</h3>
+
+<p>A <b>position</b> is a stated demand ("I need 100k"); an <b>interest</b> is the underlying need it serves (security, status, putting food on the table, beating a rival offer). Lock onto positions early and the negotiation slides into a win-lose tug of war over a single number. The discipline is to keep questioning positions back to the interests beneath them, where trades become visible.</p>
+
+<div class="pitfall">
+<b>The positional "dance" is not a negotiation.</b> Soyer's illustration of pure positional bargaining: "I say 200, you say no... I say 180, you say 80... 160, you say 100... and we meet at 130. This is not negotiation. This is a dance." Numbers ping-ponging toward the midpoint feels like negotiating but creates no value; it just splits a pie nobody bothered to grow. Do the relationship and interest work first, <em>then</em> bargain.
+</div>
+
+<h4>JOB NEGOTIATIONS</h4>
+
+<p>WABTY was a job offer, and Soyer's job-specific playbook (from the summary deck's Job Negotiations slide and the class debrief) is distinctive because the things that feel central (salary) are often the least flexible, and the things that feel soft (relationship) carry the real leverage.</p>
+
+<div class="key">
+<b>Soyer's job-negotiation rules</b>
+<ul>
+<li><b>Don't underestimate relationship and likeability.</b> One side (the candidate) usually takes it more personally; you are auditing a future colleague, not splitting a pie once.</li>
+<li><b>Avoid early positions and "negotiation-as-goal."</b> If you come in "guns blazing" demanding the number, the other side thinks "maybe this isn't for me." Leave the guns for the second half.</li>
+<li><b>Main task: find the other side's constraints and flexibilities.</b> "Everything is negotiable, but sometimes salaries people really can't negotiate, so you have to find some other variables that you can." Salary may be a hard cap; bonus timing, perks, promotion review, and relocation may not be.</li>
+<li><b>Salary is not the whole deal.</b> Money takes many forms and schedules; perks the firm gives cheaply can become value in your pocket.</li>
+<li><b>Treat tough questions as opportunities to learn, and reveal the intent behind them.</b> When you're unsure if you're pushing too hard, ask: "Is this a line you don't want to cross?" Surfacing the intent behind a hard question defuses it and gathers information.</li>
+<li><b>Treat the negotiation as a trial run of the working relationship.</b> How they behave now previews how they'll behave once you've joined.</li>
+</ul>
+</div>
+
+<figure>
+<svg viewBox="0 0 640 170" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="11.5">
+  <!-- boxes -->
+  <g>
+    <rect x="10" y="50" width="105" height="48" rx="6" fill="#fff" stroke="#1f5fa8" stroke-width="1.5"/>
+    <text x="62" y="70" text-anchor="middle">Small talk</text>
+    <text x="62" y="86" text-anchor="middle" font-size="9.5">(careful: leaks)</text>
+  </g>
+  <g>
+    <rect x="135" y="50" width="115" height="48" rx="6" fill="#fff" stroke="#1f5fa8" stroke-width="1.5"/>
+    <text x="192" y="70" text-anchor="middle">Interests &amp;</text>
+    <text x="192" y="86" text-anchor="middle">questions</text>
+  </g>
+  <g>
+    <rect x="270" y="50" width="115" height="48" rx="6" fill="#fff" stroke="#1f5fa8" stroke-width="1.5"/>
+    <text x="327" y="70" text-anchor="middle">Structured</text>
+    <text x="327" y="86" text-anchor="middle">options</text>
+  </g>
+  <g>
+    <rect x="405" y="50" width="115" height="48" rx="6" fill="#fff" stroke="#13643c" stroke-width="1.5"/>
+    <text x="462" y="70" text-anchor="middle">Numbers /</text>
+    <text x="462" y="86" text-anchor="middle">bargaining</text>
+  </g>
+  <g>
+    <rect x="540" y="50" width="90" height="48" rx="6" fill="#fff" stroke="#13643c" stroke-width="1.5"/>
+    <text x="585" y="70" text-anchor="middle">Confirm</text>
+    <text x="585" y="86" text-anchor="middle" font-size="9.5">commitment</text>
+  </g>
+  <!-- arrows -->
+  <g stroke="#444" stroke-width="1.4" fill="#444">
+    <line x1="115" y1="74" x2="133" y2="74"/><polygon points="133,74 125,70 125,78"/>
+    <line x1="250" y1="74" x2="268" y2="74"/><polygon points="268,74 260,70 260,78"/>
+    <line x1="385" y1="74" x2="403" y2="74"/><polygon points="403,74 395,70 395,78"/>
+    <line x1="520" y1="74" x2="538" y2="74"/><polygon points="538,74 530,70 530,78"/>
+  </g>
+  <!-- break marker -->
+  <line x1="395" y1="30" x2="395" y2="118" stroke="#b58100" stroke-width="1.4" stroke-dasharray="5 4"/>
+  <text x="395" y="22" text-anchor="middle" fill="#b58100" font-size="10.5">take a break here</text>
+  <text x="200" y="138" text-anchor="middle" fill="#1f5fa8" font-size="10.5">first half: relationship &amp; discovery</text>
+  <text x="500" y="138" text-anchor="middle" fill="#13643c" font-size="10.5">second half: claiming</text>
+  <text x="320" y="158" text-anchor="middle" font-size="10" fill="#555">You can openly set this agenda: "let's build the relationship today, talk numbers next."</text>
+</svg>
+<figcaption>The sequence the successful WABTY pairs used: relationship and interest discovery first, a deliberate break, then bargaining. Soyer: your gut says "grind, grind, grind"; instead pause, so both sides can sit on the information and get creative.</figcaption>
+</figure>
+
+<div class="pitfall">
+<b>The myth that it all comes down to price.</b> Negotiations should never come down to price alone. Soyer's pyjama-shop story: a student who bargained well at the start, then barely haggled at the end of the trip, was haunted not by the small money lost but by the feeling of being "taken". "The money becomes irrelevant; the bargaining becomes the objective itself." Two warnings here: (1) reducing a rich, multi-issue deal to one number throws away all the trades that differing interests make possible; (2) your gut craves the fight, so you may "negotiate just to negotiate" when you shouldn't. Always know <em>why</em> you're negotiating, and remember the firm version of this trap: companies manufacture rat-race competition to make you work harder without paying more, exploiting the same instinct.
+</div>
+
+<div class="pitfall">
+<b>Don't treat a "No" as final, turn it into a "Maybe."</b> A flat refusal is usually a position guarding an unspoken constraint, not the end of the conversation. Rather than accepting the No or pushing harder on the same axis, question it back to the interest behind it ("what would need to be true for this to work?") and reopen the option space on a different variable. In WABTY, when base salary was a hard No, the pairs who got somewhere stopped pushing the number and converted the No into a Maybe elsewhere: bonus timing, a guaranteed promotion review, relocation, perks. A No on one dimension is an invitation to discover another.
+</div>
+
+<div class="wex">
+<span class="h">Why the "no-deals" happened (WABTY debrief)</span>
+Roughly half the class reached no deal. The pattern Soyer drew out: the hiring-manager brief contained an explicit instruction to walk away from a candidate who came in purely transactional. Candidates who opened with "tell me the number" or "culture doesn't put food on the table" got rejected even when their underlying point was correct, because they signalled a bad future colleague. The candidates who built the relationship first, then bargained, mostly closed. The medium <em>was</em> the message: the negotiation behaviour was the hiring test.
+</div>
+
+<div class="exam">
+<b>What Soyer rewards (and what he flags as a mistake), carry into the role-plays and the Negotiation Journal.</b>
+<ul>
+<li><b>Start with interests, end with numbers.</b> He explicitly reviews this every session; opening on price is the cardinal error.</li>
+<li><b>Discover the differing interests and trade across them.</b> The win-win in WABTY was converting perks the firm valued cheaply into cash the candidate wanted. He rewards students who <b>find and bundle</b> variables rather than haggling one number.</li>
+<li><b>Build the relationship first, then bargain, and <b>take a break</b> in the middle.</b> He praised every pair that split relationship from bargaining; he flags the "grind, grind, grind" instinct as a mistake.</li>
+<li><b>Set the agenda yourself.</b> "I like to set the agenda. Nobody really says no." Naming the structure ("relationship today, numbers next") is rewarded.</li>
+<li><b>Find constraints and flexibilities; reveal the intent behind tough questions.</b> When pushing feels risky, ask whether you're crossing a line rather than guessing.</li>
+<li><b>Don't negotiate just to negotiate, and don't let it come down to price.</b> Know why you're at the table; protect the relationship because most negotiations repeat.</li>
+<li><b>Experiment in the safe space.</b> Soyer urges trying tactics (aggressive, warm, anchoring games like lowballing the bonus or highballing an outside offer) you would never risk in real life, and journalling what fit you and what didn't. He flags anchoring games as <b>risky</b>: highball an outside offer and you can lose trust if the other side knows the market.</li>
+<li><b>Confirm commitments explicitly.</b> "People think they agree, then it turns out they didn't." He recommends sending a "this is what we agreed, right?" email.</li>
+</ul>
+</div>
+
+<h2 id="l07">7–8 · Communication &amp; Process</h2>
+
+<p>This cluster is the soft-skills core of the course: how you <em>talk</em> and how you <em>structure the conversation</em>, as distinct from the substance you are trading over. Sessions 5–6 gave you the value tasks (create then claim); here Soyer steps back to the channel itself. The vehicle was the <b>PrimeGeo role-play</b> (a partnership-style negotiation), debriefed in class, and the strategic summary pairs the cluster with <b>partnership negotiations</b>. The throughline: most deals fail not on the maths but on the process and the perception, so manage the talk deliberately, design the process before the substance when things are complex, and never trust that the other side is seeing the same facts you are.</p>
+
+<div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this:</b> the L07-08 transcript is badly corrupted by a transcription loop. Of ~16,000 sentences only 227 are unique; the rest are near-verbatim repeats (the "I'm so sorry to disappoint you" line alone repeats ~1,530 times). The recoverable in-class content is the "say no" warm-up exercise, the Green Needle / Brainstorm auditory illusion, and the "tactical empathy" moment. There is <b>no recoverable PrimeGeo debrief, small-talk, opening-statement, process-design or partnership discussion in the transcript</b>, so those points below are built from the SUMMARY deck's "Communication &amp; Process" page and are flagged individually.</div>
+
+<div class="intuition">
+<span class="tag">Intuition: listening</span>
+You have two ears and one mouth; use them in that ratio. Almost every move in this cluster (closing the communication gap, catching partisan perception, defusing a heated partner) depends on <em>checking what the other side actually meant</em> before you react to what you assume they meant.
+</div>
+
+<h3>Small talk: small in size, not in stakes</h3>
+
+<div class="intuition">
+<span class="tag">Intuition: small talk cuts both ways</span>
+The chit-chat before the "real" negotiation is never neutral. Every friendly question is simultaneously a chance to build rapport and a chance to leak (or harvest) information. Treat it as part of the negotiation, not the prelude to it.
+</div>
+
+<div class="twocol">
+<div>
+<h4>Rewards</h4>
+<ul>
+<li>Builds rapport and a cooperative frame before substance starts.</li>
+<li>Lets you read the other side's mood, style and constraints early.</li>
+<li>A natural channel for the questions that uncover interests.</li>
+</ul>
+</div>
+<div>
+<h4>Risks</h4>
+<ul>
+<li>Leaks <em>your</em> information: budget, time pressure, eagerness (e.g. "how long are you in town?" reveals your deadline).</li>
+<li>Can be used against you by a skilled counterpart mining for tells.</li>
+<li>Over-friendliness can soften you into conceding to preserve the warmth.</li>
+</ul>
+</div>
+</div>
+
+<div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this:</b> the small-talk risks/rewards split is built from the SUMMARY deck line ("Beware of risks &amp; rewards of small talk, even if small") plus the general principle; the transcript debrief that presumably illustrated it did not survive the loop corruption.</div>
+
+<h3>The opening statement sets the stage</h3>
+
+<div class="key">
+<b>Prepare your opening statement in advance.</b> The first thing you say frames the whole encounter: it signals whether you are here to fight or to solve, anchors the tone, and can put the relationship and the agenda on the table before anyone reaches for numbers. Because it does so much work, it is too important to improvise; draft it before you walk in. <span class="eyeball" style="display:inline"><span class="star">★</span> SUMMARY-deck point ("Opening statement sets the stage. Prepare in advance"); no transcript detail recoverable.</span></div>
+
+<h3>Process design: agree the process before the substance</h3>
+
+<div class="intuition">
+<span class="tag">Intuition: process before substance</span>
+When a negotiation is complicated, the first negotiation is about <em>how you will negotiate</em>. Settle the agenda, the sequence and who is in the room before you argue the issues, the same way you would set rules before a complex game so you do not fight about the rules halfway through.
+</div>
+
+<div class="key">
+<b>Discuss and agree the process when the negotiation is complex.</b> For a multi-issue or multi-party deal, explicitly put the <b>process</b> on the table first: what the agenda is, in what <b>sequence</b> issues will be taken, and <b>who needs to be in the room</b>. Agreeing this up front prevents procedural ambushes, stops one side dictating order to its advantage, and lets both sides plan. (This echoes the value cluster's move of openly setting the agenda: "relationship today, numbers next.") <span class="eyeball" style="display:inline"><span class="star">★</span> SUMMARY-deck point; transcript unrecoverable.</span></div>
+
+<figure>
+<svg viewBox="0 0 620 130" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="11.5">
+  <g>
+    <rect x="10" y="45" width="130" height="44" rx="6" fill="#fff" stroke="#1f5fa8" stroke-width="1.5"/>
+    <text x="75" y="64" text-anchor="middle">Agree the agenda</text>
+    <text x="75" y="80" text-anchor="middle" font-size="9.5">which issues, in what order</text>
+  </g>
+  <g>
+    <rect x="175" y="45" width="130" height="44" rx="6" fill="#fff" stroke="#1f5fa8" stroke-width="1.5"/>
+    <text x="240" y="64" text-anchor="middle">Agree who is in</text>
+    <text x="240" y="80" text-anchor="middle" font-size="9.5">the room / has authority</text>
+  </g>
+  <g>
+    <rect x="340" y="45" width="130" height="44" rx="6" fill="#fff" stroke="#1f5fa8" stroke-width="1.5"/>
+    <text x="405" y="64" text-anchor="middle">Agree the sequence</text>
+    <text x="405" y="80" text-anchor="middle" font-size="9.5">discovery before claiming</text>
+  </g>
+  <g>
+    <rect x="505" y="45" width="105" height="44" rx="6" fill="#fff" stroke="#13643c" stroke-width="1.5"/>
+    <text x="557" y="64" text-anchor="middle">Then: substance</text>
+    <text x="557" y="80" text-anchor="middle" font-size="9.5">the actual issues</text>
+  </g>
+  <g stroke="#444" stroke-width="1.4" fill="#444">
+    <line x1="140" y1="67" x2="173" y2="67"/><polygon points="173,67 165,63 165,71"/>
+    <line x1="305" y1="67" x2="338" y2="67"/><polygon points="338,67 330,63 330,71"/>
+    <line x1="470" y1="67" x2="503" y2="67"/><polygon points="503,67 495,63 495,71"/>
+  </g>
+  <text x="240" y="112" text-anchor="middle" fill="#1f5fa8" font-size="10.5">the "process negotiation" (do this first when the deal is complex)</text>
+</svg>
+<figcaption>Process design: in a complex deal, negotiate the structure before the content. Reconstructed from the SUMMARY-deck point; the diagram is illustrative.</figcaption>
+</figure>
+
+<h3>Partisan perception: same facts, different fouls</h3>
+
+<div class="intuition">
+<span class="tag">Intuition: partisan perception</span>
+Two fans watch the same replay and each sees a clear foul on the other team. Nobody is lying; complexity and uncertainty leave gaps, and each side fills those gaps in the direction that flatters its own case. In a negotiation this means you and the other party can read the identical contract, email or offer and honestly come away with opposite "facts".
+</div>
+
+<div class="intuition">
+<span class="tag">🎙 In class</span>
+Soyer demonstrated this live with the <b>Green Needle / Brainstorm</b> auditory illusion: the same audio clip is heard as "green needle" or "brainstorm" depending on which word you are looking at. "Whichever I'm looking at, I'm hearing that... It's the same." One stimulus, two perceptions, set entirely by expectation, the cleanest possible demonstration that what you "perceive" is partly constructed by what you came in expecting.
+</div>
+
+<div class="key">
+<b>Partisan (biased) perception</b>: the tendency for each side to interpret the same ambiguous information in a self-serving way, sincerely believing its reading is the objective one. The more <b>complex</b> and <b>uncertain</b> the situation, the more room there is for the bias to operate, because there are more gaps to fill. Soyer flags this as a behavioural-science default to actively guard against, not a flaw of "the other guy".</div>
+
+<div class="chain">
+<b>Why complexity and uncertainty breed partisan perception</b><br>
+A deal is complex and the facts are ambiguous <span class="arrow">→</span> the evidence underdetermines the "right" reading, leaving interpretive gaps <span class="arrow">→</span> each side's motivation (wanting its case to be true) unconsciously fills those gaps in its own favour <span class="arrow">→</span> both sides end up sincerely certain of incompatible "facts" <span class="arrow">→</span> they argue past each other, each thinking the other is being unreasonable or dishonest <span class="arrow">→</span> the remedy is not "try harder to be objective" (you already feel objective) but to <em>check perceptions explicitly</em> against the other side, which is what the communication-gap tools below are for.
+</div>
+
+<figure>
+<svg viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="11.5">
+  <!-- central stimulus -->
+  <rect x="215" y="80" width="130" height="40" rx="6" fill="#fff" stroke="#444" stroke-width="1.6"/>
+  <text x="280" y="98" text-anchor="middle">same facts</text>
+  <text x="280" y="113" text-anchor="middle" font-size="9.5">(ambiguous, complex)</text>
+  <!-- left observer -->
+  <circle cx="60" cy="100" r="26" fill="#fff" stroke="#1f5fa8" stroke-width="1.6"/>
+  <text x="60" y="104" text-anchor="middle" fill="#1f5fa8">Side A</text>
+  <!-- right observer -->
+  <circle cx="500" cy="100" r="26" fill="#fff" stroke="#13643c" stroke-width="1.6"/>
+  <text x="500" y="104" text-anchor="middle" fill="#13643c">Side B</text>
+  <!-- arrows from observers to stimulus -->
+  <g stroke="#444" stroke-width="1.3" fill="#444">
+    <line x1="88" y1="100" x2="212" y2="100"/><polygon points="212,100 204,96 204,104"/>
+    <line x1="472" y1="100" x2="348" y2="100"/><polygon points="348,100 356,96 356,104"/>
+  </g>
+  <!-- conclusions -->
+  <rect x="10" y="150" width="160" height="36" rx="6" fill="#1f5fa8" fill-opacity="0.12" stroke="#1f5fa8" stroke-dasharray="4 3"/>
+  <text x="90" y="172" text-anchor="middle" fill="#1f5fa8">"clearly their fault"</text>
+  <rect x="390" y="150" width="160" height="36" rx="6" fill="#13643c" fill-opacity="0.12" stroke="#13643c" stroke-dasharray="4 3"/>
+  <text x="470" y="172" text-anchor="middle" fill="#13643c">"clearly their fault"</text>
+  <g stroke="#888" stroke-width="1.1" fill="#888">
+    <line x1="60" y1="126" x2="80" y2="148"/>
+    <line x1="500" y1="126" x2="480" y2="148"/>
+  </g>
+  <text x="280" y="30" text-anchor="middle" font-weight="bold">Partisan perception</text>
+  <text x="280" y="48" text-anchor="middle" font-size="10" fill="#555">one input, two sincere but opposite readings</text>
+</svg>
+<figcaption>The "same tape, different fouls" mechanism: both sides take the identical ambiguous input and each reads it in its own favour. The Green Needle / Brainstorm illusion is the lab version of exactly this.</figcaption>
+</figure>
+
+<h3>Closing the communication gap: question, paraphrase, repeat</h3>
+
+<div class="intuition">
+<span class="tag">Intuition: close the gap</span>
+What you said and what they heard are rarely the same thing. The fix is cheap: say it back. Ask, restate in your own words, and confirm, so the misunderstanding surfaces now (when it costs a sentence) rather than later (when it costs the deal).
+</div>
+
+<div class="key">
+<b>Active-listening tools to reduce the communication gap</b>
+<ul>
+<li><b>Question</b>: probe what they actually mean and want, instead of assuming. Questions also pull interests out from behind positions.</li>
+<li><b>Paraphrase</b>: restate their point in your own words ("so what you're saying is..."). If you have it wrong, they correct you for free; if right, they feel heard.</li>
+<li><b>Repeat / confirm</b>: play back the key points and agreements so both sides are demonstrably on the same page before moving on.</li>
+</ul>
+These are the direct antidote to partisan perception: you cannot tell you are reading the facts differently until you state your reading aloud and let the other side react.</div>
+
+<div class="intuition">
+<span class="tag">🎙 In class</span>
+Soyer framed part of the listening toolkit as <b>tactical empathy</b>: "you come and you tap the other party's shoulder... and the other person says 'I didn't hear what you said'. This is how you make people talk more than they intended to." Acknowledging and labelling the other side's position (rather than countering it) keeps them talking, and the more they talk, the more interests and constraints they reveal.
+</div>
+
+<h3>Saying "no" without breaking the relationship</h3>
+
+<p>Soyer opened the cluster with a warm-up exercise built entirely around <em>declining</em>: one partner asks (to work two weekends, then for $50,000), the other has to refuse, and then they switch, so everyone practises both giving and refusing. The point is that a flat "no" is a blunt instrument that bruises the relationship and invites retaliation; you can decline while keeping the door, and the working relationship, open.</p>
+
+<div class="wex">
+<span class="h">The "say no" warm-up (in-class exercise)</span>
+Genuine techniques that surfaced in the room:
+<ul>
+<li><b>Reframe the refusal as "I'm not convinced."</b> Soyer's reference: Joschka Fischer, German Foreign Minister, who in 2003 told the US case for the Iraq invasion "I am not convinced." It rejects the substance without rejecting the person, and it invites them to give you more (a better case) rather than slamming the door.</li>
+<li><b>Refuse from a constraint, not a whim.</b> "My hands are tied on this... I feel like I've already committed." Locating the no in an external constraint depersonalises it.</li>
+<li><b>Empathise while refusing.</b> "That's a bit tough, you've been in a difficult situation." Acknowledge their position even as you hold yours.</li>
+<li><b>Make "no" the default you have to be talked out of</b>, rather than a yes you give away.</li>
+</ul>
+</div>
+
+<h4>PARTNERSHIP NEGOTIATIONS</h4>
+
+<p>The SUMMARY deck pairs this cluster's case with partnership negotiations, whose defining trait is that both sides take things personally (often literally family or long-standing partners), there are no industry "standards" to fall back on, and the relationship carries baggage. The danger is optimism: partners assume goodwill will carry them, so they skip the hard conversations, and the damage when it goes wrong can be irreversible.</p>
+
+<div class="key">
+<b>Soyer's partnership-negotiation playbook</b>
+<ul>
+<li><b>Don't let optimism prevent the key discussions on risks.</b> Precisely because everyone is hopeful at the start, the "what if this goes wrong" conversation gets skipped; have it anyway.</li>
+<li><b>Conduct a yearly vision &amp; objective meeting</b> (especially on the financials), so divergence is caught early rather than discovered in a crisis.</li>
+<li><b>Put the key details of the shareholder agreement in writing.</b> Handshake clarity decays; written commitments survive memory and mood.</li>
+<li><b>Solve key relationship issues before going to substance.</b> Unresolved personal tension poisons every substantive item.</li>
+<li><b>Keep an eye on fairness</b>: damage to a partnership can be irreversible, so a "win" that leaves a partner feeling taken is a loss.</li>
+<li><b>Communicate carefully when things get heated</b>, and either prevent escalations or agree de-escalation rules in advance.</li>
+</ul>
+<span class="eyeball" style="display:inline"><span class="star">★</span> built from SUMMARY deck pages "Communication &amp; Process" and "Partnership Negotiations"; the PrimeGeo debrief that illustrated these did not survive the transcript loop.</span></div>
+
+<h3>Keeping your cool: emotion management and reputation</h3>
+
+<div class="intuition">
+<span class="tag">Intuition: emotions are data</span>
+A flash of anger or anxiety (yours or theirs) is not noise to be suppressed; it is information about what matters. Read it, name it, and decide what to do with it, rather than being driven by it.
+</div>
+
+<div class="key">
+<b>Emotions are information.</b> Treat a strong reaction as a signal: it tells you which issue is loaded, where a value or identity is at stake, or that the other side feels cornered. Keeping your cool is not going numb; it is staying able to <em>use</em> emotion (yours and theirs) instead of being hijacked by it, especially in the heated partnership and refusal moments above.</div>
+
+<div class="pitfall">
+<b>The myth that a tough reputation always pays.</b> Being known as hard-nosed has real upside (people expect you to push, so they pre-concede), but it has matching costs: counterparts brace for a fight, withhold information, refuse to create value with you, and may decline to deal at all or retaliate later. A tough reputation is a trade-off to manage, not a free asset, and it is especially corrosive in the repeated, relationship-heavy deals (partnerships, internal, cooperation) where you will meet the same people again.</div>
+
+<div class="pitfall">
+<b>Don't let a bad start, or a hot moment, ruin a good future deal.</b> When emotions spike, the instinct is to win the exchange in front of you. But complexity plus partisan perception means the "outrage" you feel may rest on a misreading of the facts. Pause, check the perception (question, paraphrase, repeat), and protect the relationship, because most of these negotiations repeat.</div>
+
+<div class="exam">
+<b>What Soyer rewards (and what he flags as a mistake), carry into the role-plays and the Negotiation Journal.</b>
+<ul>
+<li><b>Prepare the opening and the process, not just the offer.</b> He rewards walking in with a deliberate opening statement and, for complex deals, an explicit proposal for the agenda, sequence and participants.</li>
+<li><b>Assume partisan perception and check it.</b> Don't treat your reading of the facts as the objective one; <b>question, paraphrase and repeat back</b> to surface where you and the other side are seeing different "fouls" in the same tape.</li>
+<li><b>Listen more than you talk, and use tactical empathy.</b> Labelling and acknowledging keeps them talking and leaks their interests; he flags the opposite (countering every point) as a mistake.</li>
+<li><b>Handle small talk consciously.</b> Use it to build rapport and gather information, and <b>guard</b> what you give away; it is part of the negotiation.</li>
+<li><b>Say "no" without breaking the relationship.</b> Reframe ("I'm not convinced"), locate refusals in constraints, empathise while holding firm.</li>
+<li><b>In partnerships, have the hard conversations early.</b> He rewards forcing the risk discussion, the yearly review and the written agreement <em>despite</em> the optimism, and flags letting goodwill substitute for clarity as the classic partnership mistake.</li>
+<li><b>Keep your cool; treat emotion as information.</b> Don't let a bad start or a hot moment torch a repeatable deal, and remember a tough reputation costs as well as pays.</li>
+<li><b>Experiment in the safe space and journal it.</b> Try the refusal scripts and listening moves you would not risk in real life, then write down what fit you and what did not.</li>
+</ul>
+</div>
+
+<h2 id="l09">9–10 · Fairness &amp; Teams</h2>
+
+<div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this:</b> there is NO class recording for Sessions 9–10, so this whole section is built from the detailed deck plus the summary deck only. The usual "what Soyer actually emphasised out loud" layer (war stories, tells, the studies he cites) is missing, so the intuition hooks below are synthesised reconstructions, not quotes. Cross-check the fairness/ethics framing against the actual class if you can; treat the reading-derived ideas (lies of commission vs omission, when transparency persuades) as folded-in concepts, not slide text.</div>
+
+<p>This cluster runs alongside the <b>Nutrina cooperation negotiation</b>, a 3-versus-3 team role-play (Vital Materials supplying Nutrina) with a built-in break. It does three jobs at once: it asks how to recover when a negotiation opens badly, it adds a second player (the <b>team</b>) on each side of the table, and it puts the <b>fairness</b> of clever value tactics under the microscope. It sits late in the arc on purpose: by now you can create and claim value (Sessions 5–6) and run the process (Sessions 7–8), so the question becomes how to do all of that without tunnel vision, and without crossing an ethical line you would not be able to walk back.</p>
+
+<div class="intuition">
+<span class="tag">Intuition: the cluster in one line</span>
+A bad opening is not a verdict, it is a moment; the cure for both a bad start and a clever-but-shady tactic is the same two moves, <b>pause</b> and <b>bring in other people</b>. Stepping back breaks the emotional loop and widens your field of view; a teammate or a fresh negotiator sees the trade, and the line, that you have stopped seeing.
+</div>
+
+<h3>Don't let a bad start ruin a good future deal</h3>
+
+<div class="intuition">
+<span class="tag">Intuition: recovering from a poor opening</span>
+When the other side comes in angry, lowballing, or hostile, your instinct is to match it: escalate, defend, prove you can't be pushed around. That instinct is what turns a bad first ten minutes into a dead deal. The skill is to treat the opening as noise, not signal, and give the other side a graceful way back to the table.
+</div>
+
+<p>The deck frames the bad start as a <b>decision</b>, not a reflex. One party cannot contain their frustration; you now choose between <b>escalation</b> and <b>mitigation</b>, and the slide is explicit that each carries its own risks and rewards. Escalation can establish a boundary but can also burn the deal; mitigation can rescue the deal but can also read as weakness. Soyer's recommended default is the <b>win-win choice</b>: give them the opportunity to back down without losing face.</p>
+
+<div class="chain">
+<b>Why a bad start escalates (the loop)</b><br>
+One side vents frustration <span class="arrow">→</span> the other reads it as an attack and responds in kind, because matching feels like self-protection <span class="arrow">→</span> each retaliation confirms the other's belief that this counterpart is hostile <span class="arrow">→</span> positions harden and the conversation becomes about winning the fight, not the deal <span class="arrow">→</span> tunnel vision sets in: both sides stop seeing the value still on the table and walk away from a deal that was there. The mechanism is emotional reciprocity feeding a self-fulfilling story about the other side.
+</div>
+
+<div class="chain">
+<b>How a pause breaks the loop</b><br>
+Call a break <span class="arrow">→</span> the physiological heat of the moment cools, so neither side is acting from the amygdala <span class="arrow">→</span> the retaliation reflex loses its trigger, breaking the reciprocity chain <span class="arrow">→</span> with distance, each side can re-read the opening as frustration rather than attack <span class="arrow">→</span> you can re-enter aiming for <b>creativity from both sides</b>, and optionally <b>change the person who negotiates</b> on each side so the new pair carries none of the personal baggage from the bad start. The why: the conflict was attached to people and to a moment; remove the moment and swap the people, and the substance is still negotiable.
+</div>
+
+<div class="key">
+<b>Dealing with a bad start (Soyer's playbook)</b>
+<ul>
+<li><b>Diagnose the choice:</b> escalation or mitigation. Weigh the risks and rewards of each before reacting, rather than escalating on autopilot.</li>
+<li><b>Prefer the win-win choice:</b> give them the opportunity to back down. A graceful exit from their own aggression costs you nothing and saves the deal.</li>
+<li><b>Pause.</b> Decide deliberately on the timeframe of the break (the Nutrina role-play even allows the negotiation to become two separate meetings).</li>
+<li><b>Aim for creativity from both sides after the cool-down,</b> not just a return to the same fight.</li>
+<li><b>Change the person who negotiates,</b> on both sides, so the reset is genuine and not poisoned by who said what.</li>
+<li><b>The extreme version:</b> can you turn them into a big fan of yours? The most complete recovery is not just salvaging the deal but flipping the relationship.</li>
+</ul>
+</div>
+
+<h3>Avoid tunnel vision: pauses and teams</h3>
+
+<div class="intuition">
+<span class="tag">Intuition: tunnel vision</span>
+Under pressure your attention narrows to the one number, the one grievance, the one move you are fixated on, and you stop seeing everything else on the table. Two things widen the lens back out: stepping away (a pause), and another set of eyes (a teammate). Both are deliberately built into this cluster.
+</div>
+
+<p>The strategic summary names the antidote directly: <b>avoid tunnel vision by using pausing and teams.</b> The pause is the time-axis fix (distance from the heat of the moment); the team is the people-axis fix (a second perspective in the room). They are the same idea applied to the two ways your view narrows.</p>
+
+<h3>Negotiating in teams</h3>
+
+<div class="intuition">
+<span class="tag">Intuition: why teams cut both ways</span>
+Adding a teammate is not free upside. You gain brainpower, a second read on the room, and the ability to split roles, but you also create a coordination problem: two people can contradict each other, leak information, or fall into cosy agreement that nobody challenges. A team is a tool you have to manage, not an automatic advantage.
+</div>
+
+<table class="dt">
+<thead><tr><th>Benefits of a team (harness these)</th><th>Frustrations / disadvantages (mitigate these)</th></tr></thead>
+<tbody>
+<tr><td><b>Diverse perspectives → a richer 7 Elements.</b> More minds fill in more interests, options, alternatives and standards in prep.</td><td><b>Groupthink.</b> Too much harmony is bad; a team that agrees too easily stops pressure-testing its own plan.</td></tr>
+<tr><td><b>Wisdom and creativity of crowds.</b> More brainpower generates more options for creating value.</td><td><b>Leaks and mixed signals.</b> If you have not agreed what will be communicated and when, a teammate can give away information or the wrong number (the "Rumi incident").</td></tr>
+<tr><td><b>Role specialisation.</b> One person speaks while the other observes, listens, and reads the other side.</td><td><b>Internal conflict / politics.</b> Disagreement within your own side can surface at the table and be exploited.</td></tr>
+<tr><td><b>Coverage and stamina.</b> Roles can be swapped, and a fresh teammate can take over after a bad start.</td><td><b>Diffusion of responsibility.</b> When everyone is responsible, no one is; preparation and follow-through can fall through the cracks.</td></tr>
+</tbody>
+</table>
+
+<div class="key">
+<b>Managing a negotiating team</b>
+<ul>
+<li><b>Assign roles before you walk in:</b> one speaks, the other observes. The observer catches what the speaker, deep in the exchange, will miss.</li>
+<li><b>Agree what will be communicated and when.</b> The deck's cautionary tag is the "Rumi incident": a teammate revealing the wrong thing at the wrong time. Decide your information plan in advance.</li>
+<li><b>Engineer against groupthink:</b> take a break for diversified focus, and treat too much internal harmony as a warning sign rather than comfort.</li>
+</ul>
+</div>
+
+<div class="pitfall">
+<b>The myth that more people automatically means a better outcome.</b> A team's headline benefit (more brainpower) and its core risk (coordination failure) are the same fact seen twice. Without assigned roles, an agreed information plan, and a deliberate guard against groupthink, the extra people become extra leaks, extra internal conflict, and diffused responsibility. Don't confuse adding bodies with adding capability; an unmanaged team negotiates worse than a disciplined individual.</div>
+
+<figure>
+<svg viewBox="0 0 620 210" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="11.5">
+  <text x="310" y="18" text-anchor="middle" font-weight="bold" fill="#13643c">A team is a managed tool, not free upside</text>
+  <!-- benefit column -->
+  <rect x="20" y="35" width="270" height="150" rx="8" fill="#13643c" fill-opacity="0.08" stroke="#13643c" stroke-width="1.4"/>
+  <text x="155" y="55" text-anchor="middle" font-weight="bold" fill="#13643c">Harness</text>
+  <text x="35" y="78">• Diverse views → richer 7 Elements</text>
+  <text x="35" y="98">• Wisdom / creativity of crowds</text>
+  <text x="35" y="118">• Roles: one speaks, one observes</text>
+  <text x="35" y="138">• Fresh person can reset a bad start</text>
+  <text x="155" y="170" text-anchor="middle" font-size="10" fill="#555" font-style="italic">requires: roles + info plan</text>
+  <!-- frustration column -->
+  <rect x="330" y="35" width="270" height="150" rx="8" fill="#b23b3b" fill-opacity="0.08" stroke="#b23b3b" stroke-width="1.4"/>
+  <text x="465" y="55" text-anchor="middle" font-weight="bold" fill="#b23b3b">Mitigate</text>
+  <text x="345" y="78">• Groupthink (too much harmony)</text>
+  <text x="345" y="98">• Leaks / mixed signals ("Rumi")</text>
+  <text x="345" y="118">• Internal conflict &amp; politics</text>
+  <text x="345" y="138">• Diffusion of responsibility</text>
+  <text x="465" y="170" text-anchor="middle" font-size="10" fill="#555" font-style="italic">guard: break for diversified focus</text>
+</svg>
+<figcaption>The same headcount produces both columns. Whether a team is an advantage depends entirely on whether you have set roles, an information plan, and an anti-groupthink break.</figcaption>
+</figure>
+
+<h3>Value claiming vs creating: the top tactics</h3>
+
+<p>The deck revisits the create-versus-claim distinction from Sessions 5–6 (creating value grows the pie; claiming value divides it) and surfaces the three tactics Soyer ranks highest for doing both, plus the team as a fourth lever.</p>
+
+<div class="key">
+<b>Top 3 value tactics (plus teams)</b>
+<ul>
+<li><b>Breaks.</b> A pause is not dead time; it lets both sides cool down, reflect, and return more creative. It is the same instrument that rescues a bad start, used proactively.</li>
+<li><b>Contingency.</b> When the two sides disagree about a future fact, write a contingent term ("if X happens, then Y") instead of arguing the forecast. It lets each side bet on its own optimism and creates value out of the disagreement itself.</li>
+<li><b>Bundle / unbundle.</b> Combine issues into packages, or split one issue into parts, so that variables you value differently can be traded across. Bundling is how differing interests become joint gains.</li>
+<li><b>Teams.</b> The fourth lever: more minds find more options to create, and role-splitting helps you claim without losing the room.</li>
+</ul>
+</div>
+
+<h3>The fairness of "creative" tactics</h3>
+
+<div class="intuition">
+<span class="tag">Intuition: clever is not the same as fair</span>
+Some value tactics are genuinely creative; some are just clever ways to mislead. The same move (shaping what the other side believes) can be legitimate framing or a straight lie depending on which side of an ethical line it falls. The deck's instruction is not "be nice", it is: know where that line is, because some popular tactics quietly cross it, and the damage to your reputation and the relationship can be irreversible.
+</div>
+
+<p>This is where the cluster's readings live (on ethics, the truth about lies in negotiations, the risks of brainstorm negotiating, and the persuasive power of transparency). The ideas, not the articles, fold in here.</p>
+
+<figure>
+<svg viewBox="0 0 460 360" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="11">
+  <!-- axes -->
+  <line x1="70" y1="310" x2="430" y2="310" stroke="#444" stroke-width="1.4"/>
+  <line x1="70" y1="310" x2="70" y2="40" stroke="#444" stroke-width="1.4"/>
+  <text x="250" y="345" text-anchor="middle" font-size="11.5">Aggressiveness of value claiming →</text>
+  <text x="28" y="180" text-anchor="middle" font-size="11.5" transform="rotate(-90 28 180)">Fairness / honesty →</text>
+  <!-- quadrant divider -->
+  <line x1="250" y1="40" x2="250" y2="310" stroke="#bbb" stroke-dasharray="4 3"/>
+  <line x1="70" y1="175" x2="430" y2="175" stroke="#bbb" stroke-dasharray="4 3"/>
+  <!-- top-left: soft & fair -->
+  <text x="160" y="95" text-anchor="middle" font-weight="bold" fill="#13643c">Honest &amp; soft</text>
+  <text x="160" y="113" text-anchor="middle" font-size="10">transparency, sharing</text>
+  <text x="160" y="128" text-anchor="middle" font-size="10">interests, fair standards</text>
+  <text x="160" y="145" text-anchor="middle" font-size="9.5" fill="#777">persuades, builds trust</text>
+  <!-- top-right: assertive & fair = the target -->
+  <rect x="258" y="55" width="166" height="110" rx="8" fill="#13643c" fill-opacity="0.12" stroke="#13643c" stroke-width="1.4"/>
+  <text x="341" y="92" text-anchor="middle" font-weight="bold" fill="#13643c">Assertive &amp; fair</text>
+  <text x="341" y="110" text-anchor="middle" font-size="10">firm anchoring,</text>
+  <text x="341" y="125" text-anchor="middle" font-size="10">legitimate standards,</text>
+  <text x="341" y="140" text-anchor="middle" font-size="10">honest framing</text>
+  <text x="341" y="156" text-anchor="middle" font-size="9.5" fill="#13643c" font-style="italic">aim here</text>
+  <!-- bottom-left: weak -->
+  <text x="160" y="235" text-anchor="middle" font-weight="bold" fill="#777">Soft &amp; shady</text>
+  <text x="160" y="253" text-anchor="middle" font-size="10">small fibs, omissions</text>
+  <text x="160" y="268" text-anchor="middle" font-size="9.5" fill="#777">erodes trust for little gain</text>
+  <!-- bottom-right: the danger zone -->
+  <rect x="258" y="195" width="166" height="100" rx="8" fill="#b23b3b" fill-opacity="0.12" stroke="#b23b3b" stroke-width="1.4"/>
+  <text x="341" y="228" text-anchor="middle" font-weight="bold" fill="#b23b3b">Aggressive &amp; unfair</text>
+  <text x="341" y="246" text-anchor="middle" font-size="10">lies of commission,</text>
+  <text x="341" y="261" text-anchor="middle" font-size="10">bluffs that misrepresent</text>
+  <text x="341" y="277" text-anchor="middle" font-size="9.5" fill="#b23b3b">the line you don't cross</text>
+</svg>
+<figcaption>Claiming value hard is fine; claiming it dishonestly is the trap. The goal is the assertive-and-fair quadrant: firm on substance, legitimate on method. The bottom-right is where clever "creative" tactics tip into unacceptable ones.</figcaption>
+</figure>
+
+<div class="key">
+<b>Acceptable vs unacceptable tactics</b>: the working distinction the ethics reading turns on. Hard but acceptable: anchoring firmly, arguing from a standard that favours you, declining to volunteer information, walking away. Not acceptable: actively misrepresenting a material fact (your BATNA, the product, a number you will or won't accept). The test is roughly whether the tactic shapes the other side's <em>judgement</em> within a shared game, or corrupts the <em>facts</em> the game is played on. Aggression is permitted; deception about substance is not.
+</div>
+
+<div class="pitfall">
+<b>Lies of commission vs lies of omission.</b> Don't assume "I never said anything false" puts you in the clear. A <b>lie of commission</b> is an active false statement ("we have another offer at 200" when you don't). A <b>lie of omission</b> is staying silent while the other side relies on a belief you know to be wrong. The first is almost always over the line; the second is the genuinely grey zone, and it is where most negotiators quietly fool themselves. There is no duty to volunteer everything, but exploiting a known false belief about a material fact is closer to a lie than to shrewdness. When in doubt, the relationship and your reputation outlast the single deal.</div>
+
+<div class="key">
+<b>The persuasive power of transparency.</b> The counter-intuitive point from the transparency reading: openness is not just the ethical option, it is often the more <em>effective</em> one. Explaining the reasoning behind your offer, naming your constraint, or admitting a weakness can persuade better than concealment, because it gives the other side a reason to believe you and something concrete to engage with. Transparency builds the trust that makes value creation possible at all, and it is the honest twin of using a <b>legitimate standard</b>: both work by giving the other side a reason they can accept rather than a position they must simply swallow.
+</div>
+
+<h3>Fairness norms and legitimacy</h3>
+
+<div class="intuition">
+<span class="tag">Intuition: fairness is leverage, not sentiment</span>
+People will reject a deal that is good for them if it feels unfair, and accept a worse one that feels fair. So fairness is not a soft add-on to the numbers; it is part of what determines which numbers the other side will actually sign. An outcome anchored to an external standard is one both sides can defend to themselves and to their bosses.
+</div>
+
+<p>This links straight back to <b>Legitimacy</b>, the fourth of the 7 Elements (Interests, Alternatives, Options, Legitimacy). Legitimacy is the use of objective standards and fair criteria (market rates, precedent, an independent benchmark) to decide what each side will accept. Perceived fairness of both the <b>outcome</b> and the <b>process</b> shapes the zone of agreement: a number that clears both reservation prices can still die if one side feels cornered, and a fair process can rescue a deal where the substance is tight. This is exactly why fairness sits next to ethics in this cluster: the same legitimacy that makes your claiming persuasive is also what keeps it on the right side of the ethical line.</p>
+
+<h3>Cooperation negotiations (the Nutrina case)</h3>
+
+<div class="intuition">
+<span class="tag">Intuition: negotiate the future, not the past</span>
+In an ongoing relationship (a supplier, a partner, a long-term customer) the temptation is to relitigate every old grievance. But you cannot change the past, only the future. The whole orientation of a cooperation negotiation is to spend your energy on the relationship and the deal still ahead, not on winning the argument about what already went wrong.
+</div>
+
+<p>Nutrina is a cooperation negotiation: an ongoing supply relationship (Vital Materials and Nutrina) where many win-wins exist (the deck names expansion and wheat flour among them), but where frustration and power imbalance can poison the room. The deck's diagnosis and prescription:</p>
+
+<div class="key">
+<b>Cooperation negotiations</b>
+<ul>
+<li><b>Issues:</b> bottled-up frustrations (resentment carried in from the past); power imbalance between the two sides.</li>
+<li><b>Anchor on the possible future, not just the past.</b> Relitigating old grievances spends energy on what can't be changed; framing forward keeps the deal alive.</li>
+<li><b>Don't let a bad start ruin possible deals.</b> Assume there will be emotional reactions, and plan for them rather than being surprised.</li>
+<li><b>Understand internal politics and relationships, and beware weaponising BATNA early.</b> Threatening to walk away too soon, in a relationship you want to keep, signals bad faith and can be irreversible.</li>
+<li><b>Use breaks and different people</b> to reduce friction and keep ideas fresh: the same pause-and-swap medicine as for a bad start.</li>
+<li><b>Give and get frequent feedback; agree on a communication style</b> so misreadings don't compound.</li>
+<li><b>Preserve the working relationship if it is beneficial,</b> and build a better model going forward rather than a one-off win.</li>
+</ul>
+</div>
+
+<div class="wex">
+<span class="h">Nutrina (Vital Materials cooperation negotiation)</span>
+A 3-versus-3 team negotiation with a deliberate structure: reconsider your prep for fifteen minutes, negotiate for forty, and take a break (which can split the session into two meetings). The debrief questions Soyer plants tell you what to watch for: who reached deals and who didn't, who ended up happy or unhappy, what happened when some teams started angry and uncooperative, whether tactical empathy and breaks were used, how the teams cooperated internally, and what internal issues surfaced. The point of the case is that the win-wins are there (expansion, wheat flour, and more); whether you capture them depends on managing the bad start, the team, and the relationship rather than the substance alone.
+</div>
+
+<div class="exam">
+<b>What Soyer rewards (and what he flags as a mistake), carry into the role-plays and the Negotiation Journal.</b>
+<ul>
+<li><b>Don't let a bad start ruin a good future deal.</b> When the other side opens hot, he rewards the player who <b>diagnoses</b> escalation vs mitigation and offers a win-win way to back down, not the one who matches the aggression.</li>
+<li><b>Pause deliberately, and swap people if needed.</b> He treats the <b>break</b> as a core instrument: use it to cool down, re-create, and reset a poisoned dynamic. "Grind, grind, grind" is the mistake.</li>
+<li><b>Manage the team, don't just add bodies.</b> He rewards <b>assigned roles</b> (one speaks, one observes), an <b>agreed information plan</b> (remember the "Rumi" leak), and a guard against <b>groupthink</b>. Too much internal harmony is a red flag, not comfort.</li>
+<li><b>Create value with the top tactics:</b> <b>breaks, contingencies, and bundling/unbundling</b>. He flags reducing a multi-issue cooperation deal to one contested number as a wasted opportunity.</li>
+<li><b>Claim hard but stay fair.</b> He rewards firm, legitimacy-anchored claiming and flags the slide into <b>deception about substance</b> (lies of commission, and exploited lies of omission) as the line you don't cross. Reputational damage can be irreversible.</li>
+<li><b>Use transparency as persuasion.</b> Explaining your reasoning and constraints is rewarded; concealment that you mistake for cleverness is flagged.</li>
+<li><b>In cooperation negotiations, negotiate the future.</b> He rewards anchoring on what's still possible, preserving the working relationship, and <b>not weaponising BATNA early</b>; relitigating the past and threatening to walk are flagged.</li>
+<li><b>Journal the experiment.</b> The missing recording aside, the standing instruction holds: use the safe space to try a tactic (empathy under fire, a deliberate break, splitting roles) and write down what fit you and what didn't.</li>
+</ul>
+</div>
+
+<h2 id="l11">11–12 · Relationship &amp; Trust</h2>
+
+<p>This is the cluster where the soft variables stop being a footnote and become the deal. Earlier sessions taught you to discover interests, design options and claim value; here Soyer asks what happens when you have to do all of that <em>with someone you may not like, may not trust, and will have to face again next week</em>. The vehicle was an internal role-play (a newly-promoted manager negotiating with a senior colleague who feels passed over and wronged), plus a behavioural trust game played live in pairs. The throughline: pursue joint gains first, protect the working relationship without bleeding away real value to be liked, and treat trust as something built slowly, broken instantly, and rebuilt only through acknowledgement and consistency.</p>
+
+<div class="intuition">
+<span class="tag">Intuition: what trust is</span>
+Trust is the willingness to make yourself vulnerable to another person while expecting they will not exploit it. You hand over something (information, a concession, the first move) that they <em>could</em> abuse, betting that they will reciprocate instead. That is why trust is fragile: a single exploitation tells you the bet was wrong, and you pull your vulnerability back. <b>Reciprocity</b> (responding in kind, returning a favour for a favour) is the engine that makes the bet pay off.
+</div>
+
+<div class="intuition">
+<span class="tag">🎙 In class</span>
+On how trust comes back after it breaks: "It just takes time. The other person has to show consistently that they're up to their word, whatever they say they will do, they end up doing it. And over time I have my trust back. But it's not overnight at all." Trust erodes in one move and rebuilds only over many.
+</div>
+
+<h3>Constructive behaviours: pursue joint gains first</h3>
+
+<p>Soyer's opening instruction for relationship-heavy negotiations is sequencing, not softness. Look for what makes you <em>better together</em> before you touch the points where you are pulling against each other. In the internal case the punchline of the debrief was that there was a large amount of win-win available (the two parties were genuinely better off collaborating on the project), and the relationship tension, though real, did not have to derail it.</p>
+
+<div class="chain">
+<b>Why joint gains come first</b><br>
+Open on shared interests and mutual upside <span class="arrow">→</span> both sides experience the other as a partner solving a problem, not a threat <span class="arrow">→</span> this builds a stock of goodwill <span class="arrow">→</span> so when you reach the genuinely contested points (the common obstacles), there is a relationship to spend, and neither side reads a hard ask as an attack. Reverse the order (lead with the fight) and you spend goodwill you never accumulated.
+</div>
+
+<h3>Substance vs relationship: don't consistently trade one for the other</h3>
+
+<div class="intuition">
+<span class="tag">Intuition: the trade-off</span>
+Every move trades on two axes at once: how much <b>substance</b> you claim (the real value: money, terms, scope) and how much <b>relationship</b> you build or preserve (being liked, trusted, kept as a partner). Giving something away to keep the peace is fine occasionally. Doing it <em>consistently</em> is a slow leak: you train the other side that your goodwill is for sale and you end up liked and poor.
+</div>
+
+<div class="key">
+<b>Soyer's rule: don't consistently exchange substance for relationship.</b> The danger is the well-meaning negotiator who, every time things get tense, concedes real value to smooth the mood. One concession to repair a relationship can be a good investment. A pattern of concessions is a habit the other side learns to exploit. The goal is the top-right quadrant: claim value <em>and</em> keep the relationship, by trading across differing interests rather than buying affection with substance.
+</div>
+
+<figure>
+<svg viewBox="0 0 460 340" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="12">
+  <!-- axes -->
+  <line x1="60" y1="300" x2="430" y2="300" stroke="#444" stroke-width="1.5"/>
+  <line x1="60" y1="300" x2="60" y2="30" stroke="#444" stroke-width="1.5"/>
+  <polygon points="430,300 420,295 420,305" fill="#444"/>
+  <polygon points="60,30 55,40 65,40" fill="#444"/>
+  <text x="245" y="332" text-anchor="middle" font-size="11">Substance claimed  →</text>
+  <text x="20" y="165" text-anchor="middle" font-size="11" transform="rotate(-90 20 165)">Relationship built  →</text>
+  <!-- quadrant grid -->
+  <line x1="245" y1="300" x2="245" y2="40" stroke="#ccc" stroke-dasharray="3 3"/>
+  <line x1="60" y1="170" x2="430" y2="170" stroke="#ccc" stroke-dasharray="3 3"/>
+  <!-- top-left: accommodate -->
+  <text x="152" y="95" text-anchor="middle" fill="#b58100" font-weight="bold">Accommodate</text>
+  <text x="152" y="112" text-anchor="middle" font-size="10">give value to be liked</text>
+  <text x="152" y="126" text-anchor="middle" font-size="10" fill="#b58100">the trap if done consistently</text>
+  <!-- top-right: collaborate -->
+  <text x="337" y="95" text-anchor="middle" fill="#13643c" font-weight="bold">Collaborate</text>
+  <text x="337" y="112" text-anchor="middle" font-size="10">trade across interests:</text>
+  <text x="337" y="126" text-anchor="middle" font-size="10" fill="#13643c">value AND relationship</text>
+  <!-- bottom-left: avoid -->
+  <text x="152" y="235" text-anchor="middle" fill="#888" font-weight="bold">Avoid</text>
+  <text x="152" y="252" text-anchor="middle" font-size="10">no value, no bond</text>
+  <text x="152" y="266" text-anchor="middle" font-size="10">(lose-lose)</text>
+  <!-- bottom-right: compete -->
+  <text x="337" y="235" text-anchor="middle" fill="#1f5fa8" font-weight="bold">Compete</text>
+  <text x="337" y="252" text-anchor="middle" font-size="10">win the substance,</text>
+  <text x="337" y="266" text-anchor="middle" font-size="10">burn the relationship</text>
+</svg>
+<figcaption>Substance × relationship. Compete is fine for a true one-off; Accommodate is fine once, dangerous as a pattern. With a counterpart you will meet again, aim for Collaborate by trading across differing interests, not buying goodwill with concessions.</figcaption>
+</figure>
+
+<h3>Trust: how it is built and how it erodes</h3>
+
+<p>Soyer ran the class as a confessional: what kills your trust in someone, and what (if anything) brings it back. The answers, drawn from the room, cluster cleanly. Notice the asymmetry: the breakers are single, sharp acts; the rebuilders are slow and require the offender to do work.</p>
+
+<div class="twocol">
+<div>
+<h4>What breaches trust</h4>
+<ul>
+<li><b>Lying, even about something minor.</b> A small needless lie is a "wrecking ball": if they lie about this, what about the big things?</li>
+<li><b>No-shows and broken commitments,</b> especially repeated. Once with an apology is forgivable; four times is a pattern.</li>
+<li><b>Deflecting / never giving a straight answer.</b> A clear "no" is fine; refusing to answer is not.</li>
+<li><b>Not following through</b> on a promise.</li>
+<li><b>Throwing you under the bus:</b> agreeing a shared line, then deviating in front of the boss to dump the blame on you.</li>
+<li><b>Not reciprocating</b> when you went out of your way for them.</li>
+<li><b>Too good to be true:</b> the salesperson who promises the world. Soyer trusts these people <em>less</em>.</li>
+</ul>
+</div>
+<div>
+<h4>What rebuilds it</h4>
+<ul>
+<li><b>Explicit acknowledgement</b> (an "act of contrition"): saying out loud, plainly, that you did or did not do the thing.</li>
+<li><b>Shared understanding</b> of what went wrong: both sides hear each other's version. If the offender never acknowledges it, trust does not return.</li>
+<li><b>Consistency over time:</b> doing what you said, repeatedly, until the record speaks for itself.</li>
+<li><b>A second chance</b> (people do forget; using it as gentle leverage is fine).</li>
+<li><b>A common enemy:</b> "amazing" at re-bonding former opponents.</li>
+<li><b>Changing the people or the roles:</b> a fresh negotiator can rekindle trust two soured parties cannot.</li>
+<li><b>Changing the context:</b> a new city, a new financial year, "the game has changed."</li>
+<li><b>Transitive trust / vouching</b> and low-downside <b>test deals</b> to probe compatibility safely.</li>
+</ul>
+</div>
+</div>
+
+<div class="intuition">
+<span class="tag">🎙 In class</span>
+On repair: "If they don't acknowledge, that really kills trust. They have to acknowledge at least and tell you their story. But they have to listen to you." Acknowledgement plus mutual listening, not just an apology, is the mechanism.
+</div>
+
+<h4>THE TRUST GAME (the investment exercise)</h4>
+
+<p>To make the abstraction concrete, Soyer ran the classic behavioural-economics <b>trust (investment) game</b> live, in silent pairs, then with talking, then with the roles reversed.</p>
+
+<div class="wex">
+<span class="h">The trust game, rules and what happened</span>
+One player is the <b>Investor</b> (holds $10), the other the <b>Receiver</b>. The Investor secretly chooses how much of the $10 to send. Whatever is sent is <b>tripled</b> on the way over. The Receiver then chooses how much of that tripled sum to return. Game ends; totals are tallied.<br><br>
+<b>Round 1 (silent, one-shot, strangers):</b> with no relationship and no future, several investors sent $0 ("I don't know anybody, I'll give zero") and some receivers planned to return nothing. The pairs who did trust mostly landed on a fairness split: invest 10, receiver now holds 30, returns 15, both walk with 15+.<br><br>
+<b>Later rounds (talking allowed, repeated):</b> cooperation jumped once people could communicate and knew they would play again. Investors put more in; receivers reciprocated, often splitting fairly.<br><br>
+<b>Final round (roles reversed):</b> some receivers used their turn as Investor to <em>repay</em> earlier generosity ("I was unfair to you, let me be fair now"). Soyer's tell: "Some games are a repeatance, even if they seem not." The lesson he wanted: even a "last" round is rarely the last interaction, so reciprocate.
+</div>
+
+<div class="chain">
+<b>Why trust is hard in the one-shot game, and what fixes it</b><br>
+One-shot, anonymous, no communication <span class="arrow">→</span> the Receiver has no reason to return anything (no future, no relationship) <span class="arrow">→</span> the Investor anticipates this and sends $0 <span class="arrow">→</span> both end near $10 each, far below the $15+ they could have shared. Now add the fixes: <b>communication</b> lets you signal intent and agree a norm; <b>repetition</b> creates a shadow of the future where defecting today costs you tomorrow; <b>reciprocity</b> rewards the first mover so vulnerability pays. Each is exactly the lever you pull in a real relationship to move a counterpart from defect to cooperate.
+</div>
+
+<figure>
+<svg viewBox="0 0 620 150" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="11">
+  <g>
+    <rect x="10" y="50" width="120" height="46" rx="6" fill="#fff" stroke="#1f5fa8" stroke-width="1.5"/>
+    <text x="70" y="70" text-anchor="middle">Investor sends X</text>
+    <text x="70" y="86" text-anchor="middle" font-size="9.5">(of $10)</text>
+  </g>
+  <g>
+    <rect x="170" y="50" width="120" height="46" rx="6" fill="#fff" stroke="#13643c" stroke-width="1.5"/>
+    <text x="230" y="72" text-anchor="middle">X is tripled</text>
+    <text x="230" y="87" text-anchor="middle" font-size="9.5">receiver holds 3X</text>
+  </g>
+  <g>
+    <rect x="330" y="50" width="135" height="46" rx="6" fill="#fff" stroke="#1f5fa8" stroke-width="1.5"/>
+    <text x="397" y="70" text-anchor="middle">Receiver returns Y</text>
+    <text x="397" y="86" text-anchor="middle" font-size="9.5">(0 ≤ Y ≤ 3X)</text>
+  </g>
+  <g>
+    <rect x="505" y="50" width="105" height="46" rx="6" fill="#fff" stroke="#13643c" stroke-width="1.5"/>
+    <text x="557" y="70" text-anchor="middle">Pay-offs</text>
+    <text x="557" y="86" text-anchor="middle" font-size="9.5">10−X+Y · 3X−Y</text>
+  </g>
+  <g stroke="#444" stroke-width="1.4" fill="#444">
+    <line x1="130" y1="73" x2="168" y2="73"/><polygon points="168,73 160,69 160,77"/>
+    <line x1="290" y1="73" x2="328" y2="73"/><polygon points="328,73 320,69 320,77"/>
+    <line x1="465" y1="73" x2="503" y2="73"/><polygon points="503,73 495,69 495,77"/>
+  </g>
+  <text x="230" y="120" text-anchor="middle" font-size="10" fill="#13643c">tripling = the value trust creates</text>
+  <text x="397" y="120" text-anchor="middle" font-size="10" fill="#1f5fa8">reciprocity = whether it is shared</text>
+</svg>
+<figcaption>The investment game in one line. Sending money is the act of vulnerability; the triple is the surplus that mutual trust unlocks; the return is the reciprocity test. Numbers shown for the structure only, not the maths of the deal.</figcaption>
+</figure>
+
+<h3>Trust-eroding strategies (and how to defend)</h3>
+
+<p>Soyer's stance: "These are stuff that you do to others, well done; when other people do it to you, horrible." Know them so you can name them when they are used on you. Each has a defence, and the common thread of the defence is <em>ask why</em> and refuse to be rushed.</p>
+
+<table class="dt">
+<thead><tr><th>Tactic</th><th>What it looks like</th><th>Defence</th></tr></thead>
+<tbody>
+<tr><td><b>Arbitrary time limit</b></td><td>"This offer expires Friday." A deadline with no real basis, to panic you.</td><td>Ask for its legitimacy: why that date? Push back if there is no real reason.</td></tr>
+<tr><td><b>Take-it-or-leave-it</b></td><td>A flat ultimatum that shuts down dialogue.</td><td>"I thought we were negotiating." Reframe it back into a conversation.</td></tr>
+<tr><td><b>Good cop / bad cop</b></td><td>One hostile, one friendly, to make the friendly offer feel generous.</td><td>Route everything through the reasonable position: "What would the good cop say?" Name the routine if it is blatant.</td></tr>
+<tr><td><b>Nibbling</b></td><td>A small extra demand at the last minute, once you are committed and can't walk (Soyer's wedding-photographer story).</td><td>Ask for a matching concession in return, or reopen the whole deal: "If that's extra, this needs to be free."</td></tr>
+<tr><td><b>Ecstatic / exciting process</b></td><td>They keep you delighted and flattered until you sign.</td><td>Don't say "yes" because you feel good right now. Take a break, let the excitement drain, decide cold.</td></tr>
+<tr><td><b>Lack of authority</b></td><td>"I'd have to check with my boss," surfacing after you thought it was agreed, to reopen settled points.</td><td>Learn who the real decision-makers are <em>up front</em> so you don't renegotiate what you already closed.</td></tr>
+<tr><td><b>Bluffing</b></td><td>Claiming facts or pressure that may not be real.</td><td>Ask "why?"; ask questions you already know the answer to and gauge how much they embellish.</td></tr>
+<tr><td><b>Extreme anchor / highball</b></td><td>An absurd opening number to drag the midpoint.</td><td>Lowball back, call it, or dodge: "before we talk numbers, let's talk issues."</td></tr>
+<tr><td><b>Standard-contract claim</b></td><td>"It's our standard contract," meaning don't read it.</td><td>Read it at least twice. The claim is a signal to look harder, not relax.</td></tr>
+</tbody>
+</table>
+
+<div class="pitfall">
+<b>The extreme concession is a tell, not a gift.</b> If someone highballs you and then drops the price dramatically, that large concession reveals they were lying about the original number. Soyer counts it <em>against</em> them rather than feeling grateful for the "discount." A move that looks generous is often evidence of an inflated start.</div>
+
+<div class="pitfall">
+<b>Decoy issues: the fake priority.</b> The tactic Soyer says bothers him most is a counterpart who insists something is "really important" to them when it is not, so they can later "concede" it for something that actually matters. Defence: ask why it matters. If the reason does not hold up, they are playing you. (And, he admits, he sometimes mirrors it back when he senses it being done to him.)</div>
+
+<h3>Internal negotiations</h3>
+
+<p>The hardest negotiations are often the ones inside your own organisation: with a colleague, a peer, a boss, a direct report. The stakes feel personal, the relationship is permanent, and there is no clean BATNA (your <b>Best Alternative To a Negotiated Agreement</b>, your walk-away option) because you both still work there on Monday.</p>
+
+<div class="key">
+<b>Internal negotiations, issues and strategies</b>
+<ul>
+<li><b>Issue 1: people take it personally.</b> The line between the issue and the relationship blurs; a disagreement on substance gets read as a personal attack.</li>
+<li><b>Issue 2: office politics and power (im)balance.</b> Formal hierarchy, informal influence and history all sit on the table whether named or not.</li>
+<li><b>Be prepared:</b> recognise that an ordinary conversation may in fact be a negotiation, and treat it as one.</li>
+<li><b>Understand the legitimacy; ask why; check their KPIs.</b> A colleague's stance usually traces to what they are measured on. KPIs (Key Performance Indicators, the metrics their performance is judged against) reveal the underlying interest behind the position.</li>
+<li><b>Pause to make both parties think about the other side.</b> Deliberately force empathy in both directions before pushing for terms.</li>
+<li><b>Don't reach out to others only when you need something.</b> Relationships you only touch transactionally won't be there when you need them.</li>
+<li><b>Avoid trust-eroding strategies.</b> They are far more costly internally, where you cannot walk away from the counterpart.</li>
+</ul>
+</div>
+
+<div class="intuition">
+<span class="tag">🎙 In class</span>
+On the "only-when-in-need" habit, via Soyer's "good weather friends": "Whenever you're happy, they're there, and then you have a problem, bye-bye." The internal-negotiation version of the same warning: don't be the colleague who only appears when they want something.
+</div>
+
+<h3>The aggrieved-colleague dynamic (the internal role-play)</h3>
+
+<p>The case put a newly-promoted manager opposite a senior colleague who believes, with some justification, that he was wronged: he did much of the work the new role was built on, he was passed over, and he is bitter enough that he could quit or quietly sabotage. The relationship was <em>designed</em> to be bad. The teaching point is that even then, the substance was full of win-win, and the negotiators who reached good deals were the ones who refused to let the resentment dictate the outcome.</p>
+
+<div class="intuition">
+<span class="tag">🎙 In class</span>
+On the move that worked best, where a manager met aggression with composure: "It seems you killed him with kindness. I think this is how you become a leader. You don't have to take things personally; you can listen to them and see how things go before going attack mode." Disarm first, decide later.
+</div>
+
+<div class="wex">
+<span class="h">Handling a counterpart who feels wronged</span>
+Soyer contrasted two played-out versions. The bad one: the manager keeps asserting status ("as the new head of...") and pushing the agenda, which fuels the colleague's resentment and goes nowhere. The good one: the manager treats the hostility as a <em>symptom</em>, not an insult. When accused of stealing credit, instead of defending or retaliating she asks, calmly, "Why do you have this perception of me?", listens to the full grievance, thanks him for the honesty, and only then offers her side. The accusation deflates. As Soyer put it: "This is a symptom; let me learn what the problem is, then whether I want to solve it, we will see." She keeps every option open (including, later, parting ways), but she buys the information and the relationship first.
+</div>
+
+<div class="key">
+<b>Separate the person from the problem.</b> The colleague's anger is data about an unmet interest (recognition, fairness, status, a real disagreement on strategy), not a verdict on you. Acknowledging the grievance ("I hear that you feel passed over, and I can see why") is not the same as conceding the substance. You can validate the feeling, surface the interest beneath it, and still hold your line on the decision. Acknowledgement is cheap, it repairs the relationship, and it does not cost you the deal.
+</div>
+
+<div class="chain">
+<b>Why acknowledgement and apology repair a relationship</b><br>
+An aggrieved counterpart's first need is to be <em>heard</em>, not answered <span class="arrow">→</span> acknowledging the grievance and, where warranted, apologising signals respect and lowers the threat <span class="arrow">→</span> defensiveness drops, so they can move off the personal attack and onto the actual issue <span class="arrow">→</span> now the win-win that was always there becomes reachable. Skip the acknowledgement and they keep relitigating the personal slight, and the substance never gets a hearing.
+</div>
+
+<div class="key">
+<b>Reading, "Negotiating Your Way Out of Workplace Conflict" (INSEAD Knowledge, 2015).</b> The cluster's complementary reading on exactly this problem: turning an adversarial internal relationship back into a working one. The idea it anchors, consistent with the case, is that workplace conflict is best handled by addressing the relationship and the underlying interests directly rather than escalating, weaponising hierarchy, or avoiding the conversation. Apology, acknowledgement and a route back to collaboration beat winning the argument.
+</div>
+
+<div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this:</b> I only had the reading's title and source (it was on the additional-materials slide), not the article body, so the one-line characterisation above is inferred from the cluster theme, not quoted from the article. Confirm it matches what you actually read.</div>
+
+<div class="exam">
+<b>What Soyer rewards (and flags as a mistake), carry into the role-plays and the Negotiation Journal.</b>
+<ul>
+<li><b>Pursue joint gains first, then tackle the common obstacles.</b> He rewards negotiators who find the win-win before fighting; he flags leading with the contested point as the error.</li>
+<li><b>Don't consistently exchange substance for relationship.</b> Conceding once to repair a bond is fine; a pattern of buying goodwill with real value is the mistake he wants you to catch in yourself.</li>
+<li><b>Don't let a bad relationship get in the way of a good deal.</b> The whole case was built so resentment would derail you; he praised everyone who refused to let it. <b>Separate the person from the problem.</b></li>
+<li><b>Acknowledge before you answer.</b> With an aggrieved counterpart, listen, ask "why do you see me this way?", and acknowledge the grievance. He explicitly admires "killing them with kindness" and treating hostility as a symptom.</li>
+<li><b>Use contingent, trial-based agreements when trust is thin.</b> "You can't trust people in one meeting." He rewards deals made conditional (a trial period, KPIs to hit) rather than demanding everything be settled at once, and warns that AI feedback will wrongly mark down a deal for being incomplete.</li>
+<li><b>Check the other side's KPIs and legitimacy.</b> Ask why; trace their position to what they are measured on.</li>
+<li><b>Name trust-eroding tactics and defend with "ask why" and a break.</b> He rewards spotting nibbling, fake deadlines, good-cop/bad-cop, decoy issues; he flags being rushed or flattered into a yes.</li>
+<li><b>Build trust the slow way and rebuild it through acknowledgement.</b> Consistency over time, second chances, a common enemy; never a needless small lie.</li>
+<li><b>Don't reach out only when you need something.</b> Tend internal relationships before you need them.</li>
+<li><b>Experiment in the safe space and journal it.</b> Soyer repeatedly wished for "more fighting"; use the simulations to try moves (composure under attack, naming a tactic, a contingent offer) you would not risk at work, and record what fit you.</li>
+</ul>
+</div>
+
+<h2 id="l13">13–14 · Commitment &amp; Conclusions</h2>
+
+<p>This is the closing cluster and the course wrap-up. Soyer uses the final sessions to do three things: tighten the last stage of any deal (how you <em>commit</em>, so a "yes" becomes a durable, implementable agreement rather than a handshake that unravels); run one more case, the <b>Boost M6700 sales role-play</b>, precisely because money-heavy deals are the ones most likely to collapse into win-lose; and then flag the advanced terrain the course did not have time to case (virtual, multiparty, culture, gender, generation, career) before pulling the whole arc back to its spine. The Boost case was a sales negotiation between a seller ("John", a salesperson under quota pressure facing his second consecutive failure) and a buyer ("Cindy", a consulting firm with a roughly $210K budget for around 50 high-end laptops, with leasing and various discount schemes in play).</p>
+
+<div class="intuition">
+<span class="tag">Intuition: closing the deal</span>
+A negotiation is not finished when both sides nod. The last move is <em>commitment</em>, and it has its own failure modes: lock in too fast and you leave value (or sign something you regret); let the other side bolt on demands at the very end and the deal you thought you had quietly changes shape; agree verbally and "yes" turns out to mean different things to each of you. Treat the close as a stage to be planned, not a formality to rush through.
+</div>
+
+<div class="intuition">
+<span class="tag">🎙 In class</span>
+"Go into the money and get out of it. When you get stuck, get out of it, build a bit of relationship, and then come back to the money." Soyer's instruction for the whole sales case: the deal is 70–90% numbers, so you must deliberately step out of the numbers tunnel, repair the relationship, and step back in, rather than grinding price to exhaustion.
+</div>
+
+<h3>Commitment: speed, sequence, and the nature of the agreement</h3>
+
+<div class="intuition">
+<span class="tag">Intuition: well-planned commitment</span>
+"Well-planned commitment" is one of the seven elements of a win-win outcome. The point is that <em>how</em> and <em>when</em> you lock things in is itself a decision. A good agreement is one both sides can actually implement, that names who does what, and that survives contact with the future. A premature "yes" is worse than no yes, because now you are bound and still exposed.
+</div>
+
+<div class="key">
+<b>The three nuances of commitment</b>
+<ul>
+<li><b>Speed</b>: don't lock in under time pressure. The instinct at the end of a long, tiring deal is to seal it fast; that is exactly when you accept a worse package or skip the check that the other side means what you mean. Slow the close down.</li>
+<li><b>Sequence</b>: commit to the <em>whole package</em> at the end, not issue-by-issue along the way. Conceding and "agreeing" one variable at a time gives away your trades and lets the other side bank each win before the deal is balanced. Keep issues open and provisional until you can commit to the bundle.</li>
+<li><b>Nature of the agreement</b>: aim for a durable, implementable agreement, not just a verbal "yes". People think they agree and then discover they did not. Pin down what was actually agreed (and, in higher-stakes deals, put the key details in writing) so the commitment holds.</li>
+</ul>
+</div>
+
+<div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this:</b> the slide lists only the three words "speed, sequence, agreement" with no elaboration, and the transcript does not spell each one out separately. The three bullet definitions above are my reasonable reconstruction (cross-checked against the in-class material on time pressure, nibbling, and "people think they agree then it turns out they didn't"); confirm the gloss on "sequence" in particular matches how Soyer meant it.</div>
+
+<div class="chain">
+<b>Why premature commitment hurts</b><br>
+You feel time pressure or fatigue near the close <span class="arrow">→</span> you commit fast to "be done" <span class="arrow">→</span> you stop testing whether the other side's "yes" means the same as yours, and you stop looking for the trade that would have improved the package <span class="arrow">→</span> the agreement is either ambiguous (it falls apart in implementation) or simply worse than the one a slower close would have produced. The fix: separate "we're close" from "we're committed", and don't let the clock dictate the terms.
+</div>
+
+<div class="pitfall">
+<b>The end-game nibble: don't let new demands at the close re-write the deal.</b> A counterpart agrees on everything, then at the very end adds "and two more laptops, free." In the Boost case this broke several deals. The nibble works because you are psychologically already committed and don't want to lose the whole thing over a small ask. Soyer's menu of responses, none automatic: (1) <b>trade</b> for it ("you want that, then I want this"); (2) <b>push it to the next negotiation</b> ("fine this time, but I'll remember this", risky if the negotiator changes); (3) <b>show your resentment</b> without being offensive, so the move carries a cost; (4) <b>reopen the whole thing</b> ("if you're adding this at the last minute, let's renegotiate from scratch"), high-risk but legitimate for a deal you have to live with. The underlying rule: <b>the trust clock starts ticking the moment a promise is made.</b> If a demand or a promise lands that you can't honour, draw the line in the sand right there, before it sets.
+</div>
+
+<figure>
+<svg viewBox="0 0 640 170" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="11.5">
+  <line x1="40" y1="60" x2="600" y2="60" stroke="#444" stroke-width="1.4"/>
+  <polygon points="600,60 590,55 590,65" fill="#444"/>
+  <text x="40" y="48" font-size="10.5" fill="#555">discovery &amp; bargaining</text>
+  <text x="540" y="48" font-size="10.5" fill="#555">the close</text>
+  <!-- premature -->
+  <circle cx="300" cy="60" r="6" fill="#c0392b"/>
+  <text x="300" y="84" text-anchor="middle" fill="#c0392b" font-size="10.5">commit too fast</text>
+  <text x="300" y="98" text-anchor="middle" fill="#c0392b" font-size="9.5">(time pressure, fatigue)</text>
+  <text x="300" y="116" text-anchor="middle" fill="#c0392b" font-size="9.5">ambiguous / worse deal,</text>
+  <text x="300" y="129" text-anchor="middle" fill="#c0392b" font-size="9.5">exposed to nibbles</text>
+  <!-- well planned -->
+  <rect x="520" y="54" width="14" height="12" fill="#13643c"/>
+  <text x="527" y="84" text-anchor="middle" fill="#13643c" font-size="10.5">commit to the package</text>
+  <text x="527" y="98" text-anchor="middle" fill="#13643c" font-size="9.5">slowly, explicitly, durably</text>
+  <!-- break marker -->
+  <line x1="470" y1="40" x2="470" y2="135" stroke="#b58100" stroke-width="1.3" stroke-dasharray="5 4"/>
+  <text x="470" y="32" text-anchor="middle" fill="#b58100" font-size="10">slow down here</text>
+</svg>
+<figcaption>Commitment as a planned stage. Provisional through the middle, deliberate at the end: keep issues open until you can lock the whole bundle, slowly and explicitly.</figcaption>
+</figure>
+
+<h3>Discuss multiple issues simultaneously, not one at a time</h3>
+
+<div class="intuition">
+<span class="tag">Intuition: put everything on the table at once</span>
+If you settle issues one by one in sequence, each becomes a mini tug-of-war with a winner and a loser, and you can never trade across them. Put several issues on the table together and you can give ground on what you value cheaply in exchange for what you value highly. Simultaneous discussion is what makes "create then claim" mechanically possible.
+</div>
+
+<div class="key">
+<b>Simultaneous vs sequential bargaining</b>: discuss various issues together rather than closing them one at a time. In Boost this meant combining variables: some units bought and some leased, a mix of laptop models (not the top spec for everyone), payment timing, delivery, plus the buyer's repeat-purchase relationship. Each variable opened a trade that a single price fight would have missed. Sequential, single-issue bargaining collapses the deal to a series of zero-sum splits; simultaneous discussion turns it into a search for the package that clears both sides' interests.
+</div>
+
+<div class="chain">
+<b>Why simultaneous beats sequential</b><br>
+You and the other side value the various issues differently <span class="arrow">→</span> if all issues are open at once, you can swap a concession on something cheap to you for a gain on something cheap to them <span class="arrow">→</span> the package grows in total value <span class="arrow">→</span> both sides can land above their walk-away point. Settle issue-by-issue and each one is split in isolation, so the trades never appear and the pie is never grown.
+</div>
+
+<div class="twocol">
+<div>
+<h4>Sequential (single-issue)</h4>
+<figure>
+<svg viewBox="0 0 270 150" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="10.5">
+  <g fill="#fff" stroke="#c0392b" stroke-width="1.4">
+    <rect x="20" y="20" width="100" height="26" rx="4"/>
+    <rect x="20" y="58" width="100" height="26" rx="4"/>
+    <rect x="20" y="96" width="100" height="26" rx="4"/>
+  </g>
+  <text x="70" y="37" text-anchor="middle">price → split</text>
+  <text x="70" y="75" text-anchor="middle">delivery → split</text>
+  <text x="70" y="113" text-anchor="middle">volume → split</text>
+  <g stroke="#c0392b" stroke-width="1.3" fill="#c0392b">
+    <line x1="70" y1="46" x2="70" y2="56"/><polygon points="70,58 66,50 74,50"/>
+    <line x1="70" y1="84" x2="70" y2="94"/><polygon points="70,96 66,88 74,88"/>
+  </g>
+  <text x="190" y="75" text-anchor="middle" fill="#c0392b" font-size="9.5">each issue a</text>
+  <text x="190" y="88" text-anchor="middle" fill="#c0392b" font-size="9.5">separate win/lose;</text>
+  <text x="190" y="101" text-anchor="middle" fill="#c0392b" font-size="9.5">no trades possible</text>
+</svg>
+<figcaption>One issue closed, then the next. Nothing to trade across.</figcaption>
+</figure>
+</div>
+<div>
+<h4>Simultaneous (multi-issue)</h4>
+<figure>
+<svg viewBox="0 0 270 150" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="10.5">
+  <rect x="15" y="20" width="240" height="105" rx="6" fill="#13643c" fill-opacity="0.07" stroke="#13643c" stroke-dasharray="4 3"/>
+  <g fill="#fff" stroke="#13643c" stroke-width="1.4">
+    <rect x="30" y="34" width="80" height="24" rx="4"/>
+    <rect x="160" y="34" width="80" height="24" rx="4"/>
+    <rect x="30" y="90" width="80" height="24" rx="4"/>
+    <rect x="160" y="90" width="80" height="24" rx="4"/>
+  </g>
+  <text x="70" y="50" text-anchor="middle">price</text>
+  <text x="200" y="50" text-anchor="middle">lease/buy</text>
+  <text x="70" y="106" text-anchor="middle">model mix</text>
+  <text x="200" y="106" text-anchor="middle">timing</text>
+  <g stroke="#13643c" stroke-width="1.2">
+    <line x1="110" y1="46" x2="160" y2="46"/>
+    <line x1="110" y1="102" x2="160" y2="102"/>
+    <line x1="70" y1="58" x2="70" y2="90"/>
+    <line x1="200" y1="58" x2="200" y2="90"/>
+  </g>
+  <text x="135" y="135" text-anchor="middle" fill="#13643c" font-size="9.5">all open at once → trade across</text>
+</svg>
+<figcaption>All variables live together, so concessions on one fund gains on another.</figcaption>
+</figure>
+</div>
+</div>
+
+<h3>Sales negotiations (the Boost M6700 case)</h3>
+
+<p>Soyer ran a sales case last on purpose: it is the negotiation type where the slide says "financials play a large role, easy to get into win-lose", and both sides are anxious about leaving money on the table. The behaviour the class produced (90% of the discussion was numbers, half the deals went to a lease just to hit the seller's KPI, several broke on an end-game nibble) is exactly what makes sales the sternest test of everything taught earlier.</p>
+
+<div class="intuition">
+<span class="tag">Intuition: sales is win-lose by default</span>
+When the headline is a price, both sides assume every euro you gain is a euro they lose, so the deal slides into combat. The job is to resist that gravity: bring in the other issues, find the other side's real interests behind the budget, and keep the relationship alive through the number-fight, because most sales relationships repeat.
+</div>
+
+<div class="key">
+<b>Sales negotiations: issues and strategies (slide)</b>
+<ul>
+<li><b>Issues.</b> Financials dominate, so it is easy to slip into win-lose; both parties are anxious about leaving money on the table.</li>
+<li><b>Beware anchors, nudges and psychological tricks.</b> There will be manipulation; keep returning to your main objectives and interests.</li>
+<li><b>Know what you're buying / selling</b>: and the market and the alternatives. Familiarise yourself with the product; Soyer: "I buy musical instruments and I hate the people selling them, they don't know what they're selling."</li>
+<li><b>Estimate the other side's interests beyond budget.</b> The salesperson has KPIs and quotas; the buyer has constraints and a career; talk relationship and come back to it.</li>
+<li><b>Don't enter bargaining too early</b> (it is hard to get out). Build relationship and understanding first; be a little cagey about your number early on.</li>
+<li><b>Discuss various issues simultaneously, not sequentially.</b> Mix lease and buy, models, timing.</li>
+<li><b>Money can take many forms and schedules.</b> Discounts, commission given as a discount, leasing, staged payment, delivery terms, bundling.</li>
+</ul>
+</div>
+
+<div class="intuition">
+<span class="tag">🎙 In class</span>
+"I would acknowledge that I'm a seller and you're a buyer... I don't want to start with numbers. Can you tell me about your company and your vision? And I'd like to know you as a person." Soyer's model open for the seller: roughly 10 minutes on the company and the individual, 5 minutes on his own situation, and only then "now we're going into numbers, but let's not get stopped by numbers", naming the bargaining phase before entering it.
+</div>
+
+<div class="pitfall">
+<b>Anchors.</b> An anchor is an opening number that drags the whole discussion toward itself. In sales it is everywhere, so notice it and hold your objectives. And if <em>you</em> anchor hard, legitimise it: "It's not recommended that you do extreme anchors. If you're going to, you should legitimise even the extreme anchor." An unjustified extreme number ("I want one million") makes the other side think you are bluffing, which "contaminates your other statements" and damages your reputation inside the negotiation. Equally, when you move off your anchor, legitimise the move ("I can do 20% off because this is part of a bigger, longer relationship"), or the other side learns that your numbers are arbitrary. Soyer is openly irritated by a counterpart who just says "I'll pay 80" with no reason: "give me why; that's not negotiation."
+</div>
+
+<div class="pitfall">
+<b>Nudges.</b> A nudge steers your choice without an argument: "experts like you are buying this." It exploits the seller's information advantage about the product. Countering nudges is genuinely hard ("we gave a Nobel Prize to nudging in 2017"); the defence is two-step: (1) <b>notice</b> you are being nudged, then (2) <b>go back to your objectives.</b> Soyer: "It's like having a shopping list when you go to a supermarket. If you don't, you buy stuff because it's at eye level, because it smells nice. Go back to your shopping list, always." This is the practical reason the preparation tool exists: you write your interests down so you can return to them mid-fight. Note nudges cut both ways: a buyer can build a three-band menu (premium / standard / basic) so the seller's choice reveals their budget without ever being asked, an "elaborate nudge".
+</div>
+
+<div class="pitfall">
+<b>Other psychological tricks, and the "judgment from AI" trap.</b> Don't badmouth a competitor outright: as a seller you have skin in the game, so trashing rivals reads as a cheap sales move and erodes trust ("you're not an independent evaluator"). Better to be honest about a real trade-off and <em>show</em> rather than tell (the live demo beats the assertion). And don't outsource your judgment to a single AI mid-deal: a student asked one model "would management accept this lease?" and got a flat "no". Soyer's warning: you asked an AI "for a judgment, not for a competition", and it doesn't know what you actually want, and on a real (unwritten) deal it can hallucinate constraints. Use AI to compute quickly; never to decide.
+</div>
+
+<div class="wex">
+<span class="h">Boost M6700 debrief: what actually happened</span>
+Roughly 90% of the discussion was price. The deals that worked mostly used <b>leasing</b>, because a lease was the only way for the seller to hit his KPI given the budget gap. Several deals <b>broke on a nibble</b> (a buyer adding "two more, free" at the very end). The seller's hidden facts, revealed at the end: John is under brutal quota pressure (second consecutive miss means he is out), so a commission can be given back to the buyer as a discount, and he has a past reputation for inflating list prices, which the buyer could legitimately raise as a trust issue (almost nobody did). Soyer's praise went to the pair who stepped out of numbers mid-deal to ask "what are you actually trying to get out of this?" and learned the seller wanted a Southeast Asia base, surfacing a non-price trade.
+</div>
+
+<div class="key">
+<b>"Money can take many forms and schedules."</b> The headline price is only one variable. Commission can be returned as a discount; a purchase can become a lease; payment can be staged or deferred; delivery can be immediate, warehouse-pickup, or three weeks; a repeat-purchase commitment can buy a better price now. Because each of these is valued differently by the two sides, every one of them is a potential trade, which is why the close in a sales deal should be a package, not a number.
+</div>
+
+<div class="pitfall">
+<b>Don't be too transparent about your number too early.</b> A student asked: if the gap is huge, why not just show the budget sheet? Soyer's answer: in this classroom case there is a real piece of paper with a final number, so you can. In real life there is no such paper, so if you declare "this is all I have" and then budge even slightly, "I know you're lying about everything now." Be cagey about your number early; reveal interests and constraints first, hard figures later.
+</div>
+
+<h3>Further issues Soyer flags for the future</h3>
+
+<p>The course could not run cases on these (an advanced negotiation class owns that), so Soyer covered them as advice. Each gets the key risk and the adjustment.</p>
+
+<div class="key">
+<b>Virtual</b>: risk: thinner relationship signal over a screen. Adjustment: use it the other way. Soyer treats Zoom as a relationship-<em>builder</em>: his bookshelf, a DeLorean model, a cat wandering in become genuine conversation hooks he could never deploy in a suit across a table. Plus the tooling (auto-summaries) reduces the communication gap. Virtual has real advantages if you use the medium deliberately.
+</div>
+
+<div class="key">
+<b>Multiparty</b>: risk: alliances form that don't exist in two-party deals. Adjustment: the number-one rule is to decide first, <b>are you the designer of the process or a player?</b> If designer, shape the process to your benefit and to prevent the other parties forming coalitions against you. If a player, find out who the designer is, understand the process, and negotiate the process itself (e.g. "I want to talk to you before we all meet"). Mind the process at all times.
+</div>
+
+<div class="key">
+<b>Culture</b>: risk: a style clash read as rudeness, or as a tactic. Adjustment: distinguish country, company and even industry culture (tech vs banking vs consulting all differ), and adapt to the other side. Soyer's rule of thumb: when power is roughly balanced, both sides drift toward the average (e.g. a 5-minute small talk compromise). Examples raised: Germans direct vs Swedes opening with extended small talk; Gulf deals that take months of relationship-building vs transactional US deals; Chinese deals done over dinner and historically over drinking; Indian business email that is terse where Western email is warm. One caveat: he treats <em>punctuality</em> as "a bit above culture", so be timely regardless.
+</div>
+
+<table class="dt">
+<thead><tr><th>Culture dimension</th><th>What varies</th><th>Adjustment</th></tr></thead>
+<tbody>
+<tr><td><b>Pace / relationship time</b></td><td>Gulf deals can take months; US is transactional and fast.</td><td>If you need them, follow their timeline; you usually can't accelerate it by force.</td></tr>
+<tr><td><b>Small talk</b></td><td>Swedes open with extended small talk; Germans go straight to the point.</td><td>Meet near the average when power is balanced; don't read it as a stalling tactic.</td></tr>
+<tr><td><b>Setting &amp; ritual</b></td><td>Chinese deals often done over dinner / (historically) drinking.</td><td>Adapt and join in; pace yourself, never drink too much ("this is not a social occasion").</td></tr>
+<tr><td><b>Communication tone</b></td><td>Indian business email is to-the-point; Western email uses warmth, emoji, "!".</td><td>A little warmth travels well and builds likeability.</td></tr>
+<tr><td><b>Time / punctuality</b></td><td>Norms on lateness differ widely.</td><td>Soyer's exception: be punctual anyway; treat this as above culture.</td></tr>
+</tbody>
+</table>
+
+<div class="key">
+<b>Gender</b>: risk: an asymmetric perception bias. The same assertiveness that reads as "he cares" in a man can read as "she's emotional / too demanding" in a woman; older counterparts may dismiss a woman upfront. Adjustment: Soyer notes the gap has narrowed a lot (women now negotiate much more, and on average prepare better and are less overconfident, which helps), but the perception bias persists, so a woman often has to manage it actively, lean on the authority of her role, and pivot to the relationship to get past an upfront dismissal.
+</div>
+
+<div class="key">
+<b>Generation</b>: risk: a style mismatch (phone calls vs messaging) sours the start. Adjustment: don't let it. Older negotiators may carry ego or a midlife-crisis "I'll beat the next generation" streak, so don't take friction personally; you can even play it to advantage ("I'm learning from you") since people like to feel they are teaching.
+</div>
+
+<div class="key">
+<b>Career</b>: flagged only as a pointer: there is a dedicated mini-course on negotiating your career (and an Advanced Negotiation course) for anyone who wants to go further.
+</div>
+
+<h3>Course wrap-up: the spine of everything</h3>
+
+<p>Soyer closed by pulling the whole course back to a handful of through-lines that recur in every session and every case.</p>
+
+<div class="key">
+<b>The spine of the course</b>
+<ul>
+<li><b>Win-win vs win-lose is a choice, not a personality.</b> Both carry risks and rewards; you decide which game to play, and you can change the game.</li>
+<li><b>Interests over positions.</b> Question stated demands back to the underlying needs; that is where trades live.</li>
+<li><b>Create, then claim.</b> Grow the pie (discover differing interests, discuss issues simultaneously) before dividing it.</li>
+<li><b>The 7 Elements as the standard.</b> Interests, alternatives (BATNA), options, legitimacy, commitment, relationship, communication: the checklist for a win-win outcome and the lens for learning from any deal. (BATNA = your best alternative to a negotiated agreement, your main source of power.)</li>
+<li><b>Process and relationship carry the substance.</b> Build relationship first, take breaks, go in and out of the numbers, and protect the relationship because most negotiations repeat.</li>
+</ul>
+</div>
+
+<div class="intuition">
+<span class="tag">🎙 In class</span>
+"Use the 7 elements beyond this course. This is not a gimmick. We use this in real life with teams. Teach it to your team members, make them prepare your negotiation using the 7 elements." Soyer's closing instruction: the framework is a working tool, not an exam artefact, and preparation is where it pays off.
+</div>
+
+<div class="exam">
+<b>What Soyer rewards, what he flags as a mistake, and what to carry into the role-plays and the Negotiation Journal.</b>
+<ul>
+<li><b>Plan the commitment.</b> He rewards a deliberate close: <b>slow down</b> under time pressure, <b>commit to the package</b> not issue-by-issue, and make the agreement durable and explicit. He flags the premature "yes" and the unguarded end-game nibble as classic mistakes.</li>
+<li><b>Go in and out of the numbers.</b> He explicitly praises pairs who left the price tunnel to rebuild relationship and surface a non-price interest; he flags "grind, grind, grind" on price as the error.</li>
+<li><b>In sales, return to your objectives.</b> He rewards spotting anchors and nudges and going back to your "shopping list"; he flags entering bargaining too early, badmouthing competitors, and outsourcing judgment to a single AI.</li>
+<li><b>Legitimise every number.</b> Both your anchor and every move off it need a reason; he is visibly irritated by unjustified figures.</li>
+<li><b>Estimate the other side's interests beyond the budget</b>, and remember money takes many forms and schedules; he rewards bundling, leasing, staged payment, repeat-business trades.</li>
+<li><b>Experiment in this safe space.</b> He urges trying tactics you would never risk in real life (nibble, anti-nibble, the "no" exercise of deliberately seeking a refusal) and recording what fit you.</li>
+<li><b>For the Negotiation Journal (deadline 12 June):</b> Soyer's closing brief is to reflect across the <em>whole</em> course on what you want to keep doing and what you want to stop, run your experience through the 7 Elements, and (today, before leaving) give your counterpart one piece of feedback on what you would each do differently. The journal is graded reflection, not a write-up of who won.</li>
+</ul>
+</div>
+
+
+<h2 class="part">Reference</h2>
+
+<h2 id="cases">Case-type playbooks</h2>
+<p>Soyer&rsquo;s own situational checklists (from the course summary deck). Each role-play in the course exercised one of these. Same 7 Elements underneath, but the <em>typical issues</em> and the <em>moves that work</em> shift by situation.</p>
+
+<h4>Contract negotiations</h4>
+<div class="key"><p><b>Typical issues:</b> both sides can take things personally; power imbalance. <b>Moves that work:</b> treat all contracts as negotiable; prefer a <em>draft</em> over the lawyers&rsquo; &ldquo;standard&rdquo; contract; use the negotiation to test the subsequent collaboration; think realistically about what could go wrong; assume the contact person can change, so put contingencies in writing (if-then).</p></div>
+
+<h4>Job negotiations <span style="font-weight:400;text-transform:none;color:var(--soft)">(the WABTY role-play)</span></h4>
+<div class="key"><p><b>Typical issues:</b> one side takes it more personally; power imbalance and &ldquo;standards&rdquo;. <b>Moves that work:</b> don&rsquo;t underestimate likeability; avoid early positions and treating the offer as the only goal; the main task is finding the other side&rsquo;s <em>constraints and flexibilities</em>; salary is not the whole deal; reveal the intent behind tough questions; treat the negotiation as a trial run of the working relationship.</p></div>
+
+<h4>Partnership negotiations <span style="font-weight:400;text-transform:none;color:var(--soft)">(the PrimeGeo role-play)</span></h4>
+<div class="key"><p><b>Typical issues:</b> both sides take it personally (family?), are over-optimistic, and carry baggage with no standards to anchor on. <b>Moves that work:</b> hold a yearly vision-and-objectives meeting (especially on finances); put key details of the shareholder agreement in writing; solve the key relationship issues <em>before</em> the substance; keep an eye on fairness (damage can be irreversible); communicate carefully when things heat up; either prevent escalations or agree de-escalation rules in advance.</p></div>
+
+<h4>Cooperation negotiations</h4>
+<div class="key"><p><b>Typical issues:</b> bottled-up frustrations; power imbalance. <b>Moves that work:</b> anchor on the possible <em>future</em>, not the past; don&rsquo;t let a bad start ruin a possible deal; assume there will be emotional reactions; understand the internal politics; beware weaponising your BATNA too early; use breaks and different people to keep ideas fresh; give and get frequent feedback and agree a communication style; preserve the working relationship and build a better model going forward.</p></div>
+
+<h4>Internal negotiations <span style="font-weight:400;text-transform:none;color:var(--soft)">(the Indonesia role-play)</span></h4>
+<div class="key"><p><b>Typical issues:</b> people take it personally (issue vs relationship); office politics and power imbalance. <b>Moves that work:</b> be prepared, because you may be in a negotiation without realising it; understand the other side&rsquo;s legitimacy, ask why, check their <b>KPIs</b> to find the underlying interest; pause to make both parties think about the other side; don&rsquo;t reach out only when you need something; avoid trust-eroding tactics.</p></div>
+
+<h4>Sales negotiations <span style="font-weight:400;text-transform:none;color:var(--soft)">(the Boost M6700 role-play)</span></h4>
+<div class="key"><p><b>Typical issues:</b> financials dominate, so it is easy to slip into win-lose; both sides are anxious about leaving money on the table. <b>Moves that work:</b> beware anchors, nudges and psychological tricks; know what you are buying and selling (and the market and alternatives); estimate the other side&rsquo;s interests beyond budget; don&rsquo;t enter bargaining too early; discuss several issues simultaneously, not one at a time; remember money can take many forms and schedules (terms, timing, bundling).</p></div>
+
+<h2 id="glossary">Glossary &amp; the myths Soyer flags</h2>
+<h4>Core terms</h4>
+<table class="dt">
+<tr><th>Term</th><th>Definition</th></tr>
+<tr><td><b>BATNA</b></td><td>Best Alternative To a Negotiated Agreement, your walk-away and main source of power.</td></tr>
+<tr><td><b>Reservation price</b></td><td>The worst deal you would still accept.</td></tr>
+<tr><td><b>Aspiration price</b></td><td>Your ambitious, justifiable target outcome.</td></tr>
+<tr><td><b>ZOPA</b></td><td>Zone Of Possible Agreement, the overlap of the two reservation prices.</td></tr>
+<tr><td><b>Distributive / integrative</b></td><td>Fixed-pie, single-issue bargaining vs expandable-pie, multi-issue problem-solving.</td></tr>
+<tr><td><b>Position / interest</b></td><td>What they demand vs the underlying reason they demand it.</td></tr>
+<tr><td><b>Anchoring</b></td><td>The pull of the first number named; first offers shape the whole range.</td></tr>
+<tr><td><b>Partisan perception</b></td><td>The bias by which each side reads the same ambiguous facts in its own favour.</td></tr>
+<tr><td><b>Legitimacy</b></td><td>External standards / fairness norms that make a deal feel justified.</td></tr>
+<tr><td><b>The nibble</b></td><td>A small extra ask made just as the deal is closing, when you are reluctant to reopen it.</td></tr>
+</table>
+<h4>Myths Soyer explicitly debunks</h4>
+<div class="pitfall"><p><b>Don&rsquo;t believe the myths.</b></p>
+<ul>
+<li><b>&ldquo;Negotiations are either win-win or win-lose.&rdquo;</b> No: those are <em>choices</em> with risks and rewards, not fixed labels. Stop labelling, start choosing.</li>
+<li><b>&ldquo;Win-win needs common goals / friendship.&rdquo;</b> No: common goals are not necessary. Win-win means satisfying interests better than the alternatives, even between rivals.</li>
+<li><b>&ldquo;It always comes down to price.&rdquo;</b> No: reducing a deal to one number is what creates win-lose; almost always there are other issues to trade.</li>
+<li><b>&ldquo;A tough reputation pays off.&rdquo;</b> It has real costs (information flow, future deals), not just benefits.</li>
+<li><b>&ldquo;Brainstorming is always good.&rdquo;</b> Brainstorm negotiating carries risks (premature anchoring, leaking, false consensus).</li>
+</ul>
+</div>
+
+<h2 id="readings">Key readings</h2>
+<p>The course&rsquo;s practitioner readings, curated to the load-bearing pieces and grouped by session. <span class="rtag core">Core</span> marks the article that carries a session&rsquo;s key idea. Each links out to the original (most are public INSEAD Knowledge or HBR articles). Falc&atilde;o&rsquo;s VN Handbook chapters, the course&rsquo;s formal reading, are deliberately excluded here: they were background, not what the teaching was built on.</p>
+
+<h4>Introduction &amp; fundamentals (S1&ndash;2)</h4>
+<div class="read"><b><a href="https://knowledge.insead.edu/strategy/stop-labelling-negotiations-win-win-or-win-lose" target="_blank" rel="noopener">Stop Labelling Negotiations as Win-Win or Win-Lose</a></b><span class="rtag core">Core</span><span class="meta">INSEAD Knowledge, 2022 &middot; the framing for the whole course</span><br>The argument behind Soyer&rsquo;s opening: win-win and win-lose are not types of negotiation, they are strategic choices, each with risks and rewards. Stop diagnosing, start deciding.</div>
+<div class="read"><b>Negotiation Analysis: An Introduction</b><span class="meta">M. A. Wheeler, HBS Note 801-156</span><br>The standard analytical primer: BATNA, reservation price, ZOPA, distributive vs integrative. The vocabulary the Basics slides compress.</div>
+<div class="read"><b>Negotiation Styles: The Impact on Bargaining Transactions</b><span class="meta">C. B. Craver, Dispute Resolution Journal, 2003</span><br>Competitive vs cooperative styles and how they interact: useful context for the battle-vs-puzzle mindset contrast.</div>
+
+<h4>Success &amp; the 7 Elements (S3&ndash;4)</h4>
+<div class="read"><b><a href="https://knowledge.insead.edu/strategy/seven-myths-win-win-negotiations" target="_blank" rel="noopener">The Seven Myths of Win-Win Negotiations</a></b><span class="rtag core">Core</span><span class="meta">INSEAD Knowledge, 2014</span><br>Clears away what win-win is <em>not</em> (splitting evenly, friendship, soft concessions) so the 7 Elements can define what it actually is.</div>
+<div class="read"><b><a href="https://knowledge.insead.edu/leadership-organisations/common-goals-not-necessary-win-win-negotiations" target="_blank" rel="noopener">Common Goals Not Necessary for Win-Win Negotiations</a></b><span class="meta">INSEAD Knowledge, 2016</span><br>You can reach a win-win with someone whose goals oppose yours: it is about satisfying interests better than the alternatives, not about agreeing.</div>
+
+<h4>Value discovery &amp; claiming (S5&ndash;6)</h4>
+<div class="read"><b><a href="https://hbr.org/2014/04/15-rules-for-negotiating-a-job-offer" target="_blank" rel="noopener">15 Rules for Negotiating a Job Offer</a></b><span class="rtag core">Core</span><span class="meta">D. Malhotra, HBR, 2014 &middot; the WABTY spine</span><br>The job-negotiation playbook the WABTY case rewards: likeability matters, find their constraints, the whole package beats the salary number.</div>
+<div class="read"><b><a href="https://knowledge.insead.edu/career/negotiations-should-never-come-down-price" target="_blank" rel="noopener">Negotiations Should Never Come Down to Price</a></b><span class="meta">INSEAD Knowledge, 2016</span><br>Why collapsing a deal to a single number manufactures win-lose, and how to re-expand it to multiple issues.</div>
+<div class="read"><b><a href="https://knowledge.insead.edu/strategy/turning-no-maybe" target="_blank" rel="noopener">Turning a &ldquo;No&rdquo; into a &ldquo;Maybe&rdquo;</a></b><span class="meta">INSEAD Knowledge, 2013</span><br>Treating a refusal as information about constraints rather than a wall: the engine of the journal&rsquo;s &ldquo;No&rdquo; exercise.</div>
+
+<h4>Communication &amp; process (S7&ndash;8)</h4>
+<div class="read"><b><a href="https://hbr.org/2007/09/investigative-negotiation" target="_blank" rel="noopener">Investigative Negotiation</a></b><span class="rtag core">Core</span><span class="meta">D. Malhotra &amp; M. Bazerman, HBR, 2007</span><br>Negotiate like a detective: question, probe and listen for the <em>why</em> before you bargain. The discipline behind closing the communication gap.</div>
+<div class="read"><b>Keeping Your Cool in Negotiations</b><span class="meta">D. M. Kolb, 2004</span><br>Managing emotion in the room: emotions are information, not noise to suppress.</div>
+<div class="read"><b><a href="https://knowledge.insead.edu/strategy/does-tough-reputation-pay-negotiations" target="_blank" rel="noopener">Does a Tough Reputation Pay Off in Negotiations?</a></b><span class="meta">INSEAD Knowledge, 2018</span><br>The hidden costs of being known as a hard bargainer: it changes what information flows to you and whether there is a next deal.</div>
+
+<h4>Fairness &amp; teams (S9&ndash;10)</h4>
+<div class="read"><b><a href="https://knowledge.insead.edu/strategy/truth-about-lies-negotiations" target="_blank" rel="noopener">The Truth About Lies in Negotiations</a></b><span class="rtag core">Core</span><span class="meta">INSEAD Knowledge, 2018</span><br>Lies of commission vs omission and where the ethical line on &ldquo;creative&rdquo; tactics actually sits.</div>
+<div class="read"><b><a href="https://knowledge.insead.edu/strategy/risks-brainstorm-negotiating" target="_blank" rel="noopener">The Risks of Brainstorm Negotiating</a></b><span class="meta">INSEAD Knowledge, 2016</span><br>Why generating options together can backfire (anchoring, leakage, false consensus) and how to do it safely.</div>
+<div class="read"><b><a href="https://knowledge.insead.edu/responsibility/art-deal-ethics-picture" target="_blank" rel="noopener">The Art of the Deal: Is Ethics in the Picture?</a></b><span class="meta">INSEAD Knowledge, 2011</span><br>The fairness lens on tactics: just because a move works does not make it legitimate.</div>
+
+<h4>Relationship &amp; trust (S11&ndash;12)</h4>
+<div class="read"><b><a href="https://knowledge.insead.edu/leadership-organisations/negotiating-your-way-out-workplace-conflict" target="_blank" rel="noopener">Negotiating Your Way Out of Workplace Conflict</a></b><span class="rtag core">Core</span><span class="meta">INSEAD Knowledge, 2015 &middot; the Indonesia theme</span><br>Handling an aggrieved internal counterpart: separate the person from the problem, check KPIs for the real interest, repair before you bargain.</div>
+<div class="read"><b>Dealing with Difficult People</b><span class="meta">M. Bazerman et al., PON Report, 2013</span><br>Tactics for counterparts who take things personally or negotiate in bad faith.</div>
+
+<h4>Commitment &amp; conclusions (S13&ndash;14)</h4>
+<div class="read"><b><a href="https://knowledge.insead.edu/strategy/dont-let-time-pressure-dictate-your-options" target="_blank" rel="noopener">Don&rsquo;t Let Time Pressure Dictate Your Options</a></b><span class="rtag core">Core</span><span class="meta">INSEAD Knowledge, 2018</span><br>Deadlines are often softer and more manufactured than they feel: a warning for the commitment stage and for sales pressure.</div>
+<div class="read"><b><a href="https://knowledge.insead.edu/strategy/does-eating-together-improve-negotiations" target="_blank" rel="noopener">Does Eating Together Improve Negotiations?</a></b><span class="meta">INSEAD Knowledge, 2018</span><br>A behavioural-science aside in Soyer&rsquo;s style: small situational choices (sharing a meal) shift cooperation.</div>
+
+<p class="sm" style="color:#555;margin-top:12px;">Selection notes: curated from the &ldquo;additional materials&rdquo; lists in the course decks, trimmed to the load-bearing pieces per session. Links go to the public originals (INSEAD Knowledge and HBR); the HBS note (Wheeler), Craver and Kolb pieces and the PON report are library or course-pack items without a stable public URL, so they are named but not linked. The VN Handbook chapters are excluded by design. Per-reading synthesis pages can be added later if useful.</p>
+
+<div class="footer">
+<p><strong>Negotiations &middot; course knowledge page.</strong> Built from the Session 1&ndash;14 lecture slides and in-class transcripts (Prof. Emre Soyer, INSEAD), plus the course summary deck and the 7 Elements preparation sheet. Falc&atilde;o&rsquo;s VN Handbook chapters were treated as background only, not synthesised. Diagrams redrawn as SVG. Sessions 9&ndash;10 had no class recording, and the Sessions 7&ndash;8 recording was corrupted by a transcription bug, so those two blocks lean on the slide decks (flagged with &starf;). Open in a browser; print to PDF via &#8984;P.</p>
+</div>
+
+</main>
+</div>
+</body>
+</html>

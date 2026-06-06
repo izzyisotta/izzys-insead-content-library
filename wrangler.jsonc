@@ -1,6 +1,7 @@
 {
-  // Static-assets-only Worker: serves the HTML files in this folder, no server code.
+  // Worker runs first (run_worker_first) to check a password, then serves the static files.
   "name": "izzys-insead-content-library",
+  "main": "worker.js",
   "compatibility_date": "2026-06-06",
-  "assets": { "directory": "./" }
+  "assets": { "directory": "./", "binding": "ASSETS", "run_worker_first": true }
 }

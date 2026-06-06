@@ -167,7 +167,7 @@
 <li><strong>Then drill the <a class="up" href="#chains">mechanism chains</a>.</strong> The exam is reasoning, not arithmetic — it rewards getting the causal chain right.</li>
 <li><strong>To practise, switch to the <a class="up" href="MGE%20%E2%80%94%20Exam%20Drills.html">Exam Questions</a> page</strong> (toggle, top-left): every past-paper question grouped by recurring archetype, each with a model answer, plus a playbook for how to attack each type.</li>
 </ul>
-<div class="eyeball"><span class="star">★</span><b>Isabella — eyeball this:</b> wherever you see this pink flag, it marks something I'm not 100% sure about and want you to sanity-check as you go (mostly hand-drawn diagrams I positioned by calculation rather than by eye, plus one convention the slides themselves were inconsistent on). Search the page for "★" to jump between them.</div>
+<div class="eyeball"><span class="star">★</span><b>Isabella — eyeball this:</b> wherever you see this pink flag, it marks something I'm not 100% sure about and want you to sanity-check as you go (a hand-drawn diagram I positioned by calculation rather than by eye). Search the page for "★" to jump between them.</div>
 </div>
 
 <h2 id="exam">The exam, and how to pass it</h2>
@@ -318,7 +318,6 @@ A Big Mac costs <strong>22,900 pesos</strong> in Colombia and <strong>$6.01</str
 <p>The <strong>nominal</strong> rate is your return in money; the <strong>real</strong> rate is your return in <em>goods</em>. If real is positive you can buy more stuff at the end. (Japan 2005: nominal 0.0%, inflation −1.4%, so real = +1.4%.)</p>
 <div class="eq"><div class="lbl">Real exchange rate</div>$$e_R = \frac{e_N\, P}{P_F}$$</div>
 <p>The real exchange rate = how many <em>foreign goods</em> one domestic good buys. Big Mac example: a Colombian Big Mac costs $5.70 at market rates vs $6.01 in the US, so \(e_R = 5.70/6.01 = 0.95\) — Colombia is slightly "cheaper" in real terms.</p>
-<div class="eyeball"><span class="star">★</span><b>Isabella — eyeball this:</b> the exchange-rate <em>convention</em>. The slides themselves are inconsistent — slide S01 p28 says \(e_R\) is "domestic goods per unit of foreign good", but S12 p2 says "foreign goods per domestic good." I committed the whole doc to the <strong>S12</strong> convention (\(e_N\) = foreign currency per domestic unit; a rise in \(e\) = appreciation), because it's the one the FX lecture uses and it makes the Big Mac number work. Check which convention Fatás used in <em>class / the exam rubric</em> — if it's the S01 one, the appreciation/depreciation directions flip and I'll need to invert the FX definitions throughout.</div>
 <div class="exam"><b>Exam lens.</b> L1 ideas surface as T/F traps: "imports reduce GDP" (false — see L2 identity), "a country with a higher GDP is richer" (no — that's <em>size</em>, not <em>GDP per capita</em>), and the constant real-vs-nominal distinction (initial price level vs inflation; nominal vs real rates). Memorise <code>nominal = real + inflation</code> in all its forms (GDP, interest rates, exchange rates).</p></div>
 
 <!-- ---------- L02 ---------- -->
@@ -1347,9 +1346,26 @@ A <strong>primary surplus</strong> is your budget <em>before</em> interest: tax 
    <path d="M25,70 L80,70 L80,130 Q120,100 155,95" fill="none" stroke="#b03030" stroke-width="3"/>
    <text class="sm" x="70" y="145">overshoot</text></g>
 </svg>
-<figcaption>Monetary expansion: ① long-run depreciation = the rise in P (PPP). ③ On impact the rate <em>overshoots</em> (depreciates past the new long-run value) because ② while rates are low the currency must <em>appreciate back</em> at a rate equal to the interest differential (no-arbitrage). One unique value today satisfies both.</figcaption>
+<figcaption>A permanent rise in the money supply, read left to right. <strong>Money supply</strong> jumps up. The <strong>interest rate</strong> falls while prices are still catching up. <strong>Prices</strong> rise slowly to their new higher level. The <strong>nominal exchange rate</strong> jumps down hard on impact (overshoots), then drifts part-way back up. The full why is below.</figcaption>
 <div class="eyeball"><span class="star">★</span><b>Isabella — eyeball this diagram:</b> the 4-panel overshooting figure is the most schematic one — it shows the right <em>shapes</em> (rate drops, price rises, FX overshoots then partly recovers) but the panels aren't to scale. One known imperfection: the interest-rate panel stays low rather than drifting back to its original level. Treat it as illustrative; cross-check against the actual S12 slide if you want the precise paths.</div>
 </figure>
+
+<div class="intuition"><span class="tag">🎙 Intuition: why the rate overshoots</span>
+The whole puzzle comes from <strong>one friction: prices are sticky in the short run.</strong> In the long run money is neutral, so +10% money means +10% prices and a currency 10% weaker (PPP). But prices cannot move on day one, so on impact <em>something else has to absorb the shock</em>, and the one price free to jump instantly is the exchange rate. It doesn't just move to its new long-run level, it jumps <em>past</em> it and then walks back. The reason it overshoots is a no-arbitrage squeeze on interest rates, below.</div>
+
+<div class="eq">
+<div class="lbl">Why overshooting happens, step by step</div>
+<ol style="margin:0;">
+<li><strong>Money supply rises permanently.</strong></li>
+<li><strong>Long-run anchor (PPP):</strong> eventually prices rise in proportion and the currency settles at a new, <em>weaker</em> level. That weaker level is the destination.</li>
+<li><strong>Short-run friction:</strong> prices are sticky, so real money balances (M/P) rise, which pushes the <strong>domestic interest rate down</strong> below the foreign rate.</li>
+<li><strong>No-arbitrage (UIP):</strong> investors will only hold the now lower-yielding currency if they expect it to <strong>appreciate</strong> from here (the expected gain offsets the lower interest).</li>
+<li><strong>Reconcile 2 and 4:</strong> the currency must be expected to <em>appreciate</em>, yet its destination is <em>weaker</em>. The only way both can be true is if it first <strong>overshoots</strong> (jumps below the new long-run level on impact), then appreciates back up to it as prices rise and the interest rate normalises.</li>
+</ol>
+</div>
+
+<div class="key"><strong>The one-line version:</strong> sticky prices force the exchange rate to do all the short-run adjusting; the low interest rate means it must be expected to appreciate; the only path that both lands weaker and is expected to appreciate is to undershoot the currency's value (overshoot the depreciation) and recover. <em>Bigger price stickiness ⟹ bigger overshoot.</em></div>
+
 <div class="key"><strong>Can the theory explain the data?</strong> <em>Works:</em> long-run depreciation of the high-inflation currency (USD trend); episodes of fast US growth/high rates → USD appreciation (early 80s). <em>Fails:</em> FX is <em>far</em> too volatile; the rate–differential link is weak (today's spot rate predicts better than the interest differential); long one-way trends shouldn't exist under the theory. Honest conclusion: exchange-rate "theories" are mostly <em>ex-post</em> rationalisation.</div>
 <div class="exam"><b>Exam lens.</b> The richest exam topic — appears almost every year. The "priced-in" trick: an expected rate hike that's already priced ⟹ <em>no</em> currency move (the Russia/rouble and Indonesia cases). The productivity→RER→nominal chain (a fast-growing economy can still <em>depreciate</em> if its inflation is high enough — a past T/F: <em>true</em>). And "a country fixing its rate implicitly follows the other's policies" (true) but bilateral trade need <em>not</em> balance (false).</div>
 
@@ -1420,7 +1436,6 @@ A <strong>primary surplus</strong> is your budget <em>before</em> interest: tax 
    <text class="lbl" x="210" y="195" fill="#2e7d32">IS</text><text class="lbl" x="210" y="90" fill="#1f5fa8">LM</text></g>
 </svg>
 <figcaption>EMS crisis: German fiscal expansion + monetary tightening raises German rates; to defend the fixed parity Italy must tighten too, forcing it into recession.</figcaption>
-<div class="eyeball"><span class="star">★</span><b>Isabella — eyeball this diagram (highest priority):</b> this was drawn backwards before. Both dashed LM curves should now sit to the <em>left</em> of the solid LM (tightening = LM left = higher rates), with the small blue arrows pointing left. Confirm both panels show the dashed LM to the left, not the right.</div>
 </figure>
 
 <h3>The four nominal-anchor / FX truths to carry in</h3>

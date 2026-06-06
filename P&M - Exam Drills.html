@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>P&M · Exam Drills</title>
+<script>
+  MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']] }, svg: { fontCache: 'local' } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+<style>
+  :root{
+    --green:#00643C; --green-light:#2e7d32; --blue:#1f5fa8; --red:#b03030;
+    --ink:#1a1a1a; --soft:#555; --line:#d8d8d8; --bg:#fbfbf9; --card:#ffffff;
+    --amber:#a8740a; --amber-bg:#fdf6e9;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:16.5px; line-height:1.62;
+  }
+  .wrap{display:flex; max-width:1500px; margin:0 auto;}
+  /* ---- sidebar nav ---- */
+  nav.toc{
+    width:268px; flex:0 0 268px; position:sticky; top:0; height:100vh; overflow-y:auto;
+    background:#0e2a20; color:#dfeee7; padding:22px 16px 60px; font-size:13.5px;
+  }
+  nav.toc h2{color:#fff; font-size:14px; letter-spacing:.06em; text-transform:uppercase; margin:18px 0 8px; opacity:.65;}
+  nav.toc a{display:block; color:#cfe3da; text-decoration:none; padding:3px 8px; border-radius:5px; margin:1px 0;}
+  nav.toc a:hover{background:#1c4636; color:#fff;}
+  nav.toc a.part{font-weight:700; color:#8fd6b4; margin-top:6px;}
+  nav.toc .brand{font-weight:800; color:#fff; font-size:16px; line-height:1.3; margin-bottom:4px;}
+  nav.toc .brand span{font-weight:400; font-size:12.5px; color:#8fd6b4; display:block;}
+  main{flex:1 1 auto; padding:46px 56px 140px; max-width:1000px;}
+  /* ---- typography ---- */
+  h1{font-size:30px; color:var(--green); margin:0 0 6px; line-height:1.18;}
+  h2.part{font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--amber); margin:54px 0 2px; font-weight:700;}
+  h2{font-size:25px; color:var(--green); border-bottom:2px solid var(--green); padding-bottom:6px; margin:42px 0 14px; scroll-margin-top:14px;}
+  h3{font-size:19px; color:#13392b; margin:26px 0 8px;}
+  h4{font-size:16px; color:var(--blue); margin:18px 0 4px; text-transform:uppercase; letter-spacing:.04em;}
+  p{margin:8px 0;}
+  ul,ol{margin:8px 0 8px; padding-left:22px;}
+  li{margin:4px 0;}
+  strong{color:#08251a;}
+  code{background:#eef2ef; padding:1px 5px; border-radius:4px; font-size:13.5px;}
+  a.up{color:var(--blue); text-decoration:none;}
+  /* ---- cards / callouts ---- */
+  .eq{background:#f0f6f2; border:1px solid #cfe2d6; border-left:4px solid var(--green); border-radius:8px; padding:12px 18px; margin:14px 0; overflow-x:auto;}
+  .eq .lbl{font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--green); font-weight:700; margin-bottom:2px;}
+  .key{background:#fff; border:1px solid var(--line); border-radius:10px; padding:14px 20px; margin:16px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  .exam{background:var(--amber-bg); border:1px solid #ecd9ad; border-left:4px solid var(--amber); border-radius:8px; padding:10px 18px; margin:16px 0;}
+  .exam b{color:var(--amber);}
+  .chain{background:#eaf1f8; border:1px solid #c2d6ea; border-left:4px solid var(--blue); border-radius:8px; padding:10px 18px; margin:14px 0; font-size:15px;}
+  .chain .arrow{color:var(--blue); font-weight:700;}
+  .pitfall{background:#fbeeee; border:1px solid #ecc9c9; border-left:4px solid var(--red); border-radius:8px; padding:10px 18px; margin:14px 0;}
+  .pitfall b{color:var(--red);}
+  .twocol{display:flex; gap:22px; flex-wrap:wrap;}
+  .twocol > div{flex:1 1 300px;}
+  figure{margin:20px 0; text-align:center;}
+  figure > svg{max-width:100%; height:auto; background:#fff; border:1px solid var(--line); border-radius:10px; padding:8px;}
+  /* never let MathJax inline equations be stretched by container SVG rules */
+  mjx-container svg, figcaption mjx-container svg, .eq mjx-container svg{max-width:none !important; height:auto !important; border:none !important; padding:0 !important; background:none !important; border-radius:0 !important;}
+  figcaption{font-size:13.5px; color:var(--soft); margin-top:7px; font-style:italic;}
+  table.dt{border-collapse:collapse; width:100%; margin:16px 0; font-size:14.5px;}
+  table.dt th{background:var(--green); color:#fff; text-align:left; padding:8px 11px; font-weight:600;}
+  table.dt td{border:1px solid var(--line); padding:7px 11px; vertical-align:top;}
+  table.dt tr:nth-child(even) td{background:#f6f8f6;}
+  .tacct{border-collapse:collapse; margin:10px auto; font-size:14px; min-width:330px;}
+  .tacct caption{font-weight:700; color:#13392b; padding-bottom:5px;}
+  .tacct th{background:#13392b; color:#fff; padding:5px 14px; font-weight:600;}
+  .tacct td{border:1px solid #b9b9b9; padding:5px 14px;}
+  .tacct td.a{background:#eef6f1;} .tacct td.l{background:#eef2f8;}
+  /* SVG shared */
+  svg text{font-family:-apple-system,Helvetica,Arial,sans-serif;}
+  .axis{stroke:#333; stroke-width:1.6; fill:none;}
+  .grid{stroke:#e3e3e3; stroke-width:1;}
+  .IS{stroke:var(--green-light); stroke-width:3; fill:none;}
+  .LM{stroke:var(--blue); stroke-width:3; fill:none;}
+  .SAV{stroke:var(--blue); stroke-width:3; fill:none;}
+  .INV{stroke:var(--green-light); stroke-width:3; fill:none;}
+  .LRAS{stroke:var(--red); stroke-width:3; fill:none;}
+  .dash{stroke-dasharray:5 4;}
+  .rf{stroke:#a8740a; stroke-width:2.4; fill:none;}
+  .lbl{font-size:13px; font-weight:600;}
+  .sm{font-size:11.5px; fill:#555;}
+  .dot{fill:#13392b;}
+  .footer{margin-top:60px; padding-top:18px; border-top:1px solid var(--line); font-size:13px; color:var(--soft);}
+  .pill{display:inline-block; background:var(--green); color:#fff; font-size:11px; padding:2px 9px; border-radius:20px; letter-spacing:.04em; vertical-align:middle;}
+  .eyeball{background:#fdeaf4; border:2px dashed #c0398a; border-radius:8px; padding:8px 14px; margin:12px 0; font-size:14px; color:#8a1f5f;}
+  .eyeball .star{font-size:17px; margin-right:4px;}
+  .eyeball b{color:#8a1f5f;}
+  .intuition{background:#edf6f7; border:1px solid #b6d7dc; border-left:4px solid #1f7e8c; border-radius:8px; padding:10px 16px; margin:14px 0; font-size:15px;}
+  .intuition .tag{display:inline-block; font-size:11px; font-weight:700; letter-spacing:.04em; color:#1f7e8c; text-transform:uppercase; margin-right:6px;}
+  .intuition b{color:#0d4d57;}
+  .izzy{background:#f5f0fb; border:1px solid #d3c1ec; border-left:4px solid #7b4bbd; border-radius:8px; padding:12px 18px; margin:16px 0; font-size:15px;}
+  .izzy .tag{display:inline-block; font-size:11px; font-weight:700; letter-spacing:.04em; color:#7b4bbd; text-transform:uppercase; margin-bottom:6px;}
+  .izzy b{color:#5a2d96;}
+  .izzy table.dt{margin:8px 0;}
+  .modetoggle{display:flex; gap:6px; margin:12px 0 18px;}
+  .modetoggle .mode{flex:1; text-align:center; padding:8px 6px; border-radius:7px; font-size:13px; font-weight:700; text-decoration:none; border:1px solid #2f5e4c; color:#cfe3da; background:transparent;}
+  .modetoggle .mode:hover{background:#1c4636; color:#fff;}
+  .modetoggle .mode.active{background:#00643C; color:#fff; border-color:#00643C;}
+  .read{margin:10px 0; padding:9px 15px; border-left:3px solid var(--green); background:#f8f8f5; border-radius:6px; font-size:14.5px;}
+  .read .meta{font-size:12px; color:var(--soft); margin-left:6px;}
+  .rtag{display:inline-block; font-size:10.5px; font-weight:700; letter-spacing:.03em; text-transform:uppercase; padding:1px 7px; border-radius:20px; vertical-align:middle; margin-left:4px;}
+  .rtag.man{background:#fbe4e4; color:#a32020;}
+  .rtag.prof{background:#e3eefb; color:#1a4e8a;}
+  .rtag.core{background:#e7f3ec; color:#13643c;}
+  /* stepped derivations: each step = the algebra + a small note saying what we did */
+  ol.deriv{counter-reset:dstep; list-style:none; padding:0; margin:14px 0; background:#f8f8f5; border:1px solid var(--line); border-radius:10px; overflow:hidden;}
+  ol.deriv > li{position:relative; margin:0; padding:11px 16px 11px 52px; border-bottom:1px solid #ededed;}
+  ol.deriv > li:last-child{border-bottom:none;}
+  ol.deriv > li::before{counter-increment:dstep; content:counter(dstep); position:absolute; left:14px; top:11px; width:24px; height:24px; line-height:24px; text-align:center; background:var(--green); color:#fff; border-radius:50%; font-size:13px; font-weight:700;}
+  ol.deriv .note{display:block; font-size:12.5px; color:#777; margin-top:3px; font-style:italic;}
+  ol.deriv > li.result{background:#eef6f1;}
+  .wex{background:#fff; border:1px dashed #9cc; border-radius:8px; padding:9px 15px; margin:12px 0; font-size:14.5px;}
+  .wex .h{font-weight:700; color:var(--blue); font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; display:block; margin-bottom:3px;}
+  @media print{ nav.toc{display:none;} main{padding:0; max-width:100%;} body{font-size:11pt;} h2{page-break-after:avoid;} figure,.eq,.key,.exam,ol.deriv,.wex{page-break-inside:avoid;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="toc">
+  <a href="index.html" style="color:#9fd3ba; font-size:12px; letter-spacing:.04em; margin-bottom:12px;">&larr; All courses</a>
+  <div class="brand">P&amp;M <span>Prices &amp; Markets &middot; Exam Drills</span></div>
+  <div class="modetoggle"><a class="mode" href="P%26M%20Revision%20Document.html">Course Content</a><span class="mode active">Exam Questions</span></div>
+  <a href="#coverage">Coverage map</a>
+  <h2>Archetypes</h2>
+  <a href="#playbook">Archetype playbook</a>
+  <a href="#a-pd" class="part">Price discrimination &amp; segmentation (24)</a>
+  <a href="#a-elast" class="part">Elasticity, revenue &amp; golden rule (19)</a>
+  <a href="#a-nash" class="part">Nash &amp; dominance (14)</a>
+  <a href="#a-cost" class="part">Cost curves, shutdown &amp; cost fallacies (11)</a>
+  <a href="#a-compet" class="part">Competitive markets: entry/exit &amp; welfare (10)</a>
+  <a href="#a-shifts" class="part">Demand &amp; supply shifts + tax (9)</a>
+  <a href="#a-monopoly" class="part">Monopoly pricing, DWL &amp; midpoint (8)</a>
+  <a href="#a-cournot" class="part">Cournot (5)</a>
+  <a href="#a-bertrand" class="part">Bertrand (5)</a>
+  <a href="#a-sequential" class="part">Sequential games &amp; strategic design (4)</a>
+  <a href="#a-collusion" class="part">Collusion sustainability (3)</a>
+  <h2>Practice</h2>
+  <a href="#selftest">Self-test bank</a>
+</nav>
+<main>
+<h1>Prices &amp; Markets: Exam Drills</h1>
+<p style="margin-top:-6px;color:#5a6b62;font-size:14px;">Built entirely from the real past papers in <code>Sources/General</code>: the 3 practice finals (2010, 2022, 2020), the actual 2026 final (solutions), plus 2 practice review problem sets and 2 practice quizzes. 112 real past questions, clustered into 11 archetypes. No question, year or count on this page is invented.</p>
+
+<div class="key">
+  <b>The exam in one breath.</b> Three hours, closed-book except two A4 sheets and a simple calculator. Three parts: Part I multiple choice (5 pts each), Part II short-answer (~15–20 pts each), Part III longer multi-part problems (25 pts each). The real 2026 final was 215 pts (12 MC + 4 short + 3 long). Every question hangs on a business or news scenario, partial credit rewards shown work, and questions are not equally weighted so time management is graded in spirit. Two engines win most marks: the <b>golden pricing rule / midpoint rule</b> (price from elasticity and marginal cost) and <b>price discrimination</b> (segmentation, versioning, arbitrage). Game theory (Nash, Cournot, Bertrand, sequential, collusion) is the second pillar.
+</div>
+
+<h2 id="coverage">Coverage map</h2>
+<p>Every real past question mapped to its archetype, sorted by how often it has appeared. "Revise in" deep-links to the teaching section on the Course Content page.</p>
+<table class="dt">
+  <thead>
+    <tr><th>Archetype</th><th>Past-paper Qs</th><th>Papers / years seen</th><th>Revise in</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><a href="#a-pd">Price discrimination &amp; segmentation</a></td><td>24</td><td>PF1 2010, PF2 2022, PF3 2020, Final 2026, PS1, PS2, Quiz 1, Quiz 2</td><td><a href="P%26M%20Revision%20Document.html#l07">L07</a></td></tr>
+    <tr><td><a href="#a-elast">Elasticity, revenue &amp; the golden pricing rule</a></td><td>19</td><td>PF2 2022, PF3 2020, Final 2026, PS1, Quiz 1, Quiz 2</td><td><a href="P%26M%20Revision%20Document.html#l01">L02</a></td></tr>
+    <tr><td><a href="#a-nash">Nash equilibrium &amp; dominance (payoff matrices)</a></td><td>14</td><td>PF1 2010, PF2 2022, PF3 2020, Final 2026, PS2</td><td><a href="P%26M%20Revision%20Document.html#l09">L09</a></td></tr>
+    <tr><td><a href="#a-cost">Cost curves, shutdown &amp; the fixed/sunk-cost fallacy</a></td><td>11</td><td>PF1 2010, PF2 2022, Final 2026, PS1, PS2, Quiz 1, Quiz 2</td><td><a href="P%26M%20Revision%20Document.html#l04">L04</a></td></tr>
+    <tr><td><a href="#a-compet">Competitive markets: equilibrium, entry/exit &amp; welfare</a></td><td>10</td><td>PF1 2010, PF2 2022, PF3 2020, Final 2026, PS1, PS2</td><td><a href="P%26M%20Revision%20Document.html#l05">L05</a></td></tr>
+    <tr><td><a href="#a-shifts">Demand &amp; supply shifts + tax incidence</a></td><td>9</td><td>PF1 2010, PF2 2022, Final 2026, PS1, Quiz 1, Quiz 2</td><td><a href="P%26M%20Revision%20Document.html#l01">L01</a></td></tr>
+    <tr><td><a href="#a-monopoly">Monopoly pricing, DWL &amp; the midpoint rule</a></td><td>8</td><td>PF1 2010, Final 2026, PS1, Quiz 1, Quiz 2</td><td><a href="P%26M%20Revision%20Document.html#l06">L06</a></td></tr>
+    <tr><td><a href="#a-cournot">Cournot (quantity competition)</a></td><td>5</td><td>PF2 2022, PF3 2020, Final 2026, PS2</td><td><a href="P%26M%20Revision%20Document.html#l11">L11</a></td></tr>
+    <tr><td><a href="#a-bertrand">Bertrand (price competition)</a></td><td>5</td><td>PF1 2010, PF3 2020, Final 2026, PS2</td><td><a href="P%26M%20Revision%20Document.html#l12">L12</a></td></tr>
+    <tr><td><a href="#a-sequential">Sequential games, commitment &amp; strategic design</a></td><td>4</td><td>PF1 2010, PS2</td><td><a href="P%26M%20Revision%20Document.html#l10">L10</a></td></tr>
+    <tr><td><a href="#a-collusion">Collusion sustainability (repeated games)</a></td><td>3</td><td>PF1 2010, PF2 2022, Final 2026</td><td><a href="P%26M%20Revision%20Document.html#l13">L13</a></td></tr>
+  </tbody>
+</table>
+<div class="eyeball"><span class="star">★</span> The "Revise in" lecture anchors are best-effort links to the standard P&amp;M teaching spine (demand → elasticity → costs → competition → monopoly → price discrimination → game theory). Confirm each anchor against the actual section headings once the Course Content page is finalised.</div>
+
+<h2 id="playbook">Archetype playbook</h2>
+<p>Each card: the trigger that signals the archetype, a reusable answer skeleton, one fully-worked model answer from a real past question, and the traps. <b>Model answers are exemplars to verify against Prof. Glover's own class wording and the official solution keys.</b></p>
+
+<!-- ============ ARCHETYPE 1: PRICE DISCRIMINATION ============ -->
+<div class="arche" id="a-pd">
+  <h3>Price discrimination &amp; segmentation <span class="freq">24 on past papers</span></h3>
+  <div class="trig"><b>When you see it:</b> two customer types or two markets with different willingness-to-pay; words like "implicitly segment", "versioning", "Basic vs Pro", "coupons", "arbitrage / parallel imports", "two-part tariff", "bundle", or a firm selling the same good at different prices in two countries.</div>
+  <div class="lab">Ideal-answer skeleton</div>
+  <ol class="skel">
+    <li>Identify the segments and write each type's willingness-to-pay (WTP) for each version/market.</li>
+    <li>Benchmark with <b>perfect price discrimination</b>: charge each type its WTP; this is the upper bound on profit.</li>
+    <li>If types are unobservable, you must satisfy <b>participation</b> (each type's surplus ≥ 0) and <b>self-selection / incentive-compatibility</b> (each type weakly prefers its intended product). Bind PC on the low type and SC on the high type.</li>
+    <li>Solve for the high price by leaving the high type exactly the surplus it could get by buying the cheap version ("information rent").</li>
+    <li>Compare profit across schemes (one version, segment, perfect PD, bundle) and pick the max. For two separate markets, set MR equal across markets (third-degree): charge more where demand is less elastic.</li>
+    <li>For arbitrage: a price gap is sustainable only up to the transport cost; beyond it, collapse to a single combined-market price.</li>
+  </ol>
+  <div class="lab">Worked model answer</div>
+  <div class="exemplar">
+    <div class="q"><b>Final 2026, Part III Q3 (Software Versioning at DataPro).</b> MC = $0. 200 Large Corps: WTP_Pro = $800, WTP_Basic = $300. 500 Small Biz: WTP_Pro = $400, WTP_Basic = $200. Find the optimal versioned prices and profit.</div>
+    <p><b>Participation:</b> bind the low type, PC_S gives P_Basic ≤ 200, so set P_Basic = 200. <b>Self-selection of the high type:</b> SC_L is 800 − P_Pro ≥ 300 − P_Basic, i.e. P_Pro − P_Basic ≤ 500, so P_Pro = 200 + 500 = 700. Check the rest: SC_S is 200 − 200 = 0 ≥ 400 − 700 = −300 ✓; PC_L is 800 − 700 = 100 ≥ 0 ✓.</p>
+    <p><b>Optimal prices:</b> P_Pro = $700, P_Basic = $200. <b>Profit</b> = 200×700 + 500×200 = $140,000 + $100,000 = <b>$240,000</b>. For comparison, a uniform Pro-only price of $400 to everyone yields 400×700 = $280,000, and perfect PD yields 800×200 + 400×500 = $360,000. Here uniform pricing beats versioning because the self-selection constraint forces DataPro to leave $100 of rent with each large corporation. <b>Deliberately damaging the Basic edition</b> (lowering Large Corps' WTP for Basic toward $0) relaxes SC_L and lets DataPro raise the Pro price, the standard versioning rationale (Microsoft Office tiers, Intel disabling cores on cheaper SKUs).</p>
+  </div>
+  <div class="traps">
+    <b>Traps.</b> Binding the wrong constraint (bind PC on the LOW type and SC on the HIGH type, not the reverse). Forgetting that perfect PD is the ceiling, not the answer when types are hidden. In two-market problems, charging more where demand is more elastic (it is the reverse). Treating arbitrage as all-or-nothing: with a positive transport cost the sustainable price gap equals that cost. Forgetting that under perfect PD some consumers pay MORE than before, so not everyone is better off.
+  </div>
+  <div class="seclink">↪ Knowledge page: <a href="P%26M%20Revision%20Document.html#l07">Price discrimination &amp; segmentation (L07)</a></div>
+</div>
+
+<!-- ============ ARCHETYPE 2: ELASTICITY ============ -->
+<div class="arche" id="a-elast">
+  <h3>Elasticity, revenue &amp; the golden pricing rule <span class="freq">19 on past papers</span></h3>
+  <div class="trig"><b>When you see it:</b> a percentage price change with an elasticity number; "where is demand unit-elastic / where is total revenue maximised"; a log-linear demand regression (coefficients = elasticities); or "what price should the firm set" with a marginal cost and an elasticity.</div>
+  <div class="lab">Ideal-answer skeleton</div>
+  <ol class="skel">
+    <li>%ΔQ = −E × %ΔP. If E &gt; 1 (elastic) a price rise lowers revenue; if E &lt; 1 (inelastic) a price rise raises revenue; revenue is maximised at E = 1.</li>
+    <li>On a linear demand curve, elasticity rises as you move up (toward the choke price); the lower-choke-price curve is more elastic at any common price.</li>
+    <li>In log-linear demand, each coefficient IS that elasticity; sign of a cross-price coefficient tells substitutes (+) vs complements (−); income coefficient sign tells normal (+) vs inferior (−).</li>
+    <li>Golden pricing rule: P* = [E / (E − 1)] × MC. Equivalently the midpoint rule P* = (choke + MC)/2 for linear demand.</li>
+    <li>Back out an unknown (MC or E) by plugging into the golden rule and checking which value is economically sensible.</li>
+  </ol>
+  <div class="lab">Worked model answer</div>
+  <div class="exemplar">
+    <div class="q"><b>Practice Quiz 2, Q9 (20th Century Fox DVD).</b> Demand is log-linear: log(Q) = 400 − 1.5 log(P) + 2 log(P_T) + 3.0 log(S&amp;P). Per-copy costs are $0.60 packaging + $1.20 copying + $2.00 shipping. What profit-maximising price should Fox charge?</div>
+    <p>The coefficient on log price is the (constant) own-price elasticity: E = 1.5. Marginal cost = 0.60 + 1.20 + 2.00 = $3.80 (the $40m star fee is not yet paid, so it is a fixed cost and irrelevant to pricing). Apply the golden rule: P* = [E/(E−1)]×MC = (1.5/0.5)×3.80 = 3×3.80 = <b>$11.40</b>. Answer (a).</p>
+  </div>
+  <div class="traps">
+    <b>Traps.</b> Confusing %ΔP with the elasticity itself. Saying "always price in the elastic region and raise prices", you raise price only when demand is inelastic; the rule is to move TOWARD unit elasticity. Using market-level elasticity for a single firm's demand (a firm's demand is far more elastic than the market's, the LG flat-panel trap). Putting fixed or sunk costs into MC. Forgetting that for E &lt; 1 the golden rule gives a negative or nonsensical price, which tells you the firm is not even on the profit-maximising part of the curve.
+  </div>
+  <div class="seclink">↪ Knowledge page: <a href="P%26M%20Revision%20Document.html#l01">Elasticity &amp; the golden pricing rule (L02)</a></div>
+</div>
+
+<!-- ============ ARCHETYPE 3: NASH ============ -->
+<div class="arche" id="a-nash">
+  <h3>Nash equilibrium &amp; dominance (payoff matrices) <span class="freq">14 on past papers</span></h3>
+  <div class="trig"><b>When you see it:</b> two firms choosing simultaneously from a small menu (Enter/Out, High/Low, Advertise/Don't, Big/Small expansion); a payoff grid; "dominant strategy", "iterated elimination", "how many Nash equilibria", "what type of game is this".</div>
+  <div class="lab">Ideal-answer skeleton</div>
+  <ol class="skel">
+    <li>Write the matrix cleanly: row player's payoff first in each cell.</li>
+    <li>Check for a dominant strategy: does one action give a higher payoff for every action of the rival? If both have one, that cell is the unique Nash.</li>
+    <li>Otherwise use iterated elimination of dominated strategies, then find cells that are mutual best responses (underline best responses column-by-column and row-by-row).</li>
+    <li>Count the Nash equilibria; name the game (Prisoner's Dilemma if a dominant-strategy equilibrium is Pareto-dominated; coordination game if there are two aligned pure-strategy Nash).</li>
+    <li>Comment: in a PD the dominant strategy makes both worse off than cooperation.</li>
+  </ol>
+  <div class="lab">Worked model answer</div>
+  <div class="exemplar">
+    <div class="q"><b>Final 2026, Part II Q4(a)–(b) (Renewable Energy).</b> Both Enter (2,2); one enters / other stays out: entrant €8bn, other −€1bn; both Out (3,3). Build the matrix, find dominant strategies, Nash equilibria, and the game type.</div>
+    <p>Matrix (SunCorp row, WindPower column): Enter/Enter (2,2); Enter/StayOut (8,−1); StayOut/Enter (−1,8); StayOut/StayOut (3,3). For SunCorp: if WindPower Enters, 2 &gt; −1 → Enter; if WindPower Stays Out, 8 &gt; 3 → Enter. <b>Enter is dominant</b> for SunCorp, and by symmetry for WindPower. The unique Nash is <b>(Enter, Enter) = (2,2)</b>, even though (Stay Out, Stay Out) = (3,3) is Pareto-superior. This is a <b>Prisoner's Dilemma</b>: dominant strategies drive both to a jointly worse outcome.</p>
+  </div>
+  <div class="traps">
+    <b>Traps.</b> Reading the matrix with the wrong player's payoff first. Calling a Pareto-superior cell "the Nash", the Nash is the mutual-best-response cell, which can be worse for both. Confusing "dominant" (best regardless of the rival) with "best response" (best given a specific rival action). Missing that some games (Iron-ore-wars-style) have a dominant-strategy PD while others (drone-market) have two asymmetric pure Nash and no dominant strategy.
+  </div>
+  <div class="seclink">↪ Knowledge page: <a href="P%26M%20Revision%20Document.html#l09">Simultaneous games &amp; Nash (L09)</a></div>
+</div>
+
+<!-- ============ ARCHETYPE 4: COST CURVES ============ -->
+<div class="arche" id="a-cost">
+  <h3>Cost curves, shutdown &amp; the fixed/sunk-cost fallacy <span class="freq">11 on past papers</span></h3>
+  <div class="trig"><b>When you see it:</b> a variable-cost function plus a fixed cost; "AFC / AVC / AC", "economies vs diseconomies of scale", "should you shut down / keep producing", or a fixed cost suddenly rising and a question of how to react.</div>
+  <div class="lab">Ideal-answer skeleton</div>
+  <ol class="skel">
+    <li>Write FC, AVC = VC/Q, AC = (FC + VC)/Q, MC = dC/dQ.</li>
+    <li>Economies of scale where AC is falling (MC &lt; AC); diseconomies where AC rising (MC &gt; AC); the minimum of AC (MC = AC) is minimum efficient scale; a U-shaped AC has both.</li>
+    <li>Short-run shutdown rule: produce only if P ≥ AVC; if P &lt; AVC, shut down and lose only fixed costs.</li>
+    <li>Long-run exit rule: exit if P &lt; min AC (total). Find min AC by setting MC = AC.</li>
+    <li>Fixed/sunk-cost fallacy: a change in fixed cost does NOT change the optimal price or quantity (it only affects the discrete enter/exit decision). Sunk costs are ignored entirely.</li>
+  </ol>
+  <div class="lab">Worked model answer</div>
+  <div class="exemplar">
+    <div class="q"><b>Final 2026, Part II Q1 (Cost Curves and the Competitive Firm).</b> 8 staff × €55,000 + €60,000 rent; V(Q) = 3Q + Q²; Q = 12,000; market price P = €10,000/hl. Find AFC; total cost, profit/loss and the short-run decision; economies of scale; the long-run exit price.</div>
+    <p><b>(a)</b> Fixed costs = 8×55,000 + 60,000 = €500,000; AFC = 500,000/12,000 ≈ <b>€41.67/hl</b>. <b>(b)</b> TC = 500,000 + 3(12,000) + 12,000² = €144,536,000; revenue = 10,000×12,000 = €120,000,000 → loss of €24.5m. AVC = 3 + Q = 12,003 &gt; P = 10,000, so P &lt; AVC: <b>shut down immediately</b> and lose only the €500,000 fixed cost. <b>(c)</b> AC = 500,000/Q + 3 + Q is U-shaped, so the firm shows BOTH economies (low Q) and diseconomies (high Q) of scale. <b>(d)</b> Set MC = AC: 3 + 2Q = 500,000/Q + 3 + Q → Q² = 500,000 → Q ≈ 707; AC_min ≈ <b>€1,417/hl</b>, the long-run exit price.</p>
+  </div>
+  <div class="traps">
+    <b>Traps.</b> Using AC instead of AVC for the short-run shutdown test (shutdown is P &lt; AVC; exit is P &lt; AC). Letting a higher fixed cost change your price or output, it must not (fixed-cost fallacy). Treating already-spent (sunk) R&amp;D as relevant to pricing. Forgetting to find min AC by equating MC and AC.
+  </div>
+  <div class="seclink">↪ Knowledge page: <a href="P%26M%20Revision%20Document.html#l04">Cost curves &amp; the shutdown decision (L04)</a></div>
+</div>
+
+<!-- ============ ARCHETYPE 5: COMPETITIVE MARKETS ============ -->
+<div class="arche" id="a-compet">
+  <h3>Competitive markets: equilibrium, entry/exit &amp; welfare <span class="freq">10 on past papers</span></h3>
+  <div class="trig"><b>When you see it:</b> "perfectly competitive", "free entry", "entry price / exit price", "how many firms in long-run equilibrium"; a competitive fringe plus a "price leader" / dominant firm; a labour market with a minimum wage; "why does the supply curve slope up".</div>
+  <div class="lab">Ideal-answer skeleton</div>
+  <ol class="skel">
+    <li>Firm supply: set P = MC and invert to get q(P); market supply = N × q(P).</li>
+    <li>Entry price = min AC including the annualised (not-yet-sunk) capital cost; exit price = min AC ignoring sunk capital. Find each by MC = AC.</li>
+    <li>Long-run price settles at the entry price (if demand supports entry) or the exit price (if demand has fallen and firms are leaving); number of firms = market Q ÷ firm q.</li>
+    <li>Price leader: residual demand = market demand − fringe supply; the leader prices as a monopolist on residual demand (midpoint rule), then the fringe supplies the rest at that price.</li>
+    <li>Welfare / intervention: a binding minimum wage above equilibrium cuts employment, opens an unemployment gap, and creates a deadweight-loss triangle; the bigger the demand elasticity, the bigger the job loss.</li>
+  </ol>
+  <div class="lab">Worked model answer</div>
+  <div class="exemplar">
+    <div class="q"><b>Practice Final 1 (2010), Part II Q16 (Unobtanium).</b> Q = 900 − P; competitive with free entry; AC = 5q + 320/q; annualised sunk capital cost €180/yr. Find the entry price, the exit price, the long-run price and number of firms, then the new long-run outcome after demand drops to Q = 240 − P.</div>
+    <p>Pre-entry AC = 5q + 320/q + 180/q = 5q + 500/q, so TC = 5q² + 500 and MC = 10q. <b>Entry price:</b> MC = AC → 10q = 5q + 500/q → q = 10, P = 100. <b>Exit price:</b> ignore sunk 180 → 10q = 5q + 320/q → q = 8, P = 80. <b>Long run:</b> P = entry price = 100, market Q = 800, each firm makes 10 → <b>80 firms</b>. After demand falls to Q = 240 − P, firms exit until no one wants to leave, so price settles at the <b>exit price = 80</b>; market Q = 160; each surviving firm produces 8 → <b>20 firms remain</b>.</p>
+  </div>
+  <div class="traps">
+    <b>Traps.</b> Mixing up entry price (capital cost counted) and exit price (capital cost sunk, ignored). After a demand drop, pricing at the entry price rather than the exit price. For a price leader, forgetting to subtract fringe supply to get residual demand. Drawing the minimum-wage DWL on the wrong side, or forgetting it requires the wage to be ABOVE equilibrium to bind.
+  </div>
+  <div class="seclink">↪ Knowledge page: <a href="P%26M%20Revision%20Document.html#l05">Perfect competition, entry &amp; exit (L05)</a></div>
+</div>
+
+<!-- ============ ARCHETYPE 6: SHIFTS ============ -->
+<div class="arche" id="a-shifts">
+  <h3>Demand &amp; supply shifts + tax incidence <span class="freq">9 on past papers</span></h3>
+  <div class="trig"><b>When you see it:</b> two events hitting a market at once ("titanium prices spike AND jet fuel falls", "mad cow ban AND bird flu"); a quota lifted; a per-unit tax; "what happens to P and Q"; complements/substitutes.</div>
+  <div class="lab">Ideal-answer skeleton</div>
+  <ol class="skel">
+    <li>Classify each shock: does it move SUPPLY (cost/quantity-offered) or DEMAND (tastes, income, price of a related good)? Which direction?</li>
+    <li>For complements, a rise in one good's price shifts the other's demand left; for substitutes, right.</li>
+    <li>Trace P and Q. When both curves shift, one of {P, Q} is determined and the other is ambiguous (depends on relative shift sizes).</li>
+    <li>Tax incidence: solve with a wedge (P_buyer = P_seller + tax). The side with the more inelastic curve bears more of the burden; compute the buyer's share = (rise in buyer price)/tax.</li>
+  </ol>
+  <div class="lab">Worked model answer</div>
+  <div class="exemplar">
+    <div class="q"><b>Final 2026, Part I Q1.</b> Commercial aircraft market: titanium prices spike (cost shock) while jet-fuel prices fall (aircraft are a complement to air travel, so demand rises). What happens to price and quantity?</div>
+    <p>Higher titanium cost shifts SUPPLY left (prices up). Cheaper flying raises demand for air travel and hence aircraft, shifting DEMAND right. Both forces push price up, so <b>price unambiguously rises</b>. Quantity has two opposing shifts (supply contraction vs demand expansion), so <b>quantity is ambiguous</b>. Answer (a).</p>
+  </div>
+  <div class="traps">
+    <b>Traps.</b> Declaring both P and Q determinate when both curves shift, one is always ambiguous. Mislabelling a related-good price change as a movement along the curve rather than a shift. Getting complement/substitute direction backwards. In tax problems, assuming a 50/50 split regardless of elasticities.
+  </div>
+  <div class="seclink">↪ Knowledge page: <a href="P%26M%20Revision%20Document.html#l01">Supply, demand &amp; comparative statics (L01)</a></div>
+</div>
+
+<!-- ============ ARCHETYPE 7: MONOPOLY ============ -->
+<div class="arche" id="a-monopoly">
+  <h3>Monopoly pricing, DWL &amp; the midpoint rule <span class="freq">8 on past papers</span></h3>
+  <div class="trig"><b>When you see it:</b> a single firm with a linear (inverse) demand curve and a marginal cost; "profit-maximising price/quantity", "deadweight loss", "consumer vs producer surplus", "should it raise or lower price"; a per-unit tax on a monopolist.</div>
+  <div class="lab">Ideal-answer skeleton</div>
+  <ol class="skel">
+    <li>From inverse demand P = a − bQ, MR = a − 2bQ. Set MR = MC for Q*, read P* off demand. (Shortcut: P* = (choke + MC)/2.)</li>
+    <li>Profit = (P* − AC)Q*. Be careful AC may include fixed cost.</li>
+    <li>DWL = the triangle between demand and MC from the monopoly Q to the competitive Q (where P = MC): ½ × (P_mon − MC) × (Q_comp − Q_mon).</li>
+    <li>To raise/lower: compare current price to golden-rule price P = [E/(E−1)]MC.</li>
+    <li>A per-unit tax τ raises MC to MC + τ; re-optimise; for a target tax revenue, solve τ(Q(τ)) and pick the smaller root.</li>
+  </ol>
+  <div class="lab">Worked model answer</div>
+  <div class="exemplar">
+    <div class="q"><b>Practice Review Problem Set 1, Q6.</b> Demand 700 − Q = 3P (i.e. Q = 700 − 3P); monopolist's MC = Q. Find monopoly P and Q; the marginal-cost-pricing P and Q; compare consumer and producer surplus and the deadweight loss from monopoly.</div>
+    <p><b>Monopoly:</b> set MR = MC → P = 400, Q = 100. <b>Marginal-cost (competitive) pricing:</b> P = MC → Q = 175, P = 175. <b>Surplus:</b> under monopoly CS = ½(700−400)(100) = 15,000 and PS = 100×400 − ½×100×100 = 35,000, total 50,000; under competition CS = ½(700−175)(175) = 45,937.50 and PS = ½(175)(175) = 15,312.50, total 61,250. <b>Deadweight loss = 61,250 − 50,000 = €11,250</b> (equivalently ½(400−100)(175−100)).</p>
+  </div>
+  <div class="traps">
+    <b>Traps.</b> Setting P = MC for a monopolist (that is the competitive benchmark, not the monopoly choice). Forgetting MR has twice the slope of inverse demand. Saying "monopoly means consumers get no benefit", consumer surplus under uniform monopoly pricing is still positive. Subtracting fixed costs when computing the optimal price (they do not affect it). Choosing the larger tax root when a smaller one yields the same revenue.
+  </div>
+  <div class="seclink">↪ Knowledge page: <a href="P%26M%20Revision%20Document.html#l06">Monopoly pricing &amp; deadweight loss (L06)</a></div>
+</div>
+
+<!-- ============ ARCHETYPE 8: COURNOT ============ -->
+<div class="arche" id="a-cournot">
+  <h3>Cournot (quantity competition) <span class="freq">5 on past papers</span></h3>
+  <div class="trig"><b>When you see it:</b> two firms choosing CAPACITY or QUANTITY of a homogeneous good; "best-response / reaction functions", "Cournot equilibrium", "collusive vs Cournot quantities", a merger to monopoly, Stackelberg first-mover.</div>
+  <div class="lab">Ideal-answer skeleton</div>
+  <ol class="skel">
+    <li>Market price P = a − (q₁ + q₂). Firm 1's TR = (a − q₁ − q₂)q₁, so MR₁ = a − 2q₁ − q₂.</li>
+    <li>Best response: set MR₁ = MC → q₁ = (a − MC − q₂)/2. By symmetry q₂ = (a − MC − q₁)/2.</li>
+    <li>Solve simultaneously (set q₁ = q₂ if symmetric) for Cournot quantities, then price and each firm's profit.</li>
+    <li>Collusion/merger: act as a single monopolist (midpoint rule), split output; each firm earns more than Cournot but has a unilateral incentive to over-produce, which is why Cournot, not collusion, is the stable prediction.</li>
+    <li>Stackelberg leader commits to MORE than the Cournot quantity (reaction curves slope down → strategic substitutes), grabbing share.</li>
+  </ol>
+  <div class="lab">Worked model answer</div>
+  <div class="exemplar">
+    <div class="q"><b>Practice Final 2 (2022), Part III Q3 (Iron ore wars II).</b> Q = 200 − P; cost per unit of capacity = 50 for each of BHP and Rio Tinto (duopoly). Find the best-response functions, the Cournot equilibrium quantities, price and profits, and the collusive outcome.</div>
+    <p>MR₁ = 200 − 2q₁ − q₂ = MC = 50 → q₁ = (150 − q₂)/2; by symmetry q₂ = (150 − q₁)/2. Solving with q₁ = q₂: <b>q₁ = q₂ = 50</b>. Price P = 200 − 100 = <b>100</b>; each firm's profit = (100 − 50)×50 = <b>2,500</b>. <b>Collusion:</b> act as a monopolist with choke 200 and MC 50 → P = (200 + 50)/2 = 125, Q = 75, joint profit = (125 − 50)×75 = 5,625, split as 2,812.5 each (each produces 37.5). Collusion pays more per firm, but either firm can deviate to its best response and earn more, which unravels to the Cournot quantities, so Cournot is the good predictor.</p>
+  </div>
+  <div class="traps">
+    <b>Traps.</b> Using MR with the wrong slope (in Cournot the rival's quantity enters linearly). Confusing Cournot (quantities, downward-sloping reaction curves) with Bertrand (prices, upward-sloping reaction curves). Forgetting that collusive quantities are LOWER than Cournot quantities. Splitting the merged monopolist's output incorrectly.
+  </div>
+  <div class="seclink">↪ Knowledge page: <a href="P%26M%20Revision%20Document.html#l11">Cournot quantity competition (L11)</a></div>
+</div>
+
+<!-- ============ ARCHETYPE 9: BERTRAND ============ -->
+<div class="arche" id="a-bertrand">
+  <h3>Bertrand (price competition) <span class="freq">5 on past papers</span></h3>
+  <div class="trig"><b>When you see it:</b> two firms setting PRICES; demand for each as a function of both prices (e.g. Q₁ = a − bP₁ + cP₂); "reaction function", "Bertrand-Nash prices", a graph with P₁ and P₂ on the axes; or homogeneous goods where the low-cost firm undercuts.</div>
+  <div class="lab">Ideal-answer skeleton</div>
+  <ol class="skel">
+    <li>Differentiated goods: from Q₁ = a − bP₁ + cP₂, the choke price is (a + cP₂)/b; apply the midpoint rule → best response P₁ = ½[(a + cP₂)/b + MC].</li>
+    <li>By symmetry write firm 2's reaction function; solve simultaneously for the Bertrand-Nash prices (intersection of upward-sloping reaction curves).</li>
+    <li>Comparative statics: a tax/MC rise shifts that firm's reaction curve out → both prices rise; a fixed-cost change shifts nothing; switching to revenue-maximisation acts as if MC = 0 → that firm's reaction curve shifts in (more aggressive).</li>
+    <li>Homogeneous goods: undercutting drives price to MC; with asymmetric costs the low-cost firm prices just below the rival's MC and takes the whole market.</li>
+  </ol>
+  <div class="lab">Worked model answer</div>
+  <div class="exemplar">
+    <div class="q"><b>Practice Final 3 (2020), Part III Q2 (Costa vs Starbucks).</b> MC = 1 for both. Starbucks demand Q₁ = −10P₁ + 2P₂ + 10; Costa demand Q₂ = −10P₂ + P₁ + 20. Find the choke price, Starbucks' best response, and the Bertrand-Nash prices.</div>
+    <p>Substitutes (cross-price coefficient positive). <b>Choke price</b> for Starbucks: 0 = −10P₁ + 2P₂ + 10 → P₁ = 1 + 0.2P₂. <b>Best response</b> via midpoint rule: P₁(P₂) = (choke + MC)/2 = (1 + 0.2P₂ + 1)/2 = 1 + 0.1P₂, an upward-sloping line. Costa's is P₂(P₁) = 1.5 + 0.05P₁. Solving simultaneously: <b>P₁ ≈ $1.16, P₂ ≈ $1.56</b>. Iterating from any starting prices (e.g. both at $4) converges quickly to this intersection, which is why the Bertrand-Nash is a good predictor.</p>
+  </div>
+  <div class="traps">
+    <b>Traps.</b> Treating a fixed-cost reduction as if it shifted the reaction function (it does not, only MC and the demand intercept matter). Forgetting that a revenue-maximising manager behaves "as if" MC = 0. Drawing Bertrand reaction curves downward-sloping (they slope UP for substitutes, prices are strategic complements). For homogeneous goods, landing on a split-the-market price instead of the undercut-to-MC logic.
+  </div>
+  <div class="seclink">↪ Knowledge page: <a href="P%26M%20Revision%20Document.html#l12">Bertrand price competition (L12)</a></div>
+</div>
+
+<!-- ============ ARCHETYPE 10: SEQUENTIAL ============ -->
+<div class="arche" id="a-sequential">
+  <h3>Sequential games, commitment &amp; strategic design <span class="freq">4 on past papers</span></h3>
+  <div class="trig"><b>When you see it:</b> "first-mover", "game tree", "backward induction", "how much would you pay to move first", a bargaining/ultimatum split, or choosing a mechanism (which auction format) given bidders' attitudes.</div>
+  <div class="lab">Ideal-answer skeleton</div>
+  <ol class="skel">
+    <li>Draw the tree with the first mover at the root and the follower's responses below each branch.</li>
+    <li>Backward induction: solve the follower's best response at each node first, then the leader picks the branch with the highest leader payoff.</li>
+    <li>The subgame-perfect outcome is that path; compare to the simultaneous game to value the first-mover advantage (= leader's sequential payoff − simultaneous payoff). If equal, there is NO first-mover advantage.</li>
+    <li>Bargaining: roll back from the last round; the player who can make the final credible offer captures the surplus, leaving the other just indifferent.</li>
+    <li>Mechanism design: pick the format that exploits the stated bidder psychology (e.g. risk-averse, desperate-to-win bidders shade less in a first-price sealed-bid auction, so it raises more revenue).</li>
+  </ol>
+  <div class="lab">Worked model answer</div>
+  <div class="exemplar">
+    <div class="q"><b>Practice Review Problem Set 2, Q11 (Silvia &amp; Xanthos).</b> Split €10 in whole euros. Silvia proposes; if Xanthos rejects, the pie shrinks to €8 and Xanthos proposes; if Silvia then rejects, both get 0. Each accepts when indifferent. Find the backward-induction outcome.</div>
+    <p>Work backwards. Final round: if no deal, both get 0, so Silvia accepts any offer, even (0 for her, 8 for Xanthos). Therefore in round 2 Xanthos offers himself 8 and Silvia 0. Knowing he can secure 8 by rejecting, Xanthos in round 1 accepts only ≥ 8. So Silvia offers <b>€2 for herself, €8 for Xanthos</b>, and Xanthos accepts. The shrinking pie hands the bargaining power to the second mover here.</p>
+  </div>
+  <div class="traps">
+    <b>Traps.</b> Solving the tree forwards instead of by backward induction. Claiming a first-mover advantage without checking it against the simultaneous game (Prisoner's-Dilemma-type games have none). Forgetting that only credible (subgame-perfect) threats count. In auction design, defaulting to "revenue equivalence" when the bidders' risk attitude breaks the assumptions.
+  </div>
+  <div class="seclink">↪ Knowledge page: <a href="P%26M%20Revision%20Document.html#l10">Sequential games &amp; commitment (L10)</a></div>
+</div>
+
+<!-- ============ ARCHETYPE 11: COLLUSION ============ -->
+<div class="arche" id="a-collusion">
+  <h3>Collusion sustainability (repeated games) <span class="freq">3 on past papers</span></h3>
+  <div class="trig"><b>When you see it:</b> "infinitely repeated", "grim trigger", "tit-for-tat", "critical discount rate", "can implicit collusion be sustained"; or a conceptual question on what makes collusion easier/harder.</div>
+  <div class="lab">Ideal-answer skeleton</div>
+  <ol class="skel">
+    <li>Pin down three per-period payoffs: collusive (π_C), one-shot deviation (π_D, the best you can grab while the rival still cooperates), and punishment (π_N, the static Nash forever after).</li>
+    <li>Collusion is sustained under grim trigger if PV(cooperate) ≥ PV(deviate): π_C + π_C/r ≥ π_D + π_N/r.</li>
+    <li>Solve for the critical discount rate r (or discount factor δ): firms must be patient enough.</li>
+    <li>Conceptual drivers: collusion is EASIER with a higher discount factor, a growing market, fewer firms and high transparency; HARDER with more competitors, lumpy infrequent interaction, and big one-shot deviation gains.</li>
+    <li>Note tit-for-tat's flaw: a single mistake can trigger an endless punishment cycle.</li>
+  </ol>
+  <div class="lab">Worked model answer</div>
+  <div class="exemplar">
+    <div class="q"><b>Final 2026, Part II Q4(d).</b> Grim-trigger collusion where both Stay Out for 3 each; static Nash gives 2 each; a one-shot deviation when the rival stays out earns 8, then 2 forever. Find the critical discount rate.</div>
+    <p>π_C = 3, π_D = 8, π_N = 2. PV(cooperate) = 3 + 3/r; PV(defect) = 8 + 2/r. Sustain collusion when 3 + 3/r ≥ 8 + 2/r → 1/r ≥ 5 → <b>r ≤ 0.20</b>. Collusion holds if the discount rate is at most 20% (firms sufficiently patient).</p>
+  </div>
+  <div class="eyeball"><span class="star">★</span> In the analogous <b>Practice Final 2 (2022) Part II Q4(b)</b> Bertrand grim-trigger question (π_C = 8, π_D ≈ 16, π_N = 0), the correct condition is 8 + 8/r ≥ 16 → r ≤ 1. The official solution PDF prints "8 + 8/r &gt; 16 or r &lt; 100", which looks like a typo for r &lt; 1. Use the r ≤ 1 derivation and verify against Glover's class wording.</div>
+  <div class="traps">
+    <b>Traps.</b> Using the wrong deviation payoff (it is the best single-period grab while the rival still cooperates, e.g. just undercutting the collusive price to take the whole market). Forgetting the punishment continuation is the static Nash, not zero (unless Bertrand homogeneous, where Nash profit IS zero). Saying more firms make collusion easier (it makes it harder). Treating tit-for-tat as flawless.
+  </div>
+  <div class="seclink">↪ Knowledge page: <a href="P%26M%20Revision%20Document.html#l13">Repeated games &amp; collusion (L13)</a></div>
+</div>
+
+<h2 id="selftest">Self-test bank</h2>
+<p>Every one of the 112 real past questions, grouped by archetype, most-recent-first. Read the question, answer it, then open the card for the model answer. Model answers follow the official solution keys; verify any you doubt against Prof. Glover's class wording.</p>
+
+<!-- ===== SELF-TEST: PRICE DISCRIMINATION ===== -->
+<div class="stgroup">
+  <h3>Price discrimination &amp; segmentation <span class="freq">24 questions</span></h3>
+
+  <details class="st"><summary><span class="yr">Final 2026 · II Q2</span> Segmented Pricing, NovaMed. MC = €10. Germany: P_G = 90 − Q_G. Portugal: P_P = 60 − 2Q_P. (a) Optimal prices and profits with perfect segmentation. (b) A parallel importer with zero transport cost. (c) Maximum sustainable price differential with €8 transport cost. (d) Uniform price across both markets.</summary><div class="ans"><b>Model answer.</b> (a) MR_G = 90 − 2Q_G = 10 → Q_G = 40, P_G = 50; MR_P = 60 − 4Q_P = 10 → Q_P = 12.5, P_P = 35. Profit = (50−10)40 + (35−10)12.5 = 1,600 + 312.5 = €1,912.50. (b) Costless arbitrage forces one price: combined Q = 120 − 1.5P → P = 80 − Q/1.5; MR = 10 → Q = 52.5, P = 45, profit ≈ €1,837.50 (lower than segmented). (c) Arbitrage occurs only if P_G − P_P &gt; €8, so keep the gap ≤ €8. (d) Uniform price = €45, profit €1,837.50 &lt; €1,912.50: discrimination wins because the two segments differ in elasticity (Germany more inelastic).</div></details>
+
+  <details class="st"><summary><span class="yr">Final 2026 · III Q3</span> Software Versioning at DataPro. MC = $0. 200 Large Corps: WTP_Pro = $800, WTP_Basic = $300. 500 Small Biz: WTP_Pro = $400, WTP_Basic = $200. (a) Uniform Pro-only price. (b) Perfect price discrimination. (c) Versioning with PC and SC constraints. (d) Why deliberately damage Basic. (e) Two real-world versioning examples.</summary><div class="ans"><b>Model answer.</b> (a) Best uniform: $400 to all 700 → $280,000 (beats $800 to 200 only = $160,000). (b) Perfect PD: 800×200 + 400×500 = $360,000. (c) Bind PC_S → P_Basic = 200; bind SC_L (P_Pro − P_Basic ≤ 500) → P_Pro = 700; checks pass; profit = 200×700 + 500×200 = $240,000. (d) Damaging Basic lowers Large Corps' WTP for it, relaxing SC_L and letting DataPro raise the Pro price without defection. (e) Microsoft Office tiers; Intel disabling cores/cache on cheaper SKUs (the cheaper chip can cost MORE to make).</div></details>
+
+  <details class="st"><summary><span class="yr">Final 2026 · I Q7</span> Supermarket coupons as price discrimination, which statement is correct? (a) Coupon users have less elastic demand. (b) Time cost screens out high-WTP shoppers; they pay full price. (c) Coupons raise total price for all. (d) Two-part tariff.</summary><div class="ans"><b>Model answer.</b> (b). Clipping coupons is costly in time; high-WTP (less price-sensitive) shoppers do not bother and pay full price, while low-WTP shoppers self-select into the discount. Classic third-degree price discrimination by self-selection.</div></details>
+
+  <details class="st"><summary><span class="yr">PF3 2020 · II Q2</span> Kongsberg Automotive sells a patented TCS made only in Norway to China and Japan, charging more in Japan. (a) In which market is demand more elastic? (b) After a fire cuts capacity (orders now 120% of remaining capacity, one-year rebuild), how should it adjust pricing in China and Japan? (c) A VP says stop the lower China price since each China unit now has the opportunity cost of a higher-priced Japan sale, should the firm follow this?</summary><div class="ans"><b>Model answer.</b> (a) Charge more where demand is less elastic, so the lower-priced market, China, is more elastic. (b) The capacity loss is a negative supply shock raising marginal cost (rebuild cost); prices rise in BOTH markets, but less in China because its flatter (more elastic) demand. (c) No. Optimal explicit segmentation sets MR_Japan = MR_China = MC; the higher MC raises both prices but China should still be lower. Following the VP would over-price China and leave money on the table.</div></details>
+
+  <details class="st"><summary><span class="yr">PF3 2020 · III Q1</span> Rent-My-Hoopty: red and beige cars; Fast types value Red $80/Beige $60, Slow types Red $60/Beige $50; cost $20. (a) Perfect price discrimination prices and profit. (b) What if you charge $80 red and $50 beige without observing type? (c) Optimal prices when type is unobserved and profit. (d) If the market is 20 fast and 80 slow, what to rent and at what price.</summary><div class="ans"><b>Model answer.</b> (a) Rent red to Fast at $80, beige to Slow at $60; profit = F(60) + S(40) per type net of $20 cost. (b) Fast types get 0 surplus from red ($80=WTP) but $10 from beige, so they rent beige; Slow rent beige, segmentation fails. (c) Leave Fast their $10 information rent: price red at $70 (surplus $10) and beige at $50; profit = F(50) + S(30). (d) Compare options: renting only red cars at the slow valuation ($60) to all 100 gives (80+20)×40 = $4,000, the best; you would need &gt;50% fast types for the screening menu to beat it. So rent only red cars at $60.</div></details>
+
+  <details class="st"><summary><span class="yr">PF3 2020 · III Q3</span> Le Champo cinema charges €8 seniors, €12 general public. Inverse demand P_g = 31 − 0.05q_g, P_s = 17 − 0.04q_s; AC = 5000/Q + 1. (a) Which type is more elastic at €10; elastic or inelastic? (b) Why differ? (c) MR for each. (d) Optimal prices and quantities. (e) Compare profit with the old structure. (f) Why might they keep old prices?</summary><div class="ans"><b>Model answer.</b> (a) E = P/(choke − P): E_g = 10/21 &lt; 1 (inelastic), E_s = 10/7 &gt; 1 (elastic); seniors more elastic. (b) Plausibly the general public has a higher opportunity cost of time, so less elastic. (c) MR_g = 31 − 0.1q_g, MR_s = 17 − 0.08q_s. (d) MC = 1; set MR = MC: q_g = 300, P_g = 16; q_s = 200, P_s = 9. (e) New profit = 16×300 + 9×200 − (5000+500) = 1,100 vs old 12×380 + 8×225 − (5000+605) = 755. (f) They may not be pure profit-maximisers, a cultural good with positive externalities, relinquishing some producer surplus to consumers.</div></details>
+
+  <details class="st"><summary><span class="yr">PF2 2022 · III Q1</span> Arbitrage. Publisher MC = $5. Market 1: Q₁ = 55 − P₁. Market 2: Q₂ = 70 − 2P₂ (the solution corrects a typo to this form). (a) Prices, outputs and profit with separation. (b) What happens at those prices if consumers can mail books at zero cost; profit. (c) Optimal strategy and profit with costless mailing. (d) With a $5 mailing cost, what happens and what should the publisher do.</summary><div class="ans"><b>Model answer.</b> (a) Midpoint rule: P₁ = (55+5)/2 = 30, P₂ = (70/2 + 5)/2 → choke₂ = 35, P₂ = (35+5)... the solution gives P₁ = 30 (Q₁=25), P₂ = 37.5? Following the official key: P₁ = 30, P₂ = 37.5. (b) Everyone buys in the cheaper market 1; Q₁ = 25, Q₂ = 40 there, profit (30−5)(65) = 1,625. (c) Cannot segment: total Q = 125 − 2P, optimal P = 33.75, Q = 57.5, profit = (33.75−5)57.5 = 1,653.125. (d) With $5 mailing, customers still arbitrage to market 1 (Q₂ falls to 35), profit 1,500; better to set P₂ = 37.5 and P₁ = 32.5 (gap = $5 = mailing cost), profit = 1,056.25 + 618.75 = 1,675.</div></details>
+
+  <details class="st"><summary><span class="yr">PF1 2010 · II Q17</span> iPhones high (3G) or low (2G) quality. 10 Eager: WTP $500 high / $150 low. 10 Slow: $200 high / $100 low. AC = $10. (a) Best single low-quality price and profit. (b) Best single high-quality price and profit. (c) Will offering Low $100 / High $500 implicitly segment? (d) Prices for implicit segmentation and profit. (e) Most profitable scheme.</summary><div class="ans"><b>Model answer.</b> (a) Low at $100 to all 20 → profit $1,800 (beats $150 to 10 → $1,400). (b) High at $500 to Eager 10 → profit $4,900 (beats $200 to all → $3,800). (c) No: at Low $100 / High $500, Eager get CS $50 from low but $0 from high, so they buy low, SC violated. (d) Set Low = $100; leave Eager their $50 rent → High = $450; profit = 100×10 + 450×10 − 200 = $5,300. (e) Implicit segmentation ($5,300) beats both single-version schemes.</div></details>
+
+  <details class="st"><summary><span class="yr">PF1 2010 · II Q18</span> Coupons. Demand P = 80 − 2Q; AC = MC = $20. (a) Profit-maximising price and quantity. (b) Profit change from a $10-off coupon redeemed only by consumers valuing below $50. (c) The $X-off coupon that maximises the profit gain.</summary><div class="ans"><b>Model answer.</b> (a) Midpoint: P = (80+20)/2 = 50, Q = 15. (b) Q = 40 − 0.5P, so cutting price from 50 to 40 for redeemers adds 5 units: extra revenue 5×40 = 200, extra cost 5×20 = 100, profit +$100. (c) An $X coupon adds 0.5X sales at price (50−X); extra profit = (50−X)(0.5X) − 20(0.5X) = 15X − 0.5X²; set derivative 15 − X = 0 → X = $15, gain $112.50.</div></details>
+
+  <details class="st"><summary><span class="yr">PF1 2010 · I Q5</span> Honest Tea (A and B equal segments; MC $1/litre; A values 1L=$3.25, 2L=$5; B values 1L=$4, 2L=$7). Scheme Alpha P1 = 3.25, P2 = 7: who buys what? (a) both buy 1L; (b) both buy 2L; (c) A buys 1L, B buys 2L; (d) A buys 1L, B buys two 1L.</summary><div class="ans"><b>Model answer.</b> (a). A buys the 1L. For B: CS from one 1L = 4 − 3.25 = 0.75; from two 1L = 7 − 6.5 = 0.5; from one 2L = 7 − 7 = 0. B's best is one 1L, so both buy a 1L bottle.</div></details>
+
+  <details class="st"><summary><span class="yr">PF1 2010 · I Q6</span> Honest Tea, Scheme Beta P1 = 3.25, P2 slightly below 6.25: who buys what? (a) both 1L; (b) both 2L; (c) A buys 1L, B buys 2L; (d) A buys 1L, B buys two 1L.</summary><div class="ans"><b>Model answer.</b> (c). A still buys the 1L. For B: one 1L gives CS 0.75; two 1L gives 0.5; one 2L at ~6.24 gives 7 − 6.24 = 0.76, the best, so B buys the 2L.</div></details>
+
+  <details class="st"><summary><span class="yr">PF1 2010 · I Q7</span> Honest Tea: which scheme is more profitable? (a) Alpha; (b) Beta; (c) equal; (d) depends on segment sizes.</summary><div class="ans"><b>Model answer.</b> (b). Alpha profit = (3.25−1)×2 = 4.5; Beta profit = (3.25−1) + (6.24−2) = 6.49. Beta wins.</div></details>
+
+  <details class="st"><summary><span class="yr">PF1 2010 · I Q8</span> In Shanghai, Mandarin films screen with and without English subtitles; subtitled theatres charge more. If the owners took P&amp;M, the best explanation is: (a) monopoly power fallacy; (b) fixed cost fallacy; (c) explicit market segmentation; (d) implicit market segmentation.</summary><div class="ans"><b>Model answer.</b> (d) Implicit market segmentation: everyone faces the same options, but non-Mandarin speakers self-select into the higher-priced subtitled screenings, letting owners extract more from them.</div></details>
+
+  <details class="st"><summary><span class="yr">Quiz 1 · 2010 · Q10</span> A firm supplies two markets from one facility with explicit segmentation and linear pricing, setting MR equal across markets. Based only on this, which is true? (a) maximised profit; (b) maximised revenue given total output; (c) socially efficient output; (d) extracts all consumer surplus.</summary><div class="ans"><b>Model answer.</b> (b). Equal MRs maximise revenue for a given total output; maximising profit also requires MR = MC, efficiency requires P = MC, and two-market segmentation is not perfect PD, so none of those follow.</div></details>
+
+  <details class="st"><summary><span class="yr">Quiz 1 · 2010 · Q11</span> A Swiss firm sells a patented drug in the USA ($30) and Canada ($20), same transport cost, constant MC; elasticities are 3 (US) and 4 (Canada). (a) maximising profit; (b) raise US price; (c) lower US price.</summary><div class="ans"><b>Model answer.</b> (c). MR_US = 30(1 − 1/3) = 20; MR_CAN = 20(1 − 1/4) = 15. MR_US &gt; MR_CAN, so shift a unit from Canada to the US (sell one more in the US by lowering its price), raising revenue and profit at unchanged total output.</div></details>
+
+  <details class="st"><summary><span class="yr">Quiz 1 · 2010 · Q12</span> Merck charges nearly twice as much for AIDS medication in Uganda as in Norway. Best rationale? (a) Norway's higher incomes make its demand more inelastic; (b) packaging costs more for Uganda; (c) Norwegian AIDS cases are low-income / low-WTP, while only wealthier high-WTP Ugandans are relevant for pricing.</summary><div class="ans"><b>Model answer.</b> (c). If Norway's relevant buyers have low WTP and only wealthier Ugandans can afford the drug at all, the priced segment in Uganda has the higher WTP. (a) implies higher Norway prices and (b) is implausible, so (c) is the best rationale (and matches real elasticity estimates).</div></details>
+
+  <details class="st"><summary><span class="yr">Quiz 2 · Q4</span> A live Hamlet (tickets ~$100) uses fewer resources than a Hamlet movie (tickets ~$10). Potential explanations? (a) lower marginal cost of one more movie showing; (b) plays and movies target different segments, stage audiences having higher WTP; (c) stage has limited seating/run while cinemas have less capacity constraint; (d) all of the above.</summary><div class="ans"><b>Model answer.</b> (d) All of the above: lower marginal cost per extra cinema showing, different segments with higher stage WTP, and the cinema's volume option all explain the lower movie price.</div></details>
+
+  <details class="st"><summary><span class="yr">Quiz 2 · Q11</span> Roach Motors perfectly price-discriminates on used cars; inverse demand P = 2000 − 10Q; cost $500 each, no other costs. Roach will: (a) sell 75 for $56,250; (b) sell 150 for $112,500; (c) sell 150 at a uniform $300; (d) sell 180 for $187,500.</summary><div class="ans"><b>Model answer.</b> (b). Sell to everyone whose WTP ≥ MC = 500; the marginal buyer pays 500 = 2000 − 10Q → Q = 150. With perfect PD the firm captures the whole triangle: profit = ½ × 150 × (2000 − 500) = $112,500.</div></details>
+
+  <details class="st"><summary><span class="yr">Review PS1 · Q8</span> A perfectly-price-discriminating monopolist sells an indivisible good. Marginal valuations: unit 1 $22, 2 $18, 3 $16, 4 $14, 5 $10; MC = $15. State two optimal pricing strategies: (a) a take-it-or-leave-it fixed quantity, and (b) a two-part tariff.</summary><div class="ans"><b>Model answer.</b> Sell while marginal valuation ≥ MC, i.e. 3 units. (a) Take-it-or-leave-it: offer 3 units for the total valuation $22+$18+$16 = $56. (b) Two-part tariff: per-unit price = MC = $15 (consumer chooses 3 units, surplus $11) plus an entry fee of $11 to extract that surplus.</div></details>
+
+  <details class="st"><summary><span class="yr">Review PS1 · Q9</span> A monopoly without price discrimination is inefficient; with perfect price discrimination it is efficient. Does that mean everyone is better off with perfect price discrimination?</summary><div class="ans"><b>Model answer.</b> No. Perfect PD is efficient (all gains from trade realised) but the monopolist expropriates all of them; some consumers who bought under uniform pricing now pay a higher price and are worse off.</div></details>
+
+  <details class="st"><summary><span class="yr">Review PS1 · Q10</span> Apple sold 1m iMacs at $1,500. A second segment of 2m would pay up to $500 for a stripped-down version; segment 1 would pay $800 for it; segment 2 would pay $1,000 for the full version; cost $300 either version. (a) Current operating profit. (b) Launch baby iMac at $500, what do segments do; is it implicit segmentation? (c) Prices for implicit segmentation; more or less profit than (a)? (d) Optimal strategy.</summary><div class="ans"><b>Model answer.</b> (a) (1500−300)×1m = $1.2bn. (b) Keeping the iMac at $1,500, segment 1 switches to the $500 baby (CS $300 vs $0), SC violated, no segmentation. (c) Cut the iMac to $1,200 so segment 1's surplus matches the $300 from the baby; total profit (1200−300)1m + (500−300)2m = $1.3bn &gt; (a). (d) Best is to sell the full version to both at $1,000: (1000−300)×3m = $2.1bn, the iMac was simply priced too high.</div></details>
+
+  <details class="st"><summary><span class="yr">Review PS1 · Q11</span> A distributor has two films (Sorrow and Loneliness, Death Machine) and three theatres with known valuations; MC = 0. What prices under (a) perfect (explicit) price discrimination, (b) uniform pricing, (c) pure bundling, (d) mixed bundling?</summary><div class="ans"><b>Model answer.</b> (a) PPD: charge each theatre its valuation for each film → total revenue €440. (b) Uniform: Sorrow at €60 or €90 (each €180), Death at €60 (€120) → €300. (c) Pure bundle: price €130, sell to all three → €390. (d) Mixed: bundle €150 and Sorrow alone €120 (do not sell Death alone) → €150+€150+€120 = €420, closest to PPD.</div></details>
+
+  <details class="st"><summary><span class="yr">Review PS1 · Q14</span> A firm has a domestic monopoly (Q_D = 1200 − 10P_D) and can also sell in a perfectly competitive world market at P_W = 80; MC(Q) = 50 + Q/10 on total output Q. Find the profit-maximising total output and its split.</summary><div class="ans"><b>Model answer.</b> Domestic inverse demand P_D = 120 − 0.1Q_D, MR_D = 120 − 0.2Q_D. The competitive export market has MR_F = world price = 80. Optimum: MR_D = MR_F = MC. MR_D = 80 → Q_D = 200. MC = MR_F → 50 + 0.1Q_F + 0.1(200) = 80 → Q_F = 100. Total output 300, split 200 domestic / 100 export.</div></details>
+
+  <details class="st"><summary><span class="yr">Review PS2 · Q12</span> Indicator sells Standard/Deluxe to intensive (IU: $50/$80) and casual (CU: $40/$65) users, equal proportions, same cost both versions. (a) Under perfect price discrimination, what transactions? (b) At trial prices Standard €45, Deluxe €78, which participation and self-selection constraints hold?</summary><div class="ans"><b>Model answer.</b> (a) No cost saving from Standard, so sell Deluxe to both: charge IU €80, CU €65. (b) IU participation holds (80 &gt; 78). CU participation fails (40 &lt; 45). IU self-selection fails: surplus from Deluxe = 80 − 78 = 2 but from Standard = 50 − 45 = 5, so IU switches to Standard. (No need to check CU self-selection since CU does not participate.)</div></details>
+</div>
+
+<!-- ===== SELF-TEST: ELASTICITY ===== -->
+<div class="stgroup">
+  <h3>Elasticity, revenue &amp; the golden pricing rule <span class="freq">19 questions</span></h3>
+
+  <details class="st"><summary><span class="yr">Final 2026 · I Q2</span> A streaming service has E = 2.5 and raises price 8%. Demand: (a) falls ~20%; (b) falls ~3.2%; (c) rises ~20%; (d) does not change.</summary><div class="ans"><b>Model answer.</b> (a). %ΔQ = −E×%ΔP = −2.5×8% = −20%.</div></details>
+
+  <details class="st"><summary><span class="yr">Final 2026 · I Q3</span> Vietnamese coffee: log Q = 4.1 − 0.6 log P + 0.3 log P_T + 1.2 log Y. Tea and income relationship: (a) complements, inferior; (b) substitutes, normal; (c) complements, normal; (d) substitutes, inferior.</summary><div class="ans"><b>Model answer.</b> (b). Cross-price elasticity with tea = +0.3 &gt; 0 → substitutes; income elasticity = +1.2 &gt; 0 → normal good.</div></details>
+
+  <details class="st"><summary><span class="yr">Final 2026 · I Q4</span> Income rises 4%/yr, coffee price rises 10%/yr, tea price unchanged. Coffee consumption: (a) increase, income effect dominates; (b) decrease, price effect dominates; (c) unchanged; (d) indeterminate.</summary><div class="ans"><b>Model answer.</b> (b). %ΔQ ≈ (−0.6)(10%) + (1.2)(4%) = −6% + 4.8% = −1.2% &lt; 0, so coffee consumption falls; the price effect dominates.</div></details>
+
+  <details class="st"><summary><span class="yr">PF2 2022 · I Q1</span> Price elasticity of demand for tickets at the Ermitage cinema is 1.5. If it raises price 20%, expect: (a) decrease ~30%; (b) increase 30%; (c) decrease 3%; (d) no change (inelastic).</summary><div class="ans"><b>Model answer.</b> (a). %ΔQ = −1.5×20% = −30%.</div></details>
+
+  <details class="st"><summary><span class="yr">PF2 2022 · I Q2</span> Used cars in France: Q = 32000 − 4P. (a) perfectly inelastic at P = 0; (b) revenue-maximising P = 2000; (c) unit elastic at P = 4000.</summary><div class="ans"><b>Model answer.</b> (a) and (c) true. At P = 0 quantity is fixed/maximal so demand is perfectly inelastic; revenue is maximised at unit elasticity, which for Q = 32000 − 4P is the midpoint P = 4000 (so (b) at 2000 is false; (c) is correct).</div></details>
+
+  <details class="st"><summary><span class="yr">PF3 2020 · I Q1</span> Huawei cuts the P30 Pro 10% ($350→$315) and sells 5% more (5.0m→5.25m). (a) demand is inelastic (E&lt;1); (b) revenue higher with the cut; (c) total cost higher; (d) should carry through the cut.</summary><div class="ans"><b>Model answer.</b> Only (a). E = 5%/10% = 0.5 &lt; 1, inelastic. Because demand is inelastic, a price cut LOWERS revenue, so (b) and (d) are false; cost rises only modestly but the revenue loss dominates.</div></details>
+
+  <details class="st"><summary><span class="yr">PF3 2020 · I Q2</span> Recycled plastic in Brazil: Q = 2400 − 3P. (a) E = 1 at P = 400; (b) demand more elastic at higher prices; (c) revenue maximised at P = 400.</summary><div class="ans"><b>Model answer.</b> All three true. Unit elasticity is at the midpoint P = 400; elasticity rises moving up a linear demand curve; revenue is maximised where E = 1, at P = 400.</div></details>
+
+  <details class="st"><summary><span class="yr">PF3 2020 · II Q1</span> A business plan: positive MC, fixed cost 3000; if it operates it should charge 60 and sell 150. (a) Most likely elasticity at P = 60: 0.7, 1.0, or 1.9? (b) If the fixed cost is 4000 not 3000 and the firm cannot exit for a year, how should it modify the plan?</summary><div class="ans"><b>Model answer.</b> (a) Golden rule P = [E/(E−1)]MC: at P = 60, E = 0.7 implies negative MC and E = 1.0 implies MC = 0, both impossible for a positive-MC firm; E = 1.9 gives MC ≈ 28.4, sensible, so E ≈ 1.9. (b) Do not change price or output: fixed costs never affect the produce/price decision, only the (currently unavailable) exit decision. The firm may well still be profitable.</div></details>
+
+  <details class="st"><summary><span class="yr">Quiz 1 · 2010 · Q2</span> Two linear demand curves d1, d2; E_A is on d2 and E_B on d1 at marked points. Which is true? (a) E_A &gt; E_B; (b) E_A &lt; E_B; (c) E_A = E_B; (d) not enough info.</summary><div class="ans"><b>Model answer.</b> (b). d2 has the lower choke price and is more elastic when compared at the same price, so E_A &lt; E_B.</div></details>
+
+  <details class="st"><summary><span class="yr">Quiz 1 · 2010 · Q3</span> E_C and E_B are both on d1 at two marked points. Which is true? (a) E_C &gt; E_B; (b) E_C &lt; E_B; (c) E_C = E_B; (d) not enough info.</summary><div class="ans"><b>Model answer.</b> (b). Elasticity rises along a linear demand curve as price increases; at the lower-price point E_C &lt; E_B.</div></details>
+
+  <details class="st"><summary><span class="yr">Quiz 1 · 2010 · Q4</span> Comparing E_A and E_C. (a) E_A &gt; E_C; (b) E_A &lt; E_C; (c) E_A = E_C; (d) not enough info.</summary><div class="ans"><b>Model answer.</b> (a). From Q2 and Q3, E_A &gt; E_B &gt; E_C, so E_A &gt; E_C.</div></details>
+
+  <details class="st"><summary><span class="yr">Quiz 1 · 2010 · Q7</span> An author gets a fixed K plus 10% of sales revenue; linear demand; publisher MC = $10. If the author wants P = $30, the publisher wants P =? (a) $15; (b) $25; (c) $25; (d) $35.</summary><div class="ans"><b>Model answer.</b> (d) $35. The author maximises revenue (E = 1): P/(choke − P) = 1 at P = 30 → choke = 60. The publisher maximises profit via the midpoint rule: P = (60 + 10)/2 = $35.</div></details>
+
+  <details class="st"><summary><span class="yr">Quiz 1 · 2010 · Q9</span> A team finds the worldwide flat-panel demand elasticity is 0.7 and a colleague wants to advise LG to raise price ("price in the elastic region"). This is wrong because: (a) higher price raises revenue but also costs; (b) only at unit elasticity should you raise price; (c) 0.7 is the market elasticity, not LG's; (d) raising prices shifts the demand curve.</summary><div class="ans"><b>Model answer.</b> (c). Market demand can be inelastic while an individual firm's demand is elastic (E &gt; 1); LG faces a much more elastic curve than the market's 0.7.</div></details>
+
+  <details class="st"><summary><span class="yr">Quiz 2 · Q7</span> A software distributor charged $50 and sold 20,000 last year; a $1 price change moves quantity 1,000 units; costs were $500,000 fee + $3/copy + $245,000 ads. Were last year's prices set correctly? (a) yes, raise this year; (b) yes, lower this year; (c) no, should have charged higher; (d) no, should have charged lower.</summary><div class="ans"><b>Model answer.</b> (d). MR = P + Q(dP/dQ) = 50 + 20,000(−1/1000) = 30 &gt; MC = 3, so the firm was under-producing: it should have charged a lower price and sold more.</div></details>
+
+  <details class="st"><summary><span class="yr">Quiz 2 · Q9</span> 20th Century Fox DVD: log Q = 400 − 1.5 log P + 2 log P_T + 3 log(S&amp;P); per-copy $0.60 packaging + $1.20 copy + $2.00 shipping; $40m star fee not yet paid. Profit-maximising price? (a) $11.40; (b) $15.60; (c) $3.80; (d) $7.60.</summary><div class="ans"><b>Model answer.</b> (a) $11.40. E = 1.5, MC = 0.60 + 1.20 + 2.00 = 3.80; golden rule P = (1.5/0.5)×3.80 = $11.40. The not-yet-paid star fee is a fixed cost, ignored.</div></details>
+
+  <details class="st"><summary><span class="yr">Quiz 2 · Q10</span> App price elasticity is 3.73 in Google Play and 0.57 in the Apple store; MC ≈ 0. You advise developers to: (a) lower Apple, raise Google; (b) lower Google, raise Apple; (c) lower both; (d) raise both.</summary><div class="ans"><b>Model answer.</b> (b). Move both toward unit elasticity (revenue max with MC ≈ 0): Google is elastic (3.73 &gt; 1) so lower price; Apple is inelastic (0.57 &lt; 1) so raise price.</div></details>
+
+  <details class="st"><summary><span class="yr">Quiz 2 · Q12</span> McDonald's franchisees pay ~20% of revenue; McDonald's bears fixed costs, the franchisee bears variable costs. Which is true? (a) McDonald's optimal price lower than the franchisee's; (b) higher; (c) the same; (d) happy meal.</summary><div class="ans"><b>Model answer.</b> (a). McDonald's earns a share of revenue, so it wants the revenue-maximising (lower) price; the franchisee bears variable cost and wants the profit-maximising (higher) price.</div></details>
+
+  <details class="st"><summary><span class="yr">Review PS1 · Q3</span> Honda demand: ln Q = 5.7 + 1.2 ln A − 0.25 ln B − 6.2 ln C + 0.5 ln D. Variables: (1) price of Honda bikes; (2) price of other bikes; (3) price of cars; (4) price of required safety lessons. Match A, B, C, D and give Honda's own-price elasticity.</summary><div class="ans"><b>Model answer.</b> Positive signs (A, D) are substitutes: A = other motorcycles (closer substitute, larger +), D = cars. Negative signs (B, C): the large −6.2 (C) is the own price of Honda; the small −0.25 (B) is the price of required safety lessons (weak complement). Honda's own-price elasticity ≈ 6.2.</div></details>
+
+  <details class="st"><summary><span class="yr">Review PS1 · Q4</span> Identify the elasticity of demand: (i) you buy a full tank of petrol every week; (ii) you buy $20 worth of petrol.</summary><div class="ans"><b>Model answer.</b> (i) Fixed quantity regardless of price → perfectly inelastic, E = 0. (ii) Fixed spending P×Q = 20 → unit elastic, E = 1.</div></details>
+</div>
+
+<!-- ===== SELF-TEST: NASH ===== -->
+<div class="stgroup">
+  <h3>Nash equilibrium &amp; dominance <span class="freq">14 questions</span></h3>
+
+  <details class="st"><summary><span class="yr">Final 2026 · I Q10</span> Advertising Prisoner's Dilemma between BeanKing and BrewCo. Outcome? (a) neither advertises; (b) only the larger advertises; (c) both advertise though both prefer not to; (d) two Nash equilibria.</summary><div class="ans"><b>Model answer.</b> (c). Advertising is a dominant strategy for both (if the rival advertises, 30 &gt; 15; if not, 60 &gt; 50), so the Nash is (advertise, advertise) = (30,30), Pareto-dominated by (don't, don't) = (50,50). Classic PD.</div></details>
+
+  <details class="st"><summary><span class="yr">Final 2026 · II Q4</span> Renewable energy: both Enter (2,2); one enters/other out: entrant €8bn, other −€1bn; both Out (3,3). (a) 2×2 matrix. (b) Dominant strategies, Nash, game type. (c) Sequential game with SunCorp first. (d) Grim-trigger critical discount rate.</summary><div class="ans"><b>Model answer.</b> (a) Enter/Enter (2,2), Enter/Out (8,−1), Out/Enter (−1,8), Out/Out (3,3). (b) Enter dominant for both → unique Nash (Enter, Enter) = (2,2); a Prisoner's Dilemma since (3,3) is Pareto-superior. (c) Backward induction: whatever SunCorp does, WindPower enters; SunCorp enters (2 &gt; −1); SPNE (Enter, Enter), no first-mover advantage. (d) PV(cooperate) = 3 + 3/r ≥ PV(defect) = 8 + 2/r → r ≤ 0.20.</div></details>
+
+  <details class="st"><summary><span class="yr">PF2 2022 · I Q4</span> Guess-the-average game: everyone picks an integer 0–100, winner is closest to the mean M. (a) 0 is the only Nash; (b) 0 and 1 only; (c) 50 only; (d) all integers 0–100 are Nash.</summary><div class="ans"><b>Model answer.</b> (d). In the closest-to-the-mean (not 2/3-mean) game, any common number is a Nash equilibrium: if everyone picks the same integer, the mean equals it and no one can do better by deviating.</div></details>
+
+  <details class="st"><summary><span class="yr">PF2 2022 · III Q2</span> Iron ore wars I: BHP and RT decide to open a new mine (Enter) or not (Out). One enters/other out: entrant 10b, other −1b; both enter: 1b each; both out: 2b each. (a) Matrix. (b) Define dominant strategy; does either have one? (c) How many Nash; what game type? (d) BHP gets a first-mover advantage, game tree and Nash.</summary><div class="ans"><b>Model answer.</b> (a) Enter/Enter (1,1), Enter/Out (10,−1), Out/Enter (−1,10), Out/Out (2,2). (b) A dominant strategy gives the highest payoff regardless of the rival; Enter is dominant for both (1 &gt; −1 and 10 &gt; 2). (c) One Nash, (Enter, Enter); a Prisoner's Dilemma. (d) Backward induction: RT enters whatever BHP does, and BHP enters; the first-mover advantage does not change the Nash.</div></details>
+
+  <details class="st"><summary><span class="yr">PF3 2020 · III Q4</span> Lockheed Martin vs Airbus Defense drones: both enter → −$10b each; one enters/other out → 30/0; both out → 0/0. (a) Matrix. (b) Dominant strategy? (c) Nash equilibria? (d) Add "delay" option (delay vs enter: −15/30; delay vs out: −5/0; both delay: −5/−5) and find Nash. (e) Trump tweets that LM should enter, sequential game with LM first.</summary><div class="ans"><b>Model answer.</b> (a) Enter/Enter (−10,−10), Enter/Out (30,0), Out/Enter (0,30), Out/Out (0,0). (b) No dominant strategy. (c) Two pure Nash: (Enter, Out) and (Out, Enter). (d) Delay is strictly dominated for both, so eliminate it; the Nash are unchanged. (e) With LM first, Airbus has no credible threat and stays out if LM enters; SPNE (Enter, Out), Trump's tweet works by making LM the first mover.</div></details>
+
+  <details class="st"><summary><span class="yr">PF1 2010 · I Q12</span> Intel vs AMD capacity game (Not expand / Small / Large). Which is a dominant strategy for Intel? (a) Not expand; (b) Small; (c) Large; (d) none.</summary><div class="ans"><b>Model answer.</b> (d) None. Small is best when AMD plays Not expand or Small, but worse when AMD plays Large, so Intel has no single action that dominates.</div></details>
+
+  <details class="st"><summary><span class="yr">PF1 2010 · I Q13</span> Intel/AMD: iterated elimination of dominated strategies yields which unique Nash? (a) (Not expand, Not expand); (b) (Small, Small); (c) (Large, Large); (d) none.</summary><div class="ans"><b>Model answer.</b> (b). Eliminate Large (dominated by Small) for both, then Not expand (dominated by Small) for both, leaving (Small, Small).</div></details>
+
+  <details class="st"><summary><span class="yr">PF1 2010 · II Q20</span> Two firms developing compatible "taste-over-internet" tech. Same tech → $200m each; different → $0 each; retooling costs firm 1 $250m, firm 2 $100m; simultaneous. (a) Set up the game. (b) Nash equilibrium. (c) Sequential tree with firm 2 first. (d) Predicted sequential outcome and is there a first-mover advantage?</summary><div class="ans"><b>Model answer.</b> (a) Payoffs: both RemoteTaste (200,200); both YumWeb depends on retooling, adopting RemoteTaste is dominant for firm 1 (it avoids its high $250m retool). (b) Firm 1 plays RemoteTaste (dominant); firm 2 follows → Nash (RemoteTaste, RemoteTaste). Higher switching cost is an advantage (commitment). (c)/(d) The sequential game with firm 2 first gives the same outcome by backward induction; no first-mover advantage.</div></details>
+
+  <details class="st"><summary><span class="yr">Review PS2 · Q4</span> Two chocolate firms choose High or Low quality. Payoffs: High/High (50,50); High/Low (800,100); Low/High (900,600)... [matrix as given]. (a) Nash equilibria? (b) Cooperative outcome? (c) Who benefits most and how much to pay the other to collude?</summary><div class="ans"><b>Model answer.</b> (a) (High, Low) and (Low, High) are the Nash. (b) Collusion goes to (Low, High) where joint payoff is maximised. (c) Firm 1 benefits most, but it need pay nothing since Firm 2 also benefits at that cooperative cell.</div></details>
+
+  <details class="st"><summary><span class="yr">Review PS2 · Q5</span> Write down the payoff matrix for a Prisoner's Dilemma and tell a consistent story.</summary><div class="ans"><b>Model answer.</b> A 2×2 where Defect strictly dominates Cooperate for both yet (Cooperate, Cooperate) Pareto-dominates (Defect, Defect), e.g. the advertising war: both firms advertise (the dominant strategy) and end up worse off than if neither advertised.</div></details>
+
+  <details class="st"><summary><span class="yr">Review PS2 · Q6</span> Write down the payoff matrix for a coordination game and tell a consistent story.</summary><div class="ans"><b>Model answer.</b> A game with two aligned pure-strategy Nash, e.g. driving on the road: (Left, Left) and (Right, Right) are both equilibria; players only need to coordinate on the same side.</div></details>
+
+  <details class="st"><summary><span class="yr">Review PS2 · Q7</span> Time vs Newsweek choose "Impeachment" or "Financial crisis" covers, in three versions (symmetric; Time more popular; differentiated). For each: (a) solvable by dominant strategies? (b) all Nash equilibria?</summary><div class="ans"><b>Model answer.</b> Version 1 (symmetric): Impeach is dominant for both → solvable by dominant strategies, unique Nash (Impeach, Impeach). Version 2 (Time stronger): Financial crisis is dominated for Time; eliminating it, Impeachment is dominated for Newsweek → solvable by iterated elimination, not pure dominance. Version 3 (differentiated): check cell-by-cell → two Nash equilibria; only iterative/cell-checking solves it.</div></details>
+
+  <details class="st"><summary><span class="yr">Review PS2 · Q8</span> Identify all Nash equilibria in a 5×5 payoff matrix (A1–A5 vs B1–B5).</summary><div class="ans"><b>Model answer.</b> Neither player has a dominant or dominated strategy; find cells that are mutual best responses by checking each. The four such cells are the Nash equilibria (per the solution key, the four shaded cells). The only method here is cell-by-cell best-response checking.</div></details>
+
+  <details class="st"><summary><span class="yr">Review PS2 · Q9</span> You are player B and can fix your "Right" payoffs before play: choose (a) X = 20, Y = 5 or (b) X = 30, Y = 15. Which do you prefer?</summary><div class="ans"><b>Model answer.</b> Prefer (a). Under (a) the unique Nash is (Up, Left) giving B a payoff of 25; under (b) it is (Down, Right) giving B only 15. Counter-intuitively, choosing the lower payoffs (a) yields the better equilibrium for B, a strategic feature impossible in single-person decisions.</div></details>
+</div>
+
+<!-- ===== SELF-TEST: COST CURVES ===== -->
+<div class="stgroup">
+  <h3>Cost curves, shutdown &amp; the fixed/sunk-cost fallacy <span class="freq">11 questions</span></h3>
+
+  <details class="st"><summary><span class="yr">Final 2026 · I Q12</span> GreenSolar operates on the downward-sloping portion of its U-shaped AC curve. Which holds? (a) diseconomies, MC &gt; AC, cut output; (b) economies, MC &lt; AC; (c) MC = AC; (d) at minimum efficient scale.</summary><div class="ans"><b>Model answer.</b> (b). On the falling part of AC the firm has economies of scale, which requires MC &lt; AC (MC pulls the average down). Minimum efficient scale is at the bottom of the U.</div></details>
+
+  <details class="st"><summary><span class="yr">Final 2026 · II Q1</span> Cost curves of a competitive firm: 8 staff × €55,000 + €60,000 rent; V(Q) = 3Q + Q²; Q = 12,000; P = €10,000/hl. (a) AFC. (b) Total cost, profit/loss, short-run decision. (c) Economies vs diseconomies. (d) Long-run exit price.</summary><div class="ans"><b>Model answer.</b> (a) FC = €500,000; AFC = 500,000/12,000 ≈ €41.67. (b) TC = €144,536,000 vs revenue €120,000,000 → loss €24.5m; AVC = 3 + Q = 12,003 &gt; P, so P &lt; AVC → shut down immediately (lose only €500,000). (c) U-shaped AC → both economies and diseconomies. (d) MC = AC → Q² = 500,000, Q ≈ 707, AC_min ≈ €1,417/hl = exit price.</div></details>
+
+  <details class="st"><summary><span class="yr">PF2 2022 · II Q1</span> A nuclear-fitting factory: 10 staff at €60,000, rent €60,000, output 33,000. (a) Average fixed cost. (b) With V(Q) = 2Q + 2Q², price-taker at €6,100, define total cost and say what to do (cannot change wages/rent for a year). (c) Economies, diseconomies, or both?</summary><div class="ans"><b>Model answer.</b> (a) FC = 10×60,000 + 60,000 = €660,000; AFC = 660,000/33,000 = €20. (b) C(Q) = 660,000 + 2Q + 2Q²; at Q = 33,000, TC ≈ €2.178bn vs revenue €201.3m → huge loss and AVC far above price, so shut down immediately. (c) U-shaped AC → both economies and diseconomies across output.</div></details>
+
+  <details class="st"><summary><span class="yr">PF1 2010 · I Q4</span> Hard-disk firm (AVC $1,000, FC now $3,000,000, capacity 10,000, demand Q = 20,000 − 10P). New optimal quantity? (a) 0; (b) 1,000; (c) 1,500; (d) 5,000.</summary><div class="ans"><b>Model answer.</b> (a) 0. The optimal price (midpoint $1,500, Q = 5,000) is unchanged by fixed cost, but at FC = $3m profit turns negative, so the firm should produce nothing and shut down.</div></details>
+
+  <details class="st"><summary><span class="yr">Quiz 1 · 2010 · Q8</span> Which is an appropriate treatment of fixed R&amp;D cost? (a) raise prices to recoup unexpectedly high sunk R&amp;D; (b) raise prices because ongoing R&amp;D is high; (c) forecast R&amp;D to decide whether to enter a market; (d) exit because sunk R&amp;D is uncovered even though ongoing fixed+variable costs are covered.</summary><div class="ans"><b>Model answer.</b> (c). Sunk R&amp;D is ignored; ongoing R&amp;D is a fixed cost that should not affect pricing; you should not exit if you cover ongoing costs. R&amp;D matters only as a forecast input to the discrete entry decision.</div></details>
+
+  <details class="st"><summary><span class="yr">Quiz 2 · Q5</span> Cement industry AC by capacity: 250→$28.78, 500→$25.73, 750→$23.63, 1000→$21.63, 1250→$21.00, 1500→$20.75, 1750→$20.95, 2000→$21.50. Where are economies of scale exhausted? (a) 500; (b) 1000; (c) 1500; (d) 2000.</summary><div class="ans"><b>Model answer.</b> (c) 1500. AC keeps falling to its minimum at 1,500 and rises thereafter, so economies of scale are exhausted at ~1,500.</div></details>
+
+  <details class="st"><summary><span class="yr">Quiz 2 · Q6</span> A software distributor's annual fee rises from $500,000 to $550,000; last year's price was set correctly. React how? (a) do nothing; (b) raise prices; (c) lower prices.</summary><div class="ans"><b>Model answer.</b> (a) Do nothing, changing price in response to a higher fixed cost is the fixed-cost fallacy.</div></details>
+
+  <details class="st"><summary><span class="yr">Quiz 2 · Q8</span> If Fox factors the not-yet-paid $40m star payment into its DVD pricing, this is an example of: (a) monopoly power fallacy; (b) imitation fallacy; (c) fixed cost fallacy; (d) sunk cost fallacy.</summary><div class="ans"><b>Model answer.</b> (c) Fixed cost fallacy: the money has not yet been paid, so it is a (future) fixed cost, not yet sunk; either way it should not enter the pricing decision. (Had it already been paid, it would be the sunk-cost fallacy.)</div></details>
+
+  <details class="st"><summary><span class="yr">Review PS1 · Q5</span> Total long-run cost c(Q) = 100 + Q + Q², MC = 1 + 2Q. Find FC, AVC, ATC. At what Q does MC = ATC? At what Q does MC = AVC?</summary><div class="ans"><b>Model answer.</b> FC = 100; AVC = 1 + Q; ATC = 100/Q + 1 + Q; MC = 1 + 2Q. MC = ATC → Q = 10 (minimum ATC = 21). MC = AVC → Q = 0 (minimum AVC = 1).</div></details>
+
+  <details class="st"><summary><span class="yr">Review PS1 · Q13</span> A competitive firm has C = 500 + q², MC = 2q, market price P = 40. How much should it produce?</summary><div class="ans"><b>Model answer.</b> Supply from P = MC → q = P/2, but check the long-run shutdown: min AC where AC = MC → 500/q + q = 2q → q = √500 ≈ 22.36, AC_min ≈ 44.72. Since P = 40 &lt; 44.72, the firm shuts down and produces 0.</div></details>
+
+  <details class="st"><summary><span class="yr">Review PS2 · Q10</span> A game-software firm: development cost FC, then MC per copy, linear demand with choke price P̄, target Q_t giving AFC_t = FC/Q_t. The manager prices at ½(P̄ + (MC + AFC_t)) and, since P̄ &gt; MC + AFC_t, forecasts break-even. Point out the two main flaws.</summary><div class="ans"><b>Model answer.</b> Flaw 1: price should depend only on MC, not FC or AC, the midpoint rule is ½(P̄ + MC), so including AFC_t over-prices. Flaw 2: he cannot conclude break-even, because there is no guarantee the target quantity Q_t will actually be sold at that price.</div></details>
+</div>
+
+<!-- ===== SELF-TEST: COMPETITIVE MARKETS ===== -->
+<div class="stgroup">
+  <h3>Competitive markets: equilibrium, entry/exit &amp; welfare <span class="freq">10 questions</span></h3>
+
+  <details class="st"><summary><span class="yr">Final 2026 · I Q5</span> Which statement about perfectly competitive markets is FALSE? (a) LR free entry drives economic profit to zero; (b) SR firms may earn positive profit; (c) shut down if P &lt; AVC; (d) exit in LR if P &lt; AVC.</summary><div class="ans"><b>Model answer.</b> (d) is false. The long-run exit condition is P &lt; AC (average TOTAL cost), not AVC; a firm exits when it cannot cover all costs including fixed costs in the long run.</div></details>
+
+  <details class="st"><summary><span class="yr">Final 2026 · II Q3</span> Labour market and the minimum wage. (a) Draw labour supply and demand. (b) Consumer/producer surplus and Pareto efficiency. (c) A minimum wage above equilibrium: effects on employment, unemployment, DWL. (d) Role of labour-demand elasticity.</summary><div class="ans"><b>Model answer.</b> (a) Downward-sloping labour demand, upward-sloping supply, intersection at W*, L* (wage on y, hours on x). (b) Firm surplus above W* under demand, worker surplus below W* above supply; the competitive equilibrium is Pareto-efficient and maximises total surplus. (c) A binding W_min &gt; W* cuts employment to the quantity demanded, opens an unemployment gap (supply − demand), and creates a DWL triangle between the curves from L_min to L*; winners are workers who keep jobs, losers are those who lose jobs and firms. (d) The more elastic labour demand, the larger the job loss (easy substitution/automation); inelastic demand → small employment effect.</div></details>
+
+  <details class="st"><summary><span class="yr">Final 2026 · III Q2</span> EV battery market: 500 fringe firms, MC = q + 20; demand D(p) = 300,000 − 3,000p. (a) Fringe supply and competitive equilibrium. (b) BattTech's residual demand (its MC = $50). (c) BattTech's profit-maximising price/output, fringe output, total output. (d) Compare to competitive equilibrium. (e) Predatory-pricing rationale.</summary><div class="ans"><b>Model answer.</b> (a) Firm q = P − 20; fringe supply = 500P − 10,000; equilibrium 300,000 − 3,000P = 500P − 10,000 → P* ≈ $88.57, Q* ≈ 34,286. (b) Residual D_m(p) = 310,000 − 3,500p. (c) Inverse 88.57 − Q/3,500; MR = MC = 50 → Q_m ≈ 67,500, P ≈ $69.29 (midpoint of choke 88.57 and 50); fringe ≈ 24,643; total ≈ 92,143. (d) BattTech is lower-cost so price FALLS (69.29 &lt; 88.57) and total quantity rises; consumers gain, fringe partly displaced but still profitable. (e) Predation could work if BattTech prices below fringe AVC ($20) to force exit then raise price, but it is illegal, costly, undone by re-entry, and futile here since BattTech (MC $50) is actually higher-cost than the fringe.</div></details>
+
+  <details class="st"><summary><span class="yr">PF2 2022 · II Q3</span> Competitive firm: vc(q) = 100q + 10q², fixed cost $1,210, plus a $2,790 capital cost sunk upon entry. (a) Long-run exit price for an incumbent. (b) Entry price new firms require.</summary><div class="ans"><b>Model answer.</b> (a) Incumbent ignores sunk capital: TC = 1,210 + 100q + 10q², MC = 100 + 20q, AC = 1210/q + 100 + 10q; MC = AC → q = 11, AC = 320 → exit price $320. (b) Entrant counts capital: TC = 4,000 + 100q + 10q² → MC = AC at q = 20, AC_min = $500 → entry price $500.</div></details>
+
+  <details class="st"><summary><span class="yr">PF2 2022 · II Q2</span> Unskilled-labour market, all price takers, no labour laws. (a) Draw supply and demand linking hourly wage and hours. (b) Mark equilibrium wage and hours. (c) A minimum wage above equilibrium: show the employment change and the work no longer created.</summary><div class="ans"><b>Model answer.</b> (a)/(b) Downward-sloping labour demand and upward-sloping supply cross at W*, L*. (c) A horizontal minimum wage above W* moves employment back along demand to L_min &lt; L*; supply at that wage exceeds L_min, opening unemployment; the triangle between demand and supply from L_min to L* is the mutually-beneficial work no longer created (deadweight loss).</div></details>
+
+  <details class="st"><summary><span class="yr">PF2 2022 · III Q4</span> Crude oil: D(p) = 70,000 − 2,000p; 1,000 small producers each MC = q + 5. (a) Typical firm and market supply, market equilibrium. (b) A price leader with AC = MC = $15, residual demand. (c) Leader's profit-maximising price and output. (d) Competitive-sector output at that price and total output.</summary><div class="ans"><b>Model answer.</b> (a) Firm q = p − 5; market supply 1,000p − 5,000; equilibrium 70,000 − 2,000p = 1,000p − 5,000 → p = 25, Q = 20,000. (b) Residual D_m(p) = 75,000 − 3,000p. (c) Midpoint: choke 25, MC 15 → price $20, Q_m = 15,000. (d) At p = 20 the fringe supplies 1,000×20 − 5,000 = 15,000; total output 30,000.</div></details>
+
+  <details class="st"><summary><span class="yr">PF1 2010 · II Q16</span> Unobtanium: Q = 900 − P; competitive free entry; AC = 5q + 320/q; annualised sunk capital €180. (a) Pre-entry AC. (b) Entry price. (c) Exit price. (d) Long-run price and number of firms. (e) After demand drops to Q = 240 − P: new long-run price, market quantity, and surviving firms.</summary><div class="ans"><b>Model answer.</b> (a) Pre-entry AC = 5q + 500/q. (b) MC = AC → q = 10, entry price 100. (c) Ignore sunk: q = 8, exit price 80. (d) P = 100, Q = 800, 80 firms. (e) Firms exit until price hits the exit price 80; Q = 160; each produces 8 → 20 firms survive.</div></details>
+
+  <details class="st"><summary><span class="yr">PF3 2020 · I Q3</span> Reasons the supply curve may slope upward in perfect competition? (a) firms have increasing marginal cost; (b) potential entrants have different break-even prices; (c) firms exert market power.</summary><div class="ans"><b>Model answer.</b> (a) and (b). Rising firm MC and heterogeneous entrant break-even prices both make market supply slope up; market power (c) is not a feature of perfect competition.</div></details>
+
+  <details class="st"><summary><span class="yr">Review PS1 · Q12</span> Competitive industry, identical firms, factory lease €270,000/yr, labour cost 3q², interest 0%. (a) Firm supply curve. (b) Output at P = €2,100. (c) Short-run shutdown price. (d) Long-run equilibrium price. (e) If demand Q_d = 31,800 − P, how many firms?</summary><div class="ans"><b>Model answer.</b> (a) MC = 6q → supply q = P/6. (b) q = 2,100/6 = 350. (c) Min AVC at q = 0 (MC = AVC at q = 0) → shutdown price 0. (d) Long run P = min AC: (270,000 + 3q²)/q = 6q → q = 300, P = 6×300 = €1,800. (e) Q_d = 31,800 − 1,800 = 30,000; each firm makes 300 → 100 firms.</div></details>
+
+  <details class="st"><summary><span class="yr">Review PS2 · Q3</span> A spring-water monopolist faces possible entry by a differentiated rival; after entry they play a Nash pricing game. What data do you need to decide whether entry is profitable, and how would you determine the answer?</summary><div class="ans"><b>Model answer.</b> You need (1) both firms' demand functions as functions of both prices, d_A(P_A,P_B) and d_B(P_B,P_A), and (2) both cost functions c_A(Q_A), c_B(Q_B). Solve the post-entry Bertrand-Nash prices, compute the entrant's profit, and compare it to its entry cost.</div></details>
+</div>
+
+<!-- ===== SELF-TEST: SHIFTS ===== -->
+<div class="stgroup">
+  <h3>Demand &amp; supply shifts + tax incidence <span class="freq">9 questions</span></h3>
+
+  <details class="st"><summary><span class="yr">Final 2026 · I Q1</span> Commercial aircraft: titanium prices spike (cost shock); jet fuel falls (aircraft complement to flying, so demand rises). (a) price rises, quantity ambiguous; (b) price ambiguous, quantity rises; (c) price ambiguous, quantity falls; (d) price falls, quantity ambiguous.</summary><div class="ans"><b>Model answer.</b> (a). Supply shifts left (price up) and demand shifts right (price up), so price unambiguously rises; quantity is ambiguous because the shifts pull it in opposite directions.</div></details>
+
+  <details class="st"><summary><span class="yr">PF2 2022 · I Q3</span> Pizza and beer are complements. Which are true? (a) pizza price up shifts beer demand up; (b) pizza price up shifts beer demand down; (c) cross-price elasticity is negative; (d) beer price up → consume less pizza.</summary><div class="ans"><b>Model answer.</b> (b), (c) and (d) are true. For complements a rise in the pizza price reduces beer demand (shifts it down/left), the cross-price elasticity is negative, and a higher beer price reduces pizza consumption.</div></details>
+
+  <details class="st"><summary><span class="yr">PF1 2010 · I Q1</span> In 2009 a quota capped foreign jeans imports; in 2010 it is lifted. What happens to demand for domestic Levi jeans? (a) shift right; (b) shift left; (c) unaffected; (d) becomes a circle.</summary><div class="ans"><b>Model answer.</b> (b). Lifting the quota raises supply of (substitute) foreign jeans, so demand for Levi's shifts left.</div></details>
+
+  <details class="st"><summary><span class="yr">PF1 2010 · I Q9</span> In a competitive aluminium market some state-owned smelters are "irrational" and run at full capacity regardless. If all Chinese smelters are state-owned and Chinese electricity prices fall, world aluminium prices: (a) up; (b) down; (c) unchanged.</summary><div class="ans"><b>Model answer.</b> (c) Unchanged. Irrational full-capacity firms behave as if MC = 0 and sit at the left end of the supply curve; a change in their electricity cost does not move their supply or the world price.</div></details>
+
+  <details class="st"><summary><span class="yr">Quiz 2 · Q1</span> Gasoline price $2, elasticity 0.4; Hurricane Harvey cuts supplied quantity 25%. Total consumer spending on gasoline: (a) rise; (b) fall; (c) unchanged.</summary><div class="ans"><b>Model answer.</b> (a) Rise. Supply shifts left, price rises; with inelastic demand (0.4) total expenditure increases.</div></details>
+
+  <details class="st"><summary><span class="yr">Quiz 2 · Q2</span> Japan bans US/Canadian beef (mad cow) while a bird-flu scare stops chicken eating. Expect: (a) beef price rises, quantity falls; (b) price falls, quantity rises; (c) price rises, quantity may rise or fall; (d) price may rise or fall, quantity rises.</summary><div class="ans"><b>Model answer.</b> (c). Beef supply shifts left (import ban) and demand shifts right (switch from chicken); price rises for sure, but quantity is ambiguous depending on the relative shift sizes.</div></details>
+
+  <details class="st"><summary><span class="yr">Quiz 1 · 2010 · Q1</span> Given the drawn demand and supply curves, a per-unit sales tax means: (a) burden equally split; (b) sellers bear all; (c) buyers bear all.</summary><div class="ans"><b>Model answer.</b> (c) Buyers bear the entire burden, in the figure the price paid by buyers rises by the full tax while the price received by sellers is unchanged (perfectly elastic supply / inelastic demand configuration).</div></details>
+
+  <details class="st"><summary><span class="yr">Review PS1 · Q1</span> Market demand Q = 900 − 45P, supply Q = 300 + 5P. What is the equilibrium price?</summary><div class="ans"><b>Model answer.</b> 900 − 45P = 300 + 5P → 600 = 50P → P = 12 (Q = 360).</div></details>
+
+  <details class="st"><summary><span class="yr">Review PS1 · Q2</span> Same market, a €2/unit tax. (a) Price buyers effectively pay. (b) Price sellers effectively receive. (c) Buyers' share of the tax burden.</summary><div class="ans"><b>Model answer.</b> With P_b = P_s + 2: 900 − 45P_b = 300 + 5P_s → solving, P_s = 10.20, P_b = 12.20, Q = 351. Buyers' share = (12.20 − 12.00)/2.00 = 10%.</div></details>
+</div>
+
+<!-- ===== SELF-TEST: MONOPOLY ===== -->
+<div class="stgroup">
+  <h3>Monopoly pricing, DWL &amp; the midpoint rule <span class="freq">8 questions</span></h3>
+
+  <details class="st"><summary><span class="yr">Final 2026 · I Q6</span> SpaceDrink monopoly: MC = $4, choke price $20, linear demand. Optimal price? (a) $20; (b) $16; (c) $12; (d) $8.</summary><div class="ans"><b>Model answer.</b> (c) $12. Midpoint rule P* = (choke + MC)/2 = (20 + 4)/2 = $12.</div></details>
+
+  <details class="st"><summary><span class="yr">PF1 2010 · I Q2</span> Patent monopolies can cause deadweight loss because… (a) sunk R&amp;D is ignored in output; (b) customers get surplus so firms under-invest in R&amp;D; (c) price above MC loses gains from trade; (d) both b and c.</summary><div class="ans"><b>Model answer.</b> (d). A monopolist sets P &gt; MC, losing some gains from trade (c); and because it cannot extract all surplus it under-invests in R&amp;D (b). Both contribute to the deadweight loss.</div></details>
+
+  <details class="st"><summary><span class="yr">PF1 2010 · I Q3</span> Hard-disk firm: AVC $1,000, FC $1,000,000, capacity 10,000, demand Q = 20,000 − 10P. Profit-maximising quantity? (a) 0; (b) 1,000; (c) 1,500; (d) 5,000.</summary><div class="ans"><b>Model answer.</b> (d) 5,000. Choke price = 2,000, MC = 1,000 → midpoint price 1,500 → Q = 20,000 − 15,000 = 5,000; profit is positive so the firm operates.</div></details>
+
+  <details class="st"><summary><span class="yr">Quiz 1 · 2010 · Q5</span> Which statement about a uniform-pricing monopolist's profit-max condition is FALSE? (a) price &gt; MC of the last unit; (b) sets MR = MC; (c) since price &gt; MC and profit &gt; 0 there are no consumer benefits; (d) profits only if price exceeds AC.</summary><div class="ans"><b>Model answer.</b> (c) is false. Under uniform monopoly pricing consumer surplus is still positive; the others are true (P &gt; MR = MC; positive profit needs P &gt; AC).</div></details>
+
+  <details class="st"><summary><span class="yr">Quiz 1 · 2010 · Q6</span> A monopolist sells 1m units at $50, MC $20, AC $90, constant elasticity 1.5. It should: (a) raise price; (b) lower price; (c) leave unchanged.</summary><div class="ans"><b>Model answer.</b> (a) Raise. Golden rule P* = [E/(E−1)]MC = (1.5/0.5)×20 = $60 &gt; current $50, so raise price (the loss-making AC is irrelevant to the pricing direction).</div></details>
+
+  <details class="st"><summary><span class="yr">Quiz 2 · Q3</span> Bryan Caplan would have paid $100,000 to fix his foot but bought $10 arch supports that solved it. His consumer surplus? (a) $10; (b) $100,000; (c) $99,990; (d) none.</summary><div class="ans"><b>Model answer.</b> (c) $99,990 = WTP − price paid = 100,000 − 10.</div></details>
+
+  <details class="st"><summary><span class="yr">Review PS1 · Q6</span> Demand Q = 700 − 3P; monopolist MC = Q. (a) Monopoly price and quantity. (b) Marginal-cost-pricing price and quantity. (c) Compare consumer and producer surplus and the deadweight loss from monopoly.</summary><div class="ans"><b>Model answer.</b> (a) MR = MC → P = 400, Q = 100. (b) P = MC → Q = 175, P = 175. (c) Monopoly CS = 15,000, PS = 35,000 (total 50,000); competition CS = 45,937.50, PS = 15,312.50 (total 61,250); DWL = 11,250.</div></details>
+
+  <details class="st"><summary><span class="yr">Review PS1 · Q7</span> Monopolist: Q = 60 − 2P, MC = 6, no fixed costs. (a) Profit-maximising price, quantity and profit. (b) Revenue-maximising price. (c) Per-unit tax to raise €23 of tax revenue.</summary><div class="ans"><b>Model answer.</b> (a) Inverse P = 30 − Q/2; midpoint price (30+6)/2 = 18, Q = 24, profit = (18−6)24 = 288. (b) Revenue max at E = 1: P = choke/2 = 15. (c) With tax τ, MC = 6 + τ; MR = MC → Q = 24 − τ; revenue τ(24 − τ) = 23 at τ = 1 (preferred over τ = 23, the smaller tax).</div></details>
+</div>
+
+<!-- ===== SELF-TEST: COURNOT ===== -->
+<div class="stgroup">
+  <h3>Cournot (quantity competition) <span class="freq">5 questions</span></h3>
+
+  <details class="st"><summary><span class="yr">Final 2026 · III Q1</span> Streaming Wars: inverse demand P = 50 − Q (Q in thousands), MC = €10. (a) Monopoly price, quantity, profit, DWL. (b) Perfect competition: equilibrium, winners/losers. (c) Cournot duopoly with an identical rival. (d) Why is joint-monopoly collusion unstable in Cournot? (e) Stackelberg first-mover (qualitative).</summary><div class="ans"><b>Model answer.</b> (a) MR = 50 − 2Q = 10 → Q = 20, P = 30, profit = 400; competitive Q = 40, DWL = ½×20×20 = 200. (b) P = 10, Q = 40; CS rises 200→800 (+600), producer profit 400→0; net social gain 200. (c) q₁ = (40 − q₂)/2, symmetric → q₁ = q₂ = 40/3 ≈ 13.33, Q ≈ 26.67, P ≈ 23.33, profit each ≈ 177.8. Monopoly P=30 &gt; Cournot 23.33 &gt; competitive 10. (d) Collusion gives 10 each, profit 200; but best response to rival's 10 is 15, raising deviator profit to 225 &gt; 200, so it unravels without repeated-game punishment. (e) The leader commits to MORE than the Cournot quantity (≈20 vs 13.33) because reaction curves slope down (strategic substitutes), grabbing share and higher profit.</div></details>
+
+  <details class="st"><summary><span class="yr">PF2 2022 · III Q3</span> Iron ore wars II: Q = 200 − P; cost per unit of capacity = 50; BHP and RT duopoly. (a) Best-response functions. (b) Graph them. (c) Cournot capacities, price and profits. (d) Collusive outcome. (e) Why is the Cournot-Nash a good predictor?</summary><div class="ans"><b>Model answer.</b> (a) MR₁ = 200 − 2q₁ − q₂ = 50 → q₁ = (150 − q₂)/2; symmetric for q₂. (b) Two downward-sloping reaction curves crossing near 50 each. (c) q₁ = q₂ = 50, P = 100, profit (100−50)50 = 2,500 each. (d) Monopolist: P = (200+50)/2 = 125, Q = 75, joint profit 5,625, each 2,812.5 (produce 37.5). (e) Either firm can unilaterally best-respond away from collusion for more profit; iterating leads to the Cournot quantities, so Cournot predicts well.</div></details>
+
+  <details class="st"><summary><span class="yr">PF3 2020 · I Q4</span> Which statements hold in the simultaneous-move 2-firm homogeneous-good (Cournot) game? (a) collusive quantities lower than Cournot-Nash; (b) reaction curves downward sloping; (c) each firm's profit increasing in the other's quantity; (d) price ends at MC.</summary><div class="ans"><b>Model answer.</b> (a) and (b) true. Collusion restricts output below Cournot; reaction curves slope down. (c) is false (a rival's higher output lowers price and your profit); (d) is false (Cournot price stays above MC).</div></details>
+
+  <details class="st"><summary><span class="yr">Review PS2 · Q2</span> Duopoly, zero MC, inverse demand P = 30 − Q, Q = Q₁ + Q₂. (a) Simultaneous-announcement output and expected profit. (b) Outcome if you merge.</summary><div class="ans"><b>Model answer.</b> (a) MR₁ = 30 − 2Q₁ − Q₂ = 0 → Q₁ = 15 − Q₂/2, symmetric → Q₁ = Q₂ = 10, P = 10, profit 100 each. (b) Merged firm is a monopolist: choke 30, MC 0 → P = 15, Q = 15, profit 225; split evenly 112.5 each &gt; 100, so merging/colluding pays.</div></details>
+
+  <details class="st"><summary><span class="yr">Final 2026 · I Q9</span> Cournot duopoly; a firm unilaterally raises output beyond the Nash quantity. (a) price rises, deviator profits more; (b) price falls, deviator profits more short-run; (c) price rises, rival profits more; (d) price unchanged.</summary><div class="ans"><b>Model answer.</b> (b). Higher total output lowers the market price; the deviator can gain in the short run, but the rival best-responds next period and play converges back to the stable Cournot-Nash.</div></details>
+</div>
+
+<!-- ===== SELF-TEST: BERTRAND ===== -->
+<div class="stgroup">
+  <h3>Bertrand (price competition) <span class="freq">5 questions</span></h3>
+
+  <details class="st"><summary><span class="yr">Final 2026 · I Q8</span> Bertrand duopoly, identical seats: NordAir MC = €80, SudAir MC = €65. Equilibrium price? (a) €80; (b) €72.50; (c) just above €65; (d) just below €80.</summary><div class="ans"><b>Model answer.</b> (d) just below €80 (≈ €79.99). With identical goods the low-cost firm (SudAir) prices just under the rival's MC of €80, the highest price at which it still wins all demand, and takes the whole market.</div></details>
+
+  <details class="st"><summary><span class="yr">PF3 2020 · III Q2</span> Costa vs Starbucks, MC = 1 each. Starbucks Q₁ = −10P₁ + 2P₂ + 10; Costa Q₂ = −10P₂ + P₁ + 20. (a) Complements or substitutes? (b) Starbucks' choke price. (c) Starbucks' best response (graph + derive). (d) Bertrand-Nash prices. (e) Why is Nash a good predictor if both start at $4? (f) If Costa cuts MC 50%, Starbucks' best response and new Nash.</summary><div class="ans"><b>Model answer.</b> (a) Substitutes (positive cross-price coefficient). (b) Choke: P₁ = 1 + 0.2P₂. (c) Midpoint: P₁(P₂) = 1 + 0.1P₂ (upward sloping). (d) Costa P₂(P₁) = 1.5 + 0.05P₁; solving P₁ ≈ $1.16, P₂ ≈ $1.56. (e) Plug $4 into BR: P₁ = 1.4, then P₂ = 1.57…; iterating converges fast to the Nash, so it predicts well. (f) New Costa BR P₂(P₁) = 1.25 + 0.05P₁ → new Nash P₁ ≈ $1.13, P₂ ≈ $1.31.</div></details>
+
+  <details class="st"><summary><span class="yr">PF3 2020 · III Q5</span> Two Chamonix hotels (Hermitage, HHS) constantly check each other's prices. (a) Draw plausible reaction curves. (b) Mark the Nash. (c) A coronavirus demand drop, how does the graph change? (d) A strategy for tacit collusion (authorities are watching).</summary><div class="ans"><b>Model answer.</b> (a) Two upward-sloping reaction curves in P_Hermitage–P_HHS space (rooms are substitutes). (b) Nash = their intersection. (c) Lower demand shifts both inverse-demand curves in, so both reaction curves shift down/in (lower intercepts, same slopes) → lower Bertrand-Nash prices. (d) Set a collusive (higher) price and enforce with a grim-trigger or tit-for-tat (match the rival's price), without explicit communication, which would be illegal.</div></details>
+
+  <details class="st"><summary><span class="yr">PF1 2010 · II Q19</span> Pepsi "Jumping Jack" vs Coke "Sleep-No-More", Bertrand. Q₁ = 100 − 20P₁ + 10P₂; MC = $10. (a) Jumping Jack's reaction function. (b) With symmetric Q₂, the Bertrand-Nash prices. (c) A $2 excise tax on JJ, new reaction function and graph; how do Nash prices move? (d) JJ cuts a fixed cost, new reaction function and Nash. (e) JJ switches to revenue maximisation, new reaction function and Nash.</summary><div class="ans"><b>Model answer.</b> (a) Choke = 5 + 0.5P₂; midpoint → P₁ = 7.5 + 0.25P₂. (b) Symmetric → P₁ = P₂ = 10. (c) Tax raises MC to 12 → P₁ = 8.5 + 0.25P₂, reaction curve shifts right/out → both Nash prices rise. (d) A fixed-cost change does not affect MC or demand → reaction function and Nash unchanged (P₁ = P₂ = 10). (e) Revenue max acts as if MC = 0 → P₁ = 2.5 + 0.25P₂ (shifts in); solving with P₂ = 7.5 + 0.25P₁ gives P₁ ≈ 4.67, P₂ ≈ 8.67, JJ becomes more aggressive.</div></details>
+
+  <details class="st"><summary><span class="yr">Review PS2 · Q1</span> Price competition: Q₁ = 40 − 2P₁ + P₂, Q₂ = 40 − 2P₂ + P₁, MC = 10 both. Find the Bertrand-Nash prices.</summary><div class="ans"><b>Model answer.</b> Choke P₁ = 20 + ½P₂; midpoint BR P₁ = ½(20 + ½P₂ + 10) = 15 + ¼P₂; symmetric P₂ = 15 + ¼P₁. Solving: P₁ = P₂ = 20.</div></details>
+</div>
+
+<!-- ===== SELF-TEST: SEQUENTIAL ===== -->
+<div class="stgroup">
+  <h3>Sequential games, commitment &amp; strategic design <span class="freq">4 questions</span></h3>
+
+  <details class="st"><summary><span class="yr">PF1 2010 · I Q11</span> A single good is auctioned; bidders are risk-averse, have much wealth riding on it, and are desperate to win. As auctioneer you should run: (a) 1st-price sealed bid; (b) 2nd-price sealed bid; (c) English ascending; (d) all equal by revenue equivalence.</summary><div class="ans"><b>Model answer.</b> (a) First-price sealed bid. Risk-averse, desperate bidders shade their bids less in a first-price auction, so it raises more revenue (revenue equivalence breaks under risk aversion).</div></details>
+
+  <details class="st"><summary><span class="yr">PF1 2010 · I Q14</span> Intel/AMD: if Intel commits to move first, backward induction predicts: (a) Intel Small, AMD Small; (b) Intel Large, AMD Small; (c) Intel Large, AMD Not expand; (d) Intel Not expand, AMD Not expand.</summary><div class="ans"><b>Model answer.</b> (c). If Intel plays Not expand → AMD Small (Intel 15); Small → AMD Small (Intel 16); Large → AMD Not expand (Intel 18). Intel chooses Large, AMD Not expand.</div></details>
+
+  <details class="st"><summary><span class="yr">PF1 2010 · I Q15</span> The most Intel would pay to be the first-mover (vs the simultaneous game)? (a) 0; (b) 1; (c) 2; (d) 4.</summary><div class="ans"><b>Model answer.</b> (c) 2. Intel gets 18 as first mover vs 16 in the simultaneous game, so it would pay up to 2 for the commitment.</div></details>
+
+  <details class="st"><summary><span class="yr">Review PS2 · Q11</span> Silvia and Xanthos split €10 in whole euros: Silvia proposes; if Xanthos rejects, the pie shrinks to €8 and Xanthos proposes; if Silvia then rejects, both get 0; each accepts when indifferent. Describe the backward-induction outcome.</summary><div class="ans"><b>Model answer.</b> Final stage: Silvia accepts anything (0 beats nothing), so Xanthos would offer himself 8, Silvia 0. Knowing he can get 8 by rejecting, Xanthos accepts in round 1 only ≥ 8, so Silvia offers herself €2 and Xanthos €8; he accepts.</div></details>
+</div>
+
+<!-- ===== SELF-TEST: COLLUSION ===== -->
+<div class="stgroup">
+  <h3>Collusion sustainability (repeated games) <span class="freq">3 questions</span></h3>
+
+  <details class="st"><summary><span class="yr">Final 2026 · I Q11</span> What makes implicit collusion HARDER to sustain? (a) higher discount factor; (b) rapidly growing market; (c) a growing number of competing firms; (d) low market turnover.</summary><div class="ans"><b>Model answer.</b> (c). More firms make the deviation gain larger, the punishment weaker, and coordination harder; the other three make collusion easier.</div></details>
+
+  <details class="st"><summary><span class="yr">PF2 2022 · II Q4</span> Bertrand duopoly, Q = 10 − P, identical goods, AC = MC = 2. (a) Bertrand-Nash price and collusive (monopoly) price. (b) Infinitely repeated with firm 1 on grim trigger: critical discount rate r for collusion to hold.</summary><div class="ans"><b>Model answer.</b> (a) Identical goods → P_Nash = MC = 2; collusive (monopoly) price via midpoint = (10 + 2)/2 = 6. (b) At P = 6, Q = 4, each firm q = 2, π_collude = (6−2)2 = 8; deviating just below 6 grabs the whole market: π_deviate = (6−2)4 ≈ 16; Nash punishment π = 0. Sustain if 8 + 8/r ≥ 16 → r ≤ 1. <span class="star">★</span> The official key prints "r &lt; 100", which appears to be a typo for r &lt; 1, verify with Glover.</div></details>
+
+  <details class="st"><summary><span class="yr">PF1 2010 · I Q10</span> Which argument shows the Tit-for-Tat-Trigger strategy is NOT ideal in an infinitely repeated Prisoner's Dilemma? (a) easy to understand; (b) forgiving; (c) cannot be exploited too long; (d) if everyone plays tit-for-tat mechanically, one mistaken move can trigger an infinitely long punishment.</summary><div class="ans"><b>Model answer.</b> (d). With both on tit-for-tat, a single error makes the other retaliate next period, and they can get locked into endless mutual punishment.</div></details>
+</div>
+
+<div class="footer">Built from the real P&amp;M past papers in <code>2. INSEAD/Academics/1. Prices &amp; Markets/Sources/General</code>: Practice Final Exams 1 (2010), 2 (2022) and 3 (2020); the actual Final Exam 2026 (solutions); Practice Review Problem Sets 1–2; Practice Quizzes 1–2, 112 real past questions across 11 archetypes, with model answers from the official solution keys. Cross-linked to the P&amp;M Course Content page. ★ = verify against Prof. Glover's class wording.</div>
+
+
+<div class="footer"><p><strong>Prices &amp; Markets · exam drills.</strong> Every question, year tag and frequency count traces to a real past-paper PDF; nothing fabricated. Cross-links open the Course Content page. Print to PDF via ⌘P.</p></div>
+</main>
+</div>
+</body>
+</html>

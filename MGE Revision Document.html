@@ -1073,9 +1073,24 @@ The rule <em>wants</em> \(-6\%\), but cash pays 0% so the nominal rate is floore
 <p><strong>Policy rule for supply shocks:</strong> central banks should <em>not</em> react if inflation expectations are anchored — but post-COVID showed anchoring can't be assumed.</p>
 
 <h3>The Yield Curve</h3>
-<p>One of the most heavily-examined topics. Almost every yield-curve question is the same task in disguise: <strong>something changes → say whether the curve shifts up/down, steepens, flattens, or inverts, and why.</strong> Get the one identity below, then drill the scenario library.</p>
+<p>One of the most heavily-examined topics. Almost every yield-curve question is the same task in disguise: <strong>something changes → say whether the curve shifts up/down, steepens, flattens, or inverts, and why.</strong> Get the one idea below, then drill the scenario library.</p>
 
-<div class="intuition"><span class="tag">🎙 Intuition</span> A long bond's yield is just the <strong>average interest rate you expect to earn over its whole life</strong>, plus a small premium for locking your money up. So the long end is a forecast of where short rates are going. That single idea generates every answer: ask "what does this news do to the <em>expected path of future short rates</em> (and to inflation)?" and the curve follows.</div>
+<div class="intuition"><span class="tag">🎙 Intuition</span> A long rate is just the <strong>average of the short rates the market expects over the bond's life</strong>, plus a small premium for locking your money up. So the shape of the curve is a forecast of where short rates are going. Every answer comes from one question: <em>"what does this news do to the expected path of future short rates (and to inflation)?"</em></div>
+
+<div class="eq">
+<div class="lbl">The one idea: a long rate is an average of expected short rates</div>
+You have money to park for <strong>2 years</strong>. Two ways to do it:
+<ol style="margin:6px 0 8px;">
+<li>Buy <strong>one 2-year bond</strong>, or</li>
+<li>Buy a <strong>1-year bond now</strong>, then roll it into <strong>another 1-year bond next year</strong>.</li>
+</ol>
+These must pay <strong>roughly the same</strong>. If one were clearly better, money would pile into it until they evened out. So the 2-year rate is simply the <strong>average of today's 1-year rate and next year's <em>expected</em> 1-year rate</strong>.
+<div class="wex" style="margin:10px 0 8px;"><span class="h">With numbers</span> Today's 1-year rate = 4%; the market expects next year's 1-year rate = 6%. Then the 2-year rate ≈ (4% + 6%) / 2 = <strong>5%</strong>. The curve slopes up, not for its own sake, but because the market expects rates to <strong>rise</strong>.</div>
+Stretch the same logic to ten years: the <strong>10-year yield = the average of all ten expected 1-year rates</strong>, plus a small <strong>term premium</strong> for locking up longer.
+<div class="sm" style="margin-top:8px;">Formally, for an <em>n</em>-year bond: \( i_t^{(n)} \approx \tfrac{1}{n}\big(\mathbb{E}[i_t]+\mathbb{E}[i_{t+1}]+\dots+\mathbb{E}[i_{t+n-1}]\big) + \phi^{(n)} \). That is the same sentence written out (φ = the term premium).</div>
+</div>
+
+<div class="key" style="border-left-color:var(--green);"><strong>The punchline: the slope <em>is</em> the market's forecast of future short rates.</strong> Upward (long &gt; short) means rates are expected to <strong>rise</strong>. Inverted (long &lt; short) means rates are expected to <strong>fall</strong>, and the central bank only cuts when a recession is coming <em>or</em> it has already beaten inflation. That one link drives every scenario below.</div>
 
 <div class="twocol">
 <div>
@@ -1089,33 +1104,23 @@ The rule <em>wants</em> \(-6\%\), but cash pays 0% so the nominal rate is floore
   <line class="grid dash" x1="275" y1="150" x2="275" y2="68"/>
   <text class="sm" x="150" y="108">term premium ↑</text>
 </svg>
-<figcaption>Finance view: normally upward-sloping — a <em>term premium</em> compensates you for holding longer.</figcaption>
+<figcaption>Finance view: normally upward-sloping. A <em>term premium</em> compensates you for holding longer.</figcaption>
 </figure>
 </div>
 <div>
 <div class="key" style="margin-top:18px;">
-<strong>Macro view — the long rate has three parts:</strong>
+<strong>Same idea, the macro angle: the long rate has three parts.</strong>
 <ol style="margin-bottom:6px;">
-<li>The equilibrium <strong>long-run real rate</strong> (global S &amp; I — L2: growth, demographics, technology).</li>
+<li>The equilibrium <strong>long-run real rate</strong> (global S &amp; I, from L2: growth, demographics, technology).</li>
 <li><strong>Expected inflation</strong> over the bond's life (central-bank credibility).</li>
-<li>A <strong>term premium</strong> (extra yield for duration/supply risk).</li>
+<li>A <strong>term premium</strong> (extra yield for duration / supply risk).</li>
 </ol>
-Short rates are set by the CB via the Taylor Rule (high in booms, low in slumps). The two views are the same thing: the expected future short rates <em>are</em> expected real rate + expected inflation.
+This is just the average above re-split: each expected future short rate <em>is</em> an expected real rate + expected inflation, so averaging them gives these three parts. Short rates today are set by the CB via the Taylor Rule (high in booms, low in slumps).
 </div>
 </div>
 </div>
 
-<div class="eq">
-<div class="lbl">The one identity behind every question</div>
-$$ i_t^{(n)} \;\approx\; \underbrace{\tfrac{1}{n}\big(\,\mathbb{E}[i_t]+\mathbb{E}[i_{t+1}]+\dots+\mathbb{E}[i_{t+n-1}]\,\big)}_{\text{average expected future short rate}} \;+\; \underbrace{\phi^{(n)}}_{\text{term premium}} $$
-<ol style="margin-bottom:0;">
-<li>The <strong>n-year yield</strong> = the average short rate you expect to roll over for n years, plus a term premium.</li>
-<li>Each expected short rate splits (Fisher) into <strong>expected real rate + expected inflation</strong>. So: <em>long yield ≈ avg expected real rate + avg expected inflation + term premium</em> — the macro view above.</li>
-<li><strong>Slope = forecast.</strong> Long &gt; short ⟹ market expects rates to <em>rise</em> (or a fat term premium). Long &lt; short (<strong>inverted</strong>) ⟹ market expects rates to <em>fall</em> — because a recession is coming <em>or</em> because credible disinflation will let the CB cut.</li>
-</ol>
-</div>
-
-<div class="wex"><span class="h">Worked decomposition</span> A 4% 10-year yield ≈ 1.5% long-run real rate + 2.5% expected inflation (+ ~0 term premium). If the CB <em>credibly</em> promises to cut inflation, the expected-inflation piece falls to ~1.5% → the 10y yield drops to ~3% <strong>even if today's short rate hasn't moved</strong>. That single move is the engine behind half the scenarios below.</div>
+<div class="wex"><span class="h">Worked decomposition</span> A 4% 10-year yield ≈ 1.5% long-run real rate + 2.5% expected inflation (+ ~0 term premium). If the CB <em>credibly</em> promises to cut inflation, the expected-inflation piece falls to ~1.5%, so the 10y yield drops to ~3% <strong>even if today's short rate hasn't moved</strong>. That single move is the engine behind half the scenarios below.</div>
 
 <h4>Reading the slope</h4>
 <div class="twocol" style="gap:14px;">
@@ -1131,7 +1136,7 @@ $$ i_t^{(n)} \;\approx\; \underbrace{\tfrac{1}{n}\big(\,\mathbb{E}[i_t]+\mathbb{
 <!-- S1 inflation surprise -->
 <div style="background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:12px;">
 <div style="font-weight:700;margin-bottom:2px;">1 · Inflation surprise, <em>before</em> the CB acts</div>
-<span style="display:inline-block;background:#2e7d32;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;margin-bottom:6px;">Bear steepener (long ↑)</span>
+<span style="display:inline-block;background:#2e7d32;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;margin-bottom:6px;">Steepens (long end ↑)</span>
 <svg viewBox="0 0 220 150" style="width:100%;background:#fff;">
   <line x1="34" y1="120" x2="208" y2="120" stroke="#999" stroke-width="1"/><line x1="34" y1="120" x2="34" y2="16" stroke="#999" stroke-width="1"/>
   <text x="6" y="24" font-size="10" fill="#555">Yield</text><text x="150" y="135" font-size="10" fill="#555">Maturity</text>
@@ -1163,7 +1168,7 @@ $$ i_t^{(n)} \;\approx\; \underbrace{\tfrac{1}{n}\big(\,\mathbb{E}[i_t]+\mathbb{
 <!-- S3 tightening, long anchored -->
 <div style="background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:12px;">
 <div style="font-weight:700;margin-bottom:2px;">3 · Hike expectations, long end anchored</div>
-<span style="display:inline-block;background:#b03030;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;margin-bottom:6px;">Bear flattener (short ↑)</span>
+<span style="display:inline-block;background:#b03030;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;margin-bottom:6px;">Flattens (short end ↑)</span>
 <svg viewBox="0 0 220 150" style="width:100%;background:#fff;">
   <line x1="34" y1="120" x2="208" y2="120" stroke="#999" stroke-width="1"/><line x1="34" y1="120" x2="34" y2="16" stroke="#999" stroke-width="1"/>
   <text x="6" y="24" font-size="10" fill="#555">Yield</text><text x="150" y="135" font-size="10" fill="#555">Maturity</text>
@@ -1179,7 +1184,7 @@ $$ i_t^{(n)} \;\approx\; \underbrace{\tfrac{1}{n}\big(\,\mathbb{E}[i_t]+\mathbb{
 <!-- S4 easing / recession priced -->
 <div style="background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:12px;">
 <div style="font-weight:700;margin-bottom:2px;">4 · Cuts priced ahead (recession fear)</div>
-<span style="display:inline-block;background:#1f5fa8;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;margin-bottom:6px;">Long ↓ → inverts, then bull-steepens</span>
+<span style="display:inline-block;background:#1f5fa8;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;margin-bottom:6px;">Inverts (long end ↓)</span>
 <svg viewBox="0 0 220 150" style="width:100%;background:#fff;">
   <line x1="34" y1="120" x2="208" y2="120" stroke="#999" stroke-width="1"/><line x1="34" y1="120" x2="34" y2="16" stroke="#999" stroke-width="1"/>
   <text x="6" y="24" font-size="10" fill="#555">Yield</text><text x="150" y="135" font-size="10" fill="#555">Maturity</text>
@@ -1187,14 +1192,14 @@ $$ i_t^{(n)} \;\approx\; \underbrace{\tfrac{1}{n}\big(\,\mathbb{E}[i_t]+\mathbb{
   <path d="M46,84 Q120,86 198,90" fill="none" stroke="#1f5fa8" stroke-width="2.8"/>
   <text x="200" y="74" font-size="14" fill="#1f5fa8" text-anchor="middle" font-weight="700">↓</text>
 </svg>
-<div style="font-size:13.5px;margin-top:4px;">Market expects the CB to <em>cut</em> soon ⟹ average future short rate falls ⟹ long ↓ below short ⟹ <strong>inverts</strong>. When cuts actually arrive, the short end drops and it <strong>bull-steepens</strong>.</div>
+<div style="font-size:13.5px;margin-top:4px;">Market expects the CB to <em>cut</em> soon ⟹ average future short rate falls ⟹ long ↓ below short ⟹ <strong>inverts</strong>. When the cuts actually arrive, the short end drops too and the curve <strong>steepens back to normal</strong>.</div>
 <div class="sm" style="margin-top:5px;"><b>Why:</b> the long yield is an average of the (now-lower) expected path. The classic recession-signal inversion. <em>But</em> it can also be the soft-landing version of #2.</div>
 </div>
 
 <!-- S5 QE -->
 <div style="background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:12px;">
 <div style="font-weight:700;margin-bottom:2px;">5 · QE — CB buys long bonds</div>
-<span style="display:inline-block;background:#1f5fa8;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;margin-bottom:6px;">Flattener (term premium ↓)</span>
+<span style="display:inline-block;background:#1f5fa8;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;margin-bottom:6px;">Flattens (long end ↓)</span>
 <svg viewBox="0 0 220 150" style="width:100%;background:#fff;">
   <line x1="34" y1="120" x2="208" y2="120" stroke="#999" stroke-width="1"/><line x1="34" y1="120" x2="34" y2="16" stroke="#999" stroke-width="1"/>
   <text x="6" y="24" font-size="10" fill="#555">Yield</text><text x="150" y="135" font-size="10" fill="#555">Maturity</text>
@@ -1210,7 +1215,7 @@ $$ i_t^{(n)} \;\approx\; \underbrace{\tfrac{1}{n}\big(\,\mathbb{E}[i_t]+\mathbb{
 <!-- S6 issuance / term premium shock -->
 <div style="background:#fff;border:1px solid #d8d8d8;border-radius:10px;padding:12px;">
 <div style="font-weight:700;margin-bottom:2px;">6 · Heavy long-dated issuance / fiscal-risk shock</div>
-<span style="display:inline-block;background:#a8740a;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;margin-bottom:6px;">Bear steepener (term premium ↑)</span>
+<span style="display:inline-block;background:#a8740a;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;margin-bottom:6px;">Steepens (long end ↑)</span>
 <svg viewBox="0 0 220 150" style="width:100%;background:#fff;">
   <line x1="34" y1="120" x2="208" y2="120" stroke="#999" stroke-width="1"/><line x1="34" y1="120" x2="34" y2="16" stroke="#999" stroke-width="1"/>
   <text x="6" y="24" font-size="10" fill="#555">Yield</text><text x="150" y="135" font-size="10" fill="#555">Maturity</text>

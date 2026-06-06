@@ -82,6 +82,7 @@
   .SAV{stroke:var(--blue); stroke-width:3; fill:none;}
   .INV{stroke:var(--green-light); stroke-width:3; fill:none;}
   .LRAS{stroke:var(--red); stroke-width:3; fill:none;}
+  .curve{stroke:#1f6f6f; stroke-width:2.5; fill:none;}
   .dash{stroke-dasharray:5 4;}
   .rf{stroke:#a8740a; stroke-width:2.4; fill:none;}
   .lbl{font-size:13px; font-weight:600;}
@@ -201,7 +202,7 @@
 <li><b>Solve every payoff matrix column by column (L10 tell).</b> Hold the rival's choice fixed, pick your best row, repeat for each column. Write the explicit comparison ("if rival plays X, I compare a vs b"); do not eyeball the grid. Dominant = best response in every column; dominated = best response in no column.</li>
 <li><b>Do not over-generalise the prisoner's dilemma (L10 tell).</b> The Nash equilibrium is Pareto inferior only in the PD specifically (GM/Ford is the counter-example). Payoffs are ordinal: argue the ranking, not the literal cash in a cell.</li>
 <li><b>Threat versus commitment (L11).</b> Test a threat at its own node: is carrying it out the threatener's best response? If not it is cheap talk. A commitment must be visible, costly and irreversible; "a reversible commitment is no commitment."</li>
-<li><b>Phrase collusion as a present-value comparison (L12 tell),</b> \(PV(\text{cooperate}) > PV(\text{cheat})\) as two perpetuities, not a one-shot payoff. Lower discount rate and harsher punishment sustain it.</li>
+<li><b>Phrase collusion as a present-value comparison (L12 tell),</b> \(PV(\text{cooperate}) \gt  PV(\text{cheat})\) as two perpetuities, not a one-shot payoff. Lower discount rate and harsher punishment sustain it.</li>
 <li><b>Watch the recurring slips:</b> marginal (curve height) vs total (area beneath); slope vs elasticity; statutory vs economic tax incidence; \(AVC\) (shutdown) vs \(ATC\) (exit); sunk capital (ignore for exit, count for entry).</li>
 </ul>
 </div>
@@ -210,7 +211,7 @@
 
 <p>Everything below appears in the lecture sections; nothing is imported from outside them. Open with the notation key, then work group by group. This is the cheat-sheet spine.</p>
 
-<div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this:</b> the most dangerous symbol clash in the course is <b>\(L\)</b>. In the costs and competitive-supply material \(L\) is <b>labour</b> (with \(K\) capital); in the market-power material the markup is the <b>Lerner index</b>, written \(\mathcal{L}\) here precisely to avoid that clash. Also note \(E=|\varepsilon|\) is the elasticity <i>magnitude</i> (Glover reports elasticities as positive numbers even though \(\varepsilon<0\)), and in L12 the symbol \(\varepsilon\) is reused locally to mean a one-cent price cut. Keep the three apart.</p></div>
+<div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this:</b> the most dangerous symbol clash in the course is <b>\(L\)</b>. In the costs and competitive-supply material \(L\) is <b>labour</b> (with \(K\) capital); in the market-power material the markup is the <b>Lerner index</b>, written \(\mathcal{L}\) here precisely to avoid that clash. Also note \(E=|\varepsilon|\) is the elasticity <i>magnitude</i> (Glover reports elasticities as positive numbers even though \(\varepsilon\lt 0\)), and in L12 the symbol \(\varepsilon\) is reused locally to mean a one-cent price cut. Keep the three apart.</p></div>
 
 <table class="dt">
 <caption>Notation key (every symbol used on this page)</caption>
@@ -225,7 +226,7 @@
 <tr><td>\(TC,\ MC\)</td><td>total cost, marginal cost \(=dTC/dQ\)</td></tr>
 <tr><td>\(FC,\ VC\)</td><td>fixed cost, variable cost; \(TC=FC+VC\)</td></tr>
 <tr><td>\(AFC,\ AVC,\ ATC\)</td><td>average fixed, average variable, average total cost (\(ATC=AC=AFC+AVC\))</td></tr>
-<tr><td>\(\varepsilon,\ E\)</td><td>own-price elasticity (\(\varepsilon<0\)); \(E=|\varepsilon|\) its magnitude</td></tr>
+<tr><td>\(\varepsilon,\ E\)</td><td>own-price elasticity (\(\varepsilon\lt 0\)); \(E=|\varepsilon|\) its magnitude</td></tr>
 <tr><td>\(\varepsilon_I,\ \varepsilon_{xy}\)</td><td>income elasticity, cross-price elasticity</td></tr>
 <tr><td>\(\mathcal{L}\)</td><td>Lerner index (markup as a share of price); written \(\mathcal{L}\) to avoid the labour \(L\)</td></tr>
 <tr><td>\(L,\ K\)</td><td>labour, capital (costs / production context)</td></tr>
@@ -240,7 +241,7 @@
 
 <h4>Foundations: gains from trade, surplus &amp; taxes [L1 to L2]</h4>
 
-<div class="eq"><span class="lbl">Marginal rule (the optimum condition)</span>$$ MB>MC \Rightarrow \text{do more};\quad MB<MC \Rightarrow \text{do less};\quad MB=MC \Rightarrow \text{stop (optimal)} $$</div>
+<div class="eq"><span class="lbl">Marginal rule (the optimum condition)</span>$$ MB\gt MC \Rightarrow \text{do more};\quad MB\lt MC \Rightarrow \text{do less};\quad MB=MC \Rightarrow \text{stop (optimal)} $$</div>
 
 <div class="eq"><span class="lbl">Gains from a single trade</span>$$ \underbrace{V-P}_{\text{buyer}} + \underbrace{P-C}_{\text{seller}} = \underbrace{V-C}_{\text{total surplus}} $$</div>
 
@@ -256,9 +257,9 @@
 
 <h4>Demand &amp; elasticity [L3]</h4>
 
-<div class="eq"><span class="lbl">Own-price elasticity (point form; \(\varepsilon<0\), reported as \(E=|\varepsilon|\))</span>$$ \varepsilon=\frac{\%\Delta Q}{\%\Delta P}=\frac{dQ}{dP}\cdot\frac{P}{Q} $$</div>
+<div class="eq"><span class="lbl">Own-price elasticity (point form; \(\varepsilon\lt 0\), reported as \(E=|\varepsilon|\))</span>$$ \varepsilon=\frac{\%\Delta Q}{\%\Delta P}=\frac{dQ}{dP}\cdot\frac{P}{Q} $$</div>
 
-<div class="eq"><span class="lbl">Elasticity and total revenue</span>$$ |\varepsilon|<1\ (\text{inelastic}): P\uparrow\Rightarrow TR\uparrow;\quad |\varepsilon|=1: TR\text{ flat};\quad |\varepsilon|>1\ (\text{elastic}): P\uparrow\Rightarrow TR\downarrow $$</div>
+<div class="eq"><span class="lbl">Elasticity and total revenue</span>$$ |\varepsilon|\lt 1\ (\text{inelastic}): P\uparrow\Rightarrow TR\uparrow;\quad |\varepsilon|=1: TR\text{ flat};\quad |\varepsilon|\gt 1\ (\text{elastic}): P\uparrow\Rightarrow TR\downarrow $$</div>
 
 <div class="eq"><span class="lbl">Income and cross-price elasticity (sign classifies the good)</span>$$ \varepsilon_I=\frac{dQ}{dI}\frac{I}{Q}\ (\gtrless 0:\text{normal/inferior}),\qquad \varepsilon_{xy}=\frac{dQ_x}{dP_y}\frac{P_y}{Q_x}\ (\gtrless 0:\text{substitute/complement}) $$</div>
 
@@ -272,7 +273,7 @@
 
 <div class="eq"><span class="lbl">Cost decomposition and the per-unit objects</span>$$ TC=FC+VC,\quad AFC=\frac{FC}{Q},\ AVC=\frac{VC}{Q},\ ATC=AFC+AVC,\ MC=\frac{dTC}{dQ} $$</div>
 
-<div class="eq"><span class="lbl">Marginal cuts average at its minimum</span>$$ MC<ATC\Rightarrow ATC\downarrow;\quad MC>ATC\Rightarrow ATC\uparrow;\quad MC=ATC\text{ at }\min ATC $$</div>
+<div class="eq"><span class="lbl">Marginal cuts average at its minimum</span>$$ MC\lt ATC\Rightarrow ATC\downarrow;\quad MC\gt ATC\Rightarrow ATC\uparrow;\quad MC=ATC\text{ at }\min ATC $$</div>
 
 <h4>Market-power pricing [L5 to L7]</h4>
 
@@ -284,9 +285,9 @@
 
 <div class="eq"><span class="lbl">Mid-point pricing rule (linear demand, constant \(MC\))</span>$$ P^\* = \frac{\bar P + MC}{2}\qquad(\bar P=\text{choke price}) $$</div>
 
-<div class="eq"><span class="lbl">Explicit (third-degree) segmentation: equate \(MR\) across segments</span>$$ MR_A=MR_B=MC;\qquad \frac{P_A-MC}{P_A}=\frac{1}{|\varepsilon_A|}\Rightarrow |\varepsilon_A|<|\varepsilon_B|\ \text{means}\ P_A>P_B $$</div>
+<div class="eq"><span class="lbl">Explicit (third-degree) segmentation: equate \(MR\) across segments</span>$$ MR_A=MR_B=MC;\qquad \frac{P_A-MC}{P_A}=\frac{1}{|\varepsilon_A|}\Rightarrow |\varepsilon_A|\lt |\varepsilon_B|\ \text{means}\ P_A\gt P_B $$</div>
 
-<div class="eq"><span class="lbl">Coupons (screen): issue when the marginal sale beats the redeemers' concession alone</span>$$ MR_{\text{coupon}}=C-A,\qquad MR_{\text{uniform cut}}=C-A-B;\qquad \text{issue coupons if } C>A $$</div>
+<div class="eq"><span class="lbl">Coupons (screen): issue when the marginal sale beats the redeemers' concession alone</span>$$ MR_{\text{coupon}}=C-A,\qquad MR_{\text{uniform cut}}=C-A-B;\qquad \text{issue coupons if } C\gt A $$</div>
 
 <div class="eq"><span class="lbl">Implicit (second-degree) screening: two binding constraints</span>$$ \text{PC (low type): } v_L-P_{low}\ge 0;\qquad \text{SS (high type): } v_H^{high}-P_{high}\ge v_H^{low}-P_{low} $$</div>
 
@@ -296,31 +297,31 @@
 
 <div class="eq"><span class="lbl">Price taker: revenue equals price; output rule</span>$$ AR=MR=P\quad\Longrightarrow\quad P=MC(q) $$</div>
 
-<div class="eq"><span class="lbl">Short-run supply and the shutdown test</span>$$ q^S(P)=\begin{cases} q:\ P=MC(q), & P\ge \min AVC\\ 0\ (\text{idle}), & P<\min AVC \end{cases}\qquad\text{Market: } Q^S=n\,q^S $$</div>
+<div class="eq"><span class="lbl">Short-run supply and the shutdown test</span>$$ q^S(P)=\begin{cases} q:\ P=MC(q), & P\ge \min AVC\\ 0\ (\text{idle}), & P\lt \min AVC \end{cases}\qquad\text{Market: } Q^S=n\,q^S $$</div>
 
 <div class="eq"><span class="lbl">Producer surplus</span>$$ PS = TR - VC = \text{area between } P \text{ and } MC = \pi + FC $$</div>
 
 <div class="eq"><span class="lbl">Long-run free-entry equilibrium</span>$$ \pi=(P-ATC)\,q=0\ \Longleftrightarrow\ P=ATC;\qquad P^\*=MC=\min ATC $$</div>
 
-<div class="eq"><span class="lbl">The three price cutoffs (which cost, which horizon)</span>$$ \text{idle if } P<AVC;\quad \text{exit if } P<ATC;\quad \text{enter if } P>AVC+AFC+\text{capital cost} $$</div>
+<div class="eq"><span class="lbl">The three price cutoffs (which cost, which horizon)</span>$$ \text{idle if } P\lt AVC;\quad \text{exit if } P\lt ATC;\quad \text{enter if } P\gt AVC+AFC+\text{capital cost} $$</div>
 
 <div class="eq"><span class="lbl">Entry break-even (price-linked input, Alusaf form) and the NPV identity</span>$$ P\ge AC=\alpha P + (\text{AVC}+\text{AFC}+\text{capital})\ \Rightarrow\ P\ge\frac{\text{fixed+capital}}{1-\alpha};\qquad \pi=0 \Leftrightarrow NPV=0 $$</div>
 
 <h4>Games &amp; oligopoly [L10 to L13]</h4>
 
-<div class="eq"><span class="lbl">Market concentration</span>$$ \text{HHI}=\sum_i s_i^{\,2}\qquad(>1000:\text{oligopoly};\ >2000:\text{highly concentrated}) $$</div>
+<div class="eq"><span class="lbl">Market concentration</span>$$ \text{HHI}=\sum_i s_i^{\,2}\qquad(\gt 1000:\text{oligopoly};\ \gt 2000:\text{highly concentrated}) $$</div>
 
 <div class="eq"><span class="lbl">Solution concepts</span>$$ \text{Best response: best reply to a given rival choice};\ \text{Dominant: best in every column};\ \text{NE: mutual best responses} $$</div>
 
 <div class="eq"><span class="lbl">Bertrand, homogeneous goods (the trap)</span>$$ p_1=p_2=MC\qquad(\text{perfect-competition price with only two firms}) $$</div>
 
-<div class="eq"><span class="lbl">Bertrand, differentiated goods: reaction functions (prices are strategic complements)</span>$$ p_i^{\,choke}=\frac{a_i+\beta\,p_j}{b_i},\qquad p_i=\frac{p_i^{\,choke}+MC_i}{2}\ \Rightarrow\ p_i=\gamma_i+\delta_i\,p_j\ (\delta_i>0) $$</div>
+<div class="eq"><span class="lbl">Bertrand, differentiated goods: reaction functions (prices are strategic complements)</span>$$ p_i^{\,choke}=\frac{a_i+\beta\,p_j}{b_i},\qquad p_i=\frac{p_i^{\,choke}+MC_i}{2}\ \Rightarrow\ p_i=\gamma_i+\delta_i\,p_j\ (\delta_i\gt 0) $$</div>
 
-<div class="eq"><span class="lbl">Cournot (quantity) competition: FOC and reaction function</span>$$ \pi_i=(a-q_i-q_j-c)\,q_i,\quad \frac{\partial\pi_i}{\partial q_i}=0\ \Rightarrow\ q_i=\frac{(a-c)-q_j}{2}\quad(P>MC\text{ in equilibrium}) $$</div>
+<div class="eq"><span class="lbl">Cournot (quantity) competition: FOC and reaction function</span>$$ \pi_i=(a-q_i-q_j-c)\,q_i,\quad \frac{\partial\pi_i}{\partial q_i}=0\ \Rightarrow\ q_i=\frac{(a-c)-q_j}{2}\quad(P\gt MC\text{ in equilibrium}) $$</div>
 
-<div class="eq"><span class="lbl">Collusion / cartel: maximise joint profit like a monopolist</span>$$ MR=MC\ \text{on total }Q\ \Rightarrow\ Q_{cartel}<Q_{Cournot},\ P_{cartel}>P_{Cournot},\ \pi_{cartel}>\pi_{Cournot} $$</div>
+<div class="eq"><span class="lbl">Collusion / cartel: maximise joint profit like a monopolist</span>$$ MR=MC\ \text{on total }Q\ \Rightarrow\ Q_{cartel}\lt Q_{Cournot},\ P_{cartel}\gt P_{Cournot},\ \pi_{cartel}\gt \pi_{Cournot} $$</div>
 
-<div class="eq"><span class="lbl">Grim-trigger: when does collusion hold?</span>$$ PV(\text{cooperate})=\pi_c+\frac{\pi_c}{r}\ >\ PV(\text{cheat})=\pi_d+\frac{\pi_p}{r}\quad(\text{lower }r,\ \text{harsher }\pi_p \Rightarrow \text{sustainable}) $$</div>
+<div class="eq"><span class="lbl">Grim-trigger: when does collusion hold?</span>$$ PV(\text{cooperate})=\pi_c+\frac{\pi_c}{r}\ \gt \ PV(\text{cheat})=\pi_d+\frac{\pi_p}{r}\quad(\text{lower }r,\ \text{harsher }\pi_p \Rightarrow \text{sustainable}) $$</div>
 
 <h2 class="part">Part I · Markets &amp; Demand</h2>
 <h2 id="l01">1–2 · Gains from Trade; Supply, Demand &amp; Markets</h2>
@@ -344,7 +345,7 @@
 <p>Let \(MB\) be the marginal benefit (the change in benefit from a small increase in an activity) and \(MC\) the marginal cost (the change in cost from that same increase). The marginal rule that underlies every optimum in the course:</p>
 
 <div class="eq"><span class="lbl">Marginal rule (the optimum condition)</span>
-$$ MB > MC \Rightarrow \text{do more} \qquad MB < MC \Rightarrow \text{do less} \qquad MB = MC \Rightarrow \text{stop (optimal)} $$
+$$ MB \gt  MC \Rightarrow \text{do more} \qquad MB \lt  MC \Rightarrow \text{do less} \qquad MB = MC \Rightarrow \text{stop (optimal)} $$
 </div>
 
 <div class="intuition"><span class="tag">Intuition: think at the margin</span> Keep buying coffees while the next cup is worth more to you than it costs; stop at the cup where worth equals cost. The optimum is never "total benefit beats total cost"; it is the knife-edge where the <i>next</i> step breaks even.</div>
@@ -353,7 +354,7 @@ $$ MB > MC \Rightarrow \text{do more} \qquad MB < MC \Rightarrow \text{do less} 
 
 <p>Define a buyer's <b>valuation</b> \(V\) (her willingness to pay, WTP): the cutoff below which she wants to trade. Define a seller's <b>cost</b> \(C\): the cutoff above which he wants to trade. Let \(P\) be the price actually paid.</p>
 
-<div class="intuition"><span class="tag">Intuition: gains from trade</span> Trade is not zero-sum. When \(V > C\) there is a pie of size \(V-C\) that exists only if the trade happens. The price \(P\) does not create or destroy that pie; it only decides how the buyer and seller split it.</div>
+<div class="intuition"><span class="tag">Intuition: gains from trade</span> Trade is not zero-sum. When \(V \gt  C\) there is a pie of size \(V-C\) that exists only if the trade happens. The price \(P\) does not create or destroy that pie; it only decides how the buyer and seller split it.</div>
 
 <div class="eq"><span class="lbl">Gains from a single trade</span>
 $$ \underbrace{V - P}_{\text{buyer's gain}} \;+\; \underbrace{P - C}_{\text{seller's gain}} \;=\; \underbrace{V - C}_{\text{total surplus}} $$
@@ -362,9 +363,9 @@ $$ \underbrace{V - P}_{\text{buyer's gain}} \;+\; \underbrace{P - C}_{\text{sell
 <figure>
 <svg viewBox="0 0 400 150" role="img" aria-label="Gains from trade split on a value line">
   <line class="axis" x1="40" y1="95" x2="370" y2="95"/>
-  <line class="dash" x1="100" y1="55" x2="100" y2="105"/>
-  <line class="dash" x1="220" y1="45" x2="220" y2="105"/>
-  <line class="dash" x1="340" y1="55" x2="340" y2="105"/>
+  <line class="grid dash" x1="100" y1="55" x2="100" y2="105"/>
+  <line class="grid dash" x1="220" y1="45" x2="220" y2="105"/>
+  <line class="grid dash" x1="340" y1="55" x2="340" y2="105"/>
   <text class="lbl" x="100" y="120" text-anchor="middle">C (cost)</text>
   <text class="lbl" x="220" y="120" text-anchor="middle">P (price)</text>
   <text class="lbl" x="340" y="120" text-anchor="middle">V (WTP)</text>
@@ -374,7 +375,7 @@ $$ \underbrace{V - P}_{\text{buyer's gain}} \;+\; \underbrace{P - C}_{\text{sell
   <text class="sm" x="280" y="52" text-anchor="middle">buyer V − P</text>
   <text class="sm" x="40" y="143">$ value →   total gains from trade = V − C, split at the negotiated price P</text>
 </svg>
-<figcaption>The price slides the split point; the total pie is fixed at \(V-C\) once a trade with \(V>C\) occurs.</figcaption>
+<figcaption>The price slides the split point; the total pie is fixed at \(V-C\) once a trade with \(V\gt C\) occurs.</figcaption>
 </figure>
 
 <h3>The pit market: equilibrium emerges from haggling</h3>
@@ -442,7 +443,7 @@ $$ PS = P\cdot Q - c(Q) $$
   <line class="axis" x1="45" y1="190" x2="45" y2="20"/>
   <text class="sm" x="345" y="205" text-anchor="end">Q</text>
   <text class="sm" x="30" y="30">$P</text>
-  <path class="dash" d="M45,41 H121 V63 H159 V105 H235 V126 H273" fill="none"/>
+  <path class="curve" d="M45,41 H121 V63 H159 V105 H235 V126 H273" fill="none"/>
   <text class="lbl" x="200" y="35">D</text>
   <text class="sm" x="83" y="200" text-anchor="middle">1</text>
   <text class="sm" x="159" y="200" text-anchor="middle">3</text>
@@ -458,7 +459,7 @@ $$ PS = P\cdot Q - c(Q) $$
   <line class="axis" x1="45" y1="190" x2="45" y2="20"/>
   <text class="sm" x="345" y="205" text-anchor="end">Q</text>
   <text class="sm" x="30" y="30">$P</text>
-  <path class="dash" d="M45,169 H121 V148 H159 V126 H197 V94 H235 V63 H273 V41 H311" fill="none"/>
+  <path class="curve" d="M45,169 H121 V148 H159 V126 H197 V94 H235 V63 H273 V41 H311" fill="none"/>
   <text class="lbl" x="300" y="35">S</text>
   <text class="sm" x="83" y="200" text-anchor="middle">1</text>
   <text class="sm" x="159" y="200" text-anchor="middle">3</text>
@@ -494,10 +495,10 @@ The last unit with \(mv\ge mc\) is the 4th (400 ≥ 300); the 5th fails (400 &lt
   <polygon points="45,105 197,105 197,126 159,126 159,148 121,148 121,169 45,169" fill="#f3d9b0" opacity="0.7"/>
   <line class="axis" x1="45" y1="190" x2="350" y2="190"/>
   <line class="axis" x1="45" y1="190" x2="45" y2="20"/>
-  <path class="dash" d="M45,41 H121 V63 H159 V105 H235 V126 H273" fill="none"/>
-  <path class="dash" d="M45,169 H121 V148 H159 V126 H197 V94 H235 V63 H273 V41 H311" fill="none"/>
-  <line class="dash" x1="45" y1="105" x2="197" y2="105"/>
-  <line class="dash" x1="197" y1="105" x2="197" y2="190"/>
+  <path class="curve" d="M45,41 H121 V63 H159 V105 H235 V126 H273" fill="none"/>
+  <path class="curve" d="M45,169 H121 V148 H159 V126 H197 V94 H235 V63 H273 V41 H311" fill="none"/>
+  <line class="grid dash" x1="45" y1="105" x2="197" y2="105"/>
+  <line class="grid dash" x1="197" y1="105" x2="197" y2="190"/>
   <circle class="dot" cx="197" cy="105" r="3"/>
   <text class="lbl" x="200" y="35">D</text>
   <text class="lbl" x="300" y="35">S</text>
@@ -526,7 +527,7 @@ At \(P^*=400,\,Q^*=4\):
 
 <p>Suppose Farmer Brown has \(MC=\$5\) and Farmer Smith has \(MC=\$7\). The current allocation is <i>not</i> cost-minimising: shift one bushel from Smith to Brown and total cost falls by \(\$7-\$5=\$2\). Keep reallocating until marginal costs are equal across all farmers. That is the condition for <b>productive efficiency</b>.</p>
 
-<div class="key"><b>How the market reaches it without a planner.</b> Every farmer faces the same price \(P\) and applies the marginal rule: \(P>MC\Rightarrow\) produce more, \(P<MC\Rightarrow\) produce less, \(P=MC\Rightarrow\) optimal. Since all set \(P=MC\), all end with the <i>same</i> \(MC\) (= \(P\)) automatically. The single price equalises marginal cost across every producer and induces the socially optimal quantity: <b>productive efficiency</b> (least-cost production) plus <b>allocative efficiency</b> (the right amount produced). This is Adam Smith's invisible hand.</div>
+<div class="key"><b>How the market reaches it without a planner.</b> Every farmer faces the same price \(P\) and applies the marginal rule: \(P\gt MC\Rightarrow\) produce more, \(P\lt MC\Rightarrow\) produce less, \(P=MC\Rightarrow\) optimal. Since all set \(P=MC\), all end with the <i>same</i> \(MC\) (= \(P\)) automatically. The single price equalises marginal cost across every producer and induces the socially optimal quantity: <b>productive efficiency</b> (least-cost production) plus <b>allocative efficiency</b> (the right amount produced). This is Adam Smith's invisible hand.</div>
 
 <div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this:</b> the wheat slide (p.50) lists a second MC pair, "Brown $4 / Smith $9", alongside "Brown $5 / Smith $7". I read the $5/$7 pair as the illustration of unequal MCs that triggers reallocation; the role of the $4/$9 pair is not clear from the extracted text (possibly a second starting point or the after-reallocation state). Check the slide before relying on the second pair.</div>
 
@@ -534,7 +535,7 @@ At \(P^*=400,\,Q^*=4\):
 $$ \text{No one can be made better off without making someone worse off} \;\Longleftrightarrow\; \text{all gains from trade are realised} $$
 </div>
 
-<div class="key"><b>The welfare result.</b> At the competitive equilibrium, \(CS+PS\) is maximised: every trade with \(V\ge C\) happens and no trade with \(V<C\) does. A competitive market is therefore Pareto efficient. This is the benchmark against which every later distortion (market power, taxes, externalities) is measured.</div>
+<div class="key"><b>The welfare result.</b> At the competitive equilibrium, \(CS+PS\) is maximised: every trade with \(V\ge C\) happens and no trade with \(V\lt C\) does. A competitive market is therefore Pareto efficient. This is the benchmark against which every later distortion (market power, taxes, externalities) is measured.</div>
 
 <h4>TAXES: INCIDENCE &amp; DEADWEIGHT LOSS</h4>
 
@@ -567,16 +568,16 @@ subtract \(\tau\) from each valuation <span class="arrow">→</span> demand curv
   <polygon points="164,105 164,145 200,125" fill="#e6b3b3" opacity="0.85"/>
   <line class="axis" x1="55" y1="215" x2="370" y2="215"/>
   <line class="axis" x1="55" y1="215" x2="55" y2="25"/>
-  <line class="dash" x1="55" y1="45" x2="345" y2="205"/>
+  <line class="grid dash" x1="55" y1="45" x2="345" y2="205"/>
   <text class="lbl" x="350" y="205">D</text>
-  <line class="dash" x1="55" y1="205" x2="345" y2="45"/>
+  <line class="grid dash" x1="55" y1="205" x2="345" y2="45"/>
   <text class="lbl" x="350" y="48">S</text>
-  <line class="dash" x1="55" y1="165" x2="345" y2="5"/>
+  <line class="grid dash" x1="55" y1="165" x2="345" y2="5"/>
   <text class="sm" x="350" y="14">S+τ</text>
-  <line class="dash" x1="55" y1="105" x2="164" y2="105"/>
-  <line class="dash" x1="55" y1="145" x2="164" y2="145"/>
-  <line class="dash" x1="164" y1="105" x2="164" y2="215"/>
-  <line class="dash" x1="200" y1="125" x2="200" y2="215"/>
+  <line class="grid dash" x1="55" y1="105" x2="164" y2="105"/>
+  <line class="grid dash" x1="55" y1="145" x2="164" y2="145"/>
+  <line class="grid dash" x1="164" y1="105" x2="164" y2="215"/>
+  <line class="grid dash" x1="200" y1="125" x2="200" y2="215"/>
   <text class="sm" x="50" y="108" text-anchor="end">Pb</text>
   <text class="sm" x="50" y="148" text-anchor="end">Ps</text>
   <text class="sm" x="164" y="228" text-anchor="middle">Qτ</text>
@@ -628,7 +629,7 @@ Full Pit Market (51 buyers, 51 sellers). Reading equilibrium off the aggregated 
 
 <div class="eq">$$\varepsilon \;=\; \frac{\%\,\text{change in }Q}{\%\,\text{change in }P} \;=\; \frac{\mathrm{d}Q}{\mathrm{d}P}\cdot\frac{P}{Q}$$<div class="lbl">Own-price elasticity (point form). \(\varepsilon\) is the percentage change in quantity demanded per one-percent change in own price.</div></div>
 
-<div class="key"><b>Sign convention (do not lose this).</b> Demand slopes down, so \(\mathrm{d}Q/\mathrm{d}P<0\) and therefore \(\varepsilon<0\) always. Glover reports elasticities as <em>positive magnitudes</em> by carrying a leading minus sign in the definition (his BMW slide writes "Price Elasticity \(=-\dfrac{\%\Delta Q}{\%\Delta P}=0.4\)"). So when a slide quotes "elasticity = 0.6", read it as \(|\varepsilon|=0.6\), i.e. \(\varepsilon=-0.6\). When this section uses \(|\varepsilon|\) it means the magnitude.</div>
+<div class="key"><b>Sign convention (do not lose this).</b> Demand slopes down, so \(\mathrm{d}Q/\mathrm{d}P\lt 0\) and therefore \(\varepsilon\lt 0\) always. Glover reports elasticities as <em>positive magnitudes</em> by carrying a leading minus sign in the definition (his BMW slide writes "Price Elasticity \(=-\dfrac{\%\Delta Q}{\%\Delta P}=0.4\)"). So when a slide quotes "elasticity = 0.6", read it as \(|\varepsilon|=0.6\), i.e. \(\varepsilon=-0.6\). When this section uses \(|\varepsilon|\) it means the magnitude.</div>
 
 <h4>POINT VS DISCRETE CALCULATION</h4>
 <p>The boxed formula is the <em>point</em> elasticity (a derivative, the response at one price). In practice the slides also compute elasticity from two observed points using finite percentage changes, as in the carmaker case below.</p>
@@ -636,16 +637,16 @@ Full Pit Market (51 buyers, 51 sellers). Reading equilibrium off the aggregated 
 <div class="wex"><div class="h">Worked example: BMW / Daimler (FT, Sept 2021)</div>
 Chip shortages let carmakers push sticker prices up roughly 15% and slash discounts; the surprise was that <b>revenue rose</b>. The slide's illustrative elasticity: a 100% price increase produces a 40% fall in quantity demanded, so
 $$|\varepsilon| \;=\; -\frac{-40\%}{+100\%} \;=\; 0.4.$$
-Because \(|\varepsilon|=0.4<1\), demand is <b>inelastic</b>: quantity barely flinches, so raising price raises total revenue. BMW's operating margin moved 8.6% → 16.0% and Mercedes 8.4% → 12.2%.</div>
+Because \(|\varepsilon|=0.4\lt 1\), demand is <b>inelastic</b>: quantity barely flinches, so raising price raises total revenue. BMW's operating margin moved 8.6% → 16.0% and Mercedes 8.4% → 12.2%.</div>
 
 <div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this:</b> the slides give the point formula and this discrete two-point calculation, but they never use the words "arc elasticity" or the midpoint formula \(\Delta Q/\bar{Q} \div \Delta P/\bar{P}\). If the exam expects the arc/midpoint method by name, that terminology is not in this deck.</div>
 
 <h4>ELASTIC VS INELASTIC</h4>
 <table class="dt">
 <tr><th>Range of \(|\varepsilon|\)</th><th>Name</th><th>Quantity response</th><th>If price rises, total revenue…</th></tr>
-<tr><td>\(|\varepsilon|<1\)</td><td>Inelastic</td><td>smaller % than the price change</td><td><b>rises</b></td></tr>
+<tr><td>\(|\varepsilon|\lt 1\)</td><td>Inelastic</td><td>smaller % than the price change</td><td><b>rises</b></td></tr>
 <tr><td>\(|\varepsilon|=1\)</td><td>Unit elastic</td><td>same % as the price change</td><td>unchanged</td></tr>
-<tr><td>\(|\varepsilon|>1\)</td><td>Elastic</td><td>larger % than the price change</td><td><b>falls</b></td></tr>
+<tr><td>\(|\varepsilon|\gt 1\)</td><td>Elastic</td><td>larger % than the price change</td><td><b>falls</b></td></tr>
 </table>
 
 <div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this:</b> the \(|\varepsilon|=1\) unit-elastic row and the explicit "<1 / >1" thresholds are the standard convention; the slides state the <em>inelastic / elastic</em> labels and demonstrate them (Amazon "inelastic" at 0.6, BN.com "elastic" at 4.0) but do not print the numerical threshold of 1 on a slide. Sanity-check that Glover wants the threshold stated as \(|\varepsilon|=1\).</div>
@@ -659,15 +660,15 @@ Because \(|\varepsilon|=0.4<1\), demand is <b>inelastic</b>: quantity barely fli
 <text class="lbl" x="20" y="20">P</text>
 <text class="lbl" x="232" y="168">Q</text>
 <line x1="55" y1="60" x2="225" y2="100" stroke="#1b8a7a" stroke-width="2"/>
-<line class="dash" x1="40" y1="70" x2="90" y2="70"/>
-<line class="dash" x1="40" y1="82" x2="155" y2="82"/>
-<line class="dash" x1="90" y1="70" x2="90" y2="150"/>
-<line class="dash" x1="155" y1="82" x2="155" y2="150"/>
+<line class="grid dash" x1="40" y1="70" x2="90" y2="70"/>
+<line class="grid dash" x1="40" y1="82" x2="155" y2="82"/>
+<line class="grid dash" x1="90" y1="70" x2="90" y2="150"/>
+<line class="grid dash" x1="155" y1="82" x2="155" y2="150"/>
 <text class="sm" x="200" y="95">D</text>
 <text class="sm" x="78" y="165">Q₀</text>
 <text class="sm" x="143" y="165">Q₁</text>
 </svg>
-<figcaption><b>Elastic (flat).</b> Small price drop, large quantity jump: \(|\varepsilon|>1\). A price cut raises revenue.</figcaption>
+<figcaption><b>Elastic (flat).</b> Small price drop, large quantity jump: \(|\varepsilon|\gt 1\). A price cut raises revenue.</figcaption>
 </figure>
 <figure>
 <svg viewBox="0 0 250 180" xmlns="http://www.w3.org/2000/svg">
@@ -676,15 +677,15 @@ Because \(|\varepsilon|=0.4<1\), demand is <b>inelastic</b>: quantity barely fli
 <text class="lbl" x="20" y="20">P</text>
 <text class="lbl" x="232" y="168">Q</text>
 <line x1="120" y1="35" x2="170" y2="148" stroke="#1b8a7a" stroke-width="2"/>
-<line class="dash" x1="40" y1="55" x2="129" y2="55"/>
-<line class="dash" x1="40" y1="120" x2="158" y2="120"/>
-<line class="dash" x1="129" y1="55" x2="129" y2="150"/>
-<line class="dash" x1="158" y1="120" x2="158" y2="150"/>
+<line class="grid dash" x1="40" y1="55" x2="129" y2="55"/>
+<line class="grid dash" x1="40" y1="120" x2="158" y2="120"/>
+<line class="grid dash" x1="129" y1="55" x2="129" y2="150"/>
+<line class="grid dash" x1="158" y1="120" x2="158" y2="150"/>
 <text class="sm" x="165" y="50">D</text>
 <text class="sm" x="118" y="165">Q₀</text>
 <text class="sm" x="150" y="165">Q₁</text>
 </svg>
-<figcaption><b>Inelastic (steep).</b> Large price drop, tiny quantity change: \(|\varepsilon|<1\). A price <em>rise</em> raises revenue.</figcaption>
+<figcaption><b>Inelastic (steep).</b> Large price drop, tiny quantity change: \(|\varepsilon|\lt 1\). A price <em>rise</em> raises revenue.</figcaption>
 </figure>
 </div>
 <figcaption>Elasticity is the steepness of demand read in percentage terms. The flatter the curve over the relevant range, the more elastic.</figcaption>
@@ -692,7 +693,7 @@ Because \(|\varepsilon|=0.4<1\), demand is <b>inelastic</b>: quantity barely fli
 
 <h4>ELASTICITY AND TOTAL REVENUE</h4>
 
-<div class="intuition"><span class="tag">Intuition: the revenue tug-of-war</span> Revenue \(TR=P\times Q\). Raising price pulls \(P\) up but drags \(Q\) down; the net effect is just a race between the two percentage moves, and elasticity is the scoreboard. Inelastic (\(|\varepsilon|<1\)): the price gain wins, revenue rises. Elastic (\(|\varepsilon|>1\)): the quantity loss wins, revenue falls.</div>
+<div class="intuition"><span class="tag">Intuition: the revenue tug-of-war</span> Revenue \(TR=P\times Q\). Raising price pulls \(P\) up but drags \(Q\) down; the net effect is just a race between the two percentage moves, and elasticity is the scoreboard. Inelastic (\(|\varepsilon|\lt 1\)): the price gain wins, revenue rises. Elastic (\(|\varepsilon|\gt 1\)): the quantity loss wins, revenue falls.</div>
 
 <div class="twocol">
 <div class="chain"><b>Inelastic demand, price ↑</b><br>
@@ -728,10 +729,10 @@ The "brilliant marketing" was really a textbook elastic-demand price cut.</div>
 
 <table class="dt">
 <tr><th>Elasticity</th><th>Sign</th><th>When the driver rises, demand…</th><th>Good is…</th></tr>
-<tr><td rowspan="2">Income \(\varepsilon_I\)</td><td>\(\varepsilon_I>0\)</td><td>increases</td><td><b>Normal</b> good</td></tr>
-<tr><td>\(\varepsilon_I<0\)</td><td>decreases</td><td><b>Inferior</b> good</td></tr>
-<tr><td rowspan="2">Cross \(\varepsilon_{xy}\)</td><td>\(\varepsilon_{xy}>0\)</td><td>increases</td><td><b>Substitute</b> (rival good)</td></tr>
-<tr><td>\(\varepsilon_{xy}<0\)</td><td>decreases</td><td><b>Complement</b> (paired good)</td></tr>
+<tr><td rowspan="2">Income \(\varepsilon_I\)</td><td>\(\varepsilon_I\gt 0\)</td><td>increases</td><td><b>Normal</b> good</td></tr>
+<tr><td>\(\varepsilon_I\lt 0\)</td><td>decreases</td><td><b>Inferior</b> good</td></tr>
+<tr><td rowspan="2">Cross \(\varepsilon_{xy}\)</td><td>\(\varepsilon_{xy}\gt 0\)</td><td>increases</td><td><b>Substitute</b> (rival good)</td></tr>
+<tr><td>\(\varepsilon_{xy}\lt 0\)</td><td>decreases</td><td><b>Complement</b> (paired good)</td></tr>
 </table>
 
 <div class="wex"><div class="h">Worked example: Amazon vs Barnes &amp; Noble.com (Chevalier &amp; Goolsbee)</div>
@@ -773,7 +774,7 @@ The point: elasticity is segment-specific and is exactly the number you need to 
 </table>
 No extra arithmetic: read the regression printout and you have read the elasticities directly.</div>
 
-<div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this:</b> the slide's table lists the price row as "\(-B_1\)" while the appendix derivation gives \(B_1=(\mathrm{d}G/\mathrm{d}P_G)(P_G/G)=\varepsilon\). I have reconciled this as: the regression coefficient \(B_1\) <em>is</em> the signed elasticity (\(\varepsilon=B_1<0\)), and the slide writes \(-B_1\) because Glover reports the elasticity as a positive magnitude (consistent with the BMW slide). Worth confirming he wants it stated this way rather than as a sign error.</div>
+<div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this:</b> the slide's table lists the price row as "\(-B_1\)" while the appendix derivation gives \(B_1=(\mathrm{d}G/\mathrm{d}P_G)(P_G/G)=\varepsilon\). I have reconciled this as: the regression coefficient \(B_1\) <em>is</em> the signed elasticity (\(\varepsilon=B_1\lt 0\)), and the slide writes \(-B_1\) because Glover reports the elasticity as a positive magnitude (consistent with the BMW slide). Worth confirming he wants it stated this way rather than as a sign error.</div>
 
 <h4>WHY THE LOG-LOG COEFFICIENT EQUALS THE ELASTICITY (appendix)</h4>
 <ol class="deriv">
@@ -878,12 +879,12 @@ minimum wage set above the market wage \(w^*\) <span class="arrow">⟹</span> em
 <line x1="55" y1="50" x2="215" y2="150" stroke="#9b5fb0" stroke-width="2"/>
 <text class="sm" x="200" y="42">S</text>
 <text class="sm" x="200" y="148">D</text>
-<line class="dash" x1="45" y1="98" x2="135" y2="98"/>
+<line class="grid dash" x1="45" y1="98" x2="135" y2="98"/>
 <text class="sm" x="20" y="100">w*</text>
 <line x1="45" y1="70" x2="235" y2="70" stroke="#b4622a" stroke-width="1.8"/>
 <text class="sm" x="150" y="65" fill="#b4622a">min wage</text>
-<line class="dash" x1="95" y1="70" x2="95" y2="155"/>
-<line class="dash" x1="160" y1="70" x2="160" y2="155"/>
+<line class="grid dash" x1="95" y1="70" x2="95" y2="155"/>
+<line class="grid dash" x1="160" y1="70" x2="160" y2="155"/>
 <text class="sm" x="86" y="170">Qd</text>
 <text class="sm" x="153" y="170">Qs</text>
 </svg>
@@ -899,12 +900,12 @@ minimum wage set above the market wage \(w^*\) <span class="arrow">⟹</span> em
 <line x1="55" y1="50" x2="215" y2="150" stroke="#9b5fb0" stroke-width="2"/>
 <text class="sm" x="158" y="40">D</text>
 <text class="sm" x="200" y="148">S</text>
-<line class="dash" x1="45" y1="100" x2="138" y2="100"/>
+<line class="grid dash" x1="45" y1="100" x2="138" y2="100"/>
 <text class="sm" x="20" y="102">w*</text>
 <line x1="45" y1="70" x2="235" y2="70" stroke="#b4622a" stroke-width="1.8"/>
 <text class="sm" x="150" y="65" fill="#b4622a">min wage</text>
-<line class="dash" x1="129" y1="70" x2="129" y2="155"/>
-<line class="dash" x1="180" y1="70" x2="180" y2="155"/>
+<line class="grid dash" x1="129" y1="70" x2="129" y2="155"/>
+<line class="grid dash" x1="180" y1="70" x2="180" y2="155"/>
 <text class="sm" x="120" y="170">Qd</text>
 <text class="sm" x="173" y="170">Qs</text>
 </svg>
@@ -935,7 +936,7 @@ minimum wage set above the market wage \(w^*\) <span class="arrow">⟹</span> em
 
 <h4>FROM DEMAND: LINEAR DEMAND &amp; ELASTICITY</h4>
 
-<p>Symbols used here: \(P\) price, \(Q\) quantity demanded, \(A\) the demand intercept (quantity at a zero price), \(B\) the slope coefficient, \(P_c\) the <b>choke price</b> (the price at which quantity demanded hits zero), and \(E=|\varepsilon|\) the magnitude of the own-price elasticity of demand (the underlying \(\varepsilon<0\); the slides report it as a positive number, so \(E=|\varepsilon|\)).</p>
+<p>Symbols used here: \(P\) price, \(Q\) quantity demanded, \(A\) the demand intercept (quantity at a zero price), \(B\) the slope coefficient, \(P_c\) the <b>choke price</b> (the price at which quantity demanded hits zero), and \(E=|\varepsilon|\) the magnitude of the own-price elasticity of demand (the underlying \(\varepsilon\lt 0\); the slides report it as a positive number, so \(E=|\varepsilon|\)).</p>
 
 <div class="intuition"><span class="tag">🎙 In class</span> Why is petrol demand barely responsive to price in the short run but much more responsive in the long run? In the <b>short run</b> you are stuck with the car you own and the commute you have, so you keep buying fuel almost whatever the price. In the <b>long run</b> you can buy a smaller car, move closer to work, or switch to public transport. More margins of adjustment open up over time, so long-run elasticity is larger than short-run elasticity.</div>
 
@@ -958,14 +959,14 @@ minimum wage set above the market wage \(w^*\) <span class="arrow">⟹</span> em
 
 <ol class="deriv">
 <li>Start from \(Q=A-BP\), so \(\dfrac{dQ}{dP}=-B\). <span class="note">differentiate the demand curve; the slope is the constant \(-B\)</span></li>
-<li>\(E=-\dfrac{dQ}{dP}\,\dfrac{P}{Q}=\dfrac{B\,P}{A-BP}\). <span class="note">insert the slope and \(Q=A-BP\); the leading minus cancels the negative slope so \(E>0\)</span></li>
+<li>\(E=-\dfrac{dQ}{dP}\,\dfrac{P}{Q}=\dfrac{B\,P}{A-BP}\). <span class="note">insert the slope and \(Q=A-BP\); the leading minus cancels the negative slope so \(E\gt 0\)</span></li>
 <li class="result">Divide top and bottom by \(B\) and use \(P_c=A/B\): \(\;E=\dfrac{P}{P_c-P}\). <span class="note">elasticity depends only on where \(P\) sits relative to the choke price</span></li>
 </ol>
 
 <div class="wex"><span class="h">Worked example: Apple Watch, choke price 422.8 (slides 7, 9)</span>
 With \(P_c=422.8\), evaluate at the mid-point \(P=211.4=\tfrac{1}{2}P_c\):
 $$ E=\frac{211.4}{422.8-211.4}=\frac{211.4}{211.4}=1. $$
-At half the choke price demand is exactly <b>unit elastic</b>. Above it demand is elastic (\(E>1\)); below it, inelastic (\(E<1\)). This is the "empirical regularity" on the slide: as price rises along a linear curve, demand becomes more elastic.</div>
+At half the choke price demand is exactly <b>unit elastic</b>. Above it demand is elastic (\(E\gt 1\)); below it, inelastic (\(E\lt 1\)). This is the "empirical regularity" on the slide: as price rises along a linear curve, demand becomes more elastic.</div>
 
 <div class="pitfall"><b>Elasticity is not slope.</b> Two traps from slide 10: (1) do not read off elasticity from the steepness of a linear demand curve, since elasticity changes along it while slope does not; (2) to compare the elasticity of two <i>different</i> linear demand curves you must compare them <b>at the same price</b>. At a given price, the curve with the <b>higher choke price is more inelastic</b> (look at \(E=P/(P_c-P)\): a larger \(P_c\) shrinks \(E\)).</div>
 
@@ -980,8 +981,8 @@ At half the choke price demand is exactly <b>unit elastic</b>. Above it demand i
   <text class="lbl" x="60" y="38">P_c</text>
   <!-- midpoint unit-elastic -->
   <circle class="dot" cx="187" cy="125" r="3"/>
-  <line class="dash" x1="187" y1="125" x2="187" y2="210"/>
-  <line class="dash" x1="55" y1="125" x2="187" y2="125"/>
+  <line class="grid dash" x1="187" y1="125" x2="187" y2="210"/>
+  <line class="grid dash" x1="55" y1="125" x2="187" y2="125"/>
   <text class="sm" x="120" y="80">elastic (E&gt;1)</text>
   <text class="sm" x="193" y="120">E = 1 at ½P_c</text>
   <text class="sm" x="225" y="195">inelastic (E&lt;1)</text>
@@ -1010,7 +1011,7 @@ At half the choke price demand is exactly <b>unit elastic</b>. Above it demand i
 
 <div class="wex"><span class="h">Worked example: the consultant (slide 14)</span>
 You have already paid a consultant \$10,000 (sunk). The reorganisation she proposes costs a <i>further</i> \$15,000 and will save \$18,000 in inventory costs. Decision rule: compare only the costs the decision still controls.
-$$ \text{Net benefit} = 18{,}000 - 15{,}000 = +\,3{,}000 > 0 \;\Rightarrow\; \textbf{do it.} $$
+$$ \text{Net benefit} = 18{,}000 - 15{,}000 = +\,3{,}000 \gt  0 \;\Rightarrow\; \textbf{do it.} $$
 The \$10,000 is irrelevant to this choice. (If you wrongly add it back, you would see \$18,000 vs \$25,000 and reject a profitable move.)</div>
 
 <div class="intuition"><span class="tag">Intuition: opportunity cost</span> The <b>opportunity cost</b> of a resource is the return from its <i>next best alternative use</i>. The heuristic mirrors sunk costs: <b>include opportunity cost as an explicit cost</b> of the project, so that the cost-benefit and marginal-benefit-vs-marginal-cost comparisons are correct.</div>
@@ -1035,8 +1036,8 @@ Once the power is valued at what it could be sold for, smelting is loss-making: 
 <div class="intuition"><span class="tag">Intuition: why MC cuts the averages at their minimum</span> Think of a running average exam mark. If the next paper scores below your average, your average falls; if it scores above, your average rises; your average stops changing exactly when the next paper equals the current average. Marginal cost is "the next paper", average cost is the running average. So \(MC\) sits below \(ATC\) while \(ATC\) is falling, above \(ATC\) while it is rising, and crosses \(ATC\) precisely at its minimum.</div>
 
 <div class="chain">
-\(MC<ATC\) <span class="arrow">⟹</span> the extra unit costs less than the running average <span class="arrow">⟹</span> it drags the average down <span class="arrow">⟹</span> \(ATC\) falling.<br>
-\(MC>ATC\) <span class="arrow">⟹</span> the extra unit costs more than the running average <span class="arrow">⟹</span> it pulls the average up <span class="arrow">⟹</span> \(ATC\) rising.<br>
+\(MC\lt ATC\) <span class="arrow">⟹</span> the extra unit costs less than the running average <span class="arrow">⟹</span> it drags the average down <span class="arrow">⟹</span> \(ATC\) falling.<br>
+\(MC\gt ATC\) <span class="arrow">⟹</span> the extra unit costs more than the running average <span class="arrow">⟹</span> it pulls the average up <span class="arrow">⟹</span> \(ATC\) rising.<br>
 Therefore \(MC=ATC\) exactly where \(ATC\) is flat, i.e. at its minimum. The same averaging logic applies to \(AVC\).
 </div>
 
@@ -1047,7 +1048,7 @@ Therefore \(MC=ATC\) exactly where \(ATC\) is flat, i.e. at its minimum. The sam
 <li class="result">\(MC(10)=10+2(10)=30=ATC(10)\). <span class="note">confirms \(MC\) cuts \(ATC\) at its minimum</span></li>
 </ol>
 
-<div class="pitfall"><b>This \(AVC\) is not U-shaped.</b> For \(c(Q)=100+10Q+Q^2\), \(AVC=10+Q\) is strictly increasing, so \(MC=10+2Q\) lies above it for every \(Q>0\) and they meet only at \(Q=0\) (both equal 10). Do not over-generalise: the "\(MC\) cuts \(AVC\) at the minimum of \(AVC\)" picture from the textbook is degenerate for this particular function. The U-shape that matters here is \(ATC\), with its minimum at \(Q=10\).</div>
+<div class="pitfall"><b>This \(AVC\) is not U-shaped.</b> For \(c(Q)=100+10Q+Q^2\), \(AVC=10+Q\) is strictly increasing, so \(MC=10+2Q\) lies above it for every \(Q\gt 0\) and they meet only at \(Q=0\) (both equal 10). Do not over-generalise: the "\(MC\) cuts \(AVC\) at the minimum of \(AVC\)" picture from the textbook is degenerate for this particular function. The U-shape that matters here is \(ATC\), with its minimum at \(Q=10\).</div>
 
 <figure>
 <svg viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg">
@@ -1056,8 +1057,8 @@ Therefore \(MC=ATC\) exactly where \(ATC\) is flat, i.e. at its minimum. The sam
   <text class="lbl" x="405" y="266">Q</text>
   <text class="lbl" x="44" y="40">£/unit</text>
   <!-- crossing markers -->
-  <line class="dash" x1="214" y1="140" x2="214" y2="250"/>
-  <line class="dash" x1="60" y1="140" x2="214" y2="140"/>
+  <line class="grid dash" x1="214" y1="140" x2="214" y2="250"/>
+  <line class="grid dash" x1="60" y1="140" x2="214" y2="140"/>
   <text class="sm" x="46" y="143">30</text>
   <text class="sm" x="210" y="263">10</text>
   <!-- ATC U-shape -->
@@ -1102,7 +1103,7 @@ Therefore \(MC=ATC\) exactly where \(ATC\) is flat, i.e. at its minimum. The sam
   <!-- U-shaped AC -->
   <path d="M70,55 Q150,200 210,182 Q290,165 350,90" fill="none" stroke="#b3402a" stroke-width="2"/>
   <!-- MES marker -->
-  <line class="dash" x1="210" y1="182" x2="210" y2="210"/>
+  <line class="grid dash" x1="210" y1="182" x2="210" y2="210"/>
   <circle class="dot" cx="210" cy="182" r="3.5"/>
   <text class="sm" x="184" y="228">MES</text>
   <text class="sm" x="78" y="120">economies</text>
@@ -1210,11 +1211,11 @@ Therefore \(MC=ATC\) exactly where \(ATC\) is flat, i.e. at its minimum. The sam
 
 <ol class="deriv">
 <li>\(TR = P(Q)\cdot Q\) <span class="note">revenue is price times quantity, with price itself depending on quantity sold.</span></li>
-<li>\(\dfrac{dTR}{dQ} = P(Q) + \dfrac{dP}{dQ}\,Q\) <span class="note">product rule: the \(P(Q)\) term is the revenue from the new unit; the \(\frac{dP}{dQ}\,Q\) term is the margin given up on existing units. Since demand slopes down, \(\frac{dP}{dQ}<0\), so this term is negative.</span></li>
+<li>\(\dfrac{dTR}{dQ} = P(Q) + \dfrac{dP}{dQ}\,Q\) <span class="note">product rule: the \(P(Q)\) term is the revenue from the new unit; the \(\frac{dP}{dQ}\,Q\) term is the margin given up on existing units. Since demand slopes down, \(\frac{dP}{dQ}\lt 0\), so this term is negative.</span></li>
 <li class="result">\(MR = P(Q) + \dfrac{dP}{dQ}\,Q\) <span class="note">for our airline, \(\frac{dP}{dQ}=-2\), so \(MR = 960 - 4Q\). At \(Q=330\), \(MR = 960 - 4(330) = -\$360\), matching the discrete \(-\$362\) up to the size of the one-unit step.</span></li>
 </ol>
 
-<div class="key"><b>\(P > MR\) always (for a downward-sloping demand curve).</b> The adjustment term is negative, so marginal revenue lies strictly <em>below</em> the demand curve. For a linear inverse demand \(P = a - bQ\), the \(MR\) line has the same intercept \(a\) but twice the slope (\(MR = a - 2bQ\)); it hits the horizontal axis at exactly half the quantity that demand does.</div>
+<div class="key"><b>\(P \gt  MR\) always (for a downward-sloping demand curve).</b> The adjustment term is negative, so marginal revenue lies strictly <em>below</em> the demand curve. For a linear inverse demand \(P = a - bQ\), the \(MR\) line has the same intercept \(a\) but twice the slope (\(MR = a - 2bQ\)); it hits the horizontal axis at exactly half the quantity that demand does.</div>
 
 <figure>
 <svg viewBox="0 0 360 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Demand and marginal revenue curves with MR below demand">
@@ -1230,28 +1231,28 @@ Therefore \(MC=ATC\) exactly where \(ATC\) is flat, i.e. at its minimum. The sam
   <line x1="40" y1="24" x2="189" y2="230" stroke="#c0392b" stroke-width="2"/>
   <text class="lbl" x="150" y="150" fill="#c0392b">MR</text>
   <!-- gap marker P>MR at Q=120 : demand py=75, MR py=127, px=114 -->
-  <line class="dash" x1="114" y1="75" x2="114" y2="127"/>
+  <line class="grid dash" x1="114" y1="75" x2="114" y2="127"/>
   <circle class="dot" cx="114" cy="75" r="3" fill="#1f6feb"/>
   <circle class="dot" cx="114" cy="127" r="3" fill="#c0392b"/>
   <text class="sm" x="120" y="100">P &gt; MR</text>
   <text class="lbl" x="55" y="20">a</text>
 </svg>
-<figcaption>Demand and marginal revenue share the intercept \(a\); \(MR\) is twice as steep and lies below \(D\) everywhere, so \(P>MR\). Where \(MR=0\), total revenue peaks.</figcaption>
+<figcaption>Demand and marginal revenue share the intercept \(a\); \(MR\) is twice as steep and lies below \(D\) everywhere, so \(P\gt MR\). Where \(MR=0\), total revenue peaks.</figcaption>
 </figure>
 
 <h3>5.2 The profit-maximisation rule: \(MR = MC\)</h3>
 
-<div class="intuition"><span class="tag">Intuition: MR = MC</span> Walk quantity up one unit at a time. As long as the next unit adds more to revenue than it adds to cost (\(MR > MC\)), make it: profit rises. The moment the next unit costs more than it brings in (\(MR < MC\)), stop. The frontier where you can no longer improve is exactly \(MR = MC\). It is the same logic as the airline, generalised: weigh the marginal gain against the marginal cost.</div>
+<div class="intuition"><span class="tag">Intuition: MR = MC</span> Walk quantity up one unit at a time. As long as the next unit adds more to revenue than it adds to cost (\(MR \gt  MC\)), make it: profit rises. The moment the next unit costs more than it brings in (\(MR \lt  MC\)), stop. The frontier where you can no longer improve is exactly \(MR = MC\). It is the same logic as the airline, generalised: weigh the marginal gain against the marginal cost.</div>
 
 <p>Let \(MC\) be marginal cost and \(\pi\) be profit. The firm maximises \(\pi(Q) = TR(Q) - TC(Q)\). The first-order condition sets the derivative to zero:</p>
 
 <div class="eq"><span class="lbl">Profit-maximisation rule (market power)</span> $$\frac{d\pi}{dQ} = MR - MC = 0 \;\;\Longrightarrow\;\; MR = MC$$</div>
 
 <div class="chain">
-<span>\(MR > MC\)</span><span class="arrow">→</span><span>raise \(Q\) (each extra unit adds more revenue than cost)</span><span class="arrow">→</span><span>\(\pi\) up</span>
+<span>\(MR \gt  MC\)</span><span class="arrow">→</span><span>raise \(Q\) (each extra unit adds more revenue than cost)</span><span class="arrow">→</span><span>\(\pi\) up</span>
 </div>
 <div class="chain">
-<span>\(MR < MC\)</span><span class="arrow">→</span><span>cut \(Q\) (the last unit cost more than it earned)</span><span class="arrow">→</span><span>\(\pi\) up</span>
+<span>\(MR \lt  MC\)</span><span class="arrow">→</span><span>cut \(Q\) (the last unit cost more than it earned)</span><span class="arrow">→</span><span>\(\pi\) up</span>
 </div>
 
 <p>Optimal quantity \(Q^{*}\) is read off the \(MR = MC\) crossing; optimal price \(P^{*}\) is read <em>up</em> from \(Q^{*}\) to the <strong>demand</strong> curve, never to the \(MR\) curve. A price taker instead sets \(P = MC\) directly, because for a price taker the demand curve is flat at the market price, so \(MR = P\); the market-power firm faces a downward-sloping demand curve, which is why \(MR\) and \(P\) diverge.</p>
@@ -1272,8 +1273,8 @@ Therefore \(MC=ATC\) exactly where \(ATC\) is flat, i.e. at its minimum. The sam
   <line x1="40" y1="187" x2="337" y2="187" stroke="#117a3d" stroke-width="2"/>
   <text class="lbl" x="300" y="182" fill="#117a3d">MC = k</text>
   <!-- Q* where MR=MC : px=158, then up to demand P* py=105 -->
-  <line class="dash" x1="158" y1="230" x2="158" y2="105"/>
-  <line class="dash" x1="40" y1="105" x2="158" y2="105"/>
+  <line class="grid dash" x1="158" y1="230" x2="158" y2="105"/>
+  <line class="grid dash" x1="40" y1="105" x2="158" y2="105"/>
   <circle class="dot" cx="158" cy="187" r="3" fill="#c0392b"/>
   <circle class="dot" cx="158" cy="105" r="3" fill="#1f6feb"/>
   <text class="lbl" x="150" y="245">Q*</text>
@@ -1281,7 +1282,7 @@ Therefore \(MC=ATC\) exactly where \(ATC\) is flat, i.e. at its minimum. The sam
   <text class="sm" x="60" y="150">MR &gt; MC</text>
   <text class="sm" x="200" y="210">MR &lt; MC</text>
 </svg>
-<figcaption>① find \(Q^{*}\) where \(MR=MC\); ② read \(P^{*}\) up to the demand curve. Left of \(Q^{*}\), \(MR>MC\) so expand; right of it, \(MR<MC\) so contract. The same construction holds with an upward-sloping \(MC(Q)\); only the crossing moves.</figcaption>
+<figcaption>① find \(Q^{*}\) where \(MR=MC\); ② read \(P^{*}\) up to the demand curve. Left of \(Q^{*}\), \(MR\gt MC\) so expand; right of it, \(MR\lt MC\) so contract. The same construction holds with an upward-sloping \(MC(Q)\); only the crossing moves.</figcaption>
 </figure>
 
 <div class="pitfall"><b>Revenue maximisation is not profit maximisation.</b> A manager paid on sales (or chasing market share) maximises revenue, which happens where \(MR = 0\), to the right of \(Q^{*}\). That over-produces and under-prices relative to the profit-maximising point. The slides flag this as a real principal-agent trap: "Where is revenue maximised? Who might do this?"</div>
@@ -1290,7 +1291,7 @@ Therefore \(MC=ATC\) exactly where \(ATC\) is flat, i.e. at its minimum. The sam
 
 <div class="intuition"><span class="tag">Intuition: the Golden Rule</span> \(MR = MC\) tells you to equate marginals, but you rarely know your \(MR\) curve. You usually <em>can</em> estimate your price elasticity. The Golden Rule rewrites \(MR=MC\) purely in terms of elasticity and marginal cost: the less elastic (less price-sensitive) your demand, the fatter the markup you can charge over \(MC\). "The price elasticity allows you to do whatever you want." Big-data elasticity estimation in retail has been claimed to lift operating margins by up to 60%.</div>
 
-<p>Define own-price elasticity of demand \(\varepsilon = \dfrac{dQ}{dP}\cdot\dfrac{P}{Q}\), with the sign convention \(\varepsilon < 0\) (demand slopes down). Where the rule is written with a positive number, that number is the magnitude \(E = |\varepsilon|\). The markup itself, \(\dfrac{P-MC}{P}\), is the <strong>Lerner index</strong> \(\mathcal{L}\) (using \(\mathcal{L}\), not \(L\), since \(L\) is labour elsewhere in the course).</p>
+<p>Define own-price elasticity of demand \(\varepsilon = \dfrac{dQ}{dP}\cdot\dfrac{P}{Q}\), with the sign convention \(\varepsilon \lt  0\) (demand slopes down). Where the rule is written with a positive number, that number is the magnitude \(E = |\varepsilon|\). The markup itself, \(\dfrac{P-MC}{P}\), is the <strong>Lerner index</strong> \(\mathcal{L}\) (using \(\mathcal{L}\), not \(L\), since \(L\) is labour elsewhere in the course).</p>
 
 <ol class="deriv">
 <li>\(MR = P + \dfrac{dP}{dQ}\,Q\) <span class="note">marginal revenue from 5.1.</span></li>
@@ -1306,7 +1307,7 @@ Therefore \(MC=ATC\) exactly where \(ATC\) is flat, i.e. at its minimum. The sam
 
 <div class="eq"><span class="lbl">Golden Pricing Rule (markup form)</span> $$P^{*} = \frac{E}{E-1}\,MC$$</div>
 
-<div class="key"><b>Reading the rule.</b> As \(E \to \infty\) (perfectly elastic, the price-taker limit), \(\frac{E}{E-1}\to 1\) and \(P^{*}\to MC\): no markup, exactly the competitive result. As \(E \to 1^{+}\), the markup explodes. If \(E \le 1\) the firm is on the inelastic part of demand where \(MR<0\), so it should never optimally price there: a profit-maximiser always operates where demand is elastic (\(E>1\)).</div>
+<div class="key"><b>Reading the rule.</b> As \(E \to \infty\) (perfectly elastic, the price-taker limit), \(\frac{E}{E-1}\to 1\) and \(P^{*}\to MC\): no markup, exactly the competitive result. As \(E \to 1^{+}\), the markup explodes. If \(E \le 1\) the firm is on the inelastic part of demand where \(MR\lt 0\), so it should never optimally price there: a profit-maximiser always operates where demand is elastic (\(E\gt 1\)).</div>
 
 <div class="wex">
 <div class="h">Worked example: iPhone pricing (slide 22)</div>
@@ -1325,7 +1326,7 @@ Therefore \(MC=ATC\) exactly where \(ATC\) is flat, i.e. at its minimum. The sam
 
 <div class="eq"><span class="lbl">Average cost decomposition</span> $$AC = AFC + AVC, \qquad MC = AVC \text{ at the relevant margin}$$</div>
 
-<div class="key"><b>Two separate questions.</b> The pricing decision uses \(MR=MC\) and ignores \(FC\) entirely. \(FC\) only determines <em>profitability</em>: once \(P^{*}\) and \(Q^{*}\) are set, compare \(P^{*}\) with \(AC\). If \(P^{*} > AC\) the business earns positive net profit; if \(P^{*} < AC\) it makes a net loss. Same price, same quantity, different fixed cost, opposite verdict on whether the firm should exist.</div>
+<div class="key"><b>Two separate questions.</b> The pricing decision uses \(MR=MC\) and ignores \(FC\) entirely. \(FC\) only determines <em>profitability</em>: once \(P^{*}\) and \(Q^{*}\) are set, compare \(P^{*}\) with \(AC\). If \(P^{*} \gt  AC\) the business earns positive net profit; if \(P^{*} \lt  AC\) it makes a net loss. Same price, same quantity, different fixed cost, opposite verdict on whether the firm should exist.</div>
 
 <div class="pitfall"><b>Fixed-cost fallacy.</b> Average-cost pricing and cost-plus pricing that bakes in a share of fixed cost both let an irrelevant number distort price. The danger is the <strong>death spiral</strong>: a firm prices to recover fixed cost, the higher price loses volume, spreading the same fixed cost over fewer units raises average cost, which "justifies" a further price rise, which loses more volume, and so on. The slides label this "Beware the Death Spiral" (Wang Laboratories is the named cautionary case).</div>
 
@@ -1367,7 +1368,7 @@ Therefore \(MC=ATC\) exactly where \(ATC\) is flat, i.e. at its minimum. The sam
 <ul>
 <li><b>Calculation backbone.</b> Given a linear demand \(Q=a-bP\), be able to invert it, write \(TR\), differentiate to \(MR\) (intercept \(a\), double slope), set \(MR=MC\), solve for \(Q^{*}\), and read \(P^{*}\) up to demand. The airline numbers are the template.</li>
 <li><b>Golden Rule both ways.</b> Move fluently between the Lerner form \(\frac{P-MC}{P}=\frac{1}{E}\) and the markup form \(P^{*}=\frac{E}{E-1}MC\). The iPhone and e-book cases are the drill.</li>
-<li><b>T/F traps.</b> "A monopolist can charge any price." (False, still bound by demand / \(MR=MC\).) "Higher fixed costs should raise the price." (False, \(FC\) does not affect \(MC\) or the optimal price, only profitability.) "If demand is inelastic, raise quantity." (False, optimum is always in the elastic region, \(E>1\).)</li>
+<li><b>T/F traps.</b> "A monopolist can charge any price." (False, still bound by demand / \(MR=MC\).) "Higher fixed costs should raise the price." (False, \(FC\) does not affect \(MC\) or the optimal price, only profitability.) "If demand is inelastic, raise quantity." (False, optimum is always in the elastic region, \(E\gt 1\).)</li>
 <li><b>Fallacy spotting.</b> Given a quote (a CEO matching a rival, recovering fixed cost, invoking sunk investment), name the fallacy and state the correct rule.</li>
 </ul>
 </div>
@@ -1380,7 +1381,7 @@ Therefore \(MC=ATC\) exactly where \(ATC\) is flat, i.e. at its minimum. The sam
 
 <h4>RECAP: THE PRICING TOOLKIT WE BUILD ON</h4>
 
-<p>Before discriminating across segments we need the single-segment rule sharp. Define for the rest of this section: \(P\) price, \(Q\) quantity, \(D\) (or \(d(P)\)) demand, \(MR\) marginal revenue (the extra revenue from selling one more unit), \(MC\) marginal cost, \(AR\) average revenue \(=P\), \(\varepsilon\) the own-price elasticity of demand (with the sign convention \(\varepsilon<0\), so we write \(|\varepsilon|\) for its magnitude), \(\pi\) profit, \(CS\) consumer surplus, \(PS\) producer surplus, and \(DWL\) deadweight loss.</p>
+<p>Before discriminating across segments we need the single-segment rule sharp. Define for the rest of this section: \(P\) price, \(Q\) quantity, \(D\) (or \(d(P)\)) demand, \(MR\) marginal revenue (the extra revenue from selling one more unit), \(MC\) marginal cost, \(AR\) average revenue \(=P\), \(\varepsilon\) the own-price elasticity of demand (with the sign convention \(\varepsilon\lt 0\), so we write \(|\varepsilon|\) for its magnitude), \(\pi\) profit, \(CS\) consumer surplus, \(PS\) producer surplus, and \(DWL\) deadweight loss.</p>
 
 <div class="intuition"><span class="tag">Intuition: the markup is the inverse of elasticity</span> A monopolist's price is just marginal cost plus a markup, and the size of that markup is set entirely by how price-sensitive customers are. Customers who barely flinch at a price rise (inelastic demand) get a fat markup; customers who would walk at the first euro of increase (elastic demand) get a thin one. Everything in this lecture is one move: find the trait that sorts the flinchers from the walkers, then markup each group separately.</div>
 
@@ -1395,12 +1396,12 @@ Therefore \(MC=ATC\) exactly where \(ATC\) is flat, i.e. at its minimum. The sam
 <ol class="deriv">
   <li>\(TR = P(Q)\cdot Q\). <span class="note">Revenue is price times quantity, with price falling in quantity along the demand curve.</span></li>
   <li>\(MR = \dfrac{d(TR)}{dQ} = P + Q\dfrac{dP}{dQ} = P\left(1 + \dfrac{Q}{P}\dfrac{dP}{dQ}\right)\). <span class="note">Differentiate as a product, then factor out \(P\).</span></li>
-  <li>\(MR = P\left(1 + \dfrac{1}{\varepsilon}\right) = P\left(1 - \dfrac{1}{|\varepsilon|}\right)\). <span class="note">Recognise \(\dfrac{Q}{P}\dfrac{dP}{dQ} = 1/\varepsilon\); since \(\varepsilon<0\), write it as \(-1/|\varepsilon|\).</span></li>
+  <li>\(MR = P\left(1 + \dfrac{1}{\varepsilon}\right) = P\left(1 - \dfrac{1}{|\varepsilon|}\right)\). <span class="note">Recognise \(\dfrac{Q}{P}\dfrac{dP}{dQ} = 1/\varepsilon\); since \(\varepsilon\lt 0\), write it as \(-1/|\varepsilon|\).</span></li>
   <li>Set \(MR=MC\): \(P\left(1-\dfrac{1}{|\varepsilon|}\right)=MC\). <span class="note">Impose the profit-max condition for a price-setter.</span></li>
   <li class="result">\(\dfrac{P-MC}{P}=\dfrac{1}{|\varepsilon|}\), i.e. \(P = MC\cdot\dfrac{|\varepsilon|}{|\varepsilon|-1}\). <span class="note">Divide through by \(P\). The markup falls as demand gets more elastic.</span></li>
 </ol>
 
-<p>Two takeaways the slides flag explicitly: (1) as elasticity rises, the profit-maximising price falls; (2) a monopolist always produces on the <i>elastic</i> portion of demand, where \(|\varepsilon|>1\) (otherwise the markup term \(\frac{|\varepsilon|}{|\varepsilon|-1}\) would be negative, which is nonsense, so it never prices where demand is inelastic).</p>
+<p>Two takeaways the slides flag explicitly: (1) as elasticity rises, the profit-maximising price falls; (2) a monopolist always produces on the <i>elastic</i> portion of demand, where \(|\varepsilon|\gt 1\) (otherwise the markup term \(\frac{|\varepsilon|}{|\varepsilon|-1}\) would be negative, which is nonsense, so it never prices where demand is inelastic).</p>
 
 <h4>THE MID-POINT PRICING RULE (LINEAR DEMAND, CONSTANT MC)</h4>
 
@@ -1411,7 +1412,7 @@ Therefore \(MC=ATC\) exactly where \(ATC\) is flat, i.e. at its minimum. The sam
 <div class="eq">$$ |\varepsilon| \;=\; \frac{P}{\bar P - P} \qquad\qquad P^{*} \;=\; \frac{\bar P + MC}{2} $$<div class="lbl">Point elasticity for linear demand · Mid-point pricing rule</div></div>
 
 <ol class="deriv">
-  <li>Linear demand: \(P = \bar P - bQ\). <span class="note">\(\bar P\) is the price-axis intercept (choke price); \(b>0\) is the slope.</span></li>
+  <li>Linear demand: \(P = \bar P - bQ\). <span class="note">\(\bar P\) is the price-axis intercept (choke price); \(b\gt 0\) is the slope.</span></li>
   <li>\(TR = \bar P Q - bQ^2 \Rightarrow MR = \bar P - 2bQ\). <span class="note">MR has the same intercept as demand but twice the slope.</span></li>
   <li>Set \(MR=MC\): \(\bar P - 2bQ = MC \Rightarrow Q^{*} = \dfrac{\bar P - MC}{2b}\). <span class="note">Solve for the profit-max quantity.</span></li>
   <li class="result">\(P^{*} = \bar P - bQ^{*} = \bar P - \dfrac{\bar P - MC}{2} = \dfrac{\bar P + MC}{2}\). <span class="note">Substitute \(Q^{*}\) back into demand. Price is the midpoint of choke price and MC.</span></li>
@@ -1459,14 +1460,14 @@ Therefore \(MC=ATC\) exactly where \(ATC\) is flat, i.e. at its minimum. The sam
   <line x1="50" y1="40" x2="290" y2="200" stroke="#1f4e5f" stroke-width="2"/>
   <text class="sm" x="280" y="195">d(P)</text>
   <!-- MR -->
-  <line class="dash" x1="50" y1="40" x2="170" y2="200"/>
+  <line class="grid dash" x1="50" y1="40" x2="170" y2="200"/>
   <text class="sm" x="150" y="195">MR</text>
   <!-- MC constant -->
   <line x1="50" y1="150" x2="290" y2="150" stroke="#333" stroke-width="2"/>
   <text class="sm" x="293" y="153">mc(Q)</text>
   <!-- guides -->
-  <line class="dash" x1="132" y1="200" x2="132" y2="95"/>
-  <line class="dash" x1="50" y1="95" x2="132" y2="95"/>
+  <line class="grid dash" x1="132" y1="200" x2="132" y2="95"/>
+  <line class="grid dash" x1="50" y1="95" x2="132" y2="95"/>
   <circle class="dot" cx="132" cy="95" r="3"/>
   <text class="sm" x="128" y="213">Q*</text>
   <text class="sm" x="30" y="98">P*</text>
@@ -1498,7 +1499,7 @@ Therefore \(MC=ATC\) exactly where \(ATC\) is flat, i.e. at its minimum. The sam
   <text class="sm" x="280" y="195">d(P) = MR</text>
   <line x1="50" y1="150" x2="290" y2="150" stroke="#333" stroke-width="2"/>
   <text class="sm" x="293" y="153">mc(Q)</text>
-  <line class="dash" x1="215" y1="200" x2="215" y2="150"/>
+  <line class="grid dash" x1="215" y1="200" x2="215" y2="150"/>
   <circle class="dot" cx="215" cy="150" r="3"/>
   <text class="sm" x="210" y="213">Q*</text>
   <text class="sm" x="95" y="120">potential profit</text>
@@ -1530,7 +1531,7 @@ Therefore \(MC=ATC\) exactly where \(ATC\) is flat, i.e. at its minimum. The sam
 
 <p>Applying the Lerner index inside each segment gives the operational rule: <b>charge the higher price in the more inelastic segment.</b></p>
 
-<div class="eq">$$ \frac{P_A - MC}{P_A} = \frac{1}{|\varepsilon_A|}, \qquad \frac{P_B - MC}{P_B} = \frac{1}{|\varepsilon_B|} \;\;\Longrightarrow\;\; |\varepsilon_A| < |\varepsilon_B| \Rightarrow P_A > P_B $$<div class="lbl">Lerner per segment: lower elasticity ⟹ higher price</div></div>
+<div class="eq">$$ \frac{P_A - MC}{P_A} = \frac{1}{|\varepsilon_A|}, \qquad \frac{P_B - MC}{P_B} = \frac{1}{|\varepsilon_B|} \;\;\Longrightarrow\;\; |\varepsilon_A| \lt  |\varepsilon_B| \Rightarrow P_A \gt  P_B $$<div class="lbl">Lerner per segment: lower elasticity ⟹ higher price</div></div>
 
 <div class="pitfall"><b>Which of these are explicit segmentation?</b> The class test: explicit segmentation means different groups face different trading opportunities on an observable trait. Yes: child / student / senior discounts; different airline fares for business vs leisure; different drug prices by country or use; residential vs business utility rates; academic discounts on hardware and software. The odd one out is mail-in coupons: anyone <i>can</i> redeem them, so customers self-select by effort. That is <i>implicit</i> (second-degree) segmentation, not explicit. Do not lump it in.</div>
 
@@ -1555,14 +1556,14 @@ Therefore \(MC=ATC\) exactly where \(ATC\) is flat, i.e. at its minimum. The sam
   <line x1="40" y1="30" x2="220" y2="170" stroke="#1f4e5f" stroke-width="2"/>
   <text class="sm" x="200" y="165">d_C</text>
   <!-- MR intercept 90 to Q=4.5 (x=130) -->
-  <line class="dash" x1="40" y1="30" x2="130" y2="170"/>
+  <line class="grid dash" x1="40" y1="30" x2="130" y2="170"/>
   <text class="sm" x="112" y="165">MR</text>
   <!-- MC=10 -> y=170-(10/90)*140=170-15.6=154.4 -->
   <line x1="40" y1="154" x2="220" y2="154" stroke="#333" stroke-width="2"/>
   <text class="sm" x="200" y="150">MC=10</text>
   <!-- optimum Q=4 (x=120), P=50 (y=170-(50/90)*140=92.2) -->
-  <line class="dash" x1="120" y1="170" x2="120" y2="92"/>
-  <line class="dash" x1="40" y1="92" x2="120" y2="92"/>
+  <line class="grid dash" x1="120" y1="170" x2="120" y2="92"/>
+  <line class="grid dash" x1="40" y1="92" x2="120" y2="92"/>
   <circle class="dot" cx="120" cy="92" r="3"/>
   <text class="sm" x="118" y="184">4</text>
   <text class="sm" x="20" y="95">50</text>
@@ -1583,14 +1584,14 @@ Therefore \(MC=ATC\) exactly where \(ATC\) is flat, i.e. at its minimum. The sam
   <line x1="40" y1="77" x2="220" y2="170" stroke="#1f4e5f" stroke-width="2"/>
   <text class="sm" x="200" y="165">d_G</text>
   <!-- MR intercept 60 to Q=6 (x=130) -->
-  <line class="dash" x1="40" y1="77" x2="130" y2="170"/>
+  <line class="grid dash" x1="40" y1="77" x2="130" y2="170"/>
   <text class="sm" x="112" y="165">MR</text>
   <!-- MC=10 y=154 -->
   <line x1="40" y1="154" x2="220" y2="154" stroke="#333" stroke-width="2"/>
   <text class="sm" x="200" y="150">MC=10</text>
   <!-- optimum Q=5 (x=40+(5/12)*180=115), P=35 (y=170-(35/90)*140=115.6) -->
-  <line class="dash" x1="115" y1="170" x2="115" y2="116"/>
-  <line class="dash" x1="40" y1="116" x2="115" y2="116"/>
+  <line class="grid dash" x1="115" y1="170" x2="115" y2="116"/>
+  <line class="grid dash" x1="40" y1="116" x2="115" y2="116"/>
   <circle class="dot" cx="115" cy="116" r="3"/>
   <text class="sm" x="113" y="184">5</text>
   <text class="sm" x="20" y="119">35</text>
@@ -1619,7 +1620,7 @@ Therefore \(MC=ATC\) exactly where \(ATC\) is flat, i.e. at its minimum. The sam
 
 <div class="wex">
 <div class="h">Case: ZipRecruiter: pricing on the inelastic segment (MC ≈ $0)</div>
-<p>ZipRecruiter charged a uniform \(\$99\)/month with about 40,000 paying customers. Because service is automated with spare capacity, marginal cost is effectively zero, so revenue per customer (conversion rate × price) is essentially profit per customer. Economists Dube and Misra randomised prices from \(\$19\) to \(\$399\) (Aug to Sep 2015) and estimated demand. At \(\$99\) the implied elasticity was \(|\varepsilon|=0.33<1\): demand was <i>inelastic</i>, which is exactly where a monopolist should never sit (it could raise price and revenue at once).</p>
+<p>ZipRecruiter charged a uniform \(\$99\)/month with about 40,000 paying customers. Because service is automated with spare capacity, marginal cost is effectively zero, so revenue per customer (conversion rate × price) is essentially profit per customer. Economists Dube and Misra randomised prices from \(\$19\) to \(\$399\) (Aug to Sep 2015) and estimated demand. At \(\$99\) the implied elasticity was \(|\varepsilon|=0.33\lt 1\): demand was <i>inelastic</i>, which is exactly where a monopolist should never sit (it could raise price and revenue at once).</p>
 <table class="dt">
   <thead><tr><th>Strategy</th><th>Price</th><th>Conversion</th><th>Revenue / customer</th></tr></thead>
   <tbody>
@@ -1637,7 +1638,7 @@ Therefore \(MC=ATC\) exactly where \(ATC\) is flat, i.e. at its minimum. The sam
 
 <div class="key"><b>Welfare rule of thumb.</b> If price discrimination <i>expands</i> the market (more trades happen), it raises overall welfare, some low-value buyers are served who would have been priced out. If it does <i>not</i> expand the market, it reduces consumer welfare, it only redistributes surplus toward the firm. This is the lens for the Gates vaccine-tiering argument and the "pink tax" debate alike.</div>
 
-<div class="exam"><b>Exam lens.</b> Expect three move types. (1) <b>True/False trap</b>: "a monopolist may price where demand is inelastic" is <b>false</b>, the markup rule \(P=MC\cdot\frac{|\varepsilon|}{|\varepsilon|-1}\) only makes sense for \(|\varepsilon|>1\). Also classic: "explicit segmentation needs identical trading opportunities" (false, it needs <i>different</i> ones); "mail-in coupons are explicit segmentation" (false, that is implicit self-selection). (2) <b>Two-segment calculation</b>: given two linear demands and a common \(MC\), find each \(P\) and \(Q\) by setting \(MR_A=MR_B=MC\), then confirm the more inelastic (higher-choke-price) segment is charged more (coal/grain). Or given two elasticities and \(MC\), apply Lerner per segment (Merck: $40 / $30). (3) <b>Conditions / classification</b>: list the three conditions (market power, observability with no deception, no arbitrage) or classify a list of real schemes as PPD vs explicit vs implicit. Watch the welfare sub-question: discrimination raises welfare only if it expands the market.</div>
+<div class="exam"><b>Exam lens.</b> Expect three move types. (1) <b>True/False trap</b>: "a monopolist may price where demand is inelastic" is <b>false</b>, the markup rule \(P=MC\cdot\frac{|\varepsilon|}{|\varepsilon|-1}\) only makes sense for \(|\varepsilon|\gt 1\). Also classic: "explicit segmentation needs identical trading opportunities" (false, it needs <i>different</i> ones); "mail-in coupons are explicit segmentation" (false, that is implicit self-selection). (2) <b>Two-segment calculation</b>: given two linear demands and a common \(MC\), find each \(P\) and \(Q\) by setting \(MR_A=MR_B=MC\), then confirm the more inelastic (higher-choke-price) segment is charged more (coal/grain). Or given two elasticities and \(MC\), apply Lerner per segment (Merck: $40 / $30). (3) <b>Conditions / classification</b>: list the three conditions (market power, observability with no deception, no arbitrage) or classify a list of real schemes as PPD vs explicit vs implicit. Watch the welfare sub-question: discrimination raises welfare only if it expands the market.</div>
 
 <h2 id="l07">7 · Implicit Market Segmentation</h2>
 
@@ -1681,7 +1682,7 @@ The more elastic market (Canada) gets the lower price. This is the world we are 
 
 <p>Between \$99 and \$199 conversion barely moves (0.25 to 0.17), so the arc elasticity magnitude is tiny:</p>
 
-<div class="eq">$$ |\varepsilon|\approx 0.3 \;<\; 1 \quad\text{(demand is inelastic)} $$<div class="lbl">Inelastic demand around the status-quo price means a price rise raises revenue.</div></div>
+<div class="eq">$$ |\varepsilon|\approx 0.3 \;\lt \; 1 \quad\text{(demand is inelastic)} $$<div class="lbl">Inelastic demand around the status-quo price means a price rise raises revenue.</div></div>
 
 <div class="key"><b>What ZipRecruiter learned.</b> (1) It was pricing on the inelastic part of demand. (2) The optimal <em>uniform</em> price was $249, 150% higher than $99, and would lift profit by ~55%. (3) Moving to personalised (first-degree) pricing across the $126 to $499 range would add a further ~19%. (4) After the study was published, ZipRecruiter raised its price to $249 in 2021. The experiment ate the "free lunch" it had been leaving uneaten.</div>
 
@@ -1712,7 +1713,7 @@ The more elastic market (Canada) gets the lower price. This is the world we are 
 
 <div class="eq">$$ MR_{\text{uniform cut}} = C - A - B \qquad MR_{\text{coupon}} = C - A $$<div class="lbl">\(C\) = revenue gained on the new marginal sale; \(A\) = revenue lost on low-WTP buyers who redeem; \(B\) = revenue lost on high-WTP buyers: avoided under a coupon because they do not redeem.</div></div>
 
-<div class="eq">$$ \text{Issue coupons whenever } \; C > A $$<div class="lbl">The marginal sale is worth more than the price concession to the redeemers alone, even though it would be a loser as a blanket cut (\(C<A+B\)).</div></div>
+<div class="eq">$$ \text{Issue coupons whenever } \; C \gt  A $$<div class="lbl">The marginal sale is worth more than the price concession to the redeemers alone, even though it would be a loser as a blanket cut (\(C\lt A+B\)).</div></div>
 
 <figure>
 <svg viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg" font-size="11">
@@ -1725,13 +1726,13 @@ The more elastic market (Canada) gets the lower price. This is the world we are 
   <line x1="55" y1="40" x2="320" y2="195" stroke="#c0392b" stroke-width="2"/>
   <text x="300" y="185" fill="#c0392b" font-size="10">Demand</text>
   <!-- price levels -->
-  <line class="dash" x1="45" y1="80" x2="250" y2="80" stroke="#888" stroke-dasharray="4 3"/>
-  <line class="dash" x1="45" y1="120" x2="270" y2="120" stroke="#888" stroke-dasharray="4 3"/>
+  <line class="grid dash" x1="45" y1="80" x2="250" y2="80" stroke="#888" stroke-dasharray="4 3"/>
+  <line class="grid dash" x1="45" y1="120" x2="270" y2="120" stroke="#888" stroke-dasharray="4 3"/>
   <text class="sm" x="8" y="84">P0</text>
   <text class="sm" x="8" y="124">P1</text>
   <!-- quantity levels -->
-  <line class="dash" x1="250" y1="80" x2="250" y2="200" stroke="#888" stroke-dasharray="4 3"/>
-  <line class="dash" x1="270" y1="120" x2="270" y2="200" stroke="#888" stroke-dasharray="4 3"/>
+  <line class="grid dash" x1="250" y1="80" x2="250" y2="200" stroke="#888" stroke-dasharray="4 3"/>
+  <line class="grid dash" x1="270" y1="120" x2="270" y2="200" stroke="#888" stroke-dasharray="4 3"/>
   <text class="sm" x="232" y="214">Q0</text>
   <text class="sm" x="262" y="226">Q0+1</text>
   <!-- area B: loss on high-WTP (left band, avoided) -->
@@ -1744,10 +1745,10 @@ The more elastic market (Canada) gets the lower price. This is the world we are 
   <rect x="250" y="120" width="20" height="80" fill="#27ae60" fill-opacity="0.25"/>
   <text x="276" y="150" fill="#1e7d4f" font-size="12">C</text>
 </svg>
-<figcaption>Coupon screen. Cutting price from \(P_0\) to \(P_1\) gains \(C\) (new sale) but loses the band \((P_0-P_1)\) over existing buyers, split into \(A\) (low-WTP redeemers) and \(B\) (high-WTP, who under a coupon keep paying \(P_0\) and so are not lost). Coupon profitable when \(C>A\); a blanket cut would need \(C>A+B\).</figcaption>
+<figcaption>Coupon screen. Cutting price from \(P_0\) to \(P_1\) gains \(C\) (new sale) but loses the band \((P_0-P_1)\) over existing buyers, split into \(A\) (low-WTP redeemers) and \(B\) (high-WTP, who under a coupon keep paying \(P_0\) and so are not lost). Coupon profitable when \(C\gt A\); a blanket cut would need \(C\gt A+B\).</figcaption>
 </figure>
 
-<div class="eyeball"><span class="star">★</span><b>Isabella: eyeball this:</b> the A / B / C partition is redrawn from the slide schematic (slide 21), not copied pixel-for-pixel. The economics (\(MR_{\text{coupon}}=C-A\), profitable if \(C>A\)) is verbatim from the slide; check the rectangle placement matches the handout's exact areas before you cite it.</div>
+<div class="eyeball"><span class="star">★</span><b>Isabella: eyeball this:</b> the A / B / C partition is redrawn from the slide schematic (slide 21), not copied pixel-for-pixel. The economics (\(MR_{\text{coupon}}=C-A\), profitable if \(C\gt A\)) is verbatim from the slide; check the rectangle placement matches the handout's exact areas before you cite it.</div>
 
 <div class="key"><b>Why it screens.</b> Low WTP → redeem → pay lower price; High WTP → don't redeem → pay higher price. The screen only works <em>because</em> redemption is a genuine, time-consuming hassle. Make redemption frictionless and both types redeem, collapsing it back to a single low price.</div>
 
@@ -1842,8 +1843,8 @@ Normalise the market to \(B+L=100\) (so \(L=100-B\)). Then A \(=700B\), B \(=30{
   <line x1="50" y1="159" x2="350" y2="56" stroke="#27ae60" stroke-width="2"/>
   <text x="330" y="66" fill="#27ae60" font-size="10">C</text>
   <!-- crossover markers B=25 (x=125) and B=66.7 (x=250) -->
-  <line class="dash" x1="125" y1="30" x2="125" y2="210" stroke="#aaa" stroke-dasharray="3 3"/>
-  <line class="dash" x1="250" y1="30" x2="250" y2="210" stroke="#aaa" stroke-dasharray="3 3"/>
+  <line class="grid dash" x1="125" y1="30" x2="125" y2="210" stroke="#aaa" stroke-dasharray="3 3"/>
+  <line class="grid dash" x1="250" y1="30" x2="250" y2="210" stroke="#aaa" stroke-dasharray="3 3"/>
   <text class="sm" x="112" y="224">25</text>
   <text class="sm" x="238" y="224">66.7</text>
   <text x="70" y="120" fill="#1b4f72" font-size="10">B best</text>
@@ -1865,7 +1866,7 @@ Normalise the market to \(B+L=100\) (so \(L=100-B\)). Then A \(=700B\), B \(=30{
 
 <div class="exam"><b>Exam lens: Implicit Market Segmentation</b>
 <ul>
-<li><b>T/F traps.</b> "Coupons are an inefficient way to cut prices": TRUE as stated but misses the point; they screen, so they are profitable when \(C>A\) even though a blanket cut (\(C<A+B\)) would not be. "Damaged-goods versions are cheaper to produce": FALSE; the crippled version often costs more (extra effort to disable). "The participation constraint pins down the expensive price": FALSE; participation pins the cheap price, self-selection pins the expensive one.</li>
+<li><b>T/F traps.</b> "Coupons are an inefficient way to cut prices": TRUE as stated but misses the point; they screen, so they are profitable when \(C\gt A\) even though a blanket cut (\(C\lt A+B\)) would not be. "Damaged-goods versions are cheaper to produce": FALSE; the crippled version often costs more (extra effort to disable). "The participation constraint pins down the expensive price": FALSE; participation pins the cheap price, self-selection pins the expensive one.</li>
 <li><b>Constraint labelling.</b> Be able to write the two constraints for a two-type menu: low type's participation (\(v_L-P_{low}\ge 0\)) and high type's self-selection (\(v_H^{high}-P_{high}\ge v_H^{low}-P_{low}\)), and identify the self-selection of the high type as the binding one.</li>
 <li><b>Calculation.</b> The airline three-option comparison is the workhorse: set the cheap price to the low type's valuation (PC binds), then back out the expensive price by leaving the high type indifferent to defecting (SS binds), so \(P_{high}=v_H^{high}-(v_H^{low}-P_{low})\). Compute profit under cream-skim (A), pool (B) and screen (C) and state which wins as a function of the mix.</li>
 <li><b>Inverse-elasticity recap.</b> Explicit-segmentation calculations (Merck-style \(\frac{P-MC}{P}=\frac1{|\varepsilon|}\) per segment) remain fair game and are in scope up to and including explicit price discrimination for the in-class quiz.</li>
@@ -1911,7 +1912,7 @@ Slide examples: commodity markets, aluminium (104 producers), steel (80; 135 US 
   <path d="M60 160 L250 44" stroke="#c33" stroke-width="2" fill="none"/>
   <text class="sm" x="252" y="48" fill="#c33">MC</text>
   <!-- equilibrium -->
-  <line class="dash" x1="148" y1="92" x2="148" y2="176"/>
+  <line class="grid dash" x1="148" y1="92" x2="148" y2="176"/>
   <circle class="dot" cx="148" cy="92" r="3.5"/>
   <text class="sm" x="150" y="190">q*</text>
   <text class="sm" x="6" y="96">P*</text>
@@ -1956,11 +1957,11 @@ Long run: is \(P &gt; ATC\)? If not, <b>exit</b> (developed in L09).</div>
   <text class="sm" x="258" y="114" fill="#093">AVC</text>
   <!-- ATC min (break-even price) -->
   <circle class="dot" cx="150" cy="112" r="3" fill="#36c"/>
-  <line class="dash" x1="44" y1="112" x2="150" y2="112"/>
+  <line class="grid dash" x1="44" y1="112" x2="150" y2="112"/>
   <text class="sm" x="2" y="116">P=minATC</text>
   <!-- AVC min = shutdown point: where MC crosses AVC min -->
   <circle class="dot" cx="120" cy="135" r="3.5" fill="#093"/>
-  <line class="dash" x1="44" y1="135" x2="120" y2="135"/>
+  <line class="grid dash" x1="44" y1="135" x2="120" y2="135"/>
   <text class="sm" x="2" y="139">shutdown</text>
   <text class="sm" x="122" y="150">min AVC</text>
 </svg>
@@ -1987,8 +1988,8 @@ Long run: is \(P &gt; ATC\)? If not, <b>exit</b> (developed in L09).</div>
   <text class="lbl" x="216" y="184">q</text>
   <path d="M70 168 L160 40" stroke="#c33" stroke-width="2" fill="none"/>
   <text class="sm" x="150" y="52" fill="#c33">s = MC</text>
-  <line class="dash" x1="40" y1="96" x2="120" y2="96"/>
-  <line class="dash" x1="120" y1="96" x2="120" y2="168"/>
+  <line class="grid dash" x1="40" y1="96" x2="120" y2="96"/>
+  <line class="grid dash" x1="120" y1="96" x2="120" y2="168"/>
   <circle class="dot" cx="120" cy="96" r="3.5"/>
   <text class="sm" x="6" y="100">P₁</text>
   <text class="sm" x="116" y="182">q₁</text>
@@ -2005,8 +2006,8 @@ Long run: is \(P &gt; ATC\)? If not, <b>exit</b> (developed in L09).</div>
   <text class="lbl" x="212" y="184">Q</text>
   <path d="M70 168 L214 70" stroke="#c33" stroke-width="2" fill="none"/>
   <text class="sm" x="176" y="78" fill="#c33">S = nq</text>
-  <line class="dash" x1="40" y1="96" x2="178" y2="96"/>
-  <line class="dash" x1="178" y1="96" x2="178" y2="168"/>
+  <line class="grid dash" x1="40" y1="96" x2="178" y2="96"/>
+  <line class="grid dash" x1="178" y1="96" x2="178" y2="168"/>
   <circle class="dot" cx="178" cy="96" r="3.5"/>
   <text class="sm" x="6" y="100">P₁</text>
   <text class="sm" x="166" y="182">Q₁=nq₁</text>
@@ -2056,8 +2057,8 @@ Long run: is \(P &gt; ATC\)? If not, <b>exit</b> (developed in L09).</div>
   <text class="sm" x="262" y="52" fill="#c33">S</text>
   <!-- equilibrium -->
   <circle class="dot" cx="180" cy="100" r="4"/>
-  <line class="dash" x1="46" y1="100" x2="180" y2="100"/>
-  <line class="dash" x1="180" y1="100" x2="180" y2="176"/>
+  <line class="grid dash" x1="46" y1="100" x2="180" y2="100"/>
+  <line class="grid dash" x1="180" y1="100" x2="180" y2="176"/>
   <text class="sm" x="20" y="104">P*=20</text>
   <text class="sm" x="160" y="190">Q*=500</text>
 </svg>
@@ -2095,8 +2096,8 @@ Long run: is \(P &gt; ATC\)? If not, <b>exit</b> (developed in L09).</div>
   <!-- shaded PS triangle between price (y=92) and MC, from q=0 (x=60,y=150) to q* (x=160,y=92) -->
   <polygon points="60,150 60,92 160,92" fill="#0b7" fill-opacity="0.18" stroke="none"/>
   <text class="sm" x="78" y="112" fill="#0a6">PS</text>
-  <line class="dash" x1="160" y1="92" x2="160" y2="176"/>
-  <line class="dash" x1="46" y1="150" x2="60" y2="150"/>
+  <line class="grid dash" x1="160" y1="92" x2="160" y2="176"/>
+  <line class="grid dash" x1="46" y1="150" x2="60" y2="150"/>
   <text class="sm" x="20" y="154">10</text>
   <text class="sm" x="152" y="190">q*=5</text>
   <circle class="dot" cx="160" cy="92" r="3.5"/>
@@ -2149,9 +2150,9 @@ Long run: is \(P &gt; ATC\)? If not, <b>exit</b> (developed in L09).</div>
 
 <p>Run the mechanism in each direction. The market panel holds demand \(D\) fixed and lets the number of firms move the supply curve.</p>
 
-<div class="chain"><b>Entry (price above break-even):</b> \(P > \min ATC\) <span class="arrow">⟹</span> \(\pi>0\) for incumbents <span class="arrow">⟹</span> outsiders enter <em>because</em> the lit "profit" sign means capital earns more here than its opportunity cost <span class="arrow">⟹</span> each entrant adds capacity, so market supply shifts right <span class="arrow">⟹</span> \(P\) falls <span class="arrow">⟹</span> repeat until \(P=\min ATC\) and \(\pi=0\), when the incentive to enter is gone.</div>
+<div class="chain"><b>Entry (price above break-even):</b> \(P \gt  \min ATC\) <span class="arrow">⟹</span> \(\pi\gt 0\) for incumbents <span class="arrow">⟹</span> outsiders enter <em>because</em> the lit "profit" sign means capital earns more here than its opportunity cost <span class="arrow">⟹</span> each entrant adds capacity, so market supply shifts right <span class="arrow">⟹</span> \(P\) falls <span class="arrow">⟹</span> repeat until \(P=\min ATC\) and \(\pi=0\), when the incentive to enter is gone.</div>
 
-<div class="chain"><b>Exit (price below break-even):</b> \(P < \min ATC\) <span class="arrow">⟹</span> \(\pi<0\) <span class="arrow">⟹</span> firms leave <em>because</em> staying earns less than redeploying the capital elsewhere <span class="arrow">⟹</span> capacity leaves, so market supply shifts left <span class="arrow">⟹</span> \(P\) rises <span class="arrow">⟹</span> repeat until \(P=\min ATC\) and \(\pi=0\), when the incentive to exit is gone.</div>
+<div class="chain"><b>Exit (price below break-even):</b> \(P \lt  \min ATC\) <span class="arrow">⟹</span> \(\pi\lt 0\) <span class="arrow">⟹</span> firms leave <em>because</em> staying earns less than redeploying the capital elsewhere <span class="arrow">⟹</span> capacity leaves, so market supply shifts left <span class="arrow">⟹</span> \(P\) rises <span class="arrow">⟹</span> repeat until \(P=\min ATC\) and \(\pi=0\), when the incentive to exit is gone.</div>
 
 <div class="twocol">
 <div>
@@ -2172,11 +2173,11 @@ Long run: is \(P &gt; ATC\)? If not, <b>exit</b> (developed in L09).</div>
   <text class="lbl sm" x="200" y="42" fill="#06c">S₁</text>
   <!-- e0 -->
   <circle class="dot" cx="123" cy="89" r="3" fill="#333"/>
-  <line class="dash" x1="40" y1="89" x2="123" y2="89" stroke="#999" stroke-dasharray="3 3"/>
+  <line class="grid dash" x1="40" y1="89" x2="123" y2="89" stroke="#999" stroke-dasharray="3 3"/>
   <text class="lbl sm" x="22" y="92">P₁</text>
   <!-- e1 -->
   <circle class="dot" cx="157" cy="109" r="3" fill="#333"/>
-  <line class="dash" x1="40" y1="109" x2="157" y2="109" stroke="#999" stroke-dasharray="3 3"/>
+  <line class="grid dash" x1="40" y1="109" x2="157" y2="109" stroke="#999" stroke-dasharray="3 3"/>
   <text class="lbl sm" x="22" y="112">P₂</text>
   <text class="lbl sm" x="150" y="100">①</text>
 </svg>
@@ -2201,11 +2202,11 @@ Long run: is \(P &gt; ATC\)? If not, <b>exit</b> (developed in L09).</div>
   <text class="lbl sm" x="150" y="42" fill="#06c">S₁</text>
   <!-- e0 (low price) -->
   <circle class="dot" cx="157" cy="109" r="3" fill="#333"/>
-  <line class="dash" x1="40" y1="109" x2="157" y2="109" stroke="#999" stroke-dasharray="3 3"/>
+  <line class="grid dash" x1="40" y1="109" x2="157" y2="109" stroke="#999" stroke-dasharray="3 3"/>
   <text class="lbl sm" x="22" y="112">P₁</text>
   <!-- e1 (higher price) -->
   <circle class="dot" cx="123" cy="89" r="3" fill="#333"/>
-  <line class="dash" x1="40" y1="89" x2="123" y2="89" stroke="#999" stroke-dasharray="3 3"/>
+  <line class="grid dash" x1="40" y1="89" x2="123" y2="89" stroke="#999" stroke-dasharray="3 3"/>
   <text class="lbl sm" x="22" y="92">P₂</text>
   <text class="lbl sm" x="118" y="100">①</text>
 </svg>
@@ -2233,7 +2234,7 @@ Long run: is \(P &gt; ATC\)? If not, <b>exit</b> (developed in L09).</div>
   <text class="lbl sm" x="225" y="118" fill="#b00">P = min ATC</text>
   <!-- tangency -->
   <circle class="dot" cx="140" cy="105" r="3.2" fill="#333"/>
-  <line class="dash" x1="140" y1="105" x2="140" y2="175" stroke="#999" stroke-dasharray="3 3"/>
+  <line class="grid dash" x1="140" y1="105" x2="140" y2="175" stroke="#999" stroke-dasharray="3 3"/>
   <text class="lbl sm" x="133" y="188">q*</text>
 </svg>
 <figcaption>Long-run break-even: P = min ATC, where MC cuts ATC at its minimum, so π = (P − ATC)q = 0.</figcaption>
@@ -2272,9 +2273,9 @@ Long run: is \(P &gt; ATC\)? If not, <b>exit</b> (developed in L09).</div>
 
 <p>Let capital cost be the annualised opportunity cost of the money tied up in the plant (its purchase price times the required rate of return, expressed per unit of capacity per year). A <em>sunk</em> cost is one already spent and unrecoverable. The incumbent rules on the slide use constant marginal cost, so \(MC = AVC\) up to capacity.</p>
 
-<div class="eq"><span class="lbl">Short-run idling (shutdown)</span>$$P < AVC \;\Rightarrow\; \text{idle the plant; otherwise produce at capacity}$$</div>
-<div class="eq"><span class="lbl">Long-run exit (incumbent, capital already sunk)</span>$$P < AVC + AFC \;(= ATC) \;\Rightarrow\; \text{exit; otherwise stay}$$</div>
-<div class="eq"><span class="lbl">Entry (greenfield, must also earn a return on capital)</span>$$P > AVC + AFC + \text{capital cost} \;\Rightarrow\; \text{enter}$$</div>
+<div class="eq"><span class="lbl">Short-run idling (shutdown)</span>$$P \lt  AVC \;\Rightarrow\; \text{idle the plant; otherwise produce at capacity}$$</div>
+<div class="eq"><span class="lbl">Long-run exit (incumbent, capital already sunk)</span>$$P \lt  AVC + AFC \;(= ATC) \;\Rightarrow\; \text{exit; otherwise stay}$$</div>
+<div class="eq"><span class="lbl">Entry (greenfield, must also earn a return on capital)</span>$$P \gt  AVC + AFC + \text{capital cost} \;\Rightarrow\; \text{enter}$$</div>
 
 <figure>
 <svg viewBox="0 0 320 210" xmlns="http://www.w3.org/2000/svg">
@@ -2339,7 +2340,7 @@ Long run: is \(P &gt; ATC\)? If not, <b>exit</b> (developed in L09).</div>
 
 <div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this:</b> the Sorocaba A min-AVC figure renders ambiguously in the slide's extracted text ("581 … 825.7 … 25.7"). I have used MC/AVC = $581 from the four-firm supply table on the next slide, which is internally consistent. Confirm the exact Sorocaba number against the slide if it appears in a calculation.</div>
 
-<p>The model was then checked against reality. At a price of \(\$1{,}110\) the supply model predicts \(19{,}412\) ktpy (cumulated capacity of all plants whose \(AVC < \$1{,}110\)) against actual production of \(19{,}781\). Two refinements close the gap: subtract \(950\) ktpy of low-cost European capacity that was idle though it "should" have run, and add \(1{,}120\) ktpy of state-owned "irrational" capacity that runs regardless of price because its decisions are not profit-driven. The reconciled figure (\(19{,}412 - 950 + 1{,}120 = 19{,}582\)) sits just above demand of \(18{,}500\), with the difference piling up as inventories, which is why prices were falling.</p>
+<p>The model was then checked against reality. At a price of \(\$1{,}110\) the supply model predicts \(19{,}412\) ktpy (cumulated capacity of all plants whose \(AVC \lt  \$1{,}110\)) against actual production of \(19{,}781\). Two refinements close the gap: subtract \(950\) ktpy of low-cost European capacity that was idle though it "should" have run, and add \(1{,}120\) ktpy of state-owned "irrational" capacity that runs regardless of price because its decisions are not profit-driven. The reconciled figure (\(19{,}412 - 950 + 1{,}120 = 19{,}582\)) sits just above demand of \(18{,}500\), with the difference piling up as inventories, which is why prices were falling.</p>
 
 <h4>ALUSAF'S ENTRY DECISION: WORKED EXAMPLE</h4>
 
@@ -2437,7 +2438,7 @@ Long run: is \(P &gt; ATC\)? If not, <b>exit</b> (developed in L09).</div>
 <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" style="max-width:340px">
   <line class="axis" x1="45" y1="20" x2="45" y2="165"/>
   <line class="axis" x1="45" y1="165" x2="300" y2="165"/>
-  <path class="dash" d="M45,150 C140,140 215,110 300,35" fill="none"/>
+  <path class="curve" d="M45,150 C140,140 215,110 300,35" fill="none"/>
   <circle class="dot" cx="300" cy="35" r="3.5"/>
   <text class="lbl" x="8" y="95" transform="rotate(-90 8,95)">Profit \(\pi\)</text>
   <text class="lbl" x="120" y="188">Concentration / HHI →</text>
@@ -3050,8 +3051,8 @@ Long run: is \(P &gt; ATC\)? If not, <b>exit</b> (developed in L09).</div>
   <!-- Nash dot -->
   <circle class="dot" cx="194.6" cy="77.3" r="3.5"/>
   <text class="sm" x="200" y="78">Nash \((8.26,\,12.56)\)</text>
-  <line class="dash" x1="194.6" y1="77.3" x2="194.6" y2="250"/>
-  <line class="dash" x1="194.6" y1="77.3" x2="50" y2="77.3"/>
+  <line class="grid dash" x1="194.6" y1="77.3" x2="194.6" y2="250"/>
+  <line class="grid dash" x1="194.6" y1="77.3" x2="50" y2="77.3"/>
   <!-- Collusion dot, NE of Nash -->
   <circle cx="227.5" cy="60.25" r="3.5" fill="#9a6b00"/>
   <text class="sm" x="232" y="56" fill="#9a6b00">Collusion \((10.14,\,13.8)\)</text>
@@ -3075,7 +3076,7 @@ Long run: is \(P &gt; ATC\)? If not, <b>exit</b> (developed in L09).</div>
 
 <div class="intuition"><span class="tag">🎙 In class</span> "Cartels are just monopoly pricing." A cartel maximises the <b>sum</b> of the firms' profits, which means charging more than the Nash prices. The catch is that collusion is not a Nash equilibrium of the one-shot game: each firm is tempted to undercut. The escape, Glover stresses, is that the game is <b>repeated to infinity</b> and played by <b>stable firms that value the future</b>. Then "profits out to infinity when you are colluding are necessarily higher than making a quick buck and playing the Nash."</div>
 
-<div class="eq">$$ \max_{p_{coke},\,p_{pepsi}}\ \big[p_{coke}Q_{coke} - 5\,Q_{coke}\big] + \big[p_{pepsi}Q_{pepsi} - 4\,Q_{pepsi}\big] $$<div class="lbl">Cartel objective: maximise joint profit. Solution: \(p_{coke}=13.8,\ p_{pepsi}=10.14\), total profit \(336.34 > 319.6\) (the Bertrand-Nash total). Both firms charge more and both earn more.</div></div>
+<div class="eq">$$ \max_{p_{coke},\,p_{pepsi}}\ \big[p_{coke}Q_{coke} - 5\,Q_{coke}\big] + \big[p_{pepsi}Q_{pepsi} - 4\,Q_{pepsi}\big] $$<div class="lbl">Cartel objective: maximise joint profit. Solution: \(p_{coke}=13.8,\ p_{pepsi}=10.14\), total profit \(336.34 \gt  319.6\) (the Bertrand-Nash total). Both firms charge more and both earn more.</div></div>
 
 <h4>GRIM TRIGGER: WHEN DOES COLLUSION HOLD?</h4>
 
@@ -3086,12 +3087,12 @@ Long run: is \(P &gt; ATC\)? If not, <b>exit</b> (developed in L09).</div>
 <ol class="deriv">
 <li>\(PV(\text{cooperate}) = 700 + \dfrac{700}{r}\). <span class="note">700 today plus a perpetuity of 700 from next period on.</span></li>
 <li>\(PV(\text{cheat}) = 800 + \dfrac{200}{r}\). <span class="note">800 today (the windfall) plus a perpetuity of the punishment payoff 200.</span></li>
-<li>Collusion holds when \(700 + \dfrac{700}{r} > 800 + \dfrac{200}{r}\). <span class="note">Require the cooperative PV to beat the cheating PV.</span></li>
-<li>\(\dfrac{500}{r} > 100\). <span class="note">Subtract 700 and \(200/r\) from both sides.</span></li>
-<li class="result">\(r < 5\): collusion is sustainable only if the discount rate is below 500%.</li>
+<li>Collusion holds when \(700 + \dfrac{700}{r} \gt  800 + \dfrac{200}{r}\). <span class="note">Require the cooperative PV to beat the cheating PV.</span></li>
+<li>\(\dfrac{500}{r} \gt  100\). <span class="note">Subtract 700 and \(200/r\) from both sides.</span></li>
+<li class="result">\(r \lt  5\): collusion is sustainable only if the discount rate is below 500%.</li>
 </ol>
 
-<div class="wex"><div class="h">Reading the condition \(r<5\)</div>
+<div class="wex"><div class="h">Reading the condition \(r\lt 5\)</div>
 <p>\(r=5\) is absurdly impatient: "if I loan you a dollar today, I demand $5 tomorrow." Real long-lived firms (Coke, Pepsi, KLM) have per-period discount rates near \(1.00001\), nowhere near 5, so the condition holds easily. Two levers make it easier still: a <b>harsher punishment</b> (lower the 200) widens the gap, and <b>more patience</b> (lower \(r\)) raises the weight on the future. The danger is short-horizon "hit and run" entrants with high \(r\), who will cheat and trigger a price war.</p>
 </div>
 
@@ -3106,7 +3107,7 @@ Long run: is \(P &gt; ATC\)? If not, <b>exit</b> (developed in L09).</div>
   <text class="sm" x="120" y="62" fill="#0a7d6b">cooperate: 700, 700, 700, …</text>
   <!-- cheat: 800 at t then 200 -->
   <line x1="45" y1="45" x2="113" y2="45" stroke="#b5482e" stroke-width="2"/>
-  <line class="dash" x1="113" y1="45" x2="113" y2="140"/>
+  <line class="grid dash" x1="113" y1="45" x2="113" y2="140"/>
   <line x1="113" y1="140" x2="315" y2="140" stroke="#b5482e" stroke-width="2"/>
   <text class="sm" x="50" y="38" fill="#b5482e">cheat: 800…</text>
   <text class="sm" x="150" y="135" fill="#b5482e">…then punished at 200 forever</text>
@@ -3122,7 +3123,7 @@ Long run: is \(P &gt; ATC\)? If not, <b>exit</b> (developed in L09).</div>
 <div class="exam"><b>Exam lens.</b>
 <b>(1) The headline T/F trap.</b> "Two firms are enough to drive price to marginal cost." TRUE under <b>Bertrand with homogeneous goods</b>; FALSE if goods are differentiated or if firms compete on quantity. Always state the assumptions before answering: identical goods, no capacity limit, constant \(MC\), price competition.
 <b>(2) The standard calculation.</b> Given two linear residual-demand curves and constant \(MC\), be able to: derive each choke price, apply the midpoint rule to get both reaction functions, solve them simultaneously for the Bertrand-Nash prices, then compute \(\pi=(p-MC)Q\) for each firm. The Cola-Wars numbers (\(p_{coke}^*=12.56,\ p_{pepsi}^*=8.26\); \(\pi=229,\ 90.6\)) are the template.
-<b>(3) Collusion sustainability.</b> Set up \(PV(\text{cooperate}) > PV(\text{cheat})\) as two perpetuities and solve for the threshold discount rate; explain in words that lower \(r\) (more patience) and harsher punishment make collusion easier, and that short-horizon entrants break it. Phrase the answer as a comparison of PV streams, not a one-shot payoff.
+<b>(3) Collusion sustainability.</b> Set up \(PV(\text{cooperate}) \gt  PV(\text{cheat})\) as two perpetuities and solve for the threshold discount rate; explain in words that lower \(r\) (more patience) and harsher punishment make collusion easier, and that short-horizon entrants break it. Phrase the answer as a comparison of PV streams, not a one-shot payoff.
 <b>(4) Differentiated vs homogeneous.</b> Glover's recap (slide 19): identical goods ⟹ price wars inevitable and market-share games are "PD on steroids"; differentiated goods ⟹ the dilemma persists but Nash profits are positive, just below collusive profits, and mergers help (but "check the HHI", expect antitrust opposition). Know which regime a scenario is in before you predict the outcome.</div>
 
 <h2 id="l13">13 · Cournot Competition &amp; Altering Incentives</h2>
@@ -3170,10 +3171,10 @@ Demand \(P=150-Q\), unit cost 30, two symmetric firms. Reaction function \(q_i=(
   <text class="lbl" x="270" y="215">q₁</text>
   <text class="lbl" x="20" y="28">q₂</text>
   <!-- RF1: q2 = 120 - 2 q1 ; from (q1=0,q2=120)=(45,30) to (q1=60,q2=0)=(155,200) -->
-  <line class="dash" x1="45" y1="30" x2="155" y2="200" stroke="currentColor"></line>
+  <line class="grid dash" x1="45" y1="30" x2="155" y2="200" stroke="currentColor"></line>
   <text class="sm" x="60" y="42">RF₁: q₁=(120−q₂)/2</text>
   <!-- RF2: q2 = (120 - q1)/2 ; from (q1=0,q2=60)=(45,115) to (q1=120,q2=0)=(265,200) -->
-  <line class="dash" x1="45" y1="115" x2="265" y2="200" stroke="currentColor"></line>
+  <line class="grid dash" x1="45" y1="115" x2="265" y2="200" stroke="currentColor"></line>
   <text class="sm" x="175" y="150">RF₂: q₂=(120−q₁)/2</text>
   <!-- Cournot-Nash (40,40) -> (118,143) -->
   <circle class="dot" cx="118" cy="143" r="3.5"></circle>
@@ -3430,7 +3431,7 @@ The slides plot OPEC members' excess production relative to quota, monthly, 1986
   <line class="axis" x1="40" y1="20" x2="40" y2="170"/>
   <text class="lbl" x="285" y="174">Q_B</text>
   <text class="lbl" x="20" y="24">P_B</text>
-  <line class="dash" x1="70" y1="30" x2="210" y2="170"/>
+  <line class="grid dash" x1="70" y1="30" x2="210" y2="170"/>
   <line x1="120" y1="30" x2="260" y2="170" stroke="#0a7d6e" stroke-width="2" fill="none"/>
   <text class="sm" x="150" y="50" fill="#888">D_B</text>
   <text class="sm" x="225" y="70" fill="#0a7d6e">D_B'</text>
@@ -3498,7 +3499,7 @@ The slides plot OPEC members' excess production relative to quota, monthly, 1986
 <tr><td>Elasticity along a linear demand curve</td><td>Constant slope but \(E\) running from \(\infty\) at the choke price to \(0\)</td><td><a href="#l04">L4</a></td></tr>
 <tr><td>Cost-curve family</td><td>\(MC\), \(ATC\), \(AVC\), \(AFC\) for \(c(Q)=100+10Q+Q^2\); \(MC\) through \(\min ATC\)</td><td><a href="#l04">L4</a></td></tr>
 <tr><td>U-shaped long-run average cost with MES</td><td>Economies then diseconomies of scale; minimum efficient scale at the trough</td><td><a href="#l04">L4</a></td></tr>
-<tr><td>Demand and marginal revenue</td><td>\(MR\) shares the intercept, twice the slope, lies below \(D\) (so \(P>MR\))</td><td><a href="#l05">L5</a></td></tr>
+<tr><td>Demand and marginal revenue</td><td>\(MR\) shares the intercept, twice the slope, lies below \(D\) (so \(P\gt MR\))</td><td><a href="#l05">L5</a></td></tr>
 <tr><td>Monopoly pricing construction</td><td>\(Q^\*\) where \(MR=MC\), then read \(P^\*\) up to demand</td><td><a href="#l05">L5</a></td></tr>
 <tr><td>Uniform-monopoly four-area diagram</td><td>Profit kept, \(CS\) ceded and \(DWL\) created: what discrimination targets</td><td><a href="#l06">L6</a></td></tr>
 <tr><td>Perfect price discrimination</td><td>Output to \(d(P)=MC\); whole triangle captured; efficient but \(CS=0\)</td><td><a href="#l06">L6</a></td></tr>
@@ -3510,7 +3511,7 @@ The slides plot OPEC members' excess production relative to quota, monthly, 1986
 <tr><td>Firm vs market supply (two panels)</td><td>Horizontal sum: market curve is \(n\) times wider / flatter</td><td><a href="#l08">L8</a></td></tr>
 <tr><td>Short-run competitive equilibrium</td><td>Market \(D\) meets \(S\); \(P^\*=20\), \(Q^\*=500\), firms losing yet operating</td><td><a href="#l08">L8</a></td></tr>
 <tr><td>Producer-surplus triangle</td><td>\(PS\) as the area between price and the \(MC\) supply curve</td><td><a href="#l08">L8</a></td></tr>
-<tr><td>Entry / exit market panels (two)</td><td>\(\pi>0\) shifts \(S\) right and \(P\) down; \(\pi<0\) shifts \(S\) left and \(P\) up</td><td><a href="#l09">L9</a></td></tr>
+<tr><td>Entry / exit market panels (two)</td><td>\(\pi\gt 0\) shifts \(S\) right and \(P\) down; \(\pi\lt 0\) shifts \(S\) left and \(P\) up</td><td><a href="#l09">L9</a></td></tr>
 <tr><td>Firm long-run break-even</td><td>Price line pushed to \(\min ATC\), where \(MC\) cuts \(ATC\), so \(\pi=0\)</td><td><a href="#l09">L9</a></td></tr>
 <tr><td>Survival ladder (three thresholds)</td><td>Entry, exit, idle prices stacked; the gap is the (sunk-once-paid) capital cost</td><td><a href="#l09">L9</a></td></tr>
 <tr><td>Industry supply staircase (Alusaf)</td><td>Plants ordered cheapest-first; each riser is a plant's \(MC\)</td><td><a href="#l09">L9</a></td></tr>
@@ -3531,14 +3532,14 @@ The slides plot OPEC members' excess production relative to quota, monthly, 1986
 <p>The causal chains the course tests most. Drill each one in both directions where the mechanism is symmetric: state the WHY at every link, not just the endpoints.</p>
 
 <div class="chain"><b>Entry and exit drive price to \(\min ATC\) [L9].</b><br>
-\(P>\min ATC\) <span class="arrow">⟹</span> \(\pi>0\), the lit "profit" sign <span class="arrow">⟹</span> outsiders enter (capital earns more here than its opportunity cost) <span class="arrow">⟹</span> market supply shifts right <span class="arrow">⟹</span> \(P\) falls <span class="arrow">⟹</span> repeat until \(P=\min ATC\), \(\pi=0\).<br>
-Reverse: \(P<\min ATC\) <span class="arrow">⟹</span> \(\pi<0\) <span class="arrow">⟹</span> firms exit (redeploy capital) <span class="arrow">⟹</span> supply shifts left <span class="arrow">⟹</span> \(P\) rises <span class="arrow">⟹</span> until \(P=\min ATC\), \(\pi=0\).</div>
+\(P\gt \min ATC\) <span class="arrow">⟹</span> \(\pi\gt 0\), the lit "profit" sign <span class="arrow">⟹</span> outsiders enter (capital earns more here than its opportunity cost) <span class="arrow">⟹</span> market supply shifts right <span class="arrow">⟹</span> \(P\) falls <span class="arrow">⟹</span> repeat until \(P=\min ATC\), \(\pi=0\).<br>
+Reverse: \(P\lt \min ATC\) <span class="arrow">⟹</span> \(\pi\lt 0\) <span class="arrow">⟹</span> firms exit (redeploy capital) <span class="arrow">⟹</span> supply shifts left <span class="arrow">⟹</span> \(P\) rises <span class="arrow">⟹</span> until \(P=\min ATC\), \(\pi=0\).</div>
 
 <div class="chain"><b>Tax incidence and deadweight loss [L1 to L2].</b><br>
 Per-unit tax \(\tau\) <span class="arrow">⟹</span> a wedge \(P_b-P_s=\tau\) between buyer and seller price <span class="arrow">⟹</span> marginal trades with \(V\) only just above \(C\) no longer clear the wedge <span class="arrow">⟹</span> quantity falls \(Q^\*\to Q_\tau\) <span class="arrow">⟹</span> those vanished trades are pure lost value, the \(DWL\) triangle \(\tfrac12\tau(Q^\*-Q_\tau)\). The split of the burden depends on relative elasticity, not on who legally remits.</div>
 
 <div class="chain"><b>Market power creates deadweight loss [L5 to L6].</b><br>
-Downward-sloping firm demand <span class="arrow">⟹</span> \(MR<P\) (cutting price for one more unit sacrifices margin on all earlier units) <span class="arrow">⟹</span> firm stops at \(MR=MC\), left of the efficient \(P=MC\) point <span class="arrow">⟹</span> \(P^\*>MC\), output restricted <span class="arrow">⟹</span> the trades between \(MC\) and \(P^\*\) never happen <span class="arrow">⟹</span> ceded \(CS\) plus a \(DWL\) triangle. Price discrimination targets exactly this ceded surplus and lost trade.</div>
+Downward-sloping firm demand <span class="arrow">⟹</span> \(MR\lt P\) (cutting price for one more unit sacrifices margin on all earlier units) <span class="arrow">⟹</span> firm stops at \(MR=MC\), left of the efficient \(P=MC\) point <span class="arrow">⟹</span> \(P^\*\gt MC\), output restricted <span class="arrow">⟹</span> the trades between \(MC\) and \(P^\*\) never happen <span class="arrow">⟹</span> ceded \(CS\) plus a \(DWL\) triangle. Price discrimination targets exactly this ceded surplus and lost trade.</div>
 
 <div class="chain"><b>Death spiral (the fixed-cost fallacy) [L5].</b><br>
 Price to recover fixed cost <span class="arrow">⟹</span> higher price loses volume <span class="arrow">⟹</span> the same \(FC\) spreads over fewer units <span class="arrow">⟹</span> average cost rises <span class="arrow">⟹</span> "justifies" a further price rise <span class="arrow">⟹</span> more volume lost (Wang Laboratories). The break: \(FC\) never enters \(MR=MC\); it decides only whether to be in the business.</div>
@@ -3547,7 +3548,7 @@ Price to recover fixed cost <span class="arrow">⟹</span> higher price loses vo
 Identical goods, no capacity limit <span class="arrow">⟹</span> a one-cent undercut steals the <i>whole</i> market <span class="arrow">⟹</span> undercutting is dominant for both <span class="arrow">⟹</span> each keeps cutting <span class="arrow">⟹</span> the only stable price gap is zero <span class="arrow">⟹</span> \(p_1=p_2=MC\), zero profit with just two firms. Slight differentiation breaks the first link, so the Nash price sits above \(MC\).</div>
 
 <div class="chain"><b>Prisoner's dilemma to sustained collusion [L10, L12 to L13].</b><br>
-Each firm's dominant strategy (undercut / overproduce) <span class="arrow">⟹</span> one-shot Nash is the jointly worse outcome (Bertrand \(P=MC\); Cournot over-supply) <span class="arrow">⟹</span> firms want the collusive (monopoly) outcome, but it is off both reaction functions, so each is tempted to cheat <span class="arrow">⟹</span> repeat the game to infinity with patient firms <span class="arrow">⟹</span> grim-trigger / tit-for-tat makes cheating forfeit the cooperative stream forever <span class="arrow">⟹</span> collusion holds when \(PV(\text{cooperate})>PV(\text{cheat})\), i.e. \(r\) low and punishment harsh. Devices that help: switching costs, loyalty programmes, price-match guarantees (detection + automatic punishment).</div>
+Each firm's dominant strategy (undercut / overproduce) <span class="arrow">⟹</span> one-shot Nash is the jointly worse outcome (Bertrand \(P=MC\); Cournot over-supply) <span class="arrow">⟹</span> firms want the collusive (monopoly) outcome, but it is off both reaction functions, so each is tempted to cheat <span class="arrow">⟹</span> repeat the game to infinity with patient firms <span class="arrow">⟹</span> grim-trigger / tit-for-tat makes cheating forfeit the cooperative stream forever <span class="arrow">⟹</span> collusion holds when \(PV(\text{cooperate})\gt PV(\text{cheat})\), i.e. \(r\) low and punishment harsh. Devices that help: switching costs, loyalty programmes, price-match guarantees (detection + automatic punishment).</div>
 
 <h2 id="glossary">Glossary &amp; myths</h2>
 
@@ -3556,7 +3557,7 @@ Each firm's dominant strategy (undercut / overproduce) <span class="arrow">⟹</
 <table class="dt">
 <thead><tr><th>Term</th><th>Definition</th></tr></thead>
 <tbody>
-<tr><td><b>Allocative efficiency</b></td><td>The right quantity is produced: every trade with \(V\ge C\) happens, none with \(V<C\). Achieved at the competitive equilibrium.</td></tr>
+<tr><td><b>Allocative efficiency</b></td><td>The right quantity is produced: every trade with \(V\ge C\) happens, none with \(V\lt C\). Achieved at the competitive equilibrium.</td></tr>
 <tr><td><b>Average cost (\(ATC=AC\))</b></td><td>Total cost per unit, \(TC/Q=AFC+AVC\). Governs entry/exit and scale decisions.</td></tr>
 <tr><td><b>Average variable cost (\(AVC\))</b></td><td>Variable cost per unit, \(VC/Q\). Governs the short-run idle/shutdown decision.</td></tr>
 <tr><td><b>Backward induction</b></td><td>Solving a sequential game from its final nodes upward; the surviving path is the predicted play (the formal label is subgame-perfect equilibrium).</td></tr>
@@ -3571,14 +3572,14 @@ Each firm's dominant strategy (undercut / overproduce) <span class="arrow">⟹</
 <tr><td><b>Dominant / dominated strategy</b></td><td>Dominant: a best response whatever the rival does (use it). Dominated: never a best response (eliminate it).</td></tr>
 <tr><td><b>Economic profit (\(\pi\))</b></td><td>Revenue minus all opportunity costs, including the return capital and effort could earn elsewhere. Zero in long-run competitive equilibrium.</td></tr>
 <tr><td><b>Economies / diseconomies of scale</b></td><td>Average cost falling / rising as the firm grows with all inputs variable; a long-run concept. MES is the output at the trough.</td></tr>
-<tr><td><b>Elasticity, own-price (\(\varepsilon\), \(E\))</b></td><td>% change in quantity per % change in own price; \(\varepsilon<0\), magnitude \(E=|\varepsilon|\). Inelastic \(<1\), elastic \(>1\).</td></tr>
+<tr><td><b>Elasticity, own-price (\(\varepsilon\), \(E\))</b></td><td>% change in quantity per % change in own price; \(\varepsilon\lt 0\), magnitude \(E=|\varepsilon|\). Inelastic \(\lt 1\), elastic \(\gt 1\).</td></tr>
 <tr><td><b>Explicit (third-degree) segmentation</b></td><td>Different prices to groups split on an observable trait; needs market power, observability without deception, and no arbitrage.</td></tr>
 <tr><td><b>First-mover advantage</b></td><td>In a battle-of-the-sexes, the player who can commit first selects her preferred equilibrium (if the commitment is real).</td></tr>
 <tr><td><b>Fixed / variable cost (\(FC\), \(VC\))</b></td><td>\(FC\) is independent of output (sunk in the short run); \(VC\) scales with output; \(TC=FC+VC\).</td></tr>
 <tr><td><b>Gains from trade</b></td><td>The surplus \(V-C\) created when a buyer's valuation exceeds a seller's cost; price only divides it.</td></tr>
 <tr><td><b>Golden Pricing Rule</b></td><td>The markup form of the optimum, \(P^\*=\dfrac{E}{E-1}MC\): less elastic demand, fatter markup.</td></tr>
 <tr><td><b>Grim trigger</b></td><td>Cooperate until anyone cheats, then revert to the cut-throat price forever. Sustains collusion if the future outweighs the windfall.</td></tr>
-<tr><td><b>HHI</b></td><td>Herfindahl-Hirschman Index, \(\sum s_i^2\); \(>1000\) oligopoly, \(>2000\) highly concentrated.</td></tr>
+<tr><td><b>HHI</b></td><td>Herfindahl-Hirschman Index, \(\sum s_i^2\); \(\gt 1000\) oligopoly, \(\gt 2000\) highly concentrated.</td></tr>
 <tr><td><b>Implicit (second-degree) segmentation / screening</b></td><td>Offer a menu so customers self-select by type; the high type's self-selection constraint binds.</td></tr>
 <tr><td><b>Income elasticity (\(\varepsilon_I\))</b></td><td>% change in demand per % change in income. Positive = normal good, negative = inferior good.</td></tr>
 <tr><td><b>Lerner index (\(\mathcal{L}\))</b></td><td>The markup as a share of price, \((P-MC)/P=1/E\); a direct measure of market power.</td></tr>
@@ -3595,7 +3596,7 @@ Each firm's dominant strategy (undercut / overproduce) <span class="arrow">⟹</
 <tr><td><b>Prisoner's dilemma</b></td><td>A game whose dominant-strategy Nash equilibrium is Pareto inferior to the cooperative outcome.</td></tr>
 <tr><td><b>Producer surplus (\(PS\))</b></td><td>Revenue above variable cost, \(TR-VC\); the area between price and supply; equals \(\pi+FC\).</td></tr>
 <tr><td><b>Reaction (best-response) function</b></td><td>A firm's optimal price/quantity as a function of the rival's; the Nash equilibrium is where they cross.</td></tr>
-<tr><td><b>Shutdown vs exit</b></td><td>Idle (short run, test \(P<AVC\), \(FC\) sunk) is temporary; exit (long run, test \(P<ATC\)) is permanent.</td></tr>
+<tr><td><b>Shutdown vs exit</b></td><td>Idle (short run, test \(P\lt AVC\), \(FC\) sunk) is temporary; exit (long run, test \(P\lt ATC\)) is permanent.</td></tr>
 <tr><td><b>Strategic complements / substitutes</b></td><td>Upward-sloping reaction functions (Bertrand prices) / downward-sloping (Cournot quantities).</td></tr>
 <tr><td><b>Sunk cost</b></td><td>Money already spent and unrecoverable; identical across options, so it must be ignored. Counting it is the sunk-cost fallacy.</td></tr>
 <tr><td><b>Tax wedge / incidence</b></td><td>A per-unit tax \(\tau\) separates \(P_b\) and \(P_s\) by \(\tau\); who bears it is set by relative elasticity, not by who remits.</td></tr>
@@ -3611,12 +3612,12 @@ Each firm's dominant strategy (undercut / overproduce) <span class="arrow">⟹</
 <li><b>"Sunk costs should be included; ignore opportunity cost if you signed a cheap contract."</b> Both false: ignore sunk costs, count opportunity cost at resale/next-best value. [L4, L5]</li>
 <li><b>"A monopolist can charge any price she likes."</b> False: still bound by demand; she solves \(MR=MC\). Power sets the markup level, not freedom from the rule. [L5]</li>
 <li><b>"Higher fixed costs should raise the price."</b> False: \(FC\) does not enter \(MR=MC\); pricing to recover it triggers the death spiral. [L5]</li>
-<li><b>"Price where demand is inelastic."</b> False: \(MR<0\) there; a profit-maximiser always operates where \(E>1\). [L5, L6]</li>
+<li><b>"Price where demand is inelastic."</b> False: \(MR\lt 0\) there; a profit-maximiser always operates where \(E\gt 1\). [L5, L6]</li>
 <li><b>"Maximise revenue."</b> Not profit max: revenue peaks at \(MR=0\), to the right of \(Q^\*\) (a principal-agent trap). [L5]</li>
 <li><b>"Mail-in coupons are explicit segmentation."</b> False: anyone can redeem, so customers self-select; that is implicit. [L6, L7]</li>
 <li><b>"The damaged/cheap version costs less to make."</b> Often false: crippling a product can cost more (Tesla software lock). [L7]</li>
 <li><b>"The participation constraint pins the expensive price."</b> False: participation pins the cheap price, self-selection pins the expensive one. [L7]</li>
-<li><b>"A firm losing money should shut down."</b> False in the short run: if \(\min AVC<P<\min ATC\) it covers variable cost and should keep operating. [L8]</li>
+<li><b>"A firm losing money should shut down."</b> False in the short run: if \(\min AVC\lt P\lt \min ATC\) it covers variable cost and should keep operating. [L8]</li>
 <li><b>"Today's low price means the industry is unprofitable long-run."</b> False red herring: spot price reflects only current \(D\) and \(S\); entry turns on a long-run price forecast. [L9]</li>
 <li><b>"Weigh sunk capital in the exit decision."</b> False: sunk capital is ignored for exit; it matters only for entry. [L9]</li>
 <li><b>"The Nash equilibrium is always Pareto inferior."</b> False: true only of the prisoner's dilemma (GM/Ford is the counter-example). [L10]</li>
@@ -3628,39 +3629,39 @@ Each firm's dominant strategy (undercut / overproduce) <span class="arrow">⟹</
 
 <h2 id="readings">Key readings</h2>
 
-<p>The load-bearing readings, mapped to the part each supports. Titles link to the lecture section that uses them.</p>
+<p>The load-bearing readings, mapped to the part each supports. Each title links to a one-page synthesis of the reading.</p>
 
-<div class="read"><a href="#l01"><b>FPM Ch.2, Supply &amp; Demand</b></a> <span class="rtag man">Mandatory</span><br>The demand-and-supply engine, equilibrium, surplus and the efficiency of competitive markets (Part I foundations).</div>
+<div class="read"><a href="Sources/L01/FPM%20Ch.2%20Supply%20and%20Demand.html"><b>FPM Ch.2, Supply &amp; Demand</b></a> <span class="rtag man">Mandatory</span><br>The demand-and-supply engine, equilibrium, surplus and the efficiency of competitive markets (Part I foundations).</div>
 
-<div class="read"><a href="#l03"><b>FPM Ch.3, Consumer Choice &amp; Demand</b></a> <span class="rtag man">Mandatory</span><br>Elasticity (own-price, income, cross-price) and the demand curve behind Part I.</div>
+<div class="read"><a href="Sources/L03/FPM%20Ch.3%20Consumer%20Choice%20and%20Demand.html"><b>FPM Ch.3, Consumer Choice &amp; Demand</b></a> <span class="rtag man">Mandatory</span><br>Elasticity (own-price, income, cross-price) and the demand curve behind Part I.</div>
 
-<div class="read"><a href="#l04"><b>FPM Ch.4, Production &amp; Costs</b></a> <span class="rtag man">Mandatory</span><br>Cost concepts, the cost-curve family, sunk vs opportunity cost, economies of scale (opens Part II).</div>
+<div class="read"><a href="Sources/L04/FPM%20Ch.4%20Production%20and%20Costs.html"><b>FPM Ch.4, Production &amp; Costs</b></a> <span class="rtag man">Mandatory</span><br>Cost concepts, the cost-curve family, sunk vs opportunity cost, economies of scale (opens Part II).</div>
 
-<div class="read"><a href="#l05"><b>FPM Ch.5, Pricing with Market Power</b></a> <span class="rtag man">Mandatory</span><br>The \(MR=MC\) spine, the Lerner / Golden Pricing Rule, and the pricing fallacies.</div>
+<div class="read"><a href="Sources/L05/FPM%20Ch.5%20Pricing%20with%20Market%20Power.html"><b>FPM Ch.5, Pricing with Market Power</b></a> <span class="rtag man">Mandatory</span><br>The \(MR=MC\) spine, the Lerner / Golden Pricing Rule, and the pricing fallacies.</div>
 
-<div class="read"><a href="#l06"><b>FPM Ch.7, Explicit Segmentation</b></a> <span class="rtag man">Mandatory</span><br>Third-degree price discrimination: segment on an observable trait, Lerner per segment.</div>
+<div class="read"><a href="Sources/L06/FPM%20Ch.7%20Explicit%20Segmentation.html"><b>FPM Ch.7, Explicit Segmentation</b></a> <span class="rtag man">Mandatory</span><br>Third-degree price discrimination: segment on an observable trait, Lerner per segment.</div>
 
-<div class="read"><a href="#l07"><b>FPM Ch.8/9, Implicit Segmentation &amp; Nonlinear Pricing</b></a> <span class="rtag man">Mandatory</span><br>Second-degree screening: menus, self-selection, coupons, versioning, the airline model.</div>
+<div class="read"><a href="Sources/L07/FPM%20Ch.8-9%20Implicit%20Segmentation%20and%20Nonlinear%20Pricing.html"><b>FPM Ch.8/9, Implicit Segmentation &amp; Nonlinear Pricing</b></a> <span class="rtag man">Mandatory</span><br>Second-degree screening: menus, self-selection, coupons, versioning, the airline model.</div>
 
-<div class="read"><a href="#l08"><b>FPM Ch.10, Competitive Supply</b></a> <span class="rtag man">Mandatory</span><br>The price taker's \(P=MC\), short-run supply, the shutdown test (opens Part III).</div>
+<div class="read"><a href="Sources/L08/FPM%20Ch.10%20Competitive%20Supply.html"><b>FPM Ch.10, Competitive Supply</b></a> <span class="rtag man">Mandatory</span><br>The price taker's \(P=MC\), short-run supply, the shutdown test (opens Part III).</div>
 
-<div class="read"><a href="#l09"><b>FPM Ch.11, Short-Run Costs &amp; Prices</b></a> <span class="rtag man">Mandatory</span><br>Entry/exit dynamics, the three price cutoffs, long-run equilibrium and the Alusaf entry decision.</div>
+<div class="read"><a href="Sources/L09/FPM%20Ch.11%20Short-Run%20Costs%20and%20Prices.html"><b>FPM Ch.11, Short-Run Costs &amp; Prices</b></a> <span class="rtag man">Mandatory</span><br>Entry/exit dynamics, the three price cutoffs, long-run equilibrium and the Alusaf entry decision.</div>
 
-<div class="read"><a href="#l10"><b>FPM Ch.12, Static Games &amp; Nash</b></a> <span class="rtag man">Mandatory</span><br>Players, strategies, payoffs, dominance and Nash equilibrium (opens Part IV).</div>
+<div class="read"><a href="Sources/L10/FPM%20Ch.12%20Static%20Games%20and%20Nash.html"><b>FPM Ch.12, Static Games &amp; Nash</b></a> <span class="rtag man">Mandatory</span><br>Players, strategies, payoffs, dominance and Nash equilibrium (opens Part IV).</div>
 
-<div class="read"><a href="#l12"><b>FPM Ch.13, Imperfect Competition</b></a> <span class="rtag man">Mandatory</span><br>Bertrand and Cournot oligopoly, reaction functions, the Bertrand trap.</div>
+<div class="read"><a href="Sources/L12/FPM%20Ch.13%20Imperfect%20Competition.html"><b>FPM Ch.13, Imperfect Competition</b></a> <span class="rtag man">Mandatory</span><br>Bertrand and Cournot oligopoly, reaction functions, the Bertrand trap.</div>
 
-<div class="read"><a href="#l13"><b>FPM Ch.14, Explicit &amp; Implicit Cooperation</b></a> <span class="rtag man">Mandatory</span><br>Cartels, the deviation incentive, grim trigger, and the devices that sustain tacit collusion.</div>
+<div class="read"><a href="Sources/L13/FPM%20Ch.14%20Explicit%20and%20Implicit%20Cooperation.html"><b>FPM Ch.14, Explicit &amp; Implicit Cooperation</b></a> <span class="rtag man">Mandatory</span><br>Cartels, the deviation incentive, grim trigger, and the devices that sustain tacit collusion.</div>
 
-<div class="read"><a href="#l11"><b>FPM Ch.15, Strategic Commitment</b></a> <span class="rtag man">Mandatory</span><br>Sequential games, backward induction, credible vs non-credible threats, commitment devices.</div>
+<div class="read"><a href="Sources/L11/FPM%20Ch.15%20Strategic%20Commitment.html"><b>FPM Ch.15, Strategic Commitment</b></a> <span class="rtag man">Mandatory</span><br>Sequential games, backward induction, credible vs non-credible threats, commitment devices.</div>
 
-<div class="read"><a href="#l03"><b>"The Elasticity of Demand for Gasoline"</b></a> <span class="rtag prof">Case / article</span> <span class="rtag core">core concept</span><br>The petrol log-log estimation that anchors the movement-vs-shift and constant-elasticity material.</div>
+<div class="read"><a href="Sources/L03/The%20Elasticity%20of%20Demand%20for%20Gasoline.html"><b>"The Elasticity of Demand for Gasoline"</b></a> <span class="rtag prof">Case / article</span> <span class="rtag core">core concept</span><br>The petrol log-log estimation that anchors the movement-vs-shift and constant-elasticity material.</div>
 
-<div class="read"><a href="#l07"><b>"Seeking Perfect Prices"</b></a> <span class="rtag prof">Case / article</span><br>Price experimentation (the ZipRecruiter / Dube-Misra study) behind the "eat your free lunch" point.</div>
+<div class="read"><a href="Sources/L07/Seeking%20Perfect%20Prices.html"><b>"Seeking Perfect Prices"</b></a> <span class="rtag prof">Case / article</span><br>Price experimentation (the ZipRecruiter / Dube-Misra study) behind the "eat your free lunch" point.</div>
 
-<div class="read"><a href="#l06"><b>"How Online Shopping Makes Suckers of Us All"</b></a> <span class="rtag prof">Case / article</span><br>Personalised pricing and big-data discrimination: how close real firms get to first-degree.</div>
+<div class="read"><a href="Sources/L06/How%20Online%20Shopping%20Makes%20Suckers%20of%20Us%20All.html"><b>"How Online Shopping Makes Suckers of Us All"</b></a> <span class="rtag prof">Case / article</span><br>Personalised pricing and big-data discrimination: how close real firms get to first-degree.</div>
 
-<div class="read"><a href="#l13"><b>"Price-bots can Collude"</b></a> <span class="rtag prof">Case / article</span><br>Algorithmic pricing and tacit collusion: the modern face of the cartel-stability problem.</div>
+<div class="read"><a href="Sources/L13/Price-bots%20can%20Collude.html"><b>"Price-bots can Collude"</b></a> <span class="rtag prof">Case / article</span><br>Algorithmic pricing and tacit collusion: the modern face of the cartel-stability problem.</div>
 
 <p class="sm"><b>Selection notes.</b> This list is curated, not exhaustive: it carries the twelve load-bearing FPM chapters (one or two per lecture, mapped to the four parts) plus the four most useful case articles, tagged <span class="rtag prof">Case / article</span>. Skipped here are the practice problem sets and course-guide exercises, which live on the Exam Drills page rather than as readings. Because 12 of the 14 lectures had no class transcript (only L10 and L12 were recorded), reading the FPM chapters is the main way to close the intuition gap the slides leave; treat the mandatory chapters as the primary source and the cases as illustration.</p>
 

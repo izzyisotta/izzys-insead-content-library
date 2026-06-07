@@ -165,6 +165,18 @@
   details.st summary .yr.home{background:#dff0e6;color:#0b6b53;}
   .ctxtag{display:inline-block;background:#f0eee6;color:#8a8478;font-size:10.5px;font-weight:600;padding:1px 6px;border-radius:4px;margin-right:6px;}
   .homemark{color:var(--green);font-weight:700;}
+  .comfort{display:flex;align-items:center;gap:9px;margin:4px 0 12px;flex-wrap:wrap;}
+  .comfort .clbl{color:#7a7a72;text-transform:uppercase;letter-spacing:.05em;font-size:10.5px;font-weight:700;}
+  .comfort .stars{display:inline-flex;gap:1px;}
+  .comfort .star{background:none;border:none;cursor:pointer;font-size:21px;line-height:1;color:#d8d4c8;padding:0 1px;transition:color .08s;}
+  .comfort .star.on{color:#e6a700;}
+  .comfort .stars:hover .star{color:#f0c75a;}
+  .comfort .star:hover ~ .star{color:#d8d4c8;}
+  .comfort .clr{background:none;border:none;cursor:pointer;color:#bdb8ac;font-size:12px;margin-left:2px;}
+  .comfort .clr:hover{color:#b03030;}
+  .comfort .saved{font-size:11px;color:#0b6b53;font-weight:600;opacity:0;transition:opacity .2s;}
+  .comfort .saved.show{opacity:1;}
+  @media print{.comfort .star,.comfort .clr{-webkit-print-color-adjust:exact;print-color-adjust:exact;}}
   .seclink{font-size:12.5px;}
 
 </style></head><body>
@@ -238,6 +250,7 @@
 <p>For each recurring question type: when you see it, the ideal-answer skeleton, one fully-worked model answer, and the traps. (Model answers are exemplars — verify wording against what Fatás used in class.)</p>
 <div class="arche" id="a-islmfx">
 <h3>IS-LM-FX: policy &amp; the exchange rate (fixed vs flexible) <span class="freq">26 on past papers</span></h3>
+<div class="comfort" data-arch="islmfx"><span class="clbl">My comfort</span><span class="stars"><button class="star" data-v="1" aria-label="1 stars">★</button><button class="star" data-v="2" aria-label="2 stars">★</button><button class="star" data-v="3" aria-label="3 stars">★</button><button class="star" data-v="4" aria-label="4 stars">★</button><button class="star" data-v="5" aria-label="5 stars">★</button></span><button class="clr" title="clear rating">✕</button><span class="saved">saved ✓</span></div>
 <div class="trig">When you see it: A fiscal or monetary policy change (often plus a regime: fixed vs flexible FX), asking about rates, the currency, net exports, GDP — or cross-country spillovers.</div>
 <div class="lab">Ideal-answer skeleton</div><ol class="skel"><li>Run the 4-step routine: shift the curve the shock hits → compare r to r_F → capital flow → appreciation/depreciation → NX adjusts → repeat until r = r_F.</li><li>FLEXIBLE FX: fiscal expansion is crowded out via the currency (↑G → r&gt;r_F → appreciation → NX falls → ΔGDP ≈ 0); monetary policy is potent (↓r → depreciation → NX up → GDP up).</li><li>FIXED FX: the reverse — fiscal policy is potent (no currency offset; the CB must supply money to hold the peg), monetary policy is impotent (the rate is tied to r_F).</li><li>Spillovers: a partner's fiscal expansion, and your trade exposure, transmit via rates and the exchange rate.</li></ol>
 <div class="lab">Worked model answer</div>
@@ -247,6 +260,7 @@
 </div>
 <div class="arche" id="a-yieldcurve">
 <h3>Yield-curve reaction to news <span class="freq">18 on past papers</span></h3>
+<div class="comfort" data-arch="yieldcurve"><span class="clbl">My comfort</span><span class="stars"><button class="star" data-v="1" aria-label="1 stars">★</button><button class="star" data-v="2" aria-label="2 stars">★</button><button class="star" data-v="3" aria-label="3 stars">★</button><button class="star" data-v="4" aria-label="4 stars">★</button><button class="star" data-v="5" aria-label="5 stars">★</button></span><button class="clr" title="clear rating">✕</button><span class="saved">saved ✓</span></div>
 <div class="trig">When you see it: News hits — an inflation surprise, a central-bank speech, a fiscal plan, a new central-bank chair — and you must say how the yield curve moves (with a credibility or inversion twist).</div>
 <div class="lab">Ideal-answer skeleton</div><ol class="skel"><li>Decompose: the short end ≈ the expected path of the policy rate; the long end ≈ average expected future short rates + expected inflation (+ a term premium).</li><li>Map the news to expectations: does it change the expected policy path (short end), expected inflation (long end), or both?</li><li>Credibility decides the long end: a credible disinflation pulls the long end DOWN; a non-credible or pro-inflation signal pushes it UP even with the short rate unchanged.</li><li>If asked: an inversion (long &lt; short) means the market expects rate cuts / a recession ahead.</li></ol>
 <div class="lab">Worked model answer</div>
@@ -256,6 +270,7 @@
 </div>
 <div class="arche" id="a-realer">
 <h3>Real vs nominal exchange rates, PPP &amp; convergence <span class="freq">18 on past papers</span></h3>
+<div class="comfort" data-arch="realer"><span class="clbl">My comfort</span><span class="stars"><button class="star" data-v="1" aria-label="1 stars">★</button><button class="star" data-v="2" aria-label="2 stars">★</button><button class="star" data-v="3" aria-label="3 stars">★</button><button class="star" data-v="4" aria-label="4 stars">★</button><button class="star" data-v="5" aria-label="5 stars">★</button></span><button class="clr" title="clear rating">✕</button><span class="saved">saved ✓</span></div>
 <div class="trig">When you see it: Real and nominal exchange rates moving in opposite directions; a PPP gap; a fast-converging or high-productivity country's currency.</div>
 <div class="lab">Ideal-answer skeleton</div><ol class="skel"><li>Definitions: nominal e_N (foreign currency per domestic unit), real e_R = e_N·P/P_F. Growth form: %Δe_R = %Δe_N + (π_domestic − π_foreign).</li><li>Higher domestic inflation tends to DEPRECIATE the nominal rate (PPP), while the real rate can APPRECIATE if productivity is catching up (Balassa-Samuelson).</li><li>So real and nominal can move in OPPOSITE directions: nominal down (higher inflation) and real up (convergence).</li><li>A PPP gap (market rate vs PPP rate) shows whether the country looks cheap; it shrinks as the country converges.</li></ol>
 <div class="lab">Worked model answer</div>
@@ -265,6 +280,7 @@
 </div>
 <div class="arche" id="a-globalsi">
 <h3>Global saving-investment &amp; the world real rate <span class="freq">15 on past papers</span></h3>
+<div class="comfort" data-arch="globalsi"><span class="clbl">My comfort</span><span class="stars"><button class="star" data-v="1" aria-label="1 stars">★</button><button class="star" data-v="2" aria-label="2 stars">★</button><button class="star" data-v="3" aria-label="3 stars">★</button><button class="star" data-v="4" aria-label="4 stars">★</button><button class="star" data-v="5" aria-label="5 stars">★</button></span><button class="clr" title="clear rating">✕</button><span class="saved">saved ✓</span></div>
 <div class="trig">When you see it: A shift in desired global saving or investment (ageing/retirement, China rebalancing, a savings glut) and its effect on the world real rate and current-account imbalances.</div>
 <div class="lab">Ideal-answer skeleton</div><ol class="skel"><li>The world real rate is set where global desired saving = global desired investment (loanable funds).</li><li>Map the shock to a curve: more desired saving (ageing savers, China saving) shifts S right → world r falls; less investment (China rebalancing away from investment) shifts I left → world r falls.</li><li>Then the current-account mirror: a surplus country saving more widens imbalances; a surplus country consuming more (saving less) shrinks its surplus, raising r and shrinking deficit countries' deficits.</li><li>Demographics twist: retirees DIS-save → S shifts LEFT → world r RISES.</li></ol>
 <div class="lab">Worked model answer</div>
@@ -274,6 +290,7 @@
 </div>
 <div class="arche" id="a-fxintervention">
 <h3>FX intervention &amp; defending a currency <span class="freq">14 on past papers</span></h3>
+<div class="comfort" data-arch="fxintervention"><span class="clbl">My comfort</span><span class="stars"><button class="star" data-v="1" aria-label="1 stars">★</button><button class="star" data-v="2" aria-label="2 stars">★</button><button class="star" data-v="3" aria-label="3 stars">★</button><button class="star" data-v="4" aria-label="4 stars">★</button><button class="star" data-v="5" aria-label="5 stars">★</button></span><button class="clr" title="clear rating">✕</button><span class="saved">saved ✓</span></div>
 <div class="trig">When you see it: A central bank defending or managing its currency; foreign reserves moving; balance-sheet size or losses; a peg under pressure.</div>
 <div class="lab">Ideal-answer skeleton</div><ol class="skel"><li>Identify the direction: resisting APPRECIATION (buy foreign currency, issue your own) vs resisting DEPRECIATION (sell foreign reserves, buy your own).</li><li>Put it on the central-bank balance sheet: which entry moves, and does the monetary base grow or shrink.</li><li>The asymmetry: you can resist a STRONG currency indefinitely (print your own), but resisting a WEAK one is limited by finite FX reserves — so pegs break on the weak side.</li><li>Sterilisation swaps one asset for another: it changes the composition of the balance sheet, not its size, so no macro effect.</li></ol>
 <div class="lab">Worked model answer</div>
@@ -283,6 +300,7 @@
 </div>
 <div class="arche" id="a-uip">
 <h3>UIP: interest rates → the exchange-rate path <span class="freq">12 on past papers</span></h3>
+<div class="comfort" data-arch="uip"><span class="clbl">My comfort</span><span class="stars"><button class="star" data-v="1" aria-label="1 stars">★</button><button class="star" data-v="2" aria-label="2 stars">★</button><button class="star" data-v="3" aria-label="3 stars">★</button><button class="star" data-v="4" aria-label="4 stars">★</button><button class="star" data-v="5" aria-label="5 stars">★</button></span><button class="clr" title="clear rating">✕</button><span class="saved">saved ✓</span></div>
 <div class="trig">When you see it: An interest-rate change or news and the currency; 'priced-in' expectations; carry-trade claims.</div>
 <div class="lab">Ideal-answer skeleton</div><ol class="skel"><li>UIP: r − r_F = expected depreciation. Distinguish NEWS of a rate rise (immediate appreciation) from a high LEVEL of rates (expected future depreciation).</li><li>A SURPRISE hike ⟹ capital inflow ⟹ immediate appreciation. If the hike was already PRICED IN, no reaction on the day.</li><li>High-rate (usually high-inflation) currencies are expected to DEPRECIATE over time — so carry returns are not a free lunch.</li><li>Credibility: a credible disinflation lowers the FUTURE path of nominal rates while supporting the currency.</li></ol>
 <div class="lab">Worked model answer</div>
@@ -292,6 +310,7 @@
 </div>
 <div class="arche" id="a-debt">
 <h3>Debt sustainability (the primary-surplus calculation) <span class="freq">12 on past papers</span></h3>
+<div class="comfort" data-arch="debt"><span class="clbl">My comfort</span><span class="stars"><button class="star" data-v="1" aria-label="1 stars">★</button><button class="star" data-v="2" aria-label="2 stars">★</button><button class="star" data-v="3" aria-label="3 stars">★</button><button class="star" data-v="4" aria-label="4 stars">★</button><button class="star" data-v="5" aria-label="5 stars">★</button></span><button class="clr" title="clear rating">✕</button><span class="saved">saved ✓</span></div>
 <div class="trig">When you see it: Will debt/GDP stay constant? What primary surplus is needed? Rising rates or a downgrade and sustainability. This is the one genuine calculation.</div>
 <div class="lab">Ideal-answer skeleton</div><ol class="skel"><li>Core formula: required primary surplus / GDP = (r − g) × (Debt/GDP), with r and g BOTH nominal (or both real).</li><li>Plug in: compute (r − g), multiply by the debt ratio. If g &gt; r the required surplus is NEGATIVE — you can run deficits forever and debt/GDP still falls.</li><li>A higher r (e.g. a downgrade adding a risk premium) widens (r − g) ⟹ a bigger surplus is needed.</li><li>Inflation raises nominal g and erodes the real burden, easing sustainability — unless it pushes nominal r up by as much or more.</li></ol>
 <div class="lab">Worked model answer</div>
@@ -301,6 +320,7 @@
 </div>
 <div class="arche" id="a-zlb">
 <h3>ZLB toolkit &amp; the inflation-target choice <span class="freq">11 on past papers</span></h3>
+<div class="comfort" data-arch="zlb"><span class="clbl">My comfort</span><span class="stars"><button class="star" data-v="1" aria-label="1 stars">★</button><button class="star" data-v="2" aria-label="2 stars">★</button><button class="star" data-v="3" aria-label="3 stars">★</button><button class="star" data-v="4" aria-label="4 stars">★</button><button class="star" data-v="5" aria-label="5 stars">★</button></span><button class="clr" title="clear rating">✕</button><span class="saved">saved ✓</span></div>
 <div class="trig">When you see it: QE and whether it is inflationary; raising the target to 4%; the inflation buffer; a low equilibrium real rate; exiting the ZLB.</div>
 <div class="lab">Ideal-answer skeleton</div><ol class="skel"><li>At the ZLB the nominal rate can't fall further, so the central bank uses QE (buy assets, expand the base) and forward guidance.</li><li>Why QE isn't automatically inflationary: it swaps bonds for reserves; if the multiplier is dead (banks hoard reserves) the broad money supply and spending needn't rise — inflation depends on demand and expectations, not the base mechanically.</li><li>Target choice: a higher target (4%) lifts average nominal rates, giving more room to cut before hitting zero — more valuable when the equilibrium real rate r* is low (so the ZLB binds more often).</li><li>Exit: sell the assets back, or keep them and raise the interest paid on reserves.</li></ol>
 <div class="lab">Worked model answer</div>
@@ -310,6 +330,7 @@
 </div>
 <div class="arche" id="a-taylor">
 <h3>Inflation targeting &amp; the Taylor rule <span class="freq">11 on past papers</span></h3>
+<div class="comfort" data-arch="taylor"><span class="clbl">My comfort</span><span class="stars"><button class="star" data-v="1" aria-label="1 stars">★</button><button class="star" data-v="2" aria-label="2 stars">★</button><button class="star" data-v="3" aria-label="3 stars">★</button><button class="star" data-v="4" aria-label="4 stars">★</button><button class="star" data-v="5" aria-label="5 stars">★</button></span><button class="clr" title="clear rating">✕</button><span class="saved">saved ✓</span></div>
 <div class="trig">When you see it: An output-gap revision; why a central bank does or doesn't move rates; whether above-target inflation forces a hike; measuring slack.</div>
 <div class="lab">Ideal-answer skeleton</div><ol class="skel"><li>Taylor rule: i = r* + π + 0.5(π − π*) + 0.5(output gap). π enters TWICE, so a 1pt inflation rise lifts i by 1.5pt (the real rate must rise to cool the economy).</li><li>A LESS negative output gap (economy nearer potential) ⟹ the rule prescribes a higher rate.</li><li>A central bank may NOT hike despite above-target inflation if it judges the inflation TEMPORARY (a supply shock), expectations anchored, or it is exiting a long deflation and wants expectations to re-anchor first (Japan).</li><li>Slack: don't take a single number at face value (e.g. furlough-distorted unemployment) — mis-measuring the gap mis-sets policy.</li></ol>
 <div class="lab">Worked model answer</div>
@@ -319,6 +340,7 @@
 </div>
 <div class="arche" id="a-bop">
 <h3>Current account ↔ capital flows ↔ reserves <span class="freq">10 on past papers</span></h3>
+<div class="comfort" data-arch="bop"><span class="clbl">My comfort</span><span class="stars"><button class="star" data-v="1" aria-label="1 stars">★</button><button class="star" data-v="2" aria-label="2 stars">★</button><button class="star" data-v="3" aria-label="3 stars">★</button><button class="star" data-v="4" aria-label="4 stars">★</button><button class="star" data-v="5" aria-label="5 stars">★</button></span><button class="clr" title="clear rating">✕</button><span class="saved">saved ✓</span></div>
 <div class="trig">When you see it: A statement reconciling a current-account surplus/deficit with private capital in/outflows and reserve changes (very often a T/F/U).</div>
 <div class="lab">Ideal-answer skeleton</div><ol class="skel"><li>Start from the identity: Current Account = Capital &amp; Financial Account, i.e. CA = net private capital flow + official reserve change (mind the signs).</li><li>A CA surplus = the country is a net LENDER abroad (acquiring foreign assets); a deficit = net borrower.</li><li>Reserves are the residual: reserve change = CA − net private flow. Solve for whichever term the question asks about.</li><li>State whether the claimed combination is possible — give the case where it holds and where it doesn't.</li></ol>
 <div class="lab">Worked model answer</div>
@@ -328,6 +350,7 @@
 </div>
 <div class="arche" id="a-growth">
 <h3>Growth: GDP vs GDP-per-capita, demographics &amp; the 4 Is <span class="freq">10 on past papers</span></h3>
+<div class="comfort" data-arch="growth"><span class="clbl">My comfort</span><span class="stars"><button class="star" data-v="1" aria-label="1 stars">★</button><button class="star" data-v="2" aria-label="2 stars">★</button><button class="star" data-v="3" aria-label="3 stars">★</button><button class="star" data-v="4" aria-label="4 stars">★</button><button class="star" data-v="5" aria-label="5 stars">★</button></span><button class="clr" title="clear rating">✕</button><span class="saved">saved ✓</span></div>
 <div class="trig">When you see it: Population or working-age growth vs GDP per capita; retirement age; per-worker vs per-capita; whether demographics alone deliver prosperity.</div>
 <div class="lab">Ideal-answer skeleton</div><ol class="skel"><li>Decompose: GDP/Pop = (GDP/Hours) × (Hours/Worker) × (Workers/Working-age) × (Working-age/Pop) = productivity × effort × employment × demographics.</li><li>More working-age people raise TOTAL GDP but not necessarily GDP per CAPITA (living standards) — that needs productivity.</li><li>The 4 Is: convergence needs Investment (capital) under good Institutions, absorbing Innovation, from its Initial conditions. Population growth alone ≠ rising living standards.</li><li>Employment ratio: raising the share of (e.g. older) people in work lifts GDP per capita even as the population ages.</li></ol>
 <div class="lab">Worked model answer</div>
@@ -337,6 +360,7 @@
 </div>
 <div class="arche" id="a-realnominal">
 <h3>Real vs nominal interest rates &amp; the zero lower bound <span class="freq">8 on past papers</span></h3>
+<div class="comfort" data-arch="realnominal"><span class="clbl">My comfort</span><span class="stars"><button class="star" data-v="1" aria-label="1 stars">★</button><button class="star" data-v="2" aria-label="2 stars">★</button><button class="star" data-v="3" aria-label="3 stars">★</button><button class="star" data-v="4" aria-label="4 stars">★</button><button class="star" data-v="5" aria-label="5 stars">★</button></span><button class="clr" title="clear rating">✕</button><span class="saved">saved ✓</span></div>
 <div class="trig">When you see it: A T/F linking nominal and real rates, negative real rates, or whether physical cash / the ZLB floors the real rate.</div>
 <div class="lab">Ideal-answer skeleton</div><ol class="skel"><li>Fisher: r = i − π (real = nominal − inflation).</li><li>Negative real rates need only i &lt; π — possible with positive inflation; no deflation required.</li><li>The ZLB is a floor on the NOMINAL rate (cash pays 0%), not on the real rate: with i ≈ 0 and π &gt; 0, r = −π &lt; 0.</li><li>A surprise nominal hike, with sticky inflation/expectations, raises the REAL rate in the short run.</li></ol>
 <div class="lab">Worked model answer</div>
@@ -346,6 +370,7 @@
 </div>
 <div class="arche" id="a-multiplier">
 <h3>The money multiplier &amp; the two aggregates <span class="freq">6 on past papers</span></h3>
+<div class="comfort" data-arch="multiplier"><span class="clbl">My comfort</span><span class="stars"><button class="star" data-v="1" aria-label="1 stars">★</button><button class="star" data-v="2" aria-label="2 stars">★</button><button class="star" data-v="3" aria-label="3 stars">★</button><button class="star" data-v="4" aria-label="4 stars">★</button><button class="star" data-v="5" aria-label="5 stars">★</button></span><button class="clr" title="clear rating">✕</button><span class="saved">saved ✓</span></div>
 <div class="trig">When you see it: A T/F about whether the money supply and the monetary base move together, or whether one can change without the other.</div>
 <div class="lab">Ideal-answer skeleton</div><ol class="skel"><li>Define both: Base = C + R (the central bank controls it); Money supply = C + D (what the private sector holds); link is m = (C/D + 1)/(C/D + R/D).</li><li>The link is the multiplier, and m is NOT fixed — it depends on behaviour (cash ratio C/D, reserve ratio R/D).</li><li>So base and supply need not move together or at the same rate: if m changes, the supply can move while the base is flat.</li><li>Apply to the specific claim (e.g. a panic: C/D and R/D jump ⟹ m collapses ⟹ supply falls even with the base unchanged).</li></ol>
 <div class="lab">Worked model answer</div>
@@ -355,6 +380,7 @@
 </div>
 <div class="arche" id="a-anchor">
 <h3>Monetary neutrality &amp; the nominal anchor <span class="freq">6 on past papers</span></h3>
+<div class="comfort" data-arch="anchor"><span class="clbl">My comfort</span><span class="stars"><button class="star" data-v="1" aria-label="1 stars">★</button><button class="star" data-v="2" aria-label="2 stars">★</button><button class="star" data-v="3" aria-label="3 stars">★</button><button class="star" data-v="4" aria-label="4 stars">★</button><button class="star" data-v="5" aria-label="5 stars">★</button></span><button class="clr" title="clear rating">✕</button><span class="saved">saved ✓</span></div>
 <div class="trig">When you see it: The price level being 'arbitrary'; the initial value of a currency; Bitcoin or parallel currencies; a dollarised economy; whether a fixed supply controls inflation.</div>
 <div class="lab">Ideal-answer skeleton</div><ol class="skel"><li>Long-run neutrality: the LEVEL of money/prices/the initial exchange rate is arbitrary; only the PATH (the growth rate = inflation) has real effects ("add a zero overnight" changes nothing real).</li><li>A nominal anchor is a central-bank COMMITMENT to a stable value of money (an inflation target) — not a quantity cap. A fixed supply (Bitcoin) is not an anchor because value = supply ∩ demand, and demand swings ⟹ volatility.</li><li>Dollarisation imports another country's anchor and surrenders monetary independence.</li><li>So choosing a different INITIAL value (e.g. the euro's launch price) shifts the price level once but not the subsequent inflation.</li></ol>
 <div class="lab">Worked model answer</div>
@@ -364,6 +390,7 @@
 </div>
 <div class="arche" id="a-assetpricing">
 <h3>Asset pricing: the discount rate &amp; the equity risk premium <span class="freq">3 on past papers</span></h3>
+<div class="comfort" data-arch="assetpricing"><span class="clbl">My comfort</span><span class="stars"><button class="star" data-v="1" aria-label="1 stars">★</button><button class="star" data-v="2" aria-label="2 stars">★</button><button class="star" data-v="3" aria-label="3 stars">★</button><button class="star" data-v="4" aria-label="4 stars">★</button><button class="star" data-v="5" aria-label="5 stars">★</button></span><button class="clr" title="clear rating">✕</button><span class="saved">saved ✓</span></div>
 <div class="trig">When you see it: The stock market vs interest rates or inflation; P/E ratios; whether high prices are a bubble; the equity risk premium.</div>
 <div class="lab">Ideal-answer skeleton</div><ol class="skel"><li>A stock = the present value of future cash flows discounted at R = r + RP (real rate + risk premium). A higher discount rate ⟹ lower prices.</li><li>Rising real rates lower valuations — but if rates rise because GROWTH is stronger, higher expected cash flows can offset it.</li><li>A high P/E isn't automatically a bubble: it can reflect a LOW required return (low r or low RP). Note RP = E/P − r.</li><li>Risk-off rebalancing into bonds raises the required return on equities ⟹ lower stock prices, higher RP.</li></ol>
 <div class="lab">Worked model answer</div>
@@ -914,4 +941,22 @@
 </div>
 
 </main>
-</div></body></html>
+</div><script>
+(function(){
+  var STORE='mge-comfort';
+  var data; try{data=JSON.parse(localStorage.getItem(STORE)||'{}');}catch(e){data={};}
+  function save(){try{localStorage.setItem(STORE,JSON.stringify(data));}catch(e){}}
+  document.querySelectorAll('.comfort').forEach(function(c){
+    var arch=c.getAttribute('data-arch');
+    var stars=c.querySelectorAll('.star');
+    function paint(v){stars.forEach(function(s){s.classList.toggle('on',(+s.dataset.v)<=v);});}
+    paint(data[arch]||0);
+    stars.forEach(function(s){s.addEventListener('click',function(){
+      data[arch]=+s.dataset.v;save();paint(data[arch]);flash(c);});});
+    var clr=c.querySelector('.clr');
+    if(clr)clr.addEventListener('click',function(){delete data[arch];save();paint(0);flash(c);});
+  });
+  function flash(c){var sv=c.querySelector('.saved');if(!sv)return;sv.classList.add('show');setTimeout(function(){sv.classList.remove('show');},1000);}
+})();
+</script>
+</body></html>

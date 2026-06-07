@@ -8,7 +8,7 @@
   :root{ --g:#00643C; --b:#1f5fa8; --r:#b03030; --a:#a8740a; --ink:#141414; --soft:#555; --line:#c8d2cc; }
   html,body{ margin:0; }
   body{ font-family:-apple-system,"Helvetica Neue",Arial,sans-serif; color:var(--ink);
-        font-size:8.7px; line-height:1.22; column-count:3; column-gap:3.6mm; }
+        font-size:13.1px; line-height:1.32; column-count:2; column-gap:5mm; }
   h1{ column-span:all; font-size:12.5px; color:var(--g); margin:0 0 1mm; letter-spacing:.01em;
       border-bottom:2px solid var(--g); padding-bottom:1px; }
   h1 small{ font-weight:400; color:var(--soft); font-size:7.2px; }
@@ -72,13 +72,34 @@
 <li><b>Solow:</b> diminishing returns to K ⟹ <b>convergence</b> only toward the <i>same</i> steady state (conditional). Korea converged; Brazil didn't. K alone runs out ⟹ TFP/ideas drive long-run growth.</li>
 <li><b>4 Is:</b> <b>I</b>nvestment (K, infra) · <b>I</b>nnovation (TFP, ideas) · <b>I</b>nstitutions (rule of law, property) · <b>I</b>ncentives (open markets). Institutions/TFP dominate.</li>
 <li>Demographics: working-age growth ⟹ GDP; replacement fertility 2.1; Japan shrank working-age but raised participation. Same productivity, different hours ⟹ France ≈ US/hr but lower GDP/capita.</li>
-</ul></div>
+</ul>
+<table class="mx"><tr><th>Region</th><th>Convergence?</th><th>Why</th></tr>
+<tr><td>East Asia (Korea, China)</td><td class="pow">Yes</td><td>investment + institutions + openness</td></tr>
+<tr><td>Latin America (Brazil)</td><td class="pl">No</td><td>weak institutions/TFP; same 1960s income as Korea</td></tr>
+<tr><td>Sub-Saharan Africa</td><td class="pl">Mostly no</td><td>institutions, conflict, low TFP</td></tr></table>
+<div class="note"><b>Worked:</b> France ≈ US output/hour, but fewer hours + smaller working-age share ⟹ lower GDP/capita. Singapore: high productivity + high hours.</div>
+</div>
 
 <h2>4 · Money &amp; inflation (long run)</h2>
 <div class="blk">
 <div class="eq"><span class="l">Real money demand</span>M/P = L(Y, i): +Y (transactions), −i (opp. cost)</div>
 <div class="eq"><span class="l">Quantity theory</span>MV = PY ⟹ π ≈ %ΔM − %ΔY (money neutral LR)</div>
+<figure><svg viewBox="0 0 150 64" width="100%" style="max-width:108px">
+<line class="axis" x1="20" y1="6" x2="20" y2="50"/><line class="axis" x1="20" y1="50" x2="146" y2="50"/>
+<text x="6" y="11" font-size="6">i</text><text x="120" y="58" font-size="6">M/P</text>
+<line class="rc" x1="92" y1="8" x2="92" y2="50" stroke-dasharray="3 2"/><text x="78" y="6" font-size="5" fill="#b03030">M/P fixed</text>
+<line class="bc" x1="28" y1="12" x2="140" y2="46"/><text x="139" y="44" font-size="5.5" fill="#1f5fa8">L(Y,i)</text>
+<circle cx="92" cy="35" r="1.7" fill="#13392b"/><text x="2" y="37" font-size="5.5">i*</text></svg>
+<figcaption>Money market: M/P↑ ⟹ shift right ⟹ i↓</figcaption></figure>
 <ul><li>Inflation = monetary phenomenon LR. CB <b>credibility</b> anchors π<sup>e</sup>; un-anchoring is the danger. Seigniorage = printing to fund deficits ⟹ high inflation.</li></ul></div>
+
+<h2>4b · Real vs nominal rates &amp; inflation</h2>
+<div class="blk"><ul>
+<li><b>Ex-ante</b> real r = i − π<sup>e</sup>; <b>ex-post</b> = i − π_actual. Only the real rate drives saving/investment decisions.</li>
+<li><b>Unexpected inflation redistributes:</b> from creditors → debtors (erodes the real value of nominal debt). A government with nominal debt gains (the "inflation tax"); savers in cash lose.</li>
+<li>Indexed bonds (TIPS): <b>breakeven inflation = nominal yield − real yield</b> = the market's π<sup>e</sup>.</li>
+<li><span class="rr">ZLB twist:</span> if π<sup>e</sup> falls with i stuck at 0, the <b>real rate rises</b> (deflation is contractionary, self-reinforcing).</li>
+</ul></div>
 
 <h2>5 · Exchange rates (theory) <span>★ most-tested</span></h2>
 <div class="blk">
@@ -91,7 +112,14 @@
 <li><b>Balassa-Samuelson:</b> catch-up productivity in tradables ⟹ wages↑ economy-wide ⟹ non-tradable P↑ ⟹ <b>real appreciation</b> (rich = "expensive"; Big Mac). Real &amp; nominal can move opposite ways.</li>
 <li><b>UIP:</b> <b>surprise</b> hike ⟹ inflow ⟹ <i>immediate appreciation</i>; high <b>level</b> of rates ⟹ expected future <i>depreciation</i> (carry no free lunch). "Priced-in" ⟹ no move.</li>
 <li><b>Overshooting (Dornbusch):</b> sticky P ⟹ on monetary expansion e jumps <i>past</i> its weaker LR level then appreciates back (UIP+PPP reconciled). Bigger stickiness ⟹ bigger overshoot.</li>
-</ul></div>
+</ul>
+<figure><svg viewBox="0 0 210 44" width="100%" style="max-width:200px">
+<g><text x="2" y="6" font-size="5" fill="#555">M</text><path class="bc" d="M4,32 H18 V18 H46"/></g>
+<g transform="translate(52,0)"><text x="2" y="6" font-size="5" fill="#555">i</text><path class="gc" d="M4,16 H18 V32 H46"/></g>
+<g transform="translate(104,0)"><text x="2" y="6" font-size="5" fill="#555">P</text><path class="gc" d="M4,32 Q26,30 46,14"/></g>
+<g transform="translate(156,0)"><text x="2" y="6" font-size="5" fill="#555">e_N</text><path class="rc" d="M4,16 H16 V36 Q32,30 46,26"/><text x="14" y="43" font-size="4.5" fill="#b03030">overshoot</text></g></svg>
+<figcaption>Monetary expansion: M↑, i↓ (sticky P), P rises slowly, e_N overshoots down then recovers</figcaption></figure>
+</div>
 
 <h2 class="alt">6 · IS-LM-FX — the short-run machine</h2>
 <div class="blk">
@@ -130,7 +158,16 @@
 <li><b>Thermostat:</b> neutral r*+π, then lean vs cycle (you choose φ). <b>Taylor principle:</b> 1pp π ⟹ nominal +(1+φ_π) ⟹ <b>real rate rises</b> (else loose). Inflation counts twice. Taylor-1999: φ_y up to 1.0.</li>
 <li><b>Worked:</b> r*=2,π=3,π*=2,gap=0 ⟹ i=2+3+0.5(1)+0=<b>5.5%</b> (real 2.5%). Recession π=1,gap=−4 ⟹ 2+1+0.5(−1)+0.5(−4)=<b>0.5%</b>.</li>
 <li><b>Phillips/output gap:</b> below potential ⟹ slack ⟹ wages,π↓ ⟹ M/P↑ ⟹ LM→ (self-corrects, slow). LRAS vertical at potential; NAIRU. <span class="rr">Trap:</span> with unemployment on x-axis the overheating/recession halves <b>flip</b>.</li>
-</ul></div>
+</ul>
+<figure><svg viewBox="0 0 150 80" width="100%" style="max-width:120px">
+<line class="axis" x1="20" y1="6" x2="20" y2="64"/><line class="axis" x1="20" y1="64" x2="146" y2="64"/>
+<text x="6" y="11" font-size="6">P</text><text x="128" y="72" font-size="6">Y</text>
+<line class="rc" x1="92" y1="8" x2="92" y2="64" stroke-dasharray="3 2"/><text x="80" y="6" font-size="5" fill="#b03030">LRAS</text>
+<line class="bc" x1="28" y1="14" x2="138" y2="58"/><text x="139" y="58" font-size="5.5" fill="#1f5fa8">AD</text>
+<line class="gc" x1="28" y1="60" x2="138" y2="16"/><text x="139" y="17" font-size="5.5" fill="#00643C">SRAS</text>
+<circle cx="70" cy="44" r="1.8" fill="#13392b"/><text x="40" y="44" font-size="5" fill="#555">gap&lt;0</text></svg>
+<figcaption>Below potential (left of LRAS) ⟹ prices fall, self-corrects to potential</figcaption></figure>
+</div>
 
 <h2 class="alt">9 · ZLB &amp; unconventional</h2>
 <div class="blk"><ul>
@@ -158,9 +195,15 @@
 <div class="eq"><span class="l">The one identity</span>long yield ≈ avg(expected future short rates) + term premium = avg real rate + avg expected inflation + TP</div>
 <ul>
 <li><b>Slope = forecast:</b> upward ⟹ rates expected <b>rise</b>; inverted (short&gt;long) ⟹ expected <b>fall</b> (recession OR credible disinflation).</li>
-<li>Moves: π surprise pre-CB ⟹ long↑ <b>steepen</b>; credible disinflation ⟹ long↓ <b>invert</b>; hikes-expected/long-anchored ⟹ <b>flatten</b>; QE (CB buys long) ⟹ <b>flatten</b>; heavy long issuance/fiscal risk ⟹ <b>steepen</b>.</li>
-<li class="trap"><span class="rr">Trap:</span> inversion ≠ guaranteed recession (2023 = soft landing).</li>
-</ul></div>
+</ul>
+<table class="mx"><tr><th>Shock</th><th>Curve moves</th></tr>
+<tr><td>π surprise, before CB acts</td><td>long↑ ⟹ <span class="pow">steepen</span></td></tr>
+<tr><td>credible disinflation</td><td>long↓, short↑ ⟹ <span class="pl">invert</span></td></tr>
+<tr><td>hikes expected, long anchored</td><td>short↑ ⟹ flatten</td></tr>
+<tr><td>cuts / recession priced</td><td>long↓ ⟹ invert, then steepen on cuts</td></tr>
+<tr><td>QE (CB buys long bonds)</td><td>term premium↓ ⟹ flatten</td></tr>
+<tr><td>heavy long issuance / fiscal risk</td><td>long↑ ⟹ <span class="pow">steepen</span></td></tr></table>
+<div class="trap"><span class="rr">Trap:</span> inversion ≠ guaranteed recession (2023 = soft landing).</div></div>
 
 <h2 class="alt">11 · Fiscal, multiplier &amp; debt</h2>
 <div class="blk">
@@ -170,6 +213,7 @@
 <li><b>Treadmill:</b> (r−g) = belt speed, Debt/GDP = backpack. <b>r&gt;g</b> ⟹ snowball, need surplus; <b>g&gt;r</b> ⟹ falls even with deficits (China, Japan). e.g. r=4,g=2,D/Y=100% ⟹ +2% needed.</li>
 <li>r carries a <b>sovereign risk premium</b> (self-fulfilling). Govt ≠ business: default = redistribution not destroyed wealth. No need to repay, just non-explosive path. Inflation ~neutral (raises r and g).</li>
 <li><b>Multiplier</b> ΔY = ΔG/(1−mpc); leaks via taxes/imports/saving. <b>Automatic stabilisers</b> (taxes fall, benefits rise in slumps) — strip them out ⟹ <b>structural balance</b> = true discretionary stance (Europe 2010-14 = real austerity). 3 Ts: timely, targeted, temporary.</li>
+<li>Even a <b>primary surplus</b> can't stop debt rising if the interest bill r·Debt is large enough (the snowball). <b>Fiscal space</b> = room to borrow before markets balk; lost when r jumps above g or credibility breaks. Consolidation that works = <b>gradual + credible</b> + protect growth.</li>
 </ul></div>
 
 <h2 class="alt">12 · BoP, current account &amp; FX intervention</h2>
@@ -183,9 +227,17 @@
 <li><b>Asymmetry:</b> defend a <b>strong</b> ccy forever (print own); defend a <b>weak</b> one only till reserves run out ⟹ <b>pegs break on the weak side</b> (1992 EMS, Soros). Sudden stops: capital flight ⟹ forced CA reversal.</li>
 </ul></div>
 
+<h2 class="alt">12b · Global imbalances &amp; crises</h2>
+<div class="blk"><ul>
+<li><b>Saving glut</b> (Bernanke): EM + oil + ageing savers ⟹ low world r* and large US deficits. Twin deficits: fiscal + CA move together.</li>
+<li><b>Net IIP</b> = cumulative CA + valuation effects (a depreciation can raise the value of foreign assets). The US runs deficits yet earns positive net income (exorbitant privilege; the $ is the reserve currency).</li>
+<li><b>Sudden stop:</b> capital inflows reverse ⟹ forced CA reversal + crisis (1997 Asia). <b>Original sin:</b> EMs borrow in $ ⟹ a depreciation <i>raises</i> the real debt burden (balance-sheet effect), so depreciation can be contractionary, not expansionary.</li>
+</ul></div>
+
 <h2 class="red">13 · Exam method &amp; traps</h2>
 <div class="blk key">
 <b>Method:</b> (1) what does the shock do to the <i>curve/expected path</i>? (2) is capital mobile — does r_F bind? (3) trace the chain, draw it, state the verdict + WHY. (4) check real vs nominal, news vs level, the e convention.</div>
 <div class="blk trap"><b>Myths to refute:</b> "high debt ⟹ default" ✗ · "must repay govt debt" ✗ · "debt burdens next gen" ½ (inherit assets + higher income) · "disinflation always ⟹ unemployment" ✗ (2021-24) · "high rates ⟹ strong ccy" ✗ (UIP) · "inversion ⟹ recession" not guaranteed · "deficit = bad" depends on use · fixing FX ⟹ follow other's policy ✓ but bilateral trade need not balance ✗.</div>
+<div class="blk key"><b>Draw from memory:</b> S-I market (r*) · IS-LM-FX + the 6 matrix cells · money market · AD-AS / output gap · yield curve (normal vs inverted + the 6 shocks) · overshooting 4-panel · FX-intervention T-account · Solow convergence. <b>Key magnitudes:</b> 2% inflation target · neutral real rate ~0.5-1% · global public debt ~95-100% of GDP · replacement fertility 2.1 · US trend growth ~2%.</div>
 
 </body></html>

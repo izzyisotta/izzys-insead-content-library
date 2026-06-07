@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>MGE Cheat Sheet: Topic Flow + Diagrams</title>
+<style>
+  :root{
+    --green:#00643C; --green2:#2e7d32; --blue:#1f5fa8; --red:#b03030; --amber:#a8740a;
+    --ink:#1a1a1a; --soft:#555; --line:#cfcfcf;
+  }
+  *{box-sizing:border-box;}
+  @page{ size:A4; margin:5mm; }
+  body{
+    margin:0; color:var(--ink); background:#fff;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:9.5px; line-height:1.3;
+  }
+  .backlink{display:block; padding:6px 4px; font-size:12px;}
+  .backlink a{color:var(--blue); text-decoration:none;}
+  @media print{ .backlink{display:none;} }
+
+  .page{ width:200mm; height:287mm; display:flex; gap:4mm; overflow:hidden; padding:0; }
+  .page2{ break-before:page; page-break-before:always; }
+  .col{ flex:1; min-width:0; }
+
+  /* page banner sits as first item in col 1 */
+  .banner{ background:var(--green); color:#fff; border-radius:5px; padding:5px 8px; margin:0 0 5px; }
+  .banner b{ font-size:12.5px; letter-spacing:.01em; }
+  .banner span{ display:block; font-size:7.6px; opacity:.9; margin-top:1px; letter-spacing:.04em; text-transform:uppercase;}
+
+  h2{ font-size:10.5px; color:var(--green); margin:7px 0 3px; padding:0 0 2px; border-bottom:1.5px solid var(--green);
+      display:flex; align-items:baseline; gap:5px; }
+  h2 .n{ background:var(--green); color:#fff; font-size:8.5px; font-weight:700; border-radius:3px; padding:1px 5px; }
+  h2:first-child{ margin-top:0; }
+  h3{ font-size:9.3px; color:#13392b; margin:5px 0 2px; font-weight:700; }
+  p{ margin:3px 0; }
+  ul,ol{ margin:3px 0; padding-left:14px; }
+  li{ margin:1.5px 0; }
+  strong{ color:#08251a; }
+  .sub{ font-size:8.3px; color:var(--soft); }
+
+  .eq{ background:#f0f6f2; border:1px solid #cfe2d6; border-left:3px solid var(--green);
+       border-radius:4px; padding:3px 7px; margin:4px 0; font-size:9.3px; }
+  .eq .l{ display:block; font-size:7.3px; text-transform:uppercase; letter-spacing:.04em; color:var(--green); font-weight:700; margin-bottom:1px; }
+  .eq b.f{ font-family:"Cambria Math",Georgia,serif; color:#08251a; }
+  .boxed{ display:inline-block; border:1.4px solid var(--green); background:#e7f3ec; border-radius:4px; padding:1px 6px; font-weight:700; }
+  var{ font-style:italic; font-family:Georgia,"Times New Roman",serif; }
+
+  .k{ background:#fff; border:1px solid var(--line); border-left:3px solid var(--blue); border-radius:4px; padding:4px 7px; margin:4px 0; }
+  .warn{ background:#fbeeee; border:1px solid #ecc9c9; border-left:3px solid var(--red); border-radius:4px; padding:4px 7px; margin:4px 0; }
+  .warn b{ color:var(--red); }
+  .ex{ background:#fdf6e9; border:1px solid #ecd9ad; border-left:3px solid var(--amber); border-radius:4px; padding:4px 7px; margin:4px 0; }
+  .ex b{ color:var(--amber); }
+  .ch{ background:#eaf1f8; border:1px solid #c2d6ea; border-left:3px solid var(--blue); border-radius:4px; padding:4px 7px; margin:4px 0; }
+  .ch b{ color:#13496f; }
+
+  table{ border-collapse:collapse; width:100%; margin:4px 0; font-size:8.2px; }
+  th{ background:var(--green); color:#fff; text-align:left; padding:2px 4px; font-weight:600; }
+  td{ border:1px solid var(--line); padding:2px 4px; vertical-align:top; }
+  tr:nth-child(even) td{ background:#f6f8f6; }
+
+  /* mundell-fleming matrix */
+  table.mf td{ font-size:7.9px; }
+  .pw{ color:#0c5c2f; font-weight:700; }
+  .pl{ color:var(--red); font-weight:700; }
+  .pill{ display:inline-block; font-size:7px; font-weight:700; color:#fff; border-radius:3px; padding:0 4px; }
+  .pill.g{ background:var(--green2); } .pill.r{ background:var(--red); }
+
+  /* T-account */
+  table.t th{ background:#13392b; }
+  table.t td.a{ background:#eef6f1; } table.t td.l{ background:#eef2f8; }
+  table.t caption{ caption-side:top; font-size:8px; font-weight:700; color:#13392b; padding:2px 0; text-align:left; }
+
+  figure{ margin:4px 0; text-align:center; }
+  figcaption{ font-size:7.5px; color:var(--soft); font-style:italic; margin-top:1px; line-height:1.25; }
+  svg{ display:block; margin:0 auto; max-width:100%; }
+  .diagwrap{ border:1px solid var(--line); border-radius:5px; padding:3px; background:#fff; }
+  .twin{ display:flex; gap:4px; }
+  .twin > div{ flex:1; }
+
+  .verd{ font-size:8.6px; }
+  .arrow{ color:var(--blue); font-weight:700; }
+</style>
+</head>
+<body>
+
+<div class="backlink"><a href="MGE%20Revision%20Document.html">&larr; Back to MGE Revision Document</a></div>
+
+<!-- ===================== PAGE 1: LONG RUN ===================== -->
+<div class="page">
+
+  <!-- ---------- COLUMN 1 ---------- -->
+  <div class="col">
+
+    <div class="banner"><b>MGE · Macroeconomics in the Global Economy</b><span>Cheat sheet · Page 1: The Long Run (fundamentals) · Prof. Fatás</span></div>
+
+    <h2><span class="n">1</span>National accounts &amp; identities</h2>
+    <div class="eq"><span class="l">GDP: two ways</span>
+      <b class="f">GDP = P<sub>A</sub>Q<sub>A</sub>+P<sub>B</sub>Q<sub>B</sub>+…</b> (final goods) &nbsp;=&nbsp; <b class="f">C + I + G + NX</b></div>
+    <div class="eq"><span class="l">National income</span><b class="f">GNI = GDP + NFP</b> &nbsp;<span class="sub">(NFP = net factor payments: income from abroad − paid abroad)</span></div>
+    <div class="eq"><span class="l">The central identity (accounting, always true)</span>
+      S<sub>priv</sub>=(GDP+NFP)−T−C &nbsp; S<sub>gov</sub>=T−G &nbsp;⟹ T cancels<br>
+      <span class="boxed">S = I + CA</span> &nbsp; CA = NX + NFP &nbsp; <span class="sub">closed economy: S=I; world: CA=0</span></div>
+    <p class="sub">Rearrange for any trade question: <b>CA = S − I</b>. Surplus = country lends abroad (S&gt;I, e.g. ageing Germany); deficit = borrows to invest (I&gt;S, US). Not virtue/weakness.</p>
+    <div class="eq"><span class="l">Balance of payments &amp; by sector</span>
+      Current Account = Capital &amp; Financial Account<br>
+      (S<sub>priv</sub>−I<sub>priv</sub>) + (S<sub>gov</sub>−I<sub>gov</sub>) = CA</div>
+    <table>
+      <tr><th>Flow</th><th>Sign</th><th>Note</th></tr>
+      <tr><td>You buy foreign assets / CB buys FX reserves</td><td>+ outflow</td><td>CA surplus = net capital outflow</td></tr>
+      <tr><td>Foreigners buy your assets</td><td>− inflow</td><td>CA deficit = net capital inflow</td></tr>
+    </table>
+    <div class="warn"><b>Traps.</b> "Imports reduce GDP" → false (−M just strips out foreign goods miscounted in C). "Gov deficit ⟹ capital outflow" → false (depends on private S). "CA surplus + private inflow ⟹ reserves rising" → <b>true</b> (China 2013).</div>
+
+    <h2><span class="n">2</span>Saving–investment &amp; the real rate</h2>
+    <p>The real rate <var>r</var> is the price that clears the market for funds. Saving = supply (↑ with <var>r</var>); investment = demand (↓ with <var>r</var>).</p>
+    <figure><div class="diagwrap">
+      <svg viewBox="0 0 180 118" role="img" aria-label="Saving investment market">
+        <line x1="28" y1="8" x2="28" y2="100" stroke="#333" stroke-width="1.2"/>
+        <line x1="28" y1="100" x2="172" y2="100" stroke="#333" stroke-width="1.2"/>
+        <text x="16" y="14" font-size="8" fill="#333">r</text>
+        <text x="118" y="113" font-size="7" fill="#555">S, I</text>
+        <line x1="42" y1="92" x2="160" y2="22" stroke="#1f5fa8" stroke-width="2.2"/>
+        <text x="162" y="24" font-size="8" fill="#1f5fa8">S</text>
+        <line x1="42" y1="26" x2="160" y2="96" stroke="#2e7d32" stroke-width="2.2"/>
+        <text x="162" y="98" font-size="8" fill="#2e7d32">I</text>
+        <circle cx="101" cy="59" r="3" fill="#13392b"/>
+        <line x1="28" y1="59" x2="101" y2="59" stroke="#bbb" stroke-width="1" stroke-dasharray="3 2"/>
+        <line x1="101" y1="59" x2="101" y2="100" stroke="#bbb" stroke-width="1" stroke-dasharray="3 2"/>
+        <text x="30" y="55" font-size="6.5" fill="#b03030">r*</text>
+      </svg></div>
+      <figcaption>↓Saving or ↑Investment pushes <var>r</var> up; ↑Saving or ↓Investment pushes it down. World: Σsurpluses = Σdeficits at one world <var>r</var>.</figcaption>
+    </figure>
+    <div class="eq"><span class="l">Fisher: real interest rate</span><b class="f">r = i − π</b> &nbsp;<span class="sub">(return in goods, not money; Japan 2005: i=0, π=−1.4 ⟹ r=+1.4)</span></div>
+    <div class="ch"><b>Saving glut (Bernanke).</b> ↑desired saving (China, oil, ageing) shifts world S right ⟹ world <var>r</var> falls AND imbalances widen. <b>Long-run real rates are set by global S &amp; I, not the central bank</b> (myth).</div>
+
+    <h2><span class="n">3</span>Growth: why countries are rich</h2>
+    <div class="eq"><span class="l">GDP/capita decomposition (identity, each ratio cancels)</span>
+      <b class="f">GDP/Pop = GDP/Hrs × Hrs/Wkrs × Wkrs/WAP × WAP/Pop</b><br>
+      <span class="sub">= productivity × effort × employment × demographics</span></div>
+    <p class="sub">France ≈ US <i>per hour</i> (~$103 vs $105): the gap is hours + employment, not productivity. Growth ≈ productivity growth + population growth.</p>
+    <table>
+      <tr><th>The 4 Is</th><th>Role</th></tr>
+      <tr><td><b>Innovation</b></td><td>shifts the frontier, drives <i>developed</i> growth</td></tr>
+      <tr><td><b>Initial conditions</b></td><td>distance from frontier = catch-up potential</td></tr>
+      <tr><td><b>Investment</b></td><td>convergence needs capital (miracles &gt;25% GDP; Korea ~35%)</td></tr>
+      <tr><td><b>Institutions</b></td><td>rule of law, property rights, make investment happen</td></tr>
+    </table>
+    <div class="ch"><b>Convergence (Solow).</b> Nearer the frontier ⟹ growth slows toward steady state. Asia converged; Latin America didn't (institutions). "No rich country has weak institutions." On a country question, diagnose <i>which I binds</i> (today usually institutions).</div>
+    <div class="ex"><b>Exam.</b> Pure qualitative, no Solow algebra. Japan "defies gravity": working-age pop fell ~12m yet labour force <i>grew</i> ~4m via later retirement + female participation ⟹ policy can offset ageing (with limits). Past T/F: "the two components that matter most are consumption and net exports" → <b>false</b>, it's investment.</div>
+
+  </div>
+
+  <!-- ---------- COLUMN 2 ---------- -->
+  <div class="col">
+
+    <h2><span class="n">4</span>Money &amp; inflation</h2>
+    <div class="eq"><span class="l">The two aggregates &amp; the multiplier</span>
+      Base = C + R &nbsp;·&nbsp; Money supply = C + D &nbsp;·&nbsp; MS = m·Base<br>
+      <b class="f">m = (C+D)/(C+R) = (C/D+1)/(C/D+R/D) &gt; 1</b></div>
+    <p class="sub">Panic ⟹ C/D & R/D jump ⟹ m collapses toward 1 ⟹ money supply shrinks with base fixed (Depression story).</p>
+    <div class="eq"><span class="l">Quantity equation ⟹ money-growth rule</span>
+      <b class="f">M·V = P·Y</b> &nbsp;(V = PY/M ≈ 1.67 US)<br>
+      V stable ⟹ <b class="f">%ΔM ≈ inflation + real GDP growth</b></div>
+    <div class="eq"><span class="l">Money demand (real)</span><b class="f">M/P = L(GDP<sup>+</sup>, i<sup>−</sup>)</b> &nbsp;<span class="sub">↑ with transactions, ↓ with the nominal rate (opportunity cost of cash)</span></div>
+    <div class="k"><b>Long-run neutrality.</b> Money is neutral ("add a zero"): CB <i>forecasts</i> real growth and <i>chooses</i> inflation. Inflation is ultimately monetary. Fixed supply ≠ stable value (Bitcoin volatile); a nominal anchor is a <i>commitment</i>, not a quantity cap.</div>
+    <div class="ex"><b>Exam.</b> "When China's CB buys US$ it removes liquidity" → false: it pays in yuan ⟹ base grows ⟹ <i>adds</i> liquidity (sterilise to undo). Initial price level is arbitrary; only the inflation path matters.</div>
+
+    <h2><span class="n">5</span>Exchange-rate theory</h2>
+    <div class="eq"><span class="l">Real exchange rate (foreign goods per domestic good)</span>
+      <b class="f">e<sub>R</sub> = e<sub>N</sub>·P / P<sub>F</sub></b> &nbsp;<span class="sub">e<sub>N</sub> = foreign ccy per domestic; <b>rise = appreciation</b>. e<sub>R</sub>&lt;1 = your goods cheaper.</span></div>
+    <div class="eq"><span class="l">1 · PPP / Law of One Price (long run)</span>
+      e<sub>R</sub>=1 ⟹ <b class="f">e<sub>N</sub> = P<sub>F</sub>/P</b> ⟹ <b class="f">%Δe<sub>N</sub> = π<sub>F</sub> − π<sub>dom</sub></b><br>
+      <span class="sub">Higher domestic inflation ⟹ currency depreciates (Italy vs Germany: lira −4.9%/yr).</span></div>
+    <div class="eq"><span class="l">2 · Balassa–Samuelson (productivity)</span>
+      Rich/high-productivity ⟹ higher price level (higher e<sub>R</sub>). Rising tradables productivity ⟹ real appreciation, via <b>higher inflation if fixed</b> or <b>nominal appreciation if floating</b> (CB chooses).</div>
+    <div class="eq"><span class="l">3 · UIP: currencies as assets (short run)</span>
+      <b class="f">r − r<sub>F</sub> = expected depreciation of domestic ccy</b></div>
+    <div class="warn"><b>The key distinction.</b> <i>News</i> of a rate rise ⟹ immediate <b>appreciation</b>; a high <i>level</i> of rates (≈ high inflation) ⟹ expected <b>depreciation</b>. A priced-in hike ⟹ <b>no</b> move. ~$10tn/day traded; capital flows, not trade, set the price.</div>
+
+    <h3>Overshooting (permanent ↑M, sticky prices)</h3>
+    <figure><div class="diagwrap">
+      <svg viewBox="0 0 360 96" role="img" aria-label="Overshooting four panels">
+        <!-- Money -->
+        <g><text x="6" y="9" font-size="6.6" fill="#333">Money M</text>
+          <line x1="10" y1="14" x2="10" y2="78" stroke="#333" stroke-width="1"/>
+          <line x1="10" y1="78" x2="84" y2="78" stroke="#333" stroke-width="1"/>
+          <path d="M14,58 L42,58 L42,36 L82,36" fill="none" stroke="#1f5fa8" stroke-width="2"/></g>
+        <!-- Interest rate -->
+        <g><text x="96" y="9" font-size="6.6" fill="#333">Rate i</text>
+          <line x1="100" y1="14" x2="100" y2="78" stroke="#333" stroke-width="1"/>
+          <line x1="100" y1="78" x2="174" y2="78" stroke="#333" stroke-width="1"/>
+          <path d="M104,34 L132,34 L132,58 L172,58" fill="none" stroke="#a8740a" stroke-width="2"/>
+          <text x="118" y="72" font-size="5.6" fill="#555">falls then back</text></g>
+        <!-- Prices -->
+        <g><text x="186" y="9" font-size="6.6" fill="#333">Prices P</text>
+          <line x1="190" y1="14" x2="190" y2="78" stroke="#333" stroke-width="1"/>
+          <line x1="190" y1="78" x2="264" y2="78" stroke="#333" stroke-width="1"/>
+          <path d="M194,58 Q230,58 244,36 L262,33" fill="none" stroke="#2e7d32" stroke-width="2"/>
+          <text x="206" y="72" font-size="5.6" fill="#555">slow rise</text></g>
+        <!-- Exchange rate -->
+        <g><text x="276" y="9" font-size="6.6" fill="#333">Nom. e<tspan font-size="4.6">N</tspan></text>
+          <line x1="280" y1="14" x2="280" y2="78" stroke="#333" stroke-width="1"/>
+          <line x1="280" y1="78" x2="354" y2="78" stroke="#333" stroke-width="1"/>
+          <path d="M284,34 L312,34 L312,66 Q335,52 352,49" fill="none" stroke="#b03030" stroke-width="2"/>
+          <text x="296" y="74" font-size="5.6" fill="#b03030">overshoot</text></g>
+      </svg></div>
+      <figcaption>Sticky prices ⟹ the free-to-jump exchange rate absorbs the whole shock. UIP needs it to be <i>expected to appreciate</i> yet land <i>weaker</i> ⟹ it overshoots the depreciation then walks back. Bigger stickiness ⟹ bigger overshoot.</figcaption>
+    </figure>
+    <div class="ex"><b>Exam.</b> A fast-growing economy can still <i>depreciate</i> if its inflation is high enough (true). FX "theories" mostly fit ex-post: FX is far too volatile, rate-differential link weak.</div>
+
+  </div>
+</div>
+
+<!-- ===================== PAGE 2: SHORT RUN ===================== -->
+<div class="page page2">
+
+  <!-- ---------- COLUMN 1 ---------- -->
+  <div class="col">
+
+    <div class="banner"><b>MGE · Short Run: the IS-LM-FX machine</b><span>Cheat sheet · Page 2: Business cycles · 80% of the paper is this one model</span></div>
+
+    <h2><span class="n">6</span>IS-LM-FX: the engine</h2>
+    <div class="eq"><span class="l">Three blocks</span>
+      IS: GDP = C(GDP,r,T,W) + I(r) + G + NX(e<sub>R</sub>,GDP,GDP<sub>F</sub>)<br>
+      LM: M/P = L(GDP<sup>+</sup>, i<sup>−</sup>) &nbsp;·&nbsp; FX: <b class="f">r = r<sub>F</sub></b></div>
+    <figure><div class="diagwrap">
+      <svg viewBox="0 0 200 128" role="img" aria-label="IS LM FX diagram">
+        <line x1="30" y1="8" x2="30" y2="106" stroke="#333" stroke-width="1.2"/>
+        <line x1="30" y1="106" x2="192" y2="106" stroke="#333" stroke-width="1.2"/>
+        <text x="18" y="14" font-size="8" fill="#333">r</text>
+        <text x="150" y="120" font-size="7" fill="#555">GDP</text>
+        <line x1="44" y1="26" x2="170" y2="100" stroke="#2e7d32" stroke-width="2.2"/>
+        <text x="172" y="100" font-size="8" fill="#2e7d32">IS</text>
+        <line x1="44" y1="100" x2="170" y2="26" stroke="#1f5fa8" stroke-width="2.2"/>
+        <text x="172" y="28" font-size="8" fill="#1f5fa8">LM</text>
+        <line x1="30" y1="63" x2="192" y2="63" stroke="#a8740a" stroke-width="1.6" stroke-dasharray="4 3"/>
+        <text x="176" y="59" font-size="7.5" fill="#a8740a">r_F</text>
+        <circle cx="107" cy="63" r="3.2" fill="#13392b"/>
+        <text x="40" y="40" font-size="5.8" fill="#555">above r_F → inflow → appreciation</text>
+        <text x="40" y="92" font-size="5.8" fill="#555">below r_F → outflow → depreciation</text>
+      </svg></div>
+      <figcaption>Equilibrium = IS ∩ LM. The flat r_F line is the world rate (small economy is a price-taker); the exchange rate is the valve that drags r back to it.</figcaption>
+    </figure>
+    <div class="k"><b>4-step routine (every time):</b> ① shift the curve the shock hits → ② compare r vs r_F → inflow (r&gt;r_F) or outflow → apprec/deprec → ③ adjust NX (apprec ⟹ NX↓ ⟹ IS back) → ④ repeat until r = r_F.<br>
+      IS→ on: ↑G, ↓T, ↑confidence/wealth. LM→ on: ↑M, ↓P. r_F up: foreign rate rises.</div>
+
+    <h2><span class="n">7</span>Mundell-Fleming matrix</h2>
+    <p class="sub">Expansion shown (contraction = same chain, signs flipped). The fixed↔flexible reversal is the single most-examined idea.</p>
+    <table class="mf">
+      <tr><th>Policy</th><th>Closed (no mobility)</th><th>Flexible FX</th><th>Fixed FX</th></tr>
+      <tr>
+        <td><b>Monetary ↑M/P</b></td>
+        <td>LM→ r↓ ⟹ ↑I,↑C<br><span class="pill g">Powerful</span></td>
+        <td>r&lt;r_F ⟹ outflow ⟹ deprec ⟹ NX↑<br><span class="pill g">Powerful</span></td>
+        <td>peg defence buys back ccy, reverses M<br><span class="pill r">Powerless</span></td>
+      </tr>
+      <tr>
+        <td><b>Fiscal ↑G</b></td>
+        <td>IS→ r↑, GDP↑<br><span class="pill g">Powerful</span></td>
+        <td>r&gt;r_F ⟹ inflow ⟹ apprec ⟹ NX↓ ⟹ IS back<br><span class="pill r">Powerless</span></td>
+        <td>CB prints to hold peg ⟹ LM→ too<br><span class="pill g">Powerful (amplified)</span></td>
+      </tr>
+    </table>
+    <div class="k"><b>The reversal in one line.</b> Monetary: potent floating, powerless pegged. Fiscal: exact mirror (powerless floating, potent pegged). Under a peg the CB loses monetary control to defend the currency, which is why fiscal regains bite.</div>
+
+    <h3>Impossible Trinity: pick any two</h3>
+    <figure><div class="diagwrap">
+      <svg viewBox="0 0 230 116" role="img" aria-label="Impossible trinity">
+        <polygon points="115,16 24,104 206,104" fill="#e7f3ec" stroke="#00643C" stroke-width="2"/>
+        <text x="74" y="12" font-size="7.5" fill="#13392b">Capital mobility</text>
+        <text x="2" y="114" font-size="7.5" fill="#13392b">Fixed FX rate</text>
+        <text x="150" y="114" font-size="7.5" fill="#13392b">Indep. monetary</text>
+        <text x="66" y="68" font-size="7" font-style="italic" fill="#555">cannot have</text>
+        <text x="66" y="80" font-size="7" font-style="italic" fill="#555">all three</text>
+      </svg></div>
+      <figcaption>With free capital flows you cannot also fix the rate AND run independent monetary policy.</figcaption>
+    </figure>
+    <div class="ex"><b>Exam.</b> Half the short-run paper is "policy X under fixed/flexible FX." Write the chain: IS/LM shift → r vs r_F → flow → apprec/deprec → NX → GDP. 2008-09: house collapse → IS← (recession); monetary+fiscal stimulus → recovery; post-2010 austerity → IS← again, ZLB blocked the offset (Europe).</div>
+
+  </div>
+
+  <!-- ---------- COLUMN 2 ---------- -->
+  <div class="col">
+
+    <h2><span class="n">8</span>Taylor rule &amp; supply side</h2>
+    <div class="eq"><span class="l">The thermostat (Taylor 1993)</span>
+      <b class="f">i = (r* + π) + 0.5(π − π*) + 0.5·(output gap)</b><br>
+      <span class="sub">Taylor: r*=2, π*=2 ⟹ neutral 4%. φ's = how hard it leans.</span></div>
+    <div class="warn"><b>#1 trap (Taylor principle).</b> A 1pt inflation rise lifts i by <b>1.5pt, not 0.5</b> (π appears standalone AND in 0.5(π−π*)). The total response must exceed 1 or inflation spirals.</div>
+    <div class="twin">
+      <div class="k" style="font-size:8.4px;"><b>Overheating</b> π=3, gap=0: i = (2+3)+0.5(1)+0 = <b>5.5%</b>. Real r=2.5 &gt; r*=2 (the brake).</div>
+      <div class="k" style="font-size:8.4px;"><b>Recession</b> π=1, gap=−4: i = (2+1)−0.5−2 = <b>0.5%</b>. Deeper ⟹ wants &lt;0 (ZLB).</div>
+    </div>
+    <p class="sub">Reaction function, not identity. Tracks the Fed well 1982–2008. Long-run supply (LRAS) is <b>vertical</b> at potential.</p>
+    <figure><div class="diagwrap">
+      <svg viewBox="0 0 200 112" role="img" aria-label="AD-AS output gap recession">
+        <line x1="30" y1="8" x2="30" y2="92" stroke="#333" stroke-width="1.2"/>
+        <line x1="30" y1="92" x2="192" y2="92" stroke="#333" stroke-width="1.2"/>
+        <text x="18" y="14" font-size="8" fill="#333">r</text>
+        <text x="150" y="105" font-size="7" fill="#555">GDP</text>
+        <line x1="130" y1="8" x2="130" y2="92" stroke="#b03030" stroke-width="2.2"/>
+        <text x="96" y="8" font-size="6.4" fill="#b03030">Potential</text>
+        <line x1="42" y1="22" x2="180" y2="86" stroke="#2e7d32" stroke-width="2"/>
+        <text x="182" y="86" font-size="8" fill="#2e7d32">IS</text>
+        <line x1="42" y1="86" x2="150" y2="22" stroke="#1f5fa8" stroke-width="2"/>
+        <text x="138" y="22" font-size="8" fill="#1f5fa8">LM</text>
+        <line x1="62" y1="90" x2="182" y2="30" stroke="#1f5fa8" stroke-width="1.8" stroke-dasharray="4 3"/>
+        <text x="168" y="40" font-size="7" fill="#1f5fa8">LM′</text>
+        <circle cx="98" cy="55" r="3" fill="#13392b"/>
+        <circle cx="130" cy="66" r="2.6" fill="#888"/>
+        <text x="40" y="74" font-size="5.8" fill="#555">below potential: P↓ ⟹ M/P↑ ⟹ LM→ back</text>
+      </svg></div>
+      <figcaption>Below potential (recession): IS∩LM left of LRAS ⟹ slack ⟹ prices fall ⟹ M/P rises ⟹ LM→ to potential. Above: mirror (prices rise, LM←). Supply shock = LRAS← ⟹ <b>stagflation</b>.</figcaption>
+    </figure>
+
+    <h2><span class="n">9</span>ZLB &amp; unconventional policy</h2>
+    <p class="sub">Deep crisis: low r*, deflation, big −gap ⟹ rule wants i&lt;0, but cash floors i at 0. Stuck too tight ⟹ weaker demand ⟹ more deflation ⟹ self-reinforcing trap.</p>
+    <div class="warn"><b>Deflation bites.</b> r = i − π with π&lt;0 ⟹ real rate soars (1931: 2.6−(−10.1)=+12.7%). QE floored nominal, not real, rate.</div>
+    <div class="k"><b>QE.</b> CB buys bonds, credits reserves ⟹ both sides of balance sheet swell, base jumps (offsets a dead multiplier). Works via signalling + liquidity + lower long rates. QE ≠ inflation, ≠ financing the gov't (myths). Depression vs 2008: same trigger (multiplier collapse) but CB <b>passive</b> then vs <b>expanded base</b> now (deposit insurance held C/D flat).</div>
+
+    <h2><span class="n">10</span>Yield curve</h2>
+    <div class="eq"><span class="l">A long rate = average of expected short rates</span>
+      i<sup>(n)</sup> ≈ (E[i<sub>t</sub>]+…+E[i<sub>t+n−1</sub>])/n + term premium<br>
+      <span class="sub">= long-run real rate + expected inflation + term premium. Slope IS the market's rate forecast.</span></div>
+    <figure><div class="diagwrap">
+      <svg viewBox="0 0 200 92" role="img" aria-label="Yield curve shapes">
+        <line x1="26" y1="8" x2="26" y2="74" stroke="#333" stroke-width="1"/>
+        <line x1="26" y1="74" x2="192" y2="74" stroke="#333" stroke-width="1"/>
+        <text x="6" y="14" font-size="6.4" fill="#555">Yield</text>
+        <text x="140" y="86" font-size="6.4" fill="#555">Maturity →</text>
+        <path d="M36,58 Q110,30 186,22" fill="none" stroke="#2e7d32" stroke-width="2.2"/>
+        <text x="150" y="40" font-size="6.2" fill="#2e7d32">normal (↑)</text>
+        <path d="M36,30 Q110,40 186,52" fill="none" stroke="#b03030" stroke-width="2.2"/>
+        <text x="150" y="62" font-size="6.2" fill="#b03030">inverted</text>
+      </svg></div>
+      <figcaption>Upward = rates expected to rise. Inverted (short&gt;long) = future rates expected to fall (recession <i>or</i> credible disinflation). Inversion ≠ guaranteed recession (2023 soft landing).</figcaption>
+    </figure>
+    <table>
+      <tr><th>Shock</th><th>Move</th></tr>
+      <tr><td>Inflation surprise, pre-CB (long↑)</td><td class="pw">Steepen</td></tr>
+      <tr><td>Heavy long issuance / fiscal risk (long↑, premium)</td><td class="pw">Steepen</td></tr>
+      <tr><td>Hike priced, long anchored (short↑)</td><td>Flatten</td></tr>
+      <tr><td>QE buys long bonds (long↓)</td><td>Flatten</td></tr>
+      <tr><td>Credible disinflation (short↑, long↓)</td><td class="pl">Invert</td></tr>
+      <tr><td>Cuts/recession priced (long↓)</td><td class="pl">Invert</td></tr>
+    </table>
+
+    <h2><span class="n">11</span>Fiscal policy &amp; debt</h2>
+    <div class="eq"><span class="l">Balances</span>
+      Primary balance = T − G − Transfers<br>
+      Overall = Primary − Interest; &nbsp;Interest = r<sub>nom</sub>·Debt</div>
+    <div class="eq"><span class="l">★ The one formula you compute: debt-stabilising surplus</span>
+      <span class="boxed">Req. primary surplus/GDP = (r − g)·Debt/GDP</span><br>
+      <span class="sub">r=4,g=2,D/Y=120% ⟹ +2.4%. If g&gt;r ⟹ negative ⟹ run deficits forever, ratio still falls. r,g both nominal (or both real).</span></div>
+    <div class="k"><b>r carries a sovereign risk premium</b> (can be self-fulfilling). Gov't ≠ business: default = redistribution, not destroyed wealth. "Must repay debt" / "high debt = high default risk" = myths.</div>
+
+    <h2><span class="n">12</span>BoP &amp; FX intervention</h2>
+    <div class="eq"><span class="l">Reserves close the balance</span><b class="f">CA + Capital acct + Δreserves = 0</b></div>
+    <table class="t">
+      <caption>CB buys foreign ccy (resist appreciation)</caption>
+      <tr><th>Assets</th><th>Liabilities</th></tr>
+      <tr><td class="a">FX reserves ↑</td><td class="l">Domestic reserves ↑ <i>(base grows)</i></td></tr>
+      <tr><td class="a">Sterilise: domestic bonds ↓</td><td class="l"><i>size unchanged → no macro effect</i></td></tr>
+    </table>
+    <div class="warn"><b>Weak-side asymmetry.</b> Defend a <b>strong</b> ccy forever (print your own). Defend a <b>weak</b> one only until FX reserves run out, so pegs break on the weak side (EMS 1992: Italy forced to import German tight policy, then floats).</div>
+
+    <div class="ex"><b>Exam method.</b> Reasoning, not arithmetic: verdict + mechanism in ~3 sentences. Q1 True/False/Uncertain: justification is the whole grade. Each Q has one intended point, don't brain-dump. <b>Myths to refute:</b> imports reduce GDP · trade deficit always bad · CB sets long-run real rate · high P/E = bubble · QE = printing money · must repay gov't debt · inversion = certain recession · disinflation always costs jobs (2021-24).</div>
+
+  </div>
+</div>
+
+</body>
+</html>

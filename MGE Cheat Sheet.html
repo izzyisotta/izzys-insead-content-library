@@ -8,29 +8,29 @@
   :root{ --g:#00643C; --b:#1f5fa8; --r:#b03030; --ink:#161616; --soft:#555; --line:#cdd5d0; }
   html,body{ margin:0; }
   body{ font-family:-apple-system,"Helvetica Neue",Arial,sans-serif; color:var(--ink);
-        font-size:8.1px; line-height:1.24; column-count:2; column-gap:5mm; }
-  h1{ column-span:all; font-size:13px; color:var(--g); margin:0 0 1mm; letter-spacing:.01em;
-      border-bottom:2px solid var(--g); padding-bottom:1px; }
-  h1 small{ font-weight:400; color:var(--soft); font-size:8px; }
-  h2{ font-size:8.8px; text-transform:uppercase; letter-spacing:.03em; color:#fff; background:var(--g);
-      margin:3px 0 1.5px; padding:1px 4px; border-radius:2px; break-after:avoid; }
+        font-size:9.7px; line-height:1.34; column-count:2; column-gap:6mm; }
+  h1{ column-span:all; font-size:16px; color:var(--g); margin:0 0 2mm; letter-spacing:.01em;
+      border-bottom:2.5px solid var(--g); padding-bottom:2px; }
+  h1 small{ font-weight:400; color:var(--soft); font-size:9.3px; }
+  h2{ font-size:10.4px; text-transform:uppercase; letter-spacing:.03em; color:#fff; background:var(--g);
+      margin:4px 0 2px; padding:1.5px 5px; border-radius:2px; break-after:avoid; }
   h2.alt{ background:var(--b); }
   h2.red{ background:var(--r); }
   b{ color:var(--ink); } .bb{ color:var(--b); } .rr{ color:var(--r); }
   .blk{ break-inside:avoid; margin-bottom:2.5px; }
   ul{ margin:1px 0 2px; padding-left:11px; }
   li{ margin:0.4px 0; }
-  .eq{ background:#f1f6f3; border-left:2px solid var(--g); padding:1px 4px; margin:1.5px 0;
-       border-radius:2px; font-family:"SF Mono",Menlo,Consolas,monospace; font-size:7.9px; }
+  .eq{ background:#f1f6f3; border-left:2px solid var(--g); padding:1.5px 5px; margin:2px 0;
+       border-radius:2px; font-family:"SF Mono",Menlo,Consolas,monospace; font-size:9.4px; }
   .eq .l{ font-family:-apple-system,Arial,sans-serif; font-weight:700; color:var(--g);
-          text-transform:uppercase; font-size:6.8px; letter-spacing:.03em; display:block; }
+          text-transform:uppercase; font-size:8px; letter-spacing:.03em; display:block; }
   .note{ color:var(--soft); }
   .trap{ background:#fbeeee; border-left:2px solid var(--r); padding:1px 4px; border-radius:2px; }
   figure{ margin:1.5px 0; text-align:center; break-inside:avoid; }
   figcaption{ font-size:6.7px; color:var(--soft); }
-  table.mx{ width:100%; border-collapse:collapse; font-size:7.2px; margin:1.5px 0; break-inside:avoid; }
-  table.mx th{ background:var(--g); color:#fff; padding:1.5px 3px; text-align:left; font-size:6.8px; }
-  table.mx td{ border:0.5px solid var(--line); padding:1.5px 3px; vertical-align:top; }
+  table.mx{ width:100%; border-collapse:collapse; font-size:8.6px; margin:2px 0; break-inside:avoid; }
+  table.mx th{ background:var(--g); color:#fff; padding:2px 4px; text-align:left; font-size:8px; }
+  table.mx td{ border:0.5px solid var(--line); padding:2px 4px; vertical-align:top; }
   table.mx td.h{ background:#eef4f0; font-weight:700; color:var(--g); }
   .pow{ color:var(--g); font-weight:700; } .pl{ color:var(--r); font-weight:700; }
   svg text{ font-family:Arial; }
@@ -56,7 +56,7 @@
 
 <h2>2 · Saving–Investment &amp; the real rate</h2>
 <div class="blk">
-<figure><svg viewBox="0 0 150 78" width="120">
+<figure><svg viewBox="0 0 150 78" width="150">
 <line class="axis" x1="20" y1="8" x2="20" y2="66"/><line class="axis" x1="20" y1="66" x2="142" y2="66"/>
 <text x="6" y="12" font-size="6">r</text><text x="120" y="74" font-size="6">S,I</text>
 <line class="gc" x1="28" y1="60" x2="135" y2="16"/><text x="136" y="18" font-size="6" fill="#00643C">S</text>
@@ -106,7 +106,7 @@
 <!-- =================== SHORT RUN =================== -->
 <h2 class="alt">6 · IS-LM-FX — the short-run machine</h2>
 <div class="blk">
-<figure><svg viewBox="0 0 150 86" width="120">
+<figure><svg viewBox="0 0 150 86" width="150">
 <line class="axis" x1="20" y1="8" x2="20" y2="70"/><line class="axis" x1="20" y1="70" x2="144" y2="70"/>
 <text x="6" y="12" font-size="6">r</text><text x="128" y="78" font-size="6">GDP</text>
 <line class="gc" x1="26" y1="18" x2="134" y2="64"/><text x="135" y="66" font-size="6" fill="#00643C">IS</text>
@@ -137,7 +137,7 @@
 
 <h2 class="alt">8 · Taylor Rule &amp; the supply side</h2>
 <div class="blk">
-<div class="eq"><span class="l">Taylor rule (a policy, not an identity)</span>i = r* + π + φ_π(π − π*) + φ_y(y − ȳ)&nbsp; [typ. φ≈0.5]</div>
+<div class="eq"><span class="l">Taylor rule (a policy, not an identity)</span>i = r* + π + φ_π(π − π*) + φ_y(y − ȳ)&nbsp; [typ. φ≈0.5]<br><span class="note">e.g. r*=2, π=3, π*=2, gap=0 ⟹ i = 2+3+0.5(1)+0 = <b>5.5%</b> (real rate 2.5%)</span></div>
 <ul>
 <li><b>Thermostat:</b> neutral setting r*+π, then lean against the cycle. You <i>choose</i> φ.</li>
 <li><b>Taylor principle:</b> 1pp ↑π must raise the <b>nominal</b> rate by 1+φ_π ⟹ the <b>real</b> rate rises (else policy is loose). Inflation counts twice.</li>
@@ -154,7 +154,7 @@
 
 <h2 class="alt">10 · Yield curve <span style="font-weight:400;font-size:6.5px">★ 18 past Qs</span></h2>
 <div class="blk">
-<figure><svg viewBox="0 0 150 60" width="110">
+<figure><svg viewBox="0 0 150 60" width="140">
 <line class="axis" x1="18" y1="6" x2="18" y2="48"/><line class="axis" x1="18" y1="48" x2="142" y2="48"/>
 <text x="4" y="11" font-size="5.5">yield</text><text x="116" y="57" font-size="5.5">maturity</text>
 <path class="gc" d="M24,40 Q80,22 136,16"/><path class="rc" d="M24,22 Q80,28 136,34"/>
@@ -171,7 +171,7 @@
 <h2 class="alt">11 · Fiscal policy &amp; debt sustainability</h2>
 <div class="blk">
 <div class="eq"><span class="l">Balances</span>Primary = T − G − transfers (excl. interest); Overall = Primary − r·Debt</div>
-<div class="eq"><span class="l">Debt-stabilising surplus</span>(Required primary surplus)/GDP = (r − g) × Debt/GDP</div>
+<div class="eq"><span class="l">Debt-stabilising surplus</span>(Required primary surplus)/GDP = (r − g) × Debt/GDP<br><span class="note">e.g. r=4%, g=2%, Debt/GDP=100% ⟹ (0.02)(1.0) = <b>+2%</b> of GDP to hold flat. If g&gt;r ⟹ negative ⟹ can run deficits forever.</span></div>
 <ul>
 <li><b>Treadmill:</b> (r−g) = how fast the belt drags; Debt/GDP = backpack weight. <b>r&gt;g</b> ⟹ snowball, need a surplus; <b>g&gt;r</b> ⟹ ratio falls even with deficits (China, Japan).</li>
 <li>r carries a <b>sovereign risk premium</b> (can be self-fulfilling). Govt ≠ business: default = redistribution, not destroyed wealth. No need to repay, just a non-explosive path. Inflation ~neutral (raises both r and g).</li>

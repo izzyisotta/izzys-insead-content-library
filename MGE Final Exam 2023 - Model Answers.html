@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MGE Final Exam 2023 — Framework Model Answers</title>
+<script>
+  MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']] }, svg: { fontCache: 'local' } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+<style>
+  :root{
+    --green:#00643C; --green-light:#2e7d32; --blue:#1f5fa8; --red:#b03030;
+    --ink:#1a1a1a; --soft:#555; --line:#d8d8d8; --bg:#fbfbf9; --card:#ffffff;
+    --amber:#a8740a; --amber-bg:#fdf6e9;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:16.5px; line-height:1.62;
+  }
+  main{max-width:920px; margin:0 auto; padding:46px 40px 140px;}
+  h1{font-size:30px; color:var(--green); margin:0 0 6px; line-height:1.18;}
+  .sub{color:var(--soft); font-size:15px; margin:0 0 4px;}
+  h2.q{font-size:22px; color:var(--green); border-bottom:2px solid var(--green); padding-bottom:6px; margin:48px 0 14px; scroll-margin-top:14px;}
+  h3{font-size:17px; color:#13392b; margin:26px 0 6px;}
+  h4{font-size:13px; color:var(--blue); margin:16px 0 4px; text-transform:uppercase; letter-spacing:.05em;}
+  p{margin:8px 0;}
+  ul,ol{margin:8px 0; padding-left:22px;}
+  li{margin:4px 0;}
+  strong{color:#08251a;}
+  code{background:#eef2ef; padding:1px 5px; border-radius:4px; font-size:13.5px;}
+  .prompt{background:#f3f3f0; border:1px solid var(--line); border-left:4px solid var(--soft); border-radius:8px; padding:10px 18px; margin:14px 0; font-size:15px; color:#333;}
+  .eq{background:#f0f6f2; border:1px solid #cfe2d6; border-left:4px solid var(--green); border-radius:8px; padding:10px 18px; margin:14px 0; overflow-x:auto;}
+  .eq .lbl{font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--green); font-weight:700; margin-bottom:2px;}
+  .verdict{display:inline-block; color:#fff; font-size:13px; font-weight:700; letter-spacing:.06em; padding:3px 12px; border-radius:20px; margin:6px 0;}
+  .v-true{background:var(--green);} .v-false{background:var(--red);} .v-unc{background:var(--amber);}
+  .chain{background:#eaf1f8; border:1px solid #c2d6ea; border-left:4px solid var(--blue); border-radius:8px; padding:10px 18px; margin:14px 0; font-size:15px;}
+  .chain .lbl{font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--blue); font-weight:700; margin-bottom:3px;}
+  .chain .arrow{color:var(--blue); font-weight:700;}
+  .key{background:#fff; border:1px solid var(--line); border-radius:10px; padding:12px 20px; margin:14px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  .key .lbl{font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:#13392b; font-weight:700; margin-bottom:3px;}
+  .pitfall{background:#fbeeee; border:1px solid #ecc9c9; border-left:4px solid var(--red); border-radius:8px; padding:8px 18px; margin:14px 0; font-size:14.5px;}
+  .pitfall b{color:var(--red);}
+  .tag{display:inline-block; background:#eef2ef; color:var(--soft); font-size:11px; padding:1px 8px; border-radius:12px; margin-left:6px; vertical-align:middle; letter-spacing:.03em;}
+  .toc{background:#0e2a20; color:#dfeee7; border-radius:10px; padding:16px 22px; margin:22px 0 8px; font-size:14.5px;}
+  .toc a{color:#cfe3da; text-decoration:none;}
+  .toc a:hover{color:#fff; text-decoration:underline;}
+  .toc .lbl{color:#8fd6b4; font-weight:700; font-size:12px; letter-spacing:.06em; text-transform:uppercase; margin-bottom:6px;}
+  .intro{background:var(--amber-bg); border:1px solid #ecd9ad; border-left:4px solid var(--amber); border-radius:8px; padding:12px 20px; margin:18px 0;}
+  mjx-container svg, .eq mjx-container svg{max-width:none !important; height:auto !important;}
+  /* diagrams (scoped to figure > svg so MathJax in figcaptions is never stretched) */
+  figure{margin:18px 0; text-align:center;}
+  figure > svg{max-width:480px; width:100%; height:auto; background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px;}
+  figcaption{font-size:13.5px; color:var(--soft); margin-top:8px; font-style:italic; max-width:560px; margin-left:auto; margin-right:auto;}
+  svg text{font-family:-apple-system,Helvetica,Arial,sans-serif;}
+  .axis{stroke:#333; stroke-width:1.6; fill:none;}
+  .IS{stroke:var(--green-light); stroke-width:3; fill:none;}
+  .LM{stroke:var(--blue); stroke-width:3; fill:none;}
+  .SAV{stroke:var(--blue); stroke-width:3; fill:none;}
+  .INV{stroke:var(--green-light); stroke-width:3; fill:none;}
+  .YC{stroke:var(--green-light); stroke-width:3; fill:none;}
+  .rf{stroke:var(--amber); stroke-width:2.2; fill:none;}
+  .dash{stroke-dasharray:6 4;}
+  svg .lbl{font-size:13.5px; font-weight:700;}
+  .sm{font-size:11.5px; fill:#555;}
+  .dot{fill:#13392b;}
+  /* show / hide answers */
+  .controlbar{display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin:18px 0 6px;}
+  .reveal-all{background:var(--green); color:#fff; border:none; border-radius:20px; padding:8px 18px; font-size:13.5px; font-weight:700; cursor:pointer; letter-spacing:.02em;}
+  .reveal-all:hover{background:#054e30;}
+  .controlbar .hint{font-size:13px; color:var(--soft);}
+  .reveal-btn{background:#eef2ef; color:var(--green); border:1px solid #cfe2d6; border-radius:18px; padding:4px 15px; font-size:13px; font-weight:600; cursor:pointer; margin:8px 0 2px;}
+  .reveal-btn:hover{background:#e2ebe4;}
+  .answer-body{display:none; border-left:3px solid #e7eee9; padding-left:16px; margin:4px 0 6px;}
+  .answer-body.open{display:block;}
+  @media print{ .answer-body{display:block !important;} .reveal-btn,.controlbar{display:none !important;} }
+  .footer{margin-top:60px; padding-top:18px; border-top:1px solid var(--line); font-size:13px; color:var(--soft);}
+  .grade{font-size:12.5px; color:var(--soft); font-style:italic; margin-top:4px;}
+</style>
+</head>
+<body>
+<main>
+
+<h1>Macroeconomics in the Global Economy — Final Exam, 17 February 2023</h1>
+<p class="sub">Framework-first model answers · Prof. Antonio Fatás · 70 points · built to apply the equations and mechanism chains from the course revision document</p>
+
+<div class="intro">
+<strong>How these answers are built.</strong> Fatás grades the <em>logic</em>, not the facts, and wants "arguments and frameworks that we discussed in class." Each answer leads with the relevant identity, rule or mechanism chain, then compresses to the two-or-three sentences he asks for. Conclusions match his answer key; the presentation re-derives them from the formula sheet (BoP identity, the Saving-Investment cross, ZLB, currencies-as-assets, IS-LM-FX, the Taylor rule, the yield curve, debt dynamics) so the framework doing the work is explicit.
+</div>
+
+<div class="toc">
+<div class="lbl">Questions</div>
+<a href="#q1">Q1 · True / False / Uncertain (25)</a> &nbsp;·&nbsp;
+<a href="#q2">Q2 · China's reopening (15)</a> &nbsp;·&nbsp;
+<a href="#q3">Q3 · Fiscal &amp; monetary policy in Brazil (10)</a> &nbsp;·&nbsp;
+<a href="#q4">Q4 · Yield curve in the US (10)</a> &nbsp;·&nbsp;
+<a href="#q5">Q5 · ECB and interest rates (10)</a>
+</div>
+
+<div class="controlbar">
+<button class="reveal-all" id="revealAll">Reveal all answers</button>
+<span class="hint">Answers are hidden by default. Use “Show answer” under each question to self-test, or reveal everything at once.</span>
+</div>
+
+<!-- ========================= Q1 ========================= -->
+<h2 class="q" id="q1">1 · True / False / Uncertain <span class="tag">25 points</span></h2>
+<p>State the verdict, then justify with a mechanism. The justification is the entire grade.</p>
+
+<h3>a) "An increase in government debt always leads to a capital outflow." <span class="tag">5</span></h3>
+<span class="verdict v-false">FALSE</span>
+<div class="eq"><div class="lbl">BoP identity, by sector (L2)</div>
+$$(S_{priv}-I_{priv})+(S_{gov}-I_{gov})=CA, \qquad CA = S - I$$</div>
+<div class="chain"><div class="lbl">Mechanism</div>
+more government debt = government borrowing (\(S_{gov}\downarrow\)). The capital-flow direction depends on whether <strong>private saving</strong> absorbs it. If domestic private saving does <em>not</em> cover the borrowing <span class="arrow">⇒</span> \(S<I\) <span class="arrow">⇒</span> CA deficit <span class="arrow">⇒</span> a capital <strong>inflow</strong>, the opposite of the claim.</div>
+<p>The word "always" is what sinks it. (An "Uncertain" that explains both cases is also acceptable.)</p>
+
+<h3>b) "A country whose productivity is growing rapidly could see its currency depreciate in value." <span class="tag">5</span></h3>
+<span class="verdict v-true">TRUE</span>
+<div class="eq"><div class="lbl">Productivity, the real rate and inflation (L12)</div>
+$$e_R\uparrow \text{ with relative productivity}; \qquad \%\Delta e_N = \pi_F - \pi_{domestic}$$</div>
+<div class="chain"><div class="lbl">Mechanism</div>
+fast productivity growth <span class="arrow">⇒</span> the country becomes more expensive in real terms (real appreciation), but that can show up <em>either</em> as higher inflation <em>or</em> as nominal appreciation. If domestic inflation runs high enough, \(\pi_{domestic}>\pi_F\) <span class="arrow">⇒</span> \(\%\Delta e_N<0\) <span class="arrow">⇒</span> the <strong>nominal currency depreciates</strong> despite the productivity gain.</div>
+
+<h3>c) "The existence of printed physical currency prevents real interest rates from going meaningfully below zero." <span class="tag">5</span></h3>
+<span class="verdict v-false">FALSE</span>
+<div class="eq"><div class="lbl">Fisher / the zero lower bound (L9)</div>
+$$r = i - \pi; \qquad \text{cash floors } i \ge 0, \text{ not } r$$</div>
+<div class="chain"><div class="lbl">Mechanism</div>
+physical cash pays exactly 0% in <em>nominal</em> terms, so it is the <strong>nominal</strong> rate that is floored at zero. Nothing stops the <strong>real</strong> rate \(r=i-\pi\) from being deeply negative when inflation exceeds the nominal rate.</div>
+<div class="pitfall"><b>The classic trap</b> (the mirror is 1931: \(i=2.6\%\), \(\pi=-10.1\%\) gave \(r=+12.7\%\)). The ZLB binds nominal, never real.</div>
+
+<h3>d) "Increasing the inflation target from 2% to 4% would reduce the likelihood of central banks engaging in QE during crises." <span class="tag">5</span></h3>
+<span class="verdict v-true">TRUE</span>
+<div class="eq"><div class="lbl">Baseline nominal rate + the ZLB (L8–L9)</div>
+$$i = \pi^{*} + r^{*} \quad\Rightarrow\quad \text{higher } \pi^{*} \Rightarrow \text{higher } i \text{ in normal times}$$</div>
+<div class="chain"><div class="lbl">Mechanism</div>
+a 4% target lifts the normal-times nominal rate <span class="arrow">⇒</span> <strong>more room to cut</strong> before hitting the zero bound <span class="arrow">⇒</span> conventional rate cuts can do the work in a crisis <span class="arrow">⇒</span> less need to resort to QE.</div>
+
+<h3>e) "Investing in currencies with high interest rates can guarantee a high return because, in addition to the high rates, the currency is likely to appreciate." <span class="tag">5</span></h3>
+<span class="verdict v-false">FALSE</span>
+<div class="eq"><div class="lbl">Currencies as assets / arbitrage (UIP) (L12)</div>
+$$r - r_F = \text{expected depreciation of the domestic currency}$$</div>
+<div class="chain"><div class="lbl">Mechanism</div>
+a <em>high level</em> of rates usually signals high inflation <span class="arrow">⇒</span> the currency tends to <strong>depreciate</strong>, not appreciate. Under arbitrage the interest pick-up is exactly offset by the expected currency loss <span class="arrow">⇒</span> returns are equalised across countries; no free lunch.</div>
+<div class="pitfall"><b>Don't conflate</b> "news of a rate <em>rise</em>" (⇒ appreciation now) with "a high <em>level</em> of rates" (⇒ expected depreciation). The statement leans on the wrong one.</div>
+
+<!-- ========================= Q2 ========================= -->
+<h2 class="q" id="q2">2 · China's reopening <span class="tag">15 points</span></h2>
+
+<h3>a) Given the state of China's economy, why did inflation stay lower in China than elsewhere in 2022? <span class="tag">5</span></h3>
+<div class="eq"><div class="lbl">Output gap &amp; the Phillips curve (L6, L8)</div>
+$$\text{Output gap}=100\times\frac{\text{Actual}-\text{Potential}}{\text{Potential}}; \qquad \text{slack}\Rightarrow \text{low inflation}$$</div>
+<div class="chain"><div class="lbl">Mechanism</div>
+growth of 3% (vs a 5.5% target), an export slump and a property crisis all point to actual output <strong>below potential</strong> (a negative output gap) <span class="arrow">⇒</span> demand is weak, firms have little pricing power <span class="arrow">⇒</span> <strong>low inflation</strong>.</div>
+<p>This is the Phillips-curve logic: a slack economy sits on the low-inflation part of the curve, unlike the demand-driven overheating that drove 2022 inflation in the US and Europe.</p>
+
+<h3>b) What policy measures might the government and central bank use to encourage growth in 2023? <span class="tag">5</span></h3>
+<div class="eq"><div class="lbl">IS-LM (L7)</div>
+$$\text{GDP}=C+I+G+NX; \qquad \tfrac{M}{P}=L(\text{GDP},i)$$</div>
+<div class="chain"><div class="lbl">Two levers</div>
+<strong>Fiscal:</strong> ↑G or ↓T <span class="arrow">⇒</span> IS shifts right <span class="arrow">⇒</span> demand and GDP rise.<br>
+<strong>Monetary:</strong> ↑M <span class="arrow">⇒</span> LM shifts right <span class="arrow">⇒</span> r falls <span class="arrow">⇒</span> investment and consumption rise <span class="arrow">⇒</span> GDP rises.</div>
+<p>Both push the IS-LM equilibrium toward potential output.</p>
+
+<h3>c) How might health concerns and low consumer confidence affect the efficacy of these stimulus measures? <span class="tag">5</span></h3>
+<div class="key"><div class="lbl">Framework: policy transmission depends on how responsive C and I are</div>
+Stimulus only works if lower rates and higher income actually translate into spending. Caution breaks that link.</div>
+<div class="chain"><div class="lbl">Mechanism</div>
+<strong>Monetary:</strong> r↓ is weak if anxious firms and households <em>won't</em> invest or spend at any rate (interest-insensitive I, C) <span class="arrow">⇒</span> a steep, hard-to-shift IS.<br>
+<strong>Fiscal (tax cuts):</strong> if cautious households <strong>save</strong> the windfall rather than spend it (low marginal propensity to consume) <span class="arrow">⇒</span> a small multiplier <span class="arrow">⇒</span> little boost to GDP.</div>
+<p>Low confidence is, in effect, a precautionary-saving shock that blunts both levers, the same friction that makes liquidity-trap conditions so hard to escape.</p>
+
+<!-- ========================= Q3 ========================= -->
+<h2 class="q" id="q3">3 · Fiscal and monetary policy in Brazil <span class="tag">10 points</span></h2>
+
+<h3>a) If the new government runs a larger-than-expected fiscal stimulus and the central bank does nothing, what happens to capital flows, the value of the real, and net exports? <span class="tag">5</span></h3>
+<div class="eq"><div class="lbl">IS-LM-FX, fiscal expansion under floating (L7)</div>
+$$\text{GDP}=C+I+G+NX(e,\dots); \qquad \text{capital flows until } r=r_F$$</div>
+<div class="chain"><div class="lbl">Mechanism (4-step engine)</div>
+↑G <span class="arrow">⇒</span> IS shifts right <span class="arrow">⇒</span> r↑ above r<sub>F</sub> <span class="arrow">⇒</span> <strong>capital inflow</strong> (foreign investors chase the higher return) <span class="arrow">⇒</span> demand for the real rises <span class="arrow">⇒</span> <strong>the real appreciates</strong> <span class="arrow">⇒</span> Brazilian goods dearer <span class="arrow">⇒</span> <strong>net exports fall</strong>.</div>
+<figure>
+<svg viewBox="0 0 470 320" role="img" aria-label="IS-LM-FX: fiscal expansion shifts IS right, raising the rate above the world rate, drawing capital in and appreciating the currency">
+  <defs>
+    <marker id="isR" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#b03030"/></marker>
+  </defs>
+  <line class="axis" x1="70" y1="25" x2="70" y2="275"/>
+  <line class="axis" x1="70" y1="275" x2="445" y2="275"/>
+  <text class="lbl" x="52" y="32">r</text>
+  <text class="lbl" x="406" y="297">GDP</text>
+  <line class="rf dash" x1="70" y1="162" x2="445" y2="162"/>
+  <text class="sm" x="416" y="156" fill="#a8740a" font-weight="700">r<tspan baseline-shift="sub" font-size="9">F</tspan></text>
+  <line class="LM" x1="110" y1="250" x2="380" y2="90"/>
+  <text class="lbl" x="385" y="92" fill="#1f5fa8">LM</text>
+  <line class="IS" x1="110" y1="80" x2="380" y2="230"/>
+  <text class="lbl" x="384" y="237" fill="#2e7d32">IS</text>
+  <line class="IS dash" x1="170" y1="80" x2="440" y2="230"/>
+  <text class="lbl" x="408" y="220" fill="#2e7d32">IS′</text>
+  <line x1="270" y1="205" x2="322" y2="197" stroke="#b03030" stroke-width="2" marker-end="url(#isR)"/>
+  <text class="sm" x="274" y="220" fill="#b03030" font-weight="700">↑G</text>
+  <line class="dash" x1="258" y1="162" x2="258" y2="275" stroke="#bbb" stroke-width="1"/>
+  <line class="dash" x1="287" y1="145" x2="287" y2="275" stroke="#bbb" stroke-width="1"/>
+  <line class="dash" x1="287" y1="145" x2="287" y2="162" stroke="#bbb" stroke-width="1"/>
+  <circle class="dot" cx="258" cy="162" r="4.5"/>
+  <circle class="dot" cx="287" cy="145" r="4.5"/>
+  <text class="sm" x="238" y="159">E₀</text>
+  <text class="sm" x="292" y="142">E₁</text>
+  <text class="sm" x="292" y="158" fill="#b03030">r&gt;r<tspan baseline-shift="sub" font-size="9">F</tspan></text>
+  <text class="sm" x="290" y="290" fill="#555">GDP↑</text>
+</svg>
+<figcaption>Fiscal expansion (↑G) shifts <strong>IS right</strong> to IS′. The rate rises above r<sub>F</sub> at E₁, pulling capital in and appreciating the real, which lowers net exports.</figcaption>
+</figure>
+
+<h3>b) If the central bank instead acts to stabilise GDP growth, what happens to interest rates and to the domestic components of expenditure (C, I, G)? <span class="tag">5</span></h3>
+<div class="eq"><div class="lbl">Monetary response to overheating (L8)</div>
+$$\text{aim at potential output} \Rightarrow \text{raise } i; \quad C(\,\cdot\,,r,\dots)\downarrow,\ I(r)\downarrow$$</div>
+<div class="chain"><div class="lbl">Mechanism</div>
+the stimulus pushes demand above potential <span class="arrow">⇒</span> inflation pressure <span class="arrow">⇒</span> to keep output stable the CB <strong>raises interest rates</strong> (LM shifts left). Higher r <span class="arrow">⇒</span> <strong>consumption and investment fall</strong>; government purchases (the stimulus) <strong>stay high</strong>.</div>
+<p>So the composition of demand shifts from private (C, I) to public (G): the rate hike crowds out private spending to make room for the fiscal expansion while holding total GDP near potential.</p>
+
+<!-- ========================= Q4 ========================= -->
+<h2 class="q" id="q4">4 · The yield curve in the US <span class="tag">10 points</span></h2>
+<div class="eq"><div class="lbl">The macro view of the yield curve (L10)</div>
+$$\text{long rate} = \underbrace{\text{equilibrium real rate}}_{\text{global S \& I}} + \underbrace{\text{expected inflation}}_{\text{CB credibility}}; \qquad \text{short rate} = \text{CB (Taylor rule)}$$</div>
+
+<h3>a) How did the yield curve move as the news of higher inflation hit the markets, before the Fed raised rates? <span class="tag">5</span></h3>
+<div class="chain"><div class="lbl">Mechanism</div>
+higher <em>expected inflation</em> <span class="arrow">⇒</span> <strong>long rates rise</strong> immediately; the Fed had not yet moved <span class="arrow">⇒</span> <strong>short rates unchanged</strong> <span class="arrow">⇒</span> the curve <strong>steepens</strong>.</div>
+<figure>
+<svg viewBox="0 0 430 280" role="img" aria-label="Yield curve steepening: long rates rise on higher expected inflation while short rates are unchanged">
+  <defs>
+    <marker id="ycU" markerWidth="8" markerHeight="8" refX="3" refY="3" orient="auto"><path d="M0,6 L3,0 L6,6 Z" fill="#b03030"/></marker>
+  </defs>
+  <line class="axis" x1="70" y1="25" x2="70" y2="240"/>
+  <line class="axis" x1="70" y1="240" x2="400" y2="240"/>
+  <text class="lbl" x="48" y="32">yield</text>
+  <text class="lbl" x="330" y="262">maturity</text>
+  <path class="YC" d="M95,180 Q230,150 365,130"/>
+  <text class="lbl" x="368" y="132" fill="#2e7d32">before</text>
+  <path class="YC dash" d="M95,180 Q230,130 365,80" stroke="#b03030"/>
+  <text class="lbl" x="368" y="82" fill="#b03030">steeper</text>
+  <line x1="365" y1="126" x2="365" y2="88" stroke="#b03030" stroke-width="2" marker-end="url(#ycU)"/>
+  <text class="sm" x="100" y="200">short end pinned (Fed unchanged)</text>
+  <text class="sm" x="250" y="76" fill="#b03030">long rates ↑ (exp. inflation ↑)</text>
+</svg>
+<figcaption>News of higher inflation lifts long rates while the Fed holds short rates, so the curve <strong>steepens</strong>.</figcaption>
+</figure>
+
+<h3>b) Once the market is convinced the Fed will succeed and inflation expectations fall (while short rates stay high), how does the curve shift? Can this cause an inversion? Does inversion predict a recession here? <span class="tag">5</span></h3>
+<div class="chain"><div class="lbl">Mechanism</div>
+short rates held high by the Fed; lower <em>expected inflation</em> <span class="arrow">⇒</span> <strong>long rates fall</strong> <span class="arrow">⇒</span> the curve <strong>flattens, and can invert</strong> (long below short).</div>
+<figure>
+<svg viewBox="0 0 430 280" role="img" aria-label="Yield curve inverting: short rates held high, long rates fall as expected inflation declines">
+  <defs>
+    <marker id="ycD" markerWidth="8" markerHeight="8" refX="3" refY="3" orient="auto"><path d="M0,0 L3,6 L6,0 Z" fill="#b03030"/></marker>
+  </defs>
+  <line class="axis" x1="70" y1="25" x2="70" y2="240"/>
+  <line class="axis" x1="70" y1="240" x2="400" y2="240"/>
+  <text class="lbl" x="48" y="32">yield</text>
+  <text class="lbl" x="330" y="262">maturity</text>
+  <path class="YC" d="M95,95 Q230,100 365,108"/>
+  <text class="lbl" x="368" y="108" fill="#2e7d32">now</text>
+  <path class="YC dash" d="M95,95 Q230,135 365,170" stroke="#b03030"/>
+  <text class="lbl" x="366" y="172" fill="#b03030">inverted</text>
+  <line x1="365" y1="112" x2="365" y2="164" stroke="#b03030" stroke-width="2" marker-end="url(#ycD)"/>
+  <circle class="dot" cx="95" cy="95" r="4.5"/>
+  <text class="sm" x="100" y="86">short end held high (Fed)</text>
+  <text class="sm" x="232" y="190" fill="#b03030">long rates ↓ (exp. inflation ↓)</text>
+</svg>
+<figcaption>Short rates pinned high, long rates falling on lower expected inflation: the curve <strong>inverts</strong>.</figcaption>
+</figure>
+<p><strong>Does inversion predict a recession here? No.</strong> In this case the inversion is the market pricing <em>successful disinflation</em>, not a coming downturn: long rates are low because inflation is expected to fall, the soft-landing reading. Inversion is a recession signal only when it reflects expected rate <em>cuts to fight a slump</em>, which is a different cause.</p>
+
+<!-- ========================= Q5 ========================= -->
+<h2 class="q" id="q5">5 · The ECB and interest rates <span class="tag">10 points</span></h2>
+
+<h3>a) Is a world of higher nominal rates bad news for governments? Why does Lane say "if expectations are re-anchored at our 2% target"? What if expectations were above 2%? <span class="tag">5</span></h3>
+<div class="eq"><div class="lbl">Fisher + debt dynamics (L1, L11)</div>
+$$i = r + \pi; \qquad \frac{\text{Required primary surplus}}{\text{GDP}}=(r-g)\times\frac{\text{Debt}}{\text{GDP}}$$</div>
+<div class="chain"><div class="lbl">Mechanism</div>
+Lane is talking about <em>nominal</em> rates. If they are higher only because <strong>inflation expectations</strong> are higher, the <strong>real</strong> rate is unchanged <span class="arrow">⇒</span> governments (who care about \(r\), not \(i\)) are <strong>not</strong> worse off (inflation lifts both \(r\) and \(g\), which cancels in \((r-g)\)).</div>
+<p><strong>Why "if re-anchored at 2%":</strong> that is the benign case, where the higher nominal rate is just 2% inflation plus a normal real return. <strong>If expectations un-anchor above 2%</strong>, the ECB will refuse to let inflation run, so it must raise the <em>real</em> rate to bring inflation back, raising \((r-g)\) and the real debt burden, which <em>is</em> bad for governments.</p>
+
+<h3>b) Following Lane's logic, what happens to real rates this time vs after the 2008 crisis? And (if this is a Euro-area-only phenomenon) to the current account? <span class="tag">5</span></h3>
+<div class="eq"><div class="lbl">The Saving-Investment cross (L2)</div>
+$$r^{*} \text{ clears } S=I; \qquad CA = S - I$$</div>
+<div class="chain"><div class="lbl">Mechanism</div>
+post-2008 there was <em>deleveraging</em>: high saving, weak investment <span class="arrow">⇒</span> low real rates and a CA surplus. This time, healthier balance sheets mean <strong>no deleveraging</strong> <span class="arrow">⇒</span> more consumption, less saving, more investment <span class="arrow">⇒</span> S shifts left and I shifts right <span class="arrow">⇒</span> <strong>higher real interest rate</strong>.</div>
+<figure>
+<svg viewBox="0 0 430 300" role="img" aria-label="Saving-Investment cross: less saving and more investment raise the real interest rate">
+  <defs>
+    <marker id="siA" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#b03030"/></marker>
+  </defs>
+  <line class="axis" x1="70" y1="25" x2="70" y2="260"/>
+  <line class="axis" x1="70" y1="260" x2="400" y2="260"/>
+  <text class="lbl" x="52" y="32">r</text>
+  <text class="lbl" x="352" y="282">S, I</text>
+  <line class="INV" x1="95" y1="78" x2="360" y2="238"/>
+  <text class="lbl" x="364" y="240" fill="#2e7d32">I</text>
+  <line class="INV dash" x1="150" y1="70" x2="395" y2="218"/>
+  <text class="lbl" x="372" y="210" fill="#2e7d32">I′</text>
+  <line class="SAV" x1="95" y1="232" x2="360" y2="62"/>
+  <text class="lbl" x="364" y="64" fill="#1f5fa8">S</text>
+  <line class="SAV dash" x1="70" y1="200" x2="300" y2="62"/>
+  <text class="lbl" x="272" y="56" fill="#1f5fa8">S′</text>
+  <line class="dash" x1="70" y1="150" x2="223" y2="150" stroke="#bbb" stroke-width="1"/>
+  <line class="dash" x1="70" y1="120" x2="206" y2="120" stroke="#bbb" stroke-width="1"/>
+  <line x1="80" y1="150" x2="80" y2="118" stroke="#b03030" stroke-width="2" marker-end="url(#siA)"/>
+  <text class="sm" x="84" y="138" fill="#b03030" font-weight="700">r↑</text>
+  <circle class="dot" cx="223" cy="150" r="4.5"/>
+  <circle class="dot" cx="206" cy="120" r="4.5"/>
+  <text class="sm" x="228" y="150">E₀</text>
+  <text class="sm" x="182" y="116">E₁</text>
+</svg>
+<figcaption>Less saving (S → S′) and more investment (I → I′) both push the real interest rate up (E₀ → E₁).</figcaption>
+</figure>
+<p><strong>Current account:</strong> if this is Euro-area-specific (not mirrored abroad), then \(CA = S - I\) falls: the euro area moves toward <strong>smaller surpluses or larger deficits</strong>, the reverse of the post-2008 swing into surplus.</p>
+
+<div class="footer">
+Framework model answers for the MGE Final Exam of 17 February 2023 (Prof. Antonio Fatás, INSEAD). Each answer is derived from the course revision document's equation sheet and mechanism-chain drills, so the framework doing the work is explicit. Conclusions match the official answer key; presentation follows Fatás's grading rule (state the verdict/result, then justify with one mechanism, in roughly three sentences). Answers are collapsible for self-testing; open in a browser and print to PDF via ⌘P (printing reveals all answers).
+</div>
+
+</main>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('main h3').forEach(function(h3){
+    var wrap = document.createElement('div'); wrap.className = 'answer-body';
+    var n = h3.nextElementSibling, nodes = [];
+    while(n && n.tagName !== 'H3' && n.tagName !== 'H2' && !(n.classList && n.classList.contains('footer'))){
+      nodes.push(n); n = n.nextElementSibling;
+    }
+    nodes.forEach(function(x){ wrap.appendChild(x); });
+    var btn = document.createElement('button'); btn.className = 'reveal-btn'; btn.textContent = 'Show answer';
+    btn.addEventListener('click', function(){
+      var open = wrap.classList.toggle('open');
+      btn.textContent = open ? 'Hide answer' : 'Show answer';
+    });
+    h3.insertAdjacentElement('afterend', btn);
+    btn.insertAdjacentElement('afterend', wrap);
+  });
+  var all = document.getElementById('revealAll'), shown = false;
+  if(all){ all.addEventListener('click', function(){
+    shown = !shown;
+    document.querySelectorAll('.answer-body').forEach(function(w){ w.classList.toggle('open', shown); });
+    document.querySelectorAll('.reveal-btn').forEach(function(b){ b.textContent = shown ? 'Hide answer' : 'Show answer'; });
+    all.textContent = shown ? 'Hide all answers' : 'Reveal all answers';
+  }); }
+});
+</script>
+</body>
+</html>

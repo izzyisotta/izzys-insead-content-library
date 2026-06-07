@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MGE Final Exam 2025 — Framework Model Answers</title>
+<script>
+  MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']] }, svg: { fontCache: 'local' } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+<style>
+  :root{
+    --green:#00643C; --green-light:#2e7d32; --blue:#1f5fa8; --red:#b03030;
+    --ink:#1a1a1a; --soft:#555; --line:#d8d8d8; --bg:#fbfbf9; --card:#ffffff;
+    --amber:#a8740a; --amber-bg:#fdf6e9;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:16.5px; line-height:1.62;
+  }
+  main{max-width:920px; margin:0 auto; padding:46px 40px 140px;}
+  h1{font-size:30px; color:var(--green); margin:0 0 6px; line-height:1.18;}
+  .sub{color:var(--soft); font-size:15px; margin:0 0 4px;}
+  h2.q{font-size:22px; color:var(--green); border-bottom:2px solid var(--green); padding-bottom:6px; margin:48px 0 14px; scroll-margin-top:14px;}
+  h3{font-size:17px; color:#13392b; margin:26px 0 6px;}
+  h4{font-size:13px; color:var(--blue); margin:16px 0 4px; text-transform:uppercase; letter-spacing:.05em;}
+  p{margin:8px 0;}
+  ul,ol{margin:8px 0; padding-left:22px;}
+  li{margin:4px 0;}
+  strong{color:#08251a;}
+  code{background:#eef2ef; padding:1px 5px; border-radius:4px; font-size:13.5px;}
+  /* callouts mirrored from the revision document */
+  .prompt{background:#f3f3f0; border:1px solid var(--line); border-left:4px solid var(--soft); border-radius:8px; padding:10px 18px; margin:14px 0; font-size:15px; color:#333;}
+  .prompt .pts{float:right; font-size:12px; color:var(--soft); font-weight:600;}
+  .eq{background:#f0f6f2; border:1px solid #cfe2d6; border-left:4px solid var(--green); border-radius:8px; padding:10px 18px; margin:14px 0; overflow-x:auto;}
+  .eq .lbl{font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--green); font-weight:700; margin-bottom:2px;}
+  .verdict{display:inline-block; color:#fff; font-size:13px; font-weight:700; letter-spacing:.06em; padding:3px 12px; border-radius:20px; margin:6px 0;}
+  .v-true{background:var(--green);} .v-false{background:var(--red);} .v-unc{background:var(--amber);}
+  .chain{background:#eaf1f8; border:1px solid #c2d6ea; border-left:4px solid var(--blue); border-radius:8px; padding:10px 18px; margin:14px 0; font-size:15px;}
+  .chain .lbl{font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--blue); font-weight:700; margin-bottom:3px;}
+  .chain .arrow{color:var(--blue); font-weight:700;}
+  .key{background:#fff; border:1px solid var(--line); border-radius:10px; padding:12px 20px; margin:14px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  .key .lbl{font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:#13392b; font-weight:700; margin-bottom:3px;}
+  .pitfall{background:#fbeeee; border:1px solid #ecc9c9; border-left:4px solid var(--red); border-radius:8px; padding:8px 18px; margin:14px 0; font-size:14.5px;}
+  .pitfall b{color:var(--red);}
+  .tag{display:inline-block; background:#eef2ef; color:var(--soft); font-size:11px; padding:1px 8px; border-radius:12px; margin-left:6px; vertical-align:middle; letter-spacing:.03em;}
+  .toc{background:#0e2a20; color:#dfeee7; border-radius:10px; padding:16px 22px; margin:22px 0 8px; font-size:14.5px;}
+  .toc a{color:#cfe3da; text-decoration:none;}
+  .toc a:hover{color:#fff; text-decoration:underline;}
+  .toc .lbl{color:#8fd6b4; font-weight:700; font-size:12px; letter-spacing:.06em; text-transform:uppercase; margin-bottom:6px;}
+  .intro{background:var(--amber-bg); border:1px solid #ecd9ad; border-left:4px solid var(--amber); border-radius:8px; padding:12px 20px; margin:18px 0;}
+  mjx-container svg, .eq mjx-container svg{max-width:none !important; height:auto !important;}
+  /* diagrams (scoped to figure > svg so MathJax in figcaptions is never stretched) */
+  figure{margin:18px 0; text-align:center;}
+  figure > svg{max-width:480px; width:100%; height:auto; background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px;}
+  figcaption{font-size:13.5px; color:var(--soft); margin-top:8px; font-style:italic; max-width:560px; margin-left:auto; margin-right:auto;}
+  svg text{font-family:-apple-system,Helvetica,Arial,sans-serif;}
+  .axis{stroke:#333; stroke-width:1.6; fill:none;}
+  .IS{stroke:var(--green-light); stroke-width:3; fill:none;}
+  .LM{stroke:var(--blue); stroke-width:3; fill:none;}
+  .SAV{stroke:var(--blue); stroke-width:3; fill:none;}
+  .INV{stroke:var(--green-light); stroke-width:3; fill:none;}
+  .rf{stroke:var(--amber); stroke-width:2.2; fill:none;}
+  .dash{stroke-dasharray:6 4;}
+  svg .lbl{font-size:13.5px; font-weight:700;}
+  .sm{font-size:11.5px; fill:#555;}
+  .dot{fill:#13392b;}
+  /* show / hide answers */
+  .controlbar{display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin:18px 0 6px;}
+  .reveal-all{background:var(--green); color:#fff; border:none; border-radius:20px; padding:8px 18px; font-size:13.5px; font-weight:700; cursor:pointer; letter-spacing:.02em;}
+  .reveal-all:hover{background:#054e30;}
+  .controlbar .hint{font-size:13px; color:var(--soft);}
+  .reveal-btn{background:#eef2ef; color:var(--green); border:1px solid #cfe2d6; border-radius:18px; padding:4px 15px; font-size:13px; font-weight:600; cursor:pointer; margin:8px 0 2px;}
+  .reveal-btn:hover{background:#e2ebe4;}
+  .answer-body{display:none; border-left:3px solid #e7eee9; padding-left:16px; margin:4px 0 6px;}
+  .answer-body.open{display:block;}
+  @media print{ .answer-body{display:block !important;} .reveal-btn,.controlbar{display:none !important;} }
+  .footer{margin-top:60px; padding-top:18px; border-top:1px solid var(--line); font-size:13px; color:var(--soft);}
+  .grade{font-size:12.5px; color:var(--soft); font-style:italic; margin-top:4px;}
+</style>
+</head>
+<body>
+<main>
+
+<h1>Macroeconomics in the Global Economy — Final Exam, 20 Feb 2025</h1>
+<p class="sub">Framework-first model answers · Prof. Antonio Fatás · 70 points · built to apply the equations and mechanism chains from the course revision document</p>
+
+<div class="intro">
+<strong>How these answers are built.</strong> Fatás grades the <em>logic</em>, not the facts, and wants "arguments and frameworks that we discussed in class." So each answer leads with the relevant identity, rule or mechanism chain, then compresses to the two-or-three sentences he asks for. The official answer key is correct but prose-heavy; here the same conclusions are re-derived from the formula sheet (BoP identity, Taylor rule, IS-LM-FX 4-step, debt dynamics, currencies-as-assets) so the marker can see exactly which tool is doing the work.
+</div>
+
+<div class="toc">
+<div class="lbl">Questions</div>
+<a href="#q1">Q1 · True / False / Uncertain (20)</a> &nbsp;·&nbsp;
+<a href="#q2">Q2 · Japan: inflation, rates, debt (10)</a> &nbsp;·&nbsp;
+<a href="#q3">Q3 · Geopolitics &amp; central banks (10)</a> &nbsp;·&nbsp;
+<a href="#q4">Q4 · Fiscal austerity in Indonesia (10)</a> &nbsp;·&nbsp;
+<a href="#q5">Q5 · Initial value of the Euro (10)</a> &nbsp;·&nbsp;
+<a href="#q6">Q6 · Retirement, rates &amp; stock prices (10)</a>
+</div>
+
+<div class="controlbar">
+<button class="reveal-all" id="revealAll">Reveal all answers</button>
+<span class="hint">Answers are hidden by default. Use “Show answer” under each question to self-test, or reveal everything at once.</span>
+</div>
+
+<!-- ========================= Q1 ========================= -->
+<h2 class="q" id="q1">1 · True / False / Uncertain <span class="tag">20 points</span></h2>
+<p>State the verdict, then justify with a mechanism. The justification is the entire grade.</p>
+
+<h3>a) "The only way to combine a current account surplus with a private capital inflow is through accumulation of foreign reserves." <span class="tag">5</span></h3>
+<span class="verdict v-true">TRUE</span>
+<div class="eq"><div class="lbl">Balance-of-payments identity (L2)</div>
+$$CA = \text{Capital \& Financial Account}, \qquad (S_{priv}-I_{priv})+(S_{gov}-I_{gov}) = CA$$</div>
+<div class="chain"><div class="lbl">Mechanism</div>
+CA surplus <span class="arrow">⇒</span> the country is a net lender, i.e. a <strong>net capital outflow</strong>. A private capital <em>inflow</em> pushes the private account the wrong way, so the only entry left to restore the net outflow is a <strong>public capital outflow = reserve accumulation</strong>.</div>
+<p>Equivalently: foreign currency arrives both as payment for the trade surplus <em>and</em> as the private inflow; if neither private agents nor the trade account absorb it, it can only pile up as official FX reserves. So the statement holds.</p>
+
+<h3>b) "When a country fixes its exchange rate to another currency it implicitly follows that country's policies. As a result the bilateral trade balance between the two will always be zero (balanced trade)." <span class="tag">5</span></h3>
+<span class="verdict v-false">FALSE</span>
+<p>The first clause is correct (a peg with open capital markets imports the anchor's monetary policy: the Impossible Trinity). The <em>conclusion</em> is wrong.</p>
+<div class="eq"><div class="lbl">What actually sets the trade balance (L2 / L13)</div>
+$$NX \approx CA = S - I$$</div>
+<div class="chain"><div class="lbl">Mechanism</div>
+Trade balances are driven by saving versus investment, <span class="arrow">not</span> by the currency regime. A fixed exchange rate fixes nothing about \(S-I\), and certainly nothing about the <em>bilateral</em> split. There is no mechanical link between exchange-rate stability and balanced trade.</div>
+<div class="pitfall"><b>Trap:</b> conflating a stable currency with balanced trade. High-tariff Egypt still runs a deficit; zero-tariff Singapore a huge surplus. It is always \(S-I\).</div>
+
+<h3>c) "Last week China held the Renminbi stable vs the dollar (~Rmb 7.169) when markets had expected a depreciation. Given the news, expectations of inflation in China must have increased." <span class="tag">5</span></h3>
+<span class="verdict v-false">FALSE</span>
+<div class="key"><div class="lbl">Framework: currencies as assets (L12) + the nominal anchor (L8)</div>
+A currency <em>stronger than the market priced in</em> signals <strong>tighter-than-expected monetary policy</strong>, which lowers, not raises, expected inflation.</div>
+<div class="chain"><div class="lbl">Mechanism (two routes, same sign)</div>
+stronger-than-expected Rmb <span class="arrow">⇒</span> tighter MP than priced <span class="arrow">⇒</span> <strong>lower</strong> expected inflation.<br>
+stronger Rmb <span class="arrow">⇒</span> cheaper imports <span class="arrow">⇒</span> <strong>lower</strong> inflation.</div>
+<p>Both channels push expected inflation down. The premise points the opposite way to the conclusion, so the statement is false.</p>
+
+<h3>d) "An increasing employment rate among older workers can help alleviate the effects of ageing on GDP per capita." <span class="tag">5</span></h3>
+<span class="verdict v-true">TRUE</span>
+<div class="eq"><div class="lbl">Growth decomposition (L3)</div>
+$$\frac{\text{GDP}}{\text{Pop}}=\underbrace{\frac{\text{GDP}}{\text{Hours}}}_{\text{productivity}}\times\underbrace{\frac{\text{Hours}}{\text{Workers}}}_{\text{effort}}\times\underbrace{\frac{\text{Workers}}{\text{Working-age}}}_{\text{labour mkt}}\times\underbrace{\frac{\text{Working-age}}{\text{Pop}}}_{\text{demographics}}$$</div>
+<div class="chain"><div class="lbl">Mechanism</div>
+Ageing shrinks the <em>demographics</em> term (Working-age/Pop). Raising older-worker employment lifts the <em>labour-market</em> term (Workers/Working-age), which offsets the drag and keeps the labour force (and GDP per capita) from falling as much, or even rising.</div>
+<p>This is exactly Japan "defying gravity": the working-age population fell by ~12m yet the labour force grew, via later retirement and higher participation. (Caveat: there is a ceiling: you cannot ask people to work to 85.)</p>
+
+<!-- ========================= Q2 ========================= -->
+<h2 class="q" id="q2">2 · Inflation, interest rates and debt in Japan <span class="tag">10 points</span></h2>
+
+<h3>a) Why might a central bank committed to its 2% target (the BoJ) <em>not</em> raise rates even though inflation ran above target in 2022–23? <span class="tag">5</span></h3>
+<div class="eq"><div class="lbl">Taylor rule (L8)</div>
+$$i = \underbrace{r^{*}+\pi}_{\text{baseline}} + 0.5(\pi-\pi^{*}) + 0.5\,(\text{output gap})$$</div>
+<div class="chain"><div class="lbl">Two framework reasons</div>
+<strong>(1) Output gap.</strong> A large <em>negative</em> output gap (slack/unemployment) drags the prescribed rate down through the last term, so the rule need not call for a hike even with \(\pi>\pi^{*}\).<br>
+<strong>(2) Inflation expectations.</strong> After decades anchored on deflation, the BoJ <em>wants</em> expectations to re-anchor upward toward 2%; hiking early would kill the very inflation it spent 20 years trying to create.</div>
+<p class="grade">Either point earns the marks; both together is the full answer. (A low \(r^{*}\) is an acceptable third reason.)</p>
+
+<h3>b) If higher inflation is driving the government's borrowing costs up, what does that imply for the sustainability of Japan's government debt? <span class="tag">5</span></h3>
+<div class="eq"><div class="lbl">Debt dynamics (L11) — the one formula you compute</div>
+$$\frac{\text{Required primary surplus}}{\text{GDP}} = (r-g)\times\frac{\text{Debt}}{\text{GDP}}$$</div>
+<div class="chain"><div class="lbl">Mechanism</div>
+Inflation raises <strong>both</strong> the nominal borrowing rate \(r\) <span class="arrow">and</span> nominal GDP growth \(g\). The gap \((r-g)\) is what drives the debt ratio, and it is roughly unchanged <span class="arrow">⇒</span> <strong>little effect on sustainability</strong>.</div>
+<p><strong>The exception is the whole point:</strong> sustainability deteriorates only if \(r\) rises <em>faster</em> than inflation/growth, so that \((r-g)\) widens and the required primary surplus rises. So: higher nominal borrowing costs alone tell you almost nothing; what matters is \(r\) versus \(g\).</p>
+
+<!-- ========================= Q3 ========================= -->
+<h2 class="q" id="q3">3 · Geopolitics and central banks <span class="tag">10 points</span></h2>
+
+<h3>a) Saudi Arabia and China sell French/European government bonds and buy US bonds. How does this affect the value of the Euro? Any implications for euro-area inflation and growth? <span class="tag">5</span></h3>
+<div class="key"><div class="lbl">Framework: short-run FX is an asset price set by capital flows (L12)</div></div>
+<div class="chain"><div class="lbl">Mechanism</div>
+sell EUR assets to buy USD assets <span class="arrow">⇒</span> capital outflow from the euro <span class="arrow">⇒</span> <strong>EUR depreciates</strong> <span class="arrow">⇒</span> (i) imported-goods prices rise <span class="arrow">⇒</span> higher inflation; and (ii) cheaper euro exports <span class="arrow">⇒</span> \(NX\uparrow\) <span class="arrow">⇒</span> higher demand/GDP <span class="arrow">⇒</span> further inflation pressure.</div>
+<p>So: downward pressure on the Euro, with higher inflation and (modestly) higher growth in the euro area. (One could add that euro-government yields rise, with fiscal knock-ons, but that is not required.)</p>
+
+<h3>b) What action could the ECB take to eliminate all these effects, and what would it do to the size of the ECB's balance sheet? <span class="tag">5</span></h3>
+<div class="key"><div class="lbl">Framework: sterilised intervention / asset swap (L5, L7)</div>
+The ECB buys the European bonds being dumped and pays with its <strong>foreign reserves</strong> (selling the very US bonds Saudi Arabia and China want).</div>
+<div class="chain"><div class="lbl">Mechanism</div>
+ECB sells USD assets, buys EUR bonds <span class="arrow">⇒</span> it exactly absorbs the portfolio shift <span class="arrow">⇒</span> <strong>no effect on the exchange rate, inflation or growth</strong>.</div>
+<p><strong>Balance-sheet size: unchanged.</strong> It is one asset replacing another (US bonds out, European bonds in), so only the <em>composition</em> moves, not the size. That asymmetry (composition, not size) is the defining feature of a sterilised swap.</p>
+
+<!-- ========================= Q4 ========================= -->
+<h2 class="q" id="q4">4 · Fiscal austerity in Indonesia <span class="tag">10 points</span></h2>
+
+<h3>a) How do budget cuts affect consumption and GDP growth in this environment, and why would they affect a currency already near four-year lows? <span class="tag">5</span></h3>
+<div class="eq"><div class="lbl">IS-LM-FX, fiscal contraction (L7) — which term each effect hits</div>
+$$\text{GDP}=\underbrace{C(\text{GDP},r,T,W)}_{\text{induced (multiplier)}}+\underbrace{I(r)}_{\text{rate offset}}+\underbrace{G}_{\text{direct }\downarrow}+\underbrace{NX(e,\text{GDP},\text{GDP}_F)}_{\text{FX offset}}$$</div>
+<div class="chain"><div class="lbl">Mechanism — in causal order</div>
+\(\downarrow G\) (direct demand cut) <span class="arrow">⇒</span> IS shifts left <span class="arrow">⇒</span> GDP &amp; household income fall <span class="arrow">⇒</span> induced \(\downarrow C\) (multiplier) <span class="arrow">⇒</span> <strong>GDP growth falls further</strong> <span class="arrow">⇒</span> money demand falls <span class="arrow">⇒</span> \(r\) falls <span class="arrow">⇒</span> \(r<r_F\) <span class="arrow">⇒</span> capital outflow <span class="arrow">⇒</span> <strong>the rupiah depreciates</strong>.</div>
+<div class="key"><div class="lbl">Separating the effect on GDP</div>
+<ul>
+<li><strong>Direct (the cut itself):</strong> \(\downarrow G\) removes demand one-for-one — this is the <em>size of the IS shift</em>.</li>
+<li><strong>Indirect, amplifies:</strong> lower income \(\Rightarrow \downarrow C\) (the Keynesian multiplier) — already baked into the <em>width</em> of the IS shift (\(\Delta G \times \tfrac{1}{1-\text{MPC}}\)).</li>
+<li><strong>Indirect, offsets:</strong> lower GDP \(\Rightarrow r\downarrow\), which lifts \(I(r)\) and (via outflow \(\Rightarrow\) depreciation) lifts \(NX\) — the <em>move along IS′ to E₁</em>, so output falls by less than the full shift.</li>
+</ul></div>
+<figure>
+<svg viewBox="0 0 470 320" role="img" aria-label="IS-LM-FX diagram: fiscal contraction shifts the IS curve left, lowering GDP and the interest rate below the world rate">
+  <defs>
+    <marker id="islArr" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#b03030"/></marker>
+  </defs>
+  <line class="axis" x1="70" y1="25" x2="70" y2="275"/>
+  <line class="axis" x1="70" y1="275" x2="445" y2="275"/>
+  <text class="lbl" x="52" y="32">r</text>
+  <text class="lbl" x="406" y="297">GDP</text>
+  <!-- world rate -->
+  <line class="rf dash" x1="70" y1="162" x2="445" y2="162"/>
+  <text class="sm" x="416" y="156" fill="#a8740a" font-weight="700">r<tspan baseline-shift="sub" font-size="9">F</tspan></text>
+  <!-- LM -->
+  <line class="LM" x1="110" y1="250" x2="380" y2="90"/>
+  <text class="lbl" x="385" y="92" fill="#1f5fa8">LM</text>
+  <!-- IS original -->
+  <line class="IS" x1="110" y1="80" x2="380" y2="230"/>
+  <text class="lbl" x="384" y="237" fill="#2e7d32">IS</text>
+  <!-- IS shifted left -->
+  <line class="IS dash" x1="70" y1="99" x2="305" y2="230"/>
+  <text class="lbl" x="82" y="118" fill="#2e7d32">IS′</text>
+  <!-- shift arrow -->
+  <line x1="250" y1="118" x2="200" y2="126" stroke="#b03030" stroke-width="2" marker-end="url(#islArr)"/>
+  <text class="sm" x="208" y="110" fill="#b03030" font-weight="700">↓G</text>
+  <!-- guide lines -->
+  <line class="dash" x1="258" y1="162" x2="258" y2="275" stroke="#bbb" stroke-width="1"/>
+  <line class="dash" x1="222" y1="184" x2="222" y2="275" stroke="#bbb" stroke-width="1"/>
+  <line class="dash" x1="222" y1="184" x2="222" y2="162" stroke="#bbb" stroke-width="1"/>
+  <!-- equilibria -->
+  <circle class="dot" cx="258" cy="162" r="4.5"/>
+  <circle class="dot" cx="222" cy="184" r="4.5"/>
+  <text class="sm" x="263" y="158">E₀</text>
+  <text class="sm" x="196" y="199">E₁</text>
+  <text class="sm" x="226" y="178" fill="#b03030">r&lt;r<tspan baseline-shift="sub" font-size="9">F</tspan></text>
+  <text class="sm" x="205" y="290" fill="#555">GDP↓</text>
+</svg>
+<figcaption>Fiscal contraction (↓G) shifts <strong>IS left</strong> to IS′. The new equilibrium E₁ sits at lower GDP and a lower interest rate; with r below the world rate r<sub>F</sub>, capital flows out and the rupiah depreciates.</figcaption>
+</figure>
+<p><strong>Why the currency moves:</strong> the depreciation comes from the <em>indirect rate channel</em>, not the direct cut. The induced fall in activity lowers the domestic interest rate below \(r_F\), and that is what drives capital out and pushes an already-weak rupiah down further. (Caveat: if the market has already priced the slowdown, only the unexpected part moves the currency.)</p>
+
+<h3>b) The central bank just cut its rate 6.00% → 5.75%. How might the austerity plan change its future monetary policy, and how will that affect the rupiah? <span class="tag">5</span></h3>
+<div class="eq"><div class="lbl">Taylor rule + uncovered interest parity (L8, L12)</div>
+$$i = r^{*}+\pi+0.5(\pi-\pi^{*})+0.5(\text{output gap}); \qquad r - r_F = \text{expected depreciation}$$</div>
+<div class="chain"><div class="lbl">Mechanism</div>
+austerity <span class="arrow">⇒</span> lower growth and lower inflation <span class="arrow">⇒</span> Taylor rule prescribes <strong>more room to cut rates</strong> <span class="arrow">⇒</span> (provided the cuts are not yet priced by the FX market) <strong>further depreciation of the rupiah</strong>.</div>
+<div class="pitfall"><b>Priced-in trick:</b> if the market has <em>already</em> priced the future cuts, the currency does not move on the news. Only the <em>unexpected</em> portion of the easing depreciates the rupiah.</div>
+
+<!-- ========================= Q5 ========================= -->
+<h2 class="q" id="q5">5 · Initial value of the Euro <span class="tag">10 points</span></h2>
+
+<h3>a) How would choosing a different (lower) initial exchange rate have affected prices in the euro area? And inflation over the following ten years? <span class="tag">5</span></h3>
+<div class="key"><div class="lbl">Framework: money neutrality / the initial price level is arbitrary (L5)</div>
+"Add a zero": the level of a currency is arbitrary; what matters is how monetary policy is run afterwards (the nominal anchor).</div>
+<div class="chain"><div class="lbl">Mechanism</div>
+lower initial Euro <span class="arrow">⇒</span> all initial euro <em>prices</em> would simply have been higher (a one-off level shift) <span class="arrow">⇒</span> <strong>zero effect on inflation</strong> in the years that followed.</div>
+<p>Future inflation is determined by the conduct of monetary policy (the 2% anchor), not by the starting value of the currency. The premise that a lower launch value would have meant lower subsequent inflation is wrong.</p>
+
+<h3>b) The Euro is now $1.03, down from $1.1686 at launch. Give two reasons, using solid economic logic, for the depreciation. <span class="tag">5</span></h3>
+<div class="eq"><div class="lbl">Long-run FX: productivity + inflation differential (L12)</div>
+$$\%\Delta e_N = \pi_F - \pi_{domestic} \quad\text{(similar productivity)}; \qquad e_R\uparrow \text{ with relative productivity}$$</div>
+<ol>
+<li><strong>Lower productivity growth in the euro area.</strong> Slower tradables-productivity growth than the US implies the real exchange rate should depreciate; with similar inflation, that comes through as a nominal depreciation.</li>
+<li><strong>Higher euro-area inflation than the US.</strong> By the inflation-differential rule, higher domestic inflation \(\Rightarrow\) \(\%\Delta e_N<0\) \(\Rightarrow\) a depreciating Euro.</li>
+</ol>
+<p class="grade">They need not be factually accurate; the marks are for applying a correct driver of exchange rates.</p>
+
+<!-- ========================= Q6 ========================= -->
+<h2 class="q" id="q6">6 · Retirement, interest rates and stock prices <span class="tag">10 points</span></h2>
+
+<h3>a) As ageing surplus countries (Germany, Japan) save less or dissave, what happens to the global real interest rate? And to the current account of deficit countries like the US? <span class="tag">5</span></h3>
+<div class="key"><div class="lbl">Framework: the global Saving-Investment cross (L2) — a saving glut in reverse</div></div>
+<div class="chain"><div class="lbl">Mechanism</div>
+\(\downarrow\) desired saving <span class="arrow">⇒</span> world Saving curve shifts <strong>left</strong> <span class="arrow">⇒</span> the global real interest rate <strong>rises</strong> <span class="arrow">⇒</span> tougher financing for deficit countries <span class="arrow">⇒</span> the US current-account <strong>deficit narrows</strong>.</div>
+<figure>
+<svg viewBox="0 0 420 300" role="img" aria-label="Saving-Investment cross: a fall in desired saving shifts the saving curve left and raises the world real interest rate">
+  <defs>
+    <marker id="siArr" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#b03030"/></marker>
+  </defs>
+  <line class="axis" x1="70" y1="25" x2="70" y2="260"/>
+  <line class="axis" x1="70" y1="260" x2="395" y2="260"/>
+  <text class="lbl" x="52" y="32">r</text>
+  <text class="lbl" x="348" y="282">S, I</text>
+  <!-- Investment -->
+  <line class="INV" x1="90" y1="70" x2="360" y2="240"/>
+  <text class="lbl" x="364" y="244" fill="#2e7d32">I</text>
+  <!-- Saving original -->
+  <line class="SAV" x1="90" y1="230" x2="360" y2="60"/>
+  <text class="lbl" x="364" y="63" fill="#1f5fa8">S</text>
+  <!-- Saving shifted left -->
+  <line class="SAV dash" x1="70" y1="198" x2="290" y2="60"/>
+  <text class="lbl" x="262" y="54" fill="#1f5fa8">S′</text>
+  <!-- shift arrow -->
+  <line x1="250" y1="129" x2="208" y2="100" stroke="#b03030" stroke-width="2" marker-end="url(#siArr)"/>
+  <text class="sm" x="190" y="92" fill="#b03030" font-weight="700">↓ saving</text>
+  <!-- r levels -->
+  <line class="dash" x1="70" y1="150" x2="217" y2="150" stroke="#bbb" stroke-width="1"/>
+  <line class="dash" x1="70" y1="128" x2="182" y2="128" stroke="#bbb" stroke-width="1"/>
+  <!-- world r rises -->
+  <line x1="80" y1="150" x2="80" y2="126" stroke="#b03030" stroke-width="2" marker-end="url(#siArr)"/>
+  <text class="sm" x="84" y="142" fill="#b03030" font-weight="700">r↑</text>
+  <!-- equilibria -->
+  <circle class="dot" cx="217" cy="150" r="4.5"/>
+  <circle class="dot" cx="182" cy="128" r="4.5"/>
+  <text class="sm" x="222" y="148">E₀</text>
+  <text class="sm" x="158" y="124">E₁</text>
+</svg>
+<figcaption>A fall in desired saving shifts the world <strong>Saving curve left</strong> (S → S′). The global real interest rate rises (E₀ → E₁), tightening financing for deficit countries like the US, whose current-account deficit narrows.</figcaption>
+</figure>
+<p>This is the saving glut (Bernanke) run backwards: less world saving, higher world \(r\), smaller imbalances.</p>
+
+<h3>b) If, in addition, investors rebalance toward bonds and away from stocks to lower risk, what happens to stock prices? And to the equity risk premium? <span class="tag">5</span></h3>
+<div class="eq"><div class="lbl">Asset pricing &amp; the ex-ante risk premium (L6)</div>
+$$R = r + RP, \qquad R \approx \frac{E}{P} \;\Rightarrow\; RP = \frac{E}{P} - r$$</div>
+<div class="chain"><div class="lbl">Two forces, both pushing the same way</div>
+<strong>(1)</strong> lower saving <span class="arrow">⇒</span> higher real rate \(r\) <span class="arrow">⇒</span> higher discount rate <span class="arrow">⇒</span> lower asset prices across the board, stocks included.<br>
+<strong>(2)</strong> a shift away from stocks toward bonds = lower risk tolerance <span class="arrow">⇒</span> a <strong>higher required equity risk premium</strong> <span class="arrow">⇒</span> \(E/P\) must rise <span class="arrow">⇒</span> stock prices fall <em>further</em>.</div>
+<p>So <strong>stock prices fall</strong> (via both the higher rate and the higher risk premium), and the <strong>equity risk premium rises</strong>.</p>
+
+<div class="footer">
+Framework model answers for the MGE Final Exam of 20 February 2025 (Prof. Antonio Fatás, INSEAD). Each answer is derived from the course revision document's equation sheet and mechanism-chain drills, so the framework doing the work is explicit. Conclusions match the official answer key; the presentation follows Fatás's grading rule (state the verdict/result, then justify with one mechanism, in roughly three sentences). Open in a browser; print to PDF via ⌘P.
+</div>
+
+</main>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('main h3').forEach(function(h3){
+    var wrap = document.createElement('div'); wrap.className = 'answer-body';
+    var n = h3.nextElementSibling, nodes = [];
+    while(n && n.tagName !== 'H3' && n.tagName !== 'H2' && !(n.classList && n.classList.contains('footer'))){
+      nodes.push(n); n = n.nextElementSibling;
+    }
+    nodes.forEach(function(x){ wrap.appendChild(x); });
+    var btn = document.createElement('button'); btn.className = 'reveal-btn'; btn.textContent = 'Show answer';
+    btn.addEventListener('click', function(){
+      var open = wrap.classList.toggle('open');
+      btn.textContent = open ? 'Hide answer' : 'Show answer';
+    });
+    h3.insertAdjacentElement('afterend', btn);
+    btn.insertAdjacentElement('afterend', wrap);
+  });
+  var all = document.getElementById('revealAll'), shown = false;
+  if(all){ all.addEventListener('click', function(){
+    shown = !shown;
+    document.querySelectorAll('.answer-body').forEach(function(w){ w.classList.toggle('open', shown); });
+    document.querySelectorAll('.reveal-btn').forEach(function(b){ b.textContent = shown ? 'Hide answer' : 'Show answer'; });
+    all.textContent = shown ? 'Hide all answers' : 'Reveal all answers';
+  }); }
+});
+</script>
+</body>
+</html>

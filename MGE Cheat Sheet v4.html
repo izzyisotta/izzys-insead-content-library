@@ -15,7 +15,7 @@
   *{box-sizing:border-box;}
   body{margin:0; background:var(--bg); color:var(--ink);
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-    font-size:9.5px; line-height:1.25;}
+    font-size:9.5px; line-height:1.2;}
   .backlink{display:block; padding:8px 12px; font-size:13px; color:var(--blue); text-decoration:none;}
   @media print{ .backlink{display:none;} body{background:#fff;} }
   @page{ size:A4; margin:5mm; }
@@ -33,15 +33,15 @@
   .legend{ font-size:8.1px; color:var(--soft); margin:5px 0 0; }
 
   /* cards */
-  .card{ border:1px solid var(--line); border-radius:5px; padding:4px 7px 5px; margin-bottom:3px; background:#fff; }
+  .card{ border:1px solid var(--line); border-radius:5px; padding:3px 7px 4px; margin-bottom:2.5px; background:#fff; }
   .card.big{ border-color:#bcd6c7; }
   h3.t{ margin:0 0 2px; font-size:10.5px; color:var(--green); line-height:1.15; display:flex; justify-content:space-between; align-items:baseline; gap:6px; }
   h3.t .freq{ font-size:7.6px; font-weight:700; color:#fff; background:var(--green); border-radius:10px; padding:1px 6px; white-space:nowrap; flex:0 0 auto; }
-  .trig{ color:var(--blue); font-style:italic; margin:1px 0 1px; font-size:8.7px; }
+  .trig{ color:var(--blue); font-style:italic; margin:0 0 1px; font-size:8.7px; }
   .trig b{ font-style:normal; }
-  .fw{ background:#eef5f0; border-left:3px solid var(--green); border-radius:3px; padding:2px 6px; margin:2px 0; }
-  .fw ul{ margin:1px 0; padding-left:14px; }
-  .fw li{ margin:1px 0; }
+  .fw{ background:#eef5f0; border-left:3px solid var(--green); border-radius:3px; padding:1.5px 6px; margin:1.5px 0; }
+  .fw ul{ margin:0; padding-left:13px; }
+  .fw li{ margin:0.5px 0; }
   .lbl{ font-size:7.8px; color:var(--soft); font-weight:700; text-transform:uppercase; letter-spacing:.02em; margin-top:2px; }
   .trap{ color:var(--red); margin-top:2px; font-size:8.6px; }
   .trap b{ color:var(--red); }
@@ -69,6 +69,19 @@
   table.mtx td.rowhead{ background:#eef5f0; font-weight:700; color:#08251a; }
   table.mtx svg{ width:100%; max-width:47mm; height:auto; display:block; margin:0 auto 1px; }
   table.mtx .cap{ font-size:6.6px; color:var(--soft); margin:0 0 1px; }
+
+  /* yield-curve mini diagram grid (matches matrix style) */
+  .ycgrid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:3px; margin:2px 0; }
+  .yccell{ border:1px solid var(--line); border-radius:4px; padding:2px 4px 3px; background:#fff; }
+  .yccell.head{ background:#eef5f0; font-weight:700; color:#08251a; font-size:8.1px; text-align:center; margin:0 0 1px; }
+  .yccell svg{ width:100%; max-width:46mm; height:auto; display:block; margin:0 auto 1px; }
+  .yccell .cap{ font-size:6.6px; color:var(--soft); line-height:1.2; }
+
+  /* compact boxed exam method strip */
+  .method{ background:#eaf1f8; border:1px solid #c3d6ea; border-left:3px solid var(--blue); border-radius:4px; padding:2px 7px 3px; margin:2px 0; }
+  .method .mh{ font-size:9px; font-weight:700; color:var(--blue); margin:0 0 1px; }
+  .method ol{ margin:1px 0; padding-left:15px; font-size:8.3px; line-height:1.25; }
+  .method li{ margin:1px 0; }
 </style>
 </head>
 <body>
@@ -217,6 +230,16 @@
         <tr><td>STERILISED</td><td>Offset with a domestic-bond sale ⟹ size <b>unchanged</b>, composition only, <b>no macro effect</b></td></tr>
       </table>
       <div class="trap"><b>Punchline:</b> pegs break on the <b>weak</b> side (1992 EMS). T/F "sterilised intervention changes balance-sheet size" = <b>false</b>.</div>
+      <div class="method">
+        <div class="mh">Attacking a "rates / FX" question</div>
+        <ol>
+          <li>What does the shock hit <b>first</b> — a curve (IS/LM), the expected future short-rate path, or expected inflation?</li>
+          <li>Capital mobile? FX regime? (does <b>r=r<sub>F</sub></b> bind · fixed vs flexible?)</li>
+          <li>Short vs long end: CB sets the short rate (Taylor); long end = expected future path + term premium.</li>
+          <li><b>News vs level</b> (priced-in?), and <b>real vs nominal</b> — check both.</li>
+          <li>Trace the chain, state the <b>direction + why</b>.</li>
+        </ol>
+      </div>
     </div>
 
     <div class="card big">
@@ -270,11 +293,24 @@
         <tr><td>Inverted (short&gt;long)</td><td>expected to <b>fall</b> · recession OR credible disinflation</td></tr>
         <tr><td>Flat</td><td>turning point</td></tr>
       </table>
-      <table class="dt">
-        <tr><td>Steepen (long↑)</td><td>inflation surprise before CB acts; heavy issuance / term-premium shock</td></tr>
-        <tr><td>Flatten</td><td>hike cycle with long anchored; QE pulling the long end down</td></tr>
-        <tr><td>Invert</td><td>credible hawk hikes now (short↑, long↓); cuts priced ahead on recession fear (long↓)</td></tr>
-      </table>
+      <div class="lbl">Scenarios · how the curve moves</div>
+      <div class="ycgrid">
+        <div class="yccell">
+          <div class="head">Steepen</div>
+          <svg viewBox="0 0 150 100"><line x1="20" y1="84" x2="142" y2="84" stroke="#999" stroke-width="1"/><line x1="20" y1="84" x2="20" y2="10" stroke="#999" stroke-width="1"/><text x="6" y="16" font-size="9" fill="#555">y</text><text x="110" y="96" font-size="8" fill="#555">maturity</text><path d="M24,68 Q70,56 138,48" fill="none" stroke="#7a9a86" stroke-width="2"/><path d="M24,68 Q72,46 138,20" fill="none" stroke="#b03030" stroke-width="2.4" stroke-dasharray="5 3"/><line x1="132" y1="44" x2="132" y2="24" stroke="#b03030" stroke-width="1.6"/><path d="M129,30 L132,23 L135,30" fill="none" stroke="#b03030" stroke-width="1.6"/><text x="96" y="18" font-size="8" fill="#b03030">long↑</text></svg>
+          <div class="cap">inflation surprise before CB acts; heavy issuance / term-premium shock.</div>
+        </div>
+        <div class="yccell">
+          <div class="head">Flatten</div>
+          <svg viewBox="0 0 150 100"><line x1="20" y1="84" x2="142" y2="84" stroke="#999" stroke-width="1"/><line x1="20" y1="84" x2="20" y2="10" stroke="#999" stroke-width="1"/><text x="6" y="16" font-size="9" fill="#555">y</text><text x="110" y="96" font-size="8" fill="#555">maturity</text><path d="M24,68 Q70,46 138,24" fill="none" stroke="#7a9a86" stroke-width="2"/><path d="M24,56 Q72,50 138,44" fill="none" stroke="#a8740a" stroke-width="2.4" stroke-dasharray="5 3"/><line x1="132" y1="28" x2="132" y2="42" stroke="#a8740a" stroke-width="1.6"/><path d="M129,36 L132,43 L135,36" fill="none" stroke="#a8740a" stroke-width="1.6"/><text x="92" y="58" font-size="8" fill="#a8740a">long↓</text></svg>
+          <div class="cap">hike cycle, long anchored; QE pulls the long end down.</div>
+        </div>
+        <div class="yccell">
+          <div class="head">Invert</div>
+          <svg viewBox="0 0 150 100"><line x1="20" y1="84" x2="142" y2="84" stroke="#999" stroke-width="1"/><line x1="20" y1="84" x2="20" y2="10" stroke="#999" stroke-width="1"/><text x="6" y="16" font-size="9" fill="#555">y</text><text x="110" y="96" font-size="8" fill="#555">maturity</text><path d="M24,64 Q70,52 138,40" fill="none" stroke="#7a9a86" stroke-width="2"/><path d="M24,30 Q72,46 138,64" fill="none" stroke="#1f5fa8" stroke-width="2.4" stroke-dasharray="5 3"/><line x1="30" y1="46" x2="30" y2="30" stroke="#1f5fa8" stroke-width="1.6"/><path d="M27,36 L30,29 L33,36" fill="none" stroke="#1f5fa8" stroke-width="1.6"/><text x="34" y="28" font-size="8" fill="#1f5fa8">short↑</text></svg>
+          <div class="cap">credible hawk hikes now (short↑, long↓); cuts priced ahead on recession fear.</div>
+        </div>
+      </div>
       <div class="trap"><b>Trap:</b> inversion ≠ guaranteed recession (2023 soft landing).</div>
     </div>
 

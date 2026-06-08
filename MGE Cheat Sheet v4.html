@@ -15,7 +15,7 @@
   *{box-sizing:border-box;}
   body{margin:0; background:var(--bg); color:var(--ink);
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-    font-size:8.9px; line-height:1.13;}
+    font-size:8.9px; line-height:1.11;}
   .backlink{display:block; padding:8px 12px; font-size:13px; color:var(--blue); text-decoration:none;}
   @media print{ .backlink{display:none;} body{background:#fff;} }
   @page{ size:A4; margin:5mm; }
@@ -33,61 +33,74 @@
   .legend{ font-size:8.1px; color:var(--soft); margin:5px 0 0; }
 
   /* cards */
-  .card{ border:1px solid var(--line); border-radius:5px; padding:2px 7px 3px; margin-bottom:2px; background:#fff; }
+  .card{ border:1px solid var(--line); border-radius:5px; padding:1px 7px 1px; margin-bottom:1px; background:#fff; }
   .card.big{ border-color:#bcd6c7; }
-  h3.t{ margin:0 0 2px; font-size:10.5px; color:var(--green); line-height:1.15; display:flex; justify-content:space-between; align-items:baseline; gap:6px; }
+  h3.t{ margin:0 0 1px; font-size:10.5px; color:var(--green); line-height:1.1; display:flex; justify-content:space-between; align-items:baseline; gap:6px; }
   h3.t .freq{ font-size:7.6px; font-weight:700; color:#fff; background:var(--green); border-radius:10px; padding:1px 6px; white-space:nowrap; flex:0 0 auto; }
-  .trig{ color:var(--blue); font-style:italic; margin:0 0 0.5px; font-size:8.6px; line-height:1.14; }
+  .trig{ color:var(--blue); font-style:italic; margin:0 0 0px; font-size:8.2px; line-height:1.06; }
   .trig b{ font-style:normal; }
-  .fw{ background:#eef5f0; border-left:3px solid var(--green); border-radius:3px; padding:1px 6px; margin:1px 0; line-height:1.16; }
+  .fw{ background:#eef5f0; border-left:3px solid var(--green); border-radius:3px; padding:0.5px 6px; margin:0.5px 0; line-height:1.05; font-size:8.4px; }
   .fw ul{ margin:0; padding-left:13px; }
   .fw li{ margin:0.5px 0; }
-  .lbl{ font-size:7.8px; color:var(--soft); font-weight:700; text-transform:uppercase; letter-spacing:.02em; margin-top:1px; }
-  .trap{ color:var(--red); margin-top:1px; font-size:8.6px; line-height:1.16; }
+  .lbl{ font-size:7.6px; color:var(--soft); font-weight:700; text-transform:uppercase; letter-spacing:.02em; margin-top:0px; line-height:1.05; }
+  .trap{ color:var(--red); margin-top:0.5px; font-size:8.2px; line-height:1.06; }
   .trap b{ color:var(--red); }
   strong{ color:#08251a; }
   .blue{ color:var(--blue); } .grn{ color:var(--green); } .red{ color:var(--red); }
 
   /* MathJax guards for narrow columns */
-  mjx-container{ font-size:0.9em !important; margin:0.5px 0 !important; }
+  mjx-container{ font-size:0.82em !important; margin:0px 0 !important; }
   mjx-container svg{ max-width:100%; }
-  mjx-container[display="true"]{ margin:0.5px 0 !important; }
+  mjx-container[display="true"]{ margin:0px 0 !important; }
 
-  table.dt{ border-collapse:collapse; width:100%; font-size:8.1px; margin:1px 0; }
-  table.dt td{ border:1px solid var(--line); padding:1px 4px; vertical-align:top; }
+  table.dt{ border-collapse:collapse; width:100%; font-size:8.1px; margin:0.5px 0; }
+  table.dt td{ border:1px solid var(--line); padding:0.5px 4px; vertical-align:top; }
   table.dt td:nth-child(odd){ background:#eef5f0; font-weight:600; color:#08251a; white-space:nowrap; }
 
   /* full-width IS-LM-FX policy matrix band on page 1 */
   .matrix{ margin-top:4px; }
   .matrix .mtitle{ font-size:10.5px; color:var(--green); font-weight:700; margin:0 0 2px; }
   .matrix .mtitle .note{ font-size:7.6px; font-weight:400; color:var(--soft); }
-  table.mtx{ border-collapse:collapse; width:100%; font-size:7.2px; line-height:1.25; table-layout:fixed; }
-  table.mtx th, table.mtx td{ border:1px solid var(--line); padding:2px 3px; vertical-align:top; }
+  table.mtx{ border-collapse:collapse; width:100%; font-size:7.2px; line-height:1.12; table-layout:fixed; }
+  table.mtx th, table.mtx td{ border:1px solid var(--line); padding:1px 3px; vertical-align:top; }
   table.mtx th{ background:var(--green); color:#fff; font-size:7.4px; font-weight:700; text-align:left; }
   table.mtx th .sm, table.mtx td .sm{ font-size:6.6px; color:var(--soft); fill:var(--soft); }
   table.mtx td:first-child, table.mtx th:first-child{ width:11%; }
   table.mtx td.rowhead{ background:#eef5f0; font-weight:700; color:#08251a; }
-  table.mtx svg{ width:100%; max-width:47mm; height:auto; display:block; margin:0 auto 1px; }
-  table.mtx .cap{ font-size:6.6px; color:var(--soft); margin:0 0 1px; }
+  table.mtx svg{ width:100%; max-width:31mm; height:auto; display:block; margin:0 auto 0.5px; }
+  table.mtx .cap{ font-size:6.6px; color:var(--soft); margin:0 0 0.5px; line-height:1.08; }
 
   /* yield-curve mini diagram grid (matches matrix style) */
-  .ycgrid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:3px; margin:2px 0; }
-  .yccell{ border:1px solid var(--line); border-radius:4px; padding:2px 4px 3px; background:#fff; }
+  .ycgrid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:3px; margin:1px 0; }
+  .yccell{ border:1px solid var(--line); border-radius:4px; padding:1px 4px 2px; background:#fff; }
   .yccell.head{ background:#eef5f0; font-weight:700; color:#08251a; font-size:8.1px; text-align:center; margin:0 0 1px; }
   .yccell svg{ width:100%; max-width:40mm; height:auto; display:block; margin:0 auto 1px; }
-  .yccell .cap{ font-size:6.6px; color:var(--soft); line-height:1.2; }
+  .yccell .cap{ font-size:6.6px; color:var(--soft); line-height:1.12; }
 
   /* compact boxed exam method strip */
-  .method{ background:#eaf1f8; border:1px solid #c3d6ea; border-left:3px solid var(--blue); border-radius:4px; padding:1px 7px 2px; margin:1px 0; }
-  .method .mh{ font-size:9px; font-weight:700; color:var(--blue); margin:0 0 1px; }
-  .method ol{ margin:1px 0; padding-left:15px; font-size:8.3px; line-height:1.18; }
+  .method{ background:#eaf1f8; border:1px solid #c3d6ea; border-left:3px solid var(--blue); border-radius:4px; padding:0.5px 7px 1px; margin:0.5px 0; }
+  .method .mh{ font-size:9px; font-weight:700; color:var(--blue); margin:0 0 0.5px; }
+  .method ol{ margin:0.5px 0; padding-left:15px; font-size:8.2px; line-height:1.12; }
   .method li{ margin:0.5px 0; }
 
+  /* compact "scenario set-pieces" summary table on page 2 */
+  .setpieces{ margin-top:1px; }
+  .setpieces .mtitle{ font-size:10px; color:var(--green); font-weight:700; margin:0 0 0px; line-height:1.1; }
+  .setpieces .mtitle .note{ font-size:7.6px; font-weight:400; color:var(--soft); }
+  .setpieces .lead{ font-size:8px; color:var(--soft); margin:0 0 0px; line-height:1.05; }
+  table.sp{ border-collapse:collapse; width:100%; font-size:7.5px; line-height:1.05; table-layout:fixed; }
+  table.sp th, table.sp td{ border:1px solid var(--line); padding:0px 4px; vertical-align:top; }
+  table.sp th{ background:var(--green); color:#fff; font-size:8px; font-weight:700; text-align:left; }
+  table.sp td:nth-child(1){ width:19%; background:#eef5f0; font-weight:700; color:#08251a; }
+  table.sp td:nth-child(2){ width:20%; }
+  table.sp td:nth-child(2) b{ color:#08251a; }
+
   /* full-width "how it all connects" linkage map band on page 2 */
-  .linkmap{ margin-top:2px; }
-  .linkmap .mtitle{ font-size:10.5px; color:var(--green); font-weight:700; margin:0 0 0px; }
+  .linkmap{ margin-top:0px; }
+  .linkmap .mtitle{ font-size:10px; color:var(--green); font-weight:700; margin:0 0 0px; line-height:1.05; }
   .linkmap .mtitle .note{ font-size:7.6px; font-weight:400; color:var(--soft); }
-  .linkmap > svg{ width:100%; max-width:124mm; height:auto; display:block; margin:0 auto; }
+  .linkmap{ break-inside:avoid; }
+  .linkmap > svg{ width:100%; max-width:112mm; height:auto; display:block; margin:-1px auto -1px; }
 </style>
 </head>
 <body>
@@ -180,45 +193,6 @@
       <div class="trap"><b>Trap:</b> higher r ⟹ lower prices, but if r rises because growth is up, higher cash flows offset. A high P/E ≠ bubble.</div>
     </div>
 
-  </div>
- </div>
-
-  <!-- ---------- FULL-WIDTH IS-LM-FX POLICY MATRIX (page-1 centrepiece) ---------- -->
-  <div class="card big matrix">
-    <div class="mtitle">L7–L8 · IS-LM-FX policy matrix · the most-examined reversal <span class="note">(expansion shown; contraction = same chain, signs flipped · closed col = no capital mobility baseline · IS green, LM blue, r<sub>F</sub> amber dashed)</span></div>
-    <table class="mtx">
-      <tr><th>Policy</th><th>Closed economy <span class="sm">(no capital mobility, baseline)</span></th><th>Flexible FX</th><th>Fixed FX</th></tr>
-      <tr style="background:#eef6f1;">
-        <td class="rowhead"><em>Impossible Trinity:</em> which 2 you keep</td>
-        <td><span style="color:#2e7d32;font-weight:700">✓</span> fixed rate<br><span style="color:#2e7d32;font-weight:700">✓</span> independent monetary<br><span style="color:#b03030">✗ capital mobility</span></td>
-        <td><span style="color:#2e7d32;font-weight:700">✓</span> capital mobility<br><span style="color:#2e7d32;font-weight:700">✓</span> independent monetary<br><span style="color:#b03030">✗ fixed rate</span></td>
-        <td><span style="color:#2e7d32;font-weight:700">✓</span> capital mobility<br><span style="color:#2e7d32;font-weight:700">✓</span> fixed rate<br><span style="color:#b03030">✗ independent monetary</span></td>
-      </tr>
-      <tr>
-        <td class="rowhead"><strong>Monetary expansion</strong> (↑M/P)</td>
-        <td><svg viewBox="0 0 210 150"><line x1="34" y1="118" x2="200" y2="118" stroke="#999" stroke-width="1"/><line x1="34" y1="118" x2="34" y2="14" stroke="#999" stroke-width="1"/><text x="24" y="20" font-size="11" fill="#555">r</text><text x="168" y="132" font-size="10" fill="#555">GDP</text><line x1="48" y1="34" x2="182" y2="108" stroke="#2e7d32" stroke-width="2.6"/><text x="170" y="106" font-size="11" fill="#2e7d32">IS</text><line x1="48" y1="108" x2="182" y2="34" stroke="#1f5fa8" stroke-width="2.6"/><text x="170" y="40" font-size="11" fill="#1f5fa8">LM</text><line x1="76" y1="108" x2="194" y2="43" stroke="#1f5fa8" stroke-width="2.4" stroke-dasharray="5 3"/><circle cx="152" cy="58" r="8" fill="#1f5fa8"/><text x="152" y="61.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">1</text><circle cx="115" cy="71" r="3.5" fill="#13392b"/></svg><div class="cap">① LM right → r↓, GDP↑</div>↑M/P ⟹ LM right ⟹ r↓ ⟹ ↑I, ↑C ⟹ <strong>GDP↑</strong>. <strong style="color:#2e7d32">Powerful.</strong></td>
-        <td><svg viewBox="0 0 210 150"><line x1="34" y1="118" x2="200" y2="118" stroke="#999" stroke-width="1"/><line x1="34" y1="118" x2="34" y2="14" stroke="#999" stroke-width="1"/><text x="24" y="20" font-size="11" fill="#555">r</text><text x="168" y="132" font-size="10" fill="#555">GDP</text><line x1="34" y1="71" x2="200" y2="71" stroke="#a8740a" stroke-width="1.6" stroke-dasharray="4 3"/><text x="186" y="67" font-size="10" fill="#a8740a">r_F</text><line x1="48" y1="34" x2="182" y2="108" stroke="#2e7d32" stroke-width="2.6"/><text x="170" y="106" font-size="11" fill="#2e7d32">IS</text><line x1="48" y1="108" x2="182" y2="34" stroke="#1f5fa8" stroke-width="2.6"/><text x="170" y="40" font-size="11" fill="#1f5fa8">LM</text><line x1="76" y1="108" x2="194" y2="43" stroke="#1f5fa8" stroke-width="2.4" stroke-dasharray="5 3"/><circle cx="152" cy="58" r="8" fill="#1f5fa8"/><text x="152" y="61.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">1</text><line x1="76" y1="34" x2="194" y2="99" stroke="#2e7d32" stroke-width="2.4" stroke-dasharray="5 3"/><circle cx="150" cy="52" r="8" fill="#2e7d32"/><text x="150" y="55.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">2</text><circle cx="115" cy="71" r="3.5" fill="#13392b"/></svg><div class="cap">① LM right ② IS right (depreciation) → GDP↑</div>↑M/P ⟹ r↓ ⟹ r&lt;r_F ⟹ outflow ⟹ deprec. ⟹ NX↑ ⟹ <strong>GDP↑</strong>. <strong style="color:#2e7d32">Powerful.</strong></td>
-        <td><svg viewBox="0 0 210 150"><line x1="34" y1="118" x2="200" y2="118" stroke="#999" stroke-width="1"/><line x1="34" y1="118" x2="34" y2="14" stroke="#999" stroke-width="1"/><text x="24" y="20" font-size="11" fill="#555">r</text><text x="168" y="132" font-size="10" fill="#555">GDP</text><line x1="34" y1="71" x2="200" y2="71" stroke="#a8740a" stroke-width="1.6" stroke-dasharray="4 3"/><text x="186" y="67" font-size="10" fill="#a8740a">r_F</text><line x1="48" y1="34" x2="182" y2="108" stroke="#2e7d32" stroke-width="2.6"/><text x="170" y="106" font-size="11" fill="#2e7d32">IS</text><line x1="48" y1="108" x2="182" y2="34" stroke="#1f5fa8" stroke-width="2.6"/><text x="170" y="40" font-size="11" fill="#1f5fa8">LM</text><line x1="76" y1="108" x2="194" y2="43" stroke="#1f5fa8" stroke-width="2.4" stroke-dasharray="5 3"/><circle cx="152" cy="58" r="8" fill="#1f5fa8"/><text x="152" y="61.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">1</text><circle cx="92" cy="86" r="8" fill="#1f5fa8"/><text x="92" y="89.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">2</text><circle cx="115" cy="71" r="3.5" fill="#13392b"/></svg><div class="cap">① LM right ② LM back (peg defence) → GDP≈0</div>↑M/P ⟹ r↓ ⟹ outflow ⟹ CB buys back currency, reverses M ⟹ <strong>GDP≈0</strong>. <strong style="color:#b03030">Powerless.</strong></td>
-      </tr>
-      <tr>
-        <td class="rowhead"><strong>Fiscal expansion</strong> (↑G)</td>
-        <td><svg viewBox="0 0 210 150"><line x1="34" y1="118" x2="200" y2="118" stroke="#999" stroke-width="1"/><line x1="34" y1="118" x2="34" y2="14" stroke="#999" stroke-width="1"/><text x="24" y="20" font-size="11" fill="#555">r</text><text x="168" y="132" font-size="10" fill="#555">GDP</text><line x1="48" y1="34" x2="182" y2="108" stroke="#2e7d32" stroke-width="2.6"/><text x="170" y="106" font-size="11" fill="#2e7d32">IS</text><line x1="48" y1="108" x2="182" y2="34" stroke="#1f5fa8" stroke-width="2.6"/><text x="170" y="40" font-size="11" fill="#1f5fa8">LM</text><line x1="76" y1="34" x2="194" y2="99" stroke="#2e7d32" stroke-width="2.4" stroke-dasharray="5 3"/><circle cx="150" cy="52" r="8" fill="#2e7d32"/><text x="150" y="55.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">1</text><circle cx="115" cy="71" r="3.5" fill="#13392b"/></svg><div class="cap">① IS right → r↑, GDP↑</div>↑G ⟹ IS right ⟹ r↑ ⟹ <strong>GDP↑</strong>. <strong style="color:#2e7d32">Powerful.</strong></td>
-        <td><svg viewBox="0 0 210 150"><line x1="34" y1="118" x2="200" y2="118" stroke="#999" stroke-width="1"/><line x1="34" y1="118" x2="34" y2="14" stroke="#999" stroke-width="1"/><text x="24" y="20" font-size="11" fill="#555">r</text><text x="168" y="132" font-size="10" fill="#555">GDP</text><line x1="34" y1="71" x2="200" y2="71" stroke="#a8740a" stroke-width="1.6" stroke-dasharray="4 3"/><text x="186" y="67" font-size="10" fill="#a8740a">r_F</text><line x1="48" y1="34" x2="182" y2="108" stroke="#2e7d32" stroke-width="2.6"/><text x="170" y="106" font-size="11" fill="#2e7d32">IS</text><line x1="48" y1="108" x2="182" y2="34" stroke="#1f5fa8" stroke-width="2.6"/><text x="170" y="40" font-size="11" fill="#1f5fa8">LM</text><line x1="76" y1="34" x2="194" y2="99" stroke="#2e7d32" stroke-width="2.4" stroke-dasharray="5 3"/><circle cx="150" cy="52" r="8" fill="#2e7d32"/><text x="150" y="55.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">1</text><circle cx="92" cy="60" r="8" fill="#2e7d32"/><text x="92" y="63.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">2</text><circle cx="115" cy="71" r="3.5" fill="#13392b"/></svg><div class="cap">① IS right ② IS back (appreciation) → GDP≈0</div>↑G ⟹ r&gt;r_F ⟹ inflow ⟹ appr. ⟹ NX↓ ⟹ IS back ⟹ <strong>GDP≈0</strong>. <strong style="color:#b03030">Powerless.</strong></td>
-        <td><svg viewBox="0 0 210 150"><line x1="34" y1="118" x2="200" y2="118" stroke="#999" stroke-width="1"/><line x1="34" y1="118" x2="34" y2="14" stroke="#999" stroke-width="1"/><text x="24" y="20" font-size="11" fill="#555">r</text><text x="168" y="132" font-size="10" fill="#555">GDP</text><line x1="34" y1="71" x2="200" y2="71" stroke="#a8740a" stroke-width="1.6" stroke-dasharray="4 3"/><text x="186" y="67" font-size="10" fill="#a8740a">r_F</text><line x1="48" y1="34" x2="182" y2="108" stroke="#2e7d32" stroke-width="2.6"/><text x="170" y="106" font-size="11" fill="#2e7d32">IS</text><line x1="48" y1="108" x2="182" y2="34" stroke="#1f5fa8" stroke-width="2.6"/><text x="170" y="40" font-size="11" fill="#1f5fa8">LM</text><line x1="76" y1="34" x2="194" y2="99" stroke="#2e7d32" stroke-width="2.4" stroke-dasharray="5 3"/><circle cx="150" cy="52" r="8" fill="#2e7d32"/><text x="150" y="55.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">1</text><line x1="76" y1="108" x2="194" y2="43" stroke="#1f5fa8" stroke-width="2.4" stroke-dasharray="5 3"/><circle cx="152" cy="58" r="8" fill="#1f5fa8"/><text x="152" y="61.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">2</text><circle cx="115" cy="71" r="3.5" fill="#13392b"/></svg><div class="cap">① IS right ② LM right (peg defence) → GDP↑ amplified</div>↑G ⟹ r&gt;r_F ⟹ inflow ⟹ CB prints to hold peg ⟹ LM right ⟹ <strong>GDP↑ (amplified)</strong>. <strong style="color:#2e7d32">Powerful.</strong></td>
-      </tr>
-    </table>
-    <div class="trap" style="margin-top:2px;"><b>The reversal in one line:</b> monetary is potent under floating, powerless under a peg; fiscal is the exact mirror. Under a peg the CB loses monetary control to defend the currency, which is exactly why fiscal regains its bite.</div>
-  </div>
-
-</div>
-
-<!-- ====================== PAGE 2 ====================== -->
-<div class="page two">
-
- <div class="cols">
-  <!-- ---------- COLUMN 3 ---------- -->
-  <div class="col">
-
     <div class="card big">
       <h3 class="t">L7 · IS-LM-FX · the short-run model <span class="freq">L7–L8 · 26×</span></h3>
       <div class="trig">▸ <b>Framework:</b> the one engine for all of Part II. Three blocks (goods, money, capital flows); L7 assumes π=0 so r=i. The r<sub>F</sub> line is the anchor any shock gets dragged back to.</div>
@@ -239,14 +213,53 @@
       <div class="method">
         <div class="mh">Attacking a "rates / FX" question</div>
         <ol>
-          <li>What does the shock hit <b>first</b> — a curve (IS/LM), the expected future short-rate path, or expected inflation?</li>
+          <li>What does the shock hit <b>first</b>: a curve (IS/LM), the expected future short-rate path, or expected inflation?</li>
           <li>Capital mobile? FX regime? (does <b>r=r<sub>F</sub></b> bind · fixed vs flexible?)</li>
           <li>Short vs long end: CB sets the short rate (Taylor); long end = expected future path + term premium.</li>
-          <li><b>News vs level</b> (priced-in?), and <b>real vs nominal</b> — check both.</li>
+          <li><b>News vs level</b> (priced-in?), and <b>real vs nominal</b>, check both.</li>
           <li>Trace the chain, state the <b>direction + why</b>.</li>
         </ol>
       </div>
     </div>
+
+  </div>
+ </div>
+
+  <!-- ---------- FULL-WIDTH IS-LM-FX POLICY MATRIX (page-1 centrepiece) ---------- -->
+  <div class="card big matrix">
+    <div class="mtitle">L7–L8 · IS-LM-FX policy matrix · the most-examined reversal <span class="note">(expansion shown; contraction = same chain, signs flipped · closed col = no capital mobility baseline · IS green, LM blue, r<sub>F</sub> amber dashed)</span></div>
+    <table class="mtx">
+      <tr><th>Policy</th><th>Closed economy <span class="sm">(no capital mobility, baseline)</span></th><th>Flexible FX</th><th>Fixed FX</th></tr>
+      <tr style="background:#eef6f1;">
+        <td class="rowhead"><em>Impossible Trinity:</em> which 2 you keep</td>
+        <td><span style="color:#2e7d32;font-weight:700">✓</span> fixed rate<br><span style="color:#2e7d32;font-weight:700">✓</span> independent monetary<br><span style="color:#b03030">✗ capital mobility</span></td>
+        <td><span style="color:#2e7d32;font-weight:700">✓</span> capital mobility<br><span style="color:#2e7d32;font-weight:700">✓</span> independent monetary<br><span style="color:#b03030">✗ fixed rate</span></td>
+        <td><span style="color:#2e7d32;font-weight:700">✓</span> capital mobility<br><span style="color:#2e7d32;font-weight:700">✓</span> fixed rate<br><span style="color:#b03030">✗ independent monetary</span></td>
+      </tr>
+      <tr>
+        <td class="rowhead"><strong>Monetary expansion</strong> (↑M/P)</td>
+        <td><svg viewBox="0 10 210 128"><line x1="34" y1="118" x2="200" y2="118" stroke="#999" stroke-width="1"/><line x1="34" y1="118" x2="34" y2="14" stroke="#999" stroke-width="1"/><text x="24" y="20" font-size="11" fill="#555">r</text><text x="168" y="132" font-size="10" fill="#555">GDP</text><line x1="48" y1="34" x2="182" y2="108" stroke="#2e7d32" stroke-width="2.6"/><text x="170" y="106" font-size="11" fill="#2e7d32">IS</text><line x1="48" y1="108" x2="182" y2="34" stroke="#1f5fa8" stroke-width="2.6"/><text x="170" y="40" font-size="11" fill="#1f5fa8">LM</text><line x1="76" y1="108" x2="194" y2="43" stroke="#1f5fa8" stroke-width="2.4" stroke-dasharray="5 3"/><circle cx="152" cy="58" r="8" fill="#1f5fa8"/><text x="152" y="61.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">1</text><circle cx="115" cy="71" r="3.5" fill="#13392b"/></svg><div class="cap">① LM right → r↓, GDP↑</div>↑M/P ⟹ LM right ⟹ r↓ ⟹ ↑I, ↑C ⟹ <strong>GDP↑</strong>. <strong style="color:#2e7d32">Powerful.</strong></td>
+        <td><svg viewBox="0 10 210 128"><line x1="34" y1="118" x2="200" y2="118" stroke="#999" stroke-width="1"/><line x1="34" y1="118" x2="34" y2="14" stroke="#999" stroke-width="1"/><text x="24" y="20" font-size="11" fill="#555">r</text><text x="168" y="132" font-size="10" fill="#555">GDP</text><line x1="34" y1="71" x2="200" y2="71" stroke="#a8740a" stroke-width="1.6" stroke-dasharray="4 3"/><text x="186" y="67" font-size="10" fill="#a8740a">r_F</text><line x1="48" y1="34" x2="182" y2="108" stroke="#2e7d32" stroke-width="2.6"/><text x="170" y="106" font-size="11" fill="#2e7d32">IS</text><line x1="48" y1="108" x2="182" y2="34" stroke="#1f5fa8" stroke-width="2.6"/><text x="170" y="40" font-size="11" fill="#1f5fa8">LM</text><line x1="76" y1="108" x2="194" y2="43" stroke="#1f5fa8" stroke-width="2.4" stroke-dasharray="5 3"/><circle cx="152" cy="58" r="8" fill="#1f5fa8"/><text x="152" y="61.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">1</text><line x1="76" y1="34" x2="194" y2="99" stroke="#2e7d32" stroke-width="2.4" stroke-dasharray="5 3"/><circle cx="150" cy="52" r="8" fill="#2e7d32"/><text x="150" y="55.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">2</text><circle cx="115" cy="71" r="3.5" fill="#13392b"/></svg><div class="cap">① LM right ② IS right (depreciation) → GDP↑</div>↑M/P ⟹ r↓ ⟹ r&lt;r_F ⟹ outflow ⟹ deprec. ⟹ NX↑ ⟹ <strong>GDP↑</strong>. <strong style="color:#2e7d32">Powerful.</strong></td>
+        <td><svg viewBox="0 10 210 128"><line x1="34" y1="118" x2="200" y2="118" stroke="#999" stroke-width="1"/><line x1="34" y1="118" x2="34" y2="14" stroke="#999" stroke-width="1"/><text x="24" y="20" font-size="11" fill="#555">r</text><text x="168" y="132" font-size="10" fill="#555">GDP</text><line x1="34" y1="71" x2="200" y2="71" stroke="#a8740a" stroke-width="1.6" stroke-dasharray="4 3"/><text x="186" y="67" font-size="10" fill="#a8740a">r_F</text><line x1="48" y1="34" x2="182" y2="108" stroke="#2e7d32" stroke-width="2.6"/><text x="170" y="106" font-size="11" fill="#2e7d32">IS</text><line x1="48" y1="108" x2="182" y2="34" stroke="#1f5fa8" stroke-width="2.6"/><text x="170" y="40" font-size="11" fill="#1f5fa8">LM</text><line x1="76" y1="108" x2="194" y2="43" stroke="#1f5fa8" stroke-width="2.4" stroke-dasharray="5 3"/><circle cx="152" cy="58" r="8" fill="#1f5fa8"/><text x="152" y="61.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">1</text><circle cx="92" cy="86" r="8" fill="#1f5fa8"/><text x="92" y="89.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">2</text><circle cx="115" cy="71" r="3.5" fill="#13392b"/></svg><div class="cap">① LM right ② LM back (peg defence) → GDP≈0</div>↑M/P ⟹ r↓ ⟹ outflow ⟹ CB buys back currency, reverses M ⟹ <strong>GDP≈0</strong>. <strong style="color:#b03030">Powerless.</strong></td>
+      </tr>
+      <tr>
+        <td class="rowhead"><strong>Fiscal expansion</strong> (↑G)</td>
+        <td><svg viewBox="0 10 210 128"><line x1="34" y1="118" x2="200" y2="118" stroke="#999" stroke-width="1"/><line x1="34" y1="118" x2="34" y2="14" stroke="#999" stroke-width="1"/><text x="24" y="20" font-size="11" fill="#555">r</text><text x="168" y="132" font-size="10" fill="#555">GDP</text><line x1="48" y1="34" x2="182" y2="108" stroke="#2e7d32" stroke-width="2.6"/><text x="170" y="106" font-size="11" fill="#2e7d32">IS</text><line x1="48" y1="108" x2="182" y2="34" stroke="#1f5fa8" stroke-width="2.6"/><text x="170" y="40" font-size="11" fill="#1f5fa8">LM</text><line x1="76" y1="34" x2="194" y2="99" stroke="#2e7d32" stroke-width="2.4" stroke-dasharray="5 3"/><circle cx="150" cy="52" r="8" fill="#2e7d32"/><text x="150" y="55.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">1</text><circle cx="115" cy="71" r="3.5" fill="#13392b"/></svg><div class="cap">① IS right → r↑, GDP↑</div>↑G ⟹ IS right ⟹ r↑ ⟹ <strong>GDP↑</strong>. <strong style="color:#2e7d32">Powerful.</strong></td>
+        <td><svg viewBox="0 10 210 128"><line x1="34" y1="118" x2="200" y2="118" stroke="#999" stroke-width="1"/><line x1="34" y1="118" x2="34" y2="14" stroke="#999" stroke-width="1"/><text x="24" y="20" font-size="11" fill="#555">r</text><text x="168" y="132" font-size="10" fill="#555">GDP</text><line x1="34" y1="71" x2="200" y2="71" stroke="#a8740a" stroke-width="1.6" stroke-dasharray="4 3"/><text x="186" y="67" font-size="10" fill="#a8740a">r_F</text><line x1="48" y1="34" x2="182" y2="108" stroke="#2e7d32" stroke-width="2.6"/><text x="170" y="106" font-size="11" fill="#2e7d32">IS</text><line x1="48" y1="108" x2="182" y2="34" stroke="#1f5fa8" stroke-width="2.6"/><text x="170" y="40" font-size="11" fill="#1f5fa8">LM</text><line x1="76" y1="34" x2="194" y2="99" stroke="#2e7d32" stroke-width="2.4" stroke-dasharray="5 3"/><circle cx="150" cy="52" r="8" fill="#2e7d32"/><text x="150" y="55.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">1</text><circle cx="92" cy="60" r="8" fill="#2e7d32"/><text x="92" y="63.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">2</text><circle cx="115" cy="71" r="3.5" fill="#13392b"/></svg><div class="cap">① IS right ② IS back (appreciation) → GDP≈0</div>↑G ⟹ r&gt;r_F ⟹ inflow ⟹ appr. ⟹ NX↓ ⟹ IS back ⟹ <strong>GDP≈0</strong>. <strong style="color:#b03030">Powerless.</strong></td>
+        <td><svg viewBox="0 10 210 128"><line x1="34" y1="118" x2="200" y2="118" stroke="#999" stroke-width="1"/><line x1="34" y1="118" x2="34" y2="14" stroke="#999" stroke-width="1"/><text x="24" y="20" font-size="11" fill="#555">r</text><text x="168" y="132" font-size="10" fill="#555">GDP</text><line x1="34" y1="71" x2="200" y2="71" stroke="#a8740a" stroke-width="1.6" stroke-dasharray="4 3"/><text x="186" y="67" font-size="10" fill="#a8740a">r_F</text><line x1="48" y1="34" x2="182" y2="108" stroke="#2e7d32" stroke-width="2.6"/><text x="170" y="106" font-size="11" fill="#2e7d32">IS</text><line x1="48" y1="108" x2="182" y2="34" stroke="#1f5fa8" stroke-width="2.6"/><text x="170" y="40" font-size="11" fill="#1f5fa8">LM</text><line x1="76" y1="34" x2="194" y2="99" stroke="#2e7d32" stroke-width="2.4" stroke-dasharray="5 3"/><circle cx="150" cy="52" r="8" fill="#2e7d32"/><text x="150" y="55.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">1</text><line x1="76" y1="108" x2="194" y2="43" stroke="#1f5fa8" stroke-width="2.4" stroke-dasharray="5 3"/><circle cx="152" cy="58" r="8" fill="#1f5fa8"/><text x="152" y="61.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">2</text><circle cx="115" cy="71" r="3.5" fill="#13392b"/></svg><div class="cap">① IS right ② LM right (peg defence) → GDP↑ amplified</div>↑G ⟹ r&gt;r_F ⟹ inflow ⟹ CB prints to hold peg ⟹ LM right ⟹ <strong>GDP↑ (amplified)</strong>. <strong style="color:#2e7d32">Powerful.</strong></td>
+      </tr>
+    </table>
+    <div class="trap" style="margin-top:2px;"><b>The reversal in one line:</b> monetary is potent under floating, powerless under a peg; fiscal is the exact mirror. Under a peg the CB loses monetary control to defend the currency, which is exactly why fiscal regains its bite.</div>
+  </div>
+
+</div>
+
+<!-- ====================== PAGE 2 ====================== -->
+<div class="page two">
+
+ <div class="cols">
+  <!-- ---------- COLUMN 3 ---------- -->
+  <div class="col">
 
     <div class="card big">
       <h3 class="t">L8 · Inflation, supply side &amp; the Taylor Rule <span class="freq">L8, L10 · 11×</span></h3>
@@ -255,8 +268,8 @@
       $$i=\pi+\text{"reasonable" real return}$$
       <div class="lbl">The Taylor Rule (Taylor 1993)</div>
       $$i=\underbrace{r^*+\pi}_{\text{baseline}}+0.5(\pi-\pi^{*})+0.5\,(\text{output gap})$$
-      <div class="fw" style="margin-top:3px;"><b>Worked:</b> r*=2, π*=2, π=3, gap=0 ⟹ i = 2+3+0.5(1) = <b>5.5%</b>. The <i>real</i> rate rises to cool the economy.</div>
-      <div class="lbl" style="margin-top:3px;">LRAS adjustment &amp; Phillips (self-correction to potential)</div>
+      <div class="fw" style="margin-top:1px;"><b>Worked:</b> r*=2, π*=2, π=3, gap=0 ⟹ i = 2+3+0.5(1) = <b>5.5%</b>. The <i>real</i> rate rises to cool the economy.</div>
+      <div class="lbl" style="margin-top:1px;">LRAS adjustment &amp; Phillips (self-correction to potential)</div>
       <div class="fw"><b>LRAS</b> vertical at potential. Below potential ⟹ prices↓ ⟹ M/P↑ ⟹ <b>LM shifts right</b> ⟹ back to potential (above potential = mirror). <b>Phillips</b> = the same story in inflation-unemployment space (axes flip when using unemployment instead of output).</div>
       <div class="trap"><b>Trap:</b> forgetting π enters twice; reacting to headline inflation without asking supply-shock vs true positive gap (CB may hold if temporary / anchored / re-anchoring).</div>
     </div>
@@ -287,7 +300,7 @@
       $$i_t^{(n)}\approx\tfrac{1}{n}\big(\mathbb{E}[i_t]+\dots+\mathbb{E}[i_{t+n-1}]\big)+\phi^{(n)}$$
       <div class="lbl">3-part decomposition</div>
       $$\text{long rate}=\underbrace{\text{LR real rate}}_{}+\underbrace{\text{exp. inflation}}_{}+\underbrace{\text{term premium}}_{\phi}$$
-      <div class="fw" style="margin-top:3px;"><b>The short end</b> = today's CB policy rate (set by the Taylor rule, L8). Longer maturities = average of the expected future policy-rate path + term premium. So the slope is the market's forecast of where the CB takes rates: upward = expects hikes, inverted = expects cuts.</div>
+      <div class="fw" style="margin-top:1px;"><b>The short end</b> = today's CB policy rate (set by the Taylor rule, L8). Longer maturities = average of the expected future policy-rate path + term premium. So the slope is the market's forecast of where the CB takes rates: upward = expects hikes, inverted = expects cuts.</div>
       <div class="lbl">Slope reading</div>
       <table class="dt">
         <tr><td>Upward</td><td>rates expected to <b>rise</b></td></tr>
@@ -336,8 +349,8 @@
       $$\%\Delta e_N=\pi_F-\pi_{domestic}$$
       <div class="lbl">Short run · UIP (currencies as assets)</div>
       $$r-r_F=\text{expected depreciation of domestic cur.}$$
-      <div class="fw" style="margin-top:3px;"><b>Balassa-Samuelson:</b> a catching-up economy has rising tradables productivity → higher inflation → real <i>appreciation</i> (the price of convergence, not lost competitiveness). So nominal can fall while real rises.</div>
-      <div class="fw" style="margin-top:3px;"><b>Overshooting (sticky prices):</b> permanent ↑M ⟹ prices sticky ⟹ r↓ below r<sub>F</sub> ⟹ UIP needs an <b>expected appreciation</b> ⟹ spot jumps <b>PAST</b> its weaker long-run level on impact, then drifts back up as prices rise. Bigger stickiness ⟹ bigger overshoot.</div>
+      <div class="fw" style="margin-top:1px;"><b>Balassa-Samuelson:</b> a catching-up economy has rising tradables productivity → higher inflation → real <i>appreciation</i> (the price of convergence, not lost competitiveness). So nominal can fall while real rises.</div>
+      <div class="fw" style="margin-top:1px;"><b>Overshooting (sticky prices):</b> permanent ↑M ⟹ prices sticky ⟹ r↓ below r<sub>F</sub> ⟹ UIP needs an <b>expected appreciation</b> ⟹ spot jumps <b>PAST</b> its weaker long-run level on impact, then drifts back up as prices rise. Bigger stickiness ⟹ bigger overshoot.</div>
       <div class="trap"><b>Trap:</b> <i>news</i> of a hike ⟹ appreciation now; a high <i>level</i> of rates ⟹ expected depreciation later. Don't equate high rates with a strong currency.</div>
     </div>
 
@@ -359,10 +372,27 @@
   </div>
  </div>
 
+  <!-- ---------- FULL-WIDTH "SCENARIO SET-PIECES" SUMMARY TABLE ---------- -->
+  <div class="card big setpieces">
+    <div class="mtitle">Scenario set-pieces · same mechanism, recurring countries <span class="note">(the summarised catalogue · one row per mechanism)</span></div>
+    <div class="lead">Hard "connect the variables" questions = ~8 mechanisms in disguise; the same countries recur. Match the scenario to its row.</div>
+    <table class="sp">
+      <tr><th>Scenario type / mechanism</th><th>Canonical example</th><th>The chain (one line)</th></tr>
+      <tr><td>Defend the peg / Impossible Trinity</td><td><b>Switzerland 2015</b> (+ Nigeria mirror; EMS 1992)</td><td>fixed + free capital ⟹ no own monetary; stop depreciation = sell reserves (finite) or hike; stop appreciation = buy reserves (infinite, balance-sheet loss); pegs break weak side.</td></tr>
+      <tr><td>UIP: surprise vs priced-in</td><td><b>Russia / rouble 2022</b> ("hike didn't move it, priced in")</td><td>FX moves on NEWS only; surprise hike → appreciate, expected → nothing, dovish surprise → depreciate.</td></tr>
+      <tr><td>Real vs nominal / convergence</td><td><b>India 2014–20</b> (nominal down, real up)</td><td>converging country needs real appreciation via inflation OR nominal appreciation.</td></tr>
+      <tr><td>Debt sustainability (r vs g)</td><td><b>Greece / South Africa; Brazil 2022</b></td><td>required primary surplus = (r−g)·Debt/GDP; the gap, not the level.</td></tr>
+      <tr><td>Saving glut / world real rate</td><td><b>China</b> (asked 5 yrs); ageing Japan</td><td>world rate clears global S=I; more saving → rate down, ageing / US deficit → up.</td></tr>
+      <tr><td>IS-LM-FX fiscal / monetary</td><td><b>US Trump stimulus 2017; euro austerity</b></td><td>fiscal↑ → IS right → rates↑ → capital in → appreciate → NX↓ (crowd-out); easing → depreciate (short run).</td></tr>
+      <tr><td>Yield-curve reaction</td><td><b>India / Rajan 2014</b> (credible disinflation)</td><td>short = expected policy path, long = exp. inflation + real; credible disinflation → short↑ long↓ → flatten / invert.</td></tr>
+      <tr><td>ZLB / QE / target choice</td><td><b>US Fed QE; Japan / ECB raise target</b></td><td>base↑ ≠ inflation if multiplier dead; ZLB ⟹ higher target buys rate-cut room.</td></tr>
+    </table>
+  </div>
+
   <!-- ---------- FULL-WIDTH "HOW IT ALL CONNECTS" LINKAGE MAP (page-2 centrepiece) ---------- -->
   <div class="card big linkmap">
     <div class="mtitle">How it all connects · trace the chain through these links <span class="note">(rates blue · inflation red · FX amber · output green · world rate grey)</span></div>
-    <svg viewBox="0 6 980 258" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Macro variable linkage map">
+    <svg viewBox="0 12 980 246" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Macro variable linkage map">
       <defs>
         <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto" markerUnits="userSpaceOnUse">
           <path d="M0,0 L8,3.2 L0,6.4 Z" fill="#5a5a5a"/>
@@ -470,7 +500,7 @@
       <text class="ntxt" x="206" y="240" font-size="16" fill="#08251a">i = r + πᵉ</text>
       <text class="nsub" x="206" y="253" font-size="9" fill="#777">always split rates into r and expected π</text>
     </svg>
-    <div class="trap" style="margin-top:1px;"><b>Caption:</b> Every rates/inflation/FX scenario question = pick the shock, then follow these arrows under the right FX regime.</div>
+    <div class="trap" style="margin-top:0px;"><b>Caption:</b> Every rates/inflation/FX scenario question = pick the shock, then follow these arrows under the right FX regime.</div>
   </div>
 
 </div>

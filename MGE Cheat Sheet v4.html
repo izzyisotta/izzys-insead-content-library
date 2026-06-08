@@ -15,7 +15,7 @@
   *{box-sizing:border-box;}
   body{margin:0; background:var(--bg); color:var(--ink);
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-    font-size:9.5px; line-height:1.2;}
+    font-size:8.9px; line-height:1.13;}
   .backlink{display:block; padding:8px 12px; font-size:13px; color:var(--blue); text-decoration:none;}
   @media print{ .backlink{display:none;} body{background:#fff;} }
   @page{ size:A4; margin:5mm; }
@@ -33,28 +33,28 @@
   .legend{ font-size:8.1px; color:var(--soft); margin:5px 0 0; }
 
   /* cards */
-  .card{ border:1px solid var(--line); border-radius:5px; padding:3px 7px 4px; margin-bottom:2.5px; background:#fff; }
+  .card{ border:1px solid var(--line); border-radius:5px; padding:2px 7px 3px; margin-bottom:2px; background:#fff; }
   .card.big{ border-color:#bcd6c7; }
   h3.t{ margin:0 0 2px; font-size:10.5px; color:var(--green); line-height:1.15; display:flex; justify-content:space-between; align-items:baseline; gap:6px; }
   h3.t .freq{ font-size:7.6px; font-weight:700; color:#fff; background:var(--green); border-radius:10px; padding:1px 6px; white-space:nowrap; flex:0 0 auto; }
-  .trig{ color:var(--blue); font-style:italic; margin:0 0 1px; font-size:8.7px; }
+  .trig{ color:var(--blue); font-style:italic; margin:0 0 0.5px; font-size:8.6px; line-height:1.14; }
   .trig b{ font-style:normal; }
-  .fw{ background:#eef5f0; border-left:3px solid var(--green); border-radius:3px; padding:1.5px 6px; margin:1.5px 0; }
+  .fw{ background:#eef5f0; border-left:3px solid var(--green); border-radius:3px; padding:1px 6px; margin:1px 0; line-height:1.16; }
   .fw ul{ margin:0; padding-left:13px; }
   .fw li{ margin:0.5px 0; }
-  .lbl{ font-size:7.8px; color:var(--soft); font-weight:700; text-transform:uppercase; letter-spacing:.02em; margin-top:2px; }
-  .trap{ color:var(--red); margin-top:2px; font-size:8.6px; }
+  .lbl{ font-size:7.8px; color:var(--soft); font-weight:700; text-transform:uppercase; letter-spacing:.02em; margin-top:1px; }
+  .trap{ color:var(--red); margin-top:1px; font-size:8.6px; line-height:1.16; }
   .trap b{ color:var(--red); }
   strong{ color:#08251a; }
   .blue{ color:var(--blue); } .grn{ color:var(--green); } .red{ color:var(--red); }
 
   /* MathJax guards for narrow columns */
-  mjx-container{ font-size:0.92em !important; margin:1px 0 !important; }
+  mjx-container{ font-size:0.9em !important; margin:0.5px 0 !important; }
   mjx-container svg{ max-width:100%; }
-  mjx-container[display="true"]{ margin:1px 0 !important; }
+  mjx-container[display="true"]{ margin:0.5px 0 !important; }
 
-  table.dt{ border-collapse:collapse; width:100%; font-size:8.1px; margin:2px 0; }
-  table.dt td{ border:1px solid var(--line); padding:1.5px 4px; vertical-align:top; }
+  table.dt{ border-collapse:collapse; width:100%; font-size:8.1px; margin:1px 0; }
+  table.dt td{ border:1px solid var(--line); padding:1px 4px; vertical-align:top; }
   table.dt td:nth-child(odd){ background:#eef5f0; font-weight:600; color:#08251a; white-space:nowrap; }
 
   /* full-width IS-LM-FX policy matrix band on page 1 */
@@ -74,14 +74,20 @@
   .ycgrid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:3px; margin:2px 0; }
   .yccell{ border:1px solid var(--line); border-radius:4px; padding:2px 4px 3px; background:#fff; }
   .yccell.head{ background:#eef5f0; font-weight:700; color:#08251a; font-size:8.1px; text-align:center; margin:0 0 1px; }
-  .yccell svg{ width:100%; max-width:46mm; height:auto; display:block; margin:0 auto 1px; }
+  .yccell svg{ width:100%; max-width:40mm; height:auto; display:block; margin:0 auto 1px; }
   .yccell .cap{ font-size:6.6px; color:var(--soft); line-height:1.2; }
 
   /* compact boxed exam method strip */
-  .method{ background:#eaf1f8; border:1px solid #c3d6ea; border-left:3px solid var(--blue); border-radius:4px; padding:2px 7px 3px; margin:2px 0; }
+  .method{ background:#eaf1f8; border:1px solid #c3d6ea; border-left:3px solid var(--blue); border-radius:4px; padding:1px 7px 2px; margin:1px 0; }
   .method .mh{ font-size:9px; font-weight:700; color:var(--blue); margin:0 0 1px; }
-  .method ol{ margin:1px 0; padding-left:15px; font-size:8.3px; line-height:1.25; }
-  .method li{ margin:1px 0; }
+  .method ol{ margin:1px 0; padding-left:15px; font-size:8.3px; line-height:1.18; }
+  .method li{ margin:0.5px 0; }
+
+  /* full-width "how it all connects" linkage map band on page 2 */
+  .linkmap{ margin-top:2px; }
+  .linkmap .mtitle{ font-size:10.5px; color:var(--green); font-weight:700; margin:0 0 0px; }
+  .linkmap .mtitle .note{ font-size:7.6px; font-weight:400; color:var(--soft); }
+  .linkmap > svg{ width:100%; max-width:124mm; height:auto; display:block; margin:0 auto; }
 </style>
 </head>
 <body>
@@ -352,6 +358,121 @@
 
   </div>
  </div>
+
+  <!-- ---------- FULL-WIDTH "HOW IT ALL CONNECTS" LINKAGE MAP (page-2 centrepiece) ---------- -->
+  <div class="card big linkmap">
+    <div class="mtitle">How it all connects · trace the chain through these links <span class="note">(rates blue · inflation red · FX amber · output green · world rate grey)</span></div>
+    <svg viewBox="0 6 980 258" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Macro variable linkage map">
+      <defs>
+        <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="3.2" orient="auto" markerUnits="userSpaceOnUse">
+          <path d="M0,0 L8,3.2 L0,6.4 Z" fill="#5a5a5a"/>
+        </marker>
+      </defs>
+      <style>
+        .nbox{ rx:9; ry:9; stroke-width:2; }
+        .ntxt{ font-family:-apple-system,Helvetica,Arial,sans-serif; font-weight:700; text-anchor:middle; }
+        .nsub{ font-family:-apple-system,Helvetica,Arial,sans-serif; font-weight:400; text-anchor:middle; }
+        .edge{ stroke:#5a5a5a; stroke-width:1.8; fill:none; marker-end:url(#ah); }
+        .elbl{ font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:15px; font-weight:700; text-anchor:middle; }
+        .esub{ font-family:-apple-system,Helvetica,Arial,sans-serif; font-size:11.5px; font-weight:400; text-anchor:middle; fill:#777; }
+        .ebg{ fill:#ffffff; opacity:0.95; }
+      </style>
+
+      <!-- ================= EDGES (drawn first, under nodes) ================= -->
+      <!-- (1) Inflation -> Policy rate : Taylor rule  (top row, straight) -->
+      <path class="edge" d="M235,72 L398,72"/>
+      <rect class="ebg" x="262" y="44" width="92" height="16"/>
+      <text class="elbl" x="308" y="56" fill="#b03030">Taylor rule</text>
+      <rect class="ebg" x="248" y="60" width="120" height="14"/>
+      <text class="esub" x="308" y="70">CB raises i when π↑</text>
+
+      <!-- (2) Policy rate -> Long rate : yield curve  (top row, straight) -->
+      <path class="edge" d="M598,72 L772,72"/>
+      <rect class="ebg" x="640" y="44" width="92" height="16"/>
+      <text class="elbl" x="686" y="56" fill="#1f5fa8">yield curve</text>
+      <rect class="ebg" x="608" y="60" width="156" height="14"/>
+      <text class="esub" x="686" y="70">avg exp. future short rates + φ</text>
+
+      <!-- (3) Policy rate -> Exchange rate : UIP  (down-left, left side, clear) -->
+      <path class="edge" d="M460,110 C400,148 372,176 392,206"/>
+      <rect class="ebg" x="356" y="150" width="44" height="16"/>
+      <text class="elbl" x="378" y="162" fill="#a8740a">UIP</text>
+      <rect class="ebg" x="330" y="166" width="98" height="14"/>
+      <text class="esub" x="379" y="176">r − r_F = exp. deprec.</text>
+
+      <!-- (4) World rate r_F -> Exchange rate (feeds UIP)  (mid-right, clean arc) -->
+      <path class="edge" d="M790,150 C690,190 640,206 598,210"/>
+      <rect class="ebg" x="624" y="186" width="148" height="16"/>
+      <text class="elbl" x="698" y="198" fill="#777">capital flows to higher r</text>
+
+      <!-- (5) Exchange rate -> Inflation : PPP / pass-through  (far-left, up the side) -->
+      <path class="edge" d="M392,214 C300,214 152,200 138,112"/>
+      <rect class="ebg" x="78" y="150" width="128" height="16"/>
+      <text class="elbl" x="142" y="162" fill="#a8740a">PPP / pass-through</text>
+      <rect class="ebg" x="68" y="166" width="148" height="14"/>
+      <text class="esub" x="142" y="176">weaker e → import prices↑</text>
+
+      <!-- (6) Exchange rate -> GDP : via NX  (bottom row, straight) -->
+      <path class="edge" d="M566,224 L760,224"/>
+      <rect class="ebg" x="618" y="226" width="92" height="16"/>
+      <text class="elbl" x="664" y="238" fill="#2e7d32">via NX</text>
+      <rect class="ebg" x="592" y="242" width="148" height="14"/>
+      <text class="esub" x="664" y="252">weaker e → NX↑ → GDP↑</text>
+
+      <!-- (7) Policy rate -> GDP : IS-LM  (descends in the gap left of r_F, no node overlap) -->
+      <path class="edge" d="M560,98 C660,138 700,170 760,208"/>
+      <rect class="ebg" x="640" y="134" width="62" height="16"/>
+      <text class="elbl" x="671" y="146" fill="#1f5fa8">IS-LM</text>
+      <rect class="ebg" x="628" y="150" width="86" height="14"/>
+      <text class="esub" x="671" y="160">r↓ → I,C↑ → GDP↑</text>
+
+      <!-- (8) GDP / output gap -> Inflation : Phillips  (high arc over the top, no crossings) -->
+      <path class="edge" d="M838,206 C880,80 880,18 506,18 C300,18 150,30 150,58"/>
+      <rect class="ebg" x="466" y="10" width="80" height="16"/>
+      <text class="elbl" x="506" y="22" fill="#b03030">Phillips</text>
+      <rect class="ebg" x="448" y="26" width="116" height="14"/>
+      <text class="esub" x="506" y="36">above potential → π↑</text>
+
+      <!-- ================= NODES (drawn over edges) ================= -->
+      <!-- Inflation (red) : top-left -->
+      <rect class="nbox" x="105" y="58" width="130" height="40" fill="#fbeaea" stroke="#b03030"/>
+      <text class="ntxt" x="170" y="76" font-size="16" fill="#b03030">Inflation (π)</text>
+      <text class="nsub" x="170" y="90" font-size="11.5" fill="#8a4a4a">the target variable</text>
+
+      <!-- Policy / short rate (blue) : top-centre -->
+      <rect class="nbox" x="398" y="58" width="200" height="40" fill="#e8f0f9" stroke="#1f5fa8"/>
+      <text class="ntxt" x="498" y="76" font-size="16" fill="#1f5fa8">Policy / short rate (i)</text>
+      <text class="nsub" x="498" y="90" font-size="11.5" fill="#3a6fa8">set by the CB</text>
+
+      <!-- Long rate (blue) : top-right -->
+      <rect class="nbox" x="772" y="58" width="130" height="40" fill="#e8f0f9" stroke="#1f5fa8"/>
+      <text class="ntxt" x="837" y="76" font-size="16" fill="#1f5fa8">Long rate</text>
+      <text class="nsub" x="837" y="90" font-size="11.5" fill="#3a6fa8">term structure</text>
+
+      <!-- World rate r_F (grey) : mid-right -->
+      <rect class="nbox" x="772" y="130" width="142" height="40" fill="#eee" stroke="#777"/>
+      <text class="ntxt" x="843" y="148" font-size="16" fill="#555">World rate r_F</text>
+      <text class="nsub" x="843" y="162" font-size="11.5" fill="#888">the outside anchor</text>
+
+      <!-- Exchange rate (amber) : bottom-centre-left -->
+      <rect class="nbox" x="392" y="204" width="174" height="40" fill="#fbf2e0" stroke="#a8740a"/>
+      <text class="ntxt" x="479" y="222" font-size="16" fill="#a8740a">Exchange rate (e)</text>
+      <text class="nsub" x="479" y="236" font-size="11.5" fill="#8a6a1a">FX regime decides</text>
+
+      <!-- GDP / output gap (green) : bottom-right -->
+      <rect class="nbox" x="760" y="204" width="160" height="40" fill="#e9f3ec" stroke="#2e7d32"/>
+      <text class="ntxt" x="840" y="222" font-size="16" fill="#2e7d32">GDP / output gap</text>
+      <text class="nsub" x="840" y="236" font-size="11.5" fill="#4a7d54">vs potential</text>
+
+      <!-- Fisher side-note tying nominal & real : bottom-left -->
+      <rect x="98" y="204" width="216" height="56" rx="7" ry="7" fill="#f4f4f1" stroke="#bbb" stroke-dasharray="4 3"/>
+      <text class="ntxt" x="206" y="222" font-size="13.5" fill="#1a1a1a">Nominal ↔ real (Fisher)</text>
+      <text class="ntxt" x="206" y="240" font-size="16" fill="#08251a">i = r + πᵉ</text>
+      <text class="nsub" x="206" y="253" font-size="9" fill="#777">always split rates into r and expected π</text>
+    </svg>
+    <div class="trap" style="margin-top:1px;"><b>Caption:</b> Every rates/inflation/FX scenario question = pick the shock, then follow these arrows under the right FX regime.</div>
+  </div>
+
 </div>
 
 </body>

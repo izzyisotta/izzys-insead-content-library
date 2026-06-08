@@ -27,48 +27,48 @@
   .col{ flex:1; min-width:0; display:flex; flex-direction:column; }
 
   /* masthead */
-  .mast{ background:var(--green); color:#fff; border-radius:6px; padding:6px 9px; margin-bottom:5px; }
+  .mast{ background:var(--green); color:#fff; border-radius:6px; padding:4px 9px; margin-bottom:2px; }
   .mast h1{ margin:0; font-size:14.5px; letter-spacing:.01em; }
   .mast .sub{ font-size:8.6px; opacity:.92; margin-top:1px; }
   .legend{ font-size:8.1px; color:var(--soft); margin:5px 0 0; }
 
   /* cards */
-  .card{ border:1px solid var(--line); border-radius:5px; padding:2px 7px 3px; margin-bottom:2px; background:#fff; }
+  .card{ border:1px solid var(--line); border-radius:5px; padding:2px 7px 2px; margin-bottom:1px; background:#fff; }
   .card.big{ border-color:#bcd6c7; }
-  h3.t{ margin:0 0 2px; font-size:10.5px; color:var(--green); line-height:1.15; display:flex; justify-content:space-between; align-items:baseline; gap:6px; }
+  h3.t{ margin:0 0 1px; font-size:10.5px; color:var(--green); line-height:1.15; display:flex; justify-content:space-between; align-items:baseline; gap:6px; }
   h3.t .freq{ font-size:7.6px; font-weight:700; color:#fff; background:var(--green); border-radius:10px; padding:1px 6px; white-space:nowrap; flex:0 0 auto; }
-  .trig{ color:var(--blue); font-style:italic; margin:0 0 0.5px; font-size:8.6px; line-height:1.14; }
+  .trig{ color:var(--blue); font-style:italic; margin:0 0 0.5px; font-size:8.6px; line-height:1.13; }
   .trig b{ font-style:normal; }
-  .fw{ background:#eef5f0; border-left:3px solid var(--green); border-radius:3px; padding:1px 6px; margin:1px 0; line-height:1.16; }
+  .fw{ background:#eef5f0; border-left:3px solid var(--green); border-radius:3px; padding:0 6px; margin:1px 0; line-height:1.13; }
   .fw ul{ margin:0; padding-left:13px; }
   .fw li{ margin:0.5px 0; }
-  .lbl{ font-size:7.8px; color:var(--soft); font-weight:700; text-transform:uppercase; letter-spacing:.02em; margin-top:1px; }
-  .trap{ color:var(--red); margin-top:1px; font-size:8.6px; line-height:1.16; }
+  .lbl{ font-size:7.4px; color:var(--soft); font-weight:700; text-transform:uppercase; letter-spacing:.02em; margin-top:0; }
+  .trap{ color:var(--red); margin-top:1px; font-size:8.6px; line-height:1.13; }
   .trap b{ color:var(--red); }
   strong{ color:#08251a; }
   .blue{ color:var(--blue); } .grn{ color:var(--green); } .red{ color:var(--red); }
 
   /* MathJax guards for narrow columns */
-  mjx-container{ font-size:0.9em !important; margin:0.5px 0 !important; }
+  mjx-container{ font-size:0.9em !important; margin:0 0 !important; }
   mjx-container svg{ max-width:100%; }
-  mjx-container[display="true"]{ margin:0.5px 0 !important; }
+  mjx-container[display="true"]{ margin:0 0 !important; }
 
   table.dt{ border-collapse:collapse; width:100%; font-size:8.1px; margin:1px 0; }
   table.dt td{ border:1px solid var(--line); padding:1px 4px; vertical-align:top; }
   table.dt td:nth-child(odd){ background:#eef5f0; font-weight:600; color:#08251a; white-space:nowrap; }
 
   /* full-width IS-LM-FX policy matrix band on page 1 */
-  .matrix{ margin-top:2px; padding-top:1px; padding-bottom:1px; }
-  .matrix .mtitle{ font-size:10.5px; color:var(--green); font-weight:700; margin:0 0 2px; }
+  .matrix{ margin-top:1px; padding-top:0; padding-bottom:0; }
+  .matrix .mtitle{ font-size:10.5px; color:var(--green); font-weight:700; margin:0 0 1px; }
   .matrix .mtitle .note{ font-size:7.6px; font-weight:400; color:var(--soft); }
-  table.mtx{ border-collapse:collapse; width:100%; font-size:7.2px; line-height:1.18; table-layout:fixed; }
-  table.mtx th, table.mtx td{ border:1px solid var(--line); padding:1px 2px; vertical-align:top; }
+  table.mtx{ border-collapse:collapse; width:100%; font-size:7.0px; line-height:1.13; table-layout:fixed; }
+  table.mtx th, table.mtx td{ border:1px solid var(--line); padding:0.5px 2px; vertical-align:top; }
   table.mtx th{ background:var(--green); color:#fff; font-size:7.4px; font-weight:700; text-align:left; }
   table.mtx th .sm, table.mtx td .sm{ font-size:6.6px; color:var(--soft); fill:var(--soft); }
   table.mtx td:first-child, table.mtx th:first-child{ width:11%; }
   table.mtx td.rowhead{ background:#eef5f0; font-weight:700; color:#08251a; }
-  table.mtx svg{ width:100%; max-width:27mm; height:auto; display:block; margin:0 auto 1px; }
-  table.mtx .cap{ font-size:6.6px; color:var(--soft); margin:0 0 1px; }
+  table.mtx svg{ width:38%; max-width:15mm; height:auto; float:left; margin:1px 3px 1px 0; }
+  table.mtx .cap{ font-size:6.4px; color:var(--soft); margin:0 0 1px; }
 
   /* yield-curve mini diagram grid (matches matrix style) */
   .ycgrid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:3px; margin:2px 0; }
@@ -84,14 +84,14 @@
   .method li{ margin:0.5px 0; }
 
   /* full-width "scenario set-pieces" summary table band */
-  .setpieces{ margin-top:2px; padding-top:1px; padding-bottom:1px; }
-  .setpieces .mtitle{ font-size:10.5px; color:var(--green); font-weight:700; margin:0 0 1px; }
-  .setpieces .lead{ font-size:8.1px; color:var(--soft); font-style:italic; margin:0 0 1px; line-height:1.15; }
-  table.spt{ border-collapse:collapse; width:100%; font-size:8px; line-height:1.15; table-layout:fixed; }
-  table.spt th, table.spt td{ border:1px solid var(--line); padding:1px 4px; vertical-align:top; }
+  .setpieces{ margin-top:0; padding:1px 7px 0; margin-bottom:0; }
+  .setpieces .mtitle{ font-size:10px; color:var(--green); font-weight:700; margin:0; }
+  .setpieces .lead{ font-size:8px; color:var(--soft); font-style:italic; margin:0; line-height:1.13; }
+  table.spt{ border-collapse:collapse; width:100%; font-size:7.6px; line-height:1.13; table-layout:fixed; }
+  table.spt th, table.spt td{ border:1px solid var(--line); padding:0 3px; vertical-align:top; }
   table.spt th{ background:var(--green); color:#fff; font-weight:700; text-align:left; }
-  table.spt td:first-child{ width:23%; }
-  table.spt td:nth-child(2){ width:21%; }
+  table.spt td:first-child{ width:17%; }
+  table.spt td:nth-child(2){ width:16%; }
   table.spt td.mech{ background:#eef5f0; font-weight:600; color:#08251a; }
 
   /* full-width "how it all connects" linkage map band on page 2 */
@@ -148,11 +148,6 @@
       <div class="trap"><b>Trap:</b> a CA surplus <i>is</i> net lending abroad (a capital outflow). Closed economy: \(S=I\). Demographics sign: retirees dis-save ⟹ S left ⟹ r* up.</div>
     </div>
 
-  </div>
-
-  <!-- ---------- COLUMN 2 ---------- -->
-  <div class="col">
-
     <div class="card">
       <h3 class="t">L3 · Growth · why some countries are rich <span class="freq">L3</span></h3>
       <div class="trig">▸ <b>Framework:</b> write GDP/capita as a chain of four ratios (each an identity, but each a separate lever). Productivity is the swing factor near the frontier.</div>
@@ -161,6 +156,11 @@
       <div class="fw" style="margin-top:3px;"><b>Convergence (Solow):</b> growth slows as a country nears the frontier; catch-up = imitation, a possibility not a guarantee (Asia converged, Latin America didn't → L4). "France isn't poor, it just works less": GDP/hour near-identical, the gap is hours + employment share.</div>
       <div class="trap"><b>Trap:</b> equating population / working-age growth with rising living standards. More working-age people raise <b>total</b> GDP, not necessarily <b>per-capita</b> GDP.</div>
     </div>
+
+  </div>
+
+  <!-- ---------- COLUMN 2 ---------- -->
+  <div class="col">
 
     <div class="card">
       <h3 class="t">L4 · Growth &amp; country analysis · the 4 Is <span class="freq">L4</span></h3>
@@ -218,23 +218,22 @@
         <td><svg viewBox="0 0 210 136"><line x1="34" y1="118" x2="200" y2="118" stroke="#999" stroke-width="1"/><line x1="34" y1="118" x2="34" y2="14" stroke="#999" stroke-width="1"/><text x="24" y="20" font-size="11" fill="#555">r</text><text x="168" y="132" font-size="10" fill="#555">GDP</text><line x1="34" y1="71" x2="200" y2="71" stroke="#a8740a" stroke-width="1.6" stroke-dasharray="4 3"/><text x="186" y="67" font-size="10" fill="#a8740a">r_F</text><line x1="48" y1="34" x2="182" y2="108" stroke="#2e7d32" stroke-width="2.6"/><text x="170" y="106" font-size="11" fill="#2e7d32">IS</text><line x1="48" y1="108" x2="182" y2="34" stroke="#1f5fa8" stroke-width="2.6"/><text x="170" y="40" font-size="11" fill="#1f5fa8">LM</text><line x1="76" y1="34" x2="194" y2="99" stroke="#2e7d32" stroke-width="2.4" stroke-dasharray="5 3"/><circle cx="150" cy="52" r="8" fill="#2e7d32"/><text x="150" y="55.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">1</text><line x1="76" y1="108" x2="194" y2="43" stroke="#1f5fa8" stroke-width="2.4" stroke-dasharray="5 3"/><circle cx="152" cy="58" r="8" fill="#1f5fa8"/><text x="152" y="61.5" font-size="10" fill="#fff" text-anchor="middle" font-weight="700">2</text><circle cx="115" cy="71" r="3.5" fill="#13392b"/></svg><div class="cap">① IS right ② LM right (peg defence) → GDP↑ amplified</div>↑G ⟹ r&gt;r_F ⟹ inflow ⟹ CB prints to hold peg ⟹ LM right ⟹ <strong>GDP↑ (amplified)</strong>. <strong style="color:#2e7d32">Powerful.</strong></td>
       </tr>
     </table>
-    <div class="trap" style="margin-top:2px;"><b>The reversal in one line:</b> monetary is potent under floating, powerless under a peg; fiscal is the exact mirror. Under a peg the CB loses monetary control to defend the currency, which is exactly why fiscal regains its bite.</div>
+    <div class="trap" style="margin-top:0;"><b>The reversal in one line:</b> monetary is potent under floating, powerless under a peg; fiscal is the exact mirror. Under a peg the CB loses monetary control to defend the currency, which is exactly why fiscal regains its bite.</div>
   </div>
 
   <!-- ---------- FULL-WIDTH "SCENARIO SET-PIECES" SUMMARY TABLE ---------- -->
   <div class="card big setpieces">
-    <div class="mtitle">Scenario set-pieces · same mechanism, recurring countries</div>
-    <div class="lead">Hard "connect the variables" questions = ~8 mechanisms in disguise; same countries recur. Match the scenario to its row.</div>
+    <div class="mtitle">Scenario set-pieces · same mechanism, recurring countries <span class="lead" style="display:inline">· hard "connect the variables" questions = ~8 mechanisms in disguise; same countries recur. Match the scenario to its row.</span></div>
     <table class="spt">
       <tr><th>Scenario type / mechanism</th><th>Canonical example</th><th>The chain</th></tr>
-      <tr><td class="mech">Defend the peg / Impossible Trinity</td><td><b>Switzerland 2015</b> (Nigeria mirror; EMS 1992)</td><td>fixed + free capital ⟹ no own monetary; stop depreciation = sell reserves (finite) or hike; stop appreciation = buy reserves (infinite, balance-sheet loss); pegs break weak side.</td></tr>
-      <tr><td class="mech">UIP: surprise vs priced-in</td><td><b>Russia/rouble 2022</b></td><td>FX moves on NEWS only; surprise hike → appreciate, expected → nothing, dovish surprise → depreciate.</td></tr>
-      <tr><td class="mech">Real vs nominal / convergence</td><td><b>India 2014-20</b> (nominal down, real up)</td><td>converging country needs real appreciation via inflation OR nominal appreciation.</td></tr>
-      <tr><td class="mech">Debt sustainability (r vs g)</td><td><b>Greece/South Africa; Brazil 2022</b></td><td>required primary surplus = (r−g)·Debt/GDP; the gap, not the level.</td></tr>
-      <tr><td class="mech">Saving glut / world real rate</td><td><b>China</b>; ageing Japan</td><td>world rate clears global S=I; more saving → down, ageing/US deficit → up.</td></tr>
-      <tr><td class="mech">IS-LM-FX fiscal/monetary</td><td><b>US Trump stimulus 2017</b>; euro austerity</td><td>fiscal↑ → IS right → rates↑ → capital in → appreciate → NX↓; easing → depreciate (short run).</td></tr>
-      <tr><td class="mech">Yield-curve reaction</td><td><b>India/Rajan 2014</b></td><td>short = expected policy path, long = exp. inflation + real; credible disinflation → short↑ long↓ → flatten/invert.</td></tr>
-      <tr><td class="mech">ZLB / QE / target choice</td><td><b>US Fed QE; Japan/ECB raise target</b></td><td>base↑ ≠ inflation if multiplier dead; ZLB ⟹ higher target buys rate-cut room.</td></tr>
+      <tr><td class="mech">Defend the peg / Impossible Trinity</td><td><b>Switzerland 2015</b> (Nigeria mirror; EMS 1992)</td><td>Fixed FX + free capital ⟹ no independent monetary policy (keep 2 of 3). Stop a <b>depreciation</b> = sell reserves (finite, can run out, e.g. Nigeria) or hike rates; stop an <b>appreciation</b> = buy reserves (unlimited, but a foreign-ccy balance sheet ⟹ revaluation loss on exit, e.g. Switzerland). Pegs break on the weak side.</td></tr>
+      <tr><td class="mech">UIP: surprise vs priced-in</td><td><b>Russia/rouble 2022</b></td><td>FX reacts only to <b>news</b>. Surprise hike ⟹ inflow ⟹ immediate appreciation; an already-expected hike ⟹ no move (rouble 2022); surprise dovish/cut ⟹ depreciation. A persistently high rate ⟹ market expects that currency to depreciate (carry is not free).</td></tr>
+      <tr><td class="mech">Real vs nominal / convergence</td><td><b>India 2014-20</b> (nominal down, real up)</td><td>e_R = e_N × P/P_F. A converging / high-productivity country needs a <b>real appreciation</b> (Balassa-Samuelson), via higher inflation OR nominal appreciation. If inflation runs hotter than that, the <b>nominal</b> rate depreciates to compensate ⟹ nominal down while real up (India).</td></tr>
+      <tr><td class="mech">Debt sustainability (r vs g)</td><td><b>Greece/South Africa; Brazil 2022</b></td><td>Required primary surplus / GDP = (r − g) × Debt/GDP. It is the <b>r−g gap, not the debt level</b>: g &gt; r ⟹ run deficits and the ratio still falls; r jumps above g (downgrade) ⟹ a big surplus is suddenly needed (South Africa, Brazil 2022). Nominal-both or real-both, never mix.</td></tr>
+      <tr><td class="mech">Saving glut / world real rate</td><td><b>China</b>; ageing Japan</td><td>The world real rate clears <b>global saving = global investment</b>. More desired saving (a glut, a surplus country) ⟹ world rate <b>down</b>, imbalances widen; less saving (ageing dissavers, a big US deficit) ⟹ rate <b>up</b>. CA = S − I.</td></tr>
+      <tr><td class="mech">IS-LM-FX fiscal/monetary</td><td><b>US Trump stimulus 2017</b>; euro austerity</td><td>Fiscal↑ ⟹ IS right ⟹ output↑, rates↑ ⟹ capital inflow ⟹ currency <b>appreciates</b> ⟹ NX↓ (partial crowd-out). Easing ⟹ LM right ⟹ rate↓ ⟹ <b>depreciates</b>, NX↑ (short-run only). Contractions = reverse the signs.</td></tr>
+      <tr><td class="mech">Yield-curve reaction</td><td><b>India/Rajan 2014</b></td><td>Short end = expected path of the policy rate; long end = avg expected inflation + real rate + term premium. A <b>credible disinflation</b> raises the short rate now but lowers the long end ⟹ flatten/invert; no credibility ⟹ long stays high. Inversion ≠ only recession.</td></tr>
+      <tr><td class="mech">ZLB / QE / target choice</td><td><b>US Fed QE; Japan/ECB raise target</b></td><td>Money supply ≠ monetary base (multiplier can collapse ⟹ base↑ not automatically inflationary). At the ZLB: forward guidance, QE (buy long bonds ⟹ term premium↓ ⟹ long yields↓), and a higher inflation target to buy room for future cuts.</td></tr>
     </table>
   </div>
 

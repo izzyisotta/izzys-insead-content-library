@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>BSPE &middot; Business &amp; Society: Political Environment</title>
+<script>
+  MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']] }, svg: { fontCache: 'local' } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+<style>
+  :root{
+    --green:#00643C; --green-light:#2e7d32; --blue:#1f5fa8; --red:#b03030;
+    --ink:#1a1a1a; --soft:#555; --line:#d8d8d8; --bg:#fbfbf9; --card:#ffffff;
+    --amber:#a8740a; --amber-bg:#fdf6e9;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:16.5px; line-height:1.62;
+  }
+  .wrap{display:flex; max-width:1500px; margin:0 auto;}
+  nav.toc{
+    width:268px; flex:0 0 268px; position:sticky; top:0; height:100vh; overflow-y:auto;
+    background:#0e2a20; color:#dfeee7; padding:22px 16px 60px; font-size:13.5px;
+  }
+  nav.toc h2{color:#fff; font-size:14px; letter-spacing:.06em; text-transform:uppercase; margin:18px 0 8px; opacity:.65;}
+  nav.toc a{display:block; color:#cfe3da; text-decoration:none; padding:3px 8px; border-radius:5px; margin:1px 0;}
+  nav.toc a:hover{background:#1c4636; color:#fff;}
+  nav.toc a.part{font-weight:700; color:#8fd6b4; margin-top:6px;}
+  nav.toc .brand{font-weight:800; color:#fff; font-size:16px; line-height:1.3; margin-bottom:4px;}
+  nav.toc .brand span{font-weight:400; font-size:12.5px; color:#8fd6b4; display:block;}
+  main{flex:1 1 auto; padding:46px 56px 140px; max-width:1000px;}
+  h1{font-size:30px; color:var(--green); margin:0 0 6px; line-height:1.18;}
+  h2.part{font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--amber); margin:54px 0 2px; font-weight:700;}
+  h2{font-size:25px; color:var(--green); border-bottom:2px solid var(--green); padding-bottom:6px; margin:42px 0 14px; scroll-margin-top:14px;}
+  h3{font-size:19px; color:#13392b; margin:26px 0 8px;}
+  h4{font-size:16px; color:var(--blue); margin:18px 0 4px; text-transform:uppercase; letter-spacing:.04em;}
+  p{margin:8px 0;}
+  ul,ol{margin:8px 0 8px; padding-left:22px;}
+  li{margin:4px 0;}
+  strong{color:#08251a;}
+  code{background:#eef2ef; padding:1px 5px; border-radius:4px; font-size:13.5px;}
+  a.up{color:var(--blue); text-decoration:none;}
+  .eq{background:#f0f6f2; border:1px solid #cfe2d6; border-left:4px solid var(--green); border-radius:8px; padding:12px 18px; margin:14px 0; overflow-x:auto;}
+  .eq .lbl{font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--green); font-weight:700; margin-bottom:2px;}
+  .key{background:#fff; border:1px solid var(--line); border-radius:10px; padding:14px 20px; margin:16px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  .exam{background:var(--amber-bg); border:1px solid #ecd9ad; border-left:4px solid var(--amber); border-radius:8px; padding:10px 18px; margin:16px 0;}
+  .exam b{color:var(--amber);}
+  .chain{background:#eaf1f8; border:1px solid #c2d6ea; border-left:4px solid var(--blue); border-radius:8px; padding:10px 18px; margin:14px 0; font-size:15px;}
+  .chain .arrow{color:var(--blue); font-weight:700;}
+  .pitfall{background:#fbeeee; border:1px solid #ecc9c9; border-left:4px solid var(--red); border-radius:8px; padding:10px 18px; margin:14px 0;}
+  .pitfall b{color:var(--red);}
+  .twocol{display:flex; gap:22px; flex-wrap:wrap;}
+  .twocol > div{flex:1 1 300px;}
+  figure{margin:20px 0; text-align:center;}
+  figure > svg{max-width:100%; height:auto; background:#fff; border:1px solid var(--line); border-radius:10px; padding:8px;}
+  mjx-container svg, figcaption mjx-container svg, .eq mjx-container svg{max-width:none !important; height:auto !important; border:none !important; padding:0 !important; background:none !important; border-radius:0 !important;}
+  figcaption{font-size:13.5px; color:var(--soft); margin-top:7px; font-style:italic;}
+  table.dt{border-collapse:collapse; width:100%; margin:16px 0; font-size:14.5px;}
+  table.dt th{background:var(--green); color:#fff; text-align:left; padding:8px 11px; font-weight:600;}
+  table.dt td{border:1px solid var(--line); padding:7px 11px; vertical-align:top;}
+  table.dt tr:nth-child(even) td{background:#f6f8f6;}
+  .tacct{border-collapse:collapse; margin:10px auto; font-size:14px; min-width:330px;}
+  .tacct caption{font-weight:700; color:#13392b; padding-bottom:5px;}
+  .tacct th{background:#13392b; color:#fff; padding:5px 14px; font-weight:600;}
+  .tacct td{border:1px solid #b9b9b9; padding:5px 14px;}
+  .tacct td.a{background:#eef6f1;} .tacct td.l{background:#eef2f8;}
+  svg text{font-family:-apple-system,Helvetica,Arial,sans-serif;}
+  .axis{stroke:#333; stroke-width:1.6; fill:none;}
+  .grid{stroke:#e3e3e3; stroke-width:1;}
+  .dash{stroke-dasharray:5 4;}
+  .lbl{font-size:13px; font-weight:600;}
+  .sm{font-size:11.5px; fill:#555;}
+  .dot{fill:#13392b;}
+  .footer{margin-top:60px; padding-top:18px; border-top:1px solid var(--line); font-size:13px; color:var(--soft);}
+  .pill{display:inline-block; background:var(--green); color:#fff; font-size:11px; padding:2px 9px; border-radius:20px; letter-spacing:.04em; vertical-align:middle;}
+  .eyeball{background:#fdeaf4; border:2px dashed #c0398a; border-radius:8px; padding:8px 14px; margin:12px 0; font-size:14px; color:#8a1f5f;}
+  .eyeball .star{font-size:17px; margin-right:4px;}
+  .eyeball b{color:#8a1f5f;}
+  .intuition{background:#edf6f7; border:1px solid #b6d7dc; border-left:4px solid #1f7e8c; border-radius:8px; padding:10px 16px; margin:14px 0; font-size:15px;}
+  .intuition .tag{display:inline-block; font-size:11px; font-weight:700; letter-spacing:.04em; color:#1f7e8c; text-transform:uppercase; margin-right:6px;}
+  .intuition b{color:#0d4d57;}
+  .izzy{background:#f5f0fb; border:1px solid #d3c1ec; border-left:4px solid #7b4bbd; border-radius:8px; padding:12px 18px; margin:16px 0; font-size:15px;}
+  .izzy .tag{display:inline-block; font-size:11px; font-weight:700; letter-spacing:.04em; color:#7b4bbd; text-transform:uppercase; margin-bottom:6px;}
+  .izzy b{color:#5a2d96;}
+  .izzy table.dt{margin:8px 0;}
+  .read{margin:10px 0; padding:9px 15px; border-left:3px solid var(--green); background:#f8f8f5; border-radius:6px; font-size:14.5px;}
+  .read .meta{font-size:12px; color:var(--soft); margin-left:6px;}
+  .rtag{display:inline-block; font-size:10.5px; font-weight:700; letter-spacing:.03em; text-transform:uppercase; padding:1px 7px; border-radius:20px; vertical-align:middle; margin-left:4px;}
+  .rtag.man{background:#fbe4e4; color:#a32020;}
+  .rtag.prof{background:#e3eefb; color:#1a4e8a;}
+  .rtag.core{background:#e7f3ec; color:#13643c;}
+  .wex{background:#fff; border:1px dashed #9cc; border-radius:8px; padding:9px 15px; margin:12px 0; font-size:14.5px;}
+  .wex .h{font-weight:700; color:var(--blue); font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; display:block; margin-bottom:3px;}
+  @media print{ nav.toc{display:none;} main{padding:0; max-width:100%;} body{font-size:11pt;} h2{page-break-after:avoid;} figure,.eq,.key,.exam,ol.deriv,.wex{page-break-inside:avoid;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="toc">
+  <a href="index.html" style="color:#9fd3ba; font-size:12px; letter-spacing:.04em; margin-bottom:12px;">&larr; All courses</a>
+  <div class="brand">BSPE <span>Business &amp; Society: Political Environment &middot; Prof. Vinod Aggarwal</span></div>
+  <a href="#how">How to use this</a>
+  <a href="#exam">The exam, and how to pass it</a>
+  <a href="#frameworks">&starf; Master frameworks sheet</a>
+  <h2>Sessions</h2>
+  <a href="#l01" class="part">1 &middot; Politics &amp; the (IA)&sup3; Framework</a>
+  <a href="#l02" class="part">2 &middot; Securitization &amp; Politicization</a>
+  <a href="#l03" class="part">3 &middot; Variation Among Countries</a>
+  <a href="#l04" class="part">4 &middot; The Industrial Policy Debate</a>
+  <a href="#l05" class="part">5 &middot; Institutions &amp; the WTO</a>
+  <a href="#l06" class="part">6 &middot; Regional Institutions: EU &amp; Asia-Pacific</a>
+  <a href="#l07" class="part">7 &middot; IR &amp; the Future World Order</a>
+  <h2>Reference</h2>
+  <a href="#glossary">Glossary &amp; myths</a>
+  <a href="#synthesis">The course in one diagram</a>
+  <a href="#readings">Key readings</a>
+</nav>
+<main>
+
+<h1>Business &amp; Society: Political Environment</h1>
+<p style="font-size:18px;color:var(--soft);margin-top:0;">Course knowledge page · built from the Session 1–7 lecture slides + transcripts</p>
+
+<div class="key" id="how">
+<h3 style="margin-top:4px;">How to use this</h3>
+<p>This rebuilds the whole of BSPE from the slide decks and the in-class recordings. The course has one spine, Aggarwal's <a class="up" href="#l01"><b>(IA)&sup3; framework</b></a>, and every session is that framework applied to a new arena (a hostile takeover, a country, an industrial-policy fight, the WTO, regional blocs, the world order).</p>
+<ul>
+<li><b>Learn the <a class="up" href="#frameworks">(IA)&sup3; spine</a> first.</b> Six lenses in three pairs: <b>Issues &amp; Actors</b> (who cares about what), <b>Interests &amp; Arena</b> (where it is settled), <b>Information &amp; Assets</b> (how actors win). The exam rewards <i>applying</i> it, not reciting it.</li>
+<li><b>Each session block has the same shape:</b> the intuition hook, the frameworks as scannable tables and key-point cards, the models redrawn as diagrams, and one <b style="color:var(--amber);">Exam lens</b> box.</li>
+<li><b>The <a class="up" href="#frameworks">Master frameworks sheet</a> is your one-page revision spine</b> and the source for your A4 cheat sheet.</li>
+<li><b>Two registers per session:</b> the general takeaways (the reusable frameworks) sit above the case deep-dive (Dubai Ports World, the industrial-policy debate, Bombardier vs Embraer) so you revise the toolkit, then watch it applied.</li>
+</ul>
+<div class="eyeball"><span class="star">&starf;</span><b>Isabella, eyeball this:</b> pink flags mark things to sanity-check. The two biggest: <b>Sessions 6 and 7 have no class recording yet</b> (those lectures are 8 and 10 June), so their in-class layer is built from the slide decks and Aggarwal's own papers and is thinner, flagged at the top of each. The cheat-sheet rule (one A4 two-sided sheet) is inferred from the Session 7 slide title and one in-class remark, so confirm it against the official exam rubric. Search the page for "&starf;" to jump between flags.</div>
+</div>
+
+<h2 id="exam">The exam, and how to pass it</h2>
+<p>A closed-room final covering <b>Sessions 1 to 6 only</b>. Session 7 (the future world order) was dropped from the exam as a courtesy before the sitting. The single most repeated instruction in class: <b>apply (IA)&sup3; to a case, do not just list its parts.</b></p>
+<table class="dt">
+<thead><tr><th>What</th><th>Detail (as stated in class)</th></tr></thead>
+<tbody>
+<tr><td><b>Structure</b></td><td>Five short-answer questions of 200 words each, plus one 600-word main question. The main question is an applied (IA)&sup3; analysis of a named company's integrated <b>market and non-market strategy</b>, off a case or article.</td></tr>
+<tr><td><b>Weighting</b></td><td>The written final is the large majority of the grade; class contribution is a smaller oral component. <span class="eyeball" style="display:inline;border:none;background:none;padding:0;color:#8a1f5f;">&starf; confirm exact split against the rubric.</span></td></tr>
+<tr><td><b>Scope</b></td><td>Sessions 1–6 examinable. Session 7 off the exam. The Bombardier vs Embraer WTO case (end of S5) was explicitly flagged "not on the exam, but nice to know".</td></tr>
+<tr><td><b>Cheat sheet</b></td><td>One A4 two-sided sheet of your own notes (inferred from the Session 7 "key slides" deck title and an in-class remark; verify). Put the (IA)&sup3; framework on it.</td></tr>
+</tbody>
+</table>
+<div class="exam">
+<b>What Aggarwal rewards.</b>
+<ul>
+<li><b>Applying (IA)&sup3;, not reciting it.</b> Run a case through all six lenses; the answer is the analysis, not the list. He warned that a student who cannot reproduce the framework "is going to have a problem".</li>
+<li><b>Separating strategy from tactics, and naming the tactics.</b> Strategy is the goal (block an import, win a subsidy); tactics are the named non-market moves (lobbying, electoral support, coalition-building, grassroots, testimony, communications, judicial action, advisory committees). "On the exam you will have to have a market strategy and tactics."</li>
+<li><b>Reasoning from how a country actually decides.</b> Match tactics to the state type and decision mode (pluralism, corporatism, statism); do not assume every government works like the US.</li>
+<li><b>Treating issues as constructed, not given.</b> Framing and the choice of arena change which actors matter (the DP World lesson: the real arena was Congress and the media, not CFIUS).</li>
+</ul>
+</div>
+<div class="intuition"><span class="tag">🎙 In-class exam hint</span>For the short answers, Aggarwal gave a direct steer: read the FT piece <i>"China's comparative advantage is industrial policy"</i> and be ready to argue the industrial-policy debate, market-failure rationales (coordination, knowledge spillovers, scale) versus political rationales (national security, employment, rent-seeking), the instruments, and whether they discriminate.</div>
+
+<h2 id="frameworks">&starf; Master frameworks sheet</h2>
+<p>Every load-bearing framework in one place, the spine of your one-page revision sheet. Each links to the session where it is built.</p>
+
+<h4>The spine: (IA)&sup3; <span style="font-weight:400;text-transform:none;color:var(--soft)">(S1, used in every session)</span></h4>
+<table class="dt">
+<thead><tr><th>Pair</th><th>Question</th><th>The two lenses</th></tr></thead>
+<tbody>
+<tr><td><b>Issues &amp; Actors</b></td><td><b>WHO</b> cares about <b>WHAT</b>?</td><td><b>Issues:</b> the matter in contention and what created it (new tech, new laws, shifting expectations). <b>Actors:</b> the interested parties; <i>organisation matters</i>, organised actors win.</td></tr>
+<tr><td><b>Interests &amp; Arena</b></td><td><b>WHERE</b> is it reconciled?</td><td><b>Interests:</b> what each wants and how badly; look for the internal split. <b>Arena:</b> the venue (court, parliament, agency, media); its rules govern everything downstream.</td></tr>
+<tr><td><b>Information &amp; Assets</b></td><td><b>HOW</b> do actors win?</td><td><b>Information:</b> the knowledge that moves this arena. <b>Assets:</b> capital is rarely enough; knowledge, reputation, control, alliances win.</td></tr>
+</tbody>
+</table>
+
+<h4>Market vs non-market, and integrated strategy <span style="font-weight:400;text-transform:none;color:var(--soft)">(S1–2)</span></h4>
+<table class="dt">
+<thead><tr><th>Term</th><th>What it means</th></tr></thead>
+<tbody>
+<tr><td><b>Market environment</b></td><td>Rivals, suppliers, buyers; the price mechanism; voluntary exchange; collusion is illegal. Porter's Five Forces lives here.</td></tr>
+<tr><td><b>Non-market environment</b></td><td>Courts, media, NGOs, regulators; the currency is <i>information</i>, not money; coalitions with rivals are normal.</td></tr>
+<tr><td><b>Integrated strategy (Baron)</b></td><td>A firm operates in both at once, so it needs both strategies linked, not lobbying bolted on afterwards.</td></tr>
+<tr><td><b>Securitization (S2)</b></td><td>Reframing an ordinary commercial issue as a national-security threat, which moves it to a more hostile arena.</td></tr>
+<tr><td><b>Politicization of business (S2)</b></td><td>When a routine deal becomes a public political contest fought before legislators and the media.</td></tr>
+<tr><td><b>The eight non-market tactics (S2)</b></td><td>Lobbying, electoral/financial support, coalition-building, grassroots/constituency, testimony &amp; expertise, public advocacy/communications, judicial action, advisory committees.</td></tr>
+</tbody>
+</table>
+
+<h4>Varieties of states, and how they decide <span style="font-weight:400;text-transform:none;color:var(--soft)">(S3)</span></h4>
+<table class="dt">
+<thead><tr><th>Typology</th><th>The members</th></tr></thead>
+<tbody>
+<tr><td><b>Four state types</b></td><td>Regulatory / laissez-faire · Welfare · Developmental (state picks and drives winners) · Predatory (elites extract). Keyed to the state's goal and how it governs the economy.</td></tr>
+<tr><td><b>Three decision modes</b></td><td><b>Pluralism</b> (compete openly, lobby; US) · <b>Corporatism</b> (negotiate through peak associations; much of Europe) · <b>Statism</b> (reach the governing elite; developmental Asia).</td></tr>
+<tr><td><b>The lesson</b></td><td>Divergence, not convergence: match your tactics to the state type and decision mode, do not assume the US model.</td></tr>
+</tbody>
+</table>
+
+<h4>The industrial-policy debate <span style="font-weight:400;text-transform:none;color:var(--soft)">(S4)</span></h4>
+<table class="dt">
+<thead><tr><th>Element</th><th>Content</th></tr></thead>
+<tbody>
+<tr><td><b>Definition</b></td><td>Horizontal (economy-wide: skills, infrastructure, R&amp;D) vs vertical (picking sectors or firms). The debate is mostly about the vertical kind.</td></tr>
+<tr><td><b>The case FOR</b></td><td>Dynamic comparative advantage / infant industry; coordination failures; knowledge spillovers and scale; plus political rationales (security, jobs).</td></tr>
+<tr><td><b>The case AGAINST</b></td><td>The knowledge problem (states cannot pick winners); capture and rent-seeking; wrong incentives; global spillovers and WTO collision.</td></tr>
+<tr><td><b>The decisive question</b></td><td>Market failure vs government failure: which is worse here? Plus the developmental-state preconditions (rule of law, meritocratic bureaucracy, embedded autonomy, export discipline).</td></tr>
+</tbody>
+</table>
+
+<h4>Institutions: the WTO and regionalism <span style="font-weight:400;text-transform:none;color:var(--soft)">(S5–6)</span></h4>
+<table class="dt">
+<thead><tr><th>Framework</th><th>Content</th></tr></thead>
+<tbody>
+<tr><td><b>Why institutions exist</b></td><td>They solve collective-action problems (the lighthouse): provide information, reduce transaction costs, stabilise expectations, monitor, enable bargaining.</td></tr>
+<tr><td><b>The five WTO rules</b></td><td>Most-Favoured-Nation · National Treatment · Reciprocity · Transparency · Safeguards / national-security exceptions. Watch for disguised non-tariff barriers.</td></tr>
+<tr><td><b>Dispute settlement</b></td><td>Consultation &rarr; panel &rarr; (Appellate Body) &rarr; binding ruling &rarr; authorised retaliation. The Appellate Body is paralysed, so appeals go "into the void".</td></tr>
+<tr><td><b>Regionalism (S6)</b></td><td><b>Integration ladder:</b> FTA &rarr; customs union &rarr; common market &rarr; economic/monetary union &rarr; political union. <b>Minilateralism</b> (small-group deals) and <b>nesting</b> (does a deal sit inside a wider institution?).</td></tr>
+</tbody>
+</table>
+
+<h4>IR theory and the world order <span style="font-weight:400;text-transform:none;color:var(--soft)">(S7, not examinable)</span></h4>
+<table class="dt">
+<thead><tr><th>Lens</th><th>Core claim</th></tr></thead>
+<tbody>
+<tr><td><b>Realism</b></td><td>Anarchy forces states to pursue power and security; relative gains dominate.</td></tr>
+<tr><td><b>Liberalism (commercial / institutional / democratic)</b></td><td>Trade, institutions and democracy raise the cost of conflict and enable cooperation.</td></tr>
+<tr><td><b>Constructivism</b></td><td>Interests and "the national interest" are socially constructed, not fixed.</td></tr>
+</tbody>
+</table>
+
+<h2 class="part">The sessions</h2>
+<h2 id="l01">1 &middot; Understanding Politics and the IA3 Framework</h2>
+
+<p style="font-size:18px;color:var(--soft);margin-top:0;">The course's foundation session: it defines what "politics" means for a manager, separates the firm's <b>market</b> from its <b>non-market</b> environment, and hands you the analytical spine you reuse on every later case, Aggarwal's <b>(IA)&sup3; framework</b> (drawn from Bach and Allen / Baron). Everything from S2 onwards is this framework applied.</p>
+
+<div class="intuition"><span class="tag">🎙 In class</span>"In politics, if you are not at the table, you are on the menu." The whole course is about getting business to the table: the firm is never just an economic agent, it is a "social and political being", and pretending to have no political position is itself a position.</div>
+
+<h3>What Aggarwal means by "politics"</h3>
+
+<div class="key"><b>Politics = the struggle to control how resources get allocated.</b>
+<ul>
+<li><b>Three elements:</b> the struggle for power and leadership; the pursuit of (formalised) authority; the allocation of resources.</li>
+<li><b>The one question:</b> "Who has the power and authority to allocate resources?" Hold every case up to this question.</li>
+<li><b>"OPM" in class:</b> politicians do not give away their own money, they allocate <i>other people's money</i> (taxes) and parties exist to tell you how. Resource allocation is the prize all actors fight over.</li>
+</ul></div>
+
+<div class="key"><b>Why a manager cannot opt out.</b>
+<ul>
+<li><b>Not just economic agents:</b> firms and CEOs are social and political beings, not pure profit-maximisers.</li>
+<li><b>Two channels of pressure:</b> <b>formal</b> (laws and regulations, "call my lawyer") and <b>informal</b> (social pressure, activism, boycotts).</li>
+<li><b>The trap:</b> obeying the law alone misses the informal channel; Aggarwal's Brent Spar example (Shell, North Sea, 1990s) is legal compliance defeated by activist pressure.</li>
+</ul></div>
+
+<h3>The four levels of analysis</h3>
+
+<p>Aggarwal frames where politics plays out as four nested levels; a manager must locate an issue on the right one before acting.</p>
+
+<figure>
+<svg viewBox="0 0 460 210" width="100%" style="max-width:520px">
+  <rect x="10" y="10" width="440" height="190" fill="#eef6f0" stroke="#00684B" stroke-width="2"/>
+  <text x="230" y="30" text-anchor="middle" font-size="12" font-weight="bold" fill="#00684B">Global Political System</text>
+  <rect x="40" y="42" width="380" height="148" fill="#dff0e6" stroke="#00684B" stroke-width="1.5"/>
+  <text x="230" y="60" text-anchor="middle" font-size="12" font-weight="bold" fill="#00684B">Global Political Economy</text>
+  <rect x="80" y="74" width="300" height="106" fill="#cfe8da" stroke="#00684B" stroke-width="1.5"/>
+  <text x="230" y="92" text-anchor="middle" font-size="12" font-weight="bold" fill="#00684B">National Politics</text>
+  <rect x="120" y="108" width="220" height="62" fill="#fff" stroke="#00684B" stroke-width="1.5"/>
+  <text x="230" y="132" text-anchor="middle" font-size="11" font-weight="bold" fill="#00684B">Firm's organisational &amp;</text>
+  <text x="230" y="148" text-anchor="middle" font-size="11" font-weight="bold" fill="#00684B">market environment</text>
+</svg>
+<figcaption>The four levels, nested: the firm sits inside national politics, inside the global political economy, inside the global political system. An issue can originate at any layer and cascade down.</figcaption>
+</figure>
+
+<h3>Market vs non-market environment</h3>
+
+<div class="intuition"><span class="tag">Intuition: two playing fields</span>Porter's Five Forces describes the <b>market</b> field (rivals, suppliers, buyers, competing on price and value). But courts, media, NGOs and regulators play on a second field where the currency is <i>information</i>, not money. Five Forces is "a good framework" but blind to that second field, hence the need for non-market strategy.</div>
+
+<table class="dt">
+<thead><tr><th>Dimension</th><th>Market environment</th><th>Non-market environment</th></tr></thead>
+<tbody>
+<tr><td><b>What drives exchange</b></td><td>The price mechanism (money works in every arena)</td><td>Information determines exchanges</td></tr>
+<tr><td><b>Who you interact with</b></td><td>Firms, intermediated by markets / private agreements</td><td>Public, stakeholders, media, institutional actors</td></tr>
+<tr><td><b>Voluntary?</b></td><td>Interactions are voluntary</td><td>Voluntary (proactive lobbying) <i>or</i> involuntary (regulation, consumer activism)</td></tr>
+<tr><td><b>Collaboration with rivals</b></td><td>Restricted (e.g. cartels are illegal)</td><td>Allowed: you build coalitions with competitors</td></tr>
+<tr><td><b>Benefit type / keywords</b></td><td>Private benefit: leadership, flexibility, predictability, value</td><td>Public benefit: information, coalitions, consistency, uncertainty</td></tr>
+</tbody>
+</table>
+
+<div class="pitfall"><b>Don't equate non-market with market logic.</b> In the market, competitors collude only illegally and money buys outcomes everywhere. In the non-market, coalitions with rivals are normal (tech firms jointly opposing the UK Online Safety Act, jointly lobbying against AI regulation), and money alone rarely wins, information and reputation do.</div>
+
+<div class="key"><b>Integrated strategy (David Baron).</b>
+<ul>
+<li><b>Market strategy:</b> concerted actions through competition and exchange to improve firm performance (pricing, cost, innovation).</li>
+<li><b>Non-market strategy:</b> concerted actions through political, legal and social actors and processes to influence firm performance.</li>
+<li><b>The point:</b> a firm operates in both environments at once, so it needs both strategies linked, not lobbying bolted on as an afterthought. Non-market tactics (lobbying, coalitions, grassroots, testimony, legal, public advocacy) are empirical, not "the anti-ethics course".</li>
+</ul></div>
+
+<h3>Five non-market problems Aggarwal flags</h3>
+
+<div class="key"><b>The recurring non-market challenges a firm faces.</b>
+<ul>
+<li><b>Multiple audiences:</b> different groups want contradictory things (Facebook ad boycott, "stop hate for profit"); geo-economic competition and transnational networks.</li>
+<li><b>Globalisation of NGOs:</b> coordinated pressure campaigns (Greenpeace vs Shell via Lego; Lego then dropped the Shell partnership and re-tooled its market strategy toward WWF endangered-animal sets).</li>
+<li><b>Regulatory paradigm shifts:</b> EU Digital Services Act, Digital Markets Act and 2024 AI Act, largely aimed at big US tech.</li>
+<li><b>Competitive edge / reputational fragility:</b> reputation as an exploitable vulnerability.</li>
+<li><b>Geopolitical risk ("butterfly effects"):</b> e.g. TSMC's "Silicon Shield" and the irony that off-shoring chip production to the US/Europe erodes Taiwan's own protection; India banning Chinese apps to retaliate over the border conflict.</li>
+</ul></div>
+
+<h3 id="l01-ia3">The (IA)&sup3; framework, the spine of the course</h3>
+
+<div class="intuition"><span class="tag">Intuition: three questions, six lenses</span>Read any political situation through three plain questions: <b>WHO</b> cares about <b>WHAT</b>, <b>WHERE</b> is it settled, and <b>HOW</b> do actors get what they want. Each question is a pair of lenses, giving six in total. The name "(IA)&sup3;" is just those six lenses grouped as three I/A pairs.</div>
+
+<div class="key"><b>(IA)&sup3; expands to three pairs, each tied to a question word.</b>
+<ul>
+<li><b>Issues &amp; Actors</b> &rarr; <b>WHO</b> is concerned about <b>WHAT</b>?</li>
+<li><b>Interests &amp; Arena</b> &rarr; <b>WHERE</b> are preferences reconciled?</li>
+<li><b>Information &amp; Assets</b> &rarr; <b>HOW</b> do actors pursue what they want?</li>
+</ul></div>
+
+<figure>
+<svg viewBox="0 0 520 150" width="100%" style="max-width:560px">
+  <!-- three pair-boxes -->
+  <g font-size="11" fill="#00684B">
+    <rect x="10" y="40" width="150" height="70" rx="6" fill="#eef6f0" stroke="#00684B" stroke-width="1.5"/>
+    <text x="85" y="34" text-anchor="middle" font-size="12" font-weight="bold">WHO / WHAT</text>
+    <text x="85" y="70" text-anchor="middle" font-weight="bold">Issues</text>
+    <text x="85" y="90" text-anchor="middle" font-weight="bold">Actors</text>
+
+    <rect x="185" y="40" width="150" height="70" rx="6" fill="#dff0e6" stroke="#00684B" stroke-width="1.5"/>
+    <text x="260" y="34" text-anchor="middle" font-size="12" font-weight="bold">WHERE</text>
+    <text x="260" y="70" text-anchor="middle" font-weight="bold">Interests</text>
+    <text x="260" y="90" text-anchor="middle" font-weight="bold">Arena</text>
+
+    <rect x="360" y="40" width="150" height="70" rx="6" fill="#cfe8da" stroke="#00684B" stroke-width="1.5"/>
+    <text x="435" y="34" text-anchor="middle" font-size="12" font-weight="bold">HOW</text>
+    <text x="435" y="70" text-anchor="middle" font-weight="bold">Information</text>
+    <text x="435" y="90" text-anchor="middle" font-weight="bold">Assets</text>
+  </g>
+  <g stroke="#00684B" stroke-width="2" fill="none">
+    <path d="M160 75 L185 75" marker-end="url(#ar)"/>
+    <path d="M335 75 L360 75" marker-end="url(#ar)"/>
+  </g>
+  <defs><marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#00684B"/></marker></defs>
+  <text x="260" y="135" text-anchor="middle" font-size="11" fill="#555">Three I/A pairs &rarr; three diagnostic questions. Work them left to right.</text>
+</svg>
+<figcaption>(IA)&sup3; redrawn: three Issue-and-Actor / Interest-and-Arena / Information-and-Asset pairs, each answering one diagnostic question.</figcaption>
+</figure>
+
+<p><b>The gold-standard matrix.</b> One row per component; read across to see what it is, the question it forces you to ask, and a worked example from class.</p>
+
+<table class="dt">
+<thead><tr><th>Component</th><th>What it is</th><th>The analytical question it forces</th><th>Worked example (in class)</th></tr></thead>
+<tbody>
+<tr><td><b>1. Issues</b><br><span style="color:#777">(WHO/WHAT)</span></td><td>The matter under contention, and where new ones come from</td><td>What is the issue, and what created it? Sources: changing societal expectations, changing institutions and laws, new technology and innovation.</td><td>AI and job losses as an issue; USMCA/NAFTA tariffs turning a settled "produce in Mexico, export north" strategy into a problem.</td></tr>
+<tr><td><b>2. Actors</b><br><span style="color:#777">(WHO/WHAT)</span></td><td>The interested parties and their allied or adversarial postures</td><td>Who is involved, and what are their relationships? <b>Key insight: organisation matters.</b> Organised actors (buycott groups, supply cartels) are more effective, all else equal.</td><td>Activists, media, regulators, governments; identify who can actually bring pressure to bear and whether they are organised.</td></tr>
+<tr><td><b>3. Interests</b><br><span style="color:#777">(WHERE)</span></td><td>What each actor wants and how much they want it</td><td>What do they want; how critical is the issue to them (absolute and relative); how internally aligned are they; is there an internal split that opens a way in?</td><td>NGOs are often split, work with the friendly ones against the unfriendly ones; exploit the internal split.</td></tr>
+<tr><td><b>4. Arena</b><br><span style="color:#777">(WHERE)</span></td><td>The venue where the conflict is settled</td><td>How formalised are the rules of engagement, and how distributed are the interactions?</td><td>A court (very formal) vs a parliament or UN agency vs a one-on-one bribe (informal, and risky, you can go to jail).</td></tr>
+<tr><td><b>5. Information</b><br><span style="color:#777">(HOW)</span></td><td>The knowledge that moves exchanges in this arena</td><td>What information applies here? In the market, money works in every arena; in the non-market, information varies extensively by arena.</td><td>Funded scientific studies; journals now require authors to disclose who paid (be more sceptical of a pharma-funded pharma study).</td></tr>
+<tr><td><b>6. Assets</b><br><span style="color:#777">(HOW)</span></td><td>The resources an actor needs to win in this arena</td><td>What assets are needed here? Capital is rarely sufficient; focus on <b>knowledge</b> (of decision-makers), <b>reputation</b>, <b>control</b> (of authority/resources), <b>alliances</b>.</td><td>Tech / AI firms building alliances and working together to head off regulation.</td></tr>
+</tbody>
+</table>
+
+<h3>How a manager USES (IA)&sup3; to read a situation</h3>
+
+<div class="chain">
+<span>Spot the issue &amp; its source</span><span class="arrow">&rarr;</span>
+<span>map actors (organised?)</span><span class="arrow">&rarr;</span>
+<span>read interests (split?)</span><span class="arrow">&rarr;</span>
+<span>locate the arena</span><span class="arrow">&rarr;</span>
+<span>find the decisive information</span><span class="arrow">&rarr;</span>
+<span>marshal the assets that win there</span>
+</div>
+
+<div class="key"><b>Why the sequence is the point, not a checklist.</b>
+<ul>
+<li><b>Arena governs everything downstream:</b> which information counts and which assets win is determined by <i>where</i> the fight is settled, so you cannot pick tactics before naming the arena.</li>
+<li><b>Look for the opening:</b> the framework is built to surface an actor's internal split or weak alignment as the entry point for engagement.</li>
+<li><b>Optimise against others' goals:</b> the goal is to optimise your strategy <i>with attention to other actors' goals</i>, not to list facts.</li>
+</ul></div>
+
+<div class="key"><b>Take-aways (Aggarwal's closing slide).</b>
+<ul>
+<li>Politics is virtually omnipresent.</li>
+<li>Executives must recognise the real differences between the market and non-market environments.</li>
+<li>Executives need an integrated, coherent, strategic approach that links both arenas.</li>
+</ul></div>
+
+<div class="exam"><b>Exam lens.</b>
+<ul>
+<li><b>Format:</b> 2-hour in-class final, 90% of grade, one 2-sided A4 cheat sheet allowed (10% is oral class contribution). Aggarwal said in class to put the Bach and Allen / (IA)&sup3; framework on the sheet and "read it for the exam".</li>
+<li><b>S7 is off the exam:</b> he stated only Sessions 1 to 6 are examinable (S7, the future world order, was excluded as a courtesy before the 11 June exam).</li>
+<li><b>The likely task:</b> apply the six (IA)&sup3; lenses to a case. The S2 worksheet questions telegraph the format, key issue / key actors and how they framed it / each actor's interests / the arena it is resolved in / the information used / the power assets held, plus "what did they do well, badly, and what would you do differently?" (used on the Dubai Ports World / CFIUS case).</li>
+<li><b>Reusable distinctions to bank:</b> market vs non-market environment; integrated strategy (Baron); "organisation matters" for actors; capital is rarely sufficient (assets = knowledge, reputation, control, alliances).</li>
+</ul></div>
+<h2 id="l02">2 &middot; IA3 in Practice: Securitization and the Politicization of Business</h2>
+
+<p>This session runs the IA3 framework from L01 through one live case, Dubai Ports World's attempt to operate six US ports, and then names the toolkit: the eight nonmarket tactics a firm uses to shift a political outcome. The reusable takeaways come first (securitization, market vs nonmarket, the eight tactics); the DPW deep-dive at the end shows them all in motion.</p>
+
+<div class="intuition"><span class="tag">🎙 In class</span> "Today we are going to be talking about DP World. And we'll talk about the politicization of business. And then we're going to talk about tactics. These two sessions are the critical sessions in which if you don't show up, you probably will fail." Aggarwal flags this as one of the load-bearing weeks.</div>
+
+<h4>The two core concepts</h4>
+
+<div class="key"><b>Securitization, reframing an ordinary commercial deal as a national-security threat.</b>
+<ul>
+<li><b>What it is:</b> a deal recast from "foreign firm buys assets" into "a country with ties to terrorism gains control of critical infrastructure."</li>
+<li><b>Why it matters:</b> once an issue is securitized, experts and legal clearance stop deciding it; public fear and Congress do.</li>
+<li><b>The tell:</b> the substance of the deal does not change, only the <i>frame</i> does. DPW cleared CFIUS, yet the framed version ("ports sold to the country that flew planes into the towers") overrode that.</li>
+</ul></div>
+
+<div class="key"><b>Politicization of business, when a transaction that "should" be commercial becomes a political contest.</b>
+<ul>
+<li><b>What it is:</b> any deal can be pulled out of the market arena into the political arena by an interested actor.</li>
+<li><b>Why it matters:</b> playing by the official rulebook (CFIUS approval) is necessary but never sufficient; the real fight can move to a different arena entirely.</li>
+<li><b>The tell:</b> a small, otherwise-powerless firm (Eller & Co.) generates outsized political action via a lobbyist and the media.</li>
+<li><b>National-security framing is often fake:</b> Aggarwal's running joke, the 1959 wool lobby claimed "150 to 200 million woolen blankets" were needed to survive an atomic war; the lace industry claimed lace was vital because generals' epaulettes are woven from it. Pirelli more recently claimed Chinese-owned tyre sensors were a data-security threat. Cover stories for protectionism.</li>
+</ul></div>
+
+<h4>The mechanism: how a commercial deal becomes a security crisis</h4>
+
+<div class="chain">
+<span>Commercial deal cleared (CFIUS approves)</span><span class="arrow">⟹</span>
+<span>losing rival hires a lobbyist</span><span class="arrow">⟹</span>
+<span>arena shifts: regulator → Congress</span><span class="arrow">⟹</span>
+<span>media <b>frames</b> it as a security threat</span><span class="arrow">⟹</span>
+<span>public opinion turns (70% opposed)</span><span class="arrow">⟹</span>
+<span>vote-seeking Congress piles on</span><span class="arrow">⟹</span>
+<span>politicized: deal dies</span>
+</div>
+<p style="font-size:13px;color:var(--soft);margin-top:-4px;">The non-obvious link is the third: clearing the official regulator does <i>not</i> close the matter, because a rival can re-open it in a different arena (Congress) where the rules are political, not legal.</p>
+
+<div class="intuition"><span class="tag">🎙 In class</span> "Issues are constructed. Issues are not just out there. When you frame and construct the issue a particular way, then you will have different actors involved than initially." The same physical facts, framed differently, summon a different cast.</div>
+
+<h4>The actors, mapped (IA3: who, what they want, what they can do)</h4>
+
+<table class="dt">
+<thead><tr><th>Actor</th><th>Type</th><th>Interest (what they want)</th><th>Assets / information</th></tr></thead>
+<tbody>
+<tr><td><b>President Bush</b></td><td>Political</td><td>Let deal proceed; keep UAE ally; protect CFIUS independence; avoid looking hypocritical on FDI</td><td>Veto power; backing of business and maritime experts. <i>Liability:</i> lowest-ever approval (Iraq, Katrina), lame duck</td></tr>
+<tr><td><b>Congress</b></td><td>Political</td><td>Block deal; check the President; win Nov 2006 mid-terms</td><td>Can legislate; votes to override a veto; rides 70% public opposition. <i>Liability:</i> no formal authority over a cleared CFIUS deal</td></tr>
+<tr><td><b>CFIUS</b></td><td>Political (executive)</td><td>Vet FDI for security; grant immunity once cleared</td><td>Approval grants legal immunity. <i>But:</i> secretive, excludes Congress, which resents it</td></tr>
+<tr><td><b>DP World</b></td><td>Market</td><td>Acquire P&amp;O (US is only 10% of revenue); "business as usual"</td><td>Cleared CFIUS, DHS, President; UAE is a US ally. <i>Liability:</i> state-owned, 9/11 context, no read on the political arena</td></tr>
+<tr><td><b>Eller &amp; Company</b></td><td>Market</td><td>Kill the deal, protect its P&amp;O joint venture in Miami</td><td>Tiny Florida firm, but hired lobbyist Joe Muldoon (~$150k) who "worked the halls of Congress"</td></tr>
+<tr><td><b>Media (AP, Dobbs, Savage)</b></td><td>Media / public</td><td>Controversy and audience</td><td><b>Agenda-setting</b> + <b>framing</b> power, the two levers a free press holds</td></tr>
+</tbody>
+</table>
+
+<figure>
+<svg viewBox="0 0 460 230" width="100%" style="max-width:460px">
+  <!-- arena boxes -->
+  <rect x="20" y="20" width="120" height="50" rx="6" fill="#eaf4ee" stroke="#00643C" stroke-width="1.5"/>
+  <text x="80" y="40" text-anchor="middle" font-size="11" font-weight="bold" fill="#00643C">DP World's arena</text>
+  <text x="80" y="56" text-anchor="middle" font-size="10" fill="#333">CFIUS + President</text>
+  <rect x="320" y="20" width="120" height="50" rx="6" fill="#fdecea" stroke="#b3261e" stroke-width="1.5"/>
+  <text x="380" y="40" text-anchor="middle" font-size="11" font-weight="bold" fill="#b3261e">The real arena</text>
+  <text x="380" y="56" text-anchor="middle" font-size="10" fill="#333">Congress, media, public</text>
+  <!-- shift arrow -->
+  <line x1="145" y1="45" x2="315" y2="45" stroke="#555" stroke-width="2" marker-end="url(#ah2)"/>
+  <text x="230" y="38" text-anchor="middle" font-size="10" fill="#555" font-style="italic">arena shift</text>
+  <!-- lower actors -->
+  <rect x="20" y="120" width="100" height="40" rx="6" fill="#fff" stroke="#888" stroke-width="1.3"/>
+  <text x="70" y="144" text-anchor="middle" font-size="10" fill="#333">Eller &amp; Co.</text>
+  <rect x="180" y="120" width="100" height="40" rx="6" fill="#fff" stroke="#888" stroke-width="1.3"/>
+  <text x="230" y="139" text-anchor="middle" font-size="10" fill="#333">Lobbyist</text>
+  <text x="230" y="152" text-anchor="middle" font-size="9" fill="#777">(Muldoon)</text>
+  <rect x="340" y="120" width="100" height="40" rx="6" fill="#fff" stroke="#888" stroke-width="1.3"/>
+  <text x="390" y="139" text-anchor="middle" font-size="10" fill="#333">AP / Dobbs</text>
+  <text x="390" y="152" text-anchor="middle" font-size="9" fill="#777">framing</text>
+  <line x1="120" y1="140" x2="178" y2="140" stroke="#555" stroke-width="1.5" marker-end="url(#ah2)"/>
+  <line x1="280" y1="140" x2="338" y2="140" stroke="#555" stroke-width="1.5" marker-end="url(#ah2)"/>
+  <line x1="390" y1="118" x2="385" y2="72" stroke="#b3261e" stroke-width="1.5" marker-end="url(#ah2)"/>
+  <text x="230" y="200" text-anchor="middle" font-size="10" fill="#555" font-style="italic">A tiny firm + a lobbyist + the media reframe the issue and move it into the political arena.</text>
+  <defs>
+    <marker id="ah2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#555"/></marker>
+  </defs>
+</svg>
+<figcaption>Stakeholder map: DP World fought in the arena it understood (CFIUS), while the opposition moved the fight to the one that decided the outcome.</figcaption>
+</figure>
+
+<h4>Market vs nonmarket strategy (and the tactics under each)</h4>
+
+<p>Aggarwal's worked teaching example: <i>Company A is losing money, imports are rising.</i> Two completely separate playbooks, and on the exam you owe both.</p>
+
+<table class="dt">
+<thead><tr><th></th><th>Market, "hire an MBA"</th><th>Nonmarket, "hire a political economist"</th></tr></thead>
+<tbody>
+<tr><td><b>Strategy</b></td><td>Improve quality · lower prices</td><td>Block imports (tariffs/quotas) · get a government subsidy</td></tr>
+<tr><td><b>Tactics</b></td><td>R&amp;D, train workers, automate, cut labour/wages, bargain suppliers, acquire better tech</td><td>Testify to trade reps, build a steel-firm coalition, claim national security on jobs, lobby legislators for a subsidy</td></tr>
+</tbody>
+</table>
+
+<div class="pitfall"><b>Don't call everything "lobbying."</b> In Aggarwal's vocabulary lobbying is one specific tactic (hiring someone to influence a politician with technical or political information), not the whole nonmarket toolkit. The exam wants the right tactic named, not "they lobbied."</div>
+
+<h4>The eight nonmarket tactics (Baron, Ch. 8), know these cold</h4>
+
+<table class="dt">
+<thead><tr><th>#</th><th>Tactic</th><th>What it actually is</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><b>Lobbying</b></td><td>Hire someone to influence a politician with <i>technical</i> information (policy consequences) or <i>political</i> information (what constituents/interest groups want)</td><td>Pfizer (US, vaccine IP); Huawei (EU/Africa, 5G)</td></tr>
+<tr><td>2</td><td><b>Electoral support</b></td><td>Supply electorally valuable resources, endorse, staff, fund campaigns and ads (US: via PACs)</td><td>Chevron (US ads); Adani (alleged BJP alignment)</td></tr>
+<tr><td>3</td><td><b>Coalition building</b></td><td>Forge a majority from minorities; <i>competitors become allies</i></td><td>NetChoice (Amazon, Google, Meta); Alliance for Automotive Innovation</td></tr>
+<tr><td>4</td><td><b>Grassroots / constituency</b></td><td>Mobilise action bottom-up, consumers, voters, societal groups</td><td>Uber mobilised women in Mexico (2015); Google "Take Action" (2012)</td></tr>
+<tr><td>5</td><td><b>Testimony</b></td><td>Testify to committees/agencies/courts; creates a record for judicial review</td><td>Boeing (post-737 Max); VW (post-2015 emissions)</td></tr>
+<tr><td>6</td><td><b>Communications &amp; public advocacy</b></td><td>Speak directly to the public on an issue; can fold in customer engagement</td><td>Nike (racial justice); Unilever (climate)</td></tr>
+<tr><td>7</td><td><b>Judicial actions</b></td><td>Sue, or defend, as part of strategy, but expensive and a sign you're already in trouble</td><td>Philip Morris v. Uruguay; Novartis in India (patent)</td></tr>
+<tr><td>8</td><td><b>Advisory committees</b></td><td>Use technical expertise to shape standards while claiming independence, "the most important tactic"</td><td>Microsoft (cyber/AI standards); Nestlé (Codex)</td></tr>
+</tbody>
+</table>
+
+<div class="intuition"><span class="tag">Intuition: advisory committees</span> Aggarwal's favourite: in frontier fields (AI, quantum) governments have <i>no</i> in-house experts, so they seat industry's "independent experts", the best money Oracle ever spent. The asset is asserting independence even while serving the firm's interest.</div>
+
+<h3>Case deep-dive: Dubai Ports World in the USA</h3>
+
+<div class="key"><b>In one breath.</b> A Dubai state-owned operator legally cleared every US gate to run terminals at six American ports, then lost the deal in three weeks, not because the facts changed, but because a tiny rival's lobbyist, the media, and an election-year Congress reframed a commercial transaction as handing US ports to "the country that flew the planes into the towers."</div>
+
+<p><b>Setup.</b> Oct 2005, DP World bids to buy UK-based P&amp;O. Most of P&amp;O sits in Asia/Australia; only 10% of revenue is P&amp;O Ports North America, running terminals at 20 US ports. DP World approaches Treasury, files with CFIUS, and negotiates security concessions with DHS (Container Security Initiative, US protocols enacted in Dubai). Late Jan 2006, CFIUS approves <i>without</i> consulting the Treasury Secretary or President. 10 Feb, DP World wins P&amp;O at $6.8bn after Singapore's PSA declines to match. The deal looks done.</p>
+
+<p><b>What happened.</b> 11 Feb, an Associated Press story (sourced from Eller &amp; Co.'s lobbyist Joe Muldoon) frames the deal as a UAE company taking "operations at six American ports" in a country "with ties to the Sept. 11 hijackers." Within 48 hours Lou Dobbs and Michael Savage run nightly attacks. Senator Schumer holds press conferences flanked by 9/11 victims' families. Bush, at his lowest approval, post-Katrina, a lame duck, defends the deal ("played by the rules… I'll deal with it, with a veto"). It doesn't hold: 70% of the public opposes, Republican leaders (Frist) turn, Congress claims the votes to override a veto, the Port Authority of NY/NJ and Eller sue. DP World, which initially ignored the row because the accusations "seemed so off base," ultimately agrees to divest its US operations and exits.</p>
+
+<div class="chain">
+<span>CFIUS clears deal</span><span class="arrow">→</span>
+<span>Eller hires Muldoon</span><span class="arrow">→</span>
+<span>AP frames it (9/11)</span><span class="arrow">→</span>
+<span>Dobbs/Savage amplify</span><span class="arrow">→</span>
+<span>70% public opposed</span><span class="arrow">→</span>
+<span>election-year Congress flips</span><span class="arrow">→</span>
+<span>DP World exits</span>
+</div>
+
+<table class="dt">
+<thead><tr><th>Q (slide 7 discussion)</th><th>Verdict</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td>Did following the official process protect them?</td><td style="color:#b3261e;"><b>No</b></td><td>Legal clearance (CFIUS) was necessary but not sufficient; the fight moved to Congress, where rules are political</td></tr>
+<tr><td>Did they read the arena right?</td><td style="color:#b3261e;"><b>No</b></td><td>UAE corporate culture (the sheikh says go) gave them no instinct for an open, contested political arena</td></tr>
+<tr><td>Was exiting the right call?</td><td style="color:#00643C;"><b>Plausibly yes</b></td><td>Once securitized in an election year, the deal was unwinnable; the lesson is exit timing, not whether to exit</td></tr>
+</tbody>
+</table>
+
+<div class="key"><b>What DP World could have done (in class).</b>
+<ul>
+<li><b>Pursue a JV</b> with an American company so it never reads as "foreign takeover."</li>
+<li><b>Change the name</b>, Aggarwal's joke: "the American Port Company."</li>
+<li><b>Buy out Eller</b>, a private transaction; pay the small rival off, Silicon-Valley style, and remove the spark.</li>
+<li><b>Start the public/political work earlier</b>, build perception before the story breaks, not after.</li>
+</ul></div>
+
+<div class="key"><b>The IA3 lesson (slide 8 takeaways).</b>
+<ul>
+<li>Any deal can become politically sensitive, even a routine, already-foreign-owned asset.</li>
+<li>Playing by the book is necessary but not enough; map the <i>political</i> atmosphere, including regime type.</li>
+<li>Small firms can generate large nonmarket action (one lobbyist, ~$150k).</li>
+<li>Media framing of the public discussion is decisive; positive public perception must be built early.</li>
+<li>Exiting can be the best strategy, the question is <i>when</i> and <i>how</i>, not whether.</li>
+</ul></div>
+
+<div class="intuition"><span class="tag">🎙 In class</span> "NGOs are much better at nonmarket strategy than big companies. Big companies think they can throw money around. People love the myth of David versus Goliath, the little company fighting the big one, and the media plays it up." Eller was the David here.</div>
+
+<div class="key"><b>Expert vs public divergence (slide 15).</b>
+<ul>
+<li><b>DPW:</b> experts said "no security threat"; the public said "yes!", and the public won.</li>
+<li><b>TikTok (preview of next case):</b> experts said "yes, a threat"; the public said "no!", the mirror image.</li>
+<li><b>Takeaway:</b> firms must learn to read, and leverage, the gap between expert judgement and public perception.</li>
+</ul></div>
+
+<div class="exam"><b>Exam lens.</b> Aggarwal twice flagged this material as make-or-break ("if you don't show up, you probably will fail"). Expect to be asked to <b>apply IA3 to a case</b>: name the key <b>issue</b>, the key <b>actors</b> (and crucially <i>simplify</i> to the few that matter), each actor's <b>interests / assets / information</b>, and the <b>arena</b>, then argue what the firm should have done. You must give <b>both a market and a nonmarket strategy with their tactics</b>, and name the right one of the <b>eight tactics</b> rather than calling everything "lobbying." Watch for the securitization trap: a national-security claim is often a cover for protectionism (wool blankets, lace, Pirelli).</div>
+<h2 id="l03">3 &middot; IA3 in Practice: Variation Among Countries</h2>
+
+<p>This session takes the IA3 toolkit and asks the question that decides whether it travels: <b>why does the same business-government issue play out completely differently across countries?</b> Two halves. First, cross-border investment restrictions (the rise of FDI screening, and the TikTok case as a worked non-market campaign). Second, the spine of the day: <b>all capitalism is not American</b>, a four-state typology and three decision-making modes that tell you whom to approach, how fast a decision moves, and which tactics even work.</p>
+
+<div class="intuition"><span class="tag">🎙 In class</span> "We have <b>divergence, not convergence</b>." The <i>End of History</i> bet was that the fall of the Wall would push everyone toward Western liberal democracy. It did not. China grew richer without growing democratic; Western democracies drifted toward authoritarian populism. The map of capitalisms stays plural, so a single playbook fails.</div>
+
+<h4>Part A &middot; Cross-border investment restrictions</h4>
+
+<div class="key"><b>FDI screening has gone global since FIRRMA (2018).</b>
+<ul>
+<li><b>What changed:</b> the old CFIUS test was "do you <i>control</i> a US business?"; FIRRMA widened it to critical technology, critical infrastructure, sensitive personal data, and non-passive VC/PE stakes, plus real-estate deals near military sites.</li>
+<li><b>The white-list carve-out:</b> investors from US allies face <i>less</i> scrutiny; everyone else gets reviewed.</li>
+<li><b>The contagion:</b> Germany, UK, Italy, France passed copycat laws; the European Commission pushed common investment-screening guidelines (so multinationals cannot arbitrage gaps between member states); Canada, China, Australia, India all invoke national security.</li>
+<li><b>The takeaway:</b> cross-border M&amp;A is now structurally harder, everywhere, on national-security grounds.</li>
+</ul></div>
+
+<div class="intuition"><span class="tag">🎙 In class</span> "What goes around, comes around." The Dutch blocked an American firm's acquisition of a Dutch tech company on national-security grounds, the same logic the US uses, turned back on it. Screening is not a US weapon; it is a global norm.</div>
+
+<h4>Deep-dive &middot; TikTok: a worked market + non-market campaign</h4>
+
+<p>The strategic choice was not to fight or exit but to <b>defuse</b>: make TikTok respectable to the US security apparatus rather than win outright. Read the tactic versus the outcome, almost every move below is "market in form, non-market in intent."</p>
+
+<table class="dt">
+<thead><tr><th>Tactic</th><th>Type</th><th>What TikTok actually did</th></tr></thead>
+<tbody>
+<tr><td><b>Project Texas</b></td><td>Market form / non-market intent</td><td>Fully sequestered US-user-data division (governance, access, software, content, compliance). Named "Texas" not "California" to court the conservative state attacking them, a PR signal of "we have nothing to hide."</td></tr>
+<tr><td><b>US top management</b></td><td>Market form / non-market intent</td><td>Hired American executives (CEO ex-Disney, CISO ex-US Air Force/DoD, General Counsel ex-Microsoft) to diffuse the "Chinese-controlled" tension.</td></tr>
+<tr><td><b>Lobbying</b></td><td>Non-market</td><td>$27m+ federal disclosed since 2019 (true total far higher with state-level and PR spend).</td></tr>
+<tr><td><b>3rd-party allies</b></td><td>Non-market</td><td>Hired US law/consulting firms (incl. two ex-Congressmen) to vouch for the app; joined trade association NetChoice to look "like any other tech company."</td></tr>
+<tr><td><b>Grassroots</b></td><td>Non-market</td><td>In-app pushes (Mar 2024) urging 170m users to call Congress to defend their "constitutional right to free expression," with a one-tap dial-your-rep button.</td></tr>
+</tbody>
+</table>
+
+<div class="pitfall"><b>The grassroots play was "too clever."</b> A Chinese-owned app invoking Americans' First Amendment read as hypocrisy; many users were children who cannot vote; it created pressure but also backlash. Congress passed the ban (Protecting Americans from Foreign Adversary Controlled Applications Act), Biden signed it, the Supreme Court upheld it.</div>
+
+<div class="key"><b>Outcome: a partial win, not a victory, and that is the lesson.</b>
+<ul>
+<li><b>The reversal:</b> Trump (who started the ban) flipped pro-TikTok after using it heavily to win; delayed enforcement, then brokered US-based ownership.</li>
+<li><b>The deal (Jan 2026):</b> US investors led by Oracle, Silver Lake, and Abu Dhabi's MGX own 45%; ByteDance retains ~20%; Oracle-led entity oversees data, algorithm security, content moderation.</li>
+<li><b>Did it solve the threat?</b> <i>Data:</i> largely yes, China cannot access it (though the US government can, as with any US app). <i>Influence:</i> no, the algorithm was never handed over, so China can still tweak what videos surface.</li>
+<li><b>The meta-lesson:</b> "If you think you're going to get 100% victory, change your business line." Against governments, "well enough" is the realistic goal.</li>
+</ul></div>
+
+<div class="key"><b>New economic statecraft, trade/investment restrictions for geo-economic, not commercial, ends.</b>
+<ul>
+<li><b>THAAD (2017, S. Korea–China):</b> US installs missile-defence on Lotte-owned land; China retaliates against the <i>company</i>, boycotts Lotte, halts tour groups to Jeju. Korea's tourism lost ~$7.5bn; exports to China fell ~20%.</li>
+<li><b>Japan–S. Korea (2019):</b> Japan restricts three semiconductor chemicals (hitting Samsung) citing "national security"; Korea reads it as retaliation for a court ruling on WWII forced labour. Restrictions lifted 2023 as relations warmed.</li>
+<li><b>The tell:</b> "national security" is the universal cover story; companies become <b>collateral damage</b> in state-to-state disputes they did not start.</li>
+</ul></div>
+
+<h4>Part B &middot; Variation among countries, the four-state typology</h4>
+
+<p>Connecting back to IA3: a firm's <b>institutional</b> and <b>interaction</b> analysis must be re-run per country, because the <i>type of state</i> changes the goal it pursues, who decides, how fast, and what counts as legitimate influence. Aggarwal's typology answers one question, <b>what is the state trying to do?</b>, and these are ideal types; real countries are imperfect blends.</p>
+
+<table class="dt">
+<thead><tr><th>State type</th><th>Core goal (the "end")</th><th>Governing mode of the economy</th><th>Historical examples</th></tr></thead>
+<tbody>
+<tr><td><b>Regulatory / laissez-faire</b></td><td>Equality of <i>opportunity</i></td><td>Set rules of the game, then minor intervention; state as neutral referee</td><td>USA, UK, Canada, Australia</td></tr>
+<tr><td><b>Welfare</b></td><td>Equality of <i>outcomes</i></td><td>Let market run, then redistribute via tax; heavy regulation; some domestic bias</td><td>Scandinavia (esp. through 1980s), much of W. Europe</td></tr>
+<tr><td><b>Developmental</b></td><td><i>Development</i> / catch-up growth</td><td>Active intervention: plans, capital allocation, infant-industry protection, export promotion</td><td>Japan (through ~1980), S. Korea, China</td></tr>
+<tr><td><b>Predatory</b></td><td>Personal <i>enrichment</i> of elites</td><td>Top-down graft; benefits skewed to a small group; public goods starved</td><td>"Many" (Transparency Int'l red zone)</td></tr>
+</tbody>
+</table>
+
+<div class="intuition"><span class="tag">🎙 In class</span> "Laissez-faire comes <b>after</b> the rules of the market are set." A market is not "poof, government go away." You need property rights, contracts, a legal system, competition law, only then can the state step back and referee. (When Russia skipped this step, the apparatchiks became oligarchs and bought the state's monopolies.) That is why a hands-off state is still a <b>regulatory</b> state.</div>
+
+<h4>The three decision-making modes, whom you must work through</h4>
+
+<p>The same four states cluster into three ways decisions actually get made. This is the operational half of the typology: it tells you <b>who holds the pen</b> and therefore which non-market tactic lands.</p>
+
+<table class="dt">
+<thead><tr><th>Mode</th><th>How decisions are made</th><th>Speed &amp; character</th><th>What business must do</th></tr></thead>
+<tbody>
+<tr><td><b>Pluralism</b><br>(regulatory states)</td><td>State as a "cash register" for competing interest groups; bottom-up, variety in outcomes</td><td>Outcome depends on relative power in the lobbying contest</td><td>Mostly act on your own; influence via <b>lobbying</b>; outcome tracks who lobbies hardest</td></tr>
+<tr><td><b>Corporatism</b><br>(many welfare states)</td><td>State penetrated by fixed private-sector associations (unions, employer bodies) that execute state tasks</td><td>Consensus-oriented; slow to decide, but <i>fast to implement</i></td><td>Little works without the associations; <b>negotiate with unions and peak bodies</b> before you move</td></tr>
+<tr><td><b>Statism</b><br>(developmental + predatory)</td><td>Top-down; decisions in a small elite at the top (elite may be elected)</td><td>Quick decisions possible (not guaranteed); information flow is a problem, so error-prone</td><td>Reach the <b>small group at the top</b>; relationships and informal access matter most</td></tr>
+</tbody>
+</table>
+
+<figure>
+<svg viewBox="0 0 560 150" width="100%" style="max-width:560px">
+  <!-- Pluralism -->
+  <g stroke="#1f7a4d" stroke-width="1.5" fill="none">
+    <line x1="40" y1="30" x2="40" y2="100"/>
+    <line x1="40" y1="100" x2="20" y2="120"/><line x1="40" y1="100" x2="60" y2="120"/>
+    <line x1="40" y1="100" x2="40" y2="125"/>
+  </g>
+  <circle cx="40" cy="22" r="8" fill="#2e8b57"/>
+  <text x="40" y="142" text-anchor="middle" font-size="11" fill="#333">Pluralism</text>
+  <text x="40" y="14" text-anchor="middle" font-size="9" fill="#555">state</text>
+  <text x="40" y="138" text-anchor="middle" font-size="8" fill="#777" opacity="0">x</text>
+  <!-- Corporatism -->
+  <g stroke="#1f7a4d" stroke-width="1.5" fill="none">
+    <line x1="220" y1="30" x2="220" y2="60"/>
+    <line x1="220" y1="60" x2="220" y2="95"/>
+    <line x1="220" y1="95" x2="220" y2="120"/>
+  </g>
+  <circle cx="220" cy="22" r="8" fill="#2e8b57"/>
+  <rect x="200" y="58" width="40" height="14" fill="#7ec8a0" stroke="#1f7a4d"/>
+  <circle cx="220" cy="126" r="7" fill="#bfe3cf" stroke="#1f7a4d"/>
+  <text x="220" y="50" text-anchor="middle" font-size="8" fill="#555">state</text>
+  <text x="248" y="69" font-size="8" fill="#555">associations</text>
+  <text x="220" y="148" text-anchor="middle" font-size="11" fill="#333">Corporatism</text>
+  <!-- Statism -->
+  <g stroke="#1f7a4d" stroke-width="1.5" fill="none">
+    <line x1="430" y1="30" x2="410" y2="115"/>
+    <line x1="430" y1="30" x2="450" y2="115"/>
+  </g>
+  <circle cx="430" cy="22" r="9" fill="#2e8b57"/>
+  <line x1="405" y1="118" x2="455" y2="118" stroke="#1f7a4d" stroke-width="1.5"/>
+  <text x="430" y="14" text-anchor="middle" font-size="8" fill="#555">elite</text>
+  <text x="430" y="133" text-anchor="middle" font-size="8" fill="#555">the people</text>
+  <text x="430" y="148" text-anchor="middle" font-size="11" fill="#333">Statism</text>
+</svg>
+<figcaption>The three decision-making structures: a flat referee fielding many interests (pluralism); a state mediated through fixed associations (corporatism); a narrow top imposing downward (statism).</figcaption>
+</figure>
+
+<div class="key"><b>Why the typology matters, the five things it tells a firm.</b>
+<ul>
+<li><b>Model of intervention:</b> what policies the state follows and what it is actually trying to do.</li>
+<li><b>Whom to approach &amp; how to appeal:</b> interest groups, associations, or the elite.</li>
+<li><b>Decision speed &amp; logic:</b> 2 years or 20? A 20-year approval means move to another country.</li>
+<li><b>Policy predictability:</b> rapid government turnover (Aggarwal's UK example) is itself a risk; stable single-party rule (Xi's China) trades freedom for predictability.</li>
+<li><b>Type of corruption / informal relations:</b> is grey-market lobbying legal, or do you need <i>guanxi</i>-style relationship-building?</li>
+</ul></div>
+
+<h4>Developmental-state deep-dive: two paths, two outcomes</h4>
+
+<div class="key"><b>ISI (Import-Substitution Industrialisation), intervention that failed.</b>
+<ul>
+<li><b>The problem:</b> commodity-exporting developing countries faced declining <i>terms of trade</i> (Prebisch's insight; he headed ECLA).</li>
+<li><b>The strategy:</b> tariffs/quotas/licensing to keep imports out; block foreign firms; subsidise domestic and state-owned firms; restrict capital; overvalued exchange rate.</li>
+<li><b>The outcome:</b> domestic industries grew, but with low innovation, low productivity, no export competitiveness.</li>
+<li><b>India's version:</b> had the technology (it built nuclear devices) but a protected duopoly (Hindustan Motors) had no reason to compete, and the ultimate non-market tactic was a bag of cash to the minister to keep protection alive. ISI only ended with the 1990–91 financial crisis.</li>
+</ul></div>
+
+<div class="key"><b>The successful developmental state, Japan, then China.</b>
+<ul>
+<li><b>Japan's MITI/MoF model:</b> ministries staffed by the "best and brightest" (Tokyo University law/public-policy graduates) centrally allocated capital, controlled it (no mobility, low rates), promoted exports, protected infant industries with no inward FDI, and coordinated technology diffusion (METI bought RCA's colour-TV tech and seeded all Japanese makers; a decade on, US TV makers were gone).</li>
+<li><b>China copies it, with twists:</b> same central planning, capital allocation, export promotion, but <i>allows inward FDI to learn and grow</i>, and does not enforce property rights, trading market access for technology.</li>
+</ul></div>
+
+<div class="intuition"><span class="tag">Intuition: terms of trade</span> The recurring thread under both halves of the typology is Ricardo: trade produces <b>global gains, but the terms of trade decide who captures them</b>. A country that always trades two units of wheat for one of steel keeps no gains, which is exactly the grievance that drove developing states toward ISI in the first place.</div>
+
+<div class="exam"><b>Exam lens.</b> Aggarwal's tells point at one move: <b>"Politics matters."</b> Expect to be handed a country and a firm and asked to map the right non-market strategy to the <b>regime type</b> and the right <b>level of government (central vs local)</b>. Two recurring prompts from class: <b>(1)</b> "Would these tactics work just as well in other places?", the TikTok grassroots/lobbying playbook is pluralist and would fail in a statist or corporatist system. <b>(2)</b> "What separates this from DP World?", compare which of the eight influence tactics (lobbying, grassroots, coalition-building, electoral support, testimony, communications, judicial, advisory committees) each firm used. Remember the framing answer: against governments you aim for "well enough," not total victory; and in cross-border disputes firms are <b>collateral damage</b> who must respond <i>before</i> the issue becomes unmanageable.</div>
+<h2 id="l04">4 &middot; The Industrial Policy Debate</h2>
+
+<p>A structured class debate, not a lecture: Aggarwal split the room into three camps and made each defend a position on whether developing-country governments should run <b>vertical</b> (sector-specific) industrial policy. The durable takeaways are his typology of <em>why</em> states intervene, the menu of <em>instruments</em> they use, and the <em>government-failure-vs-market-failure</em> frame that decides the whole argument. This feeds Session 5 (the WTO and the Brazil-Canada case), because the question "are these instruments fair?" is exactly what the WTO adjudicates.</p>
+
+<div class="intuition"><span class="tag">🎙 In class</span> Aggarwal's punchline after the closing poll: "INSEAD is a school of government." Not a single hand went up for <i>no intervention</i>; the room split between moderate and aggressive. The debate is not "should we?" any more, it is "<b>how</b>, and can your government actually pull it off?"</div>
+
+<div class="key"><b>Industrial policy, government action to change the sectoral mix of the economy.</b>
+<ul>
+<li><b>What it is:</b> deliberately steering resources toward activities the market would otherwise under-invest in or under-produce; <i>NOT</i> macroeconomic policy (the slide says so explicitly).</li>
+<li><b>The fork that defines the debate:</b> <b>horizontal</b> = help all industries equally, no winners picked (education, R&amp;D, infrastructure); <b>vertical</b> = pick selected industries or firms (tariffs, subsidies, procurement). The whole debate is about the <i>vertical</i> half.</li>
+<li><b>The tell:</b> "picking winners" is the loaded phrase. Pro-side reframes it as "identifying sectors with high growth potential"; anti-side says governments simply cannot.</li>
+</ul></div>
+
+<h3>The three debate positions (Aggarwal's spine)</h3>
+<p>The deck sets out exactly three positions for developing countries. Everything in the class maps onto one of them.</p>
+
+<table class="dt">
+<thead><tr><th>Position</th><th>What it argues</th><th>Logic</th><th>In-class champion</th></tr></thead>
+<tbody>
+<tr><td><b>1. No vertical policy</b></td><td>Macro policy + some horizontal policies only. Let the market pick.</td><td>Governments lack the information and discipline to do better than prices.</td><td>"The best advocate <i>for</i> non-intervention" (Group 4 on global implications)</td></tr>
+<tr><td><b>2. Vertical, enhance <i>existing</i> advantage</b></td><td>Target sectors where you already have a latent comparative advantage and remove the bottlenecks.</td><td>Build on what you have (labour, resources); "play the private equity game, not venture capital."</td><td>India IT (existing English + engineering base); China solar (existing labour)</td></tr>
+<tr><td><b>3. Vertical, build <i>new</i> advantage</b></td><td>Target high-value-added <i>future</i> leading sectors you do not yet have.</td><td>If you only do what you are already good at, you stay low on the value chain forever.</td><td>Korea steel &rarr; semiconductors &rarr; Samsung (intervened 20 years before the payoff)</td></tr>
+</tbody>
+</table>
+
+<div class="intuition"><span class="tag">Intuition: PE vs VC</span> A debater framed positions 2 and 3 as portfolio styles. Position 2 is <b>private equity</b>: back what already has cash flows, returns are smoother. Position 3 is <b>venture capital</b>: bet on a sector that does not exist yet, higher variance, bigger upside. The "static vs dynamic comparative advantage" distinction is the real academic version of this.</div>
+
+<h3>The core argument: FOR vs AGAINST vertical policy</h3>
+<p>Lead with the verdict, then the mechanism, then a real case. Both columns concede the other has a point: the pro-side admits failures, the anti-side admits markets are imperfect. The debate turns on <i>which failure is worse</i>.</p>
+
+<div class="twocol">
+<div>
+<div class="key" style="border-top:3px solid #1a7a4a;"><b style="color:#1a7a4a;">FOR, market failure justifies intervention</b>
+<ul>
+<li><b>Dynamic scale economies (infant industry):</b> nascent firms cannot bear the upfront cost or survive foreign competition; protect them and per-unit costs fall with scale until they are globally competitive. <i>Mechanism:</i> temporary protection &rarr; reach minimum scale &rarr; costs drop &rarr; export. <i>Case:</i> Korea, Samsung &amp; Hyundai.</li>
+<li><b>Coordination failure:</b> upstream and downstream firms each wait for the other; nobody invests first. Government coordinates the simultaneous investment. <i>Case:</i> infrastructure + skilled-labour bundles many firms need at once.</li>
+<li><b>Information / knowledge externality:</b> the first firm to try an innovation bears the cost; rivals learn for free, so nobody experiments. Subsidy restores the incentive. <i>Rodrik:</i> IP is about <i>eliciting</i> what a country is good at, not dictating it.</li>
+<li><b>Beyond market failure:</b> national security (defence, medicine), employment/redistribution (help a poorer region or ethnic group). These are <i>political</i> rationales, not market failures.</li>
+</ul></div>
+</div>
+<div>
+<div class="key" style="border-top:3px solid #b3261e;"><b style="color:#b3261e;">AGAINST, government failure is worse</b>
+<ul>
+<li><b>Knowledge problem:</b> the information needed to pick the right sector is dispersed in markets; government cannot aggregate it. <i>Case:</i> US steel protection, a debater cited a striking (★ unverified) figure of "$900bn per job saved."</li>
+<li><b>State capture &amp; corruption:</b> firms capture the policymakers picking winners; rents flow to the connected, not the competitive. Worst in extractive industries (oil, mining).</li>
+<li><b>Wrong incentives:</b> protection makes firms chase subsidies and preferential treatment instead of the technological frontier. <i>Cases:</i> British Leyland, Concorde, "waste of money, waste of time."</li>
+<li><b>Global spillovers:</b> if everyone intervenes &rarr; supply-chain fragmentation, trade wars (US-China), subsidy wars (IRA &rarr; EU response), and a direct collision with the WTO's non-discrimination rule.</li>
+</ul></div>
+</div>
+</div>
+
+<div class="chain"><b>The decisive question, as a chain:</b> &nbsp; market is imperfect <span class="arrow">&rArr;</span> <i>so</i> intervention could help <span class="arrow">&rArr;</span> <i>but</i> government is also imperfect (capture, ignorance) <span class="arrow">&rArr;</span> verdict turns on <b>market failure vs government failure: which is worse?</b></div>
+
+<h3>The instrument menu (Aggarwal's at / behind / beyond-the-border taxonomy)</h3>
+<p>Aggarwal pushed students hard to name <i>concrete instruments</i>, not vague "facilitation." His own classification sorts every tool by <b>where</b> it bites relative to the national border.</p>
+
+<table class="dt">
+<thead><tr><th>Layer</th><th>Instruments</th><th>How it works / real case</th></tr></thead>
+<tbody>
+<tr><td><b>At the border</b></td><td>Tariffs, quotas, regulatory investment restrictions</td><td>Classic protection; raises the price of imports. US 19th-century tariffs; US steel.</td></tr>
+<tr><td><b>Behind the border</b></td><td>Subsidies, government procurement, SOEs, tech regulation, tax benefits</td><td><b>Procurement</b> = the state buys (a bridge, subway) and restricts bidding to national firms, discriminatory. China solar: source domestically, then get the money.</td></tr>
+<tr><td><b>Beyond the border</b></td><td>Standard-setting that affects everyone, import-promotion (JETRO)</td><td>EU AI policy that all global firms must comply with; exports the rule outward.</td></tr>
+</tbody>
+</table>
+
+<div class="key"><b>Export-performance conditionality, the instrument that separates Korea from a giveaway.</b>
+<ul>
+<li><b>What it is:</b> subsidised credit given <i>only</i> if the firm hits export targets; miss the target, lose the money.</li>
+<li><b>Why it matters:</b> it imposes <b>discipline</b>, the state can punish non-performers, which is what stops protection becoming a permanent rent.</li>
+<li><b>The tell:</b> Korea (Samsung, Hyundai, POSCO) worked <i>because</i> support was conditional; Brazil's computer industry and India's loss-making steel SOEs failed because support was unconditional and politically impossible to withdraw.</li>
+</ul></div>
+
+<figure>
+<svg viewBox="0 0 460 150" width="100%" style="max-width:460px">
+<g stroke="#1a7a4a" stroke-width="2" fill="none">
+<rect x="20" y="55" width="90" height="40" rx="4"/>
+<rect x="185" y="55" width="90" height="40" rx="4"/>
+<rect x="350" y="20" width="90" height="40" rx="4"/>
+<rect x="350" y="90" width="90" height="40" rx="4"/>
+</g>
+<g stroke="#555" stroke-width="1.5" fill="none" marker-end="url(#ah)">
+<line x1="110" y1="75" x2="183" y2="75"/>
+<line x1="275" y1="68" x2="348" y2="45"/>
+<line x1="275" y1="82" x2="348" y2="105"/>
+</g>
+<defs><marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#555"/></marker></defs>
+<text x="65" y="79" font-size="11" text-anchor="middle" fill="#1a7a4a">Subsidised credit</text>
+<text x="230" y="72" font-size="10" text-anchor="middle" fill="#333">Hit export</text>
+<text x="230" y="84" font-size="10" text-anchor="middle" fill="#333">target?</text>
+<text x="395" y="38" font-size="10" text-anchor="middle" fill="#1a7a4a">Yes &rarr; keep</text>
+<text x="395" y="48" font-size="10" text-anchor="middle" fill="#1a7a4a">funding</text>
+<text x="395" y="108" font-size="10" text-anchor="middle" fill="#b3261e">No &rarr; cut</text>
+<text x="395" y="118" font-size="10" text-anchor="middle" fill="#b3261e">off</text>
+</svg>
+<figcaption>Conditional support with a credible threat of withdrawal: the discipline mechanism behind the Korean "success" cases.</figcaption>
+</figure>
+
+<h3>Which governments can actually do this?</h3>
+<p>Students converged on the same short list of preconditions for a state capable of running vertical policy without it degenerating into capture. This is the "<b>developmental state</b>" model.</p>
+
+<div class="key"><b>Preconditions for a capable interventionist state.</b>
+<ul>
+<li><b>Rule of law</b>, without it no policy can be executed credibly.</li>
+<li><b>Competitive / meritocratic bureaucracy</b>, technocrats recruited by exam (Korea, Japan), not political appointees.</li>
+<li><b>Embedded autonomy</b>, close enough to firms for information, autonomous enough to <i>discipline</i> them. Too distant = miss the bottlenecks; too captured = subsidies become permanent.</li>
+<li><b>Credible long-horizon commitment</b>, ability to let failing firms fail. Electoral pressure makes this nearly impossible; Korea under Park could credibly threaten firms, India's steel could not.</li>
+</ul></div>
+
+<div class="pitfall"><b>Trap:</b> do not treat the developmental-state checklist as a recipe any country can follow. Aggarwal's reading argues these requirements are "<b>daunting</b>" and rarely met, and Singapore built state capacity <i>while</i> doing industrial policy, not before, so even the sequencing is not clean.</div>
+
+<h3>Reality-check: does vertical policy work?</h3>
+<table class="dt">
+<thead><tr><th>Where it works</th><th>Where it fails</th></tr></thead>
+<tbody>
+<tr><td>Existing latent advantage + scale economies (India IT, China solar/wind, 80% of global solar production)</td><td>No latent advantage, picked for prestige (China struggles to build planes at scale; Concorde)</td></tr>
+<tr><td>Conditional support with export discipline (Korea: Samsung, Hyundai, POSCO)</td><td>Unconditional protection, no exit (Brazil computers fell a decade behind; India steel SOEs ran losses for decades)</td></tr>
+<tr><td>Insulated meritocratic bureaucracy (Korea, Taiwan, Singapore)</td><td>Weak institutions, captured state (extractive economies, rent-seeking)</td></tr>
+<tr><td>Genuine externality / coordination gap the market won't close</td><td>Pure political motive dressed as market failure (employment, ethnic redistribution, Malaysia's pro-Malay quotas)</td></tr>
+</tbody>
+</table>
+
+<div class="key"><b>Honest verdict.</b> Vertical industrial policy is neither snake oil nor a free lunch. It can work, but <i>only</i> where a real market failure meets a state with the rare capacity to discipline firms and credibly withdraw support; absent either, government failure dominates and you get British Leyland. The modern debate has moved from "whether" to "how", and "how" is mostly a question of state capacity, not economics.</div>
+
+<div class="intuition"><span class="tag">🎙 In class</span> The WTO twist the aggressive camp pressed: today's rich countries (US, EU) are themselves running massive intervention (IRA, CHIPS) while WTO rules ban the very tools, export subsidies, local-content requirements, that they used to get rich. "The ladder is kicked away." Indonesia's solar push was pushed back under WTO pressure. This sets up Session 5 directly.</div>
+
+<div class="exam"><b>Exam lens.</b> Aggarwal flagged his own tells in class. <b>(1)</b> He pointed students at the <i>Financial Times</i> piece "China's comparative advantage is industrial policy" as "a good way to pass the exam, at least the short-answer questions", know the China case. <b>(2)</b> He rewards <b>concrete instruments named and classified</b> (at / behind / beyond-the-border; subsidies, quotas, IP protection, procurement), not vague "facilitation", he visibly marked down a group for being "pretty vague." <b>(3)</b> Be able to separate <b>market-failure rationales from political rationales</b> (national security, employment, ethnic redistribution), a classic trap is calling a political motive a market failure. <b>(4)</b> The whole debate reduces to one examinable line: <i>market failure vs government failure, which is worse, and under what conditions?</i></div>
+
+<div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this:</b> the "$900bn per job" figure for US steel protection was spoken by a student in the debate, not by Aggarwal or the slides, the real published estimates are roughly $900k per job, so this is very likely a transcription/student error. Do not cite the billion figure in an exam.</div>
+<h2 id="l05">5 &middot; International Institutions and the WTO: Global Business Dispute Resolution</h2>
+
+<p>This session takes one half of the (IA)&sup3; framework, the <b>Arena</b>, and zooms into the most important non-market arena for global trade: the WTO. It asks why institutions exist at all, traces GATT&rarr;WTO, lists the WTO's core rules, walks the dispute-settlement process a firm actually uses to fight a foreign subsidy, and ends with the Bombardier/Embraer case (two middle powers, not the usual US-China story).</p>
+
+<div class="intuition"><span class="tag">🎙 In class</span> The lighthouse game. Aggarwal gives 80 students three ships each and asks each to donate one ship's worth to fund a lighthouse that would save everyone. Nobody volunteers; ships keep crashing. The point: a known technical fix (the lighthouse) fails without an institution to force contribution. Institutions exist to solve exactly this collective-action problem.</div>
+
+<h3>I. Why institutions exist, and what they are</h3>
+
+<div class="key"><b>International institution (definition).</b>
+<ul>
+<li><b>What it is:</b> "sets of principles, norms, rules and decision-making procedures among relevant actors in the international system."</li>
+<li><b>For business:</b> institutions create a <i>predictable environment</i>; this is the single reason business broadly backs them.</li>
+<li><b>The tell:</b> business hates Trump's tariffs less for their level than for their <i>unpredictability</i> ("is it 50% or 10%? just tell us the rule").</li>
+</ul></div>
+
+<div class="key"><b>Five things institutions do (slide).</b>
+<ul>
+<li><b>Enforce agreements</b> made under the institution's purview.</li>
+<li><b>Control actors' behaviour</b> against international standards (a small country can take the US or China to dispute settlement and win).</li>
+<li><b>Lower the cost</b> of choosing, organising and negotiating an agreement (166 at one table beats bilateral spaghetti).</li>
+<li><b>Disseminate reliable information</b> on state policy and trade rules.</li>
+<li><b>Help develop reputations</b> (rule-followers attract more investment, <i>ceteris paribus</i>).</li>
+</ul></div>
+
+<div class="key"><b>Five regime characteristics business fights over (slide).</b>
+<ul>
+<li><b>Membership:</b> who can join (Taiwan? China blocks it).</li>
+<li><b>Stringency of rules + dispute settlement:</b> business wants strong rules <i>against expropriation</i>, weak rules <i>on itself</i>.</li>
+<li><b>Issue scope:</b> what issues are in (EU common trade policy is easy; EU defence or services is not).</li>
+<li><b>Goals:</b> what it is trying to do (even "promote free trade" is now contested).</li>
+<li><b>Delegation:</b> how much power member states hand to the bureaucrats (Brexit's "Eurocrats telling us what to do").</li>
+</ul></div>
+
+<h4>Who provides the public good? Two kinds of hegemon</h4>
+
+<div class="intuition"><span class="tag">Intuition: hegemonic provision</span> The lighthouse only gets built if one big player (a hegemon) either funds it or coerces the others into funding it. <i>How</i> the hegemon does this defines its type.</div>
+
+<table class="dt">
+<tr><th>Hegemon type</th><th>What it does</th><th>Why</th><th>Real example</th></tr>
+<tr><td><b>Benign</b></td><td>Provides a stable international environment; tolerates others free-riding on it</td><td>Acts in self-interest but the by-product is order; "benign" &ne; "uninterested"</td><td>Post-1945 US (~50% of world GDP in 1947) let Europe/Japan discriminate against US goods to keep them as Cold War allies; Cold War trumped economics</td></tr>
+<tr><td><b>Malign</b></td><td>Coerces others into policy favouring the hegemon's own interests</td><td>Extracts concessions by force rather than providing</td><td>Trump-era US, "bashing countries and extracting stuff from them"; the US "moved down from benign to malign"</td></tr>
+</table>
+<p style="font-size:13px;color:var(--soft);margin-top:-4px;">Aggarwal's measure of "power" here is <b>GDP</b>, not military hardware, because GDP is convertible to military use and lets a country outlast a rival.</p>
+
+<h3>II. From GATT to WTO</h3>
+
+<div class="key"><b>The neoliberal international economic order (carried over from S4).</b>
+<ul>
+<li><b>Three pillars:</b> the IMF (balance-of-payments / exchange rates), the World Bank / IBRD (reconstruction, then development), and the GATT (trade).</li>
+<li><b>The order under attack:</b> 80 years old; being dismantled not by China (which built RCEP, the AIIB) but, unexpectedly, by the US.</li>
+</ul></div>
+
+<div class="key"><b>GATT as an "accidental success".</b>
+<ul>
+<li><b>1944 Bretton Woods:</b> a call for an International Trade Organization (ITO), prompted by pre-WWII trade wars.</li>
+<li><b>1947 GATT:</b> a <i>provisional</i> treaty, 23 "Contracting Parties", meant only to initiate terms for ratification.</li>
+<li><b>1950 ITO fails:</b> the <i>US itself</i> failed to ratify (internal fight: multinationals wanted investment included; the State Department resisted). GATT, the stopgap, became the institution; it became the WTO in 1995.</li>
+<li><b>Why developing countries stayed out:</b> they were running Import Substitution Industrialisation (ISI); GATT says "open your market", so they refused (even South Korea only joined in 1967).</li>
+</ul></div>
+
+<div class="key"><b>Multilateralism: pros and cons (slide).</b>
+<ul>
+<li><b>Pros:</b> creates international standards / best practice; socialises members; all benefit from the rule of law.</li>
+<li><b>Cons:</b> large membership makes negotiation and procedure complex; major decisions collapse to the <i>lowest common denominator</i> (every one of 166 members has a veto). This is Trump's "we have to do it on our own" argument.</li>
+</ul></div>
+
+<h4>The WTO's core rules and principles</h4>
+
+<div class="key"><b>1. Most Favoured Nation (MFN), treat every member as well as your best-treated partner.</b>
+<ul>
+<li><b>What it is:</b> any concession two members agree spreads automatically to all members, so trade barriers fall fast.</li>
+<li><b>Exceptions:</b> <i>Article 24</i> (free-trade agreements like NAFTA and customs unions like the EU may give each other better-than-MFN terms); special &amp; differential treatment for developing countries (Part IV of GATT, 1964).</li>
+<li><b>The naming trick:</b> US public hated "giving China <i>most favoured</i> nation status", so USTR rebranded it <b>NTR (Normal Trade Relations)</b> and opposition faded. Same rule, softer label.</li>
+</ul></div>
+
+<div class="key"><b>2. Reciprocity, concessions must be exchanged, not given free.</b>
+<ul>
+<li><b>The subtlety:</b> reciprocity is <i>not</i> sector-by-sector. If you sell cheese and I sell steel, matching my steel cut with your steel cut helps me nothing; you must cut <i>cheese</i>.</li>
+<li><b>The exam-relevant error:</b> Trump's "same tariff in every sector" ignores comparative advantage; different countries export different things, which is the whole basis of trade.</li>
+</ul></div>
+
+<div class="key"><b>3. Transparency, members must publish their trade regulations.</b>
+<ul>
+<li><b>Why it is weak:</b> it relies on countries confessing their own bad behaviour ("like asking students who shared the QR code"); they don't.</li>
+<li><b>The workaround:</b> Simon Evenett's open-source <b>GlobalTradeAlert.org</b> independently tracks every country's discriminatory measures.</li>
+</ul></div>
+
+<div class="key"><b>4. Safeguards, permitted exceptions to restrict trade.</b>
+<ul>
+<li><b>Grounds:</b> national security, dumping (selling below home-market price to grab share), and a rapid surge in imports.</li>
+<li><b>National-security trap:</b> if a country invokes national security it claims the measure <i>cannot</i> be reviewed by dispute settlement; once barely used, it is now "the basis of US trade policy".</li>
+</ul></div>
+
+<div class="key"><b>5. Development, special and differential treatment for developing countries.</b>
+<ul>
+<li><b>Origin:</b> in 1964 developing countries formed UNCTAD and threatened to side with the USSR; the US conceded Part IV of GATT to keep them in.</li>
+<li><b>The catch:</b> being "developing" is a prize (lighter obligations), so everyone claims it, Singapore did until ~5 years ago.</li>
+</ul></div>
+
+<h4>Non-tariff barriers: the real game once tariffs fell</h4>
+
+<div class="intuition"><span class="tag">Intuition: the disguised NTB</span> As tariffs dropped over eight GATT rounds, protection migrated to <b>non-tariff barriers</b>: "health and safety" rules engineered to block imports while applying equally to everyone, so they survive a WTO challenge.</div>
+
+<div class="key"><b>Three classic disguised NTBs from class.</b>
+<ul>
+<li><b>Japanese skis:</b> foreign skis "unsafe because Japanese snow is different", yet Japan's World Cup racers all used European skis ("those are <i>experts</i>").</li>
+<li><b>Ontario beer-in-bottles:</b> a "recycling / environmental" rule (Molson's behind it) that made imported US canned beer heavier and breakable to transport. "Throwing sand in the wheels."</li>
+<li><b>French farm protection:</b> reframed over time from security &rarr; health &rarr; <i>environment</i> ("the pretty countryside brings tourists").</li>
+</ul></div>
+
+<h4>The eight rounds, widening scope</h4>
+<table class="dt">
+<tr><th>Round</th><th>Years</th><th>Members</th><th>What it added</th></tr>
+<tr><td>1&ndash;5 (Various)</td><td>1947&ndash;61</td><td>13&ndash;26</td><td>Tariff cuts</td></tr>
+<tr><td>6 (Kennedy)</td><td>1964&ndash;67</td><td>62</td><td>Tariffs + anti-dumping</td></tr>
+<tr><td>7 (Tokyo)</td><td>1973&ndash;79</td><td>102</td><td>Tariffs + NTBs</td></tr>
+<tr><td>8 (Uruguay)</td><td>1986&ndash;94</td><td>123</td><td>+ Agriculture, Services (GATS), IP (TRIPS), <b>Dispute Settlement</b>; <b>created the WTO</b></td></tr>
+<tr><td>9 (Doha)</td><td>2001&ndash;"Never?"</td><td>166</td><td>Agriculture, labour, environment, competition, investment, transparency, patents, overreached and "fallen apart"</td></tr>
+</table>
+<p style="font-size:13px;color:var(--soft);margin-top:-4px;">GATT (1947&ndash;94): 23 parties, tariffs only, ineffective dispute settlement. WTO (1995&ndash;): 166 members / 97% of world trade, tariffs + NTBs, broad coverage (goods, GATS, TRIPS), <b>strengthened dispute settlement</b>. Doha moved to Doha precisely because NGOs "cannot riot in Doha".</p>
+
+<h3>III. Problems in the WTO and the rise of unilateralism</h3>
+
+<div class="key"><b>Four problems (slide section III).</b>
+<ul>
+<li><b>NGO complaints:</b> environment, labour, inequality, "benefits big business".</li>
+<li><b>Developed vs developing tension:</b> "kicking away the ladder" (Ha-Joon Chang), rich countries used industrial policy, then deny it to others.</li>
+<li><b>Ineffective dispute settlement:</b> rulings are legally binding but hard to force on a determined great power.</li>
+<li><b>Neopopulism / the Trump factor:</b> the US openly undermines the WTO; rise of unilateralism and mercantilism toward "lawless" trade.</li>
+</ul></div>
+
+<div class="key"><b>Why developing countries join anyway (Exit / Voice / Loyalty + lock-in).</b>
+<ul>
+<li><b>Exit:</b> staying out risks being <i>excluded</i> from trade growth.</li>
+<li><b>Voice:</b> group together to exert bargaining power.</li>
+<li><b>Loyalty:</b> the rule of law protects them; otherwise big countries dominate even more.</li>
+<li><b>Lock-in:</b> binding legal commitments to liberal trade make their own future defections costly (a commitment device).</li>
+</ul></div>
+
+<div class="pitfall"><b>The Appellate Body is "dead", but the WTO was not useless.</b> Two facts coexist: (1) the appeals court is paralysed because the US (Trump 1, Biden, Trump 2) refuses to appoint judges, so any loser just appeals into the void ("then nothing happens"); yet (2) for ~30 years (645 cases as of May 2026) dispute settlement worked, even the US and China complied and changed policy. Don't confuse "a great power can break it when super-stressed" with "it failed". It served middle and developing countries well.</p></div>
+
+<h3>The dispute-settlement process, the centrepiece</h3>
+
+<div class="intuition"><span class="tag">Intuition: the appeal-into-the-void</span> A US trade negotiator's cynical summary in class: "Every time we lose a case, we appeal it. Then nothing happens, because there's no appeals body, so it just sits there." The diagram below is the formal process; the dashed step is the one the US has deliberately broken.</div>
+
+<figure>
+<svg viewBox="0 0 920 260" width="100%" style="max-width:920px">
+  <defs>
+    <marker id="ah5" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#00684B"/>
+    </marker>
+    <marker id="ah5r" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#b03030"/>
+    </marker>
+  </defs>
+  <!-- Step 1 Consultation -->
+  <rect x="10" y="60" width="150" height="70" rx="6" fill="#eef6f0" stroke="#00684B" stroke-width="2"/>
+  <text x="85" y="85" text-anchor="middle" font-size="12" font-weight="bold" fill="#00684B">1. Consultation</text>
+  <text x="85" y="103" text-anchor="middle" font-size="10" fill="#33665a">Bilateral talks;</text>
+  <text x="85" y="117" text-anchor="middle" font-size="10" fill="#33665a">~60 days to settle</text>
+  <!-- Step 2 Panel -->
+  <rect x="200" y="60" width="150" height="70" rx="6" fill="#dff0e6" stroke="#00684B" stroke-width="2"/>
+  <text x="275" y="85" text-anchor="middle" font-size="12" font-weight="bold" fill="#00684B">2. Panel</text>
+  <text x="275" y="103" text-anchor="middle" font-size="10" fill="#33665a">Hears the case,</text>
+  <text x="275" y="117" text-anchor="middle" font-size="10" fill="#33665a">issues a ruling</text>
+  <!-- Step 3 Appellate Body (broken) -->
+  <rect x="390" y="60" width="150" height="70" rx="6" fill="#fbeaea" stroke="#b03030" stroke-width="2" stroke-dasharray="7 4"/>
+  <text x="465" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="#b03030">3. Appellate Body</text>
+  <text x="465" y="100" text-anchor="middle" font-size="10" fill="#8a2a2a">Appeal on law.</text>
+  <text x="465" y="114" text-anchor="middle" font-size="10" fill="#8a2a2a">NOW PARALYSED:</text>
+  <text x="465" y="127" text-anchor="middle" font-size="10" fill="#8a2a2a">no judges appointed</text>
+  <!-- Step 4 Compliance -->
+  <rect x="580" y="60" width="150" height="70" rx="6" fill="#dff0e6" stroke="#00684B" stroke-width="2"/>
+  <text x="655" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="#00684B">4. Ruling binding</text>
+  <text x="655" y="100" text-anchor="middle" font-size="10" fill="#33665a">Loser must comply /</text>
+  <text x="655" y="114" text-anchor="middle" font-size="10" fill="#33665a">bring policy in line</text>
+  <!-- Step 5 Retaliation -->
+  <rect x="770" y="60" width="140" height="70" rx="6" fill="#eef6f0" stroke="#00684B" stroke-width="2"/>
+  <text x="840" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="#00684B">5. Retaliation</text>
+  <text x="840" y="100" text-anchor="middle" font-size="10" fill="#33665a">If no compliance:</text>
+  <text x="840" y="114" text-anchor="middle" font-size="10" fill="#33665a">authorised sanctions</text>
+  <!-- arrows -->
+  <line x1="160" y1="95" x2="198" y2="95" stroke="#00684B" stroke-width="2" marker-end="url(#ah5)"/>
+  <line x1="350" y1="95" x2="388" y2="95" stroke="#00684B" stroke-width="2" marker-end="url(#ah5)"/>
+  <line x1="540" y1="95" x2="578" y2="95" stroke="#00684B" stroke-width="2" marker-end="url(#ah5)"/>
+  <line x1="730" y1="95" x2="768" y2="95" stroke="#00684B" stroke-width="2" marker-end="url(#ah5)"/>
+  <!-- consultation-success exit -->
+  <line x1="85" y1="60" x2="85" y2="30" stroke="#00684B" stroke-width="1.5"/>
+  <line x1="85" y1="30" x2="275" y2="30" stroke="#00684B" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="180" y="24" text-anchor="middle" font-size="9" fill="#33665a">settle here &rarr; case ends (best outcome)</text>
+  <!-- broken-appeal loop back -->
+  <path d="M465,130 L465,175 L275,175 L275,132" fill="none" stroke="#b03030" stroke-width="2" stroke-dasharray="7 4" marker-end="url(#ah5r)"/>
+  <text x="370" y="170" text-anchor="middle" font-size="10" fill="#b03030" font-weight="bold">loser appeals &rarr; case sits forever ("nothing happens")</text>
+  <!-- great-power escape -->
+  <text x="655" y="152" text-anchor="middle" font-size="10" fill="#8a2a2a">but: a determined great power can simply ignore an adverse ruling</text>
+</svg>
+<figcaption>The WTO dispute-settlement process. Green = the working path (consultation &rarr; panel &rarr; binding ruling &rarr; authorised retaliation if no compliance). Red/dashed = the two break points Aggarwal stressed: the Appellate Body is paralysed (no US-appointed judges), so a losing party can appeal into a void and stall indefinitely; and a determined great power can ignore an adverse ruling outright.</figcaption>
+</figure>
+
+<div class="key"><b>US unilateral trade actions (the alternative once the WTO is sidelined).</b>
+<ul>
+<li><b>Section 201</b> global safeguard (solar panels, washing machines).</li>
+<li><b>Section 232</b> "national security" investigations (steel and aluminium, 25% tariffs in 2025).</li>
+<li><b>Section 301</b> on China for IP theft (forced JV / tech transfer); led to the 2018&ndash;20 tariff escalation and the Jan-2020 deal (which collapsed, COVID + China's reluctance to import).</li>
+<li><b>IEEPA (1977)</b> reciprocal tariffs, the Supreme Court ruled against this use.</li>
+<li><b>China's counter:</b> not just matching tariffs, blocking <b>rare earths</b> (no rare earths &rarr; no chips), which made the US back down. Europe, being disunited, "just lay down".</li>
+</ul></div>
+
+<h3>IV. Case deep-dive: Bombardier (Canada) vs Embraer (Brazil)</h3>
+<p style="font-size:13px;color:var(--soft);margin-top:-4px;">Aggarwal's point in choosing this case: dispute settlement is <i>not</i> only a US-China story. Here two <b>middle powers</b> fight over aircraft subsidies, and the resolution is messy. (He said this specific case is <b>not on the exam</b>, but the mechanics are.)</p>
+
+<table class="dt">
+<tr><th>Stage</th><th>What happened</th></tr>
+<tr><td><b>Setup</b></td><td>Both subsidise regional jets. <b>Brazil/Embraer</b> (formerly state-owned) offers cheap <b>lines of credit</b> to airlines buying its planes. <b>Canada/Bombardier</b> (based in <b>Quebec</b>, politically sensitive, separatist Parti Qu&eacute;b&eacute;cois, election looming) gets export support.</td></tr>
+<tr><td><b>The filings</b></td><td>1996 [DS46] Canada complains of Brazil's export financing; 1997 [DS70] Brazil complains of Canada's aircraft export measures; 2001 [DS222] Brazil again on Canada's export credits. Tit-for-tat.</td></tr>
+<tr><td><b>Each side's argument</b></td><td><b>Canada:</b> Brazil's subsidies are unfair, stop them. <b>Brazil:</b> "kicking away the ladder", a developing country deserves to subsidise a high-tech industry when Boeing and Airbus are already subsidised; a small subsidy and "everybody freaks out".</td></tr>
+<tr><td><b>The three options</b></td><td>(1) bilateral talks; (2) Canada imposes <b>WTO-consistent sanctions</b>; (3) Canada <b>matches</b> the subsidy.</td></tr>
+<tr><td><b>What actually happened</b></td><td><b>Option 3, Canada matched.</b> The subsidies helped the Liberal Party win Quebec in the 2000 election; Bombardier got more contracts. But Canada was then seen as a "middle power discriminating against a developing country" (cf. Mark Carney's Davos call for middle powers to band together).</td></tr>
+<tr><td><b>The lesson</b></td><td>Options 2 and 3 risk a <b>retaliation spiral</b>; eventually you have to talk. Subsidies in aircraft are universal (Airbus directly; Boeing accused of <i>indirect</i> subsidy via <b>defence contracts</b> cross-subsidising commercial jets). Postscript: Airbus took over the Bombardier C-Series (now A220), orders up ~50%; Boeing's 2018 Embraer deal collapsed in 2020 ("COVID").</td></tr>
+</table>
+
+<h4>Back to (IA)&sup3;: institutions are the Arena</h4>
+<div class="chain">
+<span><b>Issue:</b> foreign subsidy hurts our firm</span><span class="arrow">⟹</span>
+<span><b>Actors:</b> Bombardier, Embraer, two governments</span><span class="arrow">⟹</span>
+<span><b>Interests:</b> protect jobs / develop high-tech industry</span><span class="arrow">⟹</span>
+<span><b>Arena:</b> the WTO (vs bilateral talks vs unilateral sanctions)</span><span class="arrow">⟹</span>
+<span><b>Information &amp; Assets:</b> legal precedent, GlobalTradeAlert data, subsidy budgets</span>
+</div>
+<p style="font-size:13px;color:var(--soft);margin-top:-4px;">The WTO is one possible <b>Arena</b> from the (IA)&sup3; framework. The strategic non-market question for the firm is which arena to fight in, an institution with binding rules, a bilateral negotiation, or unilateral retaliation, because the rules (and who wins) change with the arena.</p>
+
+<div class="exam"><b>Exam lens.</b> Aggarwal flagged that the paper is five 200-word short answers plus one 600-word question, and that you analyse a company's <b>market and non-market strategy</b> using the IEQ / (IA)&sup3; framework. <b>The Bombardier/Embraer case itself is explicitly NOT on the exam</b>, but the mechanics are fair game: be able to (a) define MFN, reciprocity and a disguised NTB and give an example of each; (b) explain why the Appellate Body is paralysed and why that does <i>not</i> mean the WTO "failed"; (c) name the three options facing a firm hit by a foreign subsidy (talk / sanction / match) and the retaliation-spiral risk; (d) frame institutions as the <b>Arena</b> in (IA)&sup3;. Expect the "benign vs malign hegemon" distinction and "kicking away the ladder" to recur as short-answer prompts.</div>
+<h2 id="l06">6 &middot; Mega-Regional Institutions: The EU and Asia-Pacific</h2>
+
+<p style="font-size:18px;color:var(--soft);margin-top:0;">This session puts the <b>Arena</b> leg of (IA)³ under the microscope: when and where firms lobby depends on which institution owns the rule. It runs the comparison along two models of regional order, the deeply-integrated, supranational <b>EU</b> and the under-institutionalised, minilateral <b>Asia-Pacific</b>, using Aggarwal's own framework of <b>nesting</b> and <b>minilateralism</b>.</p>
+
+<div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this:</b> Session 6 was built from the slide deck and Aggarwal's nesting/minilateralism paper only; the in-class layer (his spoken intuitions and exam tells) is pending until the recording is added.</div>
+
+<div class="intuition"><span class="tag">Intuition: the Arena leg</span> An institution is just a fixed Arena with its own rulebook: choose the right one and your lobbying is leveraged, choose wrong and you are shouting into the void. The whole session is a map of which Arena makes which rule.</div>
+
+<h3>The two organising concepts (Aggarwal's framework)</h3>
+
+<div class="intuition"><span class="tag">Intuition: minilateralism</span> Negotiating with 200 countries at once is nearly impossible (Aggarwal counts 19,900 bilateral pairs); a handful of like-minded states can strike a deal fast. Minilateralism is the small-group shortcut when the big multilateral table is deadlocked.</div>
+
+<div class="key"><b>Minilateralism, small groupings of countries acting together on trade or security.</b>
+<ul>
+<li><b>What it is:</b> more than bilateral, fewer than multilateral; e.g. CPTPP, RCEP, IPEF in trade; the Quad, AUKUS, the China-Japan-Korea trilateral in security.</li>
+<li><b>Why it has risen:</b> global institutions (the WTO) are largely paralysed (US blocking Appellate Body judges since Trump and Biden); US-China economic statecraft pushes states to smaller, faster groupings.</li>
+<li><b>Versus multilateralism:</b> multilateralism cuts transaction and information costs, builds legitimacy and dispute settlement, and lets weak states pool pressure; but it is slow and usually only forms after wars or power transitions.</li>
+<li><b>The trade-off:</b> minilateral deals are easier to negotiate and can hit political payoffs quickly, but they fragment the rulebook into a patchwork.</li>
+</ul></div>
+
+<div class="intuition"><span class="tag">Intuition: nesting</span> The question is not just "how many small deals" but "do they stack neatly inside the bigger ones, or fight them?" Nesting is whether a minilateral deal is a Russian doll that fits inside the WTO, or a rogue that undermines it.</div>
+
+<div class="key"><b>Nesting, arranging smaller, specific agreements hierarchically inside broader regional or global frameworks.</b>
+<ul>
+<li><b>What it is:</b> structuring accords so a narrow deal sits coherently within a wider one (a meta-regime of principles and norms, plus a regime of rules and procedures).</li>
+<li><b>The clearest example:</b> GATT <b>Article 24</b>, which permits customs unions and FTAs <i>provided</i> their rules conform to the GATT, the textbook case of a deal nested inside the multilateral system.</li>
+<li><b>Three possible fates of a minilateral deal:</b> it can be (a) <i>nested</i> within the broader architecture, (b) part of a <i>division of labour</i>, or (c) in <i>conflict</i>, undermining the wider institution.</li>
+<li><b>Why it matters now:</b> with the WTO Dispute Settlement Body broken, states pay little attention to GATT conformity, so the constraint that used to keep deals nested has weakened.</li>
+</ul></div>
+
+<div class="pitfall"><b>Don't confuse minilateralism with nesting.</b> Minilateralism is about the <i>number of players</i> in a deal; nesting is about whether that deal <i>fits inside</i> a wider institution. A deal can be minilateral and well-nested (RCEP as a stepping stone), or minilateral and rogue (IPEF, which conforms to no broader trade rulebook).</div>
+
+<h4>Aggarwal's classification grid: two axes</h4>
+
+<div class="intuition"><span class="tag">Intuition: the 2-axis map</span> Of all the ways to slice an institution, Aggarwal keeps just two that do the work: how many are at the table, and whether they share a neighbourhood. Everything in the Asia-Pacific architecture drops into one of these eight boxes.</div>
+
+<table class="dt">
+<thead><tr><th>Number of participants &rarr;</th><th>Unilateral (1)</th><th>Bilateral (2)</th><th>Minilateral (3)</th><th>Multilateral / global (4)</th></tr></thead>
+<tbody>
+<tr><td><b>Geographically concentrated</b> (within Asia-Pacific)</td><td>Singapore / Hong Kong liberalisation; APEC IAPs; unilateral arms buildup</td><td>China&ndash;S.Korea FTA (2a); Indonesia&ndash;Singapore Defense Co-op</td><td>ASEAN FTA (1991); China-Japan-Korea Trilateral (3a); Pacific Alliance</td><td rowspan="2">GATT/WTO (1947/1995); ITA, BTA, FSA; UN (1945); NPT; PSI</td></tr>
+<tr><td><b>Geographically dispersed</b> (transregional)</td><td>&nbsp;</td><td>Korea&ndash;Chile FTA; US&ndash;Japan alliance (2b)</td><td>APEC (1989); CPTPP (2018); RCEP (2022); IPEF (2022); Quad; AUKUS (3b)</td></tr>
+</tbody>
+</table>
+<p style="font-size:13px;color:var(--soft);margin-top:4px;">Reading the grid: across = more players; down = members spread beyond the region (transregionalism). Aggarwal flags that unilateral actions are not really institutions, but are kept in for completeness. Mega-FTAs (CPTPP, RCEP, IPEF) all sit in the bottom-right minilateral-dispersed box.</p>
+
+<h3>The integration ladder (EU as the worked example)</h3>
+
+<div class="intuition"><span class="tag">Intuition: the ladder</span> Regional integration is a staircase, each step trading a little more national sovereignty for a little more market unity. The EU is the only bloc that has climbed nearly to the top; everyone else stops on a lower rung.</div>
+
+<figure>
+<svg viewBox="0 0 560 250" width="100%" style="max-width:560px">
+<g stroke="#00684B" stroke-width="2" fill="none">
+<path d="M40 210 H120 V170 H200 V130 H280 V90 H360 V50 H440"/>
+</g>
+<g fill="#00684B" font-size="11" font-family="sans-serif">
+<text x="46" y="226">FTA</text>
+<text x="126" y="186">Customs Union</text>
+<text x="206" y="146">Common Market</text>
+<text x="286" y="106">Economic / Monetary Union</text>
+<text x="366" y="66">Political Union</text>
+</g>
+<g font-size="9.5" fill="#555" font-family="sans-serif">
+<text x="44" y="240">no internal tariffs</text>
+<text x="124" y="200">+ common ext. tariff</text>
+<text x="204" y="160">+ 4 freedoms</text>
+<text x="284" y="120">+ single currency / policy</text>
+<text x="368" y="80">+ shared institutions</text>
+</g>
+<g stroke="#999" stroke-width="1" fill="none"><line x1="36" y1="40" x2="36" y2="220"/></g>
+<text x="6" y="135" font-size="10" fill="#777" font-family="sans-serif" transform="rotate(-90 12,135)">deeper integration / more sovereignty ceded &rarr;</text>
+</svg>
+<figcaption>The five degrees of integration as a staircase. Each step adds one mechanism and demands one more slice of national sovereignty (deck section II).</figcaption>
+</figure>
+
+<table class="dt">
+<thead><tr><th>Rung</th><th>What it adds</th><th>The tell / mechanism</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td><b>Free Trade Area</b></td><td>No internal tariffs, but each member keeps its own external tariff</td><td>Needs <b>rules of origin</b> to stop goods entering via the lowest-tariff member; works best when economies are complementary</td><td>USMCA (NAFTA); EU&ndash;S.Korea FTA</td></tr>
+<tr><td><b>Customs Union</b></td><td>FTA plus a <b>common external tariff</b></td><td>"FTA+"; removes rules-of-origin gaming, gives a united trade front</td><td>EU; Mercosur; SACU (oldest)</td></tr>
+<tr><td><b>Common Market</b></td><td>The <b>four freedoms</b>: goods, services, capital, people</td><td>Integration via <b>mutual recognition</b> (Cassis de Dijon) is faster than full harmonisation</td><td>EU single market</td></tr>
+<tr><td><b>Economic / Monetary Union</b></td><td>Common market plus a common currency and harmonised monetary / fiscal / regulatory policy</td><td>Requires large sacrifice of sovereignty; not all EU members adopt the euro (Sweden, Poland; Denmark opt-out)</td><td>Eurozone</td></tr>
+<tr><td><b>Political Union</b></td><td>Shared supranational political institutions</td><td>The top rung; the EU is part-way, no bloc is fully there</td><td>EU (partial)</td></tr>
+</tbody>
+</table>
+
+<div class="key"><b>Cassis de Dijon (1979), why mutual recognition beats harmonisation.</b>
+<ul>
+<li><b>The case:</b> Germany barred a French blackcurrant liqueur (16% alcohol) from being sold as "liqueur" under a 25%-minimum German rule.</li>
+<li><b>The ruling:</b> the European Court of Justice held that a product lawfully sold in one member state must be recognised in the others; such barriers are "measures having an effect equivalent to quantitative restrictions" (Article 30) and are banned.</li>
+<li><b>The lesson:</b> <b>mutual recognition leads to faster integration than harmonisation</b>, you do not need every country to agree one rule, only to accept each other's.</li>
+</ul></div>
+
+<h3>Where to lobby: the EU's institutional Arena</h3>
+
+<div class="intuition"><span class="tag">Intuition: pick the right door</span> The EU has several doors into the rule, and the firm's job is to knock on the one that owns the decision. Big new rules and money fights are settled by member governments; technical detail by the Commission.</div>
+
+<div class="key"><b>EU nonmarket strategy, when to go where (deck).</b>
+<ul>
+<li><b>New rules, especially major ones</b> &rarr; member-country governments, especially the big ones.</li>
+<li><b>Major distributional conflicts</b> (e.g. farm subsidies) &rarr; member-country governments, especially the big ones.</li>
+<li><b>Technical issues and implementation</b> &rarr; the European Commission.</li>
+<li><b>Trade (e.g. WTO)</b> &rarr; the EU Trade Commissioner.</li>
+</ul></div>
+
+<div class="key"><b>Why the EU project held together (deck's four-part answer).</b>
+<ul>
+<li><b>A common enemy:</b> the Soviet Union gave a shared external threat.</li>
+<li><b>Franco-German leadership:</b> the two anchors overcame mutual animosity to drive integration.</li>
+<li><b>US backing:</b> Washington wanted a "united" Europe (a WWII legacy).</li>
+<li><b>The Commission:</b> a standing body to promote effective coordination.</li>
+</ul></div>
+
+<div class="key"><b>Copenhagen membership criteria (1993), the price of entry.</b>
+<ul>
+<li><b>Political:</b> stable institutions guaranteeing democracy, rule of law, human rights, protection of minorities.</li>
+<li><b>Economic:</b> a functioning market economy able to cope with Union competitive pressure.</li>
+<li><b>Administrative / acquis:</b> capacity to take on the obligations of membership and to apply and manage EU law in practice.</li>
+</ul></div>
+
+<h3>Deep-dive: EU vs Asia-Pacific, two models of regional order</h3>
+
+<div class="intuition"><span class="tag">Intuition: the central contrast</span> The EU built one deep, rule-bound pyramid; the Asia-Pacific grew a tangle of overlapping deals with no apex. One Arena is consolidated, the other is a "noodle bowl" the firm must navigate deal by deal.</div>
+
+<table class="dt">
+<thead><tr><th>Dimension</th><th>European Union</th><th>Asia-Pacific</th></tr></thead>
+<tbody>
+<tr><td><b>Depth of integration</b></td><td>Deep: climbed to economic/monetary union with partial political union (top of the ladder)</td><td>Shallow: mostly FTAs and looser minilateral / transregional groupings; historically under-institutionalised</td></tr>
+<tr><td><b>Institutional form</b></td><td>Supranational + intergovernmental, with standing legislature, executive, judiciary (Parliament, Commission, ECJ)</td><td>No supranational apex; no NATO-equivalent; ASEAN-style consensus and a web of bilaterals and trilaterals</td></tr>
+<tr><td><b>Path</b></td><td>Long, gradual, sequential, ECSC &rarr; EEC &rarr; common market &rarr; EU &rarr; euro</td><td>Bottom-up accumulation; bilaterals &rarr; minilaterals &rarr; mega-FTAs (P4 &rarr; TPP &rarr; CPTPP; ASEAN+1s &rarr; RCEP)</td></tr>
+<tr><td><b>Drivers</b></td><td>Common Soviet enemy, Franco-German leadership, US backing, the Commission; often business-led</td><td>US-China rivalry and economic statecraft; speed and political payoff of small groupings; WTO paralysis</td></tr>
+<tr><td><b>Nesting</b></td><td>Tightly nested: clear hierarchy, ECJ enforces conformity internally</td><td>Loosely nested: competing accords (RCEP / CPTPP / IPEF); little WTO conformity now the DSB is broken</td></tr>
+<tr><td><b>Business implication</b></td><td>One rulebook, one apex; lobby member states for big rules, the Commission for technical detail</td><td>"Noodle-bowl" patchwork of rules of origin; navigate deal by deal; weaker states more exposed to pressure</td></tr>
+</tbody>
+</table>
+
+<div class="key"><b>Asia-Pacific take-home messages (deck).</b>
+<ul>
+<li><b>Under-institutionalised but changing fast:</b> the region historically lacked deep institutions, but that is shifting rapidly.</li>
+<li><b>Bilaterals persist:</b> bilateral FTAs remain a key locus of liberalisation and of both market and nonmarket strategy, even as transregional groupings grow.</li>
+<li><b>The new trend:</b> US unilateral measures and China's response, with major implications for firm strategy.</li>
+</ul></div>
+
+<h4>How the architecture nests, the institutional pyramid</h4>
+
+<figure>
+<svg viewBox="0 0 520 280" width="100%" style="max-width:520px">
+<!-- nested rings -->
+<g fill="none" stroke-width="2">
+<rect x="20" y="20" width="480" height="240" rx="6" stroke="#00684B"/>
+<rect x="70" y="60" width="380" height="170" rx="6" stroke="#3a7d5d"/>
+<rect x="130" y="100" width="260" height="100" rx="6" stroke="#6aa588"/>
+<rect x="190" y="135" width="140" height="40" rx="6" stroke="#9fd3ba"/>
+</g>
+<g font-family="sans-serif" fill="#222">
+<text x="30" y="40" font-size="12" font-weight="bold" fill="#00684B">GLOBAL / MULTILATERAL, GATT/WTO, UN</text>
+<text x="80" y="80" font-size="11.5" font-weight="bold" fill="#3a7d5d">REGIONAL / TRANSREGIONAL, APEC, RCEP, CPTPP, IPEF</text>
+<text x="140" y="120" font-size="11" font-weight="bold" fill="#3f7a5f">MINILATERAL, ASEAN, Quad, AUKUS, CJK trilateral</text>
+<text x="200" y="158" font-size="10.5" font-weight="bold" fill="#2f6049">BILATERAL FTAs</text>
+</g>
+<!-- Article 24 conformity arrow -->
+<g stroke="#b8860b" stroke-width="1.6" fill="none" marker-end="url(#ar)">
+<path d="M255 175 V205"/>
+</g>
+<defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#b8860b"/></marker></defs>
+<text x="262" y="222" font-size="9.5" fill="#b8860b" font-family="sans-serif">GATT Art. 24: deals must conform upward</text>
+</svg>
+<figcaption>Nesting as concentric Arenas: bilateral deals sit inside minilaterals, inside regional/transregional groupings, inside the global WTO/UN frame. Article 24 is the rule that is meant to keep each inner deal conforming to the layer above, the constraint that weakens once the WTO Dispute Settlement Body stops functioning.</figcaption>
+</figure>
+
+<div class="chain"><b>Trade stepping-stone logic (Aggarwal).</b><br>
+Join RCEP (<span class="arrow">&rarr;</span>) lower liberalisation bar <span class="arrow">&rarr;</span> build capacity <span class="arrow">&rarr;</span> later join "higher-standard" CPTPP <span class="arrow">&rarr;</span> deals nest as a ladder, not rivals (China now seeking CPTPP accession).</div>
+
+<h4>Worked episodes, minilateralism in motion</h4>
+
+<div class="key"><b>From P4 to TPP to CPTPP, minilateralism surviving a US exit.</b>
+<ul>
+<li><b>The pitch:</b> the US sold TPP partly on security ("as important as another aircraft carrier", Sec. Def. Ash Carter), an explicit trade-security linkage.</li>
+<li><b>The shock:</b> Trump withdrew the US from TPP on entering office (Jan 2017).</li>
+<li><b>The survival:</b> 11 countries signed the <b>CPTPP</b> (Jan 2018), suspending ~20 provisions (almost all US-driven: services, investment, IP, procurement, investor-state) so they could be switched back on to re-entice the US later; the UK has since joined.</li>
+</ul></div>
+
+<div class="key"><b>ASEAN+1s to RCEP, and why India walked.</b>
+<ul>
+<li><b>The build-up:</b> ASEAN held separate "+1" deals with China, Japan, Korea, India and Australia/NZ; RCEP bundled them into ASEAN+6.</li>
+<li><b>The outcome:</b> concluded Dec 2019, signed by ASEAN+5, not 6.</li>
+<li><b>India's exit (Nov 2019):</b> fear that RCEP would widen India's trade deficit and undercut domestic manufacturing, plus fierce protests from Indian farmers.</li>
+</ul></div>
+
+<div class="exam">
+<b>Exam lens (framework logic; in-class tells pending the recording).</b> Given Aggarwal's spine, the examinable moves on this material are predictable:
+<ul>
+<li><b>Place a deal on the two axes:</b> be ready to classify any named accord (RCEP, AUKUS, USMCA) by <i>number of participants</i> and <i>geography</i>, then say what that implies for a firm.</li>
+<li><b>Apply nesting:</b> for a given minilateral deal, argue whether it is nested, a division of labour, or in conflict with the WTO, citing Article 24 and the DSB's paralysis.</li>
+<li><b>Walk the integration ladder:</b> distinguish FTA vs customs union via rules of origin, and name the sovereignty cost of each higher rung.</li>
+<li><b>EU vs Asia-Pacific contrast:</b> use the matrix dimensions (depth, form, nesting) to recommend <i>where</i> a firm should lobby in each, the (IA)³ Arena choice.</li>
+</ul>
+<i>★ Marking preference not yet confirmed from class; update once the transcript is added.</i>
+</div>
+<h2 id="l07">7 &middot; International Relations: The Future World Order and Global Business Strategy</h2>
+
+<p>The closing session steps back from firm-level nonmarket tactics to the system level: it hands you a set of <b>IR lenses</b> for reading <i>what drives state behaviour</i>, because the politicians and governments a firm must navigate each see the world through one of these maps. The pay-off is strategic: theories of conflict inform your read on geopolitical risk, and theories of state decision-making inform your country and regional plans. This is where the course's (IA)&sup3; spine meets the world stage: the IR lens is largely a theory of <b>Actors</b> (which states matter and how many poles there are), their <b>Interests</b> (power and survival vs. prosperity and peace), and the <b>Arena</b> in which they contend (anarchy, institutions, the market).</p>
+
+<div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this:</b> Session 7 was built from the slide deck and the required IR-theory reading only; the in-class layer (his spoken intuitions and exam tells) is pending until the recording is added.</div>
+
+<div class="intuition"><span class="tag">Intuition: theories as maps</span> A theory is a Singapore-MRT map of world politics: it leaves out everything except what its author thinks matters. Each IR lens plots different variables (power, trade, regime type, institutions) and so highlights different risks and tells you which actors you actually need to engage.</div>
+
+<h4>The two camps and the case that frames them</h4>
+
+<div class="key"><b>US–China as the live case: which lens are you reading it through?</b>
+<ul>
+<li><b>Engagement view:</b> Obama's line that "we have more to fear from a weakened, threatened China than a successful rising China", interdependence and inclusion reduce conflict (a liberal read).</li>
+<li><b>Inevitable-conflict view, the Thucydides Trap:</b> when a dissatisfied <i>rising</i> power rivals a <i>ruling</i> power, military conflict becomes likely. Thucydides on Athens vs. Sparta; formalised as <b>power transition theory</b> (Organski). Precedents: Germany vs. Britain a century ago; China vs. the US now (a realist read).</li>
+<li><b>Why it matters:</b> the SAME facts (China's rise) yield opposite strategy advice depending on the lens, which is exactly why a manager must know which map a government is using.</li>
+</ul></div>
+
+<div class="key"><b>Two broad perspectives (the spine of the session).</b> Constructivist and Marxist lenses are flagged but left out of this session.
+<ul>
+<li><b>Realism / Neorealism</b>, power-focused; state, security, zero-sum; plus <i>economic statecraft</i>.</li>
+<li><b>Liberalism, in three flavours</b>, Commercial, Democratic, Institutional.</li>
+</ul></div>
+
+<h3>The IR theories, compared</h3>
+
+<p>This is the gold-standard comparison: one row per lens, read straight across from <i>core claim</i> to <i>what it predicts for the future order</i> to <i>what a firm should do</i>. The reading (McGlinchey et al.) frames realism and liberalism as the two central traditions, with constructivism and the English school as a middle ground and Marxism/feminism/post-colonial as critical theories; the deck drills into realism plus the three liberalisms.</p>
+
+<table class="dt">
+<thead><tr><th>Lens</th><th>Core claim</th><th>What drives state behaviour</th><th>Prediction for the future world order</th><th>Implication for global business strategy</th></tr></thead>
+<tbody>
+<tr><td><b>Realism / Neorealism</b></td><td>Anarchy (no world sovereign); states are the dominant actors; "no friends, only interests"; survival is the basic imperative; international law is weak.</td><td><b>Relative power.</b> Neorealism (Waltz): look only at the <i>distribution of capabilities</i>, not state attributes. Classical realism adds geography, status and quality of leaders (Metternich, Kissinger).</td><td>Order set by polarity. <b>Bipolar</b> = most "major-power-war" free; <b>multipolar</b> = war-prone; <b>unipolar</b> = unstable. Expect balancing against a rising China.</td><td>Map the <b>balance of power</b>; expect economic statecraft (sanctions, BRI). Treat supply chains as security exposure, not just cost.</td></tr>
+<tr><td><b>Commercial liberalism</b></td><td>Trade and economic interdependence make war "socially and economically futile" (Norman Angell, <i>The Great Illusion</i>, 1913).</td><td>Gains from <b>commerce</b>; you cannot seize another's wealth by force more cheaply than by trading for it.</td><td>Deepening interdependence dampens conflict; decoupling raises the risk it was meant to manage.</td><td>Promote trade and interdependence; lean into cross-border integration; flag decoupling as a strategic threat to the firm.</td></tr>
+<tr><td><b>Democratic liberalism</b></td><td>Democracies never go to war <i>with each other</i> (subject to popular control); war can still occur between democratic and authoritarian states.</td><td><b>Regime type.</b> Citizens restrain elected leaders (Kant's lineage; the democratic-peace claim).</td><td>More democracies &rarr; more peace (Clinton, G.W. Bush). Counter-claim, "Asian values": development first, democracy maybe later (Lee Kuan Yew).</td><td>Read counterparty regime type; democracies "make better trading partners". But do not assume democratisation is inevitable or universally valued.</td></tr>
+<tr><td><b>Institutional liberalism</b></td><td>Institutions (rules, norms, procedures) let states cooperate under anarchy.</td><td>Institutions <b>lower transaction and organisational costs</b>, ensure compliance, and control behaviour against shared standards.</td><td>A rules-based order can persist even without a hegemon, if institutions adapt.</td><td>Adapt and shape institutions (WTO, regional regimes); a predictable rules environment is itself a corporate asset (ties back to Session 5).</td></tr>
+<tr><td><b>Constructivism</b> <span style="font-size:11px;color:#777">(reading; left out of session)</span></td><td>"Anarchy is what states make of it" (Wendt); ideas and norms have power.</td><td><b>Shared ideas and identities</b>, constructed through interaction, not fixed material structure.</td><td>The order can change if dominant norms change; anarchy is not destiny.</td><td>Narratives and norms (e.g. "securitisation" of trade) reshape the playing field; manage perception, not just power.</td></tr>
+<tr><td><b>Marxism</b> <span style="font-size:11px;color:#777">(reading; left out of session)</span></td><td>World politics reflects class division (bourgeoisie vs. proletariat), not just state rivalry.</td><td><b>Economic class and capital.</b> The state serves owners; the global economy can constitute new forms of domination.</td><td>Conflict rooted in capitalism and inequality rather than polarity.</td><td>Reads the firm itself as an actor in a distributional struggle; useful for anticipating anti-globalisation and labour backlash.</td></tr>
+</tbody>
+</table>
+
+<div class="pitfall"><b>Don't confuse Realism with Neorealism.</b> Both are power-first, but realism still looks <i>inside</i> states (geography, status, leaders); neorealism (Waltz) is systemic, it insists you need <i>nothing</i> beyond relative capabilities. Waltz borrows directly from market structure: atomistic&rarr;perfect competition, oligopoly&rarr;multipolar, duopoly&rarr;bipolar, monopoly&rarr;unipolar.</div>
+
+<div class="key"><b>Waltz's three logical elements of a systemic IR theory.</b>
+<ul>
+<li><b>The international system lacks hierarchy</b> (anarchy, no sovereign above states).</li>
+<li><b>States are functionally similar</b> (all do the same basic things to survive).</li>
+<li><b>The distribution of capabilities is key</b> (so polarity, not personality, explains outcomes).</li>
+</ul></div>
+
+<div class="key"><b>Neorealist predictions and the manager's takeaway.</b>
+<ul>
+<li><b>States self-help:</b> draw on self or allies; <b>balances</b> form against the strongest.</li>
+<li><b>Smaller states may bandwagon</b> (join the rising power) or <b>hedge</b> (keep options open).</li>
+<li><b>States emulate</b> each other's successful practices.</li>
+<li><b>Polarity verdict:</b> bipolar = most war-free; multipolar = war-prone; unipolar = unstable.</li>
+<li><b>Implication:</b> focus on the balance of power when assessing where conflict is likely.</li>
+</ul></div>
+
+<h3>Economic statecraft, power exercised through economics</h3>
+
+<div class="intuition"><span class="tag">Intuition: geoeconomics</span> Economic statecraft is the realist logic run through the wallet rather than the rifle: the purposeful use of economic resources (carrots and sticks) for foreign-policy ends. China's Belt and Road is the headline carrot; US sanctions are the headline stick.</div>
+
+<table class="dt">
+<thead><tr><th>Instrument</th><th>What it is</th><th>Mechanism</th><th>Example from the deck</th></tr></thead>
+<tbody>
+<tr><td><b>Purchasing diplomacy</b> (positive inducements)</td><td>Use or promise of economic incentives.</td><td>Investment, aid, debt forgiveness to buy alignment. Critics allege "debt-trap diplomacy".</td><td>Belt and Road Initiative (BRI).</td></tr>
+<tr><td><b>Coercive diplomacy</b> (penalties)</td><td>Use of economic punishment.</td><td>Trade embargoes, asset freezes, financial sanctions; official vs. unofficial.</td><td>US (Trump) 2025 tariff/sanctions actions.</td></tr>
+</tbody>
+</table>
+
+<h4>How middle and small powers cope (the neorealist menu)</h4>
+
+<figure>
+<svg viewBox="0 0 460 300" width="460" height="300" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, sans-serif">
+  <!-- axes -->
+  <line x1="30" y1="150" x2="430" y2="150" stroke="#888" stroke-width="1.5"/>
+  <line x1="230" y1="20" x2="230" y2="285" stroke="#888" stroke-width="1.5"/>
+  <!-- axis labels -->
+  <text x="40" y="165" font-size="11" fill="#555">Lean to existing power</text>
+  <text x="300" y="165" font-size="11" fill="#555">Lean to new power</text>
+  <text x="238" y="32" font-size="11" fill="#555">Confront / resist</text>
+  <text x="238" y="280" font-size="11" fill="#555">Accommodate</text>
+  <!-- quadrant cells -->
+  <rect x="35" y="35" width="185" height="105" fill="#e7f1ec" stroke="#00643C" stroke-width="1.5"/>
+  <rect x="240" y="35" width="185" height="105" fill="#f7efe3" stroke="#b08534" stroke-width="1.5"/>
+  <rect x="35" y="160" width="185" height="105" fill="#eef3ef" stroke="#00643C" stroke-width="1.5"/>
+  <rect x="240" y="160" width="185" height="105" fill="#eef3ef" stroke="#5a7d6b" stroke-width="1.5"/>
+  <!-- labels -->
+  <text x="128" y="80" font-size="13" font-weight="bold" fill="#00643C" text-anchor="middle">Balancing /</text>
+  <text x="128" y="97" font-size="13" font-weight="bold" fill="#00643C" text-anchor="middle">Resisting</text>
+  <text x="128" y="118" font-size="10.5" fill="#555" text-anchor="middle">with the existing power</text>
+  <text x="332" y="80" font-size="13" font-weight="bold" fill="#8a6420" text-anchor="middle">Bandwagoning</text>
+  <text x="332" y="100" font-size="10.5" fill="#555" text-anchor="middle">with the new power</text>
+  <text x="128" y="205" font-size="13" font-weight="bold" fill="#00643C" text-anchor="middle">Build up own</text>
+  <text x="128" y="222" font-size="13" font-weight="bold" fill="#00643C" text-anchor="middle">capabilities</text>
+  <text x="128" y="243" font-size="10.5" fill="#555" text-anchor="middle">(middle powers)</text>
+  <text x="332" y="205" font-size="13" font-weight="bold" fill="#3f6452" text-anchor="middle">Hedging /</text>
+  <text x="332" y="222" font-size="13" font-weight="bold" fill="#3f6452" text-anchor="middle">Engaging</text>
+  <text x="332" y="243" font-size="10.5" fill="#555" text-anchor="middle">working with both sides</text>
+</svg>
+<figcaption>Middle and small-power strategies under power transition: who you lean toward &times; how hard you push back. Hedging keeps both doors open; building capabilities is the middle-power's bid for autonomy.</figcaption>
+</figure>
+
+<div class="key"><b>Worked example, the EU Anti-Coercion Instrument (2023).</b>
+<ul>
+<li><b>Origin:</b> built to counter Trump-era trade measures against the EU justified on "national security" grounds.</li>
+<li><b>Trigger case:</b> China's economic pressure on Lithuania after it let Taiwan (rather than "Taipei") name a representative office; China banned imports of goods <i>containing Lithuanian parts</i>, threatening integrated single-market supply chains.</li>
+<li><b>The tool (agreed 30 March 2023):</b> the Commission can deploy countermeasures, higher customs duties, intellectual-property restrictions, export controls.</li>
+<li><b>The lesson:</b> a bloc institutionalising <i>balancing</i> against coercion, realism's balance-of-power logic embedded in a liberal institution.</li>
+</ul></div>
+
+<div class="key"><b>Conclusions on IR theories (the deck's own wrap).</b>
+<ul>
+<li>The lenses disagree on the <b>causes of conflict</b> and the <b>preconditions of peace</b>.</li>
+<li><b>Realism</b>, long dominant, is state-centric and says little about MNCs, transnational movements, terrorist groups, or globalisation's effect on state power, a real limit for business analysis.</li>
+<li><b>Liberalism</b> revolves around commerce, democracy and institutions.</li>
+<li><b>Bottom line for firms:</b> understand how the politicians you face see the world, because their lens drives their policy.</li>
+</ul></div>
+
+<h3>The future world order: what decoupling means for firms</h3>
+
+<div class="intuition"><span class="tag">Intuition: decoupling has three readings</span> "Decoupling" is not one thing. Depending on the lens, it is a <i>security move</i> (protecting critical sectors), an <i>economic war</i> (weaponising interdependence), or a <i>supply-chain redesign</i> (re-routing production). Which reading a government holds tells you how aggressive the policy will get.</div>
+
+<table class="dt">
+<thead><tr><th>Reading of decoupling</th><th>What it claims is happening</th><th>Closest IR lens</th><th>What it means for the firm</th></tr></thead>
+<tbody>
+<tr><td><b>Securitisation</b></td><td>Trade in critical goods is reframed as a national-security matter.</td><td>Realism (survival first).</td><td>Expect investment screening and export controls; "strategic" sectors lose market logic.</td></tr>
+<tr><td><b>Economic war</b></td><td>Interdependence is actively weaponised between rivals.</td><td>Realism / economic statecraft.</td><td>Plan for sanctions, retaliation and being caught between blocs.</td></tr>
+<tr><td><b>Supply-chain transformation</b></td><td>Production is re-routed for resilience, not severed.</td><td>Commercial liberalism under strain.</td><td>Choose where to relocate, reshore vs. friendshore, trading efficiency for security.</td></tr>
+</tbody>
+</table>
+
+<div class="key"><b>Reshoring vs. friendshoring, the efficiency–security trade-off.</b>
+<ul>
+<li><b>Reshoring:</b> bring operations <i>home</i>. Maximises security of supply via sovereign control of production, but at significant <b>efficiency cost</b>, it directly defies comparative advantage.</li>
+<li><b>Friendshoring:</b> bring operations to <i>allied</i> markets. Improves security by leaning on diplomatic and military ties to reduce (not eliminate) risk; <b>more efficient than reshoring</b> (allies can be competitive) but still less efficient than the free market.</li>
+<li><b>The spectrum:</b> free market (most efficient, least secure) &rarr; friendshoring &rarr; reshoring (most secure, least efficient).</li>
+</ul></div>
+
+<div class="key"><b>Navigating geopolitics: risk vs. uncertainty (the closing managerial frame).</b>
+<ul>
+<li><b>Firms are playing catch-up:</b> they recognise geopolitical significance but stay reactive; political analysis can no longer be an after-thought.</li>
+<li><b>Uncertainty, not just risk:</b> traditional risks are managed by function (credit, legal, market, operational, regulatory). Geopolitical risk <i>cuts across all functions</i> and <i>does not follow a quarterly calendar</i>.</li>
+<li><b>Turn risk into a premium:</b> use stakeholder mapping and political-landscape mapping to make geopolitical fluency a competitive advantage, not just a cost.</li>
+</ul></div>
+
+<div class="key"><b>Action plan for organisations (the deck's checklist).</b>
+<ul>
+<li>Develop <b>literacy and a common language</b> on geopolitical risk: what are the issues and their implications?</li>
+<li>Build <b>professionalism</b> around geopolitical issues.</li>
+<li><b>Every month</b>, the board discusses the most geopolitically exposed key markets and sets a game plan.</li>
+<li><b>Translate</b> geopolitics into the company's own language and tangible issues.</li>
+</ul></div>
+
+<h4>Tying the course together: the IR lens as the system-level (IA)&sup3;</h4>
+
+<div class="chain"><b>How this session closes the loop.</b>
+<span>IR lens</span> <span class="arrow">&rarr;</span> <span>names the <b>Actors</b> (states, # of poles)</span> <span class="arrow">&rarr;</span> <span>specifies their <b>Interests</b> (power/survival vs. prosperity/peace)</span> <span class="arrow">&rarr;</span> <span>and the <b>Arena</b> (anarchy, institutions, the market)</span> <span class="arrow">&rarr;</span> <span>which sets the geopolitical <i>Issue</i> a firm must run through (IA)&sup3; at country level.</span></div>
+
+<div class="exam"><b>Exam lens.</b> The exam key-slides cheat-sheet PDF is explicit that it covers <b>Sessions 1&ndash;6 only</b> ("no need for Session 7"), so this IR-theory session is <b>not</b> a standalone examinable block. Use it as the <i>analytical backdrop</i>, not as a set of facts to reproduce. The examinable spine it feeds is <b>Session 1's (IA)&sup3; framework</b> (Issues, Actors, Interests, Arena, Information, Assets): if a geopolitics or US&ndash;China prompt appears, the marks come from running it through (IA)&sup3; and the country-variation typology (Session 3) rather than from reciting realism vs. liberalism. Safe, light use of this session in an answer: label which <i>lens</i> a government is using to justify a policy (e.g. decoupling-as-securitisation = realist), then pivot to the firm's nonmarket response. <em>This is the only exam-marking note for the section; the course's marking preferences are stated once, here, at the close.</em></div>
+
+<h2 class="part">Reference</h2>
+
+<h2 id="glossary">Glossary &amp; myths</h2>
+<p>The terms an examiner expects you to wield precisely, plus the misreadings Aggarwal flags.</p>
+<table class="dt">
+<thead><tr><th>Term</th><th>Precise meaning</th></tr></thead>
+<tbody>
+<tr><td><b>(IA)&sup3;</b></td><td>Issues, Actors, Interests, Arena, Information, Assets: six lenses in three pairs (the auto-transcript mis-hears it as "IEQ"/"AIQ"; it is (IA)&sup3;).</td></tr>
+<tr><td><b>Non-market strategy</b></td><td>Concerted action through political, legal and social actors to improve firm performance. Not "the ethics course": it is empirical, about power and information.</td></tr>
+<tr><td><b>Securitization</b></td><td>Reframing a commercial matter as a national-security threat to shift it into a more hostile arena (DP World, TikTok).</td></tr>
+<tr><td><b>Strategy vs tactics</b></td><td>Strategy is the goal (block the import); tactics are the named moves (lobbying, grassroots, testimony). The exam wants both, separated.</td></tr>
+<tr><td><b>Pluralism / corporatism / statism</b></td><td>Three modes of how a state reaches decisions: open competition / peak-association bargaining / governing-elite control.</td></tr>
+<tr><td><b>Developmental state</b></td><td>A state that actively picks and disciplines winners (Japan, Korea, China), conditional on bureaucratic capacity and export discipline; contrast the predatory state.</td></tr>
+<tr><td><b>MFN / National Treatment</b></td><td>The WTO's two non-discrimination rules: treat all members alike (MFN); treat foreign goods like domestic ones once inside the border (NT).</td></tr>
+<tr><td><b>Minilateralism vs nesting</b></td><td>Minilateralism is about <i>number</i> (a small group); nesting is about <i>hierarchy</i> (does the deal fit inside a wider institution). A deal can be minilateral and nested, or minilateral and rogue.</td></tr>
+</tbody>
+</table>
+<div class="pitfall"><b>Myths the course corrects.</b>
+<ul>
+<li><b>"Comply with the law and you are safe."</b> No: legal compliance can still lose to the informal channel (Shell's Brent Spar was legal and still defeated by activist pressure).</li>
+<li><b>"The world is converging on the liberal market model."</b> No: divergence, not convergence. States remain different ideal types, and tactics must vary with them.</li>
+<li><b>"Issues are given facts."</b> No: issues are constructed. Whoever frames the issue and picks the arena shapes which actors matter.</li>
+<li><b>"Money wins the non-market game."</b> Rarely: capital is seldom sufficient; knowledge, reputation, control and alliances win.</li>
+</ul>
+</div>
+
+<h2 id="synthesis">The course in one diagram</h2>
+<p>The whole of BSPE is one engine applied to ever-wider arenas. (IA)&sup3; is the engine; each session swaps in a new arena and a new set of actors, but the six questions never change. If you can reproduce this picture and run any case through it, you have the course.</p>
+<figure>
+<svg viewBox="0 0 760 300" width="100%" style="max-width:780px">
+  <!-- engine -->
+  <rect x="20" y="110" width="180" height="92" rx="10" fill="#eef6f0" stroke="#00684B" stroke-width="2.5"/>
+  <text x="110" y="135" text-anchor="middle" font-size="14" font-weight="bold" fill="#00684B">(IA)&sup3; engine</text>
+  <text x="110" y="156" text-anchor="middle" font-size="11" fill="#13392b">Issues &middot; Actors</text>
+  <text x="110" y="172" text-anchor="middle" font-size="11" fill="#13392b">Interests &middot; Arena</text>
+  <text x="110" y="188" text-anchor="middle" font-size="11" fill="#13392b">Information &middot; Assets</text>
+  <!-- arrow out -->
+  <g stroke="#1f5fa8" stroke-width="2.5" fill="none">
+    <path d="M205 156 L250 156" marker-end="url(#sar)"/>
+  </g>
+  <defs><marker id="sar" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#1f5fa8"/></marker></defs>
+  <!-- widening arenas stack -->
+  <g font-size="11.5" fill="#13392b">
+    <rect x="260" y="20" width="480" height="26" rx="5" fill="#f6f8f6" stroke="#cfe2d6"/>
+    <text x="272" y="38" font-weight="bold" fill="#00684B">S2 &middot; The firm in a takeover</text><text x="500" y="38">securitization, the eight tactics (DP World)</text>
+    <rect x="260" y="54" width="480" height="26" rx="5" fill="#eef6f0" stroke="#cfe2d6"/>
+    <text x="272" y="72" font-weight="bold" fill="#00684B">S3 &middot; The country</text><text x="500" y="72">state types &amp; decision modes (variation)</text>
+    <rect x="260" y="88" width="480" height="26" rx="5" fill="#f6f8f6" stroke="#cfe2d6"/>
+    <text x="272" y="106" font-weight="bold" fill="#00684B">S4 &middot; The industry</text><text x="500" y="106">the industrial-policy debate</text>
+    <rect x="260" y="122" width="480" height="26" rx="5" fill="#eef6f0" stroke="#cfe2d6"/>
+    <text x="272" y="140" font-weight="bold" fill="#00684B">S5 &middot; The global rules</text><text x="500" y="140">the WTO &amp; dispute settlement</text>
+    <rect x="260" y="156" width="480" height="26" rx="5" fill="#f6f8f6" stroke="#cfe2d6"/>
+    <text x="272" y="174" font-weight="bold" fill="#00684B">S6 &middot; The region</text><text x="500" y="174">EU vs Asia-Pacific, nesting &amp; minilateralism</text>
+    <rect x="260" y="190" width="480" height="26" rx="5" fill="#eef6f0" stroke="#cfe2d6"/>
+    <text x="272" y="208" font-weight="bold" fill="#00684B">S7 &middot; The world order</text><text x="500" y="208">IR theory (backdrop, not examined)</text>
+  </g>
+  <text x="380" y="250" text-anchor="middle" font-size="12" fill="#555">Same six questions, widening arena: firm &rarr; country &rarr; industry &rarr; global rules &rarr; region &rarr; world.</text>
+  <text x="380" y="272" text-anchor="middle" font-size="11.5" fill="#8a1f5f">Exam move: name the issue, map actors, read interests, locate the arena, then choose the information and assets that win there.</text>
+</svg>
+<figcaption>BSPE in one picture: the (IA)&sup3; engine on the left, the same six lenses applied to a widening sequence of arenas across Sessions 2 to 7.</figcaption>
+</figure>
+
+<div class="izzy"><span class="tag">Isabella &middot; a connection</span>
+<b>This is the analytic backbone for the AI-governance question you keep circling.</b>
+<ul>
+<li>The course's live example of non-market strategy is the one you care about: tech firms <i>coalition-building with rivals to shape (or head off) AI regulation</i>. (IA)&sup3; gives you the vocabulary, who is the actor, what is the arena (Brussels vs Washington vs the courts), what assets win.</li>
+<li>The S3 "varieties of states" lens explains why the EU regulates AI through the DSA/DMA/AI Act while the US litigates and China directs: same technology, three decision modes (corporatism, pluralism, statism).</li>
+<li>Pairs naturally with your "AI and the Layers of the Firm" thread: market strategy sets what the firm builds; non-market strategy sets whether it is allowed to.</li>
+</ul>
+</div>
+
+<h2 id="readings">Key readings</h2>
+<p>Curated to the load-bearing pieces, grouped by session. <span class="rtag prof">Prof</span> marks Aggarwal's own work; <span class="rtag man">Required</span> the set reading; <span class="rtag core">Core</span> the piece carrying a session's key idea. Each title links to a one-page synthesis, which links out to the original where a public version exists.</p>
+
+<h4>Foundations &amp; the firm (S1–2)</h4>
+<div class="read"><b><a href="Sources/L01/The%20CEO%20as%20Chief%20Geopolitical%20Officer.html">The CEO as Chief Geopolitical Officer</a></b><span class="rtag core">Core</span><span class="meta">the framing for the whole course</span><br>Geopolitics is now a board-level issue the CEO must personally own: the case for running non-market strategy as a first-class discipline, not a public-affairs afterthought.</div>
+
+<h4>The industrial-policy debate (S4)</h4>
+<div class="read"><b><a href="Sources/L04/Rethinking%20the%20Political%20Economy%20of%20Industrial%20Policy.html">Rethinking the Political Economy of Industrial Policy</a></b><span class="rtag prof">Prof</span><span class="meta">Aggarwal</span><br>The debate has moved from "whether" to "how": politics (international threats, state autonomy, elite ideology) is the binding constraint on whether industrial policy works.</div>
+
+<h4>Institutions &amp; regionalism (S5–6)</h4>
+<div class="read"><b><a href="Sources/L05/What's%20Next%20for%20the%20WTO.html">What's Next for the WTO</a></b><span class="rtag core">Core</span><span class="meta">CFR backgrounder</span><br>The WTO's crisis in one place: Doha's collapse and the paralysed Appellate Body driving the drift to bilateral and plurilateral deals.</div>
+<div class="read"><b><a href="Sources/L06/Nesting%20and%20Minilateralism%20in%20the%20Asia-Pacific.html">Nesting and Minilateralism in the Asia-Pacific</a></b><span class="rtag prof">Prof</span><span class="meta">Aggarwal</span><br>The professor's own paper on the rise of minilateral groupings (RCEP, CPTPP, the Quad, AUKUS) and whether they nest within multilateral institutions or undermine them.</div>
+
+<h4>International relations (S7)</h4>
+<div class="read"><b><a href="Sources/L07/Foundations%20of%20International%20Relations%20Theory.html">Foundations of International Relations Theory</a></b><span class="rtag man">Required</span><span class="meta">McGlinchey et al, E-IR 2017</span><br>The required primer: IR theories as maps, spanning liberalism, realism, the English School, constructivism and critical theory.</div>
+<div class="read"><b><a href="Sources/L07/One%20World,%20Rival%20Theories.html">One World, Rival Theories</a></b><span class="rtag core">Core</span><span class="meta">Snyder, Foreign Policy 2009</span><br>Realism vs liberalism vs constructivism, each a check on the others' blind spots: the cleanest short statement of the three lenses.</div>
+
+<p class="sm" style="color:#555;margin-top:12px;">Selection notes: curated to the load-bearing readings per session. Four Financial Times articles set in the decks (the Dubai Ports access piece for S2, the Africa and Latin America great-power-competition pieces for S3, and "The new interventionism" for S4) are paywalled, so the clippings hold only the headline; they are named here for the record but have no synthesis page. Aggarwal's exam-hint article, "China's comparative advantage is industrial policy" (FT), is worth reading directly for the S4 short-answer questions. Sessions 6 and 7 readings lean on Aggarwal's own papers and the required IR primer because those two classes had no recording at build time.</p>
+
+<div class="footer">
+<p><strong>Business &amp; Society: Political Environment &middot; course knowledge page.</strong> Built from the Session 1–7 lecture slides and in-class transcripts (Prof. Vinod Aggarwal, INSEAD). Sessions 1–5 have full slide + transcript coverage; Sessions 6 and 7 were built from the slide decks and Aggarwal's own papers because their recordings were not yet available (flagged with &starf;). Diagrams redrawn as SVG. No past-paper set was available, so there is no separate Exam Drills page. Open in a browser; print to PDF via &#8984;P.</p>
+</div>
+
+</main>
+</div>
+</body>
+</html>

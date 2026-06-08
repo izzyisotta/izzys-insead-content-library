@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>BSPE Cheat Sheet · the (IA)³ engine, applied</title>
+<style>
+  :root{
+    --green:#00643C; --blue:#1f5fa8; --red:#b03030; --amber:#a8740a; --plum:#7b4bbd;
+    --ink:#1a1a1a; --soft:#555; --line:#d2d2d2; --bg:#f4f4f1;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:8.9px; line-height:1.13;}
+  .backlink{display:block; padding:8px 12px; font-size:13px; color:var(--blue); text-decoration:none;}
+  @media print{ .backlink{display:none;} body{background:#fff;} }
+  @page{ size:A4; margin:5mm; }
+
+  .page{ width:200mm; min-height:283mm; margin:0 auto 6mm; background:#fff; padding:0; }
+  .page.two{ break-before:page; }
+  .cols{ display:flex; gap:4mm; }
+  .col{ flex:1; min-width:0; display:flex; flex-direction:column; }
+
+  /* masthead */
+  .mast{ background:var(--green); color:#fff; border-radius:6px; padding:6px 10px; margin-bottom:5px; }
+  .mast h1{ margin:0; font-size:15px; letter-spacing:.01em; }
+  .mast .sub{ font-size:8.7px; opacity:.93; margin-top:1px; }
+  .mast .sub b{ color:#ffe; }
+
+  /* cards */
+  .card{ border:1px solid var(--line); border-radius:5px; padding:2px 7px 3px; margin-bottom:3px; background:#fff; break-inside:avoid; }
+  .card.big{ border-color:#bcd6c7; }
+  h3.t{ margin:1px 0 1px; font-size:10.5px; color:var(--green); line-height:1.1; display:flex; justify-content:space-between; align-items:baseline; gap:6px; }
+  h3.t .freq{ font-size:7.6px; font-weight:700; color:#fff; background:var(--green); border-radius:10px; padding:1px 6px; white-space:nowrap; flex:0 0 auto; }
+  .trig{ color:var(--blue); font-style:italic; margin:0 0 1px; font-size:8.3px; line-height:1.1; }
+  .trig b{ font-style:normal; color:#08251a; }
+  .lbl{ font-size:7.6px; color:var(--soft); font-weight:700; text-transform:uppercase; letter-spacing:.02em; margin-top:1px; line-height:1.1; }
+  .trap{ color:var(--red); margin-top:1px; font-size:8.2px; line-height:1.1; }
+  .trap b{ color:var(--red); }
+  strong{ color:#08251a; }
+  .blue{ color:var(--blue); } .grn{ color:var(--green); } .red{ color:var(--red); } .plum{ color:var(--plum); } .amb{ color:var(--amber); }
+  ul{ margin:1px 0; padding-left:13px; }
+  li{ margin:0.5px 0; line-height:1.12; }
+  p{ margin:1px 0; }
+
+  table.dt{ border-collapse:collapse; width:100%; font-size:8.1px; margin:1px 0; }
+  table.dt td{ border:1px solid var(--line); padding:1px 4px; vertical-align:top; }
+  table.dt td:first-child{ background:#eef5f0; font-weight:600; color:#08251a; white-space:nowrap; }
+  table.dt th{ background:var(--green); color:#fff; font-size:7.8px; font-weight:700; text-align:left; padding:1px 4px; }
+  /* two equal prose columns (e.g. FOR vs AGAINST): wrap normally, no label styling */
+  table.dt.twoeq{ table-layout:fixed; }
+  table.dt.twoeq td{ width:50%; white-space:normal; background:#fff; font-weight:400; color:var(--ink); }
+
+  /* full-width band (the IA3 matrix + case bank) */
+  .band{ margin:3px 0; break-inside:avoid; }
+  .band .mtitle{ font-size:11px; color:var(--green); font-weight:700; margin:0 0 1px; line-height:1.1; }
+  .band .mtitle .note{ font-size:7.8px; font-weight:400; color:var(--soft); }
+  table.mtx{ border-collapse:collapse; width:100%; font-size:7.9px; line-height:1.14; table-layout:fixed; }
+  table.mtx th, table.mtx td{ border:1px solid var(--line); padding:1.5px 4px; vertical-align:top; }
+  table.mtx th{ background:var(--green); color:#fff; font-size:7.8px; font-weight:700; text-align:left; }
+  table.mtx td.rowhead{ background:#eef5f0; font-weight:700; color:#08251a; }
+  table.mtx td.pairA{ background:#eef5f0; } table.mtx td.pairB{ background:#f3eefc; }
+
+  /* exam method strip */
+  .method{ background:#eaf1f8; border:1px solid #c3d6ea; border-left:3px solid var(--blue); border-radius:4px; padding:2px 8px 3px; margin:3px 0; break-inside:avoid; }
+  .method .mh{ font-size:9.5px; font-weight:700; color:var(--blue); margin:0 0 1px; }
+  .method ol{ margin:1px 0; padding-left:15px; font-size:8.3px; line-height:1.16; }
+  .method li{ margin:0.5px 0; }
+  .method b{ color:#08251a; }
+
+  /* amber logistics strip */
+  .logi{ background:#fdf6e9; border:1px solid #ecd9ad; border-left:3px solid var(--amber); border-radius:4px; padding:2px 8px 3px; margin:3px 0; break-inside:avoid; }
+  .logi .mh{ font-size:9.5px; font-weight:700; color:var(--amber); margin:0 0 1px; }
+  .logi b{ color:#08251a; }
+  .fw{ background:#eef5f0; border-left:3px solid var(--green); border-radius:3px; padding:1px 6px; margin:1.5px 0; line-height:1.12; }
+</style>
+</head>
+<body>
+<a class="backlink" href="BSPE%20Revision%20Document.html">← Back to the BSPE knowledge page</a>
+
+<!-- ====================== PAGE 1 ====================== -->
+<div class="page">
+
+  <div class="mast">
+    <h1>BSPE Cheat Sheet · the (IA)³ engine, applied</h1>
+    <div class="sub">Business &amp; Society: Political Environment · Prof. Aggarwal · <b>Sessions 1–6 examinable (S7 is off the exam)</b> · the marks are for <b>applying</b> the framework, not reciting it</div>
+  </div>
+
+  <!-- THE SPINE: full-width IA3 matrix -->
+  <div class="band">
+    <div class="mtitle">(IA)³ · the spine of every answer <span class="note">six lenses, three pairs · WHO/WHAT → WHERE → HOW · run any case down these six rows</span></div>
+    <table class="mtx">
+      <tr><th style="width:13%">Lens</th><th style="width:40%">The question it forces</th><th style="width:47%">What to look for / the move</th></tr>
+      <tr><td class="pairA rowhead">Issues <span style="font-weight:400;color:#555">(WHO/WHAT)</span></td><td class="pairA">What is the issue, and what created it?</td><td class="pairA">Sources: new technology, new laws/institutions, shifting societal expectations. Issues are <b>constructed, not given</b>, whoever frames it shapes the fight.</td></tr>
+      <tr><td class="pairA rowhead">Actors</td><td class="pairA">Who is involved, and what are their relationships (ally/adversary)?</td><td class="pairA"><b>Organisation matters</b>, organised actors win. Simplify to the few who can actually bring pressure. Political / market / media-public.</td></tr>
+      <tr><td class="pairB rowhead">Interests <span style="font-weight:400;color:#555">(WHERE)</span></td><td class="pairB">What do they want, how badly (absolute &amp; relative), how internally aligned?</td><td class="pairB">Look for the <b>internal split / weak alignment</b>, that is your way in. Work the friendly faction against the unfriendly one.</td></tr>
+      <tr><td class="pairB rowhead">Arena</td><td class="pairB">Where is it settled, and how formal are the rules?</td><td class="pairB"><b>Arena governs everything downstream.</b> Court (formal) vs legislature vs agency vs media vs bribe (informal, illegal). Name it before picking tactics.</td></tr>
+      <tr><td class="pairA rowhead">Information <span style="font-weight:400;color:#555">(HOW)</span></td><td class="pairA">What knowledge moves this arena?</td><td class="pairA">In the market money works everywhere; in the non-market, information varies by arena (funded studies, expertise, framing).</td></tr>
+      <tr><td class="pairA rowhead">Assets</td><td class="pairA">What resources are needed to win here?</td><td class="pairA"><b>Capital is rarely enough.</b> Knowledge (of decision-makers), reputation, control (of authority), alliances.</td></tr>
+    </table>
+  </div>
+
+  <!-- exam attack method -->
+  <div class="method">
+    <div class="mh">▶ The 600-word question: how to attack it</div>
+    <div style="font-size:8.1px;color:#555;margin:0 0 1px;">"You read an article; there is a company. Analyse its <b>market and non-market</b> strategy." Run (IA)³, then prescribe.</div>
+    <ol>
+      <li><b>Issue + source</b> → what is it, what created it, how is it framed (and could it be reframed)?</li>
+      <li><b>Actors</b> → map them, flag who is organised; <b>simplify</b> to the few that matter.</li>
+      <li><b>Interests</b> → what each wants + how badly; find the internal split.</li>
+      <li><b>Arena</b> → name where it is decided (this fixes which info &amp; assets matter).</li>
+      <li><b>Information + Assets</b> → what wins in that arena.</li>
+      <li><b>Market strategy</b> (the goal: quality / price / cost) <b>+ named tactics</b>.</li>
+      <li><b>Non-market strategy</b> + <b>name the right tactics</b> from the eight (not just "lobbying").</li>
+      <li><b>Verdict:</b> did they do well/badly, what would you do differently? Against governments aim for "<b>well enough</b>", not total victory.</li>
+    </ol>
+  </div>
+
+ <div class="cols">
+  <!-- COLUMN 1 -->
+  <div class="col">
+
+    <div class="card">
+      <h3 class="t">Market vs non-market <span class="freq">S1</span></h3>
+      <div class="trig">▸ <b>Integrated strategy (Baron):</b> a firm is in both at once, so link them, do not bolt lobbying on after.</div>
+      <table class="dt">
+        <tr><td>Market</td><td>Rivals/suppliers/buyers · price mechanism · voluntary · collusion illegal · Porter's Five Forces lives here.</td></tr>
+        <tr><td>Non-market</td><td>Courts, media, NGOs, regulators · currency is <b>information</b> not money · coalitions with rivals are normal.</td></tr>
+      </table>
+      <div class="trap"><b>Myth:</b> "comply with the law and you're safe." No, legal compliance can lose to the informal channel (Shell, Brent Spar).</div>
+    </div>
+
+    <div class="card big">
+      <h3 class="t">The 8 non-market tactics <span class="freq">S2 · NAME THESE</span></h3>
+      <div class="trig">▸ <b>Strategy = the goal</b> (block imports, win a subsidy); <b>tactics = the moves</b>. He marks you on naming the right one.</div>
+      <div class="fw"><b>1</b> Lobbying · <b>2</b> Electoral / financial support · <b>3</b> Coalition-building (with rivals) · <b>4</b> Grassroots / constituency mobilisation · <b>5</b> Testimony &amp; expertise · <b>6</b> Public advocacy / communications · <b>7</b> Judicial action (courts) · <b>8</b> Advisory committees / standard-setting.</div>
+      <div class="trap"><b>Trap:</b> calling everything "lobbying", and a national-security claim is often a <b>cover for protectionism</b>.</div>
+    </div>
+
+    <div class="card">
+      <h3 class="t">Securitization &amp; politicization <span class="freq">S2</span></h3>
+      <ul>
+        <li><b>Securitization:</b> reframe a commercial matter as a <b>national-security threat</b> to move it to a more hostile arena.</li>
+        <li><b>Politicization of business:</b> a routine deal becomes a public political contest fought before legislators and media.</li>
+        <li><b>Expert vs public divergence:</b> the cleared-by-experts deal still loses in the public arena (DP World, TikTok).</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3 class="t">FDI screening: FIRRMA &amp; CFIUS <span class="freq">S3</span></h3>
+      <ul>
+        <li><b>CFIUS:</b> the US Treasury-chaired panel that vets foreign takeovers for security; clearance grants legal immunity (but not against Congress).</li>
+        <li><b>FIRRMA (2018):</b> widened CFIUS from "control" deals to <b>non-controlling stakes in critical tech / infrastructure / personal data</b>. China-tech driven.</li>
+        <li><b>Contagion:</b> EU, UK, Germany, etc. copied it, so cross-border M&amp;A is harder everywhere ("what goes around comes around").</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- COLUMN 2 -->
+  <div class="col">
+
+    <div class="card big">
+      <h3 class="t">Varieties of states (4 types) <span class="freq">S3</span></h3>
+      <div class="trig">▸ <b>Divergence, not convergence</b>, match tactics to the state. Keyed to its goal + how it governs the economy.</div>
+      <table class="dt">
+        <tr><td>Regulatory / laissez-faire</td><td>Sets rules, lets markets run (US).</td></tr>
+        <tr><td>Welfare</td><td>Redistributes, cushions (much of Europe).</td></tr>
+        <tr><td>Developmental</td><td>Actively <b>picks &amp; disciplines winners</b> (Japan, Korea, China).</td></tr>
+        <tr><td>Predatory</td><td>Elites extract for themselves.</td></tr>
+      </table>
+    </div>
+
+    <div class="card big">
+      <h3 class="t">3 decision modes → what business does <span class="freq">S3</span></h3>
+      <table class="dt">
+        <tr><th>Mode</th><th>How decisions are made → your move</th></tr>
+        <tr><td>Pluralism</td><td>Open competition among groups → <b>lobby &amp; mobilise</b> (US).</td></tr>
+        <tr><td>Corporatism</td><td>Bargained via peak associations → <b>work the associations</b> (Europe).</td></tr>
+        <tr><td>Statism</td><td>Governing elite decides → <b>reach the elite</b> (developmental Asia).</td></tr>
+      </table>
+      <div class="trap"><b>Exam move:</b> "would these tactics work elsewhere?" A pluralist grassroots playbook fails in a statist/corporatist system.</div>
+    </div>
+
+    <div class="card">
+      <h3 class="t">5 non-market problems for firms <span class="freq">S1</span></h3>
+      <ul>
+        <li><b>Multiple audiences</b> wanting contradictory things (ad boycotts).</li>
+        <li><b>Globalisation of NGOs</b> (Greenpeace vs Shell via Lego).</li>
+        <li><b>Regulatory paradigm shifts</b> (EU DSA / DMA / AI Act).</li>
+        <li><b>Reputational fragility</b> (reputation = exploitable vulnerability).</li>
+        <li><b>Geopolitical risk</b> ("butterfly effects": TSMC silicon shield, app bans).</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3 class="t">Take-aways to bank <span class="freq">S1</span></h3>
+      <ul>
+        <li>Politics is virtually <b>omnipresent</b>; the firm is a social &amp; political being, opting out is itself a position.</li>
+        <li>Recognise the real <b>market vs non-market</b> difference.</li>
+        <li>Use an <b>integrated, coherent</b> strategy across both arenas.</li>
+        <li>"If you are not at the table, you are on the menu."</li>
+      </ul>
+    </div>
+
+  </div>
+ </div>
+</div>
+
+<!-- ====================== PAGE 2 ====================== -->
+<div class="page two">
+
+  <div class="mast">
+    <h1>BSPE Cheat Sheet · institutions, debates &amp; cases</h1>
+    <div class="sub">Sessions 4–6 · the industrial-policy debate, the WTO, regionalism · plus the case bank as application ammo</div>
+  </div>
+
+ <div class="cols">
+  <!-- COLUMN 1 -->
+  <div class="col">
+
+    <div class="card big">
+      <h3 class="t">The industrial-policy debate <span class="freq">S4 · high-yield</span></h3>
+      <div class="trig">▸ <b>Definition:</b> horizontal (economy-wide: skills, infra, R&amp;D) vs <b>vertical</b> (picking sectors/firms). Debate is about the vertical kind.</div>
+      <table class="dt twoeq">
+        <tr><th>FOR</th><th>AGAINST</th></tr>
+        <tr><td>Dynamic comparative advantage / infant industry; coordination failure; knowledge spillovers &amp; scale; + political rationales (security, jobs).</td><td>The knowledge problem (states can't pick winners); capture &amp; rent-seeking; wrong incentives; global spillovers / WTO collision.</td></tr>
+      </table>
+      <div class="fw"><b>The decisive line:</b> <span class="red">market failure vs government failure, which is worse here, and under what conditions?</span></div>
+      <div class="lbl">Instruments (name &amp; classify, don't be vague)</div>
+      <div class="fw"><b>At-the-border</b> (tariffs, quotas) · <b>behind-the-border</b> (subsidies, procurement, IP, standards) · <b>beyond-the-border</b> (export finance, FDI rules).</div>
+      <div class="lbl">Developmental-state preconditions</div>
+      <div class="fw">Rule of law · <b>meritocratic insulated bureaucracy</b> · embedded autonomy · <b>export discipline / credible commitment to let failures fail</b>. (Korea/Japan ✓; India steel, Brazil computers ✗.)</div>
+      <div class="trap"><b>China (the exam-hint article):</b> China's comparative advantage <b>is industrial policy itself</b>, the governance behind it; copying it with subsidies is "fighting the last war" (under 15% of BYD's cost edge is subsidy).</div>
+    </div>
+
+    <div class="card big">
+      <h3 class="t">Regionalism <span class="freq">S6</span></h3>
+      <div class="lbl">Integration ladder (deepening)</div>
+      <div class="fw">FTA → customs union → common market → economic / monetary union → political union. (Rules of origin; Cassis de Dijon mutual recognition.)</div>
+      <table class="dt">
+        <tr><td>Minilateralism</td><td>About <b>number</b>: a small group (more than bilateral, fewer than multilateral): RCEP, CPTPP, Quad, AUKUS.</td></tr>
+        <tr><td>Nesting</td><td>About <b>hierarchy</b>: does the deal fit inside a wider institution (GATT Art. 24)?</td></tr>
+      </table>
+      <div class="trap"><b>Don't blur them:</b> a deal can be minilateral-and-nested (RCEP stepping-stone) or minilateral-and-rogue (IPEF). EU = deep/rules-based; Asia-Pacific = shallow/flexible.</div>
+    </div>
+
+  </div>
+
+  <!-- COLUMN 2 -->
+  <div class="col">
+
+    <div class="card big">
+      <h3 class="t">The WTO &amp; institutions <span class="freq">S5</span></h3>
+      <div class="trig">▸ <b>Why institutions exist</b> (the lighthouse): solve collective-action problems, cut transaction costs, stabilise expectations, monitor.</div>
+      <div class="lbl">The 5 rules business contests</div>
+      <div class="fw"><b>MFN</b> (treat all members alike) · <b>National Treatment</b> (foreign goods = domestic once inside) · <b>Reciprocity</b> · <b>Transparency</b> · <b>Safeguards / national-security exceptions</b>.</div>
+      <div class="lbl">Dispute settlement</div>
+      <div class="fw">Consultation → panel → (Appellate Body) → binding ruling → <b>authorised retaliation</b>.</div>
+      <div class="trap"><b>Appellate Body is paralysed</b> (US blocks judges), so appeals go "into the void", but the WTO did <b>not</b> "fail"; firms still use it.</div>
+      <table class="dt">
+        <tr><td>Disguised NTBs</td><td>"Standards" that block imports (Japanese skis, Ontario beer, French farms).</td></tr>
+        <tr><td>Hegemon</td><td><b>Benign</b> (funds the system) vs <b>malign</b> (coerces); GDP measures the power.</td></tr>
+        <tr><td>Hit by a subsidy?</td><td>3 options: <b>talk / sanction / match</b>, mind the retaliation spiral.</td></tr>
+      </table>
+      <div class="trap"><b>Off-exam but cited:</b> Bombardier vs Embraer; "kicking away the ladder"; Exit/Voice/Loyalty + lock-in.</div>
+    </div>
+
+    <div class="card">
+      <h3 class="t">Quick-fire glossary (short answers) <span class="freq">def + example</span></h3>
+      <ul>
+        <li><b>Issue is constructed:</b> framing + arena choice decide who matters.</li>
+        <li><b>"Organisation matters":</b> organised actors beat larger but diffuse ones.</li>
+        <li><b>Aim "well enough":</b> against a government, total victory is the wrong target.</li>
+        <li><b>Collateral damage:</b> in cross-border disputes firms are caught in the middle, act <b>before</b> it is unmanageable.</li>
+      </ul>
+    </div>
+
+  </div>
+ </div>
+
+  <!-- full-width case bank -->
+  <div class="band">
+    <div class="mtitle">Case bank · application ammo <span class="note">use as worked examples of (IA)³, not facts to memorise · only Bombardier is confirmed off-exam</span></div>
+    <table class="mtx">
+      <tr><th style="width:16%">Case</th><th style="width:46%">What happened</th><th style="width:38%">The lesson</th></tr>
+      <tr><td class="rowhead">DP World <span style="font-weight:400;color:#555">(S2)</span></td><td>UAE state-owned DP World bought P&amp;O (2006, ~$6.8bn), inheriting US ports. CFIUS cleared it; Congress + media securitized it (~70% opposed); it divested the US ops.</td><td>The <b>arena was constructed</b>, the real venue was Congress/media, not CFIUS. Legal clearance ≠ safe. The canonical (IA)³ case.</td></tr>
+      <tr><td class="rowhead">TikTok <span style="font-weight:400;color:#555">(S3)</span></td><td>Facing divest-or-ban, ByteDance ran Project Texas + US hires + lobbying + allies (NetChoice) + grassroots creators.</td><td><b>Match tactics to the arena</b> (pluralist); securitization of data; "too clever" backlash.</td></tr>
+      <tr><td class="rowhead">Shell: Brent Spar <span style="font-weight:400;color:#555">(S1)</span></td><td>Legally-approved plan to sink a North Sea platform (1995) reversed by Greenpeace + consumer boycott.</td><td><b>Legal compliance can still lose</b> to the informal channel.</td></tr>
+      <tr><td class="rowhead">Dev states <span style="font-weight:400;color:#555">(S3/4)</span></td><td>Japan/Korea built industries via insulated bureaucracy + export discipline; India steel &amp; Brazil computers failed via unconditional protection.</td><td>Industrial policy is <b>only as good as state capacity + discipline</b>.</td></tr>
+      <tr><td class="rowhead">THAAD <span style="font-weight:400;color:#555">(S3)</span></td><td>Korea hosted US THAAD; China retaliated economically against Korean firms (Lotte) &amp; tourism.</td><td>Firms are <b>collateral damage</b> in great-power statecraft.</td></tr>
+      <tr><td class="rowhead">Bombardier v Embraer <span style="font-weight:400;color:var(--red)">(S5, off-exam)</span></td><td>Canada vs Brazil WTO subsidy fight; Quebec subsidised the C-Series; Airbus later took it over (A220).</td><td><b>Not always US vs China</b>; talk/sanction/match + the retaliation spiral.</td></tr>
+    </table>
+  </div>
+
+  <div class="logi">
+    <div class="mh">▶ Exam logistics &amp; what Aggarwal rewards</div>
+    <span style="font-size:8.3px;"><b>Format:</b> 5 short answers (200 words) + one 600-word applied (IA)³ analysis of a company's market &amp; non-market strategy. <b>Scope:</b> Sessions 1–6 only (S7 off). <b>Allowed:</b> one A4 two-sided sheet (this one). <b>Short-answer steer:</b> read "China's comparative advantage is industrial policy" (FT). &nbsp; <b>He rewards:</b> applying (IA)³ not reciting it · separating strategy from tactics and <b>naming the tactics</b> · matching tactics to the state type/decision mode · concrete instruments not "facilitation" · treating issues as constructed · market-failure vs government-failure.</span>
+  </div>
+
+</div>
+
+</body>
+</html>

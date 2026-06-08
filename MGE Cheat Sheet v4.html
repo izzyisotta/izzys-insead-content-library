@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>MGE Cheat Sheet v4: Every Equation, by Lecture</title>
+<script>MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['$$','$$']]},svg:{fontCache:'global'}};</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+<style>
+  :root{
+    --green:#00643C; --blue:#1f5fa8; --red:#b03030; --amber:#a8740a;
+    --ink:#1a1a1a; --soft:#555; --line:#d2d2d2; --bg:#f4f4f1;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:9.5px; line-height:1.3;}
+  .backlink{display:block; padding:8px 12px; font-size:13px; color:var(--blue); text-decoration:none;}
+  @media print{ .backlink{display:none;} body{background:#fff;} }
+  @page{ size:A4; margin:5mm; }
+
+  .page{ width:200mm; min-height:283mm; margin:0 auto; background:#fff; display:flex; gap:4mm; padding:0; }
+  .page.two{ break-before:page; }
+  .page.three{ break-before:page; }
+  .col{ flex:1; min-width:0; display:flex; flex-direction:column; }
+
+  /* masthead */
+  .mast{ background:var(--green); color:#fff; border-radius:6px; padding:6px 9px; margin-bottom:5px; }
+  .mast h1{ margin:0; font-size:14.5px; letter-spacing:.01em; }
+  .mast .sub{ font-size:8.6px; opacity:.92; margin-top:1px; }
+  .legend{ font-size:8.1px; color:var(--soft); margin:5px 0 0; }
+
+  /* cards */
+  .card{ border:1px solid var(--line); border-radius:5px; padding:4px 7px 5px; margin-bottom:4px; background:#fff; }
+  .card.big{ border-color:#bcd6c7; }
+  h3.t{ margin:0 0 2px; font-size:10.5px; color:var(--green); line-height:1.15; display:flex; justify-content:space-between; align-items:baseline; gap:6px; }
+  h3.t .freq{ font-size:7.6px; font-weight:700; color:#fff; background:var(--green); border-radius:10px; padding:1px 6px; white-space:nowrap; flex:0 0 auto; }
+  .trig{ color:var(--blue); font-style:italic; margin:1px 0 2px; font-size:8.7px; }
+  .trig b{ font-style:normal; }
+  .fw{ background:#eef5f0; border-left:3px solid var(--green); border-radius:3px; padding:2px 7px; margin:2px 0; }
+  .fw ul{ margin:1px 0; padding-left:14px; }
+  .fw li{ margin:1px 0; }
+  .lbl{ font-size:7.8px; color:var(--soft); font-weight:700; text-transform:uppercase; letter-spacing:.02em; margin-top:2px; }
+  .trap{ color:var(--red); margin-top:2px; font-size:8.6px; }
+  .trap b{ color:var(--red); }
+  strong{ color:#08251a; }
+  .blue{ color:var(--blue); } .grn{ color:var(--green); } .red{ color:var(--red); }
+
+  /* MathJax guards for narrow columns */
+  mjx-container{ font-size:0.92em !important; margin:1px 0 !important; }
+  mjx-container svg{ max-width:100%; }
+  mjx-container[display="true"]{ margin:2px 0 !important; }
+
+  table.dt{ border-collapse:collapse; width:100%; font-size:8.1px; margin:2px 0; }
+  table.dt td{ border:1px solid var(--line); padding:2px 4px; vertical-align:top; }
+  table.dt td:nth-child(odd){ background:#eef5f0; font-weight:600; color:#08251a; white-space:nowrap; }
+</style>
+</head>
+<body>
+<a class="backlink" href="MGE%20Revision%20Document.html">← Back to the Macro page</a>
+
+<!-- ====================== PAGE 1 ====================== -->
+<div class="page">
+
+  <!-- ---------- COLUMN 1 ---------- -->
+  <div class="col">
+    <div class="mast">
+      <h1>MGE Cheat Sheet · every equation, by lecture</h1>
+      <div class="sub">Macroeconomics in the Global Economy · Fatás · L1 → L14 · the verdict scores nothing, the <b>mechanism</b> is everything</div>
+    </div>
+
+    <div class="card big">
+      <h3 class="t">Notation key <span class="freq">read from context</span></h3>
+      <table class="dt">
+        <tr><td>\(C,I,G\)</td><td>consumption, investment, govt spend</td><td>\(r\)</td><td>real rate</td></tr>
+        <tr><td>\(NX\)</td><td>net exports (X−M)</td><td>\(i\)</td><td>nominal rate</td></tr>
+        <tr><td>\(NFP\)</td><td>net factor payments</td><td>\(r_F\)</td><td>foreign (world) real rate</td></tr>
+        <tr><td>\(CA\)</td><td>current account \(=NX+NFP\)</td><td>\(r^{*}\)</td><td>natural rate ("r-star")</td></tr>
+        <tr><td>\(S\)</td><td>national saving \((S_{priv}+S_{gov})\)</td><td>\(\pi,\pi^{*}\)</td><td>inflation, target</td></tr>
+        <tr><td>\(T,W\)</td><td>taxes, wealth</td><td>\(g\)</td><td>GDP growth rate</td></tr>
+        <tr><td>\(M,P\)</td><td>money supply, price level</td><td>\(L(\cdot)\)</td><td>money-demand fn</td></tr>
+        <tr><td>\(C,R,D\)</td><td>currency, reserves, deposits</td><td>\(V\)</td><td>velocity \(=PY/M\)</td></tr>
+        <tr><td>\(e_N\)</td><td>nominal FX (foreign/domestic; ↑=appr.)</td><td>\(e_R\)</td><td>real FX</td></tr>
+        <tr><td>\(P_F\)</td><td>foreign price level</td><td>\(E,RP,R\)</td><td>earnings, risk prem., req. return</td></tr>
+      </table>
+      <div class="trap" style="color:var(--amber);"><b>⚠ Collisions:</b> \(C\)=consumption AND currency · \(R\)=bank reserves, required stock return \((R=r+RP)\) AND FX reserves.</div>
+    </div>
+
+    <div class="card big">
+      <h3 class="t">L1 · Macro variables &amp; national accounting <span class="freq">L1</span></h3>
+      <div class="trig">▸ <b>Framework:</b> the GDP identity + real-vs-nominal split. Myth-buster: "imports reduce GDP" (−M just removes foreign goods double-counted in C).</div>
+      <div class="lbl">GDP — production (final goods only)</div>
+      $$\text{GDP}=P_AQ_A+P_BQ_B+\dots$$
+      <div class="lbl">GDP — expenditure approach</div>
+      $$\text{GDP}=C+I+G+NX$$
+      <div class="lbl">National income</div>
+      $$\text{GNI}=\text{GDP}+\text{NFP}$$
+      <div class="lbl">Growth decomposition (nominal vs real)</div>
+      $$\text{Nom. GDP growth}=\text{Real GDP growth}+\pi$$
+      <div class="lbl">Real interest rate (Fisher, approx.)</div>
+      $$r=i-\pi$$
+      <div class="lbl">Real exchange rate</div>
+      $$e_R=\frac{e_N\cdot P}{P_F}\quad\text{(LOOP}\Rightarrow e_R=1)$$
+      <div class="trap"><b>Trap:</b> a <i>rise</i> in \(e_N\) or \(e_R\) = appreciation (foreign cur./goods per domestic unit).</div>
+    </div>
+
+    <div class="card big">
+      <h3 class="t">L2 · Saving, investment, CA &amp; real rate <span class="freq">L2 · core identity</span></h3>
+      <div class="trig">▸ <b>Framework:</b> world r* clears global desired S = I (loanable funds); CA is the mirror. Tested as savings-glut / demographics shocks.</div>
+      <div class="lbl">Saving builds to the central identity</div>
+      $$S_{priv}=(\text{GDP}+\text{NFP})-T-C,\quad S_{gov}=T-G$$
+      $$S=S_{priv}+S_{gov}=(\text{GDP}+\text{NFP})-C-G$$
+      $$\boxed{\,S=I+CA\,}\quad CA=NX+\text{NFP}$$
+      <div class="lbl">Balance of payments</div>
+      $$\text{Current Acct}=\text{Capital & Financial Acct}$$
+      $$(S_{priv}-I_{priv})+(S_{gov}-I_{gov})=CA$$
+      <div class="trap"><b>Trap:</b> a CA surplus <i>is</i> net lending abroad (a capital outflow). Closed economy: \(S=I\). Demographics sign: retirees dis-save ⟹ S left ⟹ r* up.</div>
+    </div>
+
+  </div>
+
+  <!-- ---------- COLUMN 2 ---------- -->
+  <div class="col">
+
+    <div class="card">
+      <h3 class="t">L3 · Growth — why some countries are rich <span class="freq">L3</span></h3>
+      <div class="trig">▸ <b>Framework:</b> growth accounting splits output into hours × productivity. Productivity is the swing factor; demographics alone ≠ prosperity.</div>
+      <div class="lbl">Growth accounting / per-capita decomposition</div>
+      $$\frac{Y}{N}=\frac{Y}{H}\cdot\frac{H}{N}\quad(\text{productivity}\times\text{employment intensity})$$
+      <div class="fw" style="margin-top:3px;">Full chain: GDP/Pop = productivity × effort × employment × demographics. More working-age people raise <b>total</b> GDP, not necessarily <b>per-capita</b> GDP.</div>
+      <div class="trap"><b>Trap:</b> equating population / working-age growth with rising living standards (conflates total with per capita).</div>
+    </div>
+
+    <div class="card">
+      <h3 class="t">L4 · Growth &amp; country analysis — the 4 Is <span class="freq">L4</span></h3>
+      <div class="trig">▸ <b>Framework:</b> conditional convergence — poor countries catch up only if fundamentals are in place.</div>
+      <div class="fw"><b>4 Is:</b> Investment (capital), Institutions, Innovation, Initial conditions ⟹ conditional convergence. Binding constraint is usually <b>investment &amp; institutions</b>, not headcount.</div>
+      <div class="trap"><b>Worked (2020):</b> Africa's working-age pop overtaking Asia ≠ equal share of world GDP — that needs productivity (investment + institutions).</div>
+    </div>
+
+    <div class="card big">
+      <h3 class="t">L5 · Money &amp; central banks <span class="freq">L5–L6, L9</span></h3>
+      <div class="trig">▸ <b>Framework:</b> base vs supply, the multiplier is behavioural (not fixed), long-run money-growth = inflation.</div>
+      <div class="lbl">The two money aggregates</div>
+      $$\text{Base}=C+R\qquad \text{Supply}=C+D$$
+      <div class="lbl">Money multiplier</div>
+      $$m=\frac{C+D}{C+R}=\frac{C/D+1}{C/D+R/D}$$
+      <div class="lbl">Money-growth rule (velocity const., \(MV=PY\))</div>
+      $$\%\Delta M\approx\text{Nom. GDP growth}=\pi+\text{Real growth}$$
+      <div class="lbl">Money demand (real)</div>
+      $$\frac{M}{P}=L(\text{GDP},\,i)\quad(+\text{ on Y},\ -\text{ on }i)$$
+      <div class="trap"><b>Trap:</b> panic ⟹ C/D, R/D jump ⟹ m collapses, so supply moves while base is flat.</div>
+    </div>
+
+    <div class="card">
+      <h3 class="t">L6 · Business cycles &amp; asset prices <span class="freq">L6</span></h3>
+      <div class="trig">▸ <b>Framework:</b> stock price = PV of cash flows discounted at the required return; the risk premium is the ex-ante wedge.</div>
+      <div class="lbl">Required stock return &amp; ex-ante risk premium</div>
+      $$R=r+RP\qquad R\approx\frac{E}{P}\ \Rightarrow\ RP=\frac{E}{P}-r$$
+      <div class="trap"><b>Trap:</b> higher r ⟹ lower prices, but if r rises because growth is up, higher cash flows offset. A high P/E ≠ bubble.</div>
+    </div>
+
+    <div class="card big">
+      <h3 class="t">L7 · IS-LM-FX — the short-run model <span class="freq">L7–L8 · 26×</span></h3>
+      <div class="trig">▸ <b>Framework:</b> shift the curve the shock hits → compare r to r<sub>F</sub> → capital flow → appr./deprec. → NX adjusts → repeat until r=r<sub>F</sub>.</div>
+      <div class="lbl">IS — goods market (aggregate demand)</div>
+      $$\text{GDP}=C(\text{GDP},r,T,W)+I(r)+G+NX(e_R,\text{GDP},\text{GDP}_F)$$
+      <div class="lbl">LM — money market</div>
+      $$\frac{M}{P}=L(\text{GDP},\,r)$$
+      <div class="lbl">FX — capital-flow arbitrage</div>
+      $$r=r_F$$
+      <div class="trap"><b>Reversal (most-examined):</b> monetary potent under float / dead under peg; fiscal the mirror. <b>Impossible Trinity:</b> keep 2 of 3 — fixed rate, capital mobility, monetary autonomy.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ====================== PAGE 2 ====================== -->
+<div class="page two">
+
+  <!-- ---------- COLUMN 3 ---------- -->
+  <div class="col">
+
+    <div class="card big">
+      <h3 class="t">L8 · Inflation, supply side &amp; the Taylor Rule <span class="freq">L8, L10 · 11×</span></h3>
+      <div class="trig">▸ <b>Framework:</b> the Taylor rule is the CB's reaction function. π enters twice ⟹ a 1pt inflation rise lifts i by 1.5pt (Taylor principle).</div>
+      <div class="lbl">Baseline nominal rate</div>
+      $$i=\pi+\text{"reasonable" real return}$$
+      <div class="lbl">The Taylor Rule (Taylor 1993)</div>
+      $$i=\underbrace{r^*+\pi}_{\text{baseline}}+0.5(\pi-\pi^{*})+0.5\,(\text{output gap})$$
+      <div class="fw" style="margin-top:3px;"><b>Worked:</b> r*=2, π*=2, π=3, gap=0 ⟹ i = 2+3+0.5(1) = <b>5.5%</b>. The <i>real</i> rate rises to cool the economy.</div>
+      <div class="trap"><b>Trap:</b> forgetting π enters twice; reacting to headline inflation without asking supply-shock vs true positive gap (CB may hold if temporary / anchored / re-anchoring).</div>
+    </div>
+
+    <div class="card">
+      <h3 class="t">L9 · Monetary policy &amp; the ZLB <span class="freq">L9 · 11×</span></h3>
+      <div class="trig">▸ <b>Framework:</b> when the nominal rate can't fall further, switch to forward guidance, QE, negative rates. QE ≠ automatic inflation.</div>
+      <div class="fw">At the ZLB: <b>forward guidance</b> (credible promise), <b>QE</b> (buy long bonds → term premium ↓, long yields ↓), negative rates.
+        <ul>
+          <li><b>QE ≠ inflation:</b> swaps bonds for reserves; if the multiplier is dead (banks hoard) broad money needn't rise.</li>
+          <li><b>Higher target (4%)</b> lifts avg nominal rates ⟹ more room to cut when r* is low.</li>
+        </ul>
+      </div>
+      <div class="trap"><b>Trap:</b> base↑ ⟹ supply↑ ⟹ inflation (multiplier can be dead). ZLB floors the <i>nominal</i> rate, not the real rate: i≈0, π&gt;0 ⟹ r=−π&lt;0.</div>
+    </div>
+
+    <div class="card">
+      <h3 class="t">L10 · Managing high inflation <span class="freq">L10</span></h3>
+      <div class="trig">▸ <b>Framework:</b> credibility &amp; the nominal anchor. Disinflation can be near-costless if expectations are anchored.</div>
+      <div class="fw"><b>Nominal anchor &amp; credibility:</b> long-run neutrality — the <i>level</i> of money/prices/initial FX is arbitrary; only the <i>path</i> (growth rate = inflation) is real. An anchor is a <b>commitment</b> (inflation target), not a quantity cap. Time inconsistency: pre-commitment beats discretion.</div>
+      <div class="trap"><b>Trap:</b> "fixed supply (Bitcoin/gold) ⟹ price stability" — an anchor is a commitment, not a cap.</div>
+    </div>
+
+    <div class="card big">
+      <h3 class="t">L11 · Fiscal policy &amp; debt sustainability <span class="freq">L11 · 12× · the one calc</span></h3>
+      <div class="trig">▸ <b>Framework:</b> the only real calculation in the course. Will Debt/GDP stay constant? what primary surplus is needed?</div>
+      <div class="lbl">Government balances</div>
+      $$\text{Primary balance}=T-G-\text{Transfers}$$
+      $$\text{Overall}=\text{Primary balance}-\text{Interest}$$
+      $$\text{Interest}=r_{nominal}\times\text{Debt}$$
+      <div class="lbl">★ Debt-stabilising primary surplus</div>
+      $$\boxed{\ \frac{\text{Req. primary surplus}}{\text{GDP}}=(r-g)\times\frac{\text{Debt}}{\text{GDP}}\ }$$
+      <div class="trap"><b>Trap:</b> keep r and g in the SAME terms (both nominal or both real). If g&gt;r the required surplus is <b>negative</b> — run deficits forever, ratio still falls. <b>Fiscal multiplier:</b> ΔY=ΔG/(1−mpc); automatic stabilisers cushion the cycle.</div>
+    </div>
+
+  </div>
+
+  <!-- ---------- COLUMN 4 ---------- -->
+  <div class="col">
+
+    <div class="card big">
+      <h3 class="t">L12 · Exchange rates <span class="freq">L12 · 18×+12×</span></h3>
+      <div class="trig">▸ <b>Framework:</b> LOOP/PPP anchors the long run; UIP drives the short run. Real &amp; nominal FX can move opposite ways (Balassa-Samuelson).</div>
+      <div class="lbl">Law of one price (long-run anchor)</div>
+      $$e_N=\frac{P_F}{P}\quad(\text{from }e_R=1)$$
+      <div class="lbl">Similar productivity ⟹ real rate constant (PPP)</div>
+      $$\%\Delta e_N=\pi_F-\pi_{domestic}$$
+      <div class="lbl">Short run — UIP (currencies as assets)</div>
+      $$r-r_F=\text{expected depreciation of domestic cur.}$$
+      <div class="fw" style="margin-top:3px;"><b>Balassa-Samuelson:</b> a catching-up economy has rising tradables productivity → higher inflation → real <i>appreciation</i> (the price of convergence, not lost competitiveness). So nominal can fall while real rises.</div>
+      <div class="trap"><b>Trap:</b> <i>news</i> of a hike ⟹ appreciation now; a high <i>level</i> of rates ⟹ expected depreciation later. Don't equate high rates with a strong currency.</div>
+    </div>
+
+    <div class="card">
+      <h3 class="t">L13 · State of the global economy <span class="freq">L13</span></h3>
+      <div class="trig">▸ <b>Framework:</b> apply the whole toolkit to live news — global S-I imbalances, world r*, CA ↔ capital ↔ reserves.</div>
+      <div class="lbl">CA, capital account &amp; reserves close the loop</div>
+      $$CA+KA+\Delta\text{reserves}=0\qquad CA=S-I$$
+      <div class="trap"><b>Worked (China):</b> CA surplus +$238bn AND private inflow +$287bn ⟹ CB accumulates +$472bn reserves to balance. Sign trap: a CA surplus is a capital OUTFLOW even paired with a private INflow.</div>
+    </div>
+
+    <div class="card big">
+      <h3 class="t">L14 · Review — whole course in one diagram <span class="freq">L14</span></h3>
+      <div class="trig">▸ <b>Method:</b> closed book, one two-sided A4, 2 hrs. Q1 True/False/Uncertain — verdict scores nothing, the <b>mechanism</b> is the grade. Q2–Q6 short applications on a news snippet.</div>
+      <div class="fw" style="background:#eaf1f8;border-left-color:var(--blue);"><b>Mechanism chains to have automatic:</b>
+        <ul>
+          <li>Surprise hike → r&gt;r<sub>F</sub> → inflow → <b>appreciates now</b>.</li>
+          <li>Monetary easing (float) → r↓ → deprec. → NX↑ → <b>GDP↑</b>.</li>
+          <li>Fiscal ↑G (float) → r↑ → appr. → NX↓ → <b>crowded out</b>.</li>
+          <li>Fiscal ↑G (peg) → CB prints to hold peg → <b>GDP↑ amplified</b>.</li>
+          <li>CB buys FX → issues own cur. → base↑ → <b>liquidity↑, rates↓</b>.</li>
+          <li>Credible disinflation → exp. inflation↓ → long yields↓ → <b>curve inverts/flattens</b>.</li>
+          <li>Higher r (downgrade) → (r−g) widens → <b>bigger surplus needed</b>.</li>
+        </ul>
+      </div>
+      <div class="trap"><b>Each question has one precise intended insight</b> — find it, don't brain-dump. Past papers are an exact guide. The most complex sum is "5 − 3".</div>
+    </div>
+
+    <div class="card big">
+      <h3 class="t">★ Key-equation cheat row <span class="freq">all in one</span></h3>
+      <div style="font-size:8.6px;line-height:1.5;">
+        \(\text{GDP}=C+I+G+NX\) · \(S=I+CA\) · \(CA+KA+\Delta\text{res}=0\)<br>
+        \(r=i-\pi\) · \(e_R=\dfrac{e_N P}{P_F}\) · \(\%\Delta e_N=\pi_F-\pi_d\)<br>
+        \(\text{Base}=C+R\) · \(\text{Supply}=C+D\) · \(m=\dfrac{C/D+1}{C/D+R/D}\)<br>
+        \(\dfrac{M}{P}=L(Y,i)\) · IS-LM-FX: \(r=r_F\) · UIP: \(r-r_F=\) exp. deprec.<br>
+        Taylor: \(i=r^*+\pi+0.5(\pi-\pi^*)+0.5\,\text{gap}\)<br>
+        Debt: \(\dfrac{\text{surplus}}{\text{GDP}}=(r-g)\dfrac{\text{Debt}}{\text{GDP}}\) · \(R=r+RP,\ RP=\tfrac{E}{P}-r\)<br>
+        \(\dfrac{Y}{N}=\dfrac{Y}{H}\cdot\dfrac{H}{N}\) · Nom. growth = real growth + \(\pi\)
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

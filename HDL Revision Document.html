@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>HDL &middot; Hands-on Deep Learning</title>
+<script>
+  MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']] }, svg: { fontCache: 'local' } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+<style>
+  :root{
+    --green:#00643C; --green-light:#2e7d32; --blue:#1f5fa8; --red:#b03030;
+    --ink:#1a1a1a; --soft:#555; --line:#d8d8d8; --bg:#fbfbf9; --card:#ffffff;
+    --amber:#a8740a; --amber-bg:#fdf6e9;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:16.5px; line-height:1.62;
+  }
+  .wrap{display:flex; max-width:1500px; margin:0 auto;}
+  nav.toc{
+    width:268px; flex:0 0 268px; position:sticky; top:0; height:100vh; overflow-y:auto;
+    background:#0e2a20; color:#dfeee7; padding:22px 16px 60px; font-size:13.5px;
+  }
+  nav.toc h2{color:#fff; font-size:14px; letter-spacing:.06em; text-transform:uppercase; margin:18px 0 8px; opacity:.65;}
+  nav.toc a{display:block; color:#cfe3da; text-decoration:none; padding:3px 8px; border-radius:5px; margin:1px 0;}
+  nav.toc a:hover{background:#1c4636; color:#fff;}
+  nav.toc a.part{font-weight:700; color:#8fd6b4; margin-top:6px;}
+  nav.toc .brand{font-weight:800; color:#fff; font-size:16px; line-height:1.3; margin-bottom:4px;}
+  nav.toc .brand span{font-weight:400; font-size:12.5px; color:#8fd6b4; display:block;}
+  .modetoggle{display:flex; gap:6px; margin:12px 0 18px;}
+  .modetoggle .mode{flex:1; text-align:center; padding:8px 6px; border-radius:7px; font-size:13px; font-weight:700; text-decoration:none; border:1px solid #2f5e4c; color:#cfe3da; background:transparent;}
+  .modetoggle .mode:hover{background:#1c4636; color:#fff;}
+  .modetoggle .mode.active{background:#00643C; color:#fff; border-color:#00643C;}
+  main{flex:1 1 auto; padding:46px 56px 140px; max-width:1000px;}
+  h1{font-size:30px; color:var(--green); margin:0 0 6px; line-height:1.18;}
+  h2.part{font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--amber); margin:54px 0 2px; font-weight:700;}
+  h2{font-size:25px; color:var(--green); border-bottom:2px solid var(--green); padding-bottom:6px; margin:42px 0 14px; scroll-margin-top:14px;}
+  h3{font-size:19px; color:#13392b; margin:26px 0 8px;}
+  h4{font-size:16px; color:var(--blue); margin:18px 0 4px; text-transform:uppercase; letter-spacing:.04em;}
+  p{margin:8px 0;}
+  ul,ol{margin:8px 0 8px; padding-left:22px;}
+  li{margin:4px 0;}
+  strong{color:#08251a;}
+  code{background:#eef2ef; padding:1px 5px; border-radius:4px; font-size:13.5px;}
+  a.up{color:var(--blue); text-decoration:none;}
+  .eq{background:#f0f6f2; border:1px solid #cfe2d6; border-left:4px solid var(--green); border-radius:8px; padding:12px 18px; margin:14px 0; overflow-x:auto;}
+  .eq .lbl{font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--green); font-weight:700; margin-bottom:2px;}
+  ol.deriv{counter-reset:step; list-style:none; padding-left:0;}
+  ol.deriv li{background:#fff; border:1px solid var(--line); border-radius:8px; padding:8px 14px 8px 40px; margin:8px 0; position:relative;}
+  ol.deriv li:before{counter-increment:step; content:counter(step); position:absolute; left:12px; top:8px; width:20px; height:20px; background:var(--green); color:#fff; border-radius:50%; text-align:center; font-size:12px; font-weight:700; line-height:20px;}
+  ol.deriv li.result{border-color:var(--green); border-left:4px solid var(--green); background:#f0f6f2;}
+  ol.deriv .note{display:block; font-size:12.5px; color:var(--soft); margin-top:3px;}
+  .key{background:#fff; border:1px solid var(--line); border-radius:10px; padding:14px 20px; margin:16px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  .exam{background:var(--amber-bg); border:1px solid #ecd9ad; border-left:4px solid var(--amber); border-radius:8px; padding:10px 18px; margin:16px 0;}
+  .exam b{color:var(--amber);}
+  .chain{background:#eaf1f8; border:1px solid #c2d6ea; border-left:4px solid var(--blue); border-radius:8px; padding:10px 18px; margin:14px 0; font-size:15px;}
+  .chain .arrow{color:var(--blue); font-weight:700;}
+  .pitfall{background:#fbeeee; border:1px solid #ecc9c9; border-left:4px solid var(--red); border-radius:8px; padding:10px 18px; margin:14px 0;}
+  .pitfall b{color:var(--red);}
+  .twocol{display:flex; gap:22px; flex-wrap:wrap;}
+  .twocol > div{flex:1 1 300px;}
+  figure{margin:20px 0; text-align:center;}
+  figure > svg{max-width:100%; height:auto; background:#fff; border:1px solid var(--line); border-radius:10px; padding:8px;}
+  mjx-container svg, figcaption mjx-container svg, .eq mjx-container svg{max-width:none !important; height:auto !important; border:none !important; padding:0 !important; background:none !important; border-radius:0 !important;}
+  figcaption{font-size:13.5px; color:var(--soft); margin-top:7px; font-style:italic;}
+  table.dt{border-collapse:collapse; width:100%; margin:16px 0; font-size:14.5px;}
+  table.dt th{background:var(--green); color:#fff; text-align:left; padding:8px 11px; font-weight:600;}
+  table.dt td{border:1px solid var(--line); padding:7px 11px; vertical-align:top;}
+  table.dt tr:nth-child(even) td{background:#f6f8f6;}
+  .tacct{border-collapse:collapse; margin:10px auto; font-size:14px; min-width:330px;}
+  .tacct caption{font-weight:700; color:#13392b; padding-bottom:5px;}
+  .tacct th{background:#13392b; color:#fff; padding:5px 14px; font-weight:600;}
+  .tacct td{border:1px solid #b9b9b9; padding:5px 14px;}
+  .tacct td.a{background:#eef6f1;} .tacct td.l{background:#eef2f8;}
+  svg text{font-family:-apple-system,Helvetica,Arial,sans-serif;}
+  .axis{stroke:#333; stroke-width:1.6; fill:none;}
+  .grid{stroke:#e3e3e3; stroke-width:1;}
+  .dash{stroke-dasharray:5 4;}
+  .lbl{font-size:13px; font-weight:600;}
+  .sm{font-size:11.5px; fill:#555;}
+  .dot{fill:#13392b;}
+  .footer{margin-top:60px; padding-top:18px; border-top:1px solid var(--line); font-size:13px; color:var(--soft);}
+  .pill{display:inline-block; background:var(--green); color:#fff; font-size:11px; padding:2px 9px; border-radius:20px; letter-spacing:.04em; vertical-align:middle;}
+  .eyeball{background:#fdeaf4; border:2px dashed #c0398a; border-radius:8px; padding:8px 14px; margin:12px 0; font-size:14px; color:#8a1f5f;}
+  .eyeball .star{font-size:17px; margin-right:4px;}
+  .eyeball b{color:#8a1f5f;}
+  .intuition{background:#edf6f7; border:1px solid #b6d7dc; border-left:4px solid #1f7e8c; border-radius:8px; padding:10px 16px; margin:14px 0; font-size:15px;}
+  .intuition .tag{display:inline-block; font-size:11px; font-weight:700; letter-spacing:.04em; color:#1f7e8c; text-transform:uppercase; margin-right:6px;}
+  .intuition b{color:#0d4d57;}
+  .izzy{background:#f5f0fb; border:1px solid #d3c1ec; border-left:4px solid #7b4bbd; border-radius:8px; padding:12px 18px; margin:16px 0; font-size:15px;}
+  .izzy .tag{display:inline-block; font-size:11px; font-weight:700; letter-spacing:.04em; color:#7b4bbd; text-transform:uppercase; margin-bottom:6px;}
+  .izzy b{color:#5a2d96;}
+  .izzy table.dt{margin:8px 0;}
+  .read{margin:10px 0; padding:9px 15px; border-left:3px solid var(--green); background:#f8f8f5; border-radius:6px; font-size:14.5px;}
+  .read .meta{font-size:12px; color:var(--soft); margin-left:6px;}
+  .rtag{display:inline-block; font-size:10.5px; font-weight:700; letter-spacing:.03em; text-transform:uppercase; padding:1px 7px; border-radius:20px; vertical-align:middle; margin-left:4px;}
+  .rtag.man{background:#fbe4e4; color:#a32020;}
+  .rtag.prof{background:#e3eefb; color:#1a4e8a;}
+  .rtag.core{background:#e7f3ec; color:#13643c;}
+  .wex{background:#fff; border:1px dashed #9cc; border-radius:8px; padding:9px 15px; margin:12px 0; font-size:14.5px;}
+  .wex .h{font-weight:700; color:var(--blue); font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; display:block; margin-bottom:3px;}
+  @media print{ nav.toc{display:none;} main{padding:0; max-width:100%;} body{font-size:11pt;} h2{page-break-after:avoid;} figure,.eq,.key,.exam,ol.deriv,.wex{page-break-inside:avoid;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="toc">
+  <a href="index.html" style="color:#9fd3ba; font-size:12px; letter-spacing:.04em; margin-bottom:12px;">&larr; All courses</a>
+  <div class="brand">HDL <span>Hands-on Deep Learning &middot; Prof. Florin Ciocan</span></div>
+  <a href="#how">How to use this</a>
+  <a href="#exam">How it's assessed</a>
+  <a href="#sheet">&starf; Master frameworks &amp; formulas</a>
+  <h2>Sessions</h2>
+  <a href="#l01" class="part">1 &middot; Neural Networks &amp; Deep Learning</a>
+  <a href="#l03" class="part">3 &middot; Deep Learning for Vision</a>
+  <a href="#l05" class="part">5 &middot; Deep Learning for Text (NLP)</a>
+  <a href="#l07" class="part">7 &middot; Generative AI</a>
+  <h2>Reference</h2>
+  <a href="#gallery">Framework &amp; architecture gallery</a>
+  <a href="#glossary">Glossary &amp; myths</a>
+  <a href="#synthesis">The course in one diagram</a>
+  <a href="#readings">Key readings &amp; materials</a>
+</nav>
+<main>
+<h1>Hands-on Deep Learning</h1>
+<p style="font-size:18px;color:var(--soft);margin-top:0;">Course knowledge page · built from the Session 1–7 lecture slides + transcripts</p>
+
+<div class="key" id="how">
+<h3 style="margin-top:4px;">How to use this</h3>
+<ul>
+<li><b>What it is:</b> the whole of Prof. Florin Ciocan's <i>Hands-on Deep Learning</i> elective on one page, built only from the lecture slide decks and the in-class recordings (never the summary notes).</li>
+<li><b>Reading order:</b> the four sessions run as one ladder, single neuron → multi-layer network → CNNs for vision → embeddings and transformers for text → LLMs and generative AI. Each is the same core idea (learn weights by gradient descent to cut a loss); read top to bottom.</li>
+<li><b>Each session has:</b> a plain-language <span class="tag" style="color:#1f7e8c">intuition</span> hook before every hard idea, then the formula or architecture, a redrawn diagram, a worked example, and one amber <b style="color:var(--amber)">exam / assessment lens</b>.</li>
+<li><b>★ flags:</b> a pink dashed box is a spot Claude was not fully sure of (a metric definition, a kernel size, a slide that extracted as an image). Search the page for <b>★</b> and sanity-check those against the deck before relying on them.</li>
+<li><b>The shortcut:</b> the <a href="#sheet" class="up">Master frameworks &amp; formulas sheet</a> below collects every equation and architecture in one place as a revision spine.</li>
+</ul>
+</div>
+
+<h2 id="exam">How it's assessed (there is no written exam)</h2>
+<p>This is a hands-on elective, not an examinable core course. Ciocan said in class there is no final written paper; the grade comes from the practical work and a final individual project.</p>
+<table class="dt">
+<tr><th>Component</th><th>What it is</th><th>What earns marks</th></tr>
+<tr><td><b>In-class Colab notebooks</b></td><td>The TensorFlow Playground, Fashion-MNIST CNN, BERTopic / NLP, and Qwen LLM exercises run live in each session.</td><td>Getting the pipeline to run and reading what it tells you, not deriving the maths by hand.</td></tr>
+<tr><td><b>Participation</b></td><td>The break-out exercises (the "To Catch a Thief" insurance-fraud case in S1–2).</td><td>Business judgement: framing the problem before reaching for a model.</td></tr>
+<tr><td><b>Final individual assignment</b></td><td>Apply a deep-learning method to a business use-case. <b>Due 25 June.</b></td><td>A sound choice of method (prompting / RAG / fine-tuning / transfer learning) for the problem, and an honest read of its limits.</td></tr>
+</table>
+<div class="exam"><b>Assessment lens.</b> Across all four sessions Ciocan rewards the same instinct: <b>start with the business problem, not with the AI</b>. The recurring trap he flags is optimising a model on a convenient proxy metric (a "hit rate") that is not the thing the business actually cares about. Be able to name, for any tool, <i>when you would and would not use it</i> and <i>what could go wrong in deployment</i>.</div>
+<div class="intuition"><span class="tag">🎙 In class</span>The framing he keeps returning to: deep learning is "machine learning where the machine also learns the representation" (the features), so the human's job moves up a level, to choosing the architecture and, above all, defining the right problem and the right metric.</div>
+
+<h2 id="sheet">&starf; Master frameworks &amp; formulas sheet</h2>
+<p style="color:var(--soft);">Every formula and architecture in one place. Symbols are glossed once here and reused across the sessions.</p>
+
+<h4>Notation key</h4>
+<table class="dt">
+<tr><th>Symbol</th><th>Meaning</th><th>First seen</th></tr>
+<tr><td>\(x\)</td><td>Input features (a number, a pixel grid, or a token)</td><td>S1</td></tr>
+<tr><td>\(y,\ \hat{y}\)</td><td>True label; model's prediction</td><td>S1</td></tr>
+<tr><td>\(w,\ b\)</td><td>Weights and biases, the parameters the machine learns</td><td>S1</td></tr>
+<tr><td>\(\beta\)</td><td>Logistic-regression coefficients (the slides' notation for the linear weights)</td><td>S1</td></tr>
+<tr><td>\(z\)</td><td>Pre-activation linear score, \(z=\beta_0+\beta_1x_1+\cdots\)</td><td>S1</td></tr>
+<tr><td>\(\sigma\)</td><td>Sigmoid activation</td><td>S1</td></tr>
+<tr><td>ReLU</td><td>Rectified linear unit, the default hidden-layer activation</td><td>S1</td></tr>
+<tr><td>\(L\)</td><td>Loss, the number training drives down</td><td>S1</td></tr>
+<tr><td>\(\eta\)</td><td>Learning rate, the size of each gradient-descent step</td><td>S1</td></tr>
+<tr><td>\(V\)</td><td>Vocabulary size (text)</td><td>S5</td></tr>
+<tr><td>\(d\)</td><td>Embedding dimension (text)</td><td>S5</td></tr>
+</table>
+
+<h4>Activations &amp; the single neuron <span style="font-weight:400;font-size:12px;color:var(--soft)">(S1–4)</span></h4>
+<div class="eq"><div class="lbl">Linear score (pre-activation)</div>$$ z = \beta_0 + \beta_1 x_1 + \cdots + \beta_n x_n $$</div>
+<div class="eq"><div class="lbl">Sigmoid: squashes any score to a probability in (0,1)</div>$$ \sigma(z) = \frac{1}{1 + e^{-z}} $$</div>
+<div class="eq"><div class="lbl">ReLU: the workhorse hidden-layer activation</div>$$ f(x) = \max(x,\,0) $$</div>
+<div class="eq"><div class="lbl">Softmax: turns \(n\) scores into \(n\) probabilities (multi-class output)</div>$$ \text{softmax}(x)_i = \frac{e^{x_i}}{\sum_{j} e^{x_j}} $$</div>
+
+<h4>What "training" minimises <span style="font-weight:400;font-size:12px;color:var(--soft)">(S1–2)</span></h4>
+<div class="eq"><div class="lbl">Loss, regression (mean squared error)</div>$$ L = \frac{1}{n}\sum_{i}\left(y_i - \hat{y}_i\right)^2 $$</div>
+<div class="eq"><div class="lbl">Loss, binary classification (binary cross-entropy)</div>$$ L = -\frac{1}{n}\sum_{i}\Big[\,y_i\log\hat{y}_i + (1-y_i)\log(1-\hat{y}_i)\,\Big] $$</div>
+<div class="chain"><b>The training loop:</b> forward pass (compute \(\hat{y}\)) <span class="arrow">⟹</span> measure loss \(L\) <span class="arrow">⟹</span> backpropagation (find the gradient of \(L\) w.r.t. every \(w\)) <span class="arrow">⟹</span> gradient-descent step (nudge each \(w\) downhill by \(\eta\)) <span class="arrow">⟹</span> repeat. <b>Underfit</b> = too simple to learn the pattern; <b>overfit</b> = memorised the training noise; the gap on held-out data is what you watch.</div>
+
+<h4>Text as numbers <span style="font-weight:400;font-size:12px;color:var(--soft)">(S5–7)</span></h4>
+<div class="eq"><div class="lbl">One-hot vector: length = vocabulary size \(V\) (sparse, no meaning)</div>$$ \dim(\text{one-hot}) = V $$</div>
+<div class="eq"><div class="lbl">Embedding: a dense learned vector where geometry carries meaning</div>$$ \text{king} - \text{man} + \text{woman} \;\approx\; \text{queen} $$</div>
+<div class="eq"><div class="lbl">Attention: weight each token by softmax over relatedness (dot products)</div>$$ \alpha = \text{softmax}\!\left(\text{query} \cdot \text{key}\right) $$</div>
+<div class="key"><b>Architecture ladder, one idea per family.</b>
+<ul>
+<li><b>MLP (dense net):</b> stacked neurons, every input connected to every neuron. Good for tabular data, explodes on images.</li>
+<li><b>CNN (vision):</b> filters that slide over the image (parameter sharing + spatial locality), then pooling. Detects edges → shapes → objects.</li>
+<li><b>Embeddings + Transformers (text):</b> words become vectors; self-attention lets each token weigh the others, so meaning is contextual.</li>
+<li><b>LLM (generative AI):</b> a very large transformer trained to predict the next token, adapted by prompting / RAG / fine-tuning / transfer learning.</li>
+</ul></div>
+
+<h2 class="part">The sessions</h2>
+<h2 id="l01">1 &middot; Introduction to Neural Networks &amp; Deep Learning</h2>
+
+<p>This pair of sessions lays the whole foundation: what deep learning actually is, why it suddenly works, and the single building block (the neuron) that everything later in the course is made of. Get the mental model here (logistic regression drawn as one neuron, then stacked into layers, then trained by minimising a loss) and vision, language, and LLMs in later sessions are just bigger versions of the same picture. The "To Catch a Thief" insurance-fraud case is the applied deep-dive: it stress-tests the naive idea that a more accurate model is always the better one.</p>
+
+<div class="intuition"><span class="tag">Intuition: what deep learning IS</span>
+Ciocan refuses to define deep learning by an algorithm or by hardware. He defines it by the <b>data</b>. Structured data fits in a table (clean columns a human already organised). Unstructured data is everything else: text, images, audio, video. Deep learning is the kind of machine learning that eats <i>unstructured</i> data and extracts useful <b>representations</b> from it, the way your brain learns to see or talk without ever reading a spreadsheet.</div>
+
+<h4>THE THREE-RING PICTURE: AI &supe; ML &supe; DL</h4>
+
+<table class="dt">
+<thead><tr><th>Era / ring</th><th>Window</th><th>Core idea</th><th>Who does the learning</th><th>Why it fell short / won</th></tr></thead>
+<tbody>
+<tr><td><b>Artificial Intelligence</b> (rule-based)</td><td>1950s&ndash;90s</td><td>A human hard-codes if-then rules; the machine just follows them (e.g. chess heuristics: a queen is worth more than a pawn).</td><td>The <b>human</b> learns, then transcribes rules.</td><td>No generalisability: change the game and the rules are worthless. Hopeless on unstructured data.</td></tr>
+<tr><td><b>Machine Learning</b></td><td>1990s&ndash;2010s</td><td>Skip the rules. Show the machine labelled examples and let it learn the statistical pattern that maps input &rarr; output.</td><td>The <b>machine</b> learns the rule from data.</td><td>Works, but the useful features still often have to be hand-engineered by a human.</td></tr>
+<tr><td><b>Deep Learning</b></td><td>2010s&ndash;now</td><td>A neural network with many hidden layers automatically learns <i>its own</i> representations of raw, unstructured input.</td><td>The <b>machine</b> learns the features <i>and</i> the rule.</td><td>Won once two things arrived together: huge labelled datasets (digital images, the internet) and GPU compute.</td></tr>
+</tbody>
+</table>
+
+<div class="intuition"><span class="tag">🎙 In class</span>
+"In a way, what we're going to be seeing here is something that's kind of glorified linear regression. Although there's NVIDIA, all the memory stocks, today worth trillions and trillions of dollars from running linear regression. So in a way, it is that."</div>
+
+<div class="key"><b>What "learns representations" means (the cat-vs-dog example).</b>
+<ul>
+<li><b>The problem:</b> a computer never sees "pointy ears", it sees a matrix of pixel numbers (16&times;16 grayscale = 256 features; RGB &times;3).</li>
+<li><b>The trick:</b> the network does not jump straight from pixels to "cat". It first <i>transforms</i> the pixels into intermediate concepts (edges &rarr; petals/circles &rarr; wheels, eyes, feathers), layer by layer.</li>
+<li><b>The tell:</b> early layers group by colour and simple geometry; deeper layers assemble those into physical parts. "Somehow we know more than we can actually say", deep learning extracts the representation the human cannot articulate.</li>
+</ul></div>
+
+<h3>The neuron: logistic regression, drawn as a network</h3>
+
+<p>Everything starts from one supervised-learning setup. The <i>i</i>-th data point is a <b>feature vector</b> \(x = [x_1,\dots,x_n]\) (the inputs, also called features) paired with a true <b>label</b> \(y\). The model produces a prediction \(\hat{y}\). The running example: features \(x = [\text{GPA},\ \text{experience}]\), and we want \(P[y=1]\), the probability a candidate gets an interview. This is <b>binary classification</b>: predict the probability, then call \(y=1\) if it exceeds 0.5.</p>
+
+<div class="intuition"><span class="tag">Intuition: why not plain linear regression</span>
+Linear regression gives you any real number, but a probability must live between 0 and 1. So we take the familiar linear score and squash it through an S-shaped function that maps any real number into (0, 1). That squashing function is the sigmoid; the whole thing is logistic regression, "the natural counterpart of linear regression for binary outcomes".</div>
+
+<div class="eq"><div class="lbl">The linear score (pre-activation) z</div>
+$$ z \;=\; \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_n x_n $$</div>
+
+<div class="eq"><div class="lbl">Logistic regression = sigmoid of the score</div>
+$$ P[\,y=1\,] \;=\; \sigma(z) \;=\; \frac{1}{1 + e^{-(\beta_0 + \beta_1 x_1 + \dots + \beta_n x_n)}} $$</div>
+
+<p>Here \(\beta_0\) is the intercept (also called the <b>bias</b>), \(\beta_1,\dots,\beta_n\) are the coefficients (the edge <b>weights</b>), \(\sigma\) is the sigmoid, and \(e\) is the usual exponential. After training on a dataset, the slides give fitted coefficients \(\beta_0=0.4,\ \beta_1=0.2\ (\text{GPA}),\ \beta_2=0.5\ (\text{experience})\):</p>
+
+<div class="eq"><div class="lbl">The trained interview model</div>
+$$ P[\,y=1\,] \;=\; \frac{1}{1 + e^{-(0.4 \,+\, 0.2\,\text{GPA} \,+\, 0.5\,\text{Experience})}} $$</div>
+
+<figure>
+<svg viewBox="0 0 420 200" width="420" height="200" font-family="system-ui,sans-serif" font-size="12">
+  <!-- input nodes -->
+  <circle cx="60" cy="60" r="22" fill="#e8f3ec" stroke="#00643C" stroke-width="1.5"/>
+  <text x="60" y="58" text-anchor="middle">GPA</text>
+  <text x="60" y="72" text-anchor="middle">3.8</text>
+  <circle cx="60" cy="140" r="22" fill="#e8f3ec" stroke="#00643C" stroke-width="1.5"/>
+  <text x="60" y="138" text-anchor="middle">Exp.</text>
+  <text x="60" y="152" text-anchor="middle">1.2</text>
+  <!-- output node -->
+  <circle cx="300" cy="100" r="28" fill="#fff" stroke="#00643C" stroke-width="2"/>
+  <text x="300" y="96" text-anchor="middle">&Sigma; &rarr; &sigma;</text>
+  <text x="300" y="112" text-anchor="middle" font-size="11">+0.4</text>
+  <!-- edges -->
+  <line x1="82" y1="60" x2="272" y2="92" stroke="#00643C" stroke-width="1.5"/>
+  <line x1="82" y1="140" x2="272" y2="108" stroke="#00643C" stroke-width="1.5"/>
+  <text x="170" y="60" text-anchor="middle" fill="#0a7d4a">w=0.2</text>
+  <text x="170" y="150" text-anchor="middle" fill="#0a7d4a">w=0.5</text>
+  <!-- output arrow -->
+  <line x1="328" y1="100" x2="395" y2="100" stroke="#444" stroke-width="1.5"/>
+  <polygon points="395,100 386,95 386,105" fill="#444"/>
+  <text x="362" y="92" text-anchor="middle">P[y=1]</text>
+  <text x="362" y="118" text-anchor="middle" font-size="11">= 0.85</text>
+</svg>
+<figcaption>A single neuron = logistic regression. Each edge carries a weight; the node sums the weighted inputs plus the bias (0.4), then applies the sigmoid activation. One weight per edge, one bias per node.</figcaption>
+</figure>
+
+<div class="wex"><div class="h">Worked example, forward pass for x = [3.8, 1.2]</div>
+<ol class="deriv">
+<li>Weight each feature: \(0.2 \times 3.8 = 0.76\) and \(0.5 \times 1.2 = 0.60\). <span class="note">multiply each input by its edge weight</span></li>
+<li>Sum with the bias: \(z = 0.76 + 0.60 + 0.40 = 1.76\). <span class="note">the node adds everything it receives, including the intercept</span></li>
+<li class="result">Apply the sigmoid: \(\sigma(1.76) = \dfrac{1}{1+e^{-1.76}} \approx 0.85\). Since \(0.85 > 0.5\), predict \(\hat{y}=1\) (interview). <span class="note">squash the score into a probability, then threshold at 0.5</span></li>
+</ol></div>
+
+<h3>Stacking neurons: hidden layers and the MLP</h3>
+
+<div class="intuition"><span class="tag">Intuition: why one neuron is not enough</span>
+Drawing logistic regression as a neuron is "an exceedingly complicated way of talking about logistic regression". The payoff comes when you insert layers <i>between</i> input and output. Those hidden layers do the thinking: they fold and transform the raw data hop by hop, building up complex representations before the final prediction. Many hidden layers is literally the "deep" in deep learning.</div>
+
+<figure>
+<svg viewBox="0 0 460 230" width="460" height="230" font-family="system-ui,sans-serif" font-size="11">
+  <g fill="#e8f3ec" stroke="#00643C" stroke-width="1.3">
+    <circle cx="50" cy="70" r="15"/><circle cx="50" cy="160" r="15"/>
+    <circle cx="180" cy="40" r="15"/><circle cx="180" cy="90" r="15"/><circle cx="180" cy="140" r="15"/><circle cx="180" cy="190" r="15"/>
+    <circle cx="310" cy="70" r="15"/><circle cx="310" cy="120" r="15"/><circle cx="310" cy="170" r="15"/>
+  </g>
+  <circle cx="420" cy="120" r="17" fill="#fff" stroke="#00643C" stroke-width="2"/>
+  <!-- edges layer 1->2 -->
+  <g stroke="#bcd9c8" stroke-width="1">
+    <line x1="65" y1="70" x2="165" y2="40"/><line x1="65" y1="70" x2="165" y2="90"/><line x1="65" y1="70" x2="165" y2="140"/><line x1="65" y1="70" x2="165" y2="190"/>
+    <line x1="65" y1="160" x2="165" y2="40"/><line x1="65" y1="160" x2="165" y2="90"/><line x1="65" y1="160" x2="165" y2="140"/><line x1="65" y1="160" x2="165" y2="190"/>
+    <line x1="195" y1="40" x2="295" y2="70"/><line x1="195" y1="40" x2="295" y2="120"/><line x1="195" y1="40" x2="295" y2="170"/>
+    <line x1="195" y1="90" x2="295" y2="70"/><line x1="195" y1="90" x2="295" y2="120"/><line x1="195" y1="90" x2="295" y2="170"/>
+    <line x1="195" y1="140" x2="295" y2="70"/><line x1="195" y1="140" x2="295" y2="120"/><line x1="195" y1="140" x2="295" y2="170"/>
+    <line x1="195" y1="190" x2="295" y2="70"/><line x1="195" y1="190" x2="295" y2="120"/><line x1="195" y1="190" x2="295" y2="170"/>
+    <line x1="325" y1="70" x2="403" y2="120"/><line x1="325" y1="120" x2="403" y2="120"/><line x1="325" y1="170" x2="403" y2="120"/>
+  </g>
+  <text x="50" y="205" text-anchor="middle" fill="#555">Input</text>
+  <text x="180" y="218" text-anchor="middle" fill="#555">Hidden layers (f = activation)</text>
+  <text x="420" y="155" text-anchor="middle" fill="#555">Output</text>
+</svg>
+<figcaption>A multi-layer network (MLP): input layer (its width is fixed = number of features), one or more hidden layers carrying activation functions f, and an output layer. Deep learning is just this with "lots and lots of hidden layers".</figcaption>
+</figure>
+
+<div class="key"><b>What the human chooses vs what the machine learns.</b>
+<ul>
+<li><b>Human sets the architecture:</b> how many hidden layers, how many nodes per layer, which activation function in each (the "topology").</li>
+<li><b>Machine learns the weights:</b> training fits the billions of \(\beta\)'s. "Just tell all of them to be random" to start; the algorithm finds what they ought to be.</li>
+<li><b>Input width is forced:</b> the input layer must have one node per feature (2 features &rarr; 2 input nodes; a 16&times;16 image &rarr; 256).</li>
+<li><b>Parameters per layer:</b> one weight per edge, plus one bias per node. A network with edges only between an \(n\)-input and 1 output has \(n+1\) parameters.</li>
+</ul></div>
+
+<h4>ACTIVATION FUNCTIONS (the f in each node)</h4>
+
+<div class="intuition"><span class="tag">Intuition: what an activation does</span>
+A node sums its weighted inputs, then runs that sum through a function f. That function is the node's "thinking power": without it, stacking layers would just collapse back into one big linear regression. You do not have to be clever here; combinations of sigmoid and ReLU "carry you most of the way".</div>
+
+<table class="dt">
+<thead><tr><th>Function</th><th>Formula</th><th>Shape / what it does</th><th>Where to use it</th></tr></thead>
+<tbody>
+<tr><td><b>Sigmoid</b> (\(\sigma\))</td><td>\(f(x)=\dfrac{1}{1+e^{-x}}\)</td><td>S-curve squashing any real number into (0, 1).</td><td>Output node for a single probability (binary classification).</td></tr>
+<tr><td><b>ReLU</b> (rectified linear unit)</td><td>\(f(x)=\max(x,0)\)</td><td>Pass positives through unchanged, clip negatives to 0.</td><td>The default workhorse for hidden layers.</td></tr>
+<tr><td><b>Linear</b></td><td>\(f(x)=x\)</td><td>No transformation; keep the sum as is.</td><td>Output node for a real-number regression.</td></tr>
+<tr><td><b>Softmax</b></td><td>generalised sigmoid</td><td>A vector of probabilities that sum to 1.</td><td>Output layer for multi-class classification (cat / dog / mouse).</td></tr>
+</tbody>
+</table>
+
+<h3>Training: what it means to "learn the weights"</h3>
+
+<div class="intuition"><span class="tag">🎙 In class</span>
+"In a way it works like glorified linear regression. How do you find the betas in regression? You find betas that roughly give you the same Ys as your true Ys. This is exactly the same kind of mechanism, but the training is much more computationally intensive and uses much more data."</div>
+
+<p>Training adjusts the weights to minimise the discrepancy between the true labels \(y\) and the network's predictions \(\hat{y}\), across the whole dataset. That discrepancy is made concrete by a <b>loss function</b> \(L\): small loss means predictions are close to truth, a perfect model has loss zero.</p>
+
+<div class="eq"><div class="lbl">Loss: regression (mean squared error)</div>
+$$ \text{MSE} \;=\; \mathbb{E}\big[(\text{true value} - \text{predicted value})^2\big] $$</div>
+
+<div class="eq"><div class="lbl">Loss: binary classification (binary cross-entropy)</div>
+$$ \text{Binary cross-entropy} \;=\; -\,\mathbb{E}\big[\log(\text{probability of observing the true value})\big] $$</div>
+
+<div class="key"><b>How the minimisation actually happens (gradient descent + backpropagation).</b>
+<ul>
+<li><b>The landscape:</b> plot the loss as a surface over the weights. Training "moves very slowly over this shape, going downwards", because down means lower loss.</li>
+<li><b>The step:</b> the <b>backpropagation</b> algorithm computes which direction is downhill; the network nudges every weight a small step that way. The step size is the <b>learning rate</b> \(\eta\).</li>
+<li><b>The catch, local minima:</b> real loss surfaces are weird, so the algorithm may settle in a good-enough valley, not the global best. Train twice and you can land on slightly different losses; "that's just an imperfection you have to deal with".</li>
+<li><b>Don't reinvent the wheel:</b> TensorFlow / Keras / PyTorch do all of this for you. The course uses Keras + TensorFlow.</li>
+</ul></div>
+
+<div class="chain">
+labelled data \(x,y\) <span class="arrow">&rArr;</span> forward pass gives \(\hat{y}\) <span class="arrow">&rArr;</span> loss \(L\) measures \(\hat{y}\) vs \(y\) <span class="arrow">&rArr;</span> backprop finds the downhill direction <span class="arrow">&rArr;</span> nudge every weight by step \(\eta\) <span class="arrow">&rArr;</span> repeat until \(L\) stops falling
+</div>
+
+<div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this:</b> the learning rate \(\eta\) is named in the course notation key but Ciocan only described the idea ("moves very slowly", "one small step at a time") and never wrote the gradient-descent update rule \(w \leftarrow w - \eta\,\partial L/\partial w\) on a slide. I have presented \(\eta\) as the step size at the intuition level only; check that's the depth you want and that no formal update equation was expected.</div>
+
+<h3>Over- and under-fitting, and the train / validation / test split</h3>
+
+<div class="intuition"><span class="tag">Intuition: overfitting</span>
+If the data has noise and you train too hard, the model drives training loss to zero by memorising every noisy point. It then looks brilliant on the data it has seen and is "completely useless" on new data. Underfitting is the opposite: too simple to capture the real pattern. You want the sweet spot in between.</div>
+
+<figure>
+<svg viewBox="0 0 380 210" width="380" height="210" font-family="system-ui,sans-serif" font-size="11">
+  <line x1="45" y1="170" x2="355" y2="170" stroke="#444" stroke-width="1.3"/>
+  <line x1="45" y1="170" x2="45" y2="25" stroke="#444" stroke-width="1.3"/>
+  <text x="200" y="195" text-anchor="middle" fill="#555">Model complexity</text>
+  <text x="18" y="100" text-anchor="middle" fill="#555" transform="rotate(-90 18 100)">Error</text>
+  <!-- training error: monotone down -->
+  <path d="M55,55 Q150,120 345,150" fill="none" stroke="#00643C" stroke-width="2"/>
+  <text x="300" y="142" fill="#00643C">training</text>
+  <!-- validation/test error: U shape -->
+  <path d="M55,60 Q160,150 200,130 Q280,95 345,45" fill="none" stroke="#c0392b" stroke-width="2"/>
+  <text x="300" y="55" fill="#c0392b">unseen data</text>
+  <!-- sweet spot -->
+  <line x1="190" y1="30" x2="190" y2="170" stroke="#888" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="190" y="22" text-anchor="middle" fill="#888">sweet spot</text>
+  <text x="95" y="40" fill="#555">underfit</text>
+  <text x="300" y="180" fill="#555">overfit &rarr;</text>
+</svg>
+<figcaption>As complexity rises, training error keeps falling, but error on unseen data is U-shaped: it falls, bottoms out at the sweet spot, then rises as the model starts memorising noise. When the two curves diverge, you are overfitting.</figcaption>
+</figure>
+
+<div class="key"><b>Train / validation / test, three buckets, not two.</b>
+<ul>
+<li><b>Training set:</b> used to fit the weights.</li>
+<li><b>Validation set:</b> watched <i>during</i> training to spot when the unseen-data loss starts diverging, so you know when to stop and how to tweak architecture.</li>
+<li><b>Test set:</b> a "sealed envelope" you never look at until the very end; it gives the one honest number you report. The reason you need both validation and test: every time you use a set to make decisions you contaminate it, so the final score must come from data that influenced nothing.</li>
+</ul></div>
+
+<div class="pitfall"><b>Trap:</b> low training error is not the same as a good model. An overfit network has near-zero training error <i>and</i> high test error. The number that matters is performance on the untouched test set, never the training loss.</div>
+
+<div class="key"><b>TensorFlow Playground takeaways (the in-class lab).</b>
+<ul>
+<li><b>Complex pattern &rarr; complex network:</b> the simple "circle" pattern (ground truth roughly \(x_1^2 + x_2^2 > c\)) is learnable with the tiny default network; the "spiral" needs more nodes and another layer.</li>
+<li><b>Overfitting regime:</b> little training data + high noise + a wide network = training loss low, test loss high. The fix you control is the <b>architecture</b> (shrink the network), not the noise (a property of the data).</li>
+<li><b>Feature engineering helps:</b> adding \(x_1^2, x_2^2\) hands a circle-classifier the right format up front.</li>
+</ul></div>
+
+<h3>Applied deep-dive: "To Catch a Thief", explainable AI in fraud detection</h3>
+
+<p><b>Setup.</b> You are a senior operations lead at Shift Technology, a Paris insurtech unicorn whose SaaS fraud engine is used by insurers like Generali and Mitsui Sumitomo. Fraud is in 10&ndash;20% of claims and costs the US alone over US$80bn a year; honest policyholders pay for it through higher premiums. You hold a backtest dataset: 10,000+ anonymised car-insurance claims (Jan 2019&ndash;Dec 2020) with around 100 known frauds, mixing structured fields (claim amount, dates, post codes, "easiness to stage") and unstructured free text (insurer notes). Every flagged claim is handed to a human Special Investigation Unit (SIU) to actually investigate.</p>
+
+<div class="key"><b>The task: which objective do you optimise?</b> The class debate is forced by two metrics that pull against each other.
+<ul>
+<li><b>Detection rate (recall):</b> of all the truly fraudulent claims, what fraction did you flag? A missed fraud is a false negative costing the insurer money.</li>
+<li><b>Hit rate (precision):</b> of all the claims you flagged, what fraction were truly fraudulent? Every false positive burns scarce SIU investigation budget.</li>
+</ul></div>
+
+<div class="eq"><div class="lbl">The two competing fraud metrics</div>
+$$ \text{Hit rate} = \frac{\#\,\text{true frauds flagged}}{\#\,\text{claims flagged}}\qquad\qquad \text{Detection rate} = \frac{\#\,\text{true frauds flagged}}{\#\,\text{true frauds}} $$</div>
+
+<table class="dt">
+<thead><tr><th>Approach</th><th>Detection rate</th><th>Hit rate</th><th>Bias control</th><th>Evolves over time</th><th>Explainability</th></tr></thead>
+<tbody>
+<tr><td><b>Alice</b>, rule-based, learned from experience</td><td>~70%</td><td>~30%</td><td>Human control</td><td>Mostly static, manual</td><td>Explainable by design</td></tr>
+<tr><td><b>Bertrand</b>, neural network on historical data</td><td>~30%</td><td>~70%</td><td>Black-box</td><td>Auto-learns and evolves</td><td>Ad-hoc, after the fact</td></tr>
+</tbody>
+</table>
+
+<div class="key"><b>The interpretability-vs-accuracy trade-off.</b>
+<ul>
+<li><b>The spectrum:</b> classification rules and linear/logistic regression sit high on interpretability, low on raw accuracy; neural networks and ensembles sit the opposite way.</li>
+<li><b>The usual move:</b> fit a complex accurate model, then bolt on an explanation afterwards ("explanation ad-hoc").</li>
+<li><b>The lesson:</b> the more "accurate" black box is not automatically the right answer; whoever has to act on the output (the SIU) may simply not use a score they cannot understand.</li>
+</ul></div>
+
+<div class="key"><b>The "false trade-off", the sharpest twist in the case.</b>
+<ul>
+<li><b>Proxy hit rate</b> = true frauds &divide; flagged claims, measured against the labels in your dataset; maximised by the complex model.</li>
+<li><b>Real hit rate</b> = cases the SIU teams <i>actually confirm and pursue</i> &divide; flagged claims; maximised by the explainable model, because the SIU will only act on alerts it trusts.</li>
+<li><b>Why it matters:</b> "what you can evaluate on data" is not "what you are evaluated on". A model that scores better in backtest can be worse in production if no human uses it. Is the deep-learning model even "right" given noisy labels?</li>
+</ul></div>
+
+<div class="chain">
+complex model: higher proxy hit rate <span class="arrow">&rArr;</span> but a black box <span class="arrow">&rArr;</span> SIU distrusts the alerts (no rationale) <span class="arrow">&rArr;</span> alerts go uninvestigated <span class="arrow">&rArr;</span> real hit rate collapses
+</div>
+
+<div class="key"><b>The lesson, Shift's "shift" of approach.</b>
+<ul>
+<li><b>Predict behaviours, not a fraud/no-fraud verdict:</b> flag specific suspicious behaviours that are <i>explainable by design</i>, co-designed with the insurer.</li>
+<li><b>Align the algorithm's logic with the strategic objective:</b> business knowledge plus data knowledge, not accuracy in isolation.</li>
+<li><b>The course slogan:</b> "Start with the problem, not with AI." Neural networks are not always the best solution; for structured data they earn their keep only with lots of data, rich features, and genuinely non-linear relationships to learn.</li>
+</ul></div>
+
+<div class="exam"><b>Exam lens.</b> This is an elective graded on participation, in-class group notebooks, and a 1&ndash;2 page final reflection on a real or potential deep-learning application; there is no formal written exam. So the testable understanding is conceptual, and the recurring tells are:
+<ul>
+<li><b>Define DL by the data, not the algorithm:</b> deep learning = machine learning that extracts representations from <i>unstructured, possibly multi-modal</i> data. Be able to place AI &supe; ML &supe; DL and say what changed at each ring.</li>
+<li><b>"Glorified linear regression":</b> be able to draw logistic regression as one neuron, name weights / bias / activation, and run a forward pass by hand (sum weighted inputs + bias, then sigmoid).</li>
+<li><b>Human vs machine division of labour:</b> human picks architecture and activations; the algorithm learns the weights. Input width = number of features.</li>
+<li><b>Overfitting is the favourite gotcha:</b> low training error &ne; good model; explain the validation/test split and that the fix you control is network size.</li>
+<li><b>The case is the punchline:</b> "Start with the problem, not with AI", the accuracy-vs-interpretability trade-off, and the proxy-vs-real hit-rate "false trade-off". Ciocan deliberately skips the maths ("happy to geek out offline"), so do not over-invest in derivations; invest in the intuition and the business judgement.</li>
+</ul></div>
+<h2 id="l03">3 &middot; Deep Learning for Vision</h2>
+
+<p>These paired sessions teach a machine to "look at images and understand them" (Ciocan's one-sentence definition), grounded in one concrete task: classify clothing in the <b>Fashion-MNIST</b> dataset. The arc runs from why an ordinary fully-connected net collapses on images, through the <b>convolution</b> operation and the <b>CNN</b> architecture that fixes it, to <b>transfer learning</b>, the "feels-like-cheating" trick that lets a tiny dataset ride a pre-trained model to near state-of-the-art. The session opens by closing the SHIFT fraud exercise, which sets up the recurring business lens: a model is only as good as the metric the business actually cares about.</p>
+
+<h3>3.0 SHIFT fraud warm-up: the metric is the whole game</h3>
+
+<div class="intuition"><span class="tag">🎙 In class</span>"You're trying to detect a very rare event: in your data the fraud rate was 1%. If I told you I can predict a pandemic with a 30% hit rate, is that impressive? Actually, that's kind of impressive." The point of the warm-up is that a deep-learning number means nothing until you ask what business decision it feeds.</div>
+
+<div class="key"><b>Two evaluation metrics for a fraud flagger (the trade-off you cannot escape).</b>
+<ul>
+<li><b>Detection rate (recall):</b> of all the truly fraudulent claims, what fraction did we flag. \( \text{Detection} = \dfrac{\text{true frauds flagged}}{\text{true frauds}} \).</li>
+<li><b>Hit rate (precision):</b> of all the claims we flagged, what fraction were truly fraudulent. \( \text{Hit} = \dfrac{\text{true frauds flagged}}{\text{claims flagged}} \).</li>
+<li><b>The lever:</b> the NN outputs a probability; you classify fraud when \( p > \text{threshold} \). Sliding the threshold is a managerial design knob: low threshold = flag freely = high detection, low hit; high threshold = flag rarely = low detection, high hit. "You can't have the best of both worlds."</li>
+</ul></div>
+
+<table class="dt">
+<tr><th>Objective</th><th>Alice (rule-based)</th><th>Bertrand (neural net)</th></tr>
+<tr><td>Detection rate</td><td>~70%</td><td>~30%</td></tr>
+<tr><td>Hit rate</td><td>~30%</td><td>~70%</td></tr>
+<tr><td>Usage / explainability</td><td>By design</td><td>Ad-hoc</td></tr>
+</table>
+<p style="font-size:13px;color:var(--soft);margin-top:-6px;">Same trade-off, opposite ends. The NN can be tuned to either column by moving the threshold; the question is which the business wants.</p>
+
+<div class="pitfall"><b>Don't optimise a proxy.</b> The 70% hit rate is a <b>proxy hit rate</b> (frauds flagged ÷ claims flagged). What the business actually pays for is the <b>real hit rate</b>: cases the human SIU (Special Investigations Unit) team actually <i>confirms</i> as fraud ÷ claims flagged. \( \text{Real hit} = \dfrac{\text{cases confirmed by SIU}}{\text{claims flagged}} \). A black-box model can win the proxy and still lose the real metric, because investigators need a <i>reason</i> to act on a lead. Maximising the proxy with a complex model can hurt the thing you care about.</div>
+
+<div class="key"><b>Why a rule-based model can beat a "more accurate" net here.</b>
+<ul>
+<li><b>Interpretability:</b> a rule starts from the <i>why</i> (short gap between policy signing and accident = fishy), so investigators get a lead. Deep learning is "a complete black box; if you ask why, the best answer it gives is 'why not?'".</li>
+<li><b>The SHIFT solution:</b> predict specific <b>suspicious behaviours</b> (a crash photo reused from an earlier claim) rather than a bare fraud/no-fraud label. "Explainable by design"; aligns the algorithm's logic with the strategic objective.</li>
+<li><b>Appropriateness:</b> the toy dataset was 2 structured features. "Deep learning on a small structured dataset is completely pointless." Reach for DL only when the data is genuinely unstructured (images, free text).</li>
+</ul></div>
+
+<div class="key"><b>Interpretability vs accuracy is a spectrum.</b>
+<ul>
+<li><b>High interpretability, lower accuracy:</b> classification rules, linear regression, decision trees.</li>
+<li><b>High accuracy, low interpretability:</b> ensembles, neural networks.</li>
+<li><b>The tell:</b> "rules-based models are by definition interpretable; deep learning is not." Choose your position on this curve from the business stakes, not from leaderboard accuracy.</li>
+</ul></div>
+
+<h3>3.1 DL recap: activation functions and the output layer</h3>
+
+<div class="intuition"><span class="tag">Intuition: what training actually changes</span>You, the human, choose the <b>architecture</b> (how many layers, how many neurons each, which activation function). The machine then only adjusts the <b>weights</b> \(w\) and <b>biases</b> \(b\) on the connections to fit the data. "Deep but not wide": a single very wide layer tends to overfit.</div>
+
+<div class="eq"><div class="lbl">Sigmoid: binary output activation</div>$$ f(x) = \frac{1}{1 + e^{-x}} $$</div>
+<p style="font-size:13px;color:var(--soft);margin-top:-6px;">Squashes any real number into \((0,1)\), so it reads as a probability. Use it in the <b>output layer when the prediction is binary</b> (fraud / no-fraud).</p>
+
+<div class="eq"><div class="lbl">ReLU: hidden-layer activation</div>$$ f(x) = \max(x,\,0) $$</div>
+<p style="font-size:13px;color:var(--soft);margin-top:-6px;">ReLU = Rectified Linear Unit; "it doesn't really mean anything." Negative in, zero out; positive in, passes through. Default activation for <b>every hidden layer</b>.</p>
+
+<div class="eq"><div class="lbl">Softmax: multi-class output activation</div>$$ \text{softmax}(x)_i = \frac{e^{x_i}}{e^{x_1} + e^{x_2} + \cdots + e^{x_n}} $$</div>
+<p style="font-size:13px;color:var(--soft);margin-top:-6px;">Takes \(n\) arbitrary numbers and converts them to \(n\) probabilities that sum to 1 ("they have to sum to 1, they're a probability distribution"). The generalisation of sigmoid: use it in the output layer for multi-class problems (cat / dog / car, or the 10 Fashion-MNIST classes). Sigmoid is just softmax with \(n=2\).</p>
+
+<div class="key"><b>Activation cheat-sheet (the rule Ciocan repeats).</b>
+<ul>
+<li><b>Hidden layers:</b> always ReLU.</li>
+<li><b>Binary output:</b> sigmoid.</li>
+<li><b>Multi-class output:</b> softmax.</li>
+</ul></div>
+
+<div class="key"><b>Train / validation / test split.</b>
+<ul>
+<li><b>Training set:</b> the data the weights actually learn from.</li>
+<li><b>Validation set:</b> watched <i>during</i> training to monitor loss \(L\) and catch overfitting (the divergence between the two loss curves).</li>
+<li><b>Test set:</b> "never look" until the end; the honest estimate of unseen-data performance.</li>
+</ul></div>
+
+<h3>3.2 Why a fully-connected net fails on images</h3>
+
+<div class="intuition"><span class="tag">Intuition: flattening destroys geometry</span>"You can't give a human a picture, flatten all the pixels into a line, and still expect them to know what it is." A grayscale image is a grid of pixel intensities (0 = black to 255 = white). The naïve approach unrolls the grid into one long vector and feeds it to a dense net, throwing away the very thing that makes an image an image: which pixels sit next to which.</div>
+
+<div class="eq"><div class="lbl">The naïve flatten: a 28×28 image</div>$$ \underbrace{28 \times 28}_{\text{matrix}} \;=\; \underbrace{784}_{\text{input vector}} $$</div>
+<p style="font-size:13px;color:var(--soft);margin-top:-6px;">Each pixel becomes its own feature \(x_1, \ldots, x_{784}\), normalised from 0–255 to \([0,1]\) so training behaves. Workable for tiny images, catastrophic for real ones.</p>
+
+<div class="key"><b>Two things break when you flatten.</b>
+<ul>
+<li><b>Dimensionality (parameter explosion):</b> a 3024×3024 colour phone photo, flattened into a single 100-neuron dense layer, generates roughly <b>1 billion</b> parameters. Computationally brutal and a recipe for overfitting.</li>
+<li><b>Locality lost:</b> two pixels that were neighbours in the grid land far apart in the flat vector, so the spatial adjacency that <i>defines</i> a feature (an edge, a corner) is gone, "and the machine can't put it back together."</li>
+</ul></div>
+
+<div class="wex"><div class="h">Why it scales so badly</div>
+A fully-connected layer connects every input to every hidden neuron, so parameters ≈ (inputs) × (hidden neurons). For 784 inputs into just 10 hidden neurons that is already 7,840 weights; for a 6-megapixel image (≈ 324×324 ≈ 105k pixels) into 100 neurons it explodes into the order of 10 million plus, and the billion-parameter figure follows once images get phone-sized. The number of parameters blows up faster than the image.</div>
+
+<div class="intuition"><span class="tag">🎙 In class</span>The fix came from biology. 1960s experiments on a cat's visual cortex found that neurons don't respond to individual pixels; small regions of cells fire for specific shapes and orientations (a horizontal vs a vertical line) in specific parts of the visual field. "Brains use geometry and locality." The lesson Ciocan draws: "tailor the structure of the network with a semantic understanding of the domain."</div>
+
+<h3>3.3 The convolution operation</h3>
+
+<div class="intuition"><span class="tag">Intuition: a filter is a feature detector that slides</span>A convolutional <b>filter</b> (kernel) is a small square matrix of numbers (e.g. 3×3) that slides across the image "like a magnifying glass," and at each position reports how strongly its pattern is present. One filter detects horizontal lines, another vertical lines, others arcs or circles: "an ensemble of specialists."</div>
+
+<div class="key"><b>Two hand-designed example filters (3×3).</b>
+<ul>
+<li><b>Horizontal-line detector:</b> rows \([1,1,1],[0,0,0],[-1,-1,-1]\) (positive top, negative bottom: fires where intensity changes top-to-bottom).</li>
+<li><b>Vertical-line detector:</b> columns \([1,0,-1]\) repeated down (the horizontal filter flipped).</li>
+</ul></div>
+
+<div class="key"><b>The convolution operation, step by step.</b>
+<ul>
+<li><b>Overlay</b> the filter on the top-left of the image.</li>
+<li><b>Dot product:</b> multiply each filter cell by the pixel it covers and sum.</li>
+<li><b>ReLU</b> the result: \(\max(x,0)\); this number is the top-left cell of the output (strictly the ReLU isn't part of the convolution, included for convenience).</li>
+<li><b>Slide</b> one step right, repeat across the row, then down to the next row, until the bottom-right. The grid of results is the <b>feature map</b> (output).</li>
+</ul></div>
+
+<figure>
+<svg viewBox="0 0 560 220" width="100%" style="max-width:560px">
+  <g stroke="#1f7a52" fill="none" stroke-width="1">
+    <!-- input grid 3x3 highlighted -->
+    <rect x="20" y="40" width="120" height="120" fill="#eaf5ef"/>
+    <line x1="60" y1="40" x2="60" y2="160"/><line x1="100" y1="40" x2="100" y2="160"/>
+    <line x1="20" y1="80" x2="140" y2="80"/><line x1="20" y1="120" x2="140" y2="120"/>
+  </g>
+  <g font-size="13" fill="#143" text-anchor="middle">
+    <text x="40" y="64">0</text><text x="80" y="64">0</text><text x="120" y="64">0</text>
+    <text x="40" y="104">5</text><text x="80" y="104">5</text><text x="120" y="104">5</text>
+    <text x="40" y="144">10</text><text x="80" y="144">10</text><text x="120" y="144">10</text>
+  </g>
+  <text x="80" y="180" font-size="12" fill="#567" text-anchor="middle">Input patch</text>
+  <text x="170" y="105" font-size="20" fill="#1f7a52" text-anchor="middle">⊛</text>
+  <g stroke="#b06a00" fill="none" stroke-width="1">
+    <rect x="200" y="40" width="120" height="120" fill="#fdf3e3"/>
+    <line x1="240" y1="40" x2="240" y2="160"/><line x1="280" y1="40" x2="280" y2="160"/>
+    <line x1="200" y1="80" x2="320" y2="80"/><line x1="200" y1="120" x2="320" y2="120"/>
+  </g>
+  <g font-size="13" fill="#7a4a00" text-anchor="middle">
+    <text x="220" y="64">1</text><text x="260" y="64">1</text><text x="300" y="64">1</text>
+    <text x="220" y="104">0</text><text x="260" y="104">0</text><text x="300" y="104">0</text>
+    <text x="220" y="144">-1</text><text x="260" y="144">-1</text><text x="300" y="144">-1</text>
+  </g>
+  <text x="260" y="180" font-size="12" fill="#b06a00" text-anchor="middle">Filter</text>
+  <text x="350" y="105" font-size="20" fill="#1f7a52" text-anchor="middle">=</text>
+  <rect x="390" y="80" width="40" height="40" fill="#eaf5ef" stroke="#1f7a52"/>
+  <text x="410" y="106" font-size="15" fill="#143" text-anchor="middle">0</text>
+  <text x="410" y="140" font-size="12" fill="#567" text-anchor="middle">Output cell</text>
+  <text x="490" y="92" font-size="12" fill="#567">dot = -30</text>
+  <text x="490" y="112" font-size="12" fill="#567">ReLU(-30)</text>
+  <text x="490" y="132" font-size="12" fill="#567">= 0</text>
+</svg>
+<figcaption>One convolution step: overlay filter, take the element-wise dot product (-30 here), pass through ReLU to get 0, write it to the output, then slide one pixel right and repeat across and down the whole image.</figcaption>
+</figure>
+
+<div class="wex"><div class="h">The worked dot product from the slides</div>
+Patch (rows): \([0,0,0],\,[5,5,5],\,[10,10,10]\). Horizontal filter: \([1,1,1],\,[0,0,0],\,[-1,-1,-1]\).<br>
+\( (0{\cdot}1 + 0{\cdot}1 + 0{\cdot}1) + (5{\cdot}0 + 5{\cdot}0 + 5{\cdot}0) + (10{\cdot}(-1) + 10{\cdot}(-1) + 10{\cdot}(-1)) = 0 + 0 - 30 = -30. \)<br>
+Then \(\text{ReLU}(-30) = \max(-30, 0) = \mathbf{0}\). This single number is the top-left cell of the feature map.</div>
+
+<div class="key"><b>Output shrinks, and stacks into a tensor.</b>
+<ul>
+<li><b>Shrinkage:</b> a 7×7 input with a 3×3 filter yields a 5×5 output (the filter can't hang off the edge), so each convolution slightly reduces spatial size.</li>
+<li><b>Stacking:</b> a layer with two filters produces two 5×5 maps = a 5×5×2 <b>tensor</b>.</li>
+<li><b>Tensor</b> = a multi-dimensional array: rank 0 = scalar, rank 1 = vector, rank 2 = matrix, rank 3 = cube. (Hence <b>TensorFlow</b>, which passes these around for you so you never hand-code the dimensions.)</li>
+</ul></div>
+
+<h3>3.4 The big idea: learn the filters</h3>
+
+<div class="intuition"><span class="tag">🎙 In class</span>Before deep learning, computer-vision researchers <i>hand-coded</i> these filters ("graphics people figured out the right specialist for each shape"). The turning point: "the numbers in a filter are just weights, so let the network learn them from data, like every other weight." Write the filter as \(\beta_{11}, \beta_{12}, \ldots\) and it's plainly a neuron, "a special one with a sliding, square structure," trained the usual way.</div>
+
+<div class="chain">
+hand-coded filters work <span class="arrow">⟹</span> but need an expert to "whisper" the right ones <span class="arrow">⟹</span> treat filter entries as weights <span class="arrow">⟹</span> backprop learns them from data <span class="arrow">⟹</span> network discovers its own feature detectors
+</div>
+<p style="font-size:13px;color:var(--soft);margin-top:-6px;">The non-obvious link is the third: because a filter is just a small set of multiplicative weights applied to inputs, it is mathematically a neuron, so the same gradient-descent training that fits a dense net can also fit the filters.</p>
+
+<div class="key"><b>Why this is still "deep learning," and why it works.</b>
+<ul>
+<li><b>You don't dictate the representations:</b> you never tell it "look for horizontal lines"; it finds whatever features matter (sleeves, edges, eventually eyes, wheels).</li>
+<li><b>But you inject domain knowledge:</b> by sliding the filter you <b>preserve spatial adjacency / geometry</b>, which the flatten approach destroyed. That structural prior is the whole trick.</li>
+<li><b>Definition Ciocan keeps:</b> "deep learning = extracting the right representations from data."</li>
+<li><b>Cost:</b> more filters = more parameters = risk of overfitting and hitting GPU-memory limits, so filter count is a budget you manage.</li>
+</ul></div>
+
+<div class="key"><b>Hierarchical representations (the "it works" slides).</b>
+<ul>
+<li><b>Early layers</b> learn primitives: edges, lines, simple colours.</li>
+<li><b>Middle layers</b> combine them into parts: eyes, concentric circles, textures.</li>
+<li><b>Deep layers</b> (real CNNs run ~50+) assemble whole objects: wheels, faces, dogs, flowers. A net that does well on ImageNet "has developed a smart, hierarchical representation across its layers."</li>
+</ul></div>
+
+<h3>3.5 Pooling and the CNN architecture</h3>
+
+<div class="intuition"><span class="tag">Intuition: pooling downscales resolution</span>A <b>max-pooling</b> layer takes a small block of pixels (e.g. 2×2) and keeps only the highest intensity, collapsing 4 pixels into 1. It's a cheap "simplification layer" that shrinks the feature map, cuts dimension, and keeps only the strongest local signal, which also captures spatial proximity of pixels.</div>
+
+<div class="key"><b>A standard CNN, in blocks.</b>
+<ul>
+<li><b>Conv block(s):</b> a few convolutional layers (each = several learned filters + ReLU), usually each followed by a max-pooling layer to downsample.</li>
+<li><b>Flatten:</b> turn the final feature tensor into a vector.</li>
+<li><b>Dense layer(s):</b> optional fully-connected ReLU layers for classification.</li>
+<li><b>Output layer:</b> softmax over the classes (10 for Fashion-MNIST).</li>
+</ul></div>
+
+<figure>
+<svg viewBox="0 0 640 150" width="100%" style="max-width:640px">
+  <g font-size="12" fill="#143" text-anchor="middle">
+    <rect x="10" y="45" width="60" height="60" fill="#eaf5ef" stroke="#1f7a52"/>
+    <text x="40" y="80">image</text><text x="40" y="120" fill="#567">28×28</text>
+    <rect x="100" y="40" width="55" height="70" fill="#dff0e7" stroke="#1f7a52"/>
+    <text x="127" y="72" font-size="11">Conv</text><text x="127" y="88" font-size="11">+ReLU</text>
+    <rect x="180" y="50" width="45" height="50" fill="#cfe8db" stroke="#1f7a52"/>
+    <text x="202" y="79" font-size="11">Pool</text>
+    <rect x="250" y="45" width="50" height="60" fill="#dff0e7" stroke="#1f7a52"/>
+    <text x="275" y="72" font-size="11">Conv</text><text x="275" y="88" font-size="11">+ReLU</text>
+    <rect x="325" y="52" width="40" height="46" fill="#cfe8db" stroke="#1f7a52"/>
+    <text x="345" y="79" font-size="11">Pool</text>
+    <rect x="390" y="40" width="34" height="70" fill="#f0ece0" stroke="#b06a00"/>
+    <text x="407" y="78" font-size="10" transform="rotate(-90 407 78)">Flatten</text>
+    <rect x="450" y="45" width="55" height="60" fill="#e7eefc" stroke="#3a5fa8"/>
+    <text x="477" y="79" font-size="11">Dense</text>
+    <rect x="530" y="45" width="80" height="60" fill="#fdeef0" stroke="#b03a52"/>
+    <text x="570" y="72" font-size="11">Softmax</text><text x="570" y="90" font-size="10" fill="#567">10 classes</text>
+  </g>
+  <g stroke="#1f7a52" stroke-width="1.5" fill="#1f7a52">
+    <line x1="70" y1="75" x2="98" y2="75"/><polygon points="98,71 106,75 98,79"/>
+    <line x1="155" y1="75" x2="178" y2="75"/><polygon points="178,71 186,75 178,79"/>
+    <line x1="225" y1="75" x2="248" y2="75"/><polygon points="248,71 256,75 248,79"/>
+    <line x1="300" y1="75" x2="323" y2="75"/><polygon points="323,71 331,75 323,79"/>
+    <line x1="365" y1="75" x2="388" y2="75"/><polygon points="388,71 396,75 388,79"/>
+    <line x1="424" y1="75" x2="448" y2="75"/><polygon points="448,71 456,75 448,79"/>
+    <line x1="505" y1="75" x2="528" y2="75"/><polygon points="528,71 536,75 528,79"/>
+  </g>
+</svg>
+<figcaption>A basic CNN: stacked conv+ReLU blocks (each downsampled by a pooling layer) extract hierarchical features, then flatten into a dense head ending in a softmax over the 10 fashion classes.</figcaption>
+</figure>
+
+<div class="wex"><div class="h">Fashion-MNIST built from scratch (the in-class notebook)</div>
+70,000 grayscale 28×28 images, 10 clothing classes (60k train / 10k test). Architecture: input(28,28,1) → Conv2D(32 filters, 2×2, ReLU) → MaxPool(2) → Conv2D(32, 2×2, ReLU) → Flatten → Dense(ReLU) → Dense(10, softmax). Loss: sparse categorical cross-entropy (the right loss for multi-class). Result: <b>~90% test accuracy</b>, "nothing to scoff at," and crucially measured on the held-out test set, not training data.</div>
+
+<div class="pitfall"><b>Overfitting vs underfitting.</b> Watch the two loss curves. <b>Underfitting:</b> model too simple to capture the data (both losses high). <b>Sweet spot:</b> validation loss bottoms out. <b>Overfitting:</b> training loss keeps falling while <i>validation</i> loss starts <b>rising</b>: the model is memorising idiosyncrasies. The Fashion-MNIST run trained 20 epochs but the curves diverged around epoch 3, where it should have stopped. Heuristic Ciocan repeats: nets should be <b>deep, not wide</b>; one very wide layer overfits.</div>
+
+<div class="key"><b>Regularisation strategies (how to fight overfitting).</b>
+<ul>
+<li><b>Early stopping:</b> halt training once validation loss starts climbing (monitor it, don't blindly run all epochs).</li>
+<li><b>Dropout:</b> randomly zero the output of some nodes (typically ~50%) in a hidden layer each step (a Keras "dropout" layer).</li>
+<li><b>Penalisation:</b> add an L1 or L2 penalty on coefficient sizes to discourage large weights.</li>
+</ul></div>
+
+<h3>3.6 Transfer learning: piggyback on a pre-trained model</h3>
+
+<div class="intuition"><span class="tag">🎙 In class</span>"When you actually see this, it kind of feels like cheating." State-of-the-art vision (~97% on ImageNet) needs 152-layer nets and enormous compute and data you won't have as a startup ("one puny Amazon instance"). Transfer learning lets a tiny, idiosyncratic dataset reach <i>within striking distance</i> of state-of-the-art by reusing a giant pre-trained model's learned representations.</div>
+
+<div class="key"><b>The mechanism (headless ResNet + a small custom head).</b>
+<ul>
+<li><b>Take a pre-trained model:</b> e.g. <b>ResNet</b>, trained on ImageNet (millions of everyday-object images), downloadable from TensorFlow Hub, PyTorch Hub or Hugging Face.</li>
+<li><b>Decapitate it:</b> delete ResNet's 1000-class output head; its labels (no "shoe vs handbag") don't match your task. What remains is the convolutional stack, the "gold-standard representation learner."</li>
+<li><b>Freeze it:</b> ResNet's weights stay fixed; you don't retrain the giant (no compute, not enough data to).</li>
+<li><b>Bolt on your own head:</b> feed your images through headless ResNet to get rich representations (a 2048-dim tensor), then train a small dense net (one hidden ReLU layer → sigmoid for the 2-class shoe/handbag output) on those representations.</li>
+</ul></div>
+
+<figure>
+<svg viewBox="0 0 600 140" width="100%" style="max-width:600px">
+  <g font-size="12" fill="#143" text-anchor="middle">
+    <rect x="10" y="45" width="70" height="55" fill="#eaf5ef" stroke="#1f7a52"/>
+    <text x="45" y="70">your data</text><text x="45" y="88" fill="#567">~few imgs</text>
+    <rect x="120" y="35" width="150" height="75" fill="#e9e9e9" stroke="#555"/>
+    <text x="195" y="62" font-size="12">Headless ResNet</text>
+    <text x="195" y="82" font-size="11" fill="#567">weights FROZEN</text>
+    <text x="195" y="98" font-size="10" fill="#567">conv layers only</text>
+    <rect x="315" y="48" width="70" height="50" fill="#fdf3e3" stroke="#b06a00"/>
+    <text x="350" y="68" font-size="11">2048-dim</text><text x="350" y="84" font-size="11">tensor</text>
+    <rect x="425" y="35" width="160" height="75" fill="#e7eefc" stroke="#3a5fa8"/>
+    <text x="505" y="60" font-size="12">Custom DNN</text>
+    <text x="505" y="78" font-size="11" fill="#567">TRAINED on your data</text>
+    <text x="505" y="94" font-size="10" fill="#567">Dense ReLU → sigmoid</text>
+  </g>
+  <g stroke="#1f7a52" stroke-width="1.5" fill="#1f7a52">
+    <line x1="80" y1="72" x2="118" y2="72"/><polygon points="118,68 126,72 118,76"/>
+    <line x1="270" y1="72" x2="313" y2="72"/><polygon points="313,68 321,72 313,76"/>
+    <line x1="385" y1="72" x2="423" y2="72"/><polygon points="423,68 431,72 423,76"/>
+  </g>
+</svg>
+<figcaption>Transfer learning: the frozen ResNet does the heavy representation-extraction (your images → a 2048-dim feature tensor), and a small trainable dense head learns the shoe-vs-handbag decision from those features.</figcaption>
+</figure>
+
+<div class="wex"><div class="h">Shoes vs handbags (the team notebook)</div>
+A few dozen scraped images, 18-image test set. Run images through headless ResNet, train a one-hidden-layer net on the representations. Result: <b>97–100% accuracy</b>. The 100% is not overfitting (it's on the <i>test</i> set, and with only 18 images the accuracy is coarse, so a lucky run hits 100%). An adversarial second test set (a bag printed with a shoe photo; Shrek Crocs) drew it down to a few mistakes, but the headline holds: near state-of-the-art from a tiny dataset and one rented instance.</div>
+
+<div class="key"><b>Why it works, and when it works best.</b>
+<ul>
+<li><b>Why:</b> the first part of the network has learned a general, reusable representation of everyday images; ResNet "formats unwieldy pixels into something clean and systematic," and your small net just specialises that.</li>
+<li><b>The right architecture for the data type:</b> images → convolutional / residual layers; sequences (language, audio, video, gene sequences) → transformers. "Tailor the network to a semantic understanding of the domain."</li>
+<li><b>Best when</b> the pre-trained model was trained on a <i>related</i> task (everyday objects ⊃ shoes & bags), so its representations transfer.</li>
+</ul></div>
+
+<div class="exam"><b>Exam lens.</b> This is a hands-on, business-judgement course, so expect the testable points to be <b>conceptual and applied, not derivations.</b>
+<ul>
+<li><b>Define and contrast the metrics:</b> detection rate vs hit rate, and the threshold trade-off; be ready to argue which a given business should maximise (and why proxy ≠ real hit rate). The professor pushed hard on "think like a business person."</li>
+<li><b>Why FC nets fail on images:</b> name both reasons (parameter explosion <i>and</i> lost locality) and how convolution fixes each (parameter sharing + preserved geometry).</li>
+<li><b>The convolution operation:</b> be able to slide a filter and compute one output cell by hand (dot product → ReLU), and explain that filter weights are <i>learned</i>, not hand-coded.</li>
+<li><b>Architecture recall:</b> conv → ReLU → pool → flatten → dense → softmax, and the activation rule (ReLU hidden, sigmoid binary, softmax multi-class).</li>
+<li><b>Transfer learning:</b> explain the headless-pretrained-model + small-trained-head mechanism and <i>why</i> it beats training from scratch on a small dataset. This was framed as "the most useful and dramatic concept" for entrepreneurs.</li>
+<li><b>Overfitting:</b> identify it from diverging train/validation loss curves and name a remedy (early stopping, dropout, L1/L2). "Deep not wide."</li>
+</ul></div>
+
+<div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this:</b> the SHIFT slide labels the post-deployment metric as the <b>"real hit rate" = cases identified for fraud by SIU teams ÷ flagged claims</b>; the transcript at one point also calls a frauds÷flagged ratio the "proxy hit rate." I've kept the slide's exact wording (real hit rate uses SIU-confirmed cases in the numerator). Worth a quick check against the slide if this metric appears on an exam, since the proxy/real distinction is the load-bearing point.</div>
+
+<div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this:</b> the in-class Fashion-MNIST notebook used <b>2×2 kernels with 32 filters</b> (per the live code), whereas the lecture's worked example earlier used a 3×3 filter; both are stated in the transcript, so neither is wrong, but if a question fixes a kernel size, go with what that question states rather than assuming 3×3.</div>
+<h2 id="l05">5 &middot; Deep Learning for Text (NLP)</h2>
+
+<p>This pair of sessions takes the same meta-recipe from the vision lectures (understand the structure of the domain, then tailor the network architecture to it, and lean on transfer learning) and runs it for language. The whole arc is one question asked four times over: <b>how do you turn words into numbers a neural network can use, without throwing away their meaning?</b> The answer climbs a ladder: one-hot encoding (naive) &rarr; embeddings (meaning) &rarr; contextual embeddings / Transformers (meaning + context + order). By the end you have built every piece of infrastructure that underpins an LLM like ChatGPT.</p>
+
+<div class="intuition"><span class="tag">🎙 In class</span> Ciocan's framing, repeated from the vision session: "There's no one big neural network that works for everything. You need to understand the problem, use domain-specific knowledge, then find a particular architecture that works for that type of problem." For images the special structure was geometry and the secret sauce was the convolutional filter. For text the special structure is <b>order and context</b>, and the secret sauce will turn out to be the <b>Transformer</b>.</p>
+
+<h3>5.1 Why text is hard: the four challenges</h3>
+
+<p>Before any architecture, the lecture builds intuition for what is idiosyncratic about language. A neural network sees only numbers, so every one of these has to be made representable.</p>
+
+<table class="dt">
+<thead><tr><th>Challenge</th><th>What it means</th><th>In-class example</th></tr></thead>
+<tbody>
+<tr><td><b>Numerical</b></td><td>Computers and networks work on numbers; text is not numbers. First job: convert non-numerical text to a numerical format.</td><td>"Text is not numbers."</td></tr>
+<tr><td><b>Order / sequence</b></td><td>The sequence of words carries meaning. Reorder the words and the sense changes.</td><td>"Care about sequences, why do we?" (Yoda)</td></tr>
+<tr><td><b>Position</b></td><td>Where a word sits in the sentence flips sentiment.</td><td>"Class was good but prof was weird" vs "Class was weird but prof was good."</td></tr>
+<tr><td><b>Context</b></td><td>Surrounding words change what a word means; the same word means different things in different sentences.</td><td>"When I am in France, I eat&hellip;" vs "When I am in Singapore, I eat&hellip;"</td></tr>
+</tbody>
+</table>
+
+<div class="key"><b>And humans are messy.</b>
+<ul>
+<li>Language carries sarcasm, irony, sentiment, emotion, all of which a model must somehow pick up.</li>
+<li>This is the soft fifth challenge: people do not say what they literally mean.</li>
+</ul></div>
+
+<div class="intuition"><span class="tag">Intuition: why bother</span> Most of what matters is language: human knowledge, the internet, communication, and cultural production are "mostly natural language text." Cracking it unlocks classification, content filtering, sentiment analysis, translation, summarisation, and intent prediction. The point is not just chatbots: "you're business people, you're probably going to make money by solving <i>specific</i> tasks."</p>
+
+<h3>5.2 Vectorisation: the STIE pipeline</h3>
+
+<p>The first rung of the ladder is the dumbest one that works: turn a sentence into a fixed-length vector of 0s and 1s over a vocabulary. The slides give this a four-step name, <b>STIE</b>.</p>
+
+<div class="chain"><b>STIE pipeline:</b>&nbsp; Standardize <span class="arrow">&rarr;</span> Tokenize <span class="arrow">&rarr;</span> Index <span class="arrow">&rarr;</span> Encode</div>
+
+<div class="key"><b>The four steps.</b>
+<ul>
+<li><b>Standardize</b>, strip capitalisation, punctuation and accents (almost always); strip <i>stop words</i> (a, the, it &hellip; often); <i>stem</i> words to a root (ate / eaten / eating &rarr; eats; sometimes). <b>Why:</b> it lowers dimension (one entry, not five) <i>and</i> makes the data denser, so the machine can recognise that five tensed variants are the same pattern.</li>
+<li><b>Tokenize</b>, split into <i>tokens</i> (usually one word = one token). You can also use <b>n-grams</b>: a token made of n consecutive words via a sliding window. <b>Why n-grams:</b> a 2-gram starts to capture context, because the pair carries more than the two words alone. <b>Why not huge n:</b> the vocabulary and vector length blow up, and most long n-grams never recur in the training data, so you gain nothing and pay in compute.</li>
+<li><b>Index</b>, assign each vocabulary token a unique integer, plus a special <code>&lt;UNK&gt;</code> token (integer 0) for any word unseen at training time that appears at test time.</li>
+<li><b>Encode</b>, turn each integer into a <b>one-hot vector</b> (see below).</li>
+</ul></div>
+
+<div class="key"><b>Notation set here (reused all session).</b>
+<ul>
+<li><b>token</b>, the unit of text fed to the model, usually a word.</li>
+<li><b>vocabulary size <i>V</i></b>, the count of distinct tokens in the training data; the universe of possible words.</li>
+<li><b>one-hot vector</b>, a length-<i>V</i> vector, all 0s except a single 1.</li>
+<li><b>embedding vector (dimension <i>d</i>)</b>, a short dense learned vector, <i>d</i> &lt;&lt; <i>V</i>.</li>
+</ul></div>
+
+<h4>One-hot encoding</h4>
+
+<div class="intuition"><span class="tag">Intuition: one-hot</span> Give every word its own light switch on a panel as long as the whole dictionary. The word "dog" is the panel with only switch #1,008 flipped on; "cat" is the panel with only #1,007 on. No two words share a switch, and crucially no word's switch is "near" another's.</div>
+
+<div class="eq"><div class="lbl">One-hot encoding of the k-th vocabulary token</div>
+$$\text{onehot}(k) = (\underbrace{0,\dots,0}_{k-1},\,1,\,\underbrace{0,\dots,0}_{V-k}) \in \{0,1\}^{V}, \qquad \dim = V$$</div>
+
+<p>The slide states it directly: <b>dimension of encoding vector = vocabulary size</b>. Put the 1 in the k-th position, 0 everywhere else.</p>
+
+<div class="key"><b>Why integers alone will not do (the reason we one-hot at all).</b>
+<ul>
+<li>If "dog" got integer 1,008 and "algebra" happened to land on 1,009, the network sees only the numbers 1,008 and 1,009 and may infer the two words are <i>related</i>, when their adjacency is pure accident of indexing.</li>
+<li>One-hot fixes this: <b>every pair of one-hot vectors is exactly the same distance apart</b> (they differ by one swapped 1). No accidental relationships are smuggled in.</li>
+</ul></div>
+
+<h4>Aggregating a sentence into a fixed-length vector</h4>
+
+<p>Each token gives one vector, but sentences vary in length and we want a fixed-length input. Collapse the per-token vectors into one of two ways.</p>
+
+<table class="dt">
+<thead><tr><th>Method</th><th>Operation</th><th>Result for "to be or not to be"</th></tr></thead>
+<tbody>
+<tr><td><b>Count encoding</b></td><td>Sum the one-hot vectors</td><td>counts per word, e.g. to=2, be=2, or=1, not=1</td></tr>
+<tr><td><b>Multi-hot encoding</b></td><td>"OR" the vectors (1 if the word appears anywhere)</td><td>all present words = 1, regardless of repeats</td></tr>
+</tbody>
+</table>
+
+<p>Multi-hot is the one used in the genre-classifier notebook. In Keras this whole STIE step is a single <code>TextVectorization</code> layer, with parameters such as <code>output_mode='multi_hot'</code>, n-gram setting, and <code>max_tokens</code> (caps the vocabulary so the input does not explode).</p>
+
+<div class="pitfall"><b>Aggregating loses order.</b> Summing or OR-ing the token vectors throws away the sequence entirely: "dog bites man" and "man bites dog" become the same vector. As Isabella flagged in class, "do we not somehow then lose the order of the sentence?" Yes. That lost information is exactly what embeddings and Transformers are later built to recover.</div>
+
+<h3>5.3 The genre classifier: a benchmark that "works but doesn't work"</h3>
+
+<p>The running case is a classifier that labels song lyrics as hip-hop, rock, or pop (three classes, so random guessing = 33%). It is the deep-dive that motivates every later upgrade.</p>
+
+<div class="wex"><div class="h">Worked benchmark, lyrics genre classifier</div>
+<ul>
+<li><b>Naive hand-coded baseline:</b> hard-code a typical vocabulary per genre, count hits in each, predict the highest. Accuracy &asymp; <b>37%</b>, only just above the 33% random floor. "It works a little bit, but literally just gets you a little better than random."</li>
+<li><b>STIE + dense network</b> (multi-hot input &rarr; dense layers + dropout &rarr; 3-node softmax): accuracy &asymp; <b>67%</b>. A real jump, "decent," and genuine on a held-out test set.</li>
+<li><b>The honest limitation:</b> on a single line ("I grew up on the crime side, the New York Times side") the 67% model still misfires, because it sees only a bag of words and "it's missing all that context." An LLM would beat 67%.</li>
+</ul></div>
+
+<figure>
+<svg viewBox="0 0 420 200" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,Arial" font-size="11">
+  <line class="axis" x1="55" y1="160" x2="400" y2="160" stroke="#333" stroke-width="1.5"/>
+  <line class="axis" x1="55" y1="20" x2="55" y2="160" stroke="#333" stroke-width="1.5"/>
+  <text class="lbl" x="10" y="95" transform="rotate(-90 10 95)" fill="#333">accuracy</text>
+  <line class="grid dash" x1="55" y1="107" x2="400" y2="107" stroke="#bbb" stroke-dasharray="4 3"/>
+  <text class="sm" x="58" y="103" fill="#888">33% random floor</text>
+  <rect x="90" y="143" width="60" height="17" fill="#c0504d"/>
+  <text class="sm" x="92" y="176" fill="#333">hand-coded</text>
+  <text class="sm" x="108" y="138" fill="#333">37%</text>
+  <rect x="200" y="160" width="60" height="0" fill="#4f81bd"/>
+  <rect x="200" y="93" width="60" height="67" fill="#4f81bd"/>
+  <text class="sm" x="205" y="176" fill="#333">STIE+dense</text>
+  <text class="sm" x="218" y="88" fill="#333">67%</text>
+  <rect x="310" y="60" width="60" height="100" fill="#2e7d32"/>
+  <text class="sm" x="325" y="176" fill="#333">LLM</text>
+  <text class="sm" x="312" y="55" fill="#333">&gt; 67%</text>
+</svg>
+<figcaption>The ladder of approaches on the lyrics genre task: hand-coded vocabularies barely clear the random floor, STIE plus a dense network roughly doubles that, and a pre-trained LLM would do better still. Heights for the first two bars are stated in class; the LLM bar is "would beat 67%" (no exact figure given).</figcaption>
+</figure>
+
+<div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this:</b> the exact dense-network accuracy is quoted as 67% in class ("on this training run&hellip; 67%"). The hand-coded baseline is "roughly 37%". The slides do not print either number, so these are transcript figures; sanity-check against your own notebook run, which may differ run-to-run.</div>
+
+<h3>5.4 Secret sauce #1: embeddings (representation = meaning)</h3>
+
+<div class="intuition"><span class="tag">🎙 In class</span> "An embedding turns each word into a vector of numbers that actually encodes <i>meaning</i>." Plot the words as points: "home" and "house" should land close together; "algebra" should land far away. The <b>geometric distance between word-vectors becomes the semantic distance between the words.</b> Ciocan: "Isn't it kind of beautiful?"</p>
+
+<div class="key"><b>One-hot vs embedding, the contrast the slide draws.</b>
+<ul>
+<li><b>One-hot:</b> sparse, high-dimensional (length <i>V</i>), hard-coded, all words equidistant, meaning destroyed.</li>
+<li><b>Embedding:</b> dense, low-dimensional (length <i>d</i>), <i>learned from data</i>, distances carry meaning.</li>
+</ul></div>
+
+<table class="dt">
+<thead><tr><th></th><th>One-hot</th><th>Embedding</th></tr></thead>
+<tbody>
+<tr><td><b>Dimension</b></td><td>vocabulary size <i>V</i> (huge)</td><td>embedding size <i>d</i> (small)</td></tr>
+<tr><td><b>Density</b></td><td>sparse (one 1, rest 0)</td><td>dense (real numbers throughout)</td></tr>
+<tr><td><b>Origin</b></td><td>hard-coded by the indexing</td><td>learned from data</td></tr>
+<tr><td><b>Distance meaning</b></td><td>all pairs equidistant</td><td>close = related, far = unrelated</td></tr>
+<tr><td><b>Overfitting risk</b></td><td>higher (many weights)</td><td>lower (compact representation)</td></tr>
+</tbody>
+</table>
+
+<h4>Semantic geometry and word arithmetic</h4>
+
+<div class="intuition"><span class="tag">Intuition: meaning-space</span> Once words are points in a space, relationships become directions. The vector that moves you from "man" to "woman" is roughly the same vector that moves you from "king" to "queen": the "gender" direction. Tense (walking &rarr; walked) and country &rarr; capital sit along their own directions too.</div>
+
+<p>That makes meaning literally arithmetic. The slides render the canonical examples:</p>
+
+<div class="eq"><div class="lbl">Word vector arithmetic (from the slides / in class)</div>
+$$\overrightarrow{\text{king}} - \overrightarrow{\text{man}} + \overrightarrow{\text{woman}} \;\approx\; \overrightarrow{\text{queen}}$$
+$$\overrightarrow{\text{Paris}} - \overrightarrow{\text{France}} + \overrightarrow{\text{Italy}} \;\approx\; \overrightarrow{\text{Rome}}$$</div>
+
+<div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this:</b> the transcript spells out the king &minus; man + woman &asymp; queen example verbatim, and the embedding-arithmetic / capital-relation idea (Paris&ndash;France, country&ndash;capital). The exact <i>Paris &minus; France + Italy &asymp; Rome</i> and <i>Doctor &minus; Man + Woman</i> phrasings were specified in my brief as "literally in the slides," but the slide PDF text extraction for the "ideal word embeddings" pages (34, 36) came through as images with no readable text. I have rendered the standard forms; please confirm the precise pairs on slides 33&ndash;36.</div>
+
+<figure>
+<svg viewBox="0 0 360 230" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,Arial" font-size="11">
+  <line class="axis" x1="40" y1="200" x2="330" y2="200" stroke="#333" stroke-width="1.3"/>
+  <line class="axis" x1="40" y1="20" x2="40" y2="200" stroke="#333" stroke-width="1.3"/>
+  <!-- gender direction arrows -->
+  <g stroke="#4f81bd" stroke-width="1.6">
+    <line x1="90" y1="160" x2="170" y2="120" marker-end="url(#ah)"/>
+    <line x1="200" y1="90" x2="280" y2="50" marker-end="url(#ah)"/>
+  </g>
+  <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#4f81bd"/></marker></defs>
+  <circle class="dot" cx="90" cy="160" r="4" fill="#c0504d"/><text class="sm" x="62" y="158" fill="#333">man</text>
+  <circle class="dot" cx="170" cy="120" r="4" fill="#c0504d"/><text class="sm" x="176" y="118" fill="#333">woman</text>
+  <circle class="dot" cx="200" cy="90" r="4" fill="#2e7d32"/><text class="sm" x="172" y="86" fill="#333">king</text>
+  <circle class="dot" cx="280" cy="50" r="4" fill="#2e7d32"/><text class="sm" x="286" y="48" fill="#333">queen</text>
+  <text class="sm" x="120" y="150" fill="#4f81bd">gender &rarr;</text>
+  <text class="sm" x="232" y="80" fill="#4f81bd">gender &rarr;</text>
+  <text class="sm" x="120" y="222" fill="#888">parallel offsets = a shared "gender" direction</text>
+</svg>
+<figcaption>Why the arithmetic works: man&rarr;woman and king&rarr;queen are (roughly) the same displacement, so king &minus; man + woman lands near queen. Coordinates here are illustrative, not slide values.</figcaption>
+</figure>
+
+<h4>The embedding is just another layer</h4>
+
+<div class="intuition"><span class="tag">🎙 In class</span> "Forget how you get the numbers: imagine a magic box gives you the right embeddings." Then the reveal: the magic box is just <b>another layer in the network</b>. The embedding values are betas the network learns by training, the same as any other weights. Pre-trained embeddings can also be transferred in, exactly as ResNet was for vision.</div>
+
+<div class="chain"><b>The pipeline grows one layer:</b>&nbsp; text <span class="arrow">&rarr;</span> STIE / vectorization <span class="arrow">&rarr;</span> <b>embedding layer</b> <span class="arrow">&rarr;</span> dense layers <span class="arrow">&rarr;</span> softmax output</div>
+
+<div class="key"><b>Slide statement to remember:</b> "At the core, <b>embedding = representation</b>." Everything the course says about deep learning extracting good representations of a domain applies here; an embedding is just the representation of a word.</div>
+
+<h3>5.5 Why embeddings still fall short: context and order</h3>
+
+<p>A plain embedding (e.g. Word2Vec) gives each word <i>one</i> vector for all situations. Two problems remain.</p>
+
+<div class="twocol">
+<div><div class="key"><b>Context matters.</b>
+<ul>
+<li>One word can mean very different things in different sentences; a single embedding cannot capture all of them.</li>
+<li>"station": <i>the train left the station</i> / <i>the radio station</i> / <i>I was stationed abroad</i>.</li>
+<li>"see": <i>I will see you soon</i> / <i>I will see this project to the end</i> / <i>I see what you mean</i>.</li>
+</ul></div></div>
+<div><div class="key"><b>Order matters.</b>
+<ul>
+<li>Reordering words changes meaning even with the same words present.</li>
+<li>"My <i>favorite new</i> show" vs "My <i>new favorite</i> show".</li>
+<li>"I have <i>to read</i> this book" vs "I have this book <i>to read</i>."</li>
+</ul></div></div>
+</div>
+
+<div class="intuition"><span class="tag">🎙 In class</span> The Google-search failure: a Brazilian searching how to travel to the US gets results for an American travelling to Brazil. Order and context establish <i>direction</i> ("Brazilian wanting a US visa" vs the reverse), and a bag-of-embeddings throws that direction away. Google was the first to fix search like this with Transformers.</div>
+
+<h3>5.6 Secret sauce #2: the Transformer and self-attention</h3>
+
+<div class="intuition"><span class="tag">Intuition: the Transformer's job</span> Feed in a word's plain (non-contextual) embedding and the whole surrounding sentence; output a <b>new embedding for that word that has absorbed its context and position</b>. Same philosophy as CNNs for vision: find the architecture that captures the domain's structure. Developed in 2017 (Google, "Attention Is All You Need"), it is the building block under ChatGPT and modern LLMs.</div>
+
+<div class="chain"><b>Transformer encoder, top to bottom:</b>&nbsp; non-contextual embedding <span class="arrow">+</span> positional embedding (captures order) <span class="arrow">&rarr;</span> several self-attention layers (capture context) <span class="arrow">&rarr;</span> feed-forward layer <span class="arrow">&rarr;</span> <b>contextual embedding</b></div>
+
+<h4>Self-attention, intuitively</h4>
+
+<div class="intuition"><span class="tag">🎙 In class</span> The canonical example: <i>"The animal didn't cross the street because <b>it</b> was too tired"</i> vs <i>"&hellip;because <b>it</b> was too wide."</i> In the first, "it" = the animal; in the second, "it" = the street. Before attention the embedding of "it" is identical in both. Self-attention <b>anchors "it" to the right word</b> by letting it pay more attention to "animal" in one sentence and "street" in the other.</p>
+
+<div class="key"><b>How self-attention contextualises a word (the "station" build).</b>
+<ul>
+<li><b>Goal:</b> reshape "station"'s standalone embedding so it absorbs the words actually around it.</li>
+<li><b>Weights:</b> imagine you knew how much attention to give each other word. Then the contextual embedding is a <b>weighted sum of all the standalone embeddings</b>.</li>
+<li><b>Where the weights come from:</b> the weight of word j is proportional to how <i>related</i> it is to "station", measured by the <b>dot product</b> of their standalone embeddings.</li>
+<li><b>Why the dot product:</b> in the context "the train left the station", "train" sits close to "station" so its dot product is large and it pulls "station" toward the trains-platforms-departures meaning; "radio" is related in general but absent here, so it automatically gets ~zero weight.</li>
+<li><b>Normalising:</b> dot products can be negative, so exponentiate then normalise, the same softmax trick used at the output layer.</li>
+</ul></div>
+
+<div class="eq"><div class="lbl">Attention weights as a softmax over relatedness (dot products)</div>
+$$\alpha_{ij} = \frac{\exp(\mathbf{e}_i \cdot \mathbf{e}_j)}{\sum_{k} \exp(\mathbf{e}_i \cdot \mathbf{e}_k)}, \qquad \mathbf{c}_i = \sum_j \alpha_{ij}\,\mathbf{e}_j$$
+<p style="margin:.4em 0 0;font-size:13px;color:#555;">e<sub>i</sub> = standalone embedding of word i; &alpha;<sub>ij</sub> = attention word i pays word j; c<sub>i</sub> = contextual embedding of word i (weighted sum of all standalone embeddings).</p></div>
+
+<div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this:</b> the slide ("converting dot-products to proper weights&hellip; exponentiate and normalise, like with softmax") carries a footnote: "Representation is made more <i>tunable</i>, but this is essentially the idea." The real mechanism uses learned Query/Key/Value matrices (next note), so this raw-dot-product-on-the-embeddings form is the simplified self-study version, not the exact implementation. Treat the equation as the intuition Ciocan endorsed, not the literal QKV maths.</div>
+
+<figure>
+<svg viewBox="0 0 420 180" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,Arial" font-size="11">
+  <text class="sm" x="20" y="30" fill="#333">context:</text>
+  <g font-size="12">
+    <rect x="80" y="18" width="44" height="22" rx="4" fill="#eef3f8" stroke="#9bb8d6"/><text x="88" y="33" fill="#333">the</text>
+    <rect x="130" y="18" width="50" height="22" rx="4" fill="#dcefe2" stroke="#7bbf97"/><text x="138" y="33" fill="#333">train</text>
+    <rect x="186" y="18" width="44" height="22" rx="4" fill="#eef3f8" stroke="#9bb8d6"/><text x="194" y="33" fill="#333">left</text>
+    <rect x="236" y="18" width="60" height="22" rx="4" fill="#c8e6c9" stroke="#2e7d32" stroke-width="1.5"/><text x="242" y="33" fill="#1b5e20">station</text>
+  </g>
+  <!-- attention arrows into station, thickness ~ weight -->
+  <g stroke="#2e7d32" fill="none">
+    <line x1="102" y1="44" x2="262" y2="60" stroke-width="0.8" marker-end="url(#a2)"/>
+    <line x1="155" y1="44" x2="263" y2="60" stroke-width="3.2" marker-end="url(#a2)"/>
+    <line x1="208" y1="44" x2="264" y2="60" stroke-width="1" marker-end="url(#a2)"/>
+  </g>
+  <defs><marker id="a2" markerWidth="7" markerHeight="7" refX="5" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5 Z" fill="#2e7d32"/></marker></defs>
+  <rect x="236" y="60" width="60" height="22" rx="4" fill="#2e7d32"/><text x="240" y="75" fill="#fff" font-size="11">station*</text>
+  <text class="sm" x="304" y="75" fill="#333">contextual embedding</text>
+  <text class="sm" x="80" y="120" fill="#555">Thick arrow = high attention. "train" pulls "station" toward the</text>
+  <text class="sm" x="80" y="136" fill="#555">rail meaning; "radio" (absent here) would get ~zero weight.</text>
+</svg>
+<figcaption>Self-attention contextualising "station": the new embedding (station*) is a weighted blend of the surrounding words, with weights set by how related each word is (dot product), then softmax-normalised. Arrow thicknesses are illustrative.</figcaption>
+</figure>
+
+<h4>Positional embeddings: getting order in</h4>
+
+<div class="intuition"><span class="tag">Intuition: position</span> Attention alone is order-blind (a weighted sum does not care about sequence). So before attention, <b>add a position vector to each word's embedding</b>: the input becomes "what the word means" + "where it sits."</div>
+
+<div class="eq"><div class="lbl">Positional embedding: input = meaning + position</div>
+$$\text{input}_i = \underbrace{\mathbf{e}_{\text{word}}}_{\text{standalone embedding}} + \underbrace{\mathbf{p}_{i}}_{\text{position embedding}}$$</div>
+
+<div class="wex"><div class="h">Worked example, positional add (from the slide)</div>
+<p>For "cat sat on the mat", "cat" is in position 0. With 2-dim toy vectors:</p>
+<ul>
+<li>standalone "cat" = (0.5, 7.1)</li>
+<li>position 0 = (1.3, 3.9)</li>
+<li><b>sum = (1.8, 11.0)</b>, the embedding actually fed to attention.</li>
+</ul></div>
+
+<h4>Multi-head attention and the full encoder block</h4>
+
+<div class="key"><b>Multi-head attention.</b>
+<ul>
+<li><b>Idea:</b> like having multiple filters in a CNN, different attention "heads" learn different patterns (one head may learn whether a word is a verb, another its tense or direction).</li>
+<li><b>The extra machinery:</b> the <b>Q, K, V matrices</b> (Query, Key, Value) are learned weights that linearly transform the embeddings, implemented as dense layers with linear activation, the "extra degrees of freedom" beyond raw dot products.</li>
+<li><b>Then non-linearity:</b> a feed-forward layer at the end injects non-linearity.</li>
+<li><b>Stackable:</b> an encoder's input and output are the same size, so encoder blocks can be daisy-chained for more modelling capacity.</li>
+</ul></div>
+
+<div class="chain"><b>One encoder block:</b>&nbsp; (embedding + position) <span class="arrow">&rarr;</span> multi-head self-attention <span class="arrow">&rarr;</span> feed-forward <span class="arrow">&rarr;</span> contextual embedding <span class="arrow">&rarr;</span> (stack again)</div>
+
+<div class="key"><b>Three requirements, all satisfied.</b>
+<ul>
+<li><b>Numerical:</b> embeddings turn words into vectors.</li>
+<li><b>Context:</b> self-attention blends in surrounding words.</li>
+<li><b>Order:</b> positional embeddings encode where each word sits.</li>
+</ul>
+And transfer learning still applies: plug in a pre-trained Transformer embedding (e.g. BERT) rather than training from scratch.</div>
+
+<h4>Supporting machinery (softmax, overfitting)</h4>
+
+<div class="eq"><div class="lbl">Softmax: n real numbers &rarr; n probabilities (output layer for &gt;2 classes)</div>
+$$\text{softmax}(x_i) = \frac{e^{x_i}}{e^{x_1}+\cdots+e^{x_n}}$$</div>
+
+<p>Softmax replaces sigmoid when there are more than two labels (hip-hop / rock / pop &rarr; three softmax nodes). The same exponentiate-and-normalise shape reappears inside attention.</p>
+
+<table class="dt">
+<thead><tr><th>Regularisation strategy</th><th>What it does</th></tr></thead>
+<tbody>
+<tr><td><b>Early stopping</b></td><td>Stop training before the training loss bottoms out, by watching the loss on a validation set.</td></tr>
+<tr><td><b>Dropout</b></td><td>Randomly zero the output of some nodes (typically 50%) in a hidden layer (a Keras dropout layer).</td></tr>
+<tr><td><b>Penalisation (L1 / L2)</b></td><td>Add a penalty on coefficient sizes to discourage large weights.</td></tr>
+</tbody>
+</table>
+
+<div class="pitfall"><b>Underfitting vs overfitting.</b> Too little model complexity and you cannot capture the data's richness (underfitting); too much and you memorise the training data's idiosyncrasies and fail on unseen data (overfitting). The "sweet spot" is where validation error bottoms out, not where training error does.</div>
+
+<h3>5.7 Deep-dive: the Singapore Airlines review assignment</h3>
+
+<p>The graded deliverable for these sessions, and the closest thing to an "exam" in this hands-on course. It applies the whole stack: BERTopic clusters reviews in <b>contextual-embedding space</b> (a Transformer underneath), and you reason from the clusters to a business recommendation.</p>
+
+<div class="key"><b>The brief.</b>
+<ul>
+<li><b>Setup:</b> a dataset of Singapore Airlines customer reviews; average rating drops sharply (roughly 4.3 in 2020 to ~2.1&ndash;2.3 in 2021, a step change, not a slow drift).</li>
+<li><b>Task:</b> use BERTopic to find the topics driving negative reviews and explain the post-COVID decline.</li>
+<li><b>Deliverable:</b> a one-slide "elevator pitch" to the CEO with findings and recommendations backed by the analysis, plus the notebook; each group presents (~3 min).</li>
+</ul></div>
+
+<div class="key"><b>How BERTopic frames the data (definitions to use in the write-up).</b>
+<ul>
+<li><b>Document</b> = one customer review.</li>
+<li><b>Topic</b> = a cluster of reviews using semantically similar language (BERTopic embeds reviews and clusters them in embedding space).</li>
+<li><b>min_topic_size</b> = the knob for how many / how large the topics are.</li>
+<li><b>Outliers (topic -1):</b> reviews not confidently assigned. ~60% landing in outliers is high but normal for messy real-world review text.</li>
+</ul></div>
+
+<div class="wex"><div class="h">What the analysis surfaced in class</div>
+<ul>
+<li>Recurring negative themes: <b>baggage handling</b> (lost / damaged / delayed), <b>booking, refunds and cancellations</b>, <b>food / catering quality</b>, <b>delays and missed connections</b>, and <b>seat reassignments / downgrades</b>.</li>
+<li>Longer reviews correlate with worse ratings (the data frame adds review-length and a <code>post-2021</code> / <code>low_rating</code> flag, low rating = below 3).</li>
+<li><b>Causal caveat the notebook insists on:</b> reviews can <i>suggest</i> hypotheses but cannot <i>prove</i> cause; reviewers may be unrepresentative; partial years and missing operational variables (e.g. route mix) limit conclusions.</li>
+</ul></div>
+
+<div class="intuition"><span class="tag">🎙 In class</span> A live hypothesis Isabella raised that the data alone cannot settle: maybe satisfaction fell because the <i>route mix</i> shifted (fewer long-haul flights with full service, more short-haul) rather than service quality dropping per se. The professor's coaching: form hypotheses like long-haul vs short-haul or cabin class, then interrogate the topics against them, "don't code yourself, figure out what you want to ask, then use ChatGPT."</div>
+
+<div class="exam"><b>Exam / assessment lens.</b> This course is assessed on the <b>hands-on deliverable and presentation</b>, not a written paper, so what is rewarded is judgement, not recall. For the Singapore Airlines pitch: (1) lead with the <b>verdict</b> (the step-change in ratings post-2021 and the top operational drivers), then back it with the topic clusters; (2) state the <b>causal caveat explicitly</b>, reviews suggest, they do not prove; (3) make a <b>specific, actionable</b> CEO recommendation tied to a named topic (e.g. fix baggage handling, not "improve service"); (4) show you understand the machinery underneath: BERTopic clusters in contextual-embedding space, which is a Transformer, which is "embedding = representation." If asked to explain the tech, the through-line is the ladder: one-hot (no meaning) &rarr; embedding (meaning) &rarr; Transformer (meaning + context + order).</div>
+
+<div class="key"><b>Three closing takeaways the slides leave you with.</b>
+<ul>
+<li><b>Automate text analysis for competitive advantage</b>, sentiment, feedback interpretation, document processing.</li>
+<li><b>Domain expertise</b>, success comes from tailoring the architecture to the structure of the domain's data (geometry &rarr; CNN; order + context &rarr; Transformer).</li>
+<li><b>Transfer learning</b>, adapt a pre-trained model (BERT, a Transformer) to your task for better results with far less training.</li>
+</ul></div>
+<h2 id="l07">7 &middot; Generative AI: Insights, Limitations &amp; Future</h2>
+
+<p>The closing lecture makes the jump from the NLP machinery of L06 to large language models and generative AI, then deliberately turns to where it breaks. Ciocan frames the whole course as one idea: deep learning takes any unstructured data, finds the right architecture to turn it into an <b>embedding</b>, and trains on that representation. LLMs are just the text instance of this, and foundation models are the multi-modal generalisation. The half you must walk away with is two-sided: <i>how an LLM actually works</i> (embeddings &rarr; contextual embeddings &rarr; next-token prediction) and <i>how it fails</i> (interpretability, bias, privacy, alignment). His parting rule sums the second half: "we never trust, we test."</p>
+
+<h3>How an LLM works</h3>
+
+<div class="intuition"><span class="tag">🎙 In class</span> "You shall know a word by the company it keeps." A word like <i>station</i> means different things in <i>the train left the station</i> versus <i>the radio station</i>. A plain embedding gives <i>station</i> one fixed vector, so it gets both wrong. The transformer's job is to bend that one vector towards the words around it, so the same token gets two different contextual embeddings.</div>
+
+<div class="key"><b>The two secret sauces (L06 recap that powers every LLM).</b>
+<ul>
+<li><b>Embedding:</b> map each token (think: word) to a vector of numbers, so that geometry in the vector space captures meaning (king:queen :: man:woman; walk:walked :: swim:swam).</li>
+<li><b>Contextual embedding:</b> a fixed embedding is not enough because meaning depends on context. The transformer recalibrates each token's embedding to the whole token sequence.</li>
+<li><b>Why it matters:</b> before transformers, NLP existed but "didn't really work very well"; contextual embeddings are the thing that made LLMs possible.</li>
+</ul></div>
+
+<div class="key"><b>Attention, how the transformer builds the contextual embedding.</b>
+<ul>
+<li><b>What it is:</b> feed the <i>whole</i> sentence into the layer at once, not one word; each word looks at all the others and decides which to pay attention to in order to modulate its own embedding.</li>
+<li><b>The mechanism:</b> in <i>train station</i> the token <i>station</i> attends to <i>train</i> and shifts towards rail; in <i>radio station</i> it attends to <i>radio</i> and shifts away.</li>
+<li><b>Also encodes position:</b> the embedding changes with both the surrounding words and the word's <i>ordering</i> in the sentence (positional encoding).</li>
+<li><b>Scale of GPT-3:</b> a stack of 96 layers, each with 96 heads of attention, the whole thing one giant shared parameter space.</li>
+</ul></div>
+
+<figure>
+<svg viewBox="0 0 460 200" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif" font-size="12">
+  <text x="230" y="18" text-anchor="middle" font-size="12" fill="#5a6b62">Same token "station", two contexts &rarr; two contextual embeddings</text>
+  <!-- top sentence -->
+  <text x="20" y="55" fill="#1f2d27">the</text>
+  <text x="55" y="55" fill="#00643C" font-weight="700">train</text>
+  <text x="100" y="55" fill="#1f2d27">left the</text>
+  <rect x="160" y="42" width="62" height="20" rx="4" fill="#e3f0e9" stroke="#00643C"/>
+  <text x="191" y="56" text-anchor="middle" fill="#00643C" font-weight="700">station</text>
+  <path d="M70 60 q60 28 121 -2" fill="none" stroke="#00643C" stroke-width="1.4"/>
+  <text x="120" y="92" text-anchor="middle" font-size="10" fill="#00643C">attends to "train"</text>
+  <text x="240" y="56" fill="#5a6b62">&rarr; [rail]</text>
+  <!-- bottom sentence -->
+  <text x="20" y="135" fill="#1f2d27">the</text>
+  <text x="55" y="135" fill="#b3471f" font-weight="700">radio</text>
+  <rect x="105" y="122" width="62" height="20" rx="4" fill="#fbeae3" stroke="#b3471f"/>
+  <text x="136" y="136" text-anchor="middle" fill="#b3471f" font-weight="700">station</text>
+  <text x="180" y="135" fill="#1f2d27">was playing</text>
+  <path d="M70 140 q35 26 66 6" fill="none" stroke="#b3471f" stroke-width="1.4"/>
+  <text x="100" y="172" text-anchor="middle" font-size="10" fill="#b3471f">attends to "radio"</text>
+  <text x="280" y="136" fill="#5a6b62">&rarr; [broadcast]</text>
+</svg>
+<figcaption>Attention bends one token's embedding towards the words it keeps company with, so "station" lands in two different places in vector space.</figcaption>
+</figure>
+
+<div class="intuition"><span class="tag">Intuition: what an LLM is</span> Take the contextual embedding of your text, hook it to an ordinary classification network, and ask it one question: what is the most likely <i>next</i> token? Do that repeatedly and you have built an LLM. The "creativity" is an impression: under the hood it is a softmax over possible next tokens.</div>
+
+<div class="key"><b>An LLM = next-token prediction over contextual embeddings.</b>
+<ul>
+<li><b>Input:</b> a context (a fixed-size stream of tokens). The transformer turns it into a representation.</li>
+<li><b>Output:</b> a softmax distribution over the vocabulary, a ranked list of candidate next tokens with probabilities.</li>
+<li><b>Decoding:</b> take the top token (deterministic) or sample from the softmax (varied / "creative") output.</li>
+<li><b>The self-supervised labels:</b> you do not need hand-labelled data. Slide a window over raw text; the next word outside the window <i>is</i> the label. Feed it the internet and War and Peace.</li>
+</ul></div>
+
+<div class="key"><b>Temperature, the softmax throttle, and when to turn it down.</b>
+<ul>
+<li><b>What it is:</b> a softmax parameter that sets how peaked vs diffuse the next-token distribution is.</li>
+<li><b>Low temperature / take top token:</b> near-deterministic. Use it for maths, yes/no, medical advice, one right answer, no sampling.</li>
+<li><b>High temperature / sample:</b> spread-out probabilities, varied output. Use it where you want the impression of creativity.</li>
+<li><b>The control:</b> via an API (Python) you can set temperature directly; the chat UI hides it.</li>
+</ul></div>
+
+<div class="key"><b>GPT = Generative Pre-trained Transformer, and the economics of scale.</b>
+<ul>
+<li><b>Transformer:</b> the architecture. <b>Pre-trained:</b> querying it does no training; the weights are frozen. <b>Generative:</b> it generates answers, which is why it <i>feels</i> different even though it is "just another predictive box".</li>
+<li><b>Parameter growth:</b> GPT 117M &rarr; GPT-2 1.5B &rarr; GPT-3 175B; GPT-5 not disclosed, estimated by independent scaling analysts at 2&ndash;5 trillion.</li>
+<li><b>GPT-3 training cost:</b> 1,024 GPUs, 34 days, $4.6M in compute alone.</li>
+</ul></div>
+
+<div class="key"><b>Context, two windows, both on the slide.</b>
+<ul>
+<li><b>Token:</b> the basic unit of text (a word, letters, or a sequence of letters).</li>
+<li><b>Input context = (Prompt, Conversation History, &hellip;):</b> how much the model can read in. GPT-3: 2,048 tokens; GPT-4: 128k; GPT-5: 400K+. ChatGPT also feeds remembered facts about you as extra context.</li>
+<li><b>Output context window:</b> how long an answer it can generate (GPT-5: ~128K).</li>
+<li><b>User tell:</b> "context exceeded" on a long PDF, or the model "forgetting" how a long chat began, both are the input window filling up.</li>
+</ul></div>
+
+<h4>QWEN COLAB DEMO</h4>
+<div class="wex"><span class="h">In-class demo, a real LLM in Colab</span>
+Ciocan downloaded <b>Qwen</b> (a Chinese model, ~1.5B parameters, distilled to do more with fewer parameters) straight from PyTorch / Hugging Face and ran it live. Two things it showed:
+<ul>
+<li><b>Contextual embeddings are real:</b> the vector for <i>station</i> in "the train left the station" came out numerically different from <i>station</i> in "I'm listening to the radio station".</li>
+<li><b>Next-token prediction as a mirror:</b> "My name is &lt;X&gt;, I speak fluent ___" tended to predict English regardless of the name, because the internet is "10% tapestry of languages and 90% people speaking English about Hollywood movies". The model is not broken; it reflects the underlying data, the same point that returns under bias.</li>
+</ul>
+<i>Why Chinese open models matter:</i> strongest cost/benefit trade-off and best for video; cheap enough that agents (which burn tokens freely) run on them rather than a paid OpenAI API.</div>
+
+<h3>The four ways to interact with an LLM</h3>
+
+<p>This is the practical core, and Ciocan flags transfer learning as "the most practically meaningful thing you can take out of this". The four methods trade off control against effort, from no training at all (prompting) to actually moving weights (fine-tuning).</p>
+
+<table class="dt">
+<thead><tr><th>Method</th><th>What it is</th><th>When to use it</th><th>Effort / cost</th><th>Business example</th></tr></thead>
+<tbody>
+<tr>
+<td><b>Prompting</b><br>(in-context learning)</td>
+<td>Put the instructions, and for one/few-shot, worked examples, into the prompt. Weights never change. Zero-shot = task only; few-shot = task + examples of intended answers.</td>
+<td>Quick, general tasks where the base model already knows enough; you just steer it.</td>
+<td><b>Lowest</b>, no training, no data pipeline.</td>
+<td>Ask for a translation and supply two example translations to set the style.</td>
+</tr>
+<tr>
+<td><b>RAG</b><br>(retrieval-augmented generation)</td>
+<td>Before answering, retrieve the relevant internal document from your own database and inject it into the prompt. Answer = user query + the correct policy snippet.</td>
+<td>When the answer must be 100% accurate and aligned to <i>your</i> rules, not whatever the model found on the open internet.</td>
+<td><b>Low&ndash;moderate</b>, weights frozen, but you must build and search a document store.</td>
+<td>Bank chatbot: "can a customer reverse a pending transfer?" is answered from the bank's own policy, not a random foreign bank. Ciocan: every large corporation now has one.</td>
+</tr>
+<tr>
+<td><b>Fine-tuning</b></td>
+<td>Retrain (parts of) the model's weights on your own specific data.</td>
+<td>When prompting/RAG cannot get the behaviour and you have enough domain data to justify moving weights.</td>
+<td><b>Highest</b>, actual training, most data and compute of the four.</td>
+<td>Adjust a base model on a rich proprietary dataset of financial customer behaviour.</td>
+</tr>
+<tr>
+<td><b>Transfer learning</b></td>
+<td>Freeze the LLM, run your data through it to extract embeddings, then train your own small classifier (a simple DNN) on those embeddings. Same blueprint as the vision session.</td>
+<td>When you have a small, rich, labelled dataset and want control without paying to train a giant model. Ciocan's recommended startup playbook.</td>
+<td><b>Low</b> on the LLM side (frozen, it does the heavy embedding work for free), modest to train your own classifier.</td>
+<td>Harvey AI: a good labelled legal dataset &rarr; transfer-learn on a pre-trained model &rarr; a legal-query product. Or classify banking text (lost card vs reverse transfer).</td>
+</tr>
+</tbody>
+</table>
+
+<div class="pitfall"><b>Do not confuse RAG with transfer learning.</b> RAG <i>injects</i> your specific documents into the prompt and asks the LLM for the end answer (Claude Projects pulling from your repo is RAG). Transfer learning never asks the LLM for the answer, it only extracts the <i>embeddings</i>, then a separate classifier you control produces the answer. RAG = augment the prompt; transfer learning = reuse the representation.</div>
+
+<div class="key"><b>Foundation models &amp; multi-modal GenAI, the generalisation.</b>
+<ul>
+<li><b>The move:</b> any unstructured data (text, image, voice, video, tabular) gets its own embedding encoder, a CNN for images, a transformer for text, and all collapse into the same embedding space.</li>
+<li><b>Why it is powerful:</b> radically different, asymmetric data become "similar enough to pass through one machine"; you can go text&rarr;image, image&rarr;text, text&rarr;speech, or combine modalities.</li>
+<li><b>The four-layer recap:</b> traditional programming (one right answer, human-written rules) &rarr; machine learning (one answer, patterns in data) &rarr; deep learning (one answer, patterns in <i>unstructured</i> data) &rarr; <b>generative AI</b> (tasks with <i>endless</i> right answers).</li>
+</ul></div>
+
+<h3>The four limitations</h3>
+
+<div class="intuition"><span class="tag">🎙 In class</span> "Garbage in, garbage out. The world depicted in your data is the only world you can expect to succeed in." Three of the four limitations trace to the same root diagram on the closing slide: biased &amp; private data &rarr; an overfitting, learn-by-example algorithm fitting a proxy label &rarr; a non-interpretable mapping. Fairness, privacy, alignment and explainability are the four failure surfaces of that one pipeline.</div>
+
+<table class="dt">
+<thead><tr><th>Limitation</th><th>What it is</th><th>Why it matters</th><th>The business / deployment risk</th></tr></thead>
+<tbody>
+<tr>
+<td><b>1. Interpretability</b></td>
+<td>The thing that makes deep learning work, fitting arbitrarily complex functions, is also its curse: the more accurate, the more black-box. Accuracy and interpretability trade off (classification rules / linear regression / trees are interpretable; neural nets are accurate but opaque).</td>
+<td>No interpretability &rarr; no trust. Without trust, AI can <i>help</i> a doctor but never <i>supplant</i> one, so you cannot deploy it to cover the places with no doctors.</td>
+<td>Legal exposure: under GDPR a customer differentially treated by an algorithm has a right to an explanation you cannot give. Tolerable selling candy; unacceptable in healthcare. Mechanistic interpretability is a research hope, "we haven't solved it".</td>
+</tr>
+<tr>
+<td><b>2. Bias &amp; fairness</b></td>
+<td>Embedding arithmetic that gives Paris&minus;France+Italy=Rome also gives Doctor&minus;Man+Woman=Nurse. The model is a mirror, not a bigot: it picks up whatever bias is in the data.</td>
+<td>Gender bias: translating from genderless Turkish, the model guesses "doctor=he, nurse=she". Socio-economic bias: trained mostly on rich-country images, it labels Nepalese soap as "food" because it resembles a West Village appetiser.</td>
+<td>You must explain a discriminatory-looking output you did not intend. Trying to hard-code fairness backfired (Google's image-generation fix). At this stage "it's just a problem" with no clean solution.</td>
+</tr>
+<tr>
+<td><b>3. Privacy &amp; security</b></td>
+<td>Two faces. <i>Privacy:</i> anonymising by deleting obvious PII may not be enough, an overfit model can leak private training data when hacked. <i>Security:</i> adversarial attacks add imperceptible noise that flips a confident prediction.</td>
+<td>Netflix Prize: an "anonymised" ratings dataset was cross-referenced with IMDb to re-identify users, forcing Netflix to pull it. Adversarial noise turned a panda into a "gibbon" with higher confidence; a defaced stop sign reads as a 45mph sign.</td>
+<td>Re-identification and leakage liability (acute for medical / DNA research, a major future use case). Adversarial attacks are a real threat to facial recognition and self-driving vision. Defences (anonymisation, fine-tuning, differential privacy) help but "there are always hackers".</td>
+</tr>
+<tr>
+<td><b>4. Alignment</b></td>
+<td>We can only optimise a <i>proxy</i> (the loss / reward function) for the human objective. Minimising the proxy is not guaranteed to be what we actually wanted.</td>
+<td>The boat-race agent maximised points by spinning in a circle hitting bonus targets instead of finishing the race. "Tell a cook you're hungry and he punches you in the stomach, now you're not hungry."</td>
+<td>The behaviour is not a tuning bug you can patch with more reward for finishing; it is structural, any proxy can be gamed. Untrusted deployments need guardrails and monitoring, not faith in the objective.</td>
+</tr>
+</tbody>
+</table>
+
+<div class="key"><b>Differential privacy, the one real scientific answer (limitation 3).</b>
+<ul>
+<li><b>What it is:</b> cryptographically perturb the data, injecting noise that hides any individual.</li>
+<li><b>The trade-off:</b> more noise &rarr; safer data but less you can learn from it. Data utility vs privacy protection, high on one means low on the other.</li>
+</ul></div>
+
+<div class="key"><b>RLHF, the one alignment fix that actually works (limitation 4).</b>
+<ul>
+<li><b>Why pure pre-training fails:</b> a model trained only on internet text "you probably don't want talking to your mother"; it needs an extra step.</li>
+<li><b>The two stages:</b> pre-train on the text loss, then humans score the model's answers and you fine-tune on those ratings, Reinforcement Learning with Human Feedback.</li>
+<li><b>Why it is the blueprint:</b> a token-efficient way to bring the human back into the loop after broad-brush data training. The final assignment runs a simpler version of alignment to a local task.</li>
+</ul></div>
+
+<figure>
+<svg viewBox="0 0 470 150" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif" font-size="11">
+  <text x="235" y="16" text-anchor="middle" font-size="12" fill="#5a6b62">One pipeline, four failure surfaces</text>
+  <rect x="10" y="40" width="120" height="46" rx="6" fill="#fbeae3" stroke="#b3471f"/>
+  <text x="70" y="60" text-anchor="middle" fill="#b3471f">Biased &amp; private</text>
+  <text x="70" y="76" text-anchor="middle" fill="#b3471f">data</text>
+  <rect x="175" y="40" width="120" height="46" rx="6" fill="#fff6e6" stroke="#c08a1e"/>
+  <text x="235" y="60" text-anchor="middle" fill="#9a6e15">Overfit, fit a</text>
+  <text x="235" y="76" text-anchor="middle" fill="#9a6e15">proxy label</text>
+  <rect x="340" y="40" width="120" height="46" rx="6" fill="#eef0ef" stroke="#5a6b62"/>
+  <text x="400" y="60" text-anchor="middle" fill="#3a4742">Non-interpretable</text>
+  <text x="400" y="76" text-anchor="middle" fill="#3a4742">mapping</text>
+  <path d="M130 63 L173 63" fill="none" stroke="#5a6b62" stroke-width="1.4" marker-end="url(#a7)"/>
+  <path d="M295 63 L338 63" fill="none" stroke="#5a6b62" stroke-width="1.4" marker-end="url(#a7)"/>
+  <defs><marker id="a7" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#5a6b62"/></marker></defs>
+  <text x="70" y="112" text-anchor="middle" font-size="10" fill="#b3471f">Privacy &middot; Fairness</text>
+  <text x="235" y="112" text-anchor="middle" font-size="10" fill="#9a6e15">Alignment</text>
+  <text x="400" y="112" text-anchor="middle" font-size="10" fill="#3a4742">Explainability</text>
+  <text x="235" y="138" text-anchor="middle" font-size="11" fill="#00643C" font-weight="700">"We never trust, we test, and be prepared when it fails."</text>
+</svg>
+<figcaption>Ciocan's closing summary slide: the same data&rarr;overfit-proxy&rarr;black-box pipeline produces all four limitations.</figcaption>
+</figure>
+
+<div class="key"><b>Closing thoughts, what to carry out of the course.</b>
+<ul>
+<li><b>It is a tool:</b> deep learning and GenAI uncover useful representations of unstructured data, nothing more mystical.</li>
+<li><b>It needs judgement:</b> AI relies on data and on critical thinking; never trust, always test, be prepared for failure.</li>
+<li><b>What is coming:</b> agentic AI (already here), world models, and possibly AGI, LLMs may not be the last word.</li>
+</ul></div>
+
+<div class="exam"><b>Exam lens.</b> This is an elective with a final <i>individual assignment</i>, not a closed exam: a 1&ndash;2 page reflection on an existing or potential deep-learning application, "focus on the value added, why wasn't this possible without deep learning?", due June 25. So the testable skill is not recall but <b>applied judgement</b>: pick a concrete use case and argue precisely what deep learning brings that structured methods cannot, namely learning useful representations from unstructured data. Be ready to (a) name the right interaction method for a business case and justify it on the control-vs-effort trade-off (Ciocan's stress on <b>transfer learning + RAG</b> as the practical takeaways), and (b) reason about a deployment's <b>limitation surface</b>, which of interpretability / bias / privacy / alignment bites, and the "never trust, test, be prepared to fail" posture.</div>
+<h2 class="part">Reference</h2>
+
+<h2 id="gallery">Framework &amp; architecture gallery</h2>
+<p style="color:var(--soft);">Every model the course draws, collected. Click through to the session where it is built.</p>
+<table class="dt">
+<tr><th>Architecture</th><th>One-line idea</th><th>Built in</th></tr>
+<tr><td><b>Single neuron / logistic regression</b></td><td>Weighted sum of inputs, squashed by a sigmoid into a probability.</td><td><a href="#l01" class="up">S1–2</a></td></tr>
+<tr><td><b>Multi-layer perceptron (MLP)</b></td><td>Stacked layers of neurons; hidden layers learn intermediate features.</td><td><a href="#l01" class="up">S1–2</a></td></tr>
+<tr><td><b>Convolutional neural net (CNN)</b></td><td>Sliding filters + pooling exploit spatial structure for images.</td><td><a href="#l03" class="up">S3–4</a></td></tr>
+<tr><td><b>Transfer learning</b></td><td>Reuse a pretrained network's body, retrain only the head for your task.</td><td><a href="#l03" class="up">S3–4</a></td></tr>
+<tr><td><b>Word embeddings</b></td><td>Dense vectors where direction and distance encode meaning.</td><td><a href="#l05" class="up">S5–6</a></td></tr>
+<tr><td><b>Self-attention / Transformer</b></td><td>Each token weighs every other token, so representation is contextual.</td><td><a href="#l05" class="up">S5–6</a></td></tr>
+<tr><td><b>Large language model (LLM)</b></td><td>A giant transformer trained to predict the next token.</td><td><a href="#l07" class="up">S7</a></td></tr>
+<tr><td><b>RAG vs fine-tuning vs prompting</b></td><td>The four ways to adapt an LLM to your data and task.</td><td><a href="#l07" class="up">S7</a></td></tr>
+</table>
+
+<h2 id="glossary">Glossary &amp; myths</h2>
+<table class="dt">
+<tr><th>Term</th><th>Plain meaning</th></tr>
+<tr><td><b>Deep learning</b></td><td>Machine learning where the model also learns the <i>representation</i> (the features), not just the decision rule.</td></tr>
+<tr><td><b>Weights &amp; biases</b></td><td>The numbers on the connections that the machine adjusts during training; everything learned lives here.</td></tr>
+<tr><td><b>Activation function</b></td><td>The non-linearity (sigmoid, ReLU, softmax) that lets a stack of layers model curved, complex patterns.</td></tr>
+<tr><td><b>Loss</b></td><td>A single number measuring how wrong the predictions are; training drives it down.</td></tr>
+<tr><td><b>Gradient descent / backprop</b></td><td>Backprop finds which way each weight should move to cut the loss; gradient descent takes the step (size set by the learning rate \(\eta\)).</td></tr>
+<tr><td><b>Overfitting</b></td><td>The model memorises the training set (including noise) and fails on new data; watch the train-vs-test gap.</td></tr>
+<tr><td><b>Filter / kernel (CNN)</b></td><td>A small sliding matrix that detects one local pattern (an edge, an arc) anywhere in an image.</td></tr>
+<tr><td><b>Pooling</b></td><td>Downsampling that keeps the strongest local signal and shrinks the feature map.</td></tr>
+<tr><td><b>One-hot vs embedding</b></td><td>One-hot = a sparse length-\(V\) flag with no meaning; embedding = a dense vector where similar words sit close.</td></tr>
+<tr><td><b>Attention</b></td><td>A weighting (softmax over relatedness) that lets a token draw on the other tokens it depends on.</td></tr>
+<tr><td><b>RAG</b></td><td>Retrieval-augmented generation: fetch relevant documents at query time and feed them to the LLM as context.</td></tr>
+<tr><td><b>Fine-tuning vs transfer learning</b></td><td>Both adapt a pretrained model; fine-tuning updates weights on your data, transfer learning reuses the body and retrains the head.</td></tr>
+<tr><td><b>Alignment</b></td><td>Getting a model to actually do what we intend, not just what we literally trained it to optimise.</td></tr>
+</table>
+<div class="pitfall"><b>Myths Ciocan flags.</b>
+<ul>
+<li><b>"More data / a bigger model always wins."</b> The binding constraint is usually the problem framing and the metric, not model size.</li>
+<li><b>"The hit rate proves it works."</b> A convenient proxy metric can look great while missing the outcome the business cares about (the insurance-fraud case is the whole lesson).</li>
+<li><b>"Start with the AI."</b> Start with the business problem; the method is the last choice, not the first.</li>
+<li><b>"The model is objective."</b> Bias, interpretability, privacy and alignment are deployment risks, not afterthoughts (S7).</li>
+</ul></div>
+
+<h2 id="synthesis">The course in one diagram</h2>
+<p>The entire elective is one idea applied to richer and richer data. A model is a stack of weighted sums and non-linearities; <b>training</b> adjusts the weights \(w\) by gradient descent to minimise a loss \(L\). Everything else, CNNs for vision, embeddings and transformers for text, LLMs for generation, is that same engine wearing an architecture suited to the data.</p>
+<figure>
+<svg viewBox="0 0 860 270" width="100%" style="max-width:860px">
+  <g font-family="-apple-system,Helvetica,Arial,sans-serif">
+    <!-- boxes -->
+    <g>
+      <rect x="10" y="40" width="120" height="50" rx="8" fill="#eef6f1" stroke="#00643C" stroke-width="1.5"/>
+      <text x="70" y="62" text-anchor="middle" font-size="13" font-weight="700" fill="#08251a">Single neuron</text>
+      <text x="70" y="79" text-anchor="middle" font-size="11" fill="#555">σ(w·x+b)</text>
+    </g>
+    <g>
+      <rect x="170" y="40" width="120" height="50" rx="8" fill="#eef6f1" stroke="#00643C" stroke-width="1.5"/>
+      <text x="230" y="62" text-anchor="middle" font-size="13" font-weight="700" fill="#08251a">MLP</text>
+      <text x="230" y="79" text-anchor="middle" font-size="11" fill="#555">stacked layers</text>
+    </g>
+    <g>
+      <rect x="330" y="10" width="130" height="50" rx="8" fill="#eaf1f8" stroke="#1f5fa8" stroke-width="1.5"/>
+      <text x="395" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="#13386e">CNN</text>
+      <text x="395" y="49" text-anchor="middle" font-size="11" fill="#555">vision (S3–4)</text>
+    </g>
+    <g>
+      <rect x="330" y="72" width="130" height="50" rx="8" fill="#edf6f7" stroke="#1f7e8c" stroke-width="1.5"/>
+      <text x="395" y="94" text-anchor="middle" font-size="13" font-weight="700" fill="#0d4d57">Embeddings</text>
+      <text x="395" y="111" text-anchor="middle" font-size="11" fill="#555">text (S5–6)</text>
+    </g>
+    <g>
+      <rect x="500" y="72" width="130" height="50" rx="8" fill="#edf6f7" stroke="#1f7e8c" stroke-width="1.5"/>
+      <text x="565" y="94" text-anchor="middle" font-size="13" font-weight="700" fill="#0d4d57">Transformer</text>
+      <text x="565" y="111" text-anchor="middle" font-size="11" fill="#555">self-attention</text>
+    </g>
+    <g>
+      <rect x="690" y="41" width="150" height="50" rx="8" fill="#f5f0fb" stroke="#7b4bbd" stroke-width="1.5"/>
+      <text x="765" y="63" text-anchor="middle" font-size="13" font-weight="700" fill="#5a2d96">LLM / GenAI</text>
+      <text x="765" y="80" text-anchor="middle" font-size="11" fill="#555">next-token (S7)</text>
+    </g>
+    <!-- arrows -->
+    <g stroke="#888" stroke-width="1.6" fill="none">
+      <path d="M130 65 L168 65" marker-end="url(#ah)"/>
+      <path d="M290 60 L328 38" marker-end="url(#ah)"/>
+      <path d="M290 70 L328 95" marker-end="url(#ah)"/>
+      <path d="M460 97 L498 97" marker-end="url(#ah)"/>
+      <path d="M630 97 L688 75" marker-end="url(#ah)"/>
+      <path d="M460 35 C560 35 620 55 688 60" marker-end="url(#ah)"/>
+    </g>
+    <defs>
+      <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#888"/></marker>
+    </defs>
+    <!-- banner -->
+    <rect x="10" y="170" width="830" height="80" rx="10" fill="#fbfbf9" stroke="#d8d8d8"/>
+    <text x="425" y="198" text-anchor="middle" font-size="14" font-weight="700" fill="#00643C">One engine under all of it</text>
+    <text x="425" y="222" text-anchor="middle" font-size="12.5" fill="#1a1a1a">forward pass → loss L → backprop → gradient-descent step (size η) → repeat</text>
+    <text x="425" y="241" text-anchor="middle" font-size="11.5" fill="#555">the architecture changes with the data; the learning rule does not. And: start with the problem, not the model.</text>
+  </g>
+</svg>
+<figcaption>The whole elective: the same train-by-gradient-descent engine, dressed in an architecture that matches the data, from one neuron to generative AI.</figcaption>
+</figure>
+
+<h2 id="readings">Key readings &amp; materials</h2>
+<div class="key"><b>This is a hands-on elective: the materials are a case and the live notebooks, not journal articles.</b>
+<ul>
+<li><b>To Catch a Thief: Explainable AI in Insurance Fraud Detection</b> (INSEAD case, Désir, Satopää et al.). The S1–2 break-out exercise and the course's central business lesson: choose the right metric, and weigh accuracy against interpretability. Built into the <a href="#l01" class="up">S1–2 deep-dive</a>.</li>
+<li><b>Colab notebooks</b> (the assessed deliverable spine): TensorFlow Playground (S1–2), Fashion-MNIST CNN (S3–4), BERTopic / NLP (S5–6), Qwen LLM (S7). Pull the latest from the course website.</li>
+</ul></div>
+<p style="color:var(--soft);font-size:13.5px;"><b>Selection note:</b> the course set no separate academic readings; everything here is drawn from the slide decks and in-class recordings, so no external reading-synthesis pages were generated.</p>
+
+<div class="footer">
+Hands-on Deep Learning · Prof. Florin Ciocan · INSEAD. Course knowledge page built from the Session 1–7 lecture slides + transcripts. Generated by the course-page skill; ★-flagged items await Isabella's eyeball. Not for redistribution.
+</div>
+
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>BSPE &middot; Exam Questions</title>
+<script>
+  MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']] }, svg: { fontCache: 'local' } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+<style>
+  :root{
+    --green:#00643C; --green-light:#2e7d32; --blue:#1f5fa8; --red:#b03030;
+    --ink:#1a1a1a; --soft:#555; --line:#d8d8d8; --bg:#fbfbf9; --card:#ffffff;
+    --amber:#a8740a; --amber-bg:#fdf6e9;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:16.5px; line-height:1.62;
+  }
+  .wrap{display:flex; max-width:1500px; margin:0 auto;}
+  nav.toc{
+    width:268px; flex:0 0 268px; position:sticky; top:0; height:100vh; overflow-y:auto;
+    background:#0e2a20; color:#dfeee7; padding:22px 16px 60px; font-size:13.5px;
+  }
+  nav.toc h2{color:#fff; font-size:14px; letter-spacing:.06em; text-transform:uppercase; margin:18px 0 8px; opacity:.65;}
+  nav.toc a{display:block; color:#cfe3da; text-decoration:none; padding:3px 8px; border-radius:5px; margin:1px 0;}
+  nav.toc a:hover{background:#1c4636; color:#fff;}
+  nav.toc a.part{font-weight:700; color:#8fd6b4; margin-top:6px;}
+  nav.toc .brand{font-weight:800; color:#fff; font-size:16px; line-height:1.3; margin-bottom:4px;}
+  nav.toc .brand span{font-weight:400; font-size:12.5px; color:#8fd6b4; display:block;}
+  .modetoggle{display:flex; gap:6px; margin:12px 0 18px;}
+  .modetoggle .mode{flex:1; text-align:center; padding:8px 6px; border-radius:7px; font-size:13px; font-weight:700; text-decoration:none; border:1px solid #2f5e4c; color:#cfe3da; background:transparent;}
+  .modetoggle .mode:hover{background:#1c4636; color:#fff;}
+  .modetoggle .mode.active{background:#00643C; color:#fff; border-color:#00643C;}
+  main{flex:1 1 auto; padding:46px 56px 140px; max-width:1000px;}
+  h1{font-size:30px; color:var(--green); margin:0 0 6px; line-height:1.18;}
+  h2.part{font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--amber); margin:54px 0 2px; font-weight:700;}
+  h2{font-size:25px; color:var(--green); border-bottom:2px solid var(--green); padding-bottom:6px; margin:42px 0 14px; scroll-margin-top:14px;}
+  h3{font-size:19px; color:#13392b; margin:26px 0 8px;}
+  h4{font-size:16px; color:var(--blue); margin:18px 0 4px; text-transform:uppercase; letter-spacing:.04em;}
+  p{margin:8px 0;}
+  ul,ol{margin:8px 0 8px; padding-left:22px;}
+  li{margin:4px 0;}
+  strong{color:#08251a;}
+  code{background:#eef2ef; padding:1px 5px; border-radius:4px; font-size:13.5px;}
+  a.up{color:var(--blue); text-decoration:none;}
+  .eq{background:#f0f6f2; border:1px solid #cfe2d6; border-left:4px solid var(--green); border-radius:8px; padding:12px 18px; margin:14px 0; overflow-x:auto;}
+  .eq .lbl{font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--green); font-weight:700; margin-bottom:2px;}
+  .key{background:#fff; border:1px solid var(--line); border-radius:10px; padding:14px 20px; margin:16px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  .exam{background:var(--amber-bg); border:1px solid #ecd9ad; border-left:4px solid var(--amber); border-radius:8px; padding:10px 18px; margin:16px 0;}
+  .exam b{color:var(--amber);}
+  .chain{background:#eaf1f8; border:1px solid #c2d6ea; border-left:4px solid var(--blue); border-radius:8px; padding:10px 18px; margin:14px 0; font-size:15px;}
+  .chain .arrow{color:var(--blue); font-weight:700;}
+  .pitfall{background:#fbeeee; border:1px solid #ecc9c9; border-left:4px solid var(--red); border-radius:8px; padding:10px 18px; margin:14px 0;}
+  .pitfall b{color:var(--red);}
+  .twocol{display:flex; gap:22px; flex-wrap:wrap;}
+  .twocol > div{flex:1 1 300px;}
+  figure{margin:20px 0; text-align:center;}
+  figure > svg{max-width:100%; height:auto; background:#fff; border:1px solid var(--line); border-radius:10px; padding:8px;}
+  mjx-container svg, figcaption mjx-container svg, .eq mjx-container svg{max-width:none !important; height:auto !important; border:none !important; padding:0 !important; background:none !important; border-radius:0 !important;}
+  figcaption{font-size:13.5px; color:var(--soft); margin-top:7px; font-style:italic;}
+  table.dt{border-collapse:collapse; width:100%; margin:16px 0; font-size:14.5px;}
+  table.dt th{background:var(--green); color:#fff; text-align:left; padding:8px 11px; font-weight:600;}
+  table.dt td{border:1px solid var(--line); padding:7px 11px; vertical-align:top;}
+  table.dt tr:nth-child(even) td{background:#f6f8f6;}
+  .tacct{border-collapse:collapse; margin:10px auto; font-size:14px; min-width:330px;}
+  .tacct caption{font-weight:700; color:#13392b; padding-bottom:5px;}
+  .tacct th{background:#13392b; color:#fff; padding:5px 14px; font-weight:600;}
+  .tacct td{border:1px solid #b9b9b9; padding:5px 14px;}
+  .tacct td.a{background:#eef6f1;} .tacct td.l{background:#eef2f8;}
+  svg text{font-family:-apple-system,Helvetica,Arial,sans-serif;}
+  .axis{stroke:#333; stroke-width:1.6; fill:none;}
+  .grid{stroke:#e3e3e3; stroke-width:1;}
+  .dash{stroke-dasharray:5 4;}
+  .lbl{font-size:13px; font-weight:600;}
+  .sm{font-size:11.5px; fill:#555;}
+  .dot{fill:#13392b;}
+  .footer{margin-top:60px; padding-top:18px; border-top:1px solid var(--line); font-size:13px; color:var(--soft);}
+  .pill{display:inline-block; background:var(--green); color:#fff; font-size:11px; padding:2px 9px; border-radius:20px; letter-spacing:.04em; vertical-align:middle;}
+  .eyeball{background:#fdeaf4; border:2px dashed #c0398a; border-radius:8px; padding:8px 14px; margin:12px 0; font-size:14px; color:#8a1f5f;}
+  .eyeball .star{font-size:17px; margin-right:4px;}
+  .eyeball b{color:#8a1f5f;}
+  .intuition{background:#edf6f7; border:1px solid #b6d7dc; border-left:4px solid #1f7e8c; border-radius:8px; padding:10px 16px; margin:14px 0; font-size:15px;}
+  .intuition .tag{display:inline-block; font-size:11px; font-weight:700; letter-spacing:.04em; color:#1f7e8c; text-transform:uppercase; margin-right:6px;}
+  .intuition b{color:#0d4d57;}
+  .izzy{background:#f5f0fb; border:1px solid #d3c1ec; border-left:4px solid #7b4bbd; border-radius:8px; padding:12px 18px; margin:16px 0; font-size:15px;}
+  .izzy .tag{display:inline-block; font-size:11px; font-weight:700; letter-spacing:.04em; color:#7b4bbd; text-transform:uppercase; margin-bottom:6px;}
+  .izzy b{color:#5a2d96;}
+  .izzy table.dt{margin:8px 0;}
+  .read{margin:10px 0; padding:9px 15px; border-left:3px solid var(--green); background:#f8f8f5; border-radius:6px; font-size:14.5px;}
+  .read .meta{font-size:12px; color:var(--soft); margin-left:6px;}
+  .rtag{display:inline-block; font-size:10.5px; font-weight:700; letter-spacing:.03em; text-transform:uppercase; padding:1px 7px; border-radius:20px; vertical-align:middle; margin-left:4px;}
+  .rtag.man{background:#fbe4e4; color:#a32020;}
+  .rtag.prof{background:#e3eefb; color:#1a4e8a;}
+  .rtag.core{background:#e7f3ec; color:#13643c;}
+  .wex{background:#fff; border:1px dashed #9cc; border-radius:8px; padding:9px 15px; margin:12px 0; font-size:14.5px;}
+  .wex .h{font-weight:700; color:var(--blue); font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; display:block; margin-bottom:3px;}
+  @media print{ nav.toc{display:none;} main{padding:0; max-width:100%;} body{font-size:11pt;} h2{page-break-after:avoid;} figure,.eq,.key,.exam,ol.deriv,.wex{page-break-inside:avoid;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="toc">
+  <a href="index.html" style="color:#9fd3ba; font-size:12px; letter-spacing:.04em; margin-bottom:12px;">&larr; All courses</a>
+  <div class="brand">BSPE <span>Business &amp; Society: Political Environment &middot; Prof. Vinod Aggarwal</span></div>
+  <a href="BSPE%20Revision%20Document.html#how">How to use this</a>
+  <a href="BSPE%20Revision%20Document.html#exam">The exam &amp; how to pass it</a>
+  <a href="BSPE%20Revision%20Document.html#frameworks">&starf; Master frameworks sheet</a>
+  <a href="BSPE%20Cheat%20Sheet.html">&#9656; Printable cheat sheet (A4 &times;2)</a>
+  <div class="modetoggle"><a class="mode" href="BSPE%20Revision%20Document.html">Course Content</a><span class="mode active">Exam Questions</span></div>
+  <a class="part" href="#q1">Q1 &middot; the company case</a>
+  <a class="part" href="#q2">Q2 &middot; industrial policy</a>
+  <a class="part" href="#q3">Q3 &middot; national security</a>
+</nav>
+<main>
+
+<h1>Exam Questions</h1>
+<p style="font-size:18px;color:var(--soft);margin-top:0;">Predicted questions and worked answers, built from how Aggarwal described the exam in class. BSPE has no past papers, so nothing here is a real past question; the question wordings are reasoned predictions, the answer spines are built on what he said he rewards.</p>
+
+<div class="key"><b>The exam, in one breath.</b> <b>Three questions, 600 + 200 + 200 = 1,000 words, 2 hours.</b> Sessions 1&ndash;6 only (S7 off). One A4 two-sided cheat sheet allowed. First move: <b>read all three questions, outline, then write</b>, and never exceed a word limit (the grader marks you down). The single most repeated instruction: <b>apply (IA)&sup3; to the case, do not just list its parts.</b></div>
+
+<table class="dt">
+<thead><tr><th>Question</th><th>What he said it is</th></tr></thead>
+<tbody>
+<tr><td><b>Q1 &middot; 600w / 60pts</b></td><td>You read an <b>unseen article</b>; pick <b>one company</b> and give its <b>market and non-market strategy, with named tactics</b>. ("Just lobby, lobby who?" is a fail.)</td></tr>
+<tr><td><b>Q2 &middot; 200w</b></td><td><b>Industrial policy</b> ("something about industrial policy"); he flagged the FT article "China's comparative advantage is industrial policy" for the short answers.</td></tr>
+<tr><td><b>Q3 &middot; 200w</b></td><td><b>National security, investment, trade and linkage</b> ("it's going to be national security", his words, twice).</td></tr>
+</tbody>
+</table>
+
+<h2 id="q1">Q1 &middot; the company case (600 words)</h2>
+<p>The big one. You get an article you have not seen, pick a company, and run (IA)&sup3; into a <b>market</b> and a <b>non-market</b> strategy, each with <b>named tactics</b>. Here is a full worked example so you can see how each lens produces something to write.</p>
+<div class="key" id="q1-worked" style="border:2px solid var(--blue); border-left:6px solid var(--blue); background:#f2f6fb;">
+<b style="color:var(--blue); font-size:16px;">&starf; Q1 worked example (600 words): applying (IA)³ to a company case</b>
+<p style="margin:4px 0 2px;">Q1 hands you an <b>unseen article</b> and asks you to pick one company and give its <b>market and non-market strategy with tactics</b>. Here is the method on a plausible case, so you can see how each (IA)³ row produces something concrete to write.</p>
+<div class="intuition"><span class="tag">Example article (illustrative)</span> <i>"The EU has launched an anti-subsidy investigation into Chinese electric vehicles and will impose tariffs of up to 35% on imports from BYD and others, arguing state subsidies give them an unfair edge. Beijing has threatened retaliation against European brandy, dairy and luxury cars. Meanwhile BYD is building its first European factory in Hungary."</i> <b>Choose a company and set out its market and non-market strategy, with tactics.</b> &rarr; Pick <b>BYD</b>.</div>
+
+<h4>Step 1, diagnose with (IA)³</h4>
+<table class="dt">
+<thead><tr><th>Lens</th><th>Applied to BYD</th></tr></thead>
+<tbody>
+<tr><td><b>Issue</b></td><td>EU anti-subsidy tariffs on Chinese EVs, created by China's industrial-policy export surge meeting the EU securitising its car industry and green-transition autonomy. <b>Reframe?</b> Shift the frame from "unfair China threat" to "affordable green mobility + Hungarian jobs".</td></tr>
+<tr><td><b>Actors</b></td><td>Simplify to the few that matter: the <b>Commission</b> (DG Trade, runs the probe); <b>member-state governments</b> (Germany vs a French-led protectionist bloc); <b>European carmakers</b> (split, VW/BMW are exposed in China); the <b>Chinese government</b> (retaliation threat); consumers / green NGOs.</td></tr>
+<tr><td><b>Interests</b></td><td>The decisive <b>split</b> is Germany vs France: German carmakers and government fear Chinese retaliation in their biggest market (the same logic as the de Gucht / Merkel solar case). That faction is BYD's way in.</td></tr>
+<tr><td><b>Arena</b></td><td>The EU. Per the where-to-lobby rule, a major trade and distributional issue goes to <b>big member-state governments (Germany)</b>, and the <b>Commission</b> for the technical investigation. Not US-style grassroots.</td></tr>
+<tr><td><b>Information</b></td><td>Evidence that BYD's edge is <b>scale and supply-chain control, not subsidy</b> (under 15% of its cost lead over Tesla is subsidy); local-jobs figures from the Hungary plant.</td></tr>
+<tr><td><b>Assets</b></td><td>The <b>Hungary factory</b> (control / reputation), alliances with German carmakers, and Beijing's retaliation threat as leverage.</td></tr>
+</tbody>
+</table>
+
+<h4>Step 2, the two strategies (what you actually write)</h4>
+<div class="key"><b>Market strategy (compete commercially).</b>
+<ul>
+<li><b>Localise:</b> the Hungary plant jumps the tariff and builds European content (rules of origin).</li>
+<li><b>Reposition:</b> move slightly up-market to absorb the tariff; protect the cost/quality edge.</li>
+<li><b>Inorganic:</b> a JV or assembly partnership with a European maker to localise faster.</li>
+</ul></div>
+<div class="key"><b>Non-market strategy (goal: kill or shrink the tariff) + named tactics.</b>
+<ul>
+<li><b>Lobbying</b> the German government and DG Trade.</li>
+<li><b>Coalition-building</b> with German carmakers who fear retaliation.</li>
+<li><b>Testimony &amp; expertise:</b> submit cost data to the investigation showing scale, not subsidy.</li>
+<li><b>Public advocacy:</b> frame as cheap green mobility plus Hungarian jobs.</li>
+<li><b>Statecraft leverage:</b> Beijing's retaliation threat, channelled via the home government.</li>
+<li><b>Judicial:</b> challenge at the ECJ or WTO if tariffs are imposed.</li>
+<li><b>Match to arena:</b> EU = Commission for the technical case, member states for the big call. <i>Not</i> a US-style grassroots campaign.</li>
+</ul></div>
+
+<div class="exam"><b>Step 3, verdict (the close).</b> <b>Integrate</b> the two halves: localise (market) <i>and</i> ally with Germany plus supply the data (non-market). Aim "<b>well enough</b>" (a negotiated exemption or reduced tariff via local production), not total victory. Flag the <b>securitisation risk</b>: if the issue is reframed as a "China security threat" it jumps to a more hostile arena (the Q3 overlap). Written out, each line above becomes a sentence or two and you have your 600 words, hitting every marking point: named tactics and who you lobby, the right arena, both strategies, and the state / decision-mode match.</div>
+</div>
+
+
+<h2 id="q2">Q2 &middot; industrial policy (200 words)</h2>
+<p>The topic is confirmed; the wording is not. He flagged the China FT article for the short answers, so the most likely angle is to evaluate its claim, but the spine below works across the likely variants.</p>
+<div class="key" id="exam-article" style="border:2px solid #b03030; border-left:6px solid #b03030; background:#fdf3f3;">
+<b style="color:#b03030; font-size:16.5px;">&starf; The one reading Aggarwal explicitly told you to read for the exam</b>
+<ul>
+<li><b>Article:</b> <a class="up" href="Sources/L04/China's%20comparative%20advantage%20is%20industrial%20policy.html">one-page synthesis on this site</a> &middot; original: <a class="up" href="https://www.ft.com/content/42fc2ea1-cd3a-43d1-87c6-eba09a44d888">"China's comparative advantage is industrial policy"</a>, Tej Parikh, FT Free Lunch, 31 May 2026 (opens via the INSEAD FT group subscription).</li>
+<li><b>His exact words (Session 4):</b> <i>"I have a good way for you to pass the exam, at least the short answer questions. I'll give you a hint. This article ... China's comparative advantage is industrial policy ... Western attempts to imitate Beijing's state-funded model are unwise."</i></li>
+<li><b>The thesis to bank:</b> China's comparative advantage is <i>industrial policy itself</i>, the <b>governance</b> that runs it: centralised co-ordination across provinces, state banks and regulators, paired with decentralised competition where state backing is <i>conditional on performance</i>. So copying it with broad subsidies and tariffs is the wrong fight. Hard evidence against the "it's all subsidies" view: under <b>15% of BYD's cost advantage over Tesla</b> comes from subsidies (Rhodium); the rest is supply chains, clustering and scale.</li>
+<li><b>The prescription (your counter-argument):</b> the West should play to its own institutional edge, frontier innovation (AI, biotech) via open research and VC, narrow any industrial policy to security-critical supply chains, use cheap Chinese inputs, and upskill displaced workers. Frey's warning: copying China's model means "fighting the last war."</li>
+<li><b>How to use it:</b> ammunition for the <a class="up" href="#l04">industrial-policy debate</a> short answers, weigh market-failure rationales (coordination, knowledge spillovers, scale) against political rationales (national security, employment, rent-seeking), name the instruments, and say whether they discriminate.</li>
+</ul>
+</div>
+
+<div class="key" id="china-model" style="border:2px solid var(--green); border-left:6px solid var(--green); background:#f1f8f3;">
+<b style="color:var(--green); font-size:16px;">&starf; The industrial-policy question (Q2, 200 words): likely angles + a model answer</b>
+<p style="margin:4px 0 2px;">We <b>know the topic is industrial policy</b> (Aggarwal confirmed Q2 is "something about industrial policy"), and he flagged the China FT piece for the short answers. We do <b>not</b> know the exact wording. The most likely angles (predicted, no past papers exist):</p>
+<ul style="margin:2px 0;">
+<li><b>(most likely) Evaluate the claim:</b> <i>"China's real comparative advantage is industrial policy itself", critically assess this, and what should the West do?</i></li>
+<li><b>The course's core line:</b> <i>"Judge vertical industrial policy by one question, market failure vs government failure. Discuss with cases."</i></li>
+<li><b>When does it work:</b> <i>"Under what conditions does industrial policy succeed rather than degenerate into rent-seeking?"</i></li>
+<li><b>Instruments / the developing-country "conform to comparative advantage" debate</b> are also live.</li>
+</ul>
+<div class="pitfall" style="margin:5px 0 2px;"><b>Attribution, do not put words in his mouth (he effectively disputes the phrase).</b> "Comparative advantage in industrial policy" is <b>the FT article's framing (Parikh), not Aggarwal's</b>. When he described the article in class he pointedly <b>recast</b> it: it <i>"basically says the Chinese are a lot better in using different kinds of instruments for industrial policy than the Americans"</i>, and it is <i>"about what kind of government you need to intervene successfully"</i>, i.e. <b>better execution and state capacity, not a literal comparative advantage</b> (in S6 he uses "comparative advantage" only in the classic <b>endowment</b> sense: "if you have the same endowment you won't trade"). He also stressed the rationale <i>"doesn't have to be a market failure as discussed in the article"</i> (it can be national security, employment). The "PE game vs VC game" lines were <b>students</b>. His one personal view: IP is <i>"a necessary thing"</i> (the debate is <b>how, not whether</b>). So in an answer, present "comparative advantage in industrial policy" as <b>the article's catchy claim, to be read as instrument-mastery + state capacity</b>, not parroted as a real comparative advantage.</div>
+<div class="exam" style="margin:6px 0 2px;">
+<b>Model answer (bullet skeleton, built on what he rewards).</b>
+<ul>
+<li><b>Verdict first:</b> industrial policy is neither snake oil nor a free lunch; it works only where a genuine <b>market failure</b> meets a state with the <b>capacity to discipline firms</b>. So the West should not copy China's tools wholesale, but narrow, security-targeted policy is defensible.</li>
+<li><b>The deciding frame (his core line):</b> <b>market failure vs government failure, which is worse here?</b> FOR: dynamic scale economies / infant industry (Korea), coordination failures, knowledge spillovers. AGAINST: the knowledge problem (states can't pick winners), capture and rent-seeking, distorted incentives.</li>
+<li><b>What tips it, state capacity + discipline:</b> rule of law, an <b>insulated meritocratic bureaucracy</b>, embedded autonomy, and <b>export-performance conditionality</b> (subsidy conditional on hitting export targets, Korea), versus unconditional protection that became permanent (India steel, Brazil computers).</li>
+<li><b>Name and classify instruments</b> (he marks down vagueness): at-the-border (tariffs, quotas), behind-the-border (subsidies, procurement, IP, export discipline), beyond-the-border (standards, import promotion).</li>
+<li><b>Separate market-failure rationales from political ones</b> (national security, employment, redistribution), a classic trap: a political motive dressed up as a market failure.</li>
+<li><b>The China case (the article's claim, handled critically):</b> Parikh argues China's edge is industrial policy <i>itself</i>, the governance, since under <b>15% of BYD's cost advantage over Tesla</b> is subsidy (Rhodium); the rest is supply chains, clustering and scale. If true, copying China's <i>instruments</i> without its <i>state capacity</i> is futile, and the article's prescription (lean into the West's own strength in frontier innovation via open research and VC; narrow policy to security-critical chains; "don't fight the last war") follows. But "comparative advantage in industrial policy" is a <i>provocative repurposing</i>: <b>Noah Smith</b> (the Noahpinion rebuttal) notes you cannot have a comparative advantage in an <i>input</i>, it is really <b>competitive advantage</b>, and every country has a comparative advantage in <i>something</i>.</li>
+<li><b>The decisive tension (the top-mark payoff):</b> the efficiency logic says <b>specialise</b> (let China make the goods, the West does services), but two things break it: <b>(a)</b> trade is <b>unbalanced</b>, China runs a surplus, "trading goods for IOUs", which the balanced-trade comparative-advantage model does not describe; <b>(b)</b> a <b>security externality</b>, depending on a strategic rival for drone components and rare earths is dangerous regardless of efficiency. This is exactly why "the rationale doesn't have to be a market failure". The <b>Parikh-vs-Smith disagreement is really about the <i>scope</i> of the security carve-out</b> (Parikh: a narrow set; Smith: most of advanced manufacturing → raise barriers), not whether it exists. Full comparison in the vault note <i>"Industrial Policy and Comparative Advantage, Three Views"</i>.</li>
+</ul>
+</div>
+<div class="eyeball" style="margin-top:4px;"><span class="star">&starf;</span><b>Note:</b> question wording is predicted (no past papers). The BYD figure, Frey and "don't fight the last war" are from the FT article, not from class; the "$900bn per job" steel figure was a student slip (real estimate ~$900k). Adapt the spine to whatever the exam actually asks.</div>
+</div>
+
+
+<h2 id="q3">Q3 &middot; national security, investment, trade &amp; linkage (200 words)</h2>
+<p>Topic confirmed from his own mouth. No model answer is predicted here (the prompt is wide open), but the approach is fixed.</p>
+<div class="exam"><b>How to attack Q3.</b>
+<ul>
+<li><b>Spot the security frame</b>, then identify the <b>linkage</b>: trade, investment and security are deliberately fused, in two directions, security reshapes commerce (securitization, CFIUS/FIRRMA screening, Section 232 tariffs, export controls) and commerce serves security (FTAs as alliances, sanctions, economic statecraft).</li>
+<li><b>Name the weapon / arena:</b> US Section 201 / 232 / 301, IEEPA, export controls (chips, rare earths); CFIUS + FIRRMA for investment; the WTO national-security exception.</li>
+<li><b>Show the firm as collateral damage</b> caught in a state-to-state fight (DP World, TikTok, THAAD), and its response: act <i>before</i> it is unmanageable, aim "well enough".</li>
+<li><b>Examples to cite:</b> trade agreements signed for security not economics (US&ndash;Morocco post-9/11, TPP "another aircraft carrier"); Trump's everything-linkage (tariffs for drugs, immigration); China&rsquo;s rare-earths leverage. Full detail in <a class="up" href="BSPE%20Revision%20Document.html#l03">Course Content</a>.</li>
+</ul></div>
+
+<div class="footer">
+<p><strong>Business &amp; Society: Political Environment &middot; Exam Questions.</strong> Predicted questions and worked answer spines (BSPE has no past papers), built from Prof. Aggarwal's in-class description of the exam (3 questions, 600 + 200 + 200 words, Sessions 1&ndash;6). Switch to <a class="up" href="BSPE%20Revision%20Document.html">Course Content</a> for the full knowledge page, or the <a class="up" href="BSPE%20Cheat%20Sheet.html">printable cheat sheet</a>. Open in a browser; print to PDF via &#8984;P.</p>
+</div>
+
+</main>
+</div>
+</body>
+</html>

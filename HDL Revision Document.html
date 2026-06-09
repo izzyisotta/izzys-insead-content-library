@@ -748,7 +748,9 @@ A few dozen scraped images, 18-image test set. Run images through headless ResNe
 
 <p>This pair of sessions takes the same meta-recipe from the vision lectures (understand the structure of the domain, then tailor the network architecture to it, and lean on transfer learning) and runs it for language. The whole arc is one question asked four times over: <b>how do you turn words into numbers a neural network can use, without throwing away their meaning?</b> The answer climbs a ladder: one-hot encoding (naive) &rarr; embeddings (meaning) &rarr; contextual embeddings / Transformers (meaning + context + order). By the end you have built every piece of infrastructure that underpins an LLM like ChatGPT.</p>
 
-<div class="intuition"><span class="tag">🎙 In class</span> Ciocan's framing, repeated from the vision session: "There's no one big neural network that works for everything. You need to understand the problem, use domain-specific knowledge, then find a particular architecture that works for that type of problem." For images the special structure was geometry and the secret sauce was the convolutional filter. For text the special structure is <b>order and context</b>, and the secret sauce will turn out to be the <b>Transformer</b>.</p>
+<div class="intuition"><span class="tag">🎙 In class</span> Ciocan: "There's no one big neural network that works for everything. You need to understand the problem, use domain-specific knowledge, then find a particular architecture that works for that type of problem."</div>
+
+<p>For images the special structure was geometry and the secret sauce was the convolutional filter. For text the special structure is <b>order and context</b>, and the secret sauce will turn out to be the <b>Transformer</b>.</p>
 
 <h3>5.1 Why text is hard: the four challenges</h3>
 
@@ -764,13 +766,13 @@ A few dozen scraped images, 18-image test set. Run images through headless ResNe
 </tbody>
 </table>
 
-<div class="key"><b>And humans are messy.</b>
+<h4>AND HUMANS ARE MESSY</h4>
 <ul>
 <li>Language carries sarcasm, irony, sentiment, emotion, all of which a model must somehow pick up.</li>
 <li>This is the soft fifth challenge: people do not say what they literally mean.</li>
-</ul></div>
+</ul>
 
-<div class="intuition"><span class="tag">Intuition: why bother</span> Most of what matters is language: human knowledge, the internet, communication, and cultural production are "mostly natural language text." Cracking it unlocks classification, content filtering, sentiment analysis, translation, summarisation, and intent prediction. The point is not just chatbots: "you're business people, you're probably going to make money by solving <i>specific</i> tasks."</p>
+<p>Why bother at all? Most of what matters is language: human knowledge, the internet, communication, and cultural production are "mostly natural language text." Cracking it unlocks classification, content filtering, sentiment analysis, translation, summarisation, and intent prediction. The point is not just chatbots: "you're business people, you're probably going to make money by solving <i>specific</i> tasks."</p>
 
 <h3>5.2 Vectorisation: the STIE pipeline</h3>
 
@@ -778,36 +780,36 @@ A few dozen scraped images, 18-image test set. Run images through headless ResNe
 
 <div class="chain"><b>STIE pipeline:</b>&nbsp; Standardize <span class="arrow">&rarr;</span> Tokenize <span class="arrow">&rarr;</span> Index <span class="arrow">&rarr;</span> Encode</div>
 
-<div class="key"><b>The four steps.</b>
+<h4>THE FOUR STEPS</h4>
 <ul>
 <li><b>Standardize</b>, strip capitalisation, punctuation and accents (almost always); strip <i>stop words</i> (a, the, it &hellip; often); <i>stem</i> words to a root (ate / eaten / eating &rarr; eats; sometimes). <b>Why:</b> it lowers dimension (one entry, not five) <i>and</i> makes the data denser, so the machine can recognise that five tensed variants are the same pattern.</li>
 <li><b>Tokenize</b>, split into <i>tokens</i> (usually one word = one token). You can also use <b>n-grams</b>: a token made of n consecutive words via a sliding window. <b>Why n-grams:</b> a 2-gram starts to capture context, because the pair carries more than the two words alone. <b>Why not huge n:</b> the vocabulary and vector length blow up, and most long n-grams never recur in the training data, so you gain nothing and pay in compute.</li>
 <li><b>Index</b>, assign each vocabulary token a unique integer, plus a special <code>&lt;UNK&gt;</code> token (integer 0) for any word unseen at training time that appears at test time.</li>
 <li><b>Encode</b>, turn each integer into a <b>one-hot vector</b> (see below).</li>
-</ul></div>
+</ul>
 
-<div class="key"><b>Notation set here (reused all session).</b>
+<h4>NOTATION SET HERE (REUSED ALL SESSION)</h4>
 <ul>
 <li><b>token</b>, the unit of text fed to the model, usually a word.</li>
 <li><b>vocabulary size <i>V</i></b>, the count of distinct tokens in the training data; the universe of possible words.</li>
 <li><b>one-hot vector</b>, a length-<i>V</i> vector, all 0s except a single 1.</li>
 <li><b>embedding vector (dimension <i>d</i>)</b>, a short dense learned vector, <i>d</i> &lt;&lt; <i>V</i>.</li>
-</ul></div>
+</ul>
 
 <h4>One-hot encoding</h4>
 
-<div class="intuition"><span class="tag">Intuition: one-hot</span> Give every word its own light switch on a panel as long as the whole dictionary. The word "dog" is the panel with only switch #1,008 flipped on; "cat" is the panel with only #1,007 on. No two words share a switch, and crucially no word's switch is "near" another's.</div>
+<div class="intuition"><span class="tag">Intuition: one-hot</span> Give every word its own light switch on a panel as long as the whole dictionary. "dog" flips only switch #1,008; "cat" flips only #1,007. No two words share a switch, and no word's switch is "near" another's.</div>
 
 <div class="eq"><div class="lbl">One-hot encoding of the k-th vocabulary token</div>
 $$\text{onehot}(k) = (\underbrace{0,\dots,0}_{k-1},\,1,\,\underbrace{0,\dots,0}_{V-k}) \in \{0,1\}^{V}, \qquad \dim = V$$</div>
 
 <p>The slide states it directly: <b>dimension of encoding vector = vocabulary size</b>. Put the 1 in the k-th position, 0 everywhere else.</p>
 
-<div class="key"><b>Why integers alone will not do (the reason we one-hot at all).</b>
+<h4>WHY INTEGERS ALONE WILL NOT DO (THE REASON WE ONE-HOT AT ALL)</h4>
 <ul>
 <li>If "dog" got integer 1,008 and "algebra" happened to land on 1,009, the network sees only the numbers 1,008 and 1,009 and may infer the two words are <i>related</i>, when their adjacency is pure accident of indexing.</li>
 <li>One-hot fixes this: <b>every pair of one-hot vectors is exactly the same distance apart</b> (they differ by one swapped 1). No accidental relationships are smuggled in.</li>
-</ul></div>
+</ul>
 
 <h4>Aggregating a sentence into a fixed-length vector</h4>
 
@@ -861,13 +863,15 @@ $$\text{onehot}(k) = (\underbrace{0,\dots,0}_{k-1},\,1,\,\underbrace{0,\dots,0}_
 
 <h3>5.4 Secret sauce #1: embeddings (representation = meaning)</h3>
 
-<div class="intuition"><span class="tag">🎙 In class</span> "An embedding turns each word into a vector of numbers that actually encodes <i>meaning</i>." Plot the words as points: "home" and "house" should land close together; "algebra" should land far away. The <b>geometric distance between word-vectors becomes the semantic distance between the words.</b> Ciocan: "Isn't it kind of beautiful?"</p>
+<div class="intuition"><span class="tag">🎙 In class</span> "An embedding turns each word into a vector of numbers that actually encodes <i>meaning</i>." Ciocan: "Isn't it kind of beautiful?"</div>
 
-<div class="key"><b>One-hot vs embedding, the contrast the slide draws.</b>
+<p>Plot the words as points: "home" and "house" should land close together; "algebra" should land far away. The <b>geometric distance between word-vectors becomes the semantic distance between the words.</b></p>
+
+<h4>ONE-HOT VS EMBEDDING, THE CONTRAST THE SLIDE DRAWS</h4>
 <ul>
 <li><b>One-hot:</b> sparse, high-dimensional (length <i>V</i>), hard-coded, all words equidistant, meaning destroyed.</li>
 <li><b>Embedding:</b> dense, low-dimensional (length <i>d</i>), <i>learned from data</i>, distances carry meaning.</li>
-</ul></div>
+</ul>
 
 <table class="dt">
 <thead><tr><th></th><th>One-hot</th><th>Embedding</th></tr></thead>
@@ -882,9 +886,9 @@ $$\text{onehot}(k) = (\underbrace{0,\dots,0}_{k-1},\,1,\,\underbrace{0,\dots,0}_
 
 <h4>Semantic geometry and word arithmetic</h4>
 
-<div class="intuition"><span class="tag">Intuition: meaning-space</span> Once words are points in a space, relationships become directions. The vector that moves you from "man" to "woman" is roughly the same vector that moves you from "king" to "queen": the "gender" direction. Tense (walking &rarr; walked) and country &rarr; capital sit along their own directions too.</div>
+<div class="intuition"><span class="tag">Intuition: meaning-space</span> Once words are points in a space, relationships become directions: the vector from "man" to "woman" is roughly the vector from "king" to "queen", the "gender" direction.</div>
 
-<p>That makes meaning literally arithmetic. The slides render the canonical examples:</p>
+<p>Tense (walking &rarr; walked) and country &rarr; capital sit along their own directions too. That makes meaning literally arithmetic. The slides render the canonical examples:</p>
 
 <div class="eq"><div class="lbl">Word vector arithmetic (from the slides / in class)</div>
 $$\overrightarrow{\text{king}} - \overrightarrow{\text{man}} + \overrightarrow{\text{woman}} \;\approx\; \overrightarrow{\text{queen}}$$
@@ -915,7 +919,9 @@ $$\overrightarrow{\text{Paris}} - \overrightarrow{\text{France}} + \overrightarr
 
 <h4>The embedding is just another layer</h4>
 
-<div class="intuition"><span class="tag">🎙 In class</span> "Forget how you get the numbers: imagine a magic box gives you the right embeddings." Then the reveal: the magic box is just <b>another layer in the network</b>. The embedding values are betas the network learns by training, the same as any other weights. Pre-trained embeddings can also be transferred in, exactly as ResNet was for vision.</div>
+<div class="intuition"><span class="tag">🎙 In class</span> "Forget how you get the numbers: imagine a magic box gives you the right embeddings." Then the reveal: the magic box is just <b>another layer in the network</b>.</div>
+
+<p>The embedding values are betas the network learns by training, the same as any other weights. Pre-trained embeddings can also be transferred in, exactly as ResNet was for vision.</p>
 
 <div class="chain"><b>The pipeline grows one layer:</b>&nbsp; text <span class="arrow">&rarr;</span> STIE / vectorization <span class="arrow">&rarr;</span> <b>embedding layer</b> <span class="arrow">&rarr;</span> dense layers <span class="arrow">&rarr;</span> softmax output</div>
 
@@ -926,40 +932,44 @@ $$\overrightarrow{\text{Paris}} - \overrightarrow{\text{France}} + \overrightarr
 <p>A plain embedding (e.g. Word2Vec) gives each word <i>one</i> vector for all situations. Two problems remain.</p>
 
 <div class="twocol">
-<div><div class="key"><b>Context matters.</b>
+<div><h4>CONTEXT MATTERS</h4>
 <ul>
 <li>One word can mean very different things in different sentences; a single embedding cannot capture all of them.</li>
 <li>"station": <i>the train left the station</i> / <i>the radio station</i> / <i>I was stationed abroad</i>.</li>
 <li>"see": <i>I will see you soon</i> / <i>I will see this project to the end</i> / <i>I see what you mean</i>.</li>
-</ul></div></div>
-<div><div class="key"><b>Order matters.</b>
+</ul></div>
+<div><h4>ORDER MATTERS</h4>
 <ul>
 <li>Reordering words changes meaning even with the same words present.</li>
 <li>"My <i>favorite new</i> show" vs "My <i>new favorite</i> show".</li>
 <li>"I have <i>to read</i> this book" vs "I have this book <i>to read</i>."</li>
-</ul></div></div>
+</ul></div>
 </div>
 
-<div class="intuition"><span class="tag">🎙 In class</span> The Google-search failure: a Brazilian searching how to travel to the US gets results for an American travelling to Brazil. Order and context establish <i>direction</i> ("Brazilian wanting a US visa" vs the reverse), and a bag-of-embeddings throws that direction away. Google was the first to fix search like this with Transformers.</div>
+<div class="intuition"><span class="tag">🎙 In class</span> The Google-search failure: a Brazilian searching how to travel to the US gets results for an American travelling to Brazil. Order and context establish <i>direction</i>, and a bag-of-embeddings throws that direction away. Google was the first to fix search like this with Transformers.</div>
 
 <h3>5.6 Secret sauce #2: the Transformer and self-attention</h3>
 
-<div class="intuition"><span class="tag">Intuition: the Transformer's job</span> Feed in a word's plain (non-contextual) embedding and the whole surrounding sentence; output a <b>new embedding for that word that has absorbed its context and position</b>. Same philosophy as CNNs for vision: find the architecture that captures the domain's structure. Developed in 2017 (Google, "Attention Is All You Need"), it is the building block under ChatGPT and modern LLMs.</div>
+<div class="intuition"><span class="tag">Intuition: the Transformer's job</span> Feed in a word's plain (non-contextual) embedding and the whole surrounding sentence; output a <b>new embedding for that word that has absorbed its context and position</b>.</div>
+
+<p>Same philosophy as CNNs for vision: find the architecture that captures the domain's structure. Developed in 2017 (Google, "Attention Is All You Need"), it is the building block under ChatGPT and modern LLMs.</p>
 
 <div class="chain"><b>Transformer encoder, top to bottom:</b>&nbsp; non-contextual embedding <span class="arrow">+</span> positional embedding (captures order) <span class="arrow">&rarr;</span> several self-attention layers (capture context) <span class="arrow">&rarr;</span> feed-forward layer <span class="arrow">&rarr;</span> <b>contextual embedding</b></div>
 
 <h4>Self-attention, intuitively</h4>
 
-<div class="intuition"><span class="tag">🎙 In class</span> The canonical example: <i>"The animal didn't cross the street because <b>it</b> was too tired"</i> vs <i>"&hellip;because <b>it</b> was too wide."</i> In the first, "it" = the animal; in the second, "it" = the street. Before attention the embedding of "it" is identical in both. Self-attention <b>anchors "it" to the right word</b> by letting it pay more attention to "animal" in one sentence and "street" in the other.</p>
+<div class="intuition"><span class="tag">🎙 In class</span> <i>"The animal didn't cross the street because <b>it</b> was too tired"</i> vs <i>"&hellip;because <b>it</b> was too wide."</i> In the first, "it" = the animal; in the second, "it" = the street. Self-attention <b>anchors "it" to the right word</b>.</div>
 
-<div class="key"><b>How self-attention contextualises a word (the "station" build).</b>
+<p>Before attention the embedding of "it" is identical in both sentences. Self-attention fixes that by letting "it" pay more attention to "animal" in one sentence and "street" in the other.</p>
+
+<h4>HOW SELF-ATTENTION CONTEXTUALISES A WORD (THE "STATION" BUILD)</h4>
 <ul>
 <li><b>Goal:</b> reshape "station"'s standalone embedding so it absorbs the words actually around it.</li>
 <li><b>Weights:</b> imagine you knew how much attention to give each other word. Then the contextual embedding is a <b>weighted sum of all the standalone embeddings</b>.</li>
 <li><b>Where the weights come from:</b> the weight of word j is proportional to how <i>related</i> it is to "station", measured by the <b>dot product</b> of their standalone embeddings.</li>
 <li><b>Why the dot product:</b> in the context "the train left the station", "train" sits close to "station" so its dot product is large and it pulls "station" toward the trains-platforms-departures meaning; "radio" is related in general but absent here, so it automatically gets ~zero weight.</li>
 <li><b>Normalising:</b> dot products can be negative, so exponentiate then normalise, the same softmax trick used at the output layer.</li>
-</ul></div>
+</ul>
 
 <div class="eq"><div class="lbl">Attention weights as a softmax over relatedness (dot products)</div>
 $$\alpha_{ij} = \frac{\exp(\mathbf{e}_i \cdot \mathbf{e}_j)}{\sum_{k} \exp(\mathbf{e}_i \cdot \mathbf{e}_k)}, \qquad \mathbf{c}_i = \sum_j \alpha_{ij}\,\mathbf{e}_j$$
@@ -993,7 +1003,7 @@ $$\alpha_{ij} = \frac{\exp(\mathbf{e}_i \cdot \mathbf{e}_j)}{\sum_{k} \exp(\math
 
 <h4>Positional embeddings: getting order in</h4>
 
-<div class="intuition"><span class="tag">Intuition: position</span> Attention alone is order-blind (a weighted sum does not care about sequence). So before attention, <b>add a position vector to each word's embedding</b>: the input becomes "what the word means" + "where it sits."</div>
+<div class="intuition"><span class="tag">Intuition: position</span> Attention alone is order-blind. So before attention, <b>add a position vector to each word's embedding</b>: the input becomes "what the word means" + "where it sits."</div>
 
 <div class="eq"><div class="lbl">Positional embedding: input = meaning + position</div>
 $$\text{input}_i = \underbrace{\mathbf{e}_{\text{word}}}_{\text{standalone embedding}} + \underbrace{\mathbf{p}_{i}}_{\text{position embedding}}$$</div>
@@ -1008,13 +1018,13 @@ $$\text{input}_i = \underbrace{\mathbf{e}_{\text{word}}}_{\text{standalone embed
 
 <h4>Multi-head attention and the full encoder block</h4>
 
-<div class="key"><b>Multi-head attention.</b>
+<p>Multi-head attention is the next layer of machinery on top of single-head self-attention.</p>
 <ul>
 <li><b>Idea:</b> like having multiple filters in a CNN, different attention "heads" learn different patterns (one head may learn whether a word is a verb, another its tense or direction).</li>
 <li><b>The extra machinery:</b> the <b>Q, K, V matrices</b> (Query, Key, Value) are learned weights that linearly transform the embeddings, implemented as dense layers with linear activation, the "extra degrees of freedom" beyond raw dot products.</li>
 <li><b>Then non-linearity:</b> a feed-forward layer at the end injects non-linearity.</li>
 <li><b>Stackable:</b> an encoder's input and output are the same size, so encoder blocks can be daisy-chained for more modelling capacity.</li>
-</ul></div>
+</ul>
 
 <div class="chain"><b>One encoder block:</b>&nbsp; (embedding + position) <span class="arrow">&rarr;</span> multi-head self-attention <span class="arrow">&rarr;</span> feed-forward <span class="arrow">&rarr;</span> contextual embedding <span class="arrow">&rarr;</span> (stack again)</div>
 
@@ -1048,20 +1058,20 @@ $$\text{softmax}(x_i) = \frac{e^{x_i}}{e^{x_1}+\cdots+e^{x_n}}$$</div>
 
 <p>The graded deliverable for these sessions, and the closest thing to an "exam" in this hands-on course. It applies the whole stack: BERTopic clusters reviews in <b>contextual-embedding space</b> (a Transformer underneath), and you reason from the clusters to a business recommendation.</p>
 
-<div class="key"><b>The brief.</b>
+<h4>THE BRIEF</h4>
 <ul>
 <li><b>Setup:</b> a dataset of Singapore Airlines customer reviews; average rating drops sharply (roughly 4.3 in 2020 to ~2.1&ndash;2.3 in 2021, a step change, not a slow drift).</li>
 <li><b>Task:</b> use BERTopic to find the topics driving negative reviews and explain the post-COVID decline.</li>
 <li><b>Deliverable:</b> a one-slide "elevator pitch" to the CEO with findings and recommendations backed by the analysis, plus the notebook; each group presents (~3 min).</li>
-</ul></div>
+</ul>
 
-<div class="key"><b>How BERTopic frames the data (definitions to use in the write-up).</b>
+<h4>HOW BERTOPIC FRAMES THE DATA (DEFINITIONS TO USE IN THE WRITE-UP)</h4>
 <ul>
 <li><b>Document</b> = one customer review.</li>
 <li><b>Topic</b> = a cluster of reviews using semantically similar language (BERTopic embeds reviews and clusters them in embedding space).</li>
 <li><b>min_topic_size</b> = the knob for how many / how large the topics are.</li>
 <li><b>Outliers (topic -1):</b> reviews not confidently assigned. ~60% landing in outliers is high but normal for messy real-world review text.</li>
-</ul></div>
+</ul>
 
 <div class="wex"><div class="h">What the analysis surfaced in class</div>
 <ul>
@@ -1074,12 +1084,12 @@ $$\text{softmax}(x_i) = \frac{e^{x_i}}{e^{x_1}+\cdots+e^{x_n}}$$</div>
 
 <div class="exam"><b>Exam / assessment lens.</b> This course is assessed on the <b>hands-on deliverable and presentation</b>, not a written paper, so what is rewarded is judgement, not recall. For the Singapore Airlines pitch: (1) lead with the <b>verdict</b> (the step-change in ratings post-2021 and the top operational drivers), then back it with the topic clusters; (2) state the <b>causal caveat explicitly</b>, reviews suggest, they do not prove; (3) make a <b>specific, actionable</b> CEO recommendation tied to a named topic (e.g. fix baggage handling, not "improve service"); (4) show you understand the machinery underneath: BERTopic clusters in contextual-embedding space, which is a Transformer, which is "embedding = representation." If asked to explain the tech, the through-line is the ladder: one-hot (no meaning) &rarr; embedding (meaning) &rarr; Transformer (meaning + context + order).</div>
 
-<div class="key"><b>Three closing takeaways the slides leave you with.</b>
+<h4>THREE CLOSING TAKEAWAYS THE SLIDES LEAVE YOU WITH</h4>
 <ul>
 <li><b>Automate text analysis for competitive advantage</b>, sentiment, feedback interpretation, document processing.</li>
 <li><b>Domain expertise</b>, success comes from tailoring the architecture to the structure of the domain's data (geometry &rarr; CNN; order + context &rarr; Transformer).</li>
 <li><b>Transfer learning</b>, adapt a pre-trained model (BERT, a Transformer) to your task for better results with far less training.</li>
-</ul></div>
+</ul>
 <h2 id="l07">7 &middot; Generative AI: Insights, Limitations &amp; Future</h2>
 
 <p>The closing lecture makes the jump from the NLP machinery of L06 to large language models and generative AI, then deliberately turns to where it breaks. Ciocan frames the whole course as one idea: deep learning takes any unstructured data, finds the right architecture to turn it into an <b>embedding</b>, and trains on that representation. LLMs are just the text instance of this, and foundation models are the multi-modal generalisation. The half you must walk away with is two-sided: <i>how an LLM actually works</i> (embeddings &rarr; contextual embeddings &rarr; next-token prediction) and <i>how it fails</i> (interpretability, bias, privacy, alignment). His parting rule sums the second half: "we never trust, we test."</p>
@@ -1088,20 +1098,20 @@ $$\text{softmax}(x_i) = \frac{e^{x_i}}{e^{x_1}+\cdots+e^{x_n}}$$</div>
 
 <div class="intuition"><span class="tag">🎙 In class</span> "You shall know a word by the company it keeps." A word like <i>station</i> means different things in <i>the train left the station</i> versus <i>the radio station</i>. A plain embedding gives <i>station</i> one fixed vector, so it gets both wrong. The transformer's job is to bend that one vector towards the words around it, so the same token gets two different contextual embeddings.</div>
 
-<div class="key"><b>The two secret sauces (L06 recap that powers every LLM).</b>
+<h4>The two secret sauces (L06 recap that powers every LLM)</h4>
 <ul>
 <li><b>Embedding:</b> map each token (think: word) to a vector of numbers, so that geometry in the vector space captures meaning (king:queen :: man:woman; walk:walked :: swim:swam).</li>
 <li><b>Contextual embedding:</b> a fixed embedding is not enough because meaning depends on context. The transformer recalibrates each token's embedding to the whole token sequence.</li>
 <li><b>Why it matters:</b> before transformers, NLP existed but "didn't really work very well"; contextual embeddings are the thing that made LLMs possible.</li>
-</ul></div>
+</ul>
 
-<div class="key"><b>Attention, how the transformer builds the contextual embedding.</b>
+<h4>Attention: how the transformer builds the contextual embedding</h4>
 <ul>
 <li><b>What it is:</b> feed the <i>whole</i> sentence into the layer at once, not one word; each word looks at all the others and decides which to pay attention to in order to modulate its own embedding.</li>
 <li><b>The mechanism:</b> in <i>train station</i> the token <i>station</i> attends to <i>train</i> and shifts towards rail; in <i>radio station</i> it attends to <i>radio</i> and shifts away.</li>
 <li><b>Also encodes position:</b> the embedding changes with both the surrounding words and the word's <i>ordering</i> in the sentence (positional encoding).</li>
 <li><b>Scale of GPT-3:</b> a stack of 96 layers, each with 96 heads of attention, the whole thing one giant shared parameter space.</li>
-</ul></div>
+</ul>
 
 <figure>
 <svg viewBox="0 0 460 200" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif" font-size="12">
@@ -1138,28 +1148,28 @@ $$\text{softmax}(x_i) = \frac{e^{x_i}}{e^{x_1}+\cdots+e^{x_n}}$$</div>
 <li><b>The self-supervised labels:</b> you do not need hand-labelled data. Slide a window over raw text; the next word outside the window <i>is</i> the label. Feed it the internet and War and Peace.</li>
 </ul></div>
 
-<div class="key"><b>Temperature, the softmax throttle, and when to turn it down.</b>
+<h4>Temperature: the softmax throttle, and when to turn it down</h4>
 <ul>
 <li><b>What it is:</b> a softmax parameter that sets how peaked vs diffuse the next-token distribution is.</li>
 <li><b>Low temperature / take top token:</b> near-deterministic. Use it for maths, yes/no, medical advice, one right answer, no sampling.</li>
 <li><b>High temperature / sample:</b> spread-out probabilities, varied output. Use it where you want the impression of creativity.</li>
 <li><b>The control:</b> via an API (Python) you can set temperature directly; the chat UI hides it.</li>
-</ul></div>
+</ul>
 
-<div class="key"><b>GPT = Generative Pre-trained Transformer, and the economics of scale.</b>
+<h4>GPT = Generative Pre-trained Transformer, and the economics of scale</h4>
 <ul>
 <li><b>Transformer:</b> the architecture. <b>Pre-trained:</b> querying it does no training; the weights are frozen. <b>Generative:</b> it generates answers, which is why it <i>feels</i> different even though it is "just another predictive box".</li>
 <li><b>Parameter growth:</b> GPT 117M &rarr; GPT-2 1.5B &rarr; GPT-3 175B; GPT-5 not disclosed, estimated by independent scaling analysts at 2&ndash;5 trillion.</li>
 <li><b>GPT-3 training cost:</b> 1,024 GPUs, 34 days, $4.6M in compute alone.</li>
-</ul></div>
+</ul>
 
-<div class="key"><b>Context, two windows, both on the slide.</b>
+<h4>Context: two windows, both on the slide</h4>
 <ul>
 <li><b>Token:</b> the basic unit of text (a word, letters, or a sequence of letters).</li>
 <li><b>Input context = (Prompt, Conversation History, &hellip;):</b> how much the model can read in. GPT-3: 2,048 tokens; GPT-4: 128k; GPT-5: 400K+. ChatGPT also feeds remembered facts about you as extra context.</li>
 <li><b>Output context window:</b> how long an answer it can generate (GPT-5: ~128K).</li>
 <li><b>User tell:</b> "context exceeded" on a long PDF, or the model "forgetting" how a long chat began, both are the input window filling up.</li>
-</ul></div>
+</ul>
 
 <h4>QWEN COLAB DEMO</h4>
 <div class="wex"><span class="h">In-class demo, a real LLM in Colab</span>
@@ -1251,18 +1261,18 @@ Ciocan downloaded <b>Qwen</b> (a Chinese model, ~1.5B parameters, distilled to d
 </tbody>
 </table>
 
-<div class="key"><b>Differential privacy, the one real scientific answer (limitation 3).</b>
+<h4>Differential privacy: the one real scientific answer (limitation 3)</h4>
 <ul>
 <li><b>What it is:</b> cryptographically perturb the data, injecting noise that hides any individual.</li>
 <li><b>The trade-off:</b> more noise &rarr; safer data but less you can learn from it. Data utility vs privacy protection, high on one means low on the other.</li>
-</ul></div>
+</ul>
 
-<div class="key"><b>RLHF, the one alignment fix that actually works (limitation 4).</b>
+<h4>RLHF: the one alignment fix that actually works (limitation 4)</h4>
 <ul>
 <li><b>Why pure pre-training fails:</b> a model trained only on internet text "you probably don't want talking to your mother"; it needs an extra step.</li>
 <li><b>The two stages:</b> pre-train on the text loss, then humans score the model's answers and you fine-tune on those ratings, Reinforcement Learning with Human Feedback.</li>
 <li><b>Why it is the blueprint:</b> a token-efficient way to bring the human back into the loop after broad-brush data training. The final assignment runs a simpler version of alignment to a local task.</li>
-</ul></div>
+</ul>
 
 <figure>
 <svg viewBox="0 0 470 150" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif" font-size="11">

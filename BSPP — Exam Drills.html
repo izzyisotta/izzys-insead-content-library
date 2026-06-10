@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>BSPP &middot; Exam Questions</title>
+<script>
+  MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']] }, svg: { fontCache: 'local' } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+<style>
+  :root{
+    --green:#00643C; --green-light:#2e7d32; --blue:#1f5fa8; --red:#b03030;
+    --ink:#1a1a1a; --soft:#555; --line:#d8d8d8; --bg:#fbfbf9; --card:#ffffff;
+    --amber:#a8740a; --amber-bg:#fdf6e9;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:16.5px; line-height:1.62;
+  }
+  .wrap{display:flex; max-width:1500px; margin:0 auto;}
+  nav.toc{
+    width:268px; flex:0 0 268px; position:sticky; top:0; height:100vh; overflow-y:auto;
+    background:#0e2a20; color:#dfeee7; padding:22px 16px 60px; font-size:13.5px;
+  }
+  nav.toc h2{color:#fff; font-size:14px; letter-spacing:.06em; text-transform:uppercase; margin:18px 0 8px; opacity:.65;}
+  nav.toc a{display:block; color:#cfe3da; text-decoration:none; padding:3px 8px; border-radius:5px; margin:1px 0;}
+  nav.toc a:hover{background:#1c4636; color:#fff;}
+  nav.toc a.part{font-weight:700; color:#8fd6b4; margin-top:6px;}
+  nav.toc .brand{font-weight:800; color:#fff; font-size:16px; line-height:1.3; margin-bottom:4px;}
+  nav.toc .brand span{font-weight:400; font-size:12.5px; color:#8fd6b4; display:block;}
+  .modetoggle{display:flex; gap:6px; margin:12px 0 18px;}
+  .modetoggle .mode{flex:1; text-align:center; padding:8px 6px; border-radius:7px; font-size:13px; font-weight:700; text-decoration:none; border:1px solid #2f5e4c; color:#cfe3da; background:transparent;}
+  .modetoggle .mode:hover{background:#1c4636; color:#fff;}
+  .modetoggle .mode.active{background:#00643C; color:#fff; border-color:#00643C;}
+  main{flex:1 1 auto; padding:46px 56px 140px; max-width:1000px;}
+  h1{font-size:30px; color:var(--green); margin:0 0 6px; line-height:1.18;}
+  h2.part{font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--amber); margin:54px 0 2px; font-weight:700;}
+  h2{font-size:25px; color:var(--green); border-bottom:2px solid var(--green); padding-bottom:6px; margin:42px 0 14px; scroll-margin-top:14px;}
+  h3{font-size:19px; color:#13392b; margin:26px 0 8px;}
+  h4{font-size:16px; color:var(--blue); margin:18px 0 4px; text-transform:uppercase; letter-spacing:.04em;}
+  p{margin:8px 0;}
+  ul,ol{margin:8px 0 8px; padding-left:22px;}
+  li{margin:4px 0;}
+  strong{color:#08251a;}
+  code{background:#eef2ef; padding:1px 5px; border-radius:4px; font-size:13.5px;}
+  a.up{color:var(--blue); text-decoration:none;}
+  .eq{background:#f0f6f2; border:1px solid #cfe2d6; border-left:4px solid var(--green); border-radius:8px; padding:12px 18px; margin:14px 0; overflow-x:auto;}
+  .eq .lbl{font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--green); font-weight:700; margin-bottom:2px;}
+  .key{background:#fff; border:1px solid var(--line); border-radius:10px; padding:14px 20px; margin:16px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  .exam{background:var(--amber-bg); border:1px solid #ecd9ad; border-left:4px solid var(--amber); border-radius:8px; padding:10px 18px; margin:16px 0;}
+  .exam b{color:var(--amber);}
+  .chain{background:#eaf1f8; border:1px solid #c2d6ea; border-left:4px solid var(--blue); border-radius:8px; padding:10px 18px; margin:14px 0; font-size:15px;}
+  .chain .arrow{color:var(--blue); font-weight:700;}
+  .pitfall{background:#fbeeee; border:1px solid #ecc9c9; border-left:4px solid var(--red); border-radius:8px; padding:10px 18px; margin:14px 0;}
+  .pitfall b{color:var(--red);}
+  .twocol{display:flex; gap:22px; flex-wrap:wrap;}
+  .twocol > div{flex:1 1 300px;}
+  figure{margin:20px 0; text-align:center;}
+  figure > svg{max-width:100%; height:auto; background:#fff; border:1px solid var(--line); border-radius:10px; padding:8px;}
+  mjx-container svg, figcaption mjx-container svg, .eq mjx-container svg{max-width:none !important; height:auto !important; border:none !important; padding:0 !important; background:none !important; border-radius:0 !important;}
+  figcaption{font-size:13.5px; color:var(--soft); margin-top:7px; font-style:italic;}
+  table.dt{border-collapse:collapse; width:100%; margin:16px 0; font-size:14.5px;}
+  table.dt th{background:var(--green); color:#fff; text-align:left; padding:8px 11px; font-weight:600;}
+  table.dt td{border:1px solid var(--line); padding:7px 11px; vertical-align:top;}
+  table.dt tr:nth-child(even) td{background:#f6f8f6;}
+  .tacct{border-collapse:collapse; margin:10px auto; font-size:14px; min-width:330px;}
+  .tacct caption{font-weight:700; color:#13392b; padding-bottom:5px;}
+  .tacct th{background:#13392b; color:#fff; padding:5px 14px; font-weight:600;}
+  .tacct td{border:1px solid #b9b9b9; padding:5px 14px;}
+  .tacct td.a{background:#eef6f1;} .tacct td.l{background:#eef2f8;}
+  svg text{font-family:-apple-system,Helvetica,Arial,sans-serif;}
+  .axis{stroke:#333; stroke-width:1.6; fill:none;}
+  .grid{stroke:#e3e3e3; stroke-width:1;}
+  .dash{stroke-dasharray:5 4;}
+  .lbl{font-size:13px; font-weight:600;}
+  .sm{font-size:11.5px; fill:#555;}
+  .dot{fill:#13392b;}
+  .footer{margin-top:60px; padding-top:18px; border-top:1px solid var(--line); font-size:13px; color:var(--soft);}
+  .pill{display:inline-block; background:var(--green); color:#fff; font-size:11px; padding:2px 9px; border-radius:20px; letter-spacing:.04em; vertical-align:middle;}
+  .eyeball{background:#fdeaf4; border:2px dashed #c0398a; border-radius:8px; padding:8px 14px; margin:12px 0; font-size:14px; color:#8a1f5f;}
+  .eyeball .star{font-size:17px; margin-right:4px;}
+  .eyeball b{color:#8a1f5f;}
+  .intuition{background:#edf6f7; border:1px solid #b6d7dc; border-left:4px solid #1f7e8c; border-radius:8px; padding:10px 16px; margin:14px 0; font-size:15px;}
+  .intuition .tag{display:inline-block; font-size:11px; font-weight:700; letter-spacing:.04em; color:#1f7e8c; text-transform:uppercase; margin-right:6px;}
+  .intuition b{color:#0d4d57;}
+  .izzy{background:#f5f0fb; border:1px solid #d3c1ec; border-left:4px solid #7b4bbd; border-radius:8px; padding:12px 18px; margin:16px 0; font-size:15px;}
+  .izzy .tag{display:inline-block; font-size:11px; font-weight:700; letter-spacing:.04em; color:#7b4bbd; text-transform:uppercase; margin-bottom:6px;}
+  .izzy b{color:#5a2d96;}
+  .izzy table.dt{margin:8px 0;}
+  .read{margin:10px 0; padding:9px 15px; border-left:3px solid var(--green); background:#f8f8f5; border-radius:6px; font-size:14.5px;}
+  .read .meta{font-size:12px; color:var(--soft); margin-left:6px;}
+  .rtag{display:inline-block; font-size:10.5px; font-weight:700; letter-spacing:.03em; text-transform:uppercase; padding:1px 7px; border-radius:20px; vertical-align:middle; margin-left:4px;}
+  .rtag.man{background:#fbe4e4; color:#a32020;}
+  .rtag.prof{background:#e3eefb; color:#1a4e8a;}
+  .rtag.core{background:#e7f3ec; color:#13643c;}
+  .wex{background:#fff; border:1px dashed #9cc; border-radius:8px; padding:9px 15px; margin:12px 0; font-size:14.5px;}
+  .wex .h{font-weight:700; color:var(--blue); font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; display:block; margin-bottom:3px;}
+  .freq{display:inline-block;background:#00643C;color:#fff;font-size:11.5px;font-weight:700;padding:1px 9px;border-radius:20px;margin-left:8px;vertical-align:middle;}
+  .arche{border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:18px 0;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.04);scroll-margin-top:14px;}
+  .arche h3{margin:0 0 2px;color:var(--green);}
+  .arche .trig{font-size:14px;color:var(--soft);font-style:italic;margin:2px 0 10px;}
+  .arche .lab{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--blue);margin:12px 0 3px;}
+  .arche ol.skel{margin:3px 0 0;padding-left:20px;} .arche ol.skel li{margin:3px 0;font-size:14.7px;}
+  .exemplar{background:#f0f6f2;border-left:4px solid var(--green);border-radius:8px;padding:10px 15px;margin:8px 0 0;font-size:14.5px;}
+  .exemplar .q{font-style:italic;color:#333;margin-bottom:6px;}
+  .traps{background:#fbeeee;border-left:4px solid var(--red);border-radius:8px;padding:8px 15px;margin:10px 0 0;font-size:14px;}
+  .traps ul{margin:4px 0 0;padding-left:20px;} .traps li{margin:3px 0;}
+  details.st{border:1px solid var(--line);border-radius:8px;padding:8px 14px;margin:7px 0;background:#fff;}
+  details.st summary{cursor:pointer;font-size:14.5px;font-weight:500;}
+  details.st summary .yr{display:inline-block;background:#eef2ef;color:#333;font-size:11.5px;font-weight:700;padding:1px 7px;border-radius:5px;margin-right:8px;}
+  details.st summary .yr.home{background:#dff0e6;color:#0b6b53;}
+  details.st .ans{margin-top:8px;padding-top:8px;border-top:1px solid var(--line);font-size:14px;color:#333;}
+  .stgroup h3{margin:24px 0 4px;color:#13392b;font-size:18px;scroll-margin-top:14px;}
+  .seclink{font-size:12.5px;}
+  @media print{ nav.toc{display:none;} main{padding:0; max-width:100%;} body{font-size:11pt;} h2{page-break-after:avoid;} figure,.eq,.key,.exam,ol.deriv,.wex{page-break-inside:avoid;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="toc">
+  <a href="index.html" style="color:#9fd3ba; font-size:12px; letter-spacing:.04em; margin-bottom:12px;">&larr; All courses</a>
+  <div class="brand">BSPP <span>Business &amp; Society: Public Policy &middot; Prof. Alexandra Roulet</span></div>
+  <div class="modetoggle"><a class="mode" href="BSPP%20Revision%20Document.html">Course Content</a><span class="mode active">Exam Questions</span></div>
+  <a href="#coverage">Coverage map</a>
+  <h2>Archetypes</h2>
+  <a href="#a-regtradeoffs" class="part">A1 &middot; Regulation trade-offs</a>
+  <a href="#a-agreements" class="part">A2 &middot; Landmark agreements</a>
+  <a href="#a-geoecon" class="part">A3 &middot; Geo-economic trade-off</a>
+  <h2>Practice</h2>
+  <a href="#selftest">Self-test bank</a>
+</nav>
+<main>
+
+<h1>Exam Questions</h1>
+<p style="font-size:18px;color:var(--soft);margin-top:0;">Built from the 3 real questions on the BSPP P3 2026 final (Prof. Roulet), clustered into 3 archetypes. Nothing here is invented.</p>
+
+<div class="key"><b>The exam, in one breath.</b> <b>Three questions, 30 + 50 + 20 = 100 marks, 2 hours, closed book, written on paper</b> (P3 2026, Friday 20 February 2026, 13h00&ndash;15h00). Every question is an applied essay that asks you to <b>name the policy / agreement precisely, give the mechanism, and weigh the trade-off from both sides</b> rather than assert one. The marks are the time budget: Q2 (50) is half the paper, so it gets roughly an hour; Q1 (30) gets ~35 minutes; Q3 (20) gets ~25.</div>
+
+<h2 id="coverage">Coverage map</h2>
+<p>One archetype per question on this paper. The column "Past-paper Qs" carries the real count and marks; "Revise in Course Content" deep-links back to the lecture that teaches the answer.</p>
+<table class="dt">
+<thead><tr><th>Archetype</th><th>Past-paper Qs (count + marks)</th><th>Year</th><th>Revise in Course Content</th></tr></thead>
+<tbody>
+<tr><td><a class="up" href="#a-regtradeoffs"><b>A1 &middot; Regulation trade-offs in a sector</b></a></td><td>1 question (Q1, <b>30 marks</b>)</td><td>2026</td><td><a class="up" href="BSPP%20Revision%20Document.html#l01">1 &middot; Market Failures</a> (pharma) &amp; <a class="up" href="BSPP%20Revision%20Document.html#l04">4 &middot; Big Tech</a> (digital)</td></tr>
+<tr><td><a class="up" href="#a-agreements"><b>A2 &middot; Landmark agreements and their specific challenges</b></a></td><td>1 question (Q2, <b>50 marks</b>)</td><td>2026</td><td><a class="up" href="BSPP%20Revision%20Document.html#l02">2 &middot; Green Transition</a> (climate) &amp; <a class="up" href="BSPP%20Revision%20Document.html#l03">3 &middot; Corporate Taxation</a> (tax)</td></tr>
+<tr><td><a class="up" href="#a-geoecon"><b>A3 &middot; Geo-economic efficiency-vs-resilience trade-off</b></a></td><td>1 question (Q3, <b>20 marks</b>)</td><td>2026</td><td><a class="up" href="BSPP%20Revision%20Document.html#l05">5 &middot; Geo-economics</a></td></tr>
+</tbody>
+</table>
+
+<div class="eyeball"><span class="star">★</span><b>Read this before you trust the model answers.</b> The worked answers below are <i>exemplars</i> built from the verified course content, not Prof. Roulet's own marking key. There is exactly one BSPP final (this paper), so the bank is genuinely small: three real questions, three archetypes. Verify each answer against what the professor actually rewarded in class before relying on the exact wording.</div>
+
+<h2 id="playbook">Archetype playbook</h2>
+
+<div class="arche" id="a-regtradeoffs">
+<h3>A1 &middot; Regulation trade-offs in a sector <span class="freq">1 on past papers (Q1, 30 marks)</span></h3>
+<div class="trig">When you see it: "What are the trade-offs behind regulating [sector X]?" or "pros and cons of strict regulation of X, from the point of view of business and consumers." The question hands you one or two sectors and wants you to balance, not advocate.</div>
+<div class="lab">Ideal-answer skeleton</div>
+<ol class="skel">
+<li><b>Name the market failure</b> that justifies regulating this sector (the rationale): an unsafe product / negative externality and information asymmetry for pharma; market power, network effects and non-price harms for digital.</li>
+<li><b>State the case FOR regulation</b> (the benefit): protection from harm, restored trust, contestable markets.</li>
+<li><b>State the cost / trade-off</b> (the case AGAINST): slow, costly approval that disincentivises innovation (pharma); a price-built toolkit that misreads zero-price markets, and the national-champion / government-failure worry (digital).</li>
+<li><b>Conclude with a both-sides judgement:</b> you sit on a slider, not at an extreme, calibrated by what is at stake (lives lost to delay vs lives lost to unsafe products; contestability vs disarming national champions).</li>
+</ol>
+<div class="lab">Worked model answer</div>
+<div class="exemplar"><div class="q">2026 Q1 [30 marks] &mdash; "What are the key trade-offs behind regulating i) pharmaceutical drugs and ii) the digital sector?"</div>
+<b>(i) Pharmaceutical drugs.</b> The rationale for regulation is a market failure: a profit-maximising drugmaker will not internalise the side effects of its product, so an unsafe drug can flood the market (thalidomide, 1957&ndash;61, marketed in ~46 countries before birth defects surfaced; the crisis wrote the 1962 Kefauver-Harris rules requiring proof of safety <i>and</i> efficacy). There is also an information asymmetry: patients cannot verify a drug's safety, so a regulator must screen on their behalf. <b>The trade-off is innovation vs protection.</b> Strict regulation protects consumers from unsafe products and gives firms legal clarity and a trust-building safety stamp; but the 8-to-12-year approval process is slow and costly, raises the barrier to entry, and delays or deters useful drugs (the cost falls on patients as delayed access and higher prices). The verdict is a slider: you move toward speed when the cost of delay dominates (the COVID vaccine, where society accepted faster procedures because lives lost to delay outweighed the risk) and toward caution where the downside is catastrophic and irreversible. Responsibility is genuinely hard to assign (company, agency, prescribing doctor, patient), which is why "just ban it" is not the answer, the same molecule that maimed babies treats leprosy.<br><br>
+<b>(ii) The digital sector.</b> The rationale is different: digital platforms tend to monopoly through network effects, scale economies, near-zero marginal cost and increasing returns to data (the winner-takes-most flywheel), and they cause harms the old toolkit misses. <b>The core trade-off is that the consumer-welfare standard judges harm by price, but the flagship products are free</b>, so the price-harm test reads "no harm" exactly where the platform is strongest, and harm migrates to non-price dimensions (degraded privacy and quality, killer acquisitions, self-preferencing, foreclosed innovation). Regulating protects contestability (the driver of innovation, the France-2009 entry of Free cut mobile prices ~50%) and can address non-price harms a price test cannot see. But the costs are real: market definition is the decisive and contestable lever (FTC v. Meta, Nov 2025, Meta won once TikTok and YouTube were counted as competitors); breaking up firms risks disarming "national champions" in the technological rivalry with China; firms freed up may compete on what customers value rather than what policymakers care about; and antitrust is itself subject to government failure (the pro-breakup innovation evidence from AT&amp;T / IBM is suggestive, not proven causal). <b>The judgement:</b> regulate, but match the tool to the harm, the Stigler menu (force interoperability, shift the burden of proof onto the acquirer, regulate privacy directly, reduce platforms' political power) is often better than blanket breakup. <b>The common thread across both sectors:</b> regulation corrects a genuine market failure but carries its own cost (stifled innovation, government failure), so the examinable answer weighs both sides rather than asserting one.</div>
+</div>
+<div class="traps"><b>Traps</b><ul>
+<li><b>Pharma:</b> writing "ban unsafe drugs" as the conclusion. The thalidomide molecule is genuinely useful (leprosy, skin cancer); the answer is calibrated regulation, not prohibition.</li>
+<li><b>Digital:</b> reducing the answer to "break them up". Roulet rewards the <i>remedy menu</i> (interoperability, burden-shift, privacy regulation) and the evidence caveat (breakup-as-innovation is suggestive, not causal).</li>
+<li>Asserting one side. Both sub-parts are explicitly "trade-offs", so an answer that only lists benefits (or only costs) of regulation misses the point.</li>
+<li>Forgetting to <b>name the market failure first</b>. The rationale for regulating is the failure; skip it and the trade-off has no anchor.</li>
+</ul></div>
+<div class="seclink" style="margin-top:8px;">↪ Knowledge page: <a class="up" href="BSPP%20Revision%20Document.html#l01">1 &middot; Market Failures</a> (pharma) &amp; <a class="up" href="BSPP%20Revision%20Document.html#l04">4 &middot; Competition Policy &amp; Big Tech</a> (digital)</div>
+</div>
+
+<div class="arche" id="a-agreements">
+<h3>A2 &middot; Landmark agreements and their specific challenges <span class="freq">1 on past papers (Q2, 50 marks)</span></h3>
+<div class="trig">When you see it: "Cite [N] landmark agreements in [area]" plus "what are the specific challenges for each topic?" The question wants precise naming (year, what it set up, the mechanism) followed by the topic-specific obstacles, not generic "it's hard to agree".</div>
+<div class="lab">Ideal-answer skeleton</div>
+<ol class="skel">
+<li><b>Name each agreement precisely:</b> year, parties, and what it actually established (the mechanism), not just the brand name.</li>
+<li><b>State the mechanism</b> the agreement runs on (national targets, a global market, a profit reallocation rule, a rate floor).</li>
+<li><b>Give the specific challenges of that topic</b> (the part most marks hang on): for climate, the structural features that make it hard; for tax, the structural features that make a floor hard to enforce.</li>
+<li><b>Tie challenges back to the agreements:</b> show <i>why</i> the named agreement struggles against those specific challenges.</li>
+</ol>
+<div class="lab">Worked model answer</div>
+<div class="exemplar"><div class="q">2026 Q2 [50 marks] &mdash; "Cite two landmark agreements in the global conversations around climate change and one regarding corporate taxation. What are the specific challenges for each of these two topics?"</div>
+<b>Climate change &mdash; two landmark agreements.</b> (1) The <b>Paris Agreement (2015)</b>: set a global goal to hold warming well below 2&deg;C and built the system of <i>nationally determined contributions</i> (NDCs), each country chooses its own target. (2) The <b>Dubai COP28 agreement (2023)</b>: the first to call for "transitioning away" from fossil fuels, with net zero by 2050 as the reference point. (A third, if you want a more recent marker, is COP29 Baku 2024, which agreed a global carbon market and $300bn/yr to the developing world.)<br><br>
+<b>The specific challenges for climate.</b> Climate change is the hardest kind of externality to fix because it violates every condition a clean solution needs. It is a <b>global externality with ill-defined property rights</b> (who owns the air?), so the Coasian private fix is impossible. It is a <b>collective-action / free-riding problem</b>: with hundreds of countries, each gains from others cutting while it does not, so commitments are made <b>non-binding</b> (Paris's NDCs have no enforcement and are not tied to the 1.5&deg;C target). There is a <b>developing-vs-developed split</b> on who should bear the cost: rich countries pollute most cumulatively (historical responsibility) and can afford the transition, while a rising share of current emissions comes from emerging economies that argue for the right to develop. <b>Damage is hard to quantify</b> (the cost of a tonne of CO&#8322;) and the <b>time horizon is long</b>, so the political incentive to act now is weak. And the price signal alone backfires without a switchable alternative (the gilets jaunes revolt against the 2019 French fuel-tax rise), so ambition is fragile and reversible (fossil fuels went unmentioned again by COP30 Bel&eacute;m 2025).<br><br>
+<b>Corporate taxation &mdash; one landmark agreement.</b> The <b>OECD/G20 two-pillar agreement (October 2021)</b>, signed by 137 countries under the Inclusive Framework on BEPS. <b>Pillar 1</b> reallocates 25% of the residual profit of the very largest firms (global revenue &gt; $22.9bn, profitability &ge; 10%) toward the <i>market jurisdictions</i> where goods are consumed, a partial shift to the destination principle. <b>Pillar 2</b> sets a <b>15% global minimum effective corporate tax</b> on MNEs with sales above &euro;750m, the floor meant to end the race to the bottom.<br><br>
+<b>The specific challenges for corporate tax.</b> Profit is not physical, it is an accounting figure a firm can legally relocate, so the system built on 1920s principles is gameable: the <b>source principle</b> taxes profit where it is <i>booked</i>, so firms book it in <b>tax havens</b> (the Double Irish-Dutch Sandwich; Apple's stateless Irish "Head Office" cut its effective rate toward ~0%); the <b>arm's-length principle</b> cannot price intangibles (IP, a brand, an algorithm have no comparable market price), so transfer pricing shifts profit on paper. The deepest challenge is <b>national sovereignty over tax</b>: the EU itself has no power over a member state's rate, which is why Brussels could only attack Apple-Ireland as illegal <i>state aid</i> under competition law, not as a tax case. That same sovereignty problem blunts Pillar 2: <b>the US, China and India did not adopt it</b>, the US threatened a "revenge tax" and the June 2025 G7 deal carved out American firms, and several clauses (e.g. tax credits not counting toward the 15%) weaken the floor. So the agreement exists but its bite is partial, exactly the "widely acknowledged for a long time, but not easy" verdict from class.</div>
+</div>
+<div class="traps"><b>Traps</b><ul>
+<li>Vague naming. "The Paris thing" loses marks; give the year and the mechanism (Paris 2015 = NDCs; OECD 2021 = two pillars with their thresholds).</li>
+<li>Listing generic obstacles. The question says <i>specific</i> challenges, so map them to the topic: free-riding / non-binding NDCs / developing-vs-developed for climate; tax havens / arm's-length on IP / sovereignty and non-adoption for tax.</li>
+<li>Citing only one climate agreement when two are required, or three when one tax agreement is asked. Match the count to the question (two climate, one tax).</li>
+<li>Forgetting Pillar 2's weaknesses. The examinable nuance is that the 15% floor exists but the US/China/India did not adopt it and carve-outs blunt it, not that the race to the bottom is solved.</li>
+<li>Confusing tax <i>avoidance</i> (legal optimising, Apple's defence) with tax <i>evasion</i> (illegal hiding).</li>
+</ul></div>
+<div class="seclink" style="margin-top:8px;">↪ Knowledge page: <a class="up" href="BSPP%20Revision%20Document.html#l02">2 &middot; Managing the Green Transition</a> (climate) &amp; <a class="up" href="BSPP%20Revision%20Document.html#l03">3 &middot; Corporate Taxation</a> (tax)</div>
+</div>
+
+<div class="arche" id="a-geoecon">
+<h3>A3 &middot; Geo-economic efficiency-vs-resilience trade-off <span class="freq">1 on past papers (Q3, 20 marks)</span></h3>
+<div class="trig">When you see it: "Explain the trade-off between [free-trade gain] and [strategic / security concern]", or any question pairing agglomeration / comparative advantage / efficiency against national security / supply-chain resilience / dependence.</div>
+<div class="lab">Ideal-answer skeleton</div>
+<ol class="skel">
+<li><b>Define the gain:</b> agglomeration economies, productivity rises when activity clusters in one place (shared labour pools, suppliers, knowledge spillovers), on top of comparative-advantage gains from trade.</li>
+<li><b>Name the sting:</b> the same concentration creates <i>strategic dependence</i>, the gain and the vulnerability are two sides of one coin.</li>
+<li><b>Frame it as efficiency vs resilience:</b> concentrating where production is most productive is the cheapest <i>and</i> the most fragile; you buy resilience by paying for lost efficiency.</li>
+<li><b>State when each side dominates and the resolution:</b> free trade in a stable world / non-strategic goods; protection in a riskier world / genuinely strategic sectors, delivered through <b>targeted industrial policy, not blanket tariffs</b> (and flag that industrial policy is not free).</li>
+</ol>
+<div class="lab">Worked model answer</div>
+<div class="exemplar"><div class="q">2026 Q3 [20 marks] &mdash; "Explain the potential trade-off between agglomeration economies and national security in today's world."</div>
+Agglomeration economies are the second gain from trade (on top of comparative advantage): productivity rises when activity <b>clusters</b> in one place, through shared labour pools, specialised suppliers and knowledge spillovers (the Silicon Valley effect). Open trade lets production concentrate where it is most productive, so the world captures these clustering gains and makes things at the lowest cost. <b>The trade-off is that the very same concentration creates strategic dependence.</b> If a critical good (semiconductors, key inputs, pharmaceuticals) is made in one highly productive cluster, every other country is exposed if that source is disrupted, cut off in a conflict, hit by a disaster, or weaponised by the state that hosts it. So the choice is <b>efficiency vs resilience</b>: concentrating production is the cheapest way to make things and also the most fragile, because if that one place goes dark everyone is exposed. In a stable, low-risk world and for non-strategic goods, the agglomeration gains dominate and you leave markets open. In <b>today's riskier world</b> of rising geopolitical tension, for genuinely strategic sectors, the national-security cost of dependence can outweigh the efficiency gain, so a country may choose to protect or reshore that production, buying resilience by accepting some lost efficiency. <b>The resolution the course offers</b> is neither autarky nor blanket tariffs but <b>targeted industrial policy for strategic sectors</b> (subsidies, preferential treatment, picking the few sectors that matter, as in Made in China 2025). But this is not a free win: industrial policy can be expensive and inefficient, governments may back the wrong sector, and duplicating capacity everywhere ("each region its own Silicon Valley") throws away the very agglomeration gains free trade captured. So the honest answer is a calibrated one, protect the genuinely strategic, stay open elsewhere.</div>
+</div>
+<div class="traps"><b>Traps</b><ul>
+<li>Treating it as "free trade good vs free trade bad". The point is that the gain (agglomeration) and the vulnerability (dependence) are the <i>same</i> phenomenon, two sides of one coin.</li>
+<li>Jumping to "use tariffs". The course's resolution is <b>targeted industrial policy</b>, which acts on the domestic supply side, explicitly preferred over blanket tariffs for strategic protection.</li>
+<li>Forgetting that industrial policy has drawbacks (expensive, picking-winners risk, lost agglomeration gains from duplication). Roulet asks for those drawbacks too.</li>
+<li>Omitting the "today's world" framing. The trade-off tilts toward resilience precisely <i>because</i> the world has become riskier; say so.</li>
+</ul></div>
+<div class="seclink" style="margin-top:8px;">↪ Knowledge page: <a class="up" href="BSPP%20Revision%20Document.html#l05">5 &middot; Geo-economics: Trade, Tariffs &amp; Industrial Policy</a></div>
+</div>
+
+<h2 id="selftest">Self-test bank</h2>
+<p>The three real questions, grouped by archetype for active recall. Each whole question is one card; click to reveal the full model answer. These are applied essays (not True/False), so each is shown as one complete prompt with its worked answer behind it.</p>
+
+<div class="stgroup"><h3 id="st-regtradeoffs">A1 &middot; Regulation trade-offs in a sector <span class="freq">1</span></h3>
+<article class="qwhole">
+<div class="qhead"><span class="qn">2026 Q1 [30 marks]</span><span class="qarch">★ this archetype</span></div>
+<details class="st"><summary><span class="yr home">★ Q1</span>What are the key trade-offs behind regulating i) pharmaceutical drugs and ii) the digital sector?</summary><div class="ans"><b>Model answer.</b> <b>(i) Pharma.</b> Rationale = a market failure: a profit-maximising firm ignores its product's side effects, so an unsafe drug floods the market (thalidomide, ~46 countries by 1960; the 1962 Kefauver-Harris rules then demanded proof of safety <em>and</em> efficacy), plus an information asymmetry patients can't resolve. <b>Trade-off = innovation vs protection.</b> Strict rules protect consumers, build trust and give firms legal clarity; but the 8-to-12-year approval is slow and costly, raises entry barriers and delays useful drugs (delayed access, higher prices). The verdict is a slider calibrated by what's at stake: swing to speed when delay is deadly (COVID vaccine), to caution when the downside is catastrophic. "Just ban it" fails, the thalidomide molecule treats leprosy. <b>(ii) Digital.</b> Rationale = platforms tend to monopoly (network effects, scale, near-zero marginal cost, returns to data, the winner-takes-most flywheel) and cause non-price harms. <b>Core trade-off:</b> the consumer-welfare standard judges harm by <em>price</em>, but the products are <em>free</em>, so the test reads "no harm" exactly where platforms are strongest; harm migrates to privacy, quality, killer acquisitions, self-preferencing, foreclosed innovation. Regulating protects contestability (Free's 2009 entry cut French mobile prices ~50%) and reaches non-price harms; but it risks disarming "national champions" vs China, firms may compete on the wrong things, and antitrust suffers its own government failure (breakup-as-innovation, AT&amp;T/IBM, is suggestive not causal; market definition is decisive, FTC v. Meta Nov 2025 Meta won once TikTok/YouTube counted as rivals). Judgement: regulate, but match the tool to the harm (the Stigler menu, interoperability / burden-shift / direct privacy regulation, often beats blanket breakup). <b>Common thread:</b> regulation corrects a real failure but carries its own cost, so weigh both sides.</div></details>
+</article>
+</div>
+
+<div class="stgroup"><h3 id="st-agreements">A2 &middot; Landmark agreements and their specific challenges <span class="freq">1</span></h3>
+<article class="qwhole">
+<div class="qhead"><span class="qn">2026 Q2 [50 marks]</span><span class="qarch">★ this archetype</span></div>
+<details class="st"><summary><span class="yr home">★ Q2</span>Cite two landmark agreements in the global conversations around climate change and one regarding corporate taxation. What are the specific challenges for each of these two topics?</summary><div class="ans"><b>Model answer.</b> <b>Climate, two agreements.</b> (1) <b>Paris Agreement (2015)</b>: well-below-2&deg;C goal built on nationally determined contributions (each country sets its own target). (2) <b>Dubai COP28 (2023)</b>: first to call for "transitioning away" from fossil fuels, net zero by 2050. (Optional third: COP29 Baku 2024, global carbon market + $300bn/yr to the developing world.) <b>Specific climate challenges:</b> a <em>global</em> externality with ill-defined property rights (no Coasian fix); a free-riding / collective-action problem, so commitments are <em>non-binding</em> and not tied to 1.5&deg;C; a developing-vs-developed split on who pays (rich countries pollute most cumulatively and can afford it, emerging economies want to develop); damage hard to quantify; long time horizon; and the price signal backfires without an alternative (gilets jaunes, 2019), so ambition is fragile (fossil fuels unmentioned again by COP30 Bel&eacute;m 2025). <b>Corporate tax, one agreement.</b> The <b>OECD/G20 two-pillar deal (Oct 2021, 137 countries)</b>: Pillar 1 reallocates 25% of the largest firms' residual profit to market jurisdictions (a shift toward the destination principle); Pillar 2 sets a <b>15% global minimum</b> effective rate (MNEs &gt; &euro;750m sales) to end the race to the bottom. <b>Specific tax challenges:</b> profit is a movable accounting figure, so the 1920s system is gameable, the source principle taxes where profit is <em>booked</em> (tax havens; Apple's stateless Irish HQ &rarr; ~0%), and the arm's-length principle can't price intangible IP (transfer pricing shifts profit on paper). The deepest issue is <b>national sovereignty over tax</b> (why the EU could only attack Apple-Ireland as illegal state aid, not as a tax case), which blunts Pillar 2: the <b>US, China and India did not adopt it</b>, the US threatened a revenge tax and the June 2025 G7 deal carved out US firms, and clauses (tax credits not counting) weaken the floor. So the agreement exists but bites only partially.</div></details>
+</article>
+</div>
+
+<div class="stgroup"><h3 id="st-geoecon">A3 &middot; Geo-economic efficiency-vs-resilience trade-off <span class="freq">1</span></h3>
+<article class="qwhole">
+<div class="qhead"><span class="qn">2026 Q3 [20 marks]</span><span class="qarch">★ this archetype</span></div>
+<details class="st"><summary><span class="yr home">★ Q3</span>Explain the potential trade-off between agglomeration economies and national security in today's world.</summary><div class="ans"><b>Model answer.</b> Agglomeration economies are the second gain from trade: productivity rises when activity <em>clusters</em> (shared labour pools, suppliers, knowledge spillovers, the Silicon Valley effect), and open trade lets production concentrate where it's most productive, the cheapest way to make things. <b>The trade-off:</b> the same concentration creates <em>strategic dependence</em>. If a critical good (chips, key inputs, pharma) is made in one cluster, everyone else is exposed if that source is disrupted, cut off in conflict, hit by disaster, or weaponised. So it's <b>efficiency vs resilience</b>: concentrating is cheapest and most fragile; you buy resilience by paying for lost efficiency. In a stable world and for non-strategic goods, agglomeration gains dominate, stay open. In <b>today's riskier world</b>, for genuinely strategic sectors, the security cost of dependence can outweigh the efficiency gain, so a country protects or reshores. <b>The resolution:</b> not autarky and not blanket tariffs but <b>targeted industrial policy</b> for strategic sectors (subsidies, preferential treatment, picking the few that matter, e.g. Made in China 2025). But it isn't free, industrial policy can be expensive, governments may pick wrong, and duplicating capacity everywhere ("each region its own Silicon Valley") throws away the agglomeration gains. So: protect the genuinely strategic, stay open elsewhere.</div></details>
+</article>
+</div>
+
+<div class="footer">
+BSPP Exam Questions &middot; built from the 3 real questions on the Business and Public Policy P3 2026 final (Prof. Alexandra Roulet, 20 February 2026). Model answers are exemplars grounded in the Course Content page, to verify against the professor's own marking. Reproduces verbatim past-paper questions: INSEAD-internal, do not redistribute.
+</div>
+</main>
+</div>
+</body>
+</html>

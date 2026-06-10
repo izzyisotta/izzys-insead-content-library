@@ -1,0 +1,1982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>BSPP &middot; Business &amp; Society: Public Policy</title>
+<script>
+  MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['$$','$$']] }, svg: { fontCache: 'local' } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+<style>
+  :root{
+    --green:#00643C; --green-light:#2e7d32; --blue:#1f5fa8; --red:#b03030;
+    --ink:#1a1a1a; --soft:#555; --line:#d8d8d8; --bg:#fbfbf9; --card:#ffffff;
+    --amber:#a8740a; --amber-bg:#fdf6e9;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:16.5px; line-height:1.62;
+  }
+  .wrap{display:flex; max-width:1500px; margin:0 auto;}
+  nav.toc{
+    width:268px; flex:0 0 268px; position:sticky; top:0; height:100vh; overflow-y:auto;
+    background:#0e2a20; color:#dfeee7; padding:22px 16px 60px; font-size:13.5px;
+  }
+  nav.toc h2{color:#fff; font-size:14px; letter-spacing:.06em; text-transform:uppercase; margin:18px 0 8px; opacity:.65;}
+  nav.toc a{display:block; color:#cfe3da; text-decoration:none; padding:3px 8px; border-radius:5px; margin:1px 0;}
+  nav.toc a:hover{background:#1c4636; color:#fff;}
+  nav.toc a.part{font-weight:700; color:#8fd6b4; margin-top:6px;}
+  nav.toc .brand{font-weight:800; color:#fff; font-size:16px; line-height:1.3; margin-bottom:4px;}
+  nav.toc .brand span{font-weight:400; font-size:12.5px; color:#8fd6b4; display:block;}
+  .modetoggle{display:flex; gap:6px; margin:12px 0 18px;}
+  .modetoggle .mode{flex:1; text-align:center; padding:8px 6px; border-radius:7px; font-size:13px; font-weight:700; text-decoration:none; border:1px solid #2f5e4c; color:#cfe3da; background:transparent;}
+  .modetoggle .mode:hover{background:#1c4636; color:#fff;}
+  .modetoggle .mode.active{background:#00643C; color:#fff; border-color:#00643C;}
+  main{flex:1 1 auto; padding:46px 56px 140px; max-width:1000px;}
+  h1{font-size:30px; color:var(--green); margin:0 0 6px; line-height:1.18;}
+  h2.part{font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--amber); margin:54px 0 2px; font-weight:700;}
+  h2{font-size:25px; color:var(--green); border-bottom:2px solid var(--green); padding-bottom:6px; margin:42px 0 14px; scroll-margin-top:14px;}
+  h3{font-size:19px; color:#13392b; margin:26px 0 8px;}
+  h4{font-size:16px; color:var(--blue); margin:18px 0 4px; text-transform:uppercase; letter-spacing:.04em;}
+  p{margin:8px 0;}
+  ul,ol{margin:8px 0 8px; padding-left:22px;}
+  li{margin:4px 0;}
+  strong{color:#08251a;}
+  code{background:#eef2ef; padding:1px 5px; border-radius:4px; font-size:13.5px;}
+  a.up{color:var(--blue); text-decoration:none;}
+  .eq{background:#f0f6f2; border:1px solid #cfe2d6; border-left:4px solid var(--green); border-radius:8px; padding:12px 18px; margin:14px 0; overflow-x:auto;}
+  .eq .lbl{font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--green); font-weight:700; margin-bottom:2px;}
+  .key{background:#fff; border:1px solid var(--line); border-radius:10px; padding:14px 20px; margin:16px 0; box-shadow:0 1px 3px rgba(0,0,0,.04);}
+  .exam{background:var(--amber-bg); border:1px solid #ecd9ad; border-left:4px solid var(--amber); border-radius:8px; padding:10px 18px; margin:16px 0;}
+  .exam b{color:var(--amber);}
+  .chain{background:#eaf1f8; border:1px solid #c2d6ea; border-left:4px solid var(--blue); border-radius:8px; padding:10px 18px; margin:14px 0; font-size:15px;}
+  .chain .arrow{color:var(--blue); font-weight:700;}
+  .pitfall{background:#fbeeee; border:1px solid #ecc9c9; border-left:4px solid var(--red); border-radius:8px; padding:10px 18px; margin:14px 0;}
+  .pitfall b{color:var(--red);}
+  .twocol{display:flex; gap:22px; flex-wrap:wrap;}
+  .twocol > div{flex:1 1 300px;}
+  figure{margin:20px 0; text-align:center;}
+  figure > svg{max-width:100%; height:auto; background:#fff; border:1px solid var(--line); border-radius:10px; padding:8px;}
+  mjx-container svg, figcaption mjx-container svg, .eq mjx-container svg{max-width:none !important; height:auto !important; border:none !important; padding:0 !important; background:none !important; border-radius:0 !important;}
+  figcaption{font-size:13.5px; color:var(--soft); margin-top:7px; font-style:italic;}
+  table.dt{border-collapse:collapse; width:100%; margin:16px 0; font-size:14.5px;}
+  table.dt th{background:var(--green); color:#fff; text-align:left; padding:8px 11px; font-weight:600;}
+  table.dt td{border:1px solid var(--line); padding:7px 11px; vertical-align:top;}
+  table.dt tr:nth-child(even) td{background:#f6f8f6;}
+  .tacct{border-collapse:collapse; margin:10px auto; font-size:14px; min-width:330px;}
+  .tacct caption{font-weight:700; color:#13392b; padding-bottom:5px;}
+  .tacct th{background:#13392b; color:#fff; padding:5px 14px; font-weight:600;}
+  .tacct td{border:1px solid #b9b9b9; padding:5px 14px;}
+  .tacct td.a{background:#eef6f1;} .tacct td.l{background:#eef2f8;}
+  svg text{font-family:-apple-system,Helvetica,Arial,sans-serif;}
+  .axis{stroke:#333; stroke-width:1.6; fill:none;}
+  .grid{stroke:#e3e3e3; stroke-width:1;}
+  .dash{stroke-dasharray:5 4;}
+  .lbl{font-size:13px; font-weight:600;}
+  .sm{font-size:11.5px; fill:#555;}
+  .dot{fill:#13392b;}
+  .footer{margin-top:60px; padding-top:18px; border-top:1px solid var(--line); font-size:13px; color:var(--soft);}
+  .pill{display:inline-block; background:var(--green); color:#fff; font-size:11px; padding:2px 9px; border-radius:20px; letter-spacing:.04em; vertical-align:middle;}
+  .eyeball{background:#fdeaf4; border:2px dashed #c0398a; border-radius:8px; padding:8px 14px; margin:12px 0; font-size:14px; color:#8a1f5f;}
+  .eyeball .star{font-size:17px; margin-right:4px;}
+  .eyeball b{color:#8a1f5f;}
+  .intuition{background:#edf6f7; border:1px solid #b6d7dc; border-left:4px solid #1f7e8c; border-radius:8px; padding:10px 16px; margin:14px 0; font-size:15px;}
+  .intuition .tag{display:inline-block; font-size:11px; font-weight:700; letter-spacing:.04em; color:#1f7e8c; text-transform:uppercase; margin-right:6px;}
+  .intuition b{color:#0d4d57;}
+  .izzy{background:#f5f0fb; border:1px solid #d3c1ec; border-left:4px solid #7b4bbd; border-radius:8px; padding:12px 18px; margin:16px 0; font-size:15px;}
+  .izzy .tag{display:inline-block; font-size:11px; font-weight:700; letter-spacing:.04em; color:#7b4bbd; text-transform:uppercase; margin-bottom:6px;}
+  .izzy b{color:#5a2d96;}
+  .izzy table.dt{margin:8px 0;}
+  .read{margin:10px 0; padding:9px 15px; border-left:3px solid var(--green); background:#f8f8f5; border-radius:6px; font-size:14.5px;}
+  .read .meta{font-size:12px; color:var(--soft); margin-left:6px;}
+  .rtag{display:inline-block; font-size:10.5px; font-weight:700; letter-spacing:.03em; text-transform:uppercase; padding:1px 7px; border-radius:20px; vertical-align:middle; margin-left:4px;}
+  .rtag.man{background:#fbe4e4; color:#a32020;}
+  .rtag.prof{background:#e3eefb; color:#1a4e8a;}
+  .rtag.core{background:#e7f3ec; color:#13643c;}
+  .wex{background:#fff; border:1px dashed #9cc; border-radius:8px; padding:9px 15px; margin:12px 0; font-size:14.5px;}
+  .wex .h{font-weight:700; color:var(--blue); font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; display:block; margin-bottom:3px;}
+  .freq{display:inline-block;background:#00643C;color:#fff;font-size:11.5px;font-weight:700;padding:1px 9px;border-radius:20px;margin-left:8px;vertical-align:middle;}
+  .arche{border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin:18px 0;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.04);scroll-margin-top:14px;}
+  .arche h3{margin:0 0 2px;color:var(--green);}
+  .arche .trig{font-size:14px;color:var(--soft);font-style:italic;margin:2px 0 10px;}
+  .arche .lab{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--blue);margin:12px 0 3px;}
+  .arche ol.skel{margin:3px 0 0;padding-left:20px;} .arche ol.skel li{margin:3px 0;font-size:14.7px;}
+  .exemplar{background:#f0f6f2;border-left:4px solid var(--green);border-radius:8px;padding:10px 15px;margin:8px 0 0;font-size:14.5px;}
+  .exemplar .q{font-style:italic;color:#333;margin-bottom:6px;}
+  .traps{background:#fbeeee;border-left:4px solid var(--red);border-radius:8px;padding:8px 15px;margin:10px 0 0;font-size:14px;}
+  .traps ul{margin:4px 0 0;padding-left:20px;} .traps li{margin:3px 0;}
+  details.st{border:1px solid var(--line);border-radius:8px;padding:8px 14px;margin:7px 0;background:#fff;}
+  details.st summary{cursor:pointer;font-size:14.5px;font-weight:500;}
+  details.st summary .yr{display:inline-block;background:#eef2ef;color:#333;font-size:11.5px;font-weight:700;padding:1px 7px;border-radius:5px;margin-right:8px;}
+  details.st summary .yr.home{background:#dff0e6;color:#0b6b53;}
+  details.st .ans{margin-top:8px;padding-top:8px;border-top:1px solid var(--line);font-size:14px;color:#333;}
+  .stgroup h3{margin:24px 0 4px;color:#13392b;font-size:18px;scroll-margin-top:14px;}
+  .seclink{font-size:12.5px;}
+  @media print{ nav.toc{display:none;} main{padding:0; max-width:100%;} body{font-size:11pt;} h2{page-break-after:avoid;} figure,.eq,.key,.exam,ol.deriv,.wex{page-break-inside:avoid;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="toc">
+  <a href="index.html" style="color:#9fd3ba; font-size:12px; letter-spacing:.04em; margin-bottom:12px;">&larr; All courses</a>
+  <div class="brand">BSPP <span>Business &amp; Society: Public Policy &middot; Prof. Alexandra Roulet</span></div>
+  <a href="#how">How to use this</a>
+  <a href="#exam">The exam, and how to pass it</a>
+  <a href="#frameworks">&starf; Master frameworks sheet</a>
+  <div class="modetoggle"><span class="mode active">Course Content</span><a class="mode" href="BSPP%20%E2%80%94%20Exam%20Drills.html">Exam Questions</a></div>
+  <h2>Sessions</h2>
+  <a href="#l01" class="part">1 &middot; Market Failures</a>
+  <a href="#l02" class="part">2 &middot; Managing the Green Transition</a>
+  <a href="#l03" class="part">3 &middot; Corporate Taxation</a>
+  <a href="#l04" class="part">4 &middot; Competition &amp; Big Tech</a>
+  <a href="#l05" class="part">5 &middot; Geo-economics &amp; Tariffs</a>
+  <a href="#l06" class="part">6 &middot; Women at Work</a>
+  <a href="#l07" class="part">7 &middot; The Future of Work</a>
+  <h2>Reference</h2>
+  <a href="#glossary">Glossary &amp; myths</a>
+  <a href="#synthesis">The course in one diagram</a>
+  <a href="#readings">Key readings</a>
+</nav>
+<main>
+
+<h1>Business and Society: Public Policy</h1>
+<p style="font-size:18px;color:var(--soft);margin-top:0;">Course knowledge page · built from the Session 1&ndash;7 lecture slides + transcripts</p>
+
+<div class="key" id="how">
+<h3 style="margin-top:4px;">How to use this</h3>
+<p>This rebuilds the whole of BSPP from Roulet's slide decks and the in-class recordings. The course has one recurring move: <b>a market or society fails in some way, government can intervene, and every intervention is a trade-off</b>. Each session applies that move to a different arena (pollution, tax, big tech, trade, gender, the labour market).</p>
+<ul>
+<li><b>Learn the <a class="up" href="#frameworks">market-failures spine</a> first.</b> Every session is either a market failure (externality, asymmetric information, market power) or a distributional problem, plus the policy toolkit to address it. The exam rewards <i>naming the failure, giving the mechanism, then weighing the fix</i>.</li>
+<li><b>Each session block has the same shape:</b> an intuition hook, the frameworks as scannable tables and key-point cards, the economic diagrams redrawn, and one <b style="color:var(--amber);">Exam lens</b> box.</li>
+<li><b>The <a class="up" href="#frameworks">Master frameworks sheet</a> is your one-page revision spine</b> and the source for an A4 cheat sheet.</li>
+<li><b>Two registers per session:</b> the general takeaways (the reusable economics) sit above the case deep-dive (Apple's tax structure, the Facebook&ndash;WhatsApp acquisition, BP and Shell's green retreat) so you revise the toolkit, then watch it applied.</li>
+</ul>
+<div class="eyeball"><span class="star">&starf;</span><b>Isabella, eyeball these:</b> pink flags mark things to sanity-check. Two structural ones to know up front: <b>Sessions 5 (Geo-economics) and 7 (Future of Work) have no class recording</b>, so their in-class layer is built from the slide decks alone and is thinner. <b>Session 4 (Big Tech)</b> has only a short transcript fragment, so it too is mostly slide-built. And the <b>Session 1 and Session 3 recordings</b> hit a known transcription cut-off, so the later parts of those sessions are slide-sourced. Many slide charts are images that did not extract to text, so the curve diagrams are redrawn to their known shape, not traced; each is flagged. Search the page for "&starf;" to jump between flags.</div>
+</div>
+
+<h2 id="exam">The exam, and how to pass it</h2>
+<p>A closed-book written final covering the whole course. The single most repeated instruction in Roulet's answers: <b>define the concept precisely, give the economic mechanism, illustrate with the lecture's own example, then weigh the trade-off on both sides.</b> These are "debatable outcome" questions, so a good answer argues both sides before concluding.</p>
+<table class="dt">
+<thead><tr><th>What</th><th>Detail (from the real P3 2026 paper)</th></tr></thead>
+<tbody>
+<tr><td><b>Structure</b></td><td><b>Three questions, 100 marks, 2 hours, closed book.</b> You write directly on the paper in the space provided. The real 2026 paper: Q1 [30] regulation trade-offs (pharma + digital), Q2 [50] landmark climate and corporate-tax agreements and their challenges, Q3 [20] agglomeration vs national security.</td></tr>
+<tr><td><b>Style</b></td><td>Short structured essays. Marks are weighted heavily toward the broad cross-cutting question (the 50-marker spanning climate and tax), so budget time by marks.</td></tr>
+<tr><td><b>What earns marks</b></td><td><b>The lecture's own examples and figures.</b> ACA / adverse selection, Singapore tax and EU ETS / CBAM / IRA, the Facebook&ndash;WhatsApp case, the BEPS two pillars, the labour-share numbers. Specific examples signal you did the readings.</td></tr>
+<tr><td><b>Draw the graph</b></td><td>For externality / carbon-pricing questions, a rough <b>PMC / SMC + demand</b> sketch with the unregulated point A and the social optimum B marked, plus the tax wedge or cap line, earns the marks. See <a class="up" href="#l02">Session 2</a>.</td></tr>
+</tbody>
+</table>
+<div class="exam">
+<b>What Roulet rewards.</b>
+<ul>
+<li><b>Define first, precisely.</b> The exact concept (adverse selection = an asymmetric-information failure; an externality = the PMC&ndash;SMC wedge; the consumer-welfare standard). A vague gesture at the idea loses the opening marks.</li>
+<li><b>Mechanism, not just label.</b> Show <i>why</i> the failure happens (the insurance death-spiral, the network-effects flywheel, profit-shifting to low-tax jurisdictions), ideally with the diagram.</li>
+<li><b>Both sides, then a verdict.</b> Every prompt is a trade-off (regulate vs innovate, tax vs cap, break up vs national champion, efficiency vs resilience). Argue both, then conclude.</li>
+<li><b>Name the policy and its catch.</b> Pair each instrument with the cost it carries (a mandate needs enforcement; a tariff invites retaliation; a quota distorts).</li>
+</ul>
+</div>
+<div class="key"><b>The full archetype playbook, worked model answers, and the real past-paper questions</b> live on the <a class="up" href="BSPP%20%E2%80%94%20Exam%20Drills.html"><b>Exam Questions</b></a> page. Use the Course Content / Exam Questions toggle at the top of the sidebar.</div>
+
+<h2 id="frameworks">&starf; Master frameworks sheet</h2>
+<p>Every load-bearing framework in one place, the spine of your one-page revision sheet. Each links to the session where it is built.</p>
+
+<h4>The spine: why government intervenes <span style="font-weight:400;text-transform:none;color:var(--soft)">(S1, used in every session)</span></h4>
+<table class="dt">
+<thead><tr><th>Rationale</th><th>What it is</th><th>The policy response</th></tr></thead>
+<tbody>
+<tr><td><b>Externality</b> <span class="sm">(S2, S5)</span></td><td>A cost or benefit falling on third parties, so private and social marginal cost diverge (pollution, congestion).</td><td>Price it: a Pigouvian tax or a cap-and-trade market; or regulate the quantity directly.</td></tr>
+<tr><td><b>Asymmetric information</b> <span class="sm">(S1)</span></td><td>One side knows more about quality or risk (the lemons market; insurance adverse selection).</td><td>Screening (separating equilibrium) or mandates / public provision (pooling equilibrium).</td></tr>
+<tr><td><b>Market power</b> <span class="sm">(S4)</span></td><td>Concentration lets a firm raise price or foreclose rivals; digital markets tend to winner-takes-most.</td><td>Competition policy: merger review, abuse-of-dominance, structural or behavioural remedies.</td></tr>
+<tr><td><b>Distribution / equity</b> <span class="sm">(S1, S6, S7)</span></td><td>Markets can be efficient yet leave inequality (income, gender, labour vs capital) society finds unacceptable.</td><td>Tax and transfer; targeted policy (parental leave, retraining, capital ownership).</td></tr>
+<tr><td><b>Public goods / coordination</b> <span class="sm">(S2, S3, S5)</span></td><td>Climate, a stable tax base, supply-chain resilience: no single actor will provide them alone (free-riding).</td><td>International agreements; industrial policy; minimum standards.</td></tr>
+</tbody>
+</table>
+
+<h4>The policy toolkit, and the catch on each <span style="font-weight:400;text-transform:none;color:var(--soft)">(across the course)</span></h4>
+<table class="dt">
+<thead><tr><th>Instrument</th><th>Where</th><th>The trade-off it carries</th></tr></thead>
+<tbody>
+<tr><td><b>Price instrument</b> (carbon tax)</td><td>S2</td><td>Cost certainty, emissions uncertain; politically fragile when consumer-facing (gilets jaunes).</td></tr>
+<tr><td><b>Quantity instrument</b> (cap-and-trade)</td><td>S2</td><td>Emissions certain, cost uncertain; allowance price swings with the cycle.</td></tr>
+<tr><td><b>Regulation / standards</b></td><td>S1, S4</td><td>Safety and trust vs higher cost, slower innovation, barriers to entry.</td></tr>
+<tr><td><b>Global minimum tax</b> (BEPS Pillar 2)</td><td>S3</td><td>Curbs the race to the bottom, but tax havens and non-adopting countries leak.</td></tr>
+<tr><td><b>Tariff</b></td><td>S5</td><td>Protects a sector vs deadweight loss, retaliation, and a regressive hit to consumers.</td></tr>
+<tr><td><b>Industrial policy</b> (IRA, CHIPS)</td><td>S5, S7</td><td>Builds strategic capacity vs cost, picking-winners risk, capture.</td></tr>
+<tr><td><b>Breakup / structural remedy</b></td><td>S4</td><td>Restores contestability vs losing a national champion and competing on the wrong dimension.</td></tr>
+</tbody>
+</table>
+
+<h4>The recurring exam lens: every question is a trade-off <span style="font-weight:400;text-transform:none;color:var(--soft)">(all sessions)</span></h4>
+<table class="dt">
+<thead><tr><th>Session</th><th>The core trade-off</th></tr></thead>
+<tbody>
+<tr><td><b><a class="up" href="#l01">1 Market Failures</a></b></td><td>Efficiency of free markets vs the failures (information, externalities, power) and the inequality they leave.</td></tr>
+<tr><td><b><a class="up" href="#l02">2 Green Transition</a></b></td><td>Cost certainty (tax) vs emissions certainty (cap); decarbonising vs political and competitiveness backlash.</td></tr>
+<tr><td><b><a class="up" href="#l03">3 Corporate Taxation</a></b></td><td>Taxing mobile capital vs the race to the bottom and tax-haven leakage.</td></tr>
+<tr><td><b><a class="up" href="#l04">4 Big Tech</a></b></td><td>Contestability and innovation (breakup) vs national champions and regulatory competence.</td></tr>
+<tr><td><b><a class="up" href="#l05">5 Geo-economics</a></b></td><td>Efficiency of open trade and agglomeration vs resilience and national security.</td></tr>
+<tr><td><b><a class="up" href="#l06">6 Women at Work</a></b></td><td>Letting preferences and markets sort vs correcting the child penalty and discrimination.</td></tr>
+<tr><td><b><a class="up" href="#l07">7 Future of Work</a></b></td><td>The productivity gains of automation and AI vs polarisation and the falling labour share.</td></tr>
+</tbody>
+</table>
+
+<h2 class="part">The sessions</h2>
+
+<h2 id="l01">1 &middot; Market Failures</h2>
+
+<p style="font-size:18px;color:var(--soft);margin-top:0;">The course's foundation session: it sets up the one justification for government in the economy, that markets sometimes fail to deliver an efficient outcome, and walks three escalating examples, from a clear-cut failure (an unsafe drug) through a textbook failure (adverse selection in insurance) to a debatable one (the distribution of income). Everything later in the course (the green transition, Big Tech, taxation, trade) is a variation on "where does the market fail or produce a debatable outcome, and what should the state do about it."</p>
+
+<div class="intuition"><span class="tag">Intuition: what is business for, what is it bad at</span>Markets are extremely good at allocating resources efficiently. The course exists for the residue: the cases where the market <i>fails</i> (too much pollution, no insurance for the sick) and the cases where it works but the result is <i>debatable</i> (who gets the gains). Government enters in exactly those two gaps, not everywhere.</div>
+
+<h3>What is a market failure</h3>
+
+<div class="key"><b>Market failure, the working definition.</b>
+<ul>
+<li><b>Textbook:</b> anything that causes the market economy to deliver an outcome that does not maximise efficiency.</li>
+<li><b>Roulet's gloss in class:</b> the abstract definition "is not that helpful"; learn it through concrete cases (unsafe product, people lacking insurance, monopoly).</li>
+<li><b>Why it happens:</b> firms maximise profit, so absent regulation they will not internalise the side effects (unsafe drugs, pollution) that society cares about.</li>
+</ul></div>
+
+<div class="key"><b>Three buckets a market outcome can fall into (the opening framework).</b>
+<ul>
+<li><b>Socially optimal:</b> the market allocates well; leave it alone.</li>
+<li><b>Market failure:</b> e.g. too much pollution; the state intervenes to <i>correct</i> the failure.</li>
+<li><b>Debatable outcome:</b> e.g. the distribution of income and of productivity gains; the state may <i>redistribute</i>, and how it does so is contested.</li>
+</ul>
+Government "size" (public spending as a share of GDP) varies across countries but is never negligible, and it rises in crisis times.</div>
+
+<h3>Example 1 &middot; Thalidomide and the regulation trade-off</h3>
+
+<div class="intuition"><span class="tag">🎙 In class</span>"A German drugmaker comes to the market with a new drug, thalidomide, and it works super well. You take it, you fall asleep, you wake up fresh. Its sales become as large as aspirin, it floods sixty countries. But it so happens that when pregnant women take it in their first trimester, it alleviates morning sickness, and by 1961 there are abnormal rates of babies born with severe birth defects." The case is the live illustration of why a profit-maximising firm needs an external regulator.</div>
+
+<div class="key"><b>The Thalidomide timeline (1950s onward).</b>
+<ul>
+<li><b>Demand and entry:</b> large 1950s demand for sedatives; thalidomide enters in Germany in 1957, the maker claims it is safe for everyone.</li>
+<li><b>Scale:</b> by 1960 marketed in 46 countries, sales almost as large as aspirin; also found to reduce morning sickness in pregnancy.</li>
+<li><b>The harm:</b> by 1961 serious birth defects linked to the drug surface across Europe, Britain, Canada, the Middle East.</li>
+<li><b>The regulatory point:</b> the regulation at the time was very lenient, so nothing stopped it; the crisis is what created modern drug regulation.</li>
+</ul></div>
+
+<div class="key"><b>What governments can do, ex ante vs ex post (the in-class brainstorm).</b>
+<ul>
+<li><b>Before it happens (prevent):</b> require clinical trials; impose prescription barriers; restrict use for at-risk groups (e.g. forbid for pregnant women).</li>
+<li><b>After it happens (respond):</b> remove or restrict the drug; help victims (class-action lawsuits, compensation funds); punish the company (financial or criminal); and crucially, change the regulation for the future.</li>
+</ul></div>
+
+<div class="key"><b>What actually happened: the crisis wrote the rulebook.</b>
+<ul>
+<li><b>US:</b> FDA inspector Frances Oldham Kelsey never approved it, despite pressure from the manufacturer and her own supervisors.</li>
+<li><b>Europe:</b> banned by 1961.</li>
+<li><b>Seminal regulation:</b> the 1962 Kefauver-Harris amendments to the FDA act (companies must prove safety <i>and</i> efficacy before marketing, a process that can take 8 to 12 years); the first EU pharmaceutical directive (1965).</li>
+<li><b>Twist:</b> in Brazil the drug was re-licensed in 1965 to treat leprosy; the molecule is genuinely useful for severe conditions (leprosy, skin cancer), which is why "ban it" is not the whole answer.</li>
+</ul></div>
+
+<div class="intuition"><span class="tag">🎙 In class</span>"The reason we have all this debate is because firms are just maximising profit. If they just maximise profit, they are not going to take into account the potential side effects of their products. That is why you want regulation." Note the open question Roulet plants for later: a useful drug with a harmful side effect is a <b>negative externality</b>, the topic of a future session.</div>
+
+<p><b>The exam-shaped move: weigh the trade-off from two viewpoints.</b> Roulet's recurring question is "pros and cons of strict drug/chemical regulation, from the point of view of (1) business and (2) consumers." Answer it as a matrix, not prose; the verdict is that you sit somewhere on a slider between innovation and protection depending on what is at stake.</p>
+
+<table class="dt">
+<thead><tr><th>Strict regulation</th><th>Pros</th><th>Cons</th></tr></thead>
+<tbody>
+<tr><td><b>Business</b></td><td>Legal clarity and liability cover; a safety stamp builds consumer trust; due diligence avoids later scandal costs</td><td>Slow, costly approval (8 to 12 years); disincentivises and delays innovation; high barrier to market entry</td></tr>
+<tr><td><b>Consumers</b></td><td>Protection from unsafe products; confidence in what they buy</td><td>Delayed access to useful drugs; higher prices passed through; some life-saving products held back</td></tr>
+</tbody>
+</table>
+
+<div class="intuition"><span class="tag">🎙 In class</span>"You might face a trade-off. If you have no regulation, you might have a lot of unsafe product; if you have too strict regulation, you might disincentivise innovation." The COVID vaccine is the worked counter-case: society judged time-to-market so costly that it accepted faster procedures, the protection-vs-speed dial swung the other way because lives lost to delay dominated.</div>
+
+<div class="key"><b>The pattern recurs well beyond 1960s pharma (the "still happens today" slide).</b>
+<ul>
+<li><b>Sanofi / Depakine (Valproate), ongoing:</b> anti-epilepsy drug linked to birth defects and autism in utero; two legs of battle, financial compensation and criminal conviction (victims want symbolic responsibility, not just money). Jan 2025: the French drug agency judged responsible for mis-information; 2023 claims even from families living near the plant who never took it.</li>
+<li><b>Monsanto / Bayer Roundup (glyphosate):</b> Bayer bought Monsanto for $63bn (2018); $10bn settling 90,000+ cancer cases (2020); $2bn Georgia verdict (March 2025); Dec 2025 the US solicitor-general backed Bayer's pre-emption argument (federal "safe" ruling beats state failure-to-warn suits) at the Supreme Court.</li>
+<li><b>The complication Roulet flags:</b> responsibility is genuinely hard to assign, the company, the government/agency, the prescribing doctor (cf. the opioid crisis), and even the patient can each carry some.</li>
+</ul></div>
+
+<h3>Example 2 &middot; Adverse selection in insurance</h3>
+
+<div class="intuition"><span class="tag">🎙 In class</span>"The key word in adverse selection has got to be the fact that there is an asymmetry of information. One side of the market knows more than the other." That is the whole concept in one line: information asymmetry between buyer and seller, which the rest of the example just dramatises.</div>
+
+<div class="key"><b>Adverse selection, the definition.</b>
+<ul>
+<li><b>What it is:</b> a market failure driven by an information asymmetry between buyer and seller.</li>
+<li><b>Two directions:</b> the <i>buyer</i> cannot verify the quality of what the seller offers (used cars), or the <i>seller</i> cannot verify the risk-type of the buyer (insurance).</li>
+<li><b>The consequence (why it is a failure):</b> the market unravels, mutually beneficial trades that should happen do not, because the informed side cannot credibly prove quality.</li>
+</ul></div>
+
+<div class="intuition"><span class="tag">🎙 In class</span>"I want to buy a used car. Felix's car is actually very good, he just does not want it; Kunal's car had a lot of issues, but of course he does not tell me. I offer the average price." This is Akerlof's market for lemons, run live as a classroom example.</div>
+
+<p><b>The used-car unravelling (mechanism). </b>State the WHY only on the non-obvious link.</p>
+
+<div class="chain">
+<span>Buyer offers average price</span><span class="arrow">&rarr;</span>
+<span>only bad-car owners accept</span><span class="arrow">&rarr;</span>
+<span>buyer anticipates this, offers less</span><span class="arrow">&rarr;</span>
+<span>still only worse cars accept</span><span class="arrow">&rarr;</span>
+<span>price spirals to lowest quality</span>
+</div>
+<p style="font-size:13.5px;color:var(--soft);margin-top:4px;"><i>Why the spiral: at any average price the good-car owner withdraws (he would be underpaid), so the average quality on offer falls, so the rational buyer bids lower again, repeating until only the worst quality clears. Good trades that would benefit both sides never happen.</i></p>
+
+<div class="intuition"><span class="tag">Intuition: the insurance death spiral</span>Flip who holds the information. Now the <i>buyer</i> knows their own health and the insurer does not. Price at the population average and only the people who are expensive to insure find it a good deal; the healthy walk away; the pool gets sicker; the insurer must raise the premium; more healthy people leave. The same lemons logic, ending in collapse rather than a low price.</div>
+
+<div class="chain">
+<span>Price at average health risk</span><span class="arrow">&rarr;</span>
+<span>only high-risk people buy</span><span class="arrow">&rarr;</span>
+<span>healthy opt out</span><span class="arrow">&rarr;</span>
+<span>claims exceed premiums</span><span class="arrow">&rarr;</span>
+<span>insurer raises premium</span><span class="arrow">&rarr;</span>
+<span>more healthy leave (pool worsens)</span>
+</div>
+<p style="font-size:13.5px;color:var(--soft);margin-top:4px;"><i>Why each raise backfires: every premium increase pushes out the marginally-healthy first (they value cover least), so the average risk in the remaining pool rises, forcing the next increase. In class: "only the lifetime smokers buy it, so you go bankrupt." The only sustainable price corresponds to the highest-risk type.</i></p>
+
+<figure>
+<svg viewBox="0 0 460 250" width="100%" style="max-width:480px">
+  <!-- axes -->
+  <line x1="55" y1="20" x2="55" y2="210" stroke="#444" stroke-width="1.5"/>
+  <line x1="55" y1="210" x2="430" y2="210" stroke="#444" stroke-width="1.5"/>
+  <text x="20" y="120" font-size="11" fill="#444" transform="rotate(-90 20 120)" text-anchor="middle">Premium charged</text>
+  <text x="240" y="238" font-size="11" fill="#444" text-anchor="middle">Round (each repricing)</text>
+  <!-- premium rising path -->
+  <polyline points="75,175 150,150 225,120 300,82 375,40" fill="none" stroke="#b00020" stroke-width="2.5"/>
+  <g fill="#b00020"><circle cx="75" cy="175" r="3.5"/><circle cx="150" cy="150" r="3.5"/><circle cx="225" cy="120" r="3.5"/><circle cx="300" cy="82" r="3.5"/><circle cx="375" cy="40" r="3.5"/></g>
+  <!-- pool health declining (dashed teal) -->
+  <polyline points="75,60 150,90 225,120 300,155 375,185" fill="none" stroke="#00684B" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="385" y="38" font-size="10.5" fill="#b00020">premium &uarr;</text>
+  <text x="300" y="178" font-size="10.5" fill="#00684B">pool health &darr;</text>
+  <text x="120" y="200" font-size="10" fill="#777">healthy start to leave</text>
+</svg>
+<figcaption>The death spiral: each repricing round lifts the premium (red) and worsens the surviving pool's average health (dashed teal); the two reinforce until only the highest-risk types remain. ★ axes are schematic, drawn to convey the mechanism, not from a plotted slide.</figcaption>
+</figure>
+
+<div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this:</b> the in-class recording loops and cuts off right at the start of the "how do you solve it" discussion, so the separating/pooling resolution, the Obamacare slide and all of the inequality section below are reconstructed from the <i>slides only</i>, with no transcript intuition to cross-check. The death-spiral diagram is my own schematic of the mechanism the slides describe in words (no such graph is on a slide).</div>
+
+<p><b>How to solve adverse selection: two equilibria (slide framework). </b>Read across, the two routes attack different things, solving the information problem itself vs solving its consequence.</p>
+
+<table class="dt">
+<thead><tr><th>Route</th><th>What it fixes</th><th>How</th><th>The catch</th></tr></thead>
+<tbody>
+<tr><td><b>Separating equilibrium</b></td><td>The information asymmetry <i>itself</i></td><td>Use technology to reveal the risk type (data monitoring, screening), so each type is priced on its own risk</td><td>Privacy and fairness concerns (the high-risk get priced out or excluded)</td></tr>
+<tr><td><b>Pooling equilibrium</b></td><td>The <i>consequence</i> of the asymmetry</td><td>Force everyone into one pool so the sick are subsidised by the healthy. Two variants: (a) mandatory private insurance; (b) universal public system</td><td>(a) needs very dissuasive sanctions to enforce; (b) is universal for sure but has to be funded</td></tr>
+</tbody>
+</table>
+
+<div class="key"><b>Why bringing the healthy in is the whole game (take-away from example 2).</b>
+<ul>
+<li><b>The core problem:</b> unless insurance is mandatory, healthy people opt out, premiums rise, and even more people drop out because they cannot afford it.</li>
+<li><b>Mandatory private route:</b> only works with sanctions dissuasive enough to make opting out irrational.</li>
+<li><b>Public provision route:</b> guarantees universality, but the financing question (who pays, how) is the live political fight.</li>
+<li><b>Real test case:</b> Obamacare / the ACA (passed 2010, phased in to 2015) is the empirical question of whether the mandate-plus-subsidy design actually pulled the healthy into the pool. ★ the slide poses "Did Obamacare work?" but the deck shows the question, not a stated verdict, so no answer is asserted here.</li>
+</ul></div>
+
+<h3>Example 3 &middot; Income distribution and inequality</h3>
+
+<div class="intuition"><span class="tag">Intuition: a "debatable" outcome, not a clean failure</span>Unlike an unsafe drug or an unravelling insurance market, inequality is not obviously a <i>failure</i> of the market: the market may allocate efficiently and still produce a distribution we dislike. So this is the course's first "debatable" case, where government redistributes and the debate is about whether and how much.</div>
+
+<div class="key"><b>The global vs within-country split (the central, counter-intuitive fact).</b>
+<ul>
+<li><b>Across countries, inequality fell:</b> far fewer people in extreme poverty (2 billion under $2/day in 1990 to ~700m in 2019), much more overlap between countries' income distributions, and a big purchasing-power gain for the emerging-market middle class, especially in Asia.</li>
+<li><b>Within most countries, inequality rose since ~1980:</b> shown by both Gini coefficients and income shares.</li>
+<li><b>The reconciling picture:</b> the elephant curve, who gained over 1988 to 2008.</li>
+</ul></div>
+
+<figure>
+<svg viewBox="0 0 480 250" width="100%" style="max-width:500px">
+  <line x1="55" y1="20" x2="55" y2="205" stroke="#444" stroke-width="1.5"/>
+  <line x1="55" y1="205" x2="455" y2="205" stroke="#444" stroke-width="1.5"/>
+  <text x="22" y="115" font-size="10.5" fill="#444" transform="rotate(-90 22 115)" text-anchor="middle">Real income growth</text>
+  <text x="255" y="238" font-size="10.5" fill="#444" text-anchor="middle">Global income percentile (poor &rarr; rich)</text>
+  <!-- the elephant: body hump, dip at ~80th, trunk up at top -->
+  <path d="M65,150 C110,70 150,60 200,72 C250,84 280,120 320,175 C345,200 360,200 380,150 C400,95 420,60 445,40" fill="none" stroke="#00684B" stroke-width="2.5"/>
+  <!-- annotations -->
+  <text x="150" y="50" font-size="10" fill="#00684B">emerging-mkt</text>
+  <text x="150" y="62" font-size="10" fill="#00684B">middle class &uarr;&uarr;</text>
+  <text x="300" y="198" font-size="10" fill="#b00020">rich-world</text>
+  <text x="300" y="210" font-size="10" fill="#b00020" opacity="0">x</text>
+  <text x="285" y="158" font-size="10" fill="#b00020">lower-middle, flat</text>
+  <text x="392" y="35" font-size="10" fill="#00684B">global top 1% &uarr;</text>
+  <circle cx="320" cy="175" r="3" fill="#b00020"/>
+</svg>
+<figcaption>The elephant curve (1988 to 2008, World Bank data): big gains for the emerging-market middle class (the back) and for the global top 1% (the raised trunk), but stagnation for the lower-middle of the rich-world distribution (the dip at the trunk's base). ★ redrawn to the well-known shape, not traced from the slide's exact data points.</figcaption>
+</figure>
+
+<div class="key"><b>Measuring within-country inequality, two tools.</b>
+<ul>
+<li><b>Gini coefficient:</b> a single 0-to-1 summary of how unequal the distribution is.</li>
+<li><b>Income shares:</b> the slice of total income going to the top 10% / top 1% vs the bottom 50%, measured pre-tax and pre-transfer.</li>
+<li><b>What both show:</b> in most countries, a rising top-1% / top-10% share and a stagnating-or-declining bottom-50% share between the 1980s and the 2010s (US and Western Europe most starkly; India and Russia also up).</li>
+</ul></div>
+
+<div class="key"><b>Two caveats Roulet flags on the income-share story.</b>
+<ul>
+<li><b>Growth rate matters:</b> similar income-share trends in China and the US are not the same situation, fast aggregate growth means even a shrinking share can be a rising absolute income.</li>
+<li><b>The starting point is cherry-pickable:</b> the 1960s-70s were a period of exceptionally low inequality, so trends measured from there exaggerate the rise; a longer-run view of wealth inequality looks different.</li>
+<li><b>Wealth &gt; income concentration:</b> Oxfam (2018), 82% of new wealth went to the top 1% and 0 to the bottom 50%; the 8 richest held as much as the poorest 3.6 billion.</li>
+</ul></div>
+
+<div class="key"><b>What drives rising within-country inequality (market forces + policy).</b>
+<ul>
+<li><b>Market forces:</b> a rising skill premium from skill-biased technological change, plus increased globalisation.</li>
+<li><b>Policy choices:</b> falling top marginal tax rates; leniency on anti-trust.</li>
+<li><b>The role of firms:</b> widening wage gaps <i>between</i> firms (even within an industry); "superstar" firms concentrate the most-skilled people, focus on core competencies, outsource the rest, and pay up for top talent ("if you are offered a seat on a rocket ship, just get on").</li>
+</ul></div>
+
+<p><b>Why a manager should care: inequality feeds back on itself. </b>The reflection question "is inequality a market failure, and should corporate leaders care?" is answered by two mechanisms.</p>
+
+<div class="chain">
+<span>High inequality</span><span class="arrow">&rarr;</span>
+<span>lower social mobility</span><span class="arrow">&rarr;</span>
+<span>more inequality next generation</span>
+</div>
+<p style="font-size:13.5px;color:var(--soft);margin-top:4px;"><i>Why it compounds: the privileged secure better education for their children and capture political influence ("political capture"), so without a major shock more inequality begets more, an equity <i>and</i> an efficiency problem. This is the Great Gatsby curve: countries with higher inequality show children's incomes more tightly tied to their parents'.</i></p>
+
+<figure>
+<svg viewBox="0 0 440 240" width="100%" style="max-width:440px">
+  <line x1="55" y1="20" x2="55" y2="195" stroke="#444" stroke-width="1.5"/>
+  <line x1="55" y1="195" x2="415" y2="195" stroke="#444" stroke-width="1.5"/>
+  <text x="22" y="110" font-size="10" fill="#444" transform="rotate(-90 22 110)" text-anchor="middle">Less mobility (parent-child income link) &rarr;</text>
+  <text x="235" y="225" font-size="10.5" fill="#444" text-anchor="middle">Inequality (Gini) &rarr;</text>
+  <!-- upward trend line -->
+  <line x1="70" y1="170" x2="400" y2="55" stroke="#00684B" stroke-width="2"/>
+  <!-- scatter dots -->
+  <g fill="#b00020">
+    <circle cx="95" cy="160" r="3.5"/><circle cx="140" cy="150" r="3.5"/>
+    <circle cx="185" cy="120" r="3.5"/><circle cx="230" cy="110" r="3.5"/>
+    <circle cx="300" cy="80" r="3.5"/><circle cx="360" cy="62" r="3.5"/>
+  </g>
+  <text x="100" y="150" font-size="9.5" fill="#555">Denmark</text>
+  <text x="305" y="75" font-size="9.5" fill="#555">US, UK</text>
+</svg>
+<figcaption>The Great Gatsby curve (after Miles Corak): more-unequal countries (right) show stronger correlation between children's and parents' incomes, i.e. lower social mobility. ★ illustrative scatter, positions are schematic not exact data.</figcaption>
+</figure>
+
+<div class="key"><b>Reasons to care, and the take-away (example 3).</b>
+<ul>
+<li><b>Mobility / fairness:</b> equality of opportunity is negatively correlated with the level of inequality.</li>
+<li><b>Stability:</b> inequality generates social and political unrest and feeds protectionist movements.</li>
+<li><b>The honest verdict:</b> globally we have seen falling absolute poverty and convergence between countries, but within most countries the top 1% captured the prosperity gains while the bottom 50% (especially in the US and Western Europe) were left out.</li>
+</ul></div>
+
+<h4>Session take-aways</h4>
+
+<div class="key"><b>The three threads, in one place.</b>
+<ul>
+<li><b>Failure vs debate:</b> the market <i>fails</i> when it delivers an inefficient allocation (unsafe product, uninsured people); some outcomes (the top-1% share, untaxed corporate profit) are <i>debatable</i> rather than clear failures.</li>
+<li><b>Government corrects and redistributes, imperfectly:</b> it steps in for failures and intervenes in debatable cases, but public policy has its own failures (too-strict regulation stifles innovation).</li>
+<li><b>Adverse selection is the canonical failure:</b> asymmetric information rations the market; the fix is to bring the low-risk in (mandatory or public insurance).</li>
+<li><b>Inequality:</b> down between countries, up within them; associated with lower mobility and political instability.</li>
+</ul></div>
+
+<div class="exam"><b>Exam lens.</b>
+<ul>
+<li><b>Format:</b> 2-hour final is 90% of the grade, 10% participation; "a few questions on the concepts covered in class, where you have to <b>justify your answer with some reasoning</b>." A sample exam and a model good-answer are posted under Course overview / Grading scheme.</li>
+<li><b>The four moves she rewards:</b> (1) <b>define</b> the concept cleanly (e.g. adverse selection = information asymmetry that rations the market); (2) <b>give the mechanism</b> (the death-spiral / lemons logic, step by step); (3) <b>illustrate with the lecture's own example</b> (thalidomide, used cars, insurance, the elephant curve), not an invented one; (4) <b>weigh the trade-off</b> from named viewpoints (business vs consumers, innovation vs protection) rather than asserting one side.</li>
+<li><b>Bank these distinctions:</b> market failure vs debatable outcome; separating vs pooling equilibrium; global vs within-country inequality; Gini vs income shares; market forces vs policy choices as drivers.</li>
+<li><b>Likely trap:</b> calling inequality a "market failure". Roulet frames it as a <i>debatable</i> outcome, the market can be efficient and still produce a distribution we reject, so the careful answer separates efficiency from distribution before arguing for intervention.</li>
+</ul></div>
+
+<h2 id="l02">2 &middot; Managing the Green Transition</h2>
+
+<p style="font-size:18px;color:var(--soft);margin-top:0;">The course's one economics-heavy session: it builds climate policy from a single graph (the wedge between <b>private</b> and <b>social</b> marginal cost of a polluting activity), then derives the whole policy toolkit from it, a Coasian private fix, a Pigouvian <b>carbon tax</b> (price approach), and a <b>cap-and-trade</b> market (quantity approach), before testing them against the real world (the gilets jaunes, the EU ETS, the BP/Shell retreat). Roulet uses the same demand/PMC/SMC diagram for every tool, so master it once and reuse it.</p>
+
+<div class="intuition"><span class="tag">🎙 In class</span> "This graph seems very simple, but it will be the basis of everything. Carbon tax, cap-and-trade, everything we will see, we will go back to the simple graph." She draws the demand/PMC/SMC picture three separate times in the session on purpose, the entire lecture is variations on one diagram.</div>
+
+<h4>The conceptual detour: externalities</h4>
+
+<div class="intuition"><span class="tag">Intuition &mdash; the missing price</span> An externality is just a <i>missing price</i>: you impose a cost on someone (or hand them a benefit) and no money changes hands for it. Every policy in this lecture is an attempt to put a price on that missing transaction so the offending agent feels it.</div>
+
+<div class="key"><b>Four flavours of externality (define before drawing anything).</b>
+<ul>
+<li><b>Negative production externality:</b> a firm's <i>production</i> harms a third party uncompensated. Slide example: a firm polluting a lake hurts fishermen; in-class: Sanofi's anti-epileptic plant linked to autism in neighbouring births. <b>This is the climate case and the lecture's focus.</b></li>
+<li><b>Negative consumption externality:</b> a person's <i>consumption</i> harms others, e.g. smoking in a restaurant.</li>
+<li><b>Positive externality:</b> your action makes another party better off without you capturing the benefit, e.g. spillovers from a smart classmate sharing a business idea; green technology with knowledge spillovers.</li>
+<li><b>The rule (closing slide):</b> negative production externality &rArr; <b>PMC &lt; SMC</b>; negative consumption externality &rArr; <b>PMB &gt; SMB</b>.</li>
+</ul></div>
+
+<div class="key"><b>PMC vs SMC, the wedge.</b>
+<ul>
+<li><b>Private marginal cost (PMC):</b> the direct cost to the producer of one more unit, the ordinary supply curve.</li>
+<li><b>Social marginal cost (SMC):</b> PMC <i>plus</i> any cost the production imposes on others, the supply curve as society sees it.</li>
+<li><b>The wedge = the marginal external damage:</b> the vertical gap between SMC and PMC at each quantity. Policy's job is to make the firm act on the red SMC curve, not the blue PMC curve.</li>
+<li><b>Why demand still matters:</b> the goal is NOT to shut the plant. The drug still cures epilepsy; the demand curve reminds you the activity serves a purpose, so you move from over-production to the social optimum, not to zero.</li>
+</ul></div>
+
+<figure>
+<svg viewBox="0 0 460 320" width="100%" style="max-width:520px">
+  <!-- axes -->
+  <line class="axis" x1="55" y1="280" x2="430" y2="280" stroke="#333" stroke-width="1.5"/>
+  <line class="axis" x1="55" y1="280" x2="55" y2="30" stroke="#333" stroke-width="1.5"/>
+  <text x="430" y="300" font-size="11" fill="#333" text-anchor="end">Quantity (output / emissions)</text>
+  <text x="50" y="24" font-size="11" fill="#333" text-anchor="end">Price, cost</text>
+  <!-- Demand: downward -->
+  <line x1="70" y1="60" x2="410" y2="265" stroke="#1769aa" stroke-width="2.5"/>
+  <text x="392" y="258" font-size="11" fill="#1769aa" font-weight="bold">Demand</text>
+  <!-- PMC: upward (private supply), blue -->
+  <line x1="70" y1="250" x2="400" y2="90" stroke="#1769aa" stroke-width="2.5"/>
+  <text x="372" y="86" font-size="11" fill="#1769aa" font-weight="bold">PMC (private)</text>
+  <!-- SMC: parallel above PMC, red -->
+  <line x1="70" y1="200" x2="400" y2="40" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="300" y="50" font-size="11" fill="#c0392b" font-weight="bold">SMC = PMC + damage</text>
+  <!-- Equilibrium A: Demand x PMC (unregulated, over-production) -->
+  <!-- intersection approx at x=300,y=160 -->
+  <line class="grid dash" x1="300" y1="160" x2="300" y2="280" stroke="#888" stroke-width="1" stroke-dasharray="4 3"/>
+  <line class="grid dash" x1="55" y1="160" x2="300" y2="160" stroke="#888" stroke-width="1" stroke-dasharray="4 3"/>
+  <circle cx="300" cy="160" r="4.5" fill="#1769aa"/>
+  <text x="308" y="156" font-size="12" fill="#1769aa" font-weight="bold">A</text>
+  <text x="300" y="296" font-size="11" fill="#333" text-anchor="middle">Q&#8321; (too much)</text>
+  <!-- Optimum B: Demand x SMC (social optimum) -->
+  <!-- intersection approx at x=230,y=130 -->
+  <line class="grid dash" x1="230" y1="130" x2="230" y2="280" stroke="#888" stroke-width="1" stroke-dasharray="4 3"/>
+  <line class="grid dash" x1="55" y1="130" x2="230" y2="130" stroke="#888" stroke-width="1" stroke-dasharray="4 3"/>
+  <circle cx="230" cy="130" r="4.5" fill="#c0392b"/>
+  <text x="238" y="126" font-size="12" fill="#c0392b" font-weight="bold">B</text>
+  <text x="230" y="296" font-size="11" fill="#333" text-anchor="middle">Q&#8322;*</text>
+  <!-- damage wedge at B -->
+  <g stroke="#c0392b" stroke-width="1.3" fill="none">
+    <line x1="230" y1="130" x2="230" y2="178" stroke-dasharray="2 2"/>
+  </g>
+  <text x="236" y="200" font-size="10" fill="#c0392b">wedge =</text>
+  <text x="236" y="213" font-size="10" fill="#c0392b">marginal</text>
+  <text x="236" y="226" font-size="10" fill="#c0392b">damage</text>
+</svg>
+<figcaption>The one graph the whole lecture rests on. Left to itself the market settles at <b>A</b> (Demand &times; PMC), over-producing. The social optimum is <b>B</b> (Demand &times; SMC). The vertical SMC&minus;PMC gap is the marginal external damage; every instrument below tries to shift behaviour from A to B by making the firm internalise that wedge.</figcaption>
+</figure>
+
+<div class="eyeball"><span class="star">★</span><b>Isabella &mdash; eyeball this:</b> the externality diagram is redrawn from the transcript's verbal description (demand curve, PMC = supply, SMC parallel above it, move A&rarr;B), not traced from the slide image (slides p14&ndash;15 are figures with no extractable text). Check that A sits on Demand&times;PMC and B on Demand&times;SMC, and that B is to the LEFT of A (lower quantity), against the actual slide.</div>
+
+<h4>The private fix: Coasian payments</h4>
+
+<div class="intuition"><span class="tag">🎙 In class</span> "It is not because we hear the word externality that we necessarily need government." In the smoking example: "I buy you a drink, you're fine with me smoking, we solve the externality." A negotiated side-payment can reach B with no state at all, in theory.</div>
+
+<div class="key"><b>Coase theorem &mdash; bargaining can reach the social optimum without government.</b>
+<ul>
+<li><b>What it says:</b> private negotiation between the polluter and the harmed party can deliver the socially optimal quantity (move A&rarr;B) on its own.</li>
+<li><b>Two conditions:</b> (1) well-defined <b>property rights</b>; (2) <b>costless bargaining</b>.</li>
+<li><b>Allocation-neutral:</b> it does NOT matter <i>who</i> holds the right. If the fishermen own the lake, the firm pays them for the damage; if the firm owns the lake, the fishermen pay the firm to produce less. Either way you reach B.</li>
+<li><b>The price is the same either way:</b> the payment always equals the marginal damage (the SMC&minus;PMC wedge), regardless of direction. Only <i>who receives the money</i> changes.</li>
+</ul></div>
+
+<div class="key"><b>When the Coasian fix breaks down (closing slide + class discussion).</b> Real-world climate change violates every assumption:
+<ul>
+<li><b>Property rights ill-defined:</b> who owns the air or the climate? Unclear who pays whom.</li>
+<li><b>Transaction costs / not costless:</b> if it takes "two years and 2,000 lawyers," the side-payment logic collapses.</li>
+<li><b>Large numbers &rArr; collective-action problem:</b> billions of people and hundreds of countries cannot coordinate a side-payment.</li>
+<li><b>Damage is hard to quantify:</b> how do you price the cost of one tonne of CO&#8322;, or the autism risk next door?</li>
+<li><b>What government fixes vs doesn't:</b> the state CAN help with ownership/enforcement and national coordination; it still struggles with damage quantification and international coordination.</li>
+</ul></div>
+
+<h4>The two policy approaches</h4>
+
+<div class="intuition"><span class="tag">Intuition &mdash; same target, two dials</span> Both instruments aim at exactly the same point B; they just grab a different dial. The <b>price approach</b> sets the price (the tax) and lets quantity fall out. The <b>quantity approach</b> sets the quantity (the cap) and lets the price fall out. Under perfect information they land on the identical equilibrium; under uncertainty you control one variable and stay blind on the other.</div>
+
+<div class="key"><b>The taxonomy (slides p22).</b>
+<ul>
+<li><b>1. Price approach (mimics the Coasian solution):</b> corrective <b>Pigouvian tax</b> on the negative externality, or a <b>subsidy</b> for positive ones / clean alternatives.</li>
+<li><b>2. Quantity approach:</b> a <b>cap-and-trade</b> system, or other direct <b>regulation</b> (bans, quotas).</li>
+<li><b>Both share one idea:</b> "finding the right price to make agents internalise the cost they impose on others."</li>
+</ul></div>
+
+<h5>How each instrument moves the graph</h5>
+
+<div class="twocol">
+<div>
+<figure>
+<svg viewBox="0 0 300 250" width="100%" style="max-width:300px">
+  <line x1="40" y1="215" x2="285" y2="215" stroke="#333" stroke-width="1.3"/>
+  <line x1="40" y1="215" x2="40" y2="20" stroke="#333" stroke-width="1.3"/>
+  <!-- demand -->
+  <line x1="55" y1="45" x2="270" y2="200" stroke="#1769aa" stroke-width="2"/>
+  <text x="240" y="195" font-size="9" fill="#1769aa">D</text>
+  <!-- PMC -->
+  <line x1="55" y1="190" x2="265" y2="80" stroke="#1769aa" stroke-width="2"/>
+  <text x="240" y="78" font-size="9" fill="#1769aa">PMC</text>
+  <!-- PMC + tax (shifted up to SMC) -->
+  <line x1="55" y1="150" x2="265" y2="40" stroke="#c0392b" stroke-width="2"/>
+  <text x="200" y="44" font-size="9" fill="#c0392b">PMC + tax</text>
+  <!-- tax arrow -->
+  <g stroke="#c0392b" stroke-width="1.5" fill="none">
+    <line x1="150" y1="135" x2="150" y2="105" marker-end="url(#au)"/>
+  </g>
+  <text x="156" y="125" font-size="9" fill="#c0392b">&tau;</text>
+  <text x="120" y="240" font-size="9.5" fill="#333" text-anchor="middle">tax raises every firm's cost</text>
+  <defs><marker id="au" markerWidth="8" markerHeight="8" refX="4" refY="1" orient="auto"><path d="M0 8 L4 0 L8 8 z" fill="#c0392b"/></marker></defs>
+</svg>
+<figcaption><b>Carbon tax (price).</b> Set a per-tonne price &tau;; this shifts the firm's effective cost curve up to SMC. The state fixes &tau;; the emission reduction is whatever firms choose to do.</figcaption>
+</figure>
+</div>
+<div>
+<figure>
+<svg viewBox="0 0 300 250" width="100%" style="max-width:300px">
+  <line x1="40" y1="215" x2="285" y2="215" stroke="#333" stroke-width="1.3"/>
+  <line x1="40" y1="215" x2="40" y2="20" stroke="#333" stroke-width="1.3"/>
+  <!-- two firms' abatement cost: MAC1 flat-ish, MAC2 steep -->
+  <line x1="55" y1="180" x2="265" y2="120" stroke="#1769aa" stroke-width="2"/>
+  <text x="200" y="118" font-size="9" fill="#1769aa">Firm 1 (cheap)</text>
+  <line x1="55" y1="195" x2="200" y2="45" stroke="#7b1fa2" stroke-width="2"/>
+  <text x="160" y="55" font-size="9" fill="#7b1fa2">Firm 2 (costly)</text>
+  <!-- permit price line -->
+  <line x1="40" y1="110" x2="285" y2="110" stroke="#c0392b" stroke-width="1.6" stroke-dasharray="5 3"/>
+  <text x="245" y="105" font-size="9" fill="#c0392b">permit price</text>
+  <text x="120" y="236" font-size="9.5" fill="#333" text-anchor="middle">Firm 1 abates &amp; sells permits</text>
+  <text x="120" y="248" font-size="9.5" fill="#333" text-anchor="middle">to Firm 2</text>
+</svg>
+<figcaption><b>Cap-and-trade (quantity).</b> Fix the total cap, hand out allowances, let firms trade. Low-cost abater (Firm 1) cuts more and sells spare permits to the high-cost firm (Firm 2). The market price emerges; the total cut is guaranteed.</figcaption>
+</figure>
+</div>
+</div>
+
+<div class="eyeball"><span class="star">★</span><b>Isabella &mdash; eyeball this:</b> the cap-and-trade panel is drawn as two firms' marginal-abatement-cost curves meeting a common permit price (the transcript's "Mr 1 vs Mr 2, one cuts 40% one cuts 20%, the cheaper abater sells" story). Slide p26 ("Cap and trade illustrated") is an image; confirm my permit-trade geometry matches the slide's depiction.</div>
+
+<div class="chain">
+<span>cap fixes total emissions</span><span class="arrow">&rarr;</span>
+<span>permits scarce</span><span class="arrow">&rarr;</span>
+<span>permit price &gt; 0</span><span class="arrow">&rarr;</span>
+<span>cheap abaters cut &amp; sell <i>(they pocket the gap)</i></span><span class="arrow">&rarr;</span>
+<span>target hit at least cost</span>
+</div>
+
+<h5>Tax vs cap-and-trade &mdash; the gold-standard comparison</h5>
+
+<div class="intuition"><span class="tag">🎙 In class</span> "Conceptually, whether you do a cap-and-trade or carbon tax, there's no right or wrong answer. It's not one is better than the other." The whole distinction lives in <i>which variable you leave uncertain</i>, because nobody knows where to draw the SMC curve.</div>
+
+<table class="dt">
+<thead><tr><th></th><th>Carbon tax (price instrument)</th><th>Cap-and-trade (quantity instrument)</th></tr></thead>
+<tbody>
+<tr><td><b>You set</b></td><td>The <b>price</b> per tonne (&tau;)</td><td>The total <b>quantity</b> of emissions (the cap)</td></tr>
+<tr><td><b>What's certain</b></td><td>The cost to firms of emitting is known up front</td><td>The emission reduction is guaranteed</td></tr>
+<tr><td><b>What's uncertain</b></td><td>How much emissions actually fall (set &tau; too low &rArr; firms just pay &amp; don't change; too high &rArr; firms go bankrupt)</td><td>What it costs (the cap could be ruinously expensive to meet, or trivially cheap)</td></tr>
+<tr><td><b>Mechanism</b></td><td>Shifts firms' effective cost curve up to SMC; firms optimise against the price</td><td>Issues tradable allowances; trading routes abatement to the cheapest cutter</td></tr>
+<tr><td><b>Revenue / cost-bearer</b></td><td>Raises tax revenue (usable for green projects); cost borne by producers/consumers of the taxed good</td><td>Auctioned permits raise revenue; free allowances do not; cost borne by covered sectors</td></tr>
+<tr><td><b>Real example</b></td><td><b>Singapore</b> carbon tax (2019)</td><td><b>EU ETS</b> (2005)</td></tr>
+</tbody>
+</table>
+
+<div class="key"><b>Equivalence &amp; the Weitzman trade-off (slide p27).</b>
+<ul>
+<li><b>Under perfect information they are identical:</b> if you knew all firms' costs, the demand curve, and the damage, price and quantity would reach the exact same B. The permit price in a cap system equals the optimal tax, both equal the marginal damage.</li>
+<li><b>The real problem:</b> "I don't know where to draw the red curve." With imperfect information you must guess, so the choice matters, you control one variable and accept uncertainty on the other.</li>
+<li><b>Choosing between them = choosing what you must guarantee:</b> guarantee firms' <i>cost</i> &rArr; use a tax; guarantee the <i>pollution reduction</i> &rArr; use a cap (the closing slide's exact framing).</li>
+</ul></div>
+
+<div class="key"><b>Subsidies &mdash; the price approach in reverse.</b>
+<ul>
+<li><b>Mechanism:</b> make the <i>green</i> option cheaper (tax credits / rebates) rather than the dirty option dearer.</li>
+<li><b>Price effect:</b> deflationary, pushes prices down, vs a tax/cap which is mildly inflationary.</li>
+<li><b>Who pays:</b> the <b>taxpayer</b> funds subsidies (vs producers/consumers of the dirty good under a tax/cap).</li>
+<li><b>Why rarer:</b> it costs the public purse, so only the fiscally unconstrained (the US, running a large deficit) lean on it; most countries reach for tax or cap instead.</li>
+</ul></div>
+
+<div class="pitfall"><b>Don't say "firms just buy permits, so nothing changes" as if it disproves the system.</b> If no one abates and everyone simply pays, you set the price (or cap) <i>wrong</i>, it's too cheap. The EU ETS literally did this at launch (too many allowances &rArr; permit price collapsed to zero); the fix was to tighten the cap repeatedly, not to abandon the instrument.</div>
+
+<h4>Policies in practice</h4>
+
+<div class="key"><b>The real-world toolkit, by jurisdiction.</b>
+<ul>
+<li><b>Singapore &mdash; carbon tax:</b> introduced 2019 at $5/tCO&#8322;, raised to $25 (2024&ndash;25), $45 (2026&ndash;27), targeting $50&ndash;80 by 2030; levied only on large emitters (&ge;25,000 tCO&#8322;e/yr). <b>Start low, pre-commit to rising,</b> so firms have time to adjust, conditional on the government being <i>credible</i>.</li>
+<li><b>EU &mdash; ETS cap-and-trade:</b> launched 2005 (a tax would have needed unanimity; ETS did not). Free allowances + auctioning; "Fit for 55" (2021) tightens the cap to &minus;62% vs 2005 by 2030 and extends scope (maritime, ETS 2 for buildings/road).</li>
+<li><b>CBAM (Carbon Border Adjustment Mechanism):</b> stops <b>carbon leakage</b>, importers report and pay for embedded emissions at the ETS price, with credit for any carbon price already paid abroad. Levels the field so firms don't just offshore the dirty step.</li>
+<li><b>US &mdash; IRA (Inflation Reduction Act):</b> the <b>subsidy</b> route, large tax credits for clean generation/storage and for consumers (EVs, home retrofits). The "carrot" to the EU's "stick."</li>
+<li><b>China &mdash; EV quotas (regulation):</b> EVs 1% of new sales in 2016 &rarr; mandated 8% by 2020, then 25% by 2025, 40% by 2030, plus demand boosters (subsidies, license-plate priority). <b>Targets met,</b> credible government + a market too big for carmakers to exit.</li>
+</ul></div>
+
+<div class="chain">
+<span>EU prices carbon (ETS)</span><span class="arrow">&rarr;</span>
+<span>dirty production cheaper abroad <i>(no EU carbon price there)</i></span><span class="arrow">&rarr;</span>
+<span>firms offshore the polluting step</span><span class="arrow">&rarr;</span>
+<span>emissions leak out, not down</span><span class="arrow">&rarr;</span>
+<span>CBAM taxes embedded import carbon</span><span class="arrow">&rarr;</span>
+<span>leak plugged</span>
+</div>
+
+<h4>The recent pushback &mdash; why the price approach alone fails</h4>
+
+<div class="intuition"><span class="tag">🎙 In class</span> "For a long time economists thought: climate change is simple, it's an externality, put a carbon price and let agents optimise. Conceptually 100% true. But in practice it's a bit more complicated, when you make things costly so people switch, they need something to switch <i>to</i>." That missing alternative is the whole story of the pushback.</div>
+
+<div class="key"><b>France &mdash; the gilets jaunes (2019) and the turn to planning.</b>
+<ul>
+<li><b>The trigger:</b> a 2019 fuel-tax rise, textbook carbon pricing, made driving costlier. But rural households <i>can't substitute away</i> from driving (no public-transport alternative), so they just paid more, didn't cut emissions, and revolted.</li>
+<li><b>The lesson:</b> for consumers especially, the price signal alone backfires without a concrete alternative; cities that paired road-pricing with transit/biking succeeded where blanket fuel taxes failed.</li>
+<li><b>The planning response:</b> France created the <i>Secr&eacute;tariat G&eacute;n&eacute;ral &agrave; la Planification &Eacute;cologique</i> (2022) to plan sector-by-sector, coordinating anticipations and giving market players visibility.</li>
+<li><b>The tension:</b> planning that goes too granular <b>rigidifies</b> the system and pre-empts the technological breakthroughs only a price signal incentivises. The answer is a blend, keep the price signal for innovation, add planning for concrete alternatives.</li>
+<li><b>2024:</b> agricultural riots over regulation, agriculture has the <i>least ambition</i> in the French plan precisely because food must be produced and low-emission alternatives (to pesticides, livestock) are not realistically available.</li>
+</ul></div>
+
+<div class="pitfall"><b>"Just put the price signal and let agents optimise" is the textbook answer, and the exam trap.</b> Roulet's whole pushback section is the rebuttal: efficient on paper, but it ignores whether a switchable alternative exists. The sophisticated answer pairs the price approach (for innovation) with targeted planning/regulation (for sectors with no alternative). Don't write the naive version as the final word.</div>
+
+<div class="key"><b>The political backlash (slides p37&ndash;39).</b>
+<ul>
+<li>Trump's January / November 2025 reversals and the Davos 2026 framing of the "Green New Scam"; fast-track approvals for oil, gas, even coal plants to power AI data-centre demand.</li>
+<li>The wider retreat: the green transition has "stalled," the discussion prompt asks <i>what features make fighting global warming especially hard</i> (global externality, no clear property rights, collective-action problem, hard-to-quantify damage, long time horizons).</li>
+</ul></div>
+
+<h4>Sharing the effort across regions</h4>
+
+<table class="dt">
+<thead><tr><th>Developing countries should contribute</th><th>Rich countries should lead</th></tr></thead>
+<tbody>
+<tr><td>A big share of <i>current</i> emissions now comes from emerging economies</td><td>They pollute most, both per-capita now and <b>cumulatively</b> (historical responsibility)</td></tr>
+<tr><td>Local pollution is a domestic public-health issue for them too</td><td>They can <b>afford</b> the transition more easily</td></tr>
+<tr><td>Everyone must switch eventually; entering early may let them <b>leapfrog</b> dirty development stages</td><td></td></tr>
+</tbody>
+</table>
+
+<h5>The agreements timeline (process map)</h5>
+
+<figure>
+<svg viewBox="0 0 720 130" width="100%" style="max-width:720px">
+  <line x1="20" y1="70" x2="700" y2="70" stroke="#00684B" stroke-width="2"/>
+  <g font-size="10" fill="#333" text-anchor="middle">
+    <circle cx="70" cy="70" r="5" fill="#00684B"/>
+    <text x="70" y="50" font-weight="bold" fill="#00684B">Paris 2015</text>
+    <text x="70" y="92">global &lt;2&deg;C goal;</text>
+    <text x="70" y="104">national NDCs</text>
+    <circle cx="220" cy="70" r="5" fill="#00684B"/>
+    <text x="220" y="50" font-weight="bold" fill="#00684B">COP26/27 '21&ndash;'22</text>
+    <text x="220" y="92">phase "down" coal;</text>
+    <text x="220" y="104">loss &amp; damage fund</text>
+    <circle cx="370" cy="70" r="5" fill="#00684B"/>
+    <text x="370" y="50" font-weight="bold" fill="#00684B">Dubai 2023</text>
+    <text x="370" y="92">"transition away"</text>
+    <text x="370" y="104">fossil fuels; net zero 2050</text>
+    <circle cx="520" cy="70" r="5" fill="#00684B"/>
+    <text x="520" y="50" font-weight="bold" fill="#00684B">Baku '24 (COP29)</text>
+    <text x="520" y="92">global carbon market;</text>
+    <text x="520" y="104">$300bn/yr to dev. world</text>
+    <circle cx="660" cy="70" r="5" fill="#00684B"/>
+    <text x="660" y="50" font-weight="bold" fill="#00684B">Bel&eacute;m '25 (COP30)</text>
+    <text x="660" y="92">fossil fuels unmentioned;</text>
+    <text x="660" y="104">1.5&deg;C "within reach"</text>
+  </g>
+</svg>
+<figcaption>The international architecture, set global goals but leave countries to choose their own targets (Paris's "nationally determined contributions"). Ambition on naming fossil fuels rose to Dubai 2023 then receded by Bel&eacute;m 2025. Note the slide-stated weaknesses: commitments are largely <b>non-binding</b> and not tied to the 1.5&deg;C target.</figcaption>
+</figure>
+
+<h4>Case deep-dive &mdash; the failed green pivots at BP and Shell</h4>
+
+<div class="key"><b>The episode (slide p57).</b>
+<ul>
+<li><b>The commitment:</b> in 2020 BP pledged to cut oil &amp; gas output 40% by 2030 (vs 2019) and build 50GW of renewable power.</li>
+<li><b>What drove it:</b> investor and societal pressure, the expectation of tightening climate policy/carbon pricing, and a bet that the energy mix was shifting.</li>
+<li><b>What happened:</b> both BP and Shell <b>retreated</b> from the aggressive green strategy, the policy environment and economics did not reward it (high fossil profits, slower-than-expected policy, shareholder pressure for returns).</li>
+<li><b>The lesson it carries:</b> firm-level climate strategy is hostage to the <i>credibility and direction of public policy</i>, exactly the credibility point from Singapore. When the carbon price isn't durable, the private business case for abatement evaporates and firms revert.</li>
+</ul></div>
+
+<div class="eyeball"><span class="star">★</span><b>Isabella &mdash; eyeball this:</b> the "what drove it / did they meet it" specifics for BP/Shell come from the slide's framing questions (p57) plus the in-class steer, not from a slide that spells out the answers (p58 is an image and the FT reading was excluded by the sourcing rule). The direction (both retreated) is from the slide title "the failed green revolutions"; verify the figures and reasoning against the actual FT case if you cite numbers in an answer.</div>
+
+<div class="exam"><b>Exam lens &mdash; how Roulet tests the green transition.</b>
+<ul>
+<li><b>Draw the graph, she rewards it.</b> Any "how would you reduce pollution" question wants the demand/PMC/SMC diagram with A (unregulated) and B (optimum) marked and the SMC&minus;PMC wedge labelled as the damage. Define PMC and SMC <i>before</i> drawing.</li>
+<li><b>Tax vs cap = "what do you want to guarantee?"</b> Lead with the answer: guarantee firms' cost &rArr; tax; guarantee the emission cut &rArr; cap. Then state the equivalence under perfect information and the uncertainty trade-off (you control one variable, stay blind on the other).</li>
+<li><b>The nuanced "critically evaluate" answer:</b> the textbook "just price carbon" is efficient on paper but fails where no alternative exists (gilets jaunes), so pair price signals with targeted planning/regulation. Writing only the naive version loses marks.</li>
+<li><b>Bank the named examples:</b> Singapore (tax, start-low-pre-commit), EU ETS (cap, unanimity workaround, initial over-allocation), CBAM (carbon leakage), US IRA (subsidy, taxpayer-borne), China EV quotas (credible + large market), gilets jaunes (price without alternative), BP/Shell (policy credibility &rArr; firm strategy).</li>
+</ul></div>
+
+<h2 id="l03">3 &middot; Corporate Taxation and Firms&rsquo; Location Decisions</h2>
+
+<p style="font-size:18px;color:var(--soft);margin-top:0;">A session in two halves around one running case. The <b>Apple / Ireland / European Commission</b> saga is the deep-dive: it shows how a multinational legally shifts profit to a near-zero-tax shell, and why the EC had to fight it as a <i>competition</i> case, not a tax case. The second half steps back to the general question, <b>should we even tax corporations, and if so how</b>, setting up the where-to-tax principles, the race to the bottom, and the OECD&rsquo;s 15% global minimum.</p>
+
+<div class="intuition"><span class="tag">🎙 In class</span> "This looks like a tax case. It is not. The European Commission cannot do tax." The whole case turns on a reframing: Brussels has no power over a member state&rsquo;s tax rate (sovereignty), so it had to attack the Apple-Ireland arrangement as illegal <b>state aid</b> under competition law instead.</div>
+
+<h4>The general takeaways come first; the Apple deep-dive at the end shows them in motion.</h4>
+
+<h3>The two questions corporate taxation must answer</h3>
+
+<div class="intuition"><span class="tag">Intuition: the two hard problems</span> Profit is not a physical thing sitting in one country; it is an accounting figure a firm can legally relocate. So before you can tax it you must answer two questions the slides flag: <b>what</b> counts as taxable profit, and <b>where</b> it should be taxed.</div>
+
+<div class="key"><b>What to tax? Defining "profit" itself changes firm behaviour.</b>
+<ul>
+<li><b>Exempt interest payments?</b> If interest is deductible but dividends are not, you tilt the firm&rsquo;s <i>debt vs equity</i> choice toward debt.</li>
+<li><b>Allow capital depreciation?</b> How fast you let firms write off capital changes their <i>investment</i> decisions.</li>
+<li><b>The point:</b> the tax base is not given by nature; every definitional choice creates a behavioural distortion.</li>
+</ul></div>
+
+<p><b>Where to tax? Three competing principles.</b> Take the profit on iPhone sales in Europe: each principle sends the tax to a different country, and each creates its own problem. This is the gold-standard matrix for the lecture, read straight across a row.</p>
+
+<table class="dt">
+<thead><tr><th>Principle</th><th>What it means</th><th>Where the iPhone-Europe profit is taxed</th><th>The problem it creates</th></tr></thead>
+<tbody>
+<tr><td><b>1. Source</b></td><td>Tax where the profit is <i>registered</i> / booked</td><td><b>Ireland</b> (where ASI books the sales)</td><td>Loss of public revenue for non-tax-haven countries: profit is booked wherever the rate is lowest, so the booking location is gamed.</td></tr>
+<tr><td><b>2. Residence</b></td><td>Tax where the <i>capital owners</i> are located</td><td><b>The US</b> (where Apple&rsquo;s owners sit)</td><td>Owners&rsquo; residence is itself mobile and easy to restructure around; this is Apple&rsquo;s own claim, that it "should mostly be paying in the US".</td></tr>
+<tr><td><b>3. Destination</b></td><td>Tax where the goods/services are <i>purchased / consumed</i></td><td><b>Europe</b> (where the phones are bought)</td><td>Consumers are far less mobile, so this is hard to game, but it breaks with the historic source-based system the whole world was built on.</td></tr>
+</tbody>
+</table>
+
+<div class="pitfall"><b>Don&rsquo;t confuse the source principle with where value is created.</b> Source taxes where profit is <i>booked</i>, not where the phone was designed, made, or sold. That gap is exactly the loophole: a firm books the profit in the lowest-rate jurisdiction even though almost no real activity happens there.</div>
+
+<h3>The 1920s League of Nations principles, and why they broke</h3>
+
+<p>The international system still rests on principles a group of economists set in the 1920s. Each was sensible then and is gameable now.</p>
+
+<table class="dt">
+<thead><tr><th>1920s principle</th><th>What it says</th><th>Why it now fails</th></tr></thead>
+<tbody>
+<tr><td><b>Source principle</b></td><td>Tax profit where it is registered.</td><td>Profit gets registered in tax havens, draining revenue from everywhere else.</td></tr>
+<tr><td><b>Arm&rsquo;s-length principle</b></td><td>A parent and its foreign subsidiary must price internal transfers <i>as if</i> they were unrelated firms trading at world-market prices. (If B is a Brazilian subsidiary of US parent A, both compute profits as if B sold to A at the market price.)</td><td>Tax authorities cannot verify the price of every internal transaction; and for IP, a logo or an algorithm, there is often <b>no comparable market price</b> because the asset is not replicable between third parties.</td></tr>
+<tr><td><b>Bilateral (not multilateral) agreements</b></td><td>Tax treaties are struck country-to-country.</td><td><b>"Treaty shopping":</b> firms route profits through whichever chain of bilateral treaties minimises tax.</td></tr>
+</tbody>
+</table>
+
+<div class="key"><b>Transfer pricing is the mechanism the arm&rsquo;s-length rule is meant to police.</b>
+<ul>
+<li><b>What it is:</b> the internal prices a multinational sets on transfers between its own subsidiaries (royalties, licence fees, goods).</li>
+<li><b>Why it matters:</b> by overpricing what the high-tax unit "buys" from the low-tax unit, profit is shifted to the low-tax unit, all on paper.</li>
+<li><b>The tell:</b> the harder a transferred asset is to price (IP, brand, algorithm), the easier the rule is to abuse.</li>
+</ul></div>
+
+<div class="key"><b>The verdict from class: reform has been "widely acknowledged for a long time, but it&rsquo;s not easy."</b> No single principle is clean, the rules are old, and every fix runs into national sovereignty over tax.</div>
+
+<h3>How profit gets shifted: the Double Irish&ndash;Dutch Sandwich</h3>
+
+<div class="intuition"><span class="tag">Intuition: routing profit through a sandwich</span> The trick is to make the high-tax operating company <i>pay away</i> its profit as royalties to a low- or zero-tax entity holding the IP. The "sandwich" is the chain of shells that moves the royalty from Ireland, through a Dutch shell (to dodge withholding tax), to a tax-free Bermudian holding company.</div>
+
+<figure>
+<svg viewBox="0 0 640 250" width="100%" style="max-width:640px" font-size="11">
+  <defs><marker id="l3ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#00684B"/></marker></defs>
+  <!-- nodes -->
+  <rect x="20" y="20" width="150" height="46" rx="6" fill="#eef6f0" stroke="#00684B" stroke-width="1.5"/>
+  <text x="95" y="40" text-anchor="middle" font-weight="bold" fill="#00684B">Google US</text>
+  <text x="95" y="56" text-anchor="middle" fill="#555">transferred IP pre-IPO</text>
+
+  <rect x="245" y="20" width="170" height="46" rx="6" fill="#dff0e6" stroke="#00684B" stroke-width="1.5"/>
+  <text x="330" y="40" text-anchor="middle" font-weight="bold" fill="#00684B">Google Holdings</text>
+  <text x="330" y="56" text-anchor="middle" fill="#555">Irish-incorporated, Bermuda tax-resident · &tau;&asymp;0%</text>
+
+  <rect x="245" y="185" width="170" height="46" rx="6" fill="#fff" stroke="#00684B" stroke-width="1.5"/>
+  <text x="330" y="205" text-anchor="middle" font-weight="bold" fill="#00684B">Ireland Limited</text>
+  <text x="330" y="221" text-anchor="middle" fill="#555">operating co · sells in Europe/MENA/Africa</text>
+
+  <rect x="470" y="100" width="150" height="46" rx="6" fill="#cfe8da" stroke="#00684B" stroke-width="1.5"/>
+  <text x="545" y="120" text-anchor="middle" font-weight="bold" fill="#00684B">Dutch shell</text>
+  <text x="545" y="136" text-anchor="middle" fill="#555">conduit, no withholding tax</text>
+
+  <!-- arrows -->
+  <g stroke="#00684B" stroke-width="2" fill="none">
+    <path d="M170 43 L245 43" marker-end="url(#l3ar)"/>
+    <path d="M330 185 L330 130 L415 130" marker-end="url(#l3ar)"/>
+    <path d="M470 123 L420 100 L380 66" marker-end="url(#l3ar)"/>
+  </g>
+  <text x="207" y="36" text-anchor="middle" fill="#00684B">licenses IP</text>
+  <text x="360" y="170" text-anchor="middle" fill="#00684B">royalties for IP use</text>
+  <text x="500" y="78" text-anchor="middle" fill="#00684B">routed onward</text>
+</svg>
+<figcaption>The Double Irish&ndash;Dutch Sandwich (Google, as the slides draw it): the US parent moves its technology to an Irish-registered but Bermuda-resident holding company before IPO; the Irish operating company then pays its sales profit away as <i>royalties</i> for the right to use that technology, sandwiching a Dutch shell in between to avoid withholding tax. Profit lands in the zero-tax holding co.</figcaption>
+</figure>
+
+<div class="chain">
+<span>Sales booked in Ireland Ltd</span><span class="arrow">&rarr;</span>
+<span>pays royalties for IP</span><span class="arrow">&rarr;</span>
+<span>via Dutch shell (no withholding)</span><span class="arrow">&rarr;</span>
+<span>to Bermuda-resident holding co</span><span class="arrow">&rarr;</span>
+<span>profit taxed at &asymp;0%</span>
+</div>
+
+<div class="key"><b>This is a structure, not a one-off.</b> The slides list the same logic across <b>Starbucks (Netherlands), Fiat (Luxembourg), Engie (Luxembourg), Amazon (Luxembourg), IKEA (Netherlands)</b>. The professor stressed the case is "not to pick on Apple", it illustrates a broad pattern available to large firms.</div>
+
+<h3>Do the fixes work? Policy bites, then leaks elsewhere</h3>
+
+<div class="key"><b>Anti-evasion policy has real but partial effects.</b>
+<ul>
+<li><b>What worked:</b> ending bank secrecy (automatic exchange of information) sharply cut the share of offshore financial wealth that goes untaxed.</li>
+<li><b>What leaked:</b> it triggered a surge in <i>offshore real estate</i>, which is not covered by the automatic exchange of information.</li>
+<li><b>The lesson:</b> close one channel and the avoidance reroutes to the nearest uncovered asset class.</li>
+</ul></div>
+
+<div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this:</b> slide 30 is the offshore-wealth point that maps to Gabriel <b>Zucman&rsquo;s</b> work, but the slides and the (loop-truncated) transcript never print his name. I&rsquo;ve described the evidence without attributing it. Add the Zucman citation if your readings confirm it.</div>
+
+<h3>The OECD/G20 two-pillar solution (2021)</h3>
+
+<div class="intuition"><span class="tag">Intuition: coordinate to stop the race</span> If countries compete one-by-one on tax rates, every country is pushed toward zero (the race to the bottom). The only escape is to agree a floor together. In October 2021, 137 countries signed an Inclusive Framework on Base Erosion and Profit Shifting (BEPS), built on two pillars.</div>
+
+<div class="key"><b>Pillar 1: reallocate where the biggest firms&rsquo; profit is taxed (toward the market).</b>
+<ul>
+<li><b>Who:</b> multinationals with global revenue above <b>$22.9bn</b> and pre-tax profitability of at least <b>10%</b>.</li>
+<li><b>What:</b> they must allocate <b>25% of residual profit</b> to the <i>market jurisdictions</i> where goods/services were used or consumed.</li>
+<li><b>Why it matters:</b> a partial shift toward the <b>destination principle</b>, pulling tax back to where customers are (who cannot move).</li>
+</ul></div>
+
+<div class="key"><b>Pillar 2: a 15% global minimum corporate tax.</b>
+<ul>
+<li><b>Who:</b> MNEs with annual sales above <b>&euro;750m</b>.</li>
+<li><b>What:</b> a minimum <b>15%</b> effective rate on income earned in <i>each</i> jurisdiction they operate in.</li>
+<li><b>Why it matters:</b> sets the floor that ends the race to the bottom in headline corporate-tax rates.</li>
+</ul></div>
+
+<div class="pitfall"><b>Don&rsquo;t overstate the bite of Pillar 2.</b> China, India and the US did not adopt it. Trump threatened a "revenge tax" on countries applying the minimum to US firms; the June 2025 G7 deal dropped the revenge tax but carved out American businesses. Several clauses weaken the 15% floor, e.g. tax credits are not counted toward it.</div>
+
+<h3>Should we tax corporations at all? The tax-base trade-off</h3>
+
+<div class="intuition"><span class="tag">🎙 In class</span> "It is not about whether you want more tax or less tax. For a given amount of revenue R you must raise, what do you tax?" The class debated three bases, corporate profit, personal income, consumption (VAT), and there is no clean winner.</div>
+
+<table class="dt">
+<thead><tr><th>Tax base</th><th>Arguments FOR</th><th>Arguments AGAINST</th></tr></thead>
+<tbody>
+<tr><td><b>Corporate profit</b></td><td>Very <b>large tax base</b> (the key argument); makes firms, including foreign ones, pay for the public infrastructure they use; seen as fair / makes big firms pay their share.</td><td><b>Mobile:</b> profit and operations relocate to a lower-tax country, so the base runs away (the headline objection).</td></tr>
+<tr><td><b>Personal income (PIT)</b></td><td><b>Fair:</b> a direct, <b>progressive</b> tax, the more you earn the more you pay; targets richer owners.</td><td>Can distort labour/effort and is itself partly avoidable, though far less mobile than corporate profit.</td></tr>
+<tr><td><b>Consumption / VAT</b></td><td><b>Stable / immobile</b> base (you won&rsquo;t leave a country over a VAT rise); doesn&rsquo;t penalise exports while taxing imports; broad.</td><td><b>Regressive:</b> the poor spend a larger share of income on consumption (and buy generic where the rich buy luxury), so it hits them harder; salient and politically costly; prone to fraud.</td></tr>
+</tbody>
+</table>
+
+<div class="key"><b>The observed global trend, and why it troubles the professor.</b>
+<ul>
+<li><b>Falling corporate rates everywhere</b> plus <b>more countries adopting VAT</b>, a shift from the mobile-but-fair base to the immobile-but-regressive one.</li>
+<li><b>Distributional cost:</b> because VAT is regressive, this shift moves the tax burden down the income scale.</li>
+<li><b>The corrective:</b> the OECD&rsquo;s 15% minimum is the attempt to halt the corporate race to the bottom, hence the link back to Pillar 2.</li>
+</ul></div>
+
+<div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this:</b> the section title promises "Firms&rsquo; Location Decisions" / agglomeration economies, but neither the 37 slides nor the (loop-truncated) transcript develop agglomeration as a topic, location appears only as the Apple booking choice. I have NOT manufactured an agglomeration block. If a slide or reading covers it, it needs adding here.</div>
+
+<h3 id="l03-apple">Deep-dive: Apple, Ireland and the European Commission</h3>
+
+<div class="intuition"><span class="tag">🎙 In class</span> "If you buy an iPhone anywhere in Europe, the Middle East, Africa, India, you are actually buying it from Apple Ireland." That is how worldwide sales profit lands in a 12.5% jurisdiction, and then a second step pushes the effective rate to almost nothing.</div>
+
+<h4>The scheme until 2014</h4>
+
+<figure>
+<svg viewBox="0 0 640 250" width="100%" style="max-width:640px" font-size="11">
+  <defs><marker id="l3ar2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#00684B"/></marker></defs>
+  <rect x="20" y="20" width="150" height="44" rx="6" fill="#eef6f0" stroke="#00684B" stroke-width="1.5"/>
+  <text x="95" y="40" text-anchor="middle" font-weight="bold" fill="#00684B">Apple US</text>
+  <text x="95" y="56" text-anchor="middle" fill="#b00">&tau; = 35%</text>
+
+  <rect x="20" y="185" width="200" height="48" rx="6" fill="#cfe8da" stroke="#00684B" stroke-width="1.5"/>
+  <text x="120" y="205" text-anchor="middle" font-weight="bold" fill="#00684B">Sales: Europe, MENA, Africa, India</text>
+  <text x="120" y="222" text-anchor="middle" fill="#555">local rate &tau; &asymp; 25%</text>
+
+  <rect x="300" y="120" width="180" height="48" rx="6" fill="#dff0e6" stroke="#00684B" stroke-width="1.5"/>
+  <text x="390" y="140" text-anchor="middle" font-weight="bold" fill="#00684B">ASI (Irish subsidiary)</text>
+  <text x="390" y="156" text-anchor="middle" fill="#555">&tau; = 12.5%</text>
+
+  <rect x="300" y="20" width="180" height="48" rx="6" fill="#fff" stroke="#00684B" stroke-width="1.5"/>
+  <text x="390" y="40" text-anchor="middle" font-weight="bold" fill="#00684B">"Head Office"</text>
+  <text x="390" y="56" text-anchor="middle" fill="#b00">stateless · &tau; = 0%</text>
+
+  <g stroke="#00684B" stroke-width="2" fill="none">
+    <path d="M220 200 L300 160" marker-end="url(#l3ar2)"/>
+    <path d="M390 120 L390 68" marker-end="url(#l3ar2)"/>
+  </g>
+  <text x="250" y="172" text-anchor="middle" fill="#00684B">profit on sales</text>
+  <text x="455" y="98" text-anchor="middle" fill="#b00">internal allocation</text>
+  <text x="455" y="112" text-anchor="middle" fill="#b00">(the disputed arrow)</text>
+</svg>
+<figcaption>Apple&rsquo;s pre-2014 structure (as the slides draw it): worldwide sales profit flows to the Irish subsidiary ASI (12.5%), then a second internal allocation moves it to a "Head Office" that is <b>stateless for Irish tax purposes</b> (0%). With ~95% of profit in the stateless office, the weighted-average effective rate falls to roughly <b>0.0005%</b>. The EC&rsquo;s whole case is the red "internal allocation" arrow.</figcaption>
+</figure>
+
+<div class="key"><b>The case&rsquo;s six beats (how the professor walked it).</b>
+<ul>
+<li><b>What was found:</b> the EC ruled the stateless-HQ allocation was illegal <b>state aid</b>, a non-competitive favour. The rule broken was state aid, broken by <b>Ireland</b>, but the sanction fell on <b>Apple</b>.</li>
+<li><b>The ask:</b> pay the 12.5% Irish corporate tax on profit booked in Ireland 2003&ndash;2014 = <b>~&euro;13bn ($14.5bn) plus interest</b> (computed by deleting the disputed arrow and taxing at 12.5%).</li>
+<li><b>Apple&rsquo;s defence:</b> nothing illegal; this is tax <b>avoidance</b> (optimising, legal), not <b>evasion</b> (hiding, illegal); it should mostly pay in the US; the EC violates member-state tax sovereignty; <b>retroactivity</b> creates terrible investment uncertainty; and it pays its "fair share" via jobs and its supplier network.</li>
+<li><b>Who wanted Apple to pay:</b> not Ireland (it wants to stay attractive to FDI), nor the US government at the time, hence the EC had to sue Ireland for failing to collect, and Apple parked ~&euro;13bn in an <b>escrow</b> account in 2018.</li>
+<li><b>Why the EC lost (July 2020):</b> the General Court found insufficient evidence of state aid; arguing the Irish HQ lacked resources to generate the profit did not prove the profit was actually earned by the Irish branches.</li>
+<li><b>Why it won (Sept 2024):</b> on the EC&rsquo;s appeal, the original decision was confirmed, to the surprise of many observers (the professor included).</li>
+</ul></div>
+
+<div class="key"><b>Why a legal-looking case is really about power, and competition.</b>
+<ul>
+<li><b>Not a tax case:</b> the EC has no power over a member state&rsquo;s tax rate (Irish <b>sovereignty</b>); it had to frame it as a <b>competition / state-aid</b> case within the single market.</li>
+<li><b>The deeper question:</b> "Apple broke no law, but was the law <i>made</i> to help Apple?" A firm this large never acts illegally, it changes the law so its conduct is legal.</li>
+<li><b>Why it&rsquo;s hard to prove:</b> the favour was suggestive (nobody else used a 0% stateless HQ) but the arrangement was legal and others "could" have used it, so preferential treatment was hard to establish.</li>
+<li><b>The competition logic of the fine:</b> in competition law the standard remedy for unlawful state aid is to <b>pay it back</b>, so retroactivity (unusual in tax) is normal here.</li>
+</ul></div>
+
+<div class="pitfall"><b>Don&rsquo;t confuse tax avoidance with tax evasion.</b> Avoidance = legally optimising within the rules (what Apple claims). Evasion = illegally hiding income. Apple&rsquo;s entire defence rests on being on the legal side of that line; the EC sidestepped it by suing on competition grounds, not tax.</div>
+
+<div class="exam"><b>Exam lens.</b>
+<ul>
+<li><b>Roulet&rsquo;s favourite move is the reframe:</b> be ready to argue <i>why Apple is a competition case, not a tax case</i> (EC has no tax competence; member-state sovereignty over rates), and why the retroactive "pay it back" fits competition law.</li>
+<li><b>The "for a given R, which tax?" prompt</b> maps straight to the corporate-vs-PIT-vs-VAT matrix: lead with the headline trade-off (corporate = large base but mobile; VAT = stable but regressive; PIT = fair/progressive) rather than arguing for more or less tax.</li>
+<li><b>Know the structures cold:</b> the three where-to-tax principles (and each one&rsquo;s problem), the arm&rsquo;s-length / transfer-pricing weakness for IP, and the two BEPS pillars with their thresholds and limits (US/China/India out; carve-outs blunt the 15%).</li>
+</ul></div>
+
+<h2 id="l04">4 &middot; Competition Policy and the Regulation of Big Tech</h2>
+
+<p style="font-size:18px;color:var(--soft);margin-top:0;">This session asks what competition policy is <i>for</i> (keeping markets contestable so welfare, primarily consumer welfare, is maximised), why the standard toolkit was built for price-setting monopolists, and why it strains against digital platforms whose flagship products are free. It runs on one live case, Facebook's 2014 acquisition of WhatsApp and the FTC's failed attempt to unwind it, and closes on the breakup debate and the Stigler Report's menu of softer remedies.</p>
+
+<div class="eyeball"><span class="star">&starf;</span><b>Isabella &mdash; eyeball this:</b> the class recording for this session is largely missing (only a ~597-word "part 2" fragment survived, covering the breakup wrap-up and the Stigler remedies). The in-class intuition layer below is therefore thin and built almost entirely from the slides; the few quoted-tone boxes are sourced to that fragment. Sanity-check anything tagged "&#127908; In class".</div>
+
+<h4>WHY COMPETITION POLICY MATTERS</h4>
+
+<div class="key"><b>Goal of competition / antitrust policy.</b>
+<ul>
+<li><b>What it is:</b> ensuring fair competition and free-market principles hold in practice, so welfare (primarily <i>consumer</i> welfare) is maximised.</li>
+<li><b>Two jobs:</b> (1) assess the impact of M&amp;A on market structure and competition levels; (2) investigate firm conduct, such as cartels and abuses of dominance.</li>
+<li><b>The lineage:</b> "born" with the US <b>Sherman Act, 1890</b>, which declared illegal "every contract, every combination in the form of trust or otherwise, in restraint of trade or commerce".</li>
+</ul></div>
+
+<div class="key"><b>Why it matters for consumers (the Prices &amp; Markets refresher).</b>
+<ul>
+<li><b>Competitive markets are "efficient":</b> they maximise gains from trade, the social surplus.</li>
+<li><b>Monopoly does the opposite:</b> higher prices, restricted output, and a loss of consumer surplus.</li>
+<li><b>So the textbook harm is a price story:</b> the welfare loss is measured by prices being higher than they should be. Hold onto this, it is exactly what breaks for Big Tech.</li>
+</ul></div>
+
+<div class="key"><b>Worked examples of enforcement (from the slides).</b>
+<ul>
+<li><b>Siemens / Alstom:</b> the EU Commission <i>prohibited</i> the merger. The frequent alternative to outright prohibition is requiring partial divestments or "commitments".</li>
+<li><b>Alibaba (China, Dec 2020):</b> antitrust probe into "pick one of two" (forcing merchants to sell exclusively on its platform) &rarr; an 8% share drop and a $2.8B fine in 2021.</li>
+<li><b>Epic v. Apple / Google:</b> challenge to in-app payment commission rates. Epic <i>won</i> in Australia (last month) but <i>lost</i> against Apple in the US in 2021.</li>
+</ul></div>
+
+<h4>THE GREAT REVERSAL</h4>
+
+<div class="intuition"><span class="tag">Intuition &mdash; the role swap</span>The US, the country that invented antitrust, has quietly become the less competitive one; Europe, long the laggard, overtook it. The poster child and the laggard swapped places, which is why the course calls it a "reversal".</div>
+
+<table class="dt">
+<thead><tr><th>Thomas Philippon, <i>The Great Reversal</i> (2019)</th><th>United States</th><th>European Union</th></tr></thead>
+<tbody>
+<tr><td><b>Historic role</b></td><td>The poster child for legal enforcement of competition principles</td><td>Lower competition through the 1980s&ndash;90s</td></tr>
+<tr><td><b>What changed</b></td><td>Since the 1990s, competition has <i>declined</i> in key markets, at consumers' expense</td><td>Benefited from deregulation / privatisations and proactive enforcement at the supranational (EU Commission) level</td></tr>
+<tr><td><b>The cost / payoff</b></td><td>Lower US competition is estimated to cost ~5% of GDP a year, or ~$300 per consumer</td><td>Concrete win: France 2009 grants 3G licences to <i>Free</i> &rarr; new entrant triggers a ~50% drop in mobile subscription prices</td></tr>
+<tr><td><b>The puzzle the prof flags</b></td><td colspan="2">Europe gained competition <i>despite</i> having "no national champions", a tension the breakup debate returns to.</td></tr>
+</tbody>
+</table>
+
+<h4>HOW THE REGULATOR ACTUALLY WORKS</h4>
+
+<div class="key"><b>The three questions a regulator asks of any merger, cartel, or dominant-firm conduct.</b>
+<ul>
+<li><b>1. Market boundaries:</b> what is the relevant set of products / services that genuinely compete with each other? (This is the decisive lever, see the FTC v. Meta box.)</li>
+<li><b>2. The competition problem:</b> is there, or could there be, economic "harm"? Mainly: could consumers be harmed, are prices too high, is quality poor, is there too little innovation, and how could it be fixed?</li>
+<li><b>3. The counterfactual:</b> measure the market's outcomes against a benchmark, what would have happened <i>absent</i> the event or behaviour.</li>
+</ul>
+<b>Difficulties:</b> complex supply chains (most transactions are B2B, not B2C) and limited information.</div>
+
+<div class="key"><b>Common criticisms of current competition policy (slide 13).</b>
+<ul>
+<li><b>Too narrow:</b> over-focused on a narrow definition of consumer welfare (i.e. price).</li>
+<li><b>Too slow:</b> investigations usually arise <i>after</i> the harm is done; hard to be timely.</li>
+<li><b>Too lenient:</b> regulators are too ready to hear out industries and their legal counsel.</li>
+<li><b>Evidence-starved:</b> the evidence is genuinely hard to come by.</li>
+</ul></div>
+
+<h4>WHY THE TOOLKIT BREAKS FOR DIGITAL MARKETS</h4>
+
+<div class="chain">
+<span>Core service is zero-price</span><span class="arrow">&rArr;</span>
+<span>no price to look "too high"</span><span class="arrow">&rArr;</span>
+<span>the price-harm test reads "no harm"</span><span class="arrow">&rArr;</span>
+<span>standard antitrust waves the deal through</span>
+</div>
+<p style="font-size:14px;color:var(--soft);margin-top:-4px;">The consumer-welfare standard judges harm by price. When the product is free (search, social, maps), there is no price to inflate, so the test that was built to catch monopolists goes quiet exactly where the modern platform is strongest. Harm migrates to <i>non-price</i> dimensions, quality, privacy, foreclosed innovation, which the old test does not see.</p>
+
+<div class="key"><b>Why competition policy must evolve for the digital economy (slide 14).</b>
+<ul>
+<li><b>Recognised gap:</b> wide consensus that the framework must better reflect how digital markets differ from the textbook.</li>
+<li><b>Shift the lens:</b> more emphasis on the <i>non-price</i> characteristics of competition.</li>
+<li><b>Hidden costs of data:</b> data collection imposes costs on the public, data breaches, cyber-security, mis-information.</li>
+</ul></div>
+
+<h3>The economics that pushes digital markets to monopoly</h3>
+
+<div class="intuition"><span class="tag">Intuition &mdash; "free is not free"</span>If you are not paying for the product, you are the product. The platform looks like a gift to consumers on price, but it is monetising attention and data, and the same features that make it useful (everyone is on it, it learns from your clicks) are exactly the forces that tip the market to a single winner.</div>
+
+<div class="key"><b>Stigler Report (2019): why digital platforms tend to end up as monopolies.</b>
+<ul>
+<li><b>Network effects:</b> the platform is more valuable the more users it has, so users concentrate on the incumbent (winner-takes-most).</li>
+<li><b>Economies of scale:</b> large fixed costs spread over a huge user base.</li>
+<li><b>Low marginal &amp; distribution costs:</b> serving one more user is nearly free, so size keeps paying off.</li>
+<li><b>High and increasing returns to data:</b> more users &rarr; more data &rarr; a better product &rarr; more users. The flywheel compounds the lead.</li>
+</ul></div>
+
+<div class="key"><b>The other three Stigler warnings about digital platforms.</b>
+<ul>
+<li><b>Free is not necessarily good for consumers:</b> the price is your data and attention, not money.</li>
+<li><b>Ad market power leverages into other markets:</b> a platform can block or promote ads to kill or consolidate adjacent markets.</li>
+<li><b>Addictive-by-design entrenches power:</b> consumers stick with default options; Google <i>pays</i> to be the default search engine on iPhone, which consolidates its market power.</li>
+</ul></div>
+
+<figure>
+<svg viewBox="0 0 460 230" width="100%" style="max-width:480px">
+  <defs><marker id="l04ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 z" fill="#00684B"/></marker></defs>
+  <g font-size="11.5" fill="#00684B" font-weight="bold" text-anchor="middle">
+    <rect x="155" y="12" width="150" height="36" rx="6" fill="#eef6f0" stroke="#00684B" stroke-width="1.5"/>
+    <text x="230" y="34">More users</text>
+    <rect x="300" y="92" width="150" height="46" rx="6" fill="#dff0e6" stroke="#00684B" stroke-width="1.5"/>
+    <text x="375" y="111">More data &amp;</text>
+    <text x="375" y="127">scale economies</text>
+    <rect x="155" y="182" width="150" height="36" rx="6" fill="#cfe8da" stroke="#00684B" stroke-width="1.5"/>
+    <text x="230" y="204">Better product</text>
+    <rect x="10" y="92" width="150" height="46" rx="6" fill="#dff0e6" stroke="#00684B" stroke-width="1.5"/>
+    <text x="85" y="111">Stronger network</text>
+    <text x="85" y="127">effects</text>
+  </g>
+  <g stroke="#00684B" stroke-width="2" fill="none">
+    <path d="M305 35 Q400 50 380 90" marker-end="url(#l04ar)"/>
+    <path d="M360 138 Q330 175 305 192" marker-end="url(#l04ar)"/>
+    <path d="M155 192 Q60 178 82 136" marker-end="url(#l04ar)"/>
+    <path d="M90 90 Q120 52 155 35" marker-end="url(#l04ar)"/>
+  </g>
+  <text x="230" y="116" text-anchor="middle" font-size="12" font-weight="bold" fill="#b35900">WINNER-</text>
+  <text x="230" y="132" text-anchor="middle" font-size="12" font-weight="bold" fill="#b35900">TAKES-MOST</text>
+</svg>
+<figcaption>The digital-monopoly flywheel: more users feed data and scale, which improve the product and deepen network effects, which pull in more users. Increasing returns mean the lead compounds rather than self-correcting, hence "winner-takes-most".</figcaption>
+</figure>
+
+<h4>THE SPECIFIC HARMS</h4>
+
+<div class="key"><b>How digital dominance actually hurts, beyond price.</b>
+<ul>
+<li><b>Killer acquisitions:</b> the incumbent buys a nascent rival before it can grow into a threat (the Facebook&ndash;WhatsApp pattern below). Harm is the competition that never happens.</li>
+<li><b>Self-preferencing / leverage:</b> a dominant intermediary that also competes on its own platform can tilt the field toward its own products. Amazon is "great" on consumer prices yet "may raise some competition issues".</li>
+<li><b>Non-price harms:</b> degraded privacy and quality, which the price test cannot register.</li>
+<li><b>Foreclosed innovation:</b> if entrants cannot challenge incumbents, the engine of innovation and growth stalls.</li>
+</ul></div>
+
+<h3>Case deep-dive: Facebook, WhatsApp, and antitrust</h3>
+
+<p>The session's anchor case. The four discussion questions (slide 16) walk from <i>why the deal happened</i> to the live policy choice: should Meta be broken up, and can antitrust even fix a privacy problem?</p>
+
+<table class="dt">
+<thead><tr><th>The four case questions</th><th>What the discussion surfaced</th></tr></thead>
+<tbody>
+<tr><td><b>1. Why did Facebook acquire WhatsApp (2014)?</b></td><td>Buy a fast-growing messaging rival before it became a competing social network, the classic defensive / "killer" acquisition motive.</td></tr>
+<tr><td><b>2. Did it violate antitrust law?</b></td><td>The crux is market definition: was WhatsApp a competitor in the same market? If yes, the deal removed a rival; if framed widely, it was a small fish in a big sea.</td></tr>
+<tr><td><b>3. Should Meta be broken up?</b></td><td>The live debate, see the FOR / AGAINST matrix below.</td></tr>
+<tr><td><b>4. Can antitrust solve Meta's privacy issues?</b></td><td>Only indirectly: breakup <i>could</i> help privacy <i>if</i> consumers value it (then rivals would compete on it). Otherwise privacy is better handled by direct regulation, not by antitrust.</td></tr>
+</tbody>
+</table>
+
+<div class="intuition"><span class="tag">&#127908; In class</span>On Q4, from the fragment: breakup "could help the privacy issue if it is valued by consumers. Alternatively, we could regulate privacy if we think that breaking up is not the right tool for that." The professor treats antitrust and privacy regulation as <i>substitute</i> tools, not the same tool.</div>
+
+<div class="key"><b>What happened ultimately (slide 20): the FTC lost.</b>
+<ul>
+<li><b>Pre-trial:</b> Meta unsuccessfully lobbied the Trump administration to settle the case.</li>
+<li><b>Trial (April 2025):</b> Meta's defence centred on TikTok's meteoric rise as a competing platform.</li>
+<li><b>Verdict (Nov 2025):</b> Meta <i>won</i>. The court judged the FTC had failed to prove Meta maintained monopoly power; YouTube and TikTok counted as competitors in "personal social networking".</li>
+<li><b>The lesson:</b> the case turned entirely on <b>market definition</b>. Define the market narrowly and Meta is dominant; define it widely (include TikTok / YouTube) and it is not. Whoever wins the definition wins the case.</li>
+</ul></div>
+
+<div class="pitfall"><b>Market definition is the decisive lever, not a preliminary.</b> In FTC v. Meta the entire outcome hinged on whether TikTok and YouTube belong in the same market as Facebook. Treat "what is the relevant market?" as the load-bearing question of any digital antitrust case, not a box-ticking first step.</div>
+
+<div class="key"><b>The forward-looking warnings (slides 21&ndash;22).</b>
+<ul>
+<li><b>The Microsoft lesson:</b> the article asks what the Microsoft antitrust case taught us, and whether you agree (slide leaves it open as a discussion).</li>
+<li><b>The AI wake-up call:</b> an FT opinion piece argues that with AI we risk repeating the web-consolidation errors of the 2010s. Counter-example: the Nvidia / Arm deal <i>blocked</i> in 2020 now lets Google compete with Arm in AI-chip production, blocking a merger preserved a competitor.</li>
+</ul></div>
+
+<h3>The breakup debate</h3>
+
+<div class="intuition"><span class="tag">&#127908; In class</span>From the fragment, the professor's framing is genuinely two-sided and cautious on evidence: the pro-breakup innovation case is "suggestive evidence, that's what it is", and "we cannot trust the government to do a good job at antitrust, there's policy failures as well". He does not hand you a verdict.</div>
+
+<table class="dt">
+<thead><tr><th style="width:50%">FOR breaking up big tech</th><th style="width:50%">AGAINST breaking up big tech</th></tr></thead>
+<tbody>
+<tr>
+<td><b>Fairer playing field.</b> A dominant intermediary / network should not be allowed to enter lines of business that put it in direct competition with the businesses that rely on its network.</td>
+<td><b>National champions.</b> We need them in the global technological war; breaking them up disarms us against China.</td>
+</tr>
+<tr>
+<td><b>Fosters innovation.</b> The US had a big innovation wave in the 1990s, maybe <i>because</i> it broke up AT&amp;T and IBM. (The prof flags: suggestive, not proven causal.)</td>
+<td><b>They compete on the wrong stuff.</b> Broken up, firms compete on what customers value, which may not be privacy or what policymakers care about.</td>
+</tr>
+<tr>
+<td><b>Neither radical nor new.</b> The US has a long tradition of breakups since the 1890s (Sherman Act).</td>
+<td><b>Government failure.</b> We cannot trust the state to do antitrust well, it may not know how to break a firm up, or pick the wrong target.</td>
+</tr>
+<tr>
+<td><b>Helps privacy</b>, <i>if</i> privacy is valued by consumers (rivals would then compete on it).</td>
+<td><b>Acquisitions can improve the target.</b> WhatsApp may have become a better product <i>because</i> Facebook acquired it; platforms are "infrastructure, like the railways", so dominance can be efficient, the worry is only when they enter businesses that rely on them.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>The remedy menu: softer tools than breakup</h3>
+
+<div class="intuition"><span class="tag">&#127908; In class</span>From the fragment, on the burden of proof: today "if you cannot prove that consumers are harmed, it means that it is okay. Whereas if you shift the burden of proof, if you cannot prove that they're not harmed, then it is not okay." Flipping the default is the lever, because the evidence is always hard to come by.</div>
+
+<div class="key"><b>Stigler Report (2019): possible solutions to the threats posed by digital platforms.</b>
+<ul>
+<li><b>Force interoperability:</b> make switching between platforms easy, which reduces network externalities (the main lock-in force).</li>
+<li><b>Shift the burden of proof:</b> on a platform acquisition, make the <i>company</i> prove the deal will not harm competition, rather than the regulator proving it will. This flips the default given how scarce the evidence is.</li>
+<li><b>Regulate data privacy directly:</b> use privacy regulation rather than antitrust where privacy is the real concern.</li>
+<li><b>Reduce platforms' political power:</b> e.g. mandatory disclosure of non-neutrality and of relationships with politicians.</li>
+</ul></div>
+
+<div class="pitfall"><b>"Other solutions besides breaking up" is the prof's actual emphasis.</b> From the fragment, she endorses the student's point that breakup is not the only tool and "this is very true". Don't reduce the digital-antitrust answer to "break them up", the examinable nuance is the <i>menu</i>: regulate, force interoperability, shift the burden, or break up, matched to the specific harm.</div>
+
+<div class="eyeball"><span class="star">&starf;</span><b>Isabella &mdash; eyeball this:</b> the slides do not name the EU Digital Markets Act or its ex-ante "gatekeeper" approach, despite that being flagged as expected content. The Stigler interoperability / burden-shift / disclosure remedies above ARE the ex-ante regulatory alternative the slides present, but if you want the DMA named explicitly, it would need adding from another source (it is not in this slide deck or the fragment).</div>
+
+<h4>TAKE-AWAYS (slide 24)</h4>
+
+<div class="key"><b>What to carry out of the session.</b>
+<ul>
+<li><b>The Great Reversal:</b> the US was the antitrust pioneer; in recent decades Europe has been far more active.</li>
+<li><b>Rethink the framework for digital:</b> it must go beyond checking that consumers are not harmed on price.</li>
+<li><b>Other welfare dimensions matter:</b> notably privacy.</li>
+<li><b>The Amazon paradox:</b> great for consumer prices, yet may still raise competition issues.</li>
+<li><b>Protect contestability:</b> regulators should keep the playing field fair so new entrants can challenge incumbents, because entry is the driver of innovation and growth.</li>
+</ul></div>
+
+<div class="exam"><b>Exam lens.</b>
+<ul>
+<li><b>The likely "critically evaluate" task:</b> should big tech be broken up? Answer it as a balanced FOR/AGAINST (use the matrix), and crucially do <b>not</b> stop at breakup, present the <i>remedy menu</i> (interoperability, burden-shift, privacy regulation, reduce political power) matched to the harm. The fragment shows the prof rewards "there are other solutions besides breaking up".</li>
+<li><b>The load-bearing concept:</b> the consumer-welfare standard's price focus fails for zero-price markets. Be able to state the chain (free product &rArr; no price to inflate &rArr; price-harm test reads clear) and name the non-price harms (privacy, foreclosed innovation, self-preferencing).</li>
+<li><b>Market definition is the decisive lever:</b> use FTC v. Meta (Nov 2025, Meta won because TikTok/YouTube were counted as competitors) to show that defining the market wide or narrow decides the case.</li>
+<li><b>Bank the evidence caveat:</b> the innovation-from-breakup case (AT&amp;T, IBM, 1990s) is suggestive, not proven causal, and antitrust itself is subject to government failure. Show that nuance rather than asserting either side.</li>
+</ul></div>
+
+<h2 id="l05">5 &middot; Geo-economics: Global Uncertainty, Tariffs and Industrial Policy</h2>
+
+<p style="font-size:18px;color:var(--soft);margin-top:0;">The course's economics-heavy session: it builds the free-trade benchmark (comparative advantage + agglomeration economies), then asks what tariffs actually do, who pays, whether they raise revenue or create jobs, and where the legitimate case for protection survives, in <b>national security</b> and <b>industrial policy</b> rather than blanket tariffs. The closing trade-off (the gains from free trade against the risks of the dependencies it creates) is the examined idea.</p>
+
+<div class="eyeball"><span class="star">★</span><b>Isabella, note on sourcing:</b> this session has <b>no class recording</b>, so the page is built from the two slide decks alone (the second, "Tariffs 3", is a near-duplicate of the main deck and adds nothing distinct). The in-class layer (spoken intuition, exam tells) is therefore absent; the intuition hooks below are synthesised from the slide logic, tagged <i>Intuition</i> rather than 🎙 In class.</div>
+
+<h4>Part A, Why countries trade (the free-trade benchmark)</h4>
+
+<div class="intuition"><span class="tag">Intuition, comparative advantage</span>You do not have to be the <i>best</i> at something to gain from trading it; you only have to be <i>relatively less bad</i> at it than at the alternative. Each side specialises where it gives up the least, and total output rises.</div>
+
+<div class="key"><b>Comparative advantage (Ricardo), the free-trade benchmark.</b>
+<ul>
+<li><b>Absolute vs comparative:</b> Portugal has an <i>absolute</i> advantage in both cloth and wine; England is worse at both. Trade still pays.</li>
+<li><b>Why:</b> if capital and labour were perfectly mobile, everything would be made in Portugal. Since they are not, England specialises where its <i>relative</i> cost is lowest (cloth) and trades for wine.</li>
+<li><b>The gains:</b> if each country specialises in its comparative-advantage good, <b>global production of both goods rises</b>, England spends 220 labour-hours on 2.2 units of cloth, Portugal 170 hours on 2.125 units of wine, and both consume more of both than under autarky.</li>
+<li><b>Tell:</b> "autarky" = no trade, the baseline free trade beats.</li>
+</ul></div>
+
+<div class="key"><b>Agglomeration economies, the second gain from trade.</b>
+<ul>
+<li><b>What it is:</b> productivity rises when activity <i>clusters</i> in one place (shared labour pools, suppliers, knowledge spillovers; the Silicon Valley effect).</li>
+<li><b>Why it matters for trade:</b> open trade lets production concentrate where it is most productive, so the world captures clustering gains on top of comparative advantage.</li>
+<li><b>The sting in the tail:</b> the same concentration creates <b>strategic dependence</b>, the gain and the vulnerability are two sides of one coin (the examined trade-off, Part D).</li>
+</ul></div>
+
+<div class="key"><b>Two stylised facts the slides open with.</b>
+<ul>
+<li><b>Trade has exploded:</b> global trade rose substantially over the last ~70 years.</li>
+<li><b>Driver = value-chain integration:</b> production is sliced across borders (the iPhone is the canonical example, designed in one country, components from many, assembled in another).</li>
+</ul></div>
+
+<h4>Part B, The economics of tariffs: who pays?</h4>
+
+<div class="intuition"><span class="tag">Intuition, tariff incidence</span>A tariff is just a tax on imports, and like any tax the question is not <i>who writes the cheque</i> but <i>who cannot escape</i>. Whichever side has fewer alternatives (the more inelastic side) is the one that eats the cost.</div>
+
+<div class="key"><b>The incidence rule, the inelastic side pays.</b>
+<ul>
+<li><b>General rule:</b> a tariff, like any tax, is <b>shared between buyer and seller</b>; the incidence falls more heavily on the <b>more inelastic</b> group (the one with fewer substitutes).</li>
+<li><b>Distributional sting:</b> tariffs are <b>regressive</b>, they cost small businesses and lower-income consumers proportionally more.</li>
+</ul></div>
+
+<p><b>The two-good test (a 25% tariff on each).</b> The slides contrast two goods to show incidence flips with elasticity. Read each row across to the verdict.</p>
+
+<table class="dt">
+<thead><tr><th>Good</th><th>Consumers</th><th>Sellers</th><th>Who bears the tariff</th></tr></thead>
+<tbody>
+<tr><td><b>Mexican strawberries</b><br><span style="color:#777">(fresh, picked today)</span></td><td><b>Elastic</b>, lots of fresh-fruit substitutes; switch to blueberries if price rises</td><td><b>Inelastic</b>, can't change production now; unsold fruit rots</td><td style="color:#a33"><b>Seller bears most</b></td></tr>
+<tr><td><b>Canadian oil</b><br><span style="color:#777">(reserves)</span></td><td><b>Inelastic</b>, need fuel to drive whatever the price</td><td><b>Elastic</b>, can hold reserves, sell later or elsewhere, not to the US</td><td style="color:#a33"><b>Buyer bears most</b></td></tr>
+</tbody>
+</table>
+
+<div class="chain">
+<span>Tariff on imports</span><span class="arrow">&rarr;</span>
+<span>import price rises</span><span class="arrow">&rarr;</span>
+<span>inelastic side can't substitute <i>(no alternatives = no escape)</i></span><span class="arrow">&rarr;</span>
+<span>that side absorbs the cost</span>
+</div>
+
+<h3>The tariff supply-and-demand diagram</h3>
+
+<div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this diagram:</b> the slide pages for the welfare graph are image-only (no extractable text), so the standard small-open-economy tariff diagram below is <b>reconstructed from the canonical economics, not traced from the slide</b>. Check the wedge and welfare areas match what Roulet drew.</div>
+
+<figure>
+<svg viewBox="0 0 460 320" width="100%" style="max-width:520px" font-size="11">
+  <!-- axes -->
+  <line x1="60" y1="280" x2="430" y2="280" stroke="#333" stroke-width="1.5"/>
+  <line x1="60" y1="280" x2="60" y2="30" stroke="#333" stroke-width="1.5"/>
+  <text x="438" y="284" fill="#333">Q</text>
+  <text x="46" y="34" fill="#333">P</text>
+  <!-- Supply curve (upward) -->
+  <line x1="80" y1="270" x2="400" y2="70" stroke="#00684B" stroke-width="2"/>
+  <text x="404" y="68" fill="#00684B" font-weight="bold">S (domestic)</text>
+  <!-- Demand curve (downward) -->
+  <line x1="80" y1="70" x2="400" y2="270" stroke="#b5651d" stroke-width="2"/>
+  <text x="404" y="270" fill="#b5651d" font-weight="bold">D (domestic)</text>
+  <!-- World price line -->
+  <line x1="60" y1="230" x2="400" y2="230" stroke="#555" stroke-width="1.3"/>
+  <text x="404" y="234" fill="#555">P_world</text>
+  <!-- World price + tariff line -->
+  <line x1="60" y1="190" x2="400" y2="190" stroke="#a33" stroke-width="1.3" stroke-dasharray="5 3"/>
+  <text x="404" y="194" fill="#a33">P_world + tariff</text>
+  <!-- tariff wedge bracket -->
+  <line x1="68" y1="190" x2="68" y2="230" stroke="#a33" stroke-width="1"/>
+  <text x="14" y="214" fill="#a33">tariff</text>
+  <!-- vertical guides at quantities under free trade (P_world=230) -->
+  <!-- S meets 230 at x≈128; D meets 230 at x≈336 -->
+  <line x1="128" y1="230" x2="128" y2="280" stroke="#999" stroke-width="0.8" stroke-dasharray="3 3"/>
+  <line x1="336" y1="230" x2="336" y2="280" stroke="#999" stroke-width="0.8" stroke-dasharray="3 3"/>
+  <text x="120" y="294" fill="#666" font-size="10">Q1s</text>
+  <text x="328" y="294" fill="#666" font-size="10">Q1d</text>
+  <!-- vertical guides under tariff (P=190): S meets at x≈192; D meets at x≈272 -->
+  <line x1="192" y1="190" x2="192" y2="280" stroke="#999" stroke-width="0.8" stroke-dasharray="3 3"/>
+  <line x1="272" y1="190" x2="272" y2="280" stroke="#999" stroke-width="0.8" stroke-dasharray="3 3"/>
+  <text x="184" y="306" fill="#666" font-size="10">Q2s</text>
+  <text x="264" y="306" fill="#666" font-size="10">Q2d</text>
+  <!-- imports brackets -->
+  <text x="232" y="244" text-anchor="middle" fill="#555" font-size="10">imports after</text>
+  <text x="232" y="266" text-anchor="middle" fill="#555" font-size="10">imports before (wider)</text>
+  <!-- government revenue rectangle (between Q2s and Q2d, height of wedge) -->
+  <rect x="192" y="190" width="80" height="40" fill="#cfe8da" opacity="0.8"/>
+  <text x="232" y="214" text-anchor="middle" fill="#00684B" font-size="9" font-weight="bold">Gov't revenue</text>
+  <!-- DWL triangles -->
+  <polygon points="128,230 192,230 192,190" fill="#f3c6c6" opacity="0.85"/>
+  <polygon points="272,230 336,230 272,190" fill="#f3c6c6" opacity="0.85"/>
+  <text x="160" y="248" text-anchor="middle" fill="#a33" font-size="9">DWL</text>
+  <text x="304" y="248" text-anchor="middle" fill="#a33" font-size="9">DWL</text>
+</svg>
+<figcaption>Small-open-economy tariff. The tariff lifts the home price from P<sub>world</sub> to P<sub>world</sub>+tariff: domestic supply rises (Q1s→Q2s), demand falls (Q1d→Q2d), so <b>imports shrink</b>. The green rectangle is <b>government revenue</b> (tariff × imports-after); the two pink triangles are <b>deadweight loss</b>, production lost to less-efficient domestic supply, and consumption choked off by the higher price.</figcaption>
+</figure>
+
+<div class="key"><b>Reading the welfare picture.</b>
+<ul>
+<li><b>Price up, imports down:</b> the wedge raises the home price, pulling in inefficient domestic production and pricing out some consumption.</li>
+<li><b>Government revenue:</b> tariff rate × the volume <i>still</i> imported, note revenue needs imports to <i>survive</i>, so it shrinks as the tariff bites harder (the Part C trade-off).</li>
+<li><b>Deadweight loss:</b> the two triangles are pure waste, value destroyed, captured by nobody, from distorting comparative advantage and forgoing agglomeration gains.</li>
+</ul></div>
+
+<h4>Part C, Do tariffs raise revenue or create jobs?</h4>
+
+<div class="key"><b>Raising revenue, yes, but bounded and self-undermining.</b>
+<ul>
+<li><b>They do raise revenue:</b> a tariff is a tax, so it collects.</li>
+<li><b>The "optimal tariff" result:</b> if tariffs are applied <i>uniformly</i> across all partners <i>and</i> nobody retaliates, the revenue-optimal rate is ~25% (Ignatenko et al. 2025).</li>
+<li><b>The catch:</b> there is <b>almost always retaliation</b>, and tariffs can be aimed "with laser precision" to hit a target government's constituents' jobs, so the two clean conditions rarely hold.</li>
+<li><b>Efficiency cost stands regardless:</b> tariffs distort comparative advantage and limit agglomeration economies whether or not they raise revenue.</li>
+</ul></div>
+
+<div class="intuition"><span class="tag">Intuition, the revenue/jobs tension</span>To create jobs you want tariffs to <i>kill</i> imports; to raise revenue you need imports to <i>survive</i> so there's something to tax. You cannot maximise both, drive imports to zero and revenue goes to zero too.</div>
+
+<div class="key"><b>Creating jobs, the input-tax problem and the China shock.</b>
+<ul>
+<li><b>A tariff is also a tax on inputs:</b> protecting one stage taxes every downstream user of that input.</li>
+<li><b>Steel worked example:</b> a steel tariff makes domestic steel relatively cheaper → demand for domestic steel and steelworkers rises; <i>but</i> steel costs rise for carmakers, construction etc. → their demand and employment fall. <b>Net effect: more jobs lost downstream than saved upstream.</b></li>
+<li><b>Firms route around it:</b> under Trump I, exports from China to Vietnam surged on goods the US used to buy from China, then Vietnam→US exports surged, production relocates to <i>minimise cost</i>, not necessarily to the US, unless the tariff is uniform across all countries.</li>
+<li><b>The China shock (Pierce &amp; Schott 2016):</b> China's 2001 WTO entry guaranteed no big US tariff hikes; US manufacturing employment dropped sharply in the 2000s–2010s, with stark <b>subnational heterogeneity</b>, concentrated regional job losses fed the <b>backlash to globalisation and the rise of Trump</b>. Meanwhile Chinese manufacturing employment climbed.</li>
+</ul></div>
+
+<div class="chain">
+<span>Steel tariff</span><span class="arrow">&rarr;</span>
+<span>domestic steel cheaper</span><span class="arrow">&rarr;</span>
+<span>steel jobs ↑</span><span class="arrow">&rarr;</span>
+<span>but input cost ↑ for carmakers <i>(steel is their input)</i></span><span class="arrow">&rarr;</span>
+<span>downstream demand ↓</span><span class="arrow">&rarr;</span>
+<span>net jobs ↓</span>
+</div>
+
+<div class="pitfall"><b>Don't treat a tariff as a tax on final goods only.</b> Its largest employment effect often runs through <i>inputs</i>: protecting steelmakers can destroy more jobs in steel-<i>using</i> industries than it saves. "Tariffs create jobs" is true only at the protected stage, in isolation.</div>
+
+<h4>Part D, The case FOR protection, and industrial policy as the smarter tool</h4>
+
+<p>The slides list the reasons governments (and recently the US) give for tariffs, then argue the <i>legitimate</i> ones are better served by industrial policy than by blanket tariffs.</p>
+
+<table class="dt">
+<thead><tr><th>Stated reason for tariffs</th><th>Verdict from the economics</th></tr></thead>
+<tbody>
+<tr><td><b>Improve the trade balance</b></td><td style="color:#a33">Weak, firms reroute via third countries; bilateral balances shift, not the overall position.</td></tr>
+<tr><td><b>Raise revenue</b></td><td style="color:#b5651d">Bounded, yes, but ~25% optimum needs no retaliation; efficiency cost remains.</td></tr>
+<tr><td><b>Create / protect jobs</b></td><td style="color:#a33">Weak net, input-tax effect can lose more jobs downstream than it saves (steel).</td></tr>
+<tr><td><b>Geo-political rivalry</b></td><td style="color:#b5651d">Can work as <i>leverage</i>, precise tariffs pressure a rival's constituents, but invite retaliation.</td></tr>
+<tr><td><b>Protect infant / strategic industries</b></td><td style="color:#2a7"><b>Strongest case</b>, but better served by industrial policy than by tariffs (below).</td></tr>
+</tbody>
+</table>
+
+<div class="key"><b>Infant industries vs strategic industries, two distinct arguments.</b>
+<ul>
+<li><b>Infant industry:</b> an underdeveloped country shields young domestic firms from foreign competition to let them industrialise. Tools: <i>either</i> trade barriers (tariffs) <i>or</i> preferential treatment of domestic firms (= industrial policy).</li>
+<li><b>Strategic industry:</b> a riskier world means the benefits of agglomeration must be weighed against the vulnerabilities of concentration, <b>supply-chain resilience and national security</b>. This justifies protecting your market, but <i>not necessarily through tariffs</i>; industrial policy is the alternative.</li>
+<li><b>But it isn't free:</b> industrial policy can be expensive and inefficient, "we do not want each region to have its own Silicon Valley."</li>
+</ul></div>
+
+<h3>The agglomeration-vs-national-security trade-off (the examined idea)</h3>
+
+<div class="intuition"><span class="tag">Intuition, efficiency vs resilience</span>Concentrating production where it's most productive is the cheapest way to make things, and also the most fragile, because if that one place goes dark, everyone is exposed. The whole policy debate is buying <i>resilience</i> by paying for some lost <i>efficiency</i>.</div>
+
+<table class="dt">
+<thead><tr><th></th><th>Free trade + agglomeration</th><th>Protect strategic production</th></tr></thead>
+<tbody>
+<tr><td><b>What you gain</b></td><td>Comparative-advantage gains + clustering raises productivity; cheapest output</td><td>Supply-chain resilience; national-security insurance against being cut off</td></tr>
+<tr><td><b>What you pay</b></td><td>Strategic dependence; vulnerability if the concentrated source is disrupted</td><td>Efficiency cost; expensive, possibly inefficient industrial policy (duplicated capacity)</td></tr>
+<tr><td><b>When it dominates</b></td><td>Stable, low-risk world; non-strategic goods</td><td>Riskier world, rising geopolitical tension; genuinely strategic sectors</td></tr>
+<tr><td><b>The tool</b></td><td>Open markets, no intervention</td><td>Industrial policy for strategic sectors (preferred over blanket tariffs)</td></tr>
+</tbody>
+</table>
+
+<div class="key"><b>The trade-off in one line (the closing-slide framing).</b>
+<ul>
+<li><b>The tension:</b> the benefits of free trade (comparative advantage + agglomeration economies) <i>vs</i> the risks of the interdependencies that trade creates.</li>
+<li><b>The resolution the slides offer:</b> not autarky and not blanket tariffs, but <b>targeted industrial policy for strategic sectors</b>.</li>
+<li><b>Why it's examined:</b> it is the session's synthesis, the point where the pure economics (trade is good) meets the political reality (dependence is dangerous).</li>
+</ul></div>
+
+<h3>What industrial policy is</h3>
+
+<div class="key"><b>Industrial policy, definition and justifications.</b>
+<ul>
+<li><b>Definition:</b> the bundle of "government policies that explicitly target the transformation of the structure of economic activity in pursuit of some public goal."</li>
+<li><b>Four justifications:</b> (1) innovation-related externalities; (2) economic security; (3) promoting "good jobs"; (4) accelerating the green transition.</li>
+<li><b>Distinct from tariffs:</b> it acts on the <i>domestic supply side</i> (subsidies, preferential treatment, picking sectors) rather than taxing imports at the border.</li>
+</ul></div>
+
+<div class="key"><b>China as the laboratory, two recent examples.</b>
+<ul>
+<li><b>Made in China 2025 (MiC2025):</b> singled out ten key sectors for upgrading (focus on next-gen IT &amp; telecoms, advanced manufacturing, robotics); aims to foster "national manufacturing champions" in a few selected industries.</li>
+<li><b>The 10,000 Little Giants:</b> supports SMEs in niche "base industries" meant to be the backbone behind the national champions.</li>
+</ul></div>
+
+<div class="pitfall"><b>Industrial policy is not a free win.</b> "Picking winners" can be expensive and inefficient, governments may back the wrong sectors, and duplicating strategic capacity everywhere ("each region its own Silicon Valley") throws away the very agglomeration gains free trade captured. The drawbacks are themselves an examined prompt ("what are the potential drawbacks of industrial policy?").</div>
+
+<h4>The new world order &amp; take-aways</h4>
+
+<div class="key"><b>The closing synthesis (the take-away slides).</b>
+<ul>
+<li><b>Tariffs hit everyone:</b> adverse effects fall not only on trading partners but on <b>domestic consumers and producers</b> too.</li>
+<li><b>Impact depends on structure:</b> tariffs drive prices up and force supply-chain adjustment; the ultimate effect depends on the tariff structure, market structure, and the <b>elasticities</b> of demand and supply.</li>
+<li><b>Uncertainty may be the worst part:</b> in the current situation the most damaging element is arguably the <b>uncertainty</b> itself, not the tariff level.</li>
+<li><b>The new trade-off:</b> crises and geopolitical tension have exposed the risks of very localised production of specific products; balance free-trade gains against interdependence risk, addressed by industrial policy for strategic sectors.</li>
+<li><b>Carney's Davos framing (discussion prompt):</b> the rules-based order was "partially false"; "middle countries" must reposition, flagged in the slides as a discussion question, not a stated answer.</li>
+</ul></div>
+
+<div class="exam"><b>Exam lens.</b>
+<ul>
+<li><b>The headline examined idea</b> is the <b>agglomeration-economies-vs-national-security trade-off</b>: be able to state both sides (clustering raises productivity / concentration creates strategic dependence) and the resolution (targeted industrial policy for strategic sectors, not blanket tariffs).</li>
+<li><b>Tariff incidence</b> is the cleanest application question: who bears a tariff, and why, framed through elasticity (the strawberries-vs-oil contrast; the inelastic side pays; tariffs are regressive).</li>
+<li><b>"Do tariffs create jobs?"</b> wants the input-tax mechanism (steel) and the China-shock evidence, not a yes/no.</li>
+<li><b>Industrial policy</b> can be asked for its definition, its four justifications, the China examples, <i>and</i> its drawbacks, hold all four.</li>
+<li><span class="star">★</span> With no transcript, treat any claim about Roulet's specific marking style as general; the structure above follows the slides' own emphasis (incidence, revenue/jobs limits, the closing trade-off), which is the safest guide to what she will test.</li>
+</ul></div>
+
+<h2 id="l06">6 &middot; Women at Work</h2>
+
+<p style="font-size:18px;color:var(--soft);margin-top:0;">Roulet's labour-economics session on the gender pay gap: it decomposes the gap into its channels, isolates the <b>child penalty</b> as the dominant driver, frames the whole debate as <b>preferences vs constraints/discrimination</b> (with <b>norms</b> as the thing that blurs the two), and closes on the policy and business levers. This is the empirical, evidence-led half of the course; the BOR discussion runs it onto affirmative action.</p>
+
+<div class="intuition"><span class="tag">🎙 In class</span> "For a dad, you cannot tell when they had kids in their wage trajectory; for a woman, you can identify when they had kids." That single asymmetry, says Roulet, is the most universal fact in the data, holding across every region with only the magnitude changing.</div>
+
+<h4>Decomposing the gap, channel by channel</h4>
+
+<div class="intuition"><span class="tag">Intuition &mdash; what "the gap" even measures</span>A headline "30% gap" is almost always a gap in <i>annual labour earnings</i>, which bundles three different things. The like-for-like gap (same job, same hours) is much smaller, around 5&ndash;10% in advanced economies. So before you argue about a number, ask which number it is.</div>
+
+<div class="key"><b>Why women earn less, ruled out and ruled in.</b>
+<ul>
+<li><b>Not education (any more):</b> in many countries women now have <i>more</i> years of schooling, yet still earn less. The residual education story is the <b>field of study</b> (fewer women in STEM/engineering), which feeds occupational sorting.</li>
+<li><b>Participation:</b> in almost all countries more working-age women than men are out of the labour force, so they enter the earnings data as a zero.</li>
+<li><b>Then, conditional on working,</b> three further channels stack on top (below).</li>
+</ul></div>
+
+<div class="key"><b>The three "conditional on working" channels (slide spine).</b>
+<ul>
+<li><b>1. Fewer hours:</b> women are more likely to work part-time / fewer hours, largely because they do more caring for kids/elderly and home production.</li>
+<li><b>2. Lower-paying occupations:</b> horizontal sorting (pilots vs cabin crew; doctors vs nurses), plus lower-paying industries and firms (women cluster in smaller firms).</li>
+<li><b>3. Lower hourly wage for the same occupation:</b> they may negotiate less; may value non-wage job aspects more; may have less experience (maternity breaks); and may face discrimination.</li>
+</ul></div>
+
+<div class="pitfall"><b>Don't read a high headline gap as "unequal pay for equal work."</b> A 30% figure is annual earnings (all three channels). The same-position hourly gap is roughly 5&ndash;10% (France &asymp;5%). Roulet's caveat: do not over-narrow to "equal pay for equal job" either, since the deeper problem is that men and women do <i>not</i> hold the same jobs.</div>
+
+<div class="intuition"><span class="tag">🎙 In class</span> "The flip side of women working fewer hours is them doing more unpaid work at home." The same cross-country survey shows a striking <b>symmetry</b>: the countries with the biggest gap in paid hours are the countries with the biggest gap in unpaid (home-production / caring) hours.</div>
+
+<figure>
+<svg viewBox="0 0 460 220" width="100%" style="max-width:500px">
+  <!-- axes -->
+  <line x1="60" y1="20" x2="60" y2="180" stroke="#444" stroke-width="1.5"/>
+  <line x1="60" y1="180" x2="430" y2="180" stroke="#444" stroke-width="1.5"/>
+  <text x="60" y="200" text-anchor="middle" font-size="10" fill="#555">Low</text>
+  <text x="425" y="200" text-anchor="middle" font-size="10" fill="#555">High</text>
+  <text x="245" y="215" text-anchor="middle" font-size="11" fill="#333">Gap in PAID hours (men &minus; women)</text>
+  <text x="20" y="100" text-anchor="middle" font-size="11" fill="#333" transform="rotate(-90 20 100)">Gap in UNPAID hours</text>
+  <!-- positive-slope scatter -->
+  <g fill="#00684B">
+    <circle cx="95" cy="158" r="4"/><circle cx="130" cy="150" r="4"/>
+    <circle cx="160" cy="132" r="4"/><circle cx="200" cy="120" r="4"/>
+    <circle cx="245" cy="100" r="4"/><circle cx="290" cy="86" r="4"/>
+    <circle cx="335" cy="64" r="4"/><circle cx="395" cy="42" r="4"/>
+  </g>
+  <line x1="80" y1="165" x2="410" y2="38" stroke="#c47b00" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="320" y="120" font-size="10" fill="#c47b00">positive correlation</text>
+</svg>
+<figcaption>The paid/unpaid symmetry: each dot is a country. Where women do far less paid work, they do far more unpaid work. The trade-off is a reallocation of hours, not idleness, which is why any solution has to act on the unpaid side too. <span style="color:#b03;">★</span> schematic redraw of the IFS Deaton-Review (Andrew, Bandiera, Costa-Dias &amp; Landais 2021) scatter, positions inferred.</figcaption>
+</figure>
+
+<div class="key"><b>Decomposing a reported "30% gap" (slide).</b>
+<ul>
+<li><b>Driver A:</b> more men in higher-paid senior roles (vertical sorting).</li>
+<li><b>Driver B:</b> more women part-time / reduced hours.</li>
+<li><b>Driver C:</b> women paid less for the same position and hours.</li>
+<li><b>The measurement rule:</b> to isolate C's share you must compare the <i>hourly or full-time-equivalent</i> wage within a given occupation. But all three matter for understanding and narrowing the gap.</li>
+</ul></div>
+
+<h4>The child penalty &mdash; the dominant driver</h4>
+
+<div class="intuition"><span class="tag">Intuition &mdash; the child penalty</span>Plot the earnings of future-mothers and future-fathers around the year their first child arrives. The fathers' line sails on undisturbed; the mothers' line drops sharply at the birth and never fully catches up. The "penalty" is that permanent divergence opening at year zero.</div>
+
+<div class="chain">
+<span>First child arrives (yr 0)</span><span class="arrow">&rarr;</span>
+<span>mother shifts toward unpaid care</span><span class="arrow">&rarr;</span>
+<span>participation &darr;, hours &darr;, wage &darr;</span><span class="arrow">&rarr;</span>
+<span>earnings diverge from fathers' (unbroken) path</span><span class="arrow">&rarr;</span>
+<span>no full recovery 10 yrs on</span>
+</div>
+
+<div class="key"><b>The Kleven et al. (2019) child-penalty evidence.</b>
+<ul>
+<li><b>The finding:</b> the gender <i>earnings</i> gap widens at the birth of the first child; for fathers there is no break in trend.</li>
+<li><b>Roughly equal thirds:</b> the penalty is driven in about equal proportions by labour-force <b>participation</b>, <b>hours</b> of work, and <b>wage rates</b>.</li>
+<li><b>Even in Norway:</b> Roulet leads with Norway precisely because it is gender-equal in relative terms, yet still has not closed the gap; women's trajectory never fully recovers within 10 years.</li>
+<li><b>Universal pattern, varying magnitude:</b> same shape across Europe, North America, Latin America (larger, more drop-out), Asia and Africa (smaller); policy and culture move the <i>size</i>, not the <i>sign</i>.</li>
+</ul></div>
+
+<figure>
+<svg viewBox="0 0 480 240" width="100%" style="max-width:540px">
+  <!-- axes -->
+  <line x1="55" y1="20" x2="55" y2="185" stroke="#444" stroke-width="1.5"/>
+  <line x1="55" y1="185" x2="455" y2="185" stroke="#444" stroke-width="1.5"/>
+  <!-- year-0 marker -->
+  <line x1="210" y1="20" x2="210" y2="185" stroke="#999" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="210" y="205" text-anchor="middle" font-size="10" fill="#555">birth (yr 0)</text>
+  <text x="120" y="205" text-anchor="middle" font-size="10" fill="#555">&minus;5</text>
+  <text x="400" y="205" text-anchor="middle" font-size="10" fill="#555">+10</text>
+  <text x="255" y="222" text-anchor="middle" font-size="11" fill="#333">Years relative to first child</text>
+  <text x="18" y="100" text-anchor="middle" font-size="11" fill="#333" transform="rotate(-90 18 100)">Earnings</text>
+  <!-- fathers: smooth rising line -->
+  <path d="M70 120 C 150 108, 270 92, 450 70" fill="none" stroke="#00684B" stroke-width="2.5"/>
+  <text x="395" y="60" font-size="11" font-weight="bold" fill="#00684B">Fathers</text>
+  <!-- mothers: parallel rise then drop at 0, partial recovery -->
+  <path d="M70 132 C 130 124, 180 118, 210 116 L 210 116 C 222 150, 240 162, 270 162 C 330 162, 400 150, 450 142" fill="none" stroke="#c47b00" stroke-width="2.5"/>
+  <text x="395" y="158" font-size="11" font-weight="bold" fill="#c47b00">Mothers</text>
+  <!-- penalty bracket -->
+  <line x1="450" y1="70" x2="450" y2="142" stroke="#b03" stroke-width="1.2"/>
+  <text x="462" y="108" font-size="10" fill="#b03" transform="rotate(90 462 108)">child penalty</text>
+</svg>
+<figcaption>The child-penalty divergence: parallel trajectories before the birth, a sharp drop in the mother's earnings at year 0, and only partial recovery by +10 years while the father's path is undisturbed. The widening gap = the child penalty. <span style="color:#b03;">★</span> stylised redraw of the Kleven-style event-study; exact curvature inferred, not traced from the slide chart.</figcaption>
+</figure>
+
+<h4>Preferences vs constraints &mdash; and why norms blur the line</h4>
+
+<div class="intuition"><span class="tag">🎙 In class</span> "The big question is what share can be attributed to differences in preferences, choices that people are happy with, versus differential treatment, constraints, discrimination?" Roulet's own steer: "the tricky part is that choices can be socially constructed", so the two are linked, not rival, and you should reason about what matters <i>on average</i>.</div>
+
+<table class="dt">
+<thead><tr><th>Explanation</th><th>Mechanism</th><th>Evidence / tell</th></tr></thead>
+<tbody>
+<tr><td><b>Preferences / choice</b><br><span style="color:#777">"happy with it"</span></td><td>Households specialise; some women genuinely value time with family and non-wage job aspects (control over time, shorter commute, flexibility).</td><td>Confronted with similar offers, men more often pick the income-maximising job, women the commute/flexibility one. Roulet's caution: paternalistic to "fix" a choice people are happy with.</td></tr>
+<tr><td><b>Social norms</b><br><span style="color:#777">the blur</span></td><td>Choices are constructed: boys and girls raised differently; a psychological cost to deviating from the expected role. "A is part of B."</td><td>Motherhood penalty is <b>larger</b> for women whose own mother did not work (intergenerational transmission); ISSP values data show even Denmark expects mothers of pre-school kids to work part-time at most.</td></tr>
+<tr><td><b>Constraints</b><br><span style="color:#777">financial / structural</span></td><td>Childcare cost and availability, leave design, and the fact that someone has to be home force a "constrained choice".</td><td>In-class Netherlands debate: cheap childcare absent &rArr; one parent must adapt; short paternity leave (4 wks vs 16) routes the break to mothers.</td></tr>
+<tr><td><b>Discrimination</b><br><span style="color:#777">employer side</span></td><td>Employers treat equally-qualified women worse (see taste-based vs statistical below).</td><td>Roulet: present and real, but "in practice" only part of the demand side; much of the observed gap is supply-side choice, itself shaped by anticipated home responsibilities.</td></tr>
+</tbody>
+</table>
+
+<table class="dt">
+<thead><tr><th></th><th>Taste-based discrimination</th><th>Statistical discrimination</th></tr></thead>
+<tbody>
+<tr><td><b>The logic</b></td><td>A pure distaste for hiring/paying women, regardless of ability.</td><td>"I know on average a woman is more likely to take a career break, so I factor that risk in," even while believing women are equally able.</td></tr>
+<tr><td><b>Belief about ability</b></td><td>Believes (or acts as if) women are worse.</td><td>May rate women as very able; the penalty is inferred from a group average, not the individual.</td></tr>
+<tr><td><b>In-class example</b></td><td>&mdash;</td><td>Choosing the 30-year-old man over the equally-qualified woman because she "might be absent for a year".</td></tr>
+</tbody>
+</table>
+
+<div class="key"><b>Two pieces of evidence that norms (not biology) drive the penalty.</b>
+<ul>
+<li><b>Intergenerational transmission:</b> the motherhood penalty is bigger for women whose own mother did not work, smaller for those raised by an ambitious working mother. Culture is transmitted.</li>
+<li><b>Same-sex couples:</b> the sharp, long-lasting penalty does <i>not</i> show up. In lesbian couples the birth-giving mother dips briefly but there is no lasting gap; gay couples show a pre-existing income gap but no break at the child's arrival. This discards a purely biological story and points to unequal household division of labour.</li>
+</ul></div>
+
+<div class="pitfall"><b>Don't let "same-sex couples" over-claim.</b> Roulet's own caveat: these samples are small, estimates imprecise (wide confidence intervals), so "we shouldn't over-read these graphs." The narrow point they make is to <i>discard the biology-only explanation</i>, not to measure a clean effect.</div>
+
+<h4>The MBA deep-dive</h4>
+
+<div class="key"><b>Bertrand, Goldin &amp; Katz (2010) &mdash; Chicago MBAs of the 1990s, followed 15 years.</b>
+<ul>
+<li><b>Close at the start, diverging fast:</b> earnings &asymp;$115K (women) vs $130K (men) at graduation, opening to &asymp;$250K vs $400K nine years out.</li>
+<li><b>Three drivers:</b> pre-MBA training differences (more humanities for women, more engineering for men), career interruptions, and weekly hours.</li>
+<li><b>It is mostly about kids:</b> women <i>with</i> children work 24% fewer hours than the average male; women <i>without</i> children only ~3.3% fewer. The childless gap is small; the bulk comes from having children.</li>
+<li><b>The husband-income effect:</b> the more the husband earns, the greater the average motherhood penalty, suggesting more household specialisation when the earnings gap inside the couple is wider.</li>
+</ul></div>
+
+<div class="key"><b>The recent (today) MBA survey &mdash; ~3,133 students from 57 top programmes.</b>
+<ul>
+<li><b>The gap persists:</b> post-MBA men averaged $177,112 vs $147,412 for women, a 20% gap (9% within two years of graduating, widening to 35% nine-plus years out).</li>
+<li><b>But narrowing:</b> that 20% was closer to 40% in 2016.</li>
+<li><b>Promotion and aspiration gaps:</b> women less likely to be promoted and have fewer direct reports; more men than women (22% vs 12%) aspire to the very top (president / CEO), though more women aim for "early leadership".</li>
+</ul></div>
+
+<div class="eyeball"><span class="star">★</span><b>Isabella &mdash; eyeball this:</b> the slide writes the childless-women figure as "3.3% fewer hours" while the professor said "3% fewer" aloud; I used 24% / ~3.3% from the slide. Sanity-check which figure you want on the cheat sheet.</div>
+
+<h4>Policy and business levers</h4>
+
+<div class="key"><b>Public-policy initiatives (slide) &mdash; lever / what it does / the catch.</b>
+<ul>
+<li><b>Steer women / under-represented minorities into high-paying fields:</b> field choice is shallow (you follow peers/role models), so a one-hour visit by a female scientist measurably raised girls' enrolment in selective science programmes (Breda et al. 2018). <i>Catch:</i> structural and slow-acting, works on norms upstream.</li>
+<li><b>Paternity-leave policy:</b> the lever Roulet flags as decisive &mdash; to close the gap you give <i>mandatory paternity leave</i> to fathers rather than lengthening maternity leave (long maternity leave can hurt women's careers). <i>Catch:</i> if both parents take leave equally it still bites on re-entry.</li>
+<li><b>Pay-transparency policies (UK gap reporting; German right to ask):</b> effective at narrowing the gap. <i>Catch / mechanism:</i> it works mainly by slowing <b>men's</b> pay growth, not raising women's, and "you're never comparing apples and apples", so it opens a can of worms.</li>
+<li><b>Salary-history bans (California, NY):</b> forbid asking prior salary so a past low wage doesn't anchor the next one.</li>
+</ul></div>
+
+<div class="key"><b>Non-profit and business angle.</b>
+<ul>
+<li><b>Laboratoria:</b> a Latin-American women-only programme teaching underprivileged young women to code, giving access to better-paid occupations plus role models. <i>Roulet's caveat:</i> she liked it but is now unsure it works against AI displacing entry coding.</li>
+<li><b>The BOR question for business:</b> with little C-suite diversity, would you use affirmative action at the top and/or junior level, and would you prefer firm <b>discretion</b> or <b>policy rules</b> (e.g. board quotas)? Set against the recent DEI/affirmative-action pushback.</li>
+</ul></div>
+
+<div class="key"><b>Take-aways (closing slides).</b>
+<ul>
+<li><b>The channels:</b> women work in lower-paying occupations/industries/firms; are more likely part-time or on leave (especially after kids); and earn a lower hourly wage for a given occupation (less negotiation, more weight on non-wage aspects, less experience, some discrimination).</li>
+<li><b>The key question:</b> is the gap mostly different <b>preferences</b> or mostly differential <b>treatment / constraints</b>? Roulet's answer: norms shape both, are hard but not impossible to change, and business + public policy can shift the equilibrium toward greater diversity.</li>
+<li><b>The framing principle:</b> talent is equally distributed across groups, which is the efficiency case for representation at the top, but the goal is balance for both genders, not imposing a normative ideal.</li>
+</ul></div>
+
+<div class="exam"><b>Exam lens.</b>
+<ul>
+<li><b>The bankable structure:</b> be able to <b>decompose</b> a headline gap into participation &rarr; hours &rarr; occupation/firm sorting &rarr; same-job wage, and say which one a given statistic measures (annual earnings &asymp;30% vs same-position &asymp;5&ndash;10%).</li>
+<li><b>The signature framework:</b> the <b>child penalty</b> (Kleven), driven in roughly equal thirds by participation, hours and wages, plus the two norm-evidence facts (mother-worked transmission; same-sex couples discard biology).</li>
+<li><b>The interpretive axis Roulet keeps returning to:</b> preferences vs constraints/discrimination, with norms as the blur; pair it with taste-based vs statistical discrimination. State that closing the gap means fathers doing more, not just longer maternity leave.</li>
+</ul></div>
+
+<h2 id="l07">7 &middot; The Future of Work: Can We Make Labour Markets Work?</h2>
+
+<p style="font-size:18px;color:var(--soft);margin-top:0;">The closing session asks whether technology destroys work, and what policy should do about it. It runs three economic ideas back to back, the <b>three forces on labour demand</b> (which decide whether tech kills jobs), the <b>polarisation</b> of the wage distribution since 1980, and what is genuinely <b>different about AI</b>, then turns to the economics of <b>working from home</b> and a short menu of <b>policy responses</b>. The verdict it keeps returning to: technology changes the <i>composition</i> of work far more than it shrinks the <i>quantity</i> of it.</p>
+
+<div class="eyeball"><span class="star">★</span><b>Isabella, note on sourcing:</b> there is no class recording for Session 7, so this section is built from the slide deck alone. The in-class layer (Roulet's spoken intuition and exam tells) is absent, the intuition hooks below are synthesised from the slides, not quoted from class. Treat any "what the exam rewards" line as inference. The slides also do not state whether S7 is examinable, so this section makes no claim either way.</div>
+
+<h3>Does technology destroy jobs? The recurring fear</h3>
+
+<div class="intuition"><span class="tag">Intuition, the Luddite reflex</span>Every wave of automation revives Keynes's 1930 fear of "technological unemployment", labour-saving running ahead of our ability to find new uses for labour. The slides open with exactly this quote, then with the Luddites, to set up the question and then answer it: the fear is old, recurrent, and historically wrong about the <i>aggregate</i>.</div>
+
+<div class="key"><b>Keynes (1930), the framing the deck opens on.</b>
+<ul>
+<li><b>The fear:</b> "technological unemployment", joblessness because labour-economising outruns our discovery of new uses for labour.</li>
+<li><b>His own answer:</b> a "temporary phase of maladjustment", growing pains, not old age; in the long run mankind is solving its economic problem.</li>
+<li><b>His prediction:</b> living standards in progressive countries 100 years hence four to eight times higher. The point of including it: the disruption is real but the doom is about <i>transition</i>, not the steady state.</li>
+</ul></div>
+
+<h3 id="l07-forces">The three forces on labour demand</h3>
+
+<div class="intuition"><span class="tag">Intuition, push and pull</span>A new technology pulls labour demand in opposite directions at once. It <i>replaces</i> workers on the tasks it can do (down), but the cheaper output lets firms sell more and scale up (up), and it <i>reshuffles</i> which tasks remain for humans. Whether jobs disappear is just the question of which pull wins, and historically the answer has not been "substitution".</div>
+
+<p>The slides put two forces head to head, then add a third that operates <i>within</i> a surviving job.</p>
+
+<table class="dt">
+<thead><tr><th>Force</th><th>Effect on labour demand</th><th>Mechanism (the why)</th><th>Example (from the slides)</th></tr></thead>
+<tbody>
+<tr><td><b>Substitution effect</b></td><td style="color:#b00;font-weight:bold">Reduces</td><td>Human work on a task is done by machines instead, so demand for that labour falls.</td><td>Routine tasks taken over by automation.</td></tr>
+<tr><td><b>Productivity effect</b></td><td style="color:#00684B;font-weight:bold">Raises</td><td>Productivity gains cut costs, so firms win market share and scale up production, which needs <i>more</i> labour overall.</td><td>Bessen (2015): ATMs <i>raised</i> demand for bank tellers, cheaper branches meant banks opened many more of them.</td></tr>
+<tr><td><b>Task reallocation</b><br><span style="color:#777">(within occupation)</span></td><td style="color:#777;font-weight:bold">Shifts</td><td>Even where the occupation survives, effort is reallocated <i>across the tasks within it</i>, changing what the job actually is.</td><td>"The nature of work evolves" even for occupations that remain.</td></tr>
+</tbody>
+</table>
+
+<div class="key"><b>The historical verdict (which force dominates?).</b>
+<ul>
+<li><b>Aggregate:</b> in the past, technology <i>never</i> reduced employment opportunities, the productivity effect plus new tasks offset substitution.</li>
+<li><b>But the work changed:</b> the same head-count masks a wholesale shift in <i>what people do</i> (the reallocation force).</li>
+<li><b>And not good for everyone:</b> a steady aggregate quantity of labour demand says nothing about the distribution, there are winners and losers underneath the total.</li>
+</ul></div>
+
+<div class="chain">
+<span>new tech</span><span class="arrow">&rarr;</span>
+<span>substitutes some tasks (jobs lost)</span><span class="arrow">&rarr;</span>
+<span>but cheaper output &rarr; more sales</span><span class="arrow">&rarr;</span>
+<span>firms scale up (jobs gained)</span><span class="arrow">&rarr;</span>
+<span>net: work changes, not vanishes</span>
+</div>
+
+<div class="key"><b>Winners and losers under the surface.</b>
+<ul>
+<li><b>New tasks favour the educated:</b> new tasks are typically more complex, so they reward more-educated workers.</li>
+<li><b>Relative wage premiums:</b> workers whose skills become more valuable earn a premium, those whose skills are substituted lose ground.</li>
+<li><b>Big distributional consequences:</b> the aggregate "no net job loss" story hides large movements in <i>who</i> gains and <i>who</i> is left behind.</li>
+</ul></div>
+
+<h3 id="l07-polarisation">Job polarisation, 1980 to 2020</h3>
+
+<div class="intuition"><span class="tag">Intuition, the hollowed middle</span>Picture the job ladder by skill, low, middle, high. Over 1980 to 2020 the <i>middle</i> rungs thinned out while both <i>ends</i> grew. Demand rose for high-skill cognitive work and for low-skill in-person services, but the routine, codifiable, middle-tier jobs (the office clerk) were the easiest to automate, so they fell. The result is a U-shape, not a simple "skill always wins" line.</div>
+
+<table class="dt">
+<thead><tr><th>Skill tier</th><th>Demand 1980&ndash;2020</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td><b>High-skill</b><br><span style="color:#777">cognitive, non-routine</span></td><td style="color:#00684B;font-weight:bold">Up</td><td>Non-routine cognitive tasks are hard to automate and complement the new technology; high-skilled, highly paid.</td></tr>
+<tr><td><b>Middle-skill</b><br><span style="color:#777">routine, codifiable</span></td><td style="color:#b00;font-weight:bold">Down</td><td>Routine tasks are the easiest to automate, e.g. office clerks, the intermediary jobs hollowed out.</td></tr>
+<tr><td><b>Low-skill</b><br><span style="color:#777">in-person services</span></td><td style="color:#00684B;font-weight:bold">Up</td><td>Non-routine manual / in-person service tasks resist automation; low paid but rising demand.</td></tr>
+</tbody>
+</table>
+
+<figure>
+<svg viewBox="0 0 460 240" width="100%" style="max-width:520px">
+  <!-- axes -->
+  <line x1="60" y1="200" x2="430" y2="200" stroke="#333" stroke-width="1.5"/>
+  <line x1="60" y1="30" x2="60" y2="200" stroke="#333" stroke-width="1.5"/>
+  <!-- zero baseline -->
+  <line x1="60" y1="130" x2="430" y2="130" stroke="#bbb" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="56" y="134" text-anchor="end" font-size="9" fill="#888">0</text>
+  <!-- y label -->
+  <text x="18" y="115" text-anchor="middle" font-size="10" fill="#555" transform="rotate(-90 18 115)">Change in employment share</text>
+  <!-- bars: low up, middle down, high up -->
+  <rect x="100" y="95" width="70" height="35" fill="#00684B" opacity="0.85"/>
+  <rect x="200" y="130" width="70" height="50" fill="#b00" opacity="0.8"/>
+  <rect x="300" y="70" width="70" height="60" fill="#00684B" opacity="0.85"/>
+  <!-- value-ish marks (qualitative, no numbers claimed) -->
+  <text x="135" y="88" text-anchor="middle" font-size="11" font-weight="bold" fill="#00684B">+</text>
+  <text x="235" y="194" text-anchor="middle" font-size="11" font-weight="bold" fill="#b00">&minus;</text>
+  <text x="335" y="63" text-anchor="middle" font-size="11" font-weight="bold" fill="#00684B">+</text>
+  <!-- x labels -->
+  <text x="135" y="216" text-anchor="middle" font-size="10" fill="#333">Low-skill</text>
+  <text x="135" y="228" text-anchor="middle" font-size="9" fill="#888">in-person services</text>
+  <text x="235" y="216" text-anchor="middle" font-size="10" fill="#333">Middle-skill</text>
+  <text x="235" y="228" text-anchor="middle" font-size="9" fill="#888">routine</text>
+  <text x="335" y="216" text-anchor="middle" font-size="10" fill="#333">High-skill</text>
+  <text x="335" y="228" text-anchor="middle" font-size="9" fill="#888">cognitive</text>
+  <text x="245" y="22" text-anchor="middle" font-size="11" font-weight="bold" fill="#00684B">The polarisation "U", 1980&ndash;2020</text>
+</svg>
+<figcaption>Job polarisation redrawn schematically: employment share rose at the low and high ends and fell in the routine middle. The deck shows this as Autor &amp; Dorn (2013) and a World Development Report (2016, World Bank) chart, and notes it occurred in most countries. The bar heights here are illustrative of the <i>direction</i> only, not the slides' exact magnitudes.</figcaption>
+</figure>
+
+<div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this chart:</b> the slides present the polarisation evidence as published figures (Autor &amp; Dorn 2013; World Bank WDR 2016) that did not extract as text. The redraw captures the qualitative U-shape (ends up, middle down) the slides assert, but the bar magnitudes are stylised, not read off the source chart. Sanity-check the shape against the deck's images.</div>
+
+<h3 id="l07-ai">What is different about AI?</h3>
+
+<div class="intuition"><span class="tag">Intuition, same forces, new dial settings</span>AI is not a different <i>kind</i> of force on labour, the same three forces (substitute, offset by productivity, reallocate tasks) still apply. What changes is the <i>settings</i>: it moves faster, it reaches the <i>top</i> of the skill distribution (not just the middle), and a far larger share of tasks is exposed. So the historical "don't panic" story is reassuring on mechanism but not a guarantee on outcome, the net effect is genuinely uncertain.</div>
+
+<table class="dt">
+<thead><tr><th>Dimension</th><th>Past tech waves</th><th>AI / GenAI</th></tr></thead>
+<tbody>
+<tr><td><b>Pace</b></td><td>Slower diffusion (decades)</td><td>Faster.</td></tr>
+<tr><td><b>Who is exposed</b></td><td>Hit the routine <i>middle</i>; spared high-skill cognitive work</td><td>Also affects the <b>top</b> of the distribution, cognitive work is no longer safe.</td></tr>
+<tr><td><b>Scale of task exposure</b></td><td>Narrower set of tasks per wave</td><td>20% of tasks (Acemoglu) to 60% (IMF) exposed, a wide, contested range.</td></tr>
+<tr><td><b>The three forces</b></td><td>Substitution offset by productivity + reallocation</td><td>Same three forces should keep applying.</td></tr>
+<tr><td><b>Net effect</b></td><td>Historically: no aggregate job loss</td><td><b>Unknown.</b> Substitution at the task level is clear; the aggregate effect is far less clear.</td></tr>
+</tbody>
+</table>
+
+<div class="key"><b>Effect on growth, two camps on the slides.</b>
+<ul>
+<li><b>Acemoglu (pessimistic):</b> +0.07 pp/year productivity growth over 10 years, tiny.</li>
+<li><b>Aghion (median scenario):</b> +0.7 pp/year over 10 years, an order of magnitude larger.</li>
+<li><b>For scale:</b> comparable to past revolutions, electricity diffusion in 1920s Europe added roughly +1.3 pp/year.</li>
+<li><b>The caveat:</b> inappropriate competition policy may hamper the gain, the upside is not automatic.</li>
+</ul></div>
+
+<div class="key"><b>Why the historical reassurance is not a free pass.</b>
+<ul>
+<li><b>Pessimistic view:</b> little growth, very negative employment impact.</li>
+<li><b>Cautiously optimistic view:</b> real growth and employment <i>potential</i>, but only with the right policies and institutions.</li>
+<li><b>Perspective:</b> a 20&ndash;60% task-exposure share sounds huge, but the economy has absorbed shifts that large before (the decline of agriculture in developed economies).</li>
+<li><b>Early counter-evidence:</b> Bessen's ATMs, and Aghion, Bunel, Jaravel, Mikaelsen, Roulet &amp; Soogard (2025) on France, found pre-ChatGPT AI adopters <i>raised</i> employment versus comparable non-adopters, even in highly exposed, highly substitutable occupations.</li>
+</ul></div>
+
+<h3 id="l07-share">Beyond head-count, wages and the labour share</h3>
+
+<div class="intuition"><span class="tag">Intuition, look at the price, not just the quantity</span>"How many jobs?" is the wrong sole question. What matters is the <i>price</i> of different kinds of labour (wages, and the gap between them) and how the pie splits between <b>labour and capital</b>. Recent years saw profits grow faster than wages, the same direction as the past few decades, so even with stable employment, income has been drifting from workers to owners of capital.</div>
+
+<div class="key"><b>The two things to watch instead of aggregate employment.</b>
+<ul>
+<li><b>1. Wages (and the labour share):</b> the price of different kinds of labour, not just quantities, plus labour's share of income relative to capital.</li>
+<li><b>2. Well-being:</b> the quality of work, social connections, and a sense of purpose, not just the pay-cheque.</li>
+</ul></div>
+
+<div class="key"><b>What the recent data shows (per the slides).</b>
+<ul>
+<li><b>Inequality across workers:</b> evidence "so far is mixed", no clean verdict yet.</li>
+<li><b>Profits vs wages:</b> profits increased <i>more</i> than wages in the last few years.</li>
+<li><b>The longer trend:</b> this was also the direction of the past several decades, a falling labour share.</li>
+</ul></div>
+
+<figure>
+<svg viewBox="0 0 460 220" width="100%" style="max-width:520px">
+  <!-- axes -->
+  <line x1="55" y1="180" x2="430" y2="180" stroke="#333" stroke-width="1.5"/>
+  <line x1="55" y1="25" x2="55" y2="180" stroke="#333" stroke-width="1.5"/>
+  <text x="20" y="105" text-anchor="middle" font-size="10" fill="#555" transform="rotate(-90 20 105)">Index, share of income</text>
+  <text x="240" y="206" text-anchor="middle" font-size="10" fill="#555">time (recent decades &rarr;)</text>
+  <!-- labour share: declining line -->
+  <polyline points="70,55 150,68 230,82 310,100 410,118" fill="none" stroke="#b00" stroke-width="2.5"/>
+  <!-- capital/profit share: rising line -->
+  <polyline points="70,150 150,138 230,124 310,108 410,90" fill="none" stroke="#00684B" stroke-width="2.5"/>
+  <!-- endpoint dots -->
+  <circle cx="410" cy="118" r="3" fill="#b00"/>
+  <circle cx="410" cy="90" r="3" fill="#00684B"/>
+  <!-- labels -->
+  <text x="78" y="48" font-size="10" fill="#b00" font-weight="bold">Labour share &darr;</text>
+  <text x="300" y="150" font-size="10" fill="#00684B" font-weight="bold">Profit / capital share &uarr;</text>
+  <text x="240" y="18" text-anchor="middle" font-size="11" font-weight="bold" fill="#333">Income shifting from labour to capital</text>
+</svg>
+<figcaption>The falling-labour-share story redrawn schematically: labour's share of income trending down while the profit / capital share trends up, both over recent years and the longer run. The slides show this as published charts (profits vs wages; the multi-decade trend); the lines here are illustrative of <i>direction</i>, the slides' exact series did not extract as text.</figcaption>
+</figure>
+
+<div class="eyeball"><span class="star">★</span><b>Isabella, eyeball this chart:</b> slides 31&ndash;32 carry the actual profits-vs-wages and labour-share figures as images, which did not extract. The redraw shows the qualitative claim (labour share down, capital share up) the slides state in words; treat the slopes as schematic, not the source data.</div>
+
+<div class="key"><b>The political pay-off (why this matters for a public-policy course).</b>
+<ul>
+<li><b>Electoral discontent:</b> recent electoral outcomes worldwide reflect heavy citizen discontent with their labour-market situation.</li>
+<li><b>The policy failure:</b> labour-market policies of past decades often failed to make market forces work <i>for all</i> workers and businesses.</li>
+<li><b>So:</b> the distributional and well-being margins, not the aggregate job count, are where policy has under-delivered and where the politics now bites.</li>
+</ul></div>
+
+<h3 id="l07-wfh">Economists' insights on working from home</h3>
+
+<div class="intuition"><span class="tag">Intuition, a benefit workers will pay for</span>WFH is best read as a non-wage benefit that workers genuinely value, mostly to dodge the commute, and will trade real salary to keep. Economists are "quite positive" on it: workers value it, firms can benefit too, and Return-to-Office mandates show no measurable pay-off in performance or firm value. The live tension is the gap between how much WFH workers <i>want</i> and how much they are <i>offered</i>.</div>
+
+<div class="key"><b>What we knew pre-Covid.</b>
+<ul>
+<li><b>Workers value the option:</b> Mas &amp; Pallais (2017, AER), employees would give up on average <b>8% of wage</b> for the option to work from home.</li>
+<li><b>What they're paying to avoid:</b> mostly the <i>commute</i>, not hours flexibility, except women with young children, employees prefer standard legal hours on usual business days.</li>
+<li><b>Productivity can rise:</b> remote work was associated with productivity gains, especially when employees <i>choose</i> it.</li>
+</ul></div>
+
+<div class="wex"><div class="h">The C-trip experiment (Bloom, Liang, Roberts, Ying, 2015, QJE)</div>
+A listed Chinese travel agency ran a two-step call-centre experiment.
+<ul>
+<li><b>Step 1, randomised:</b> some call-centre staff assigned to WFH for 9 months, others stayed in the office. WFH group's productivity rose <b>13%</b>, two-thirds from more minutes per shift (fewer breaks and sick days), one-third from more calls per minute (quieter environment). Higher satisfaction and lower turnover, but a <i>lower</i> promotion rate conditional on performance.</li>
+<li><b>Step 2, self-selected:</b> employees then chose their group. Over half who had been WFH switched <i>back</i> to the office. Among those who stayed home, productivity gains rose to <b>22%</b>, a selection effect: the people most productive at home are the ones who choose to keep it.</li>
+<li><b>The lesson:</b> employers struggle to predict who thrives at home, so it may be better to let employees optimise for themselves. (Selection could in principle run the other way, depending on monitoring and performance incentives.)</li>
+</ul></div>
+
+<div class="key"><b>What we know today (2021&ndash;2023 surveys).</b>
+<ul>
+<li><b>Sources:</b> the Global Survey on Working Arrangements (34 countries, ~40,000 respondents, April&ndash;May 2023; Aksoy, Barrero, Bloom, Davis, Dolls, Zarate) and the US SWAA survey (Barrero, Bloom, Davis).</li>
+<li><b>Prevalence:</b> globally about a <b>third</b> of workers do some WFH every week; <b>43%</b> in the US.</li>
+<li><b>The wanted-vs-offered gap:</b> employees would like to WFH <i>even more</i> than they currently do, and more so for lower-skilled people.</li>
+<li><b>The wage trade-off:</b> workers will give up on average <b>5%</b> of salary for the option to WFH 2&ndash;3 days a week (controlling for gender, age, education, industry, survey wave).</li>
+<li><b>Why:</b> again, essentially to <i>avoid the commute</i>.</li>
+</ul></div>
+
+<div class="key"><b>Firm-side and real-estate consequences.</b>
+<ul>
+<li><b>No RTO pay-off:</b> no significant change in financial performance or firm value after Return-to-Office mandates.</li>
+<li><b>Cross-country hiring:</b> the global market for remote white-collar jobs benefits firms and workers substantially (Cui &amp; Solomon).</li>
+<li><b>Commercial real estate:</b> hybrid firms downsize but <i>upgrade</i> office quality; a centralisation effect leaves CBD-proximate space valuable while vacancies concentrate in suburbs and the periphery.</li>
+</ul></div>
+
+<h3 id="l07-policy">Policy responses, the way forward</h3>
+
+<div class="intuition"><span class="tag">Intuition, insure, steer, and educate</span>Roulet's policy menu sorts into three jobs: <b>insure</b> workers against displacement, <b>steer</b> AI toward social value rather than just private profit, and <b>adapt education</b> so people can keep retooling. The market alone will push technology where profit expectations are highest, not where social value is, the climate-policy parallel, so there is a case for intervention.</div>
+
+<div class="key"><b>The three policy levers (slide 35).</b>
+<ul>
+<li><b>1. Insure against displacement:</b> e.g. universal basic capital, flexicurity (and adjacent profit-sharing / UBI ideas), cushion workers through transitions rather than freezing the labour market.</li>
+<li><b>2. Steer the incentives:</b> the market deploys AI where expected profits are highest, not necessarily where social value is highest; as with climate, that gap can justify government intervention to push AI toward "good" uses.</li>
+<li><b>3. Adapt education:</b> uncertainty hinders skill acquisition (hard to invest when you don't know which skills survive), but strong educational <i>foundations</i> always help people adapt, so build broad, flexible foundations rather than narrow bets.</li>
+</ul></div>
+
+<h4>Take-aways (the closing slides)</h4>
+
+<div class="key"><b>Technological progress and the future of work.</b>
+<ul>
+<li><b>Tech destroys some jobs</b> (substitution) <b>but creates others</b> (productivity), and there is <i>no evidence yet that substitution dominates</i>.</li>
+<li><b>It drives sectoral shifts</b>, the economy has absorbed shifts this large before (the decline of agriculture).</li>
+<li><b>Distributional consequences are the real story:</b> recent decades saw job polarisation, demand up for non-routine jobs at both the top (high-skill, high-pay) and bottom (low-pay services), down for routine intermediate jobs.</li>
+<li><b>GenAI's distributional impact is too early to call.</b></li>
+</ul></div>
+
+<div class="key"><b>Working from home going forward.</b>
+<ul>
+<li>Employees WFH far more than pre-Covid, but on average <i>less</i> than they would like.</li>
+<li>They will give up ~5% of earnings for the option to WFH 2&ndash;3 days; <b>aversion to commuting</b> is the key driver.</li>
+<li>WFH's productivity impact depends on management and technology, but the evidence is more positive than people expect.</li>
+<li>No evidence of improved financial performance or firm value after RTO mandates.</li>
+</ul></div>
+
+<div class="exam"><b>Exam lens.</b>
+<ul>
+<li><b>The core argument to be able to run:</b> "does technology destroy jobs?", answer with the <b>three forces</b> (substitution down, productivity up, reallocation shifts) and the historical verdict that aggregate employment never fell, while stressing it changed the <i>composition</i> of work and produced winners and losers.</li>
+<li><b>The distributional turn:</b> be ready to argue why head-count is the wrong sole metric, bring in <b>wages, the labour share, and well-being</b>, and link the falling labour share to the political discontent the slides flag.</li>
+<li><b>What is different about AI:</b> faster pace, hits the <i>top</i> of the distribution, 20&ndash;60% task exposure, but the same three forces apply and the net effect is genuinely uncertain, hold the "cautiously optimistic with the right policies" line.</li>
+<li><b>WFH numbers worth banking:</b> 8% wage value pre-Covid (Mas &amp; Pallais), ~5% today, C-trip's 13% then 22% productivity gains and the selection effect, commuting as the driver, no RTO pay-off.</li>
+<li><b>Policy:</b> insure (flexicurity / universal basic capital) · steer AI to social value (the climate-policy analogy) · adapt education. <span style="color:#777">(No transcript exists for this session, so this lens is inferred from slide emphasis, not Roulet's stated tells, and the slides do not say whether S7 is examinable, ★ verify before relying on it.)</span></li>
+</ul></div>
+
+<h2 class="part">Reference</h2>
+
+<h2 id="glossary">Glossary &amp; myths</h2>
+<p>The load-bearing terms, defined the way the exam wants them, plus the claims to be ready to push back on.</p>
+<table class="dt">
+<thead><tr><th>Term</th><th>Definition (exam-ready)</th></tr></thead>
+<tbody>
+<tr><td><b>Market failure</b></td><td>A situation where a free market does not allocate resources efficiently, so there is a potential role for government. The four canonical types: externalities, public goods, asymmetric information, market power.</td></tr>
+<tr><td><b>Externality</b></td><td>A cost or benefit imposed on a third party not reflected in the price; creates a wedge between private marginal cost (PMC) and social marginal cost (SMC). CO&#8322; is the standard negative production externality.</td></tr>
+<tr><td><b>Pigouvian tax</b></td><td>A tax set equal to the marginal external damage, shifting PMC up to SMC so the market internalises the externality and moves to the social optimum.</td></tr>
+<tr><td><b>Cap-and-trade</b></td><td>A quantity instrument: government sets a total emissions cap and issues tradable allowances; the price emerges in the market and equalises marginal abatement cost across firms.</td></tr>
+<tr><td><b>Asymmetric information</b></td><td>One side of a transaction knows more than the other about quality or risk. Drives adverse selection and the Akerlof lemons market.</td></tr>
+<tr><td><b>Adverse selection</b></td><td>When pricing on average risk drives the good risks out and leaves the bad, unravelling the market (the insurance death-spiral). Fixed by screening (separating) or mandates / public provision (pooling).</td></tr>
+<tr><td><b>Consumer-welfare standard</b></td><td>The post-Bork antitrust test that judges harm by effect on price/output. Breaks down for zero-price digital services, where the price test sees "no harm".</td></tr>
+<tr><td><b>Killer acquisition</b></td><td>A dominant firm buying a nascent rival to neutralise a future competitive threat (the Facebook&ndash;WhatsApp charge).</td></tr>
+<tr><td><b>Transfer pricing</b></td><td>The internal prices a multinational sets on intra-group transactions; the lever used to shift profit to low-tax jurisdictions. Disciplined (imperfectly) by the arm's-length principle.</td></tr>
+<tr><td><b>BEPS two pillars</b></td><td>The 2021 OECD deal: Pillar 1 reallocates a share of the largest firms' residual profit to market jurisdictions; Pillar 2 sets a ~15% global minimum effective tax. Limited by non-adoption and havens.</td></tr>
+<tr><td><b>Tariff incidence</b></td><td>Who actually bears a tariff: the more inelastic side of the market (the one with fewer alternatives), regardless of who legally pays it.</td></tr>
+<tr><td><b>Deadweight loss</b></td><td>The value destroyed by a distortion (here, a tariff): output lost to less-efficient domestic supply plus consumption choked off by the higher price.</td></tr>
+<tr><td><b>Agglomeration economies</b></td><td>The productivity gains from clustering related firms in one place (shared labour, suppliers, knowledge spillovers). The flip side is strategic dependence.</td></tr>
+<tr><td><b>Industrial policy</b></td><td>Targeted state support to build or protect specific sectors (IRA, CHIPS Act); the smarter alternative to tariffs for strategic industries, but costly and prone to capture.</td></tr>
+<tr><td><b>Child penalty</b></td><td>The sharp, persistent fall in mothers' earnings after the first child (with no equivalent drop for fathers); the dominant driver of the residual gender pay gap.</td></tr>
+<tr><td><b>Taste-based vs statistical discrimination</b></td><td>Discrimination from prejudice (a "taste") vs from using group averages as a proxy for unobserved individual traits. Different mechanisms, different policy fixes.</td></tr>
+<tr><td><b>Labour share</b></td><td>The fraction of national income paid to labour rather than capital. Its long decline (US roughly 58% to ~51%) is the headline of the future-of-work session.</td></tr>
+<tr><td><b>Job polarisation</b></td><td>The hollowing-out of the middle of the skill distribution (1980&ndash;2020): high-skill cognitive and low-skill in-person work grew, routine middle-skill work shrank.</td></tr>
+</tbody>
+</table>
+
+<div class="key"><b>Myths to be ready to refute.</b>
+<ul>
+<li><b>"A free market is always efficient."</b> Only under strong assumptions; externalities, asymmetric information, market power and public goods all break it, which is the whole rationale for the course.</li>
+<li><b>"Free digital services cannot harm consumers."</b> The zero price hides harm in attention, data, privacy and foreclosed innovation; the price-based standard simply cannot see it.</li>
+<li><b>"A carbon tax and a cap deliver the same thing."</b> Only under perfect information; under uncertainty you choose a tax for cost certainty and a cap for emissions certainty (Weitzman).</li>
+<li><b>"Tariffs are paid by the exporting country."</b> Incidence falls on whichever side is more inelastic; often domestic consumers and downstream firms.</li>
+<li><b>"Technology destroys jobs on net."</b> Historically it changes work rather than destroying it (the productivity effect offsets substitution); the real problem is polarisation and distribution, not mass unemployment.</li>
+<li><b>"The gender pay gap is mostly straight discrimination."</b> The bulk of the residual gap now traces to the child penalty and occupational sorting, not like-for-like pay for the same role.</li>
+</ul></div>
+
+<h2 id="synthesis">The course in one diagram</h2>
+<p>If you reproduce one picture from memory, make it this: a market produces an efficient outcome <i>only</i> under strong conditions; when a condition breaks (or the distribution is unacceptable), there is a case for policy, and <b>every policy is a trade-off</b>. The seven sessions are that single logic applied to seven arenas.</p>
+<figure>
+<svg viewBox="0 0 760 300" width="100%" style="max-width:720px">
+  <!-- left: failures -->
+  <rect x="12" y="20" width="190" height="260" rx="10" fill="#fbeeee" stroke="#b03030" stroke-width="1.5"/>
+  <text x="107" y="42" text-anchor="middle" font-size="13" font-weight="bold" fill="#b03030">Why markets fail</text>
+  <text x="107" y="72" text-anchor="middle" font-size="11.5" fill="#333">Externalities (S2, S5)</text>
+  <text x="107" y="98" text-anchor="middle" font-size="11.5" fill="#333">Asymmetric info (S1)</text>
+  <text x="107" y="124" text-anchor="middle" font-size="11.5" fill="#333">Market power (S4)</text>
+  <text x="107" y="150" text-anchor="middle" font-size="11.5" fill="#333">Public goods (S2, S5)</text>
+  <text x="107" y="176" text-anchor="middle" font-size="11.5" fill="#333">Inequality (S1, S6, S7)</text>
+  <text x="107" y="214" text-anchor="middle" font-size="10.5" font-style="italic" fill="#777">the diagnosis:</text>
+  <text x="107" y="232" text-anchor="middle" font-size="10.5" font-style="italic" fill="#777">name the failure</text>
+  <!-- middle: policy -->
+  <rect x="245" y="70" width="200" height="160" rx="10" fill="#eef6f0" stroke="#00643C" stroke-width="2"/>
+  <text x="345" y="94" text-anchor="middle" font-size="13" font-weight="bold" fill="#00643C">Policy response</text>
+  <text x="345" y="122" text-anchor="middle" font-size="11.5" fill="#333">Price it (tax / cap)</text>
+  <text x="345" y="146" text-anchor="middle" font-size="11.5" fill="#333">Regulate / set standards</text>
+  <text x="345" y="170" text-anchor="middle" font-size="11.5" fill="#333">Tax &amp; redistribute</text>
+  <text x="345" y="194" text-anchor="middle" font-size="11.5" fill="#333">Industrial policy</text>
+  <text x="345" y="218" text-anchor="middle" font-size="11.5" fill="#333">Agreements / breakup</text>
+  <!-- right: trade-off -->
+  <rect x="488" y="70" width="260" height="160" rx="10" fill="#fdf6e9" stroke="#a8740a" stroke-width="2"/>
+  <text x="618" y="94" text-anchor="middle" font-size="13" font-weight="bold" fill="#a8740a">but every fix is a trade-off</text>
+  <text x="618" y="122" text-anchor="middle" font-size="11.5" fill="#333">efficiency vs equity</text>
+  <text x="618" y="146" text-anchor="middle" font-size="11.5" fill="#333">cost vs emissions certainty</text>
+  <text x="618" y="170" text-anchor="middle" font-size="11.5" fill="#333">efficiency vs resilience</text>
+  <text x="618" y="194" text-anchor="middle" font-size="11.5" fill="#333">innovation vs safety</text>
+  <text x="618" y="218" text-anchor="middle" font-size="11.5" fill="#333">growth vs distribution</text>
+  <!-- arrows -->
+  <line x1="202" y1="150" x2="243" y2="150" stroke="#555" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="445" y1="150" x2="486" y2="150" stroke="#555" stroke-width="2" marker-end="url(#ah)"/>
+  <defs><marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#555"/></marker></defs>
+</svg>
+<figcaption>The spine of BSPP: a market failure or distributional concern (left) creates a case for a policy response (middle), but each instrument carries a trade-off (right). Every exam question lives on the right-hand panel: argue both sides, then conclude.</figcaption>
+</figure>
+
+<h2 id="readings">Key readings</h2>
+<p>The spine readings the course is built on, one or two per session. Each links to a one-page synthesis that links out to the original source.</p>
+
+<div class="read"><b><a href="Sources/L01/Inequality%20in%20the%20Long%20Run.html">Inequality in the Long Run</a></b><span class="rtag core">Core</span><span class="meta">L01 &middot; Piketty &amp; Saez, Science 2014</span><br>The great reversal: pre-WWI Europe was more unequal than the US, today the US is far more unequal than Europe, and r &gt; g explains why wealth concentrates.</div>
+<div class="read"><b><a href="Sources/L01/Slower%20Productivity%20and%20Higher%20Inequality.html">Slower Productivity and Higher Inequality: Are They Related?</a></b><span class="rtag core">Core</span><span class="meta">L01 &middot; Furman &amp; Orszag, PIIE WP 18-4</span><br>Declining competition and dynamism can drive both slow productivity and rising inequality, making competition policy a distributional tool.</div>
+<div class="read"><b><a href="Sources/L01/Capitalism%20What%20Has%20Gone%20Wrong.html">Capitalism: What Has Gone Wrong, and How It Can Be Fixed</a></b><span class="rtag core">Core</span><span class="meta">L01 &middot; Collier, Coyle, Mayer &amp; Wolf, Oxford Review 2021</span><br>The framing essay: three propositions of the post-1970s model that failed, and the case for an active public-policy response to market failure.</div>
+<div class="read"><b><a href="Sources/L02/Inside%20the%20Failed%20Green%20Revolutions%20at%20BP%20and%20Shell.html">Inside the Failed Green Revolutions at BP and Shell</a></b><span class="rtag core">Core</span><span class="meta">L02 &middot; FT Big Read, Dec 2025</span><br>Unpriced carbon plus shareholder pressure means even willing incumbents cannot self-correct, so climate needs policy not corporate goodwill.</div>
+<div class="read"><b><a href="Sources/L03/Apple%20Must%20Pay%2013%20Billion%20to%20Ireland.html">Apple Must Pay &euro;13 Billion to Ireland: Vestager Vindicated</a></b><span class="rtag core">Core</span><span class="meta">L03 &middot; INSEAD case 6664 (Roulet et al.)</span><br>The CJEU's 2024 ruling, profit-shifting through Irish subsidiaries, and the use of state-aid law to police corporate tax.</div>
+<div class="read"><b><a href="Sources/L03/Global%20Tax%20Evasion%20Report%202024.html">Global Tax Evasion Report 2024</a></b><span class="rtag core">Core</span><span class="meta">L03 &middot; EU Tax Observatory (Zucman)</span><br>Offshore evasion down threefold, billionaires paying 0 to 0.5 percent of wealth, and a proposed 2 percent global minimum tax on billionaires.</div>
+<div class="read"><b><a href="Sources/L04/WhatsApp%20Tech%20Watchdogs%20Collide%20with%20Tech%20Giants.html">WhatsApp: Tech Watchdogs Collide with Tech Giants</a></b><span class="rtag core">Core</span><span class="meta">L04 &middot; INSEAD case 6675 (Roulet et al.)</span><br>Was Facebook's WhatsApp buy a killer acquisition? Surfaces market definition, the consumer-welfare standard, and merger review of nascent rivals.</div>
+<div class="read"><b><a href="Sources/L04/How%20to%20Spot%20a%20Monopoly.html">How to Spot a Monopoly</a></b><span class="rtag core">Core</span><span class="meta">L04 &middot; Works in Progress</span><br>Concentration and markups mislead; the Olley-Pakes test of whether markets reward efficient firms is the better measure of competition.</div>
+<div class="read"><b><a href="Sources/L05/Seven%20Questions%20About%20Tariffs.html">Seven Questions About Tariffs Everyone Should Know</a></b><span class="rtag core">Core</span><span class="meta">L05 &middot; Costinot &amp; Rodr&iacute;guez-Clare, CEPR</span><br>A tariff is a tax with Harberger-triangle losses; cutting trade deficits is &lsquo;policy lunacy&rsquo;, but tariffs can help where a real distortion exists.</div>
+<div class="read"><b><a href="Sources/L06/Gender%20Inequality%20Why%20Are%20Women%20Paid%20Less.html">Gender Inequality: Why Are Women Paid Less than Men?</a></b><span class="rtag core">Core</span><span class="meta">L06 &middot; INSEAD case 6406 (Roulet et al.)</span><br>UK and Iceland disclosure regimes, the 9.9 percent unadjusted gap, and whether transparency mandates close the gap or only measure it.</div>
+<div class="read"><b><a href="Sources/L06/Why%20We%20Havent%20Fixed%20Gender%20Inequality%20at%20Work.html">Why We Haven't Fixed Gender Inequality at Work</a></b><span class="rtag prof">Prof's own</span><span class="meta">L06 &middot; Roulet, INSEAD Knowledge 2024</span><br>Roulet on Goldin: the gap opens after the first child, &lsquo;greedy work&rsquo; widens it, and progress has been U-shaped, not linear.</div>
+<div class="read"><b><a href="Sources/L07/How%20AI%20Will%20Divide%20the%20Best%20from%20the%20Rest.html">How AI Will Divide the Best from the Rest</a></b><span class="rtag core">Core</span><span class="meta">L07 &middot; The Economist, Feb 2025</span><br>On complex tasks AI rewards high performers most, so it likely widens workforce divides rather than levelling them, echoing past tech revolutions.</div>
+<p class="selnote" style="font-size:13px;color:#666;margin-top:18px;">Selection notes: one to two spine readings per lecture were kept (11 in total): the inequality data and framing essays for L01, the climate-externality FT case for L02, the corporate-tax case plus the Zucman evidence base for L03, the antitrust case plus the competition-measurement essay for L04, the tariff primer for L05, the gender case plus Roulet's own Goldin piece for L06, and the AI-and-work article for L07. Skipped as thin or paywall-only: the World Inequality Report 2022 (table-of-contents clipping), the Dark Waters film reference, the WIRED Tim Wu interview and the Stigler Committee page (both preview/landing-page captures only), the WSJ &lsquo;capital not labor&rsquo; piece and the Working from Home 2023 report (useful but secondary to the Economist spine for L07), plus all lecture slide decks.</p>
+
+
+<div class="footer">
+BSPP &middot; Business and Society: Public Policy &middot; Prof. Alexandra Roulet. Course knowledge page built from the Session 1&ndash;7 lecture slides and in-class transcripts (Sessions 5 and 7 from slides only; Session 4 mostly slides). Pink &starf; flags mark items to sanity-check. Personal study artefact, not for redistribution.
+</div>
+</main>
+</div>
+</body>
+</html>

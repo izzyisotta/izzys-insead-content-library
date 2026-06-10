@@ -15,7 +15,7 @@
   *{box-sizing:border-box;}
   body{margin:0; background:var(--bg); color:var(--ink);
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-    font-size:8.9px; line-height:1.13;}
+    font-size:8.7px; line-height:1.11;}
   .backlink{display:block; padding:8px 12px; font-size:13px; color:var(--blue); text-decoration:none;}
   @media print{ .backlink{display:none;} body{background:#fff;} }
   @page{ size:A4; margin:5mm; }
@@ -33,7 +33,7 @@
   .legend{ font-size:8.1px; color:var(--soft); margin:5px 0 0; }
 
   /* cards */
-  .card{ border:1px solid var(--line); border-radius:5px; padding:2px 7px 2px; margin-bottom:1px; background:#fff; }
+  .card{ border:1px solid var(--line); border-radius:5px; padding:1px 6px 1px; margin-bottom:1px; background:#fff; }
   .card.big{ border-color:#bcd6c7; }
   h3.t{ margin:0 0 1px; font-size:10.5px; color:var(--green); line-height:1.15; display:flex; justify-content:space-between; align-items:baseline; gap:6px; }
   h3.t .freq{ font-size:7.6px; font-weight:700; color:#fff; background:var(--green); border-radius:10px; padding:1px 6px; white-space:nowrap; flex:0 0 auto; }
@@ -48,6 +48,10 @@
   .intu{ color:#33332e; font-style:italic; margin:0.5px 0; font-size:8.4px; line-height:1.12; }
   .intu b{ font-style:normal; color:#0b6b53; }
   .intu .pp{ font-style:normal; color:#8a8a82; font-weight:700; }
+  table.tacc{ border-collapse:collapse; width:100%; font-size:7.3px; line-height:1.15; margin:1px 0; table-layout:fixed; }
+  table.tacc td{ border:1px solid var(--line); padding:0.5px 4px; vertical-align:top; }
+  table.tacc td.ah{ background:var(--green); color:#fff; font-weight:700; text-align:center; font-size:6.9px; letter-spacing:.02em; }
+  table.tacc b.grn{ color:#0b6b53; }
   strong{ color:#08251a; }
   .blue{ color:var(--blue); } .grn{ color:var(--green); } .red{ color:var(--red); }
 
@@ -90,8 +94,8 @@
   .setpieces{ margin-top:0; padding:1px 7px 0; margin-bottom:0; }
   .setpieces .mtitle{ font-size:10px; color:var(--green); font-weight:700; margin:0; }
   .setpieces .lead{ font-size:8px; color:var(--soft); font-style:italic; margin:0; line-height:1.13; }
-  table.spt{ border-collapse:collapse; width:100%; font-size:7.6px; line-height:1.13; table-layout:fixed; }
-  table.spt th, table.spt td{ border:1px solid var(--line); padding:0 3px; vertical-align:top; }
+  table.spt{ border-collapse:collapse; width:100%; font-size:7.0px; line-height:1.08; table-layout:fixed; }
+  table.spt th, table.spt td{ border:1px solid var(--line); padding:0 2px; vertical-align:top; }
   table.spt th{ background:var(--green); color:#fff; font-weight:700; text-align:left; }
   table.spt td:first-child{ width:17%; }
   table.spt td:nth-child(2){ width:16%; }
@@ -184,6 +188,13 @@
       <div class="trig">▸ <b>Framework:</b> base vs supply, the multiplier is behavioural (not fixed), long-run money-growth = inflation.</div>
       <div class="fw"><b>Money IS the CB balance sheet</b> (assets = liabilities, 1:1): the CB <i>transforms</i> assets, it doesn't print from nothing. <b>Buys an asset</b> (bonds, FX) ⟹ credits its own liability (reserves/currency) ⟹ <b>liquidity↑, rates↓</b>; <b>sells</b> ⟹ drains. Settlement: CB = "bank of banks"; cross-border needs correspondent banking (DBS→Chase→Fed→Citibank).</div>
       <div class="intu">↳ <b>why:</b> China's CB buying USD = buying an asset ⟹ it ISSUES yuan ⟹ liquidity↑, rates↓ (NOT a drain) <span class="pp">[2022 1b]</span>.</div>
+      <div class="lbl">CB balance sheet · buy a bond (QE) ⟹ both sides +100</div>
+      <table class="tacc">
+        <tr><td class="ah">Assets</td><td class="ah">Liabilities</td></tr>
+        <tr><td>Securities <b class="grn">+100</b></td><td>Bank reserves <b class="grn">+100</b></td></tr>
+        <tr><td>Loans to banks</td><td>Banknotes</td></tr>
+        <tr><td>Gold / FX reserves</td><td>Capital</td></tr>
+      </table>
       <div class="lbl">The two money aggregates</div>
       $$\text{Base}=C+R\qquad \text{Supply}=C+D$$
       <div class="lbl">Money multiplier</div>
